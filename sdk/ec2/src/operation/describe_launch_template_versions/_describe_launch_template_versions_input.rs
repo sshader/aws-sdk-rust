@@ -2,21 +2,21 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeLaunchTemplateVersionsInput {
+pub struct DescribeLaunchTemplateVersionsInput  {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub dry_run: ::std::option::Option<bool>,
-    /// <p>The ID of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+    /// <p>The ID of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
     pub launch_template_id: ::std::option::Option<::std::string::String>,
-    /// <p>The name of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+    /// <p>The name of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
     pub launch_template_name: ::std::option::Option<::std::string::String>,
-    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p>
-    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
+    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p> 
+    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p> 
     /// <p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same request. You cannot specify numbers.</p>
-    pub versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub versions: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>The version number after which to describe launch template versions.</p>
     pub min_version: ::std::option::Option<::std::string::String>,
     /// <p>The version number up to which to describe launch template versions.</p>
@@ -25,96 +25,98 @@ pub struct DescribeLaunchTemplateVersionsInput {
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 1 and 200.</p>
     pub max_results: ::std::option::Option<i32>,
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li>
-    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li>
-    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li>
-    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li>
-    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li>
-    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
-    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li>
-    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li>
-    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li>
-    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li>
-    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li> 
+    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> 
+    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li> 
+    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li> 
+    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li> 
+    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
+    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li> 
+    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> 
+    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li> 
+    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li> 
+    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li> 
     /// </ul>
-    pub filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p>
-    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p>
-    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    pub filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p> 
+    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p> 
+    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub resolve_alias: ::std::option::Option<bool>,
 }
-impl DescribeLaunchTemplateVersionsInput {
+impl  DescribeLaunchTemplateVersionsInput  {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn dry_run(&self) -> ::std::option::Option<bool> {
         self.dry_run
     }
-    /// <p>The ID of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+    /// <p>The ID of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
-    pub fn launch_template_id(&self) -> ::std::option::Option<&str> {
+    pub fn launch_template_id(&self) -> ::std::option::Option<& str> {
         self.launch_template_id.as_deref()
     }
-    /// <p>The name of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+    /// <p>The name of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
-    pub fn launch_template_name(&self) -> ::std::option::Option<&str> {
+    pub fn launch_template_name(&self) -> ::std::option::Option<& str> {
         self.launch_template_name.as_deref()
     }
-    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p>
-    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
+    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p> 
+    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p> 
     /// <p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same request. You cannot specify numbers.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.versions.is_none()`.
-    pub fn versions(&self) -> &[::std::string::String] {
-        self.versions.as_deref().unwrap_or_default()
+    pub fn versions(&self) -> & [::std::string::String] {
+        self.versions.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The version number after which to describe launch template versions.</p>
-    pub fn min_version(&self) -> ::std::option::Option<&str> {
+    pub fn min_version(&self) -> ::std::option::Option<& str> {
         self.min_version.as_deref()
     }
     /// <p>The version number up to which to describe launch template versions.</p>
-    pub fn max_version(&self) -> ::std::option::Option<&str> {
+    pub fn max_version(&self) -> ::std::option::Option<& str> {
         self.max_version.as_deref()
     }
     /// <p>The token to request the next page of results.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 1 and 200.</p>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
         self.max_results
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li>
-    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li>
-    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li>
-    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li>
-    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li>
-    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
-    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li>
-    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li>
-    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li>
-    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li>
-    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li> 
+    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> 
+    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li> 
+    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li> 
+    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li> 
+    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
+    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li> 
+    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> 
+    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li> 
+    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li> 
+    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filters.is_none()`.
-    pub fn filters(&self) -> &[crate::types::Filter] {
-        self.filters.as_deref().unwrap_or_default()
+    pub fn filters(&self) -> & [crate::types::Filter] {
+        self.filters.as_deref()
+        .unwrap_or_default()
     }
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p>
-    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p>
-    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p> 
+    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p> 
+    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn resolve_alias(&self) -> ::std::option::Option<bool> {
         self.resolve_alias
@@ -134,12 +136,12 @@ pub struct DescribeLaunchTemplateVersionsInputBuilder {
     pub(crate) dry_run: ::std::option::Option<bool>,
     pub(crate) launch_template_id: ::std::option::Option<::std::string::String>,
     pub(crate) launch_template_name: ::std::option::Option<::std::string::String>,
-    pub(crate) versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) versions: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) min_version: ::std::option::Option<::std::string::String>,
     pub(crate) max_version: ::std::option::Option<::std::string::String>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) max_results: ::std::option::Option<i32>,
-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    pub(crate) filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
     pub(crate) resolve_alias: ::std::option::Option<bool>,
 }
 impl DescribeLaunchTemplateVersionsInputBuilder {
@@ -150,49 +152,46 @@ impl DescribeLaunchTemplateVersionsInputBuilder {
     }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.dry_run = input;
-        self
+        self.dry_run = input; self
     }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
         &self.dry_run
     }
-    /// <p>The ID of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+    /// <p>The ID of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
     pub fn launch_template_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.launch_template_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ID of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+    /// <p>The ID of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
     pub fn set_launch_template_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.launch_template_id = input;
-        self
+        self.launch_template_id = input; self
     }
-    /// <p>The ID of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+    /// <p>The ID of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
     pub fn get_launch_template_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.launch_template_id
     }
-    /// <p>The name of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+    /// <p>The name of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
     pub fn launch_template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.launch_template_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+    /// <p>The name of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
     pub fn set_launch_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.launch_template_name = input;
-        self
+        self.launch_template_name = input; self
     }
-    /// <p>The name of the launch template.</p>
-    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+    /// <p>The name of the launch template.</p> 
+    /// <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p> 
     /// <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
     pub fn get_launch_template_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.launch_template_name
@@ -201,26 +200,25 @@ impl DescribeLaunchTemplateVersionsInputBuilder {
     ///
     /// To override the contents of this collection use [`set_versions`](Self::set_versions).
     ///
-    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p>
-    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
+    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p> 
+    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p> 
     /// <p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same request. You cannot specify numbers.</p>
     pub fn versions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.versions.unwrap_or_default();
-        v.push(input.into());
-        self.versions = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.versions = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p>
-    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
+    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p> 
+    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p> 
     /// <p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same request. You cannot specify numbers.</p>
-    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.versions = input;
-        self
+    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.versions = input; self
     }
-    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p>
-    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
+    /// <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p> 
+    /// <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p> 
     /// <p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same request. You cannot specify numbers.</p>
-    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.versions
     }
     /// <p>The version number after which to describe launch template versions.</p>
@@ -230,8 +228,7 @@ impl DescribeLaunchTemplateVersionsInputBuilder {
     }
     /// <p>The version number after which to describe launch template versions.</p>
     pub fn set_min_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.min_version = input;
-        self
+        self.min_version = input; self
     }
     /// <p>The version number after which to describe launch template versions.</p>
     pub fn get_min_version(&self) -> &::std::option::Option<::std::string::String> {
@@ -244,8 +241,7 @@ impl DescribeLaunchTemplateVersionsInputBuilder {
     }
     /// <p>The version number up to which to describe launch template versions.</p>
     pub fn set_max_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.max_version = input;
-        self
+        self.max_version = input; self
     }
     /// <p>The version number up to which to describe launch template versions.</p>
     pub fn get_max_version(&self) -> &::std::option::Option<::std::string::String> {
@@ -258,8 +254,7 @@ impl DescribeLaunchTemplateVersionsInputBuilder {
     }
     /// <p>The token to request the next page of results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The token to request the next page of results.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -272,8 +267,7 @@ impl DescribeLaunchTemplateVersionsInputBuilder {
     }
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 1 and 200.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 1 and 200.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
@@ -283,111 +277,117 @@ impl DescribeLaunchTemplateVersionsInputBuilder {
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
     ///
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li>
-    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li>
-    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li>
-    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li>
-    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li>
-    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
-    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li>
-    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li>
-    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li>
-    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li>
-    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li> 
+    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> 
+    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li> 
+    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li> 
+    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li> 
+    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
+    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li> 
+    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> 
+    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li> 
+    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li> 
+    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li> 
     /// </ul>
     pub fn filters(mut self, input: crate::types::Filter) -> Self {
         let mut v = self.filters.unwrap_or_default();
-        v.push(input);
-        self.filters = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.filters = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li>
-    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li>
-    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li>
-    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li>
-    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li>
-    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
-    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li>
-    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li>
-    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li>
-    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li>
-    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li> 
+    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> 
+    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li> 
+    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li> 
+    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li> 
+    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
+    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li> 
+    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> 
+    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li> 
+    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li> 
+    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li> 
     /// </ul>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
-        self.filters = input;
-        self
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>) -> Self {
+        self.filters = input; self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li>
-    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li>
-    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li>
-    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li>
-    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li>
-    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li>
-    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
-    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li>
-    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li>
-    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li>
-    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li>
-    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li> 
+    /// <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> 
+    /// <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> 
+    /// <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li> 
+    /// <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li> 
+    /// <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li> 
+    /// <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
+    /// <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li> 
+    /// <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> 
+    /// <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li> 
+    /// <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li> 
+    /// <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li> 
     /// </ul>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Filter>> {
         &self.filters
     }
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p>
-    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p>
-    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p> 
+    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p> 
+    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn resolve_alias(mut self, input: bool) -> Self {
         self.resolve_alias = ::std::option::Option::Some(input);
         self
     }
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p>
-    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p>
-    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p> 
+    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p> 
+    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn set_resolve_alias(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.resolve_alias = input;
-        self
+        self.resolve_alias = input; self
     }
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p>
-    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p>
-    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p> 
+    /// <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p> 
+    /// <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn get_resolve_alias(&self) -> &::std::option::Option<bool> {
         &self.resolve_alias
     }
     /// Consumes the builder and constructs a [`DescribeLaunchTemplateVersionsInput`](crate::operation::describe_launch_template_versions::DescribeLaunchTemplateVersionsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_launch_template_versions::DescribeLaunchTemplateVersionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::describe_launch_template_versions::DescribeLaunchTemplateVersionsInput {
-            dry_run: self.dry_run,
-            launch_template_id: self.launch_template_id,
-            launch_template_name: self.launch_template_name,
-            versions: self.versions,
-            min_version: self.min_version,
-            max_version: self.max_version,
-            next_token: self.next_token,
-            max_results: self.max_results,
-            filters: self.filters,
-            resolve_alias: self.resolve_alias,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_launch_template_versions::DescribeLaunchTemplateVersionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_launch_template_versions::DescribeLaunchTemplateVersionsInput {
+                dry_run: self.dry_run
+                ,
+                launch_template_id: self.launch_template_id
+                ,
+                launch_template_name: self.launch_template_name
+                ,
+                versions: self.versions
+                ,
+                min_version: self.min_version
+                ,
+                max_version: self.max_version
+                ,
+                next_token: self.next_token
+                ,
+                max_results: self.max_results
+                ,
+                filters: self.filters
+                ,
+                resolve_alias: self.resolve_alias
+                ,
+            }
+        )
     }
 }
+

@@ -3,7 +3,7 @@
 /// <p>The summary information for the workgroup, which includes its name, state, description, and the date and time it was created.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct WorkGroupSummary {
+pub struct WorkGroupSummary  {
     /// <p>The name of the workgroup.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>The state of the workgroup.</p>
@@ -15,25 +15,25 @@ pub struct WorkGroupSummary {
     /// <p>The engine version setting for all queries on the workgroup. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
     pub engine_version: ::std::option::Option<crate::types::EngineVersion>,
 }
-impl WorkGroupSummary {
+impl  WorkGroupSummary  {
     /// <p>The name of the workgroup.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>The state of the workgroup.</p>
-    pub fn state(&self) -> ::std::option::Option<&crate::types::WorkGroupState> {
+    pub fn state(&self) -> ::std::option::Option<& crate::types::WorkGroupState> {
         self.state.as_ref()
     }
     /// <p>The workgroup description.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The workgroup creation date and time.</p>
-    pub fn creation_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_time.as_ref()
     }
     /// <p>The engine version setting for all queries on the workgroup. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
-    pub fn engine_version(&self) -> ::std::option::Option<&crate::types::EngineVersion> {
+    pub fn engine_version(&self) -> ::std::option::Option<& crate::types::EngineVersion> {
         self.engine_version.as_ref()
     }
 }
@@ -62,8 +62,7 @@ impl WorkGroupSummaryBuilder {
     }
     /// <p>The name of the workgroup.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the workgroup.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -76,8 +75,7 @@ impl WorkGroupSummaryBuilder {
     }
     /// <p>The state of the workgroup.</p>
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::WorkGroupState>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
     /// <p>The state of the workgroup.</p>
     pub fn get_state(&self) -> &::std::option::Option<crate::types::WorkGroupState> {
@@ -90,8 +88,7 @@ impl WorkGroupSummaryBuilder {
     }
     /// <p>The workgroup description.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The workgroup description.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -104,8 +101,7 @@ impl WorkGroupSummaryBuilder {
     }
     /// <p>The workgroup creation date and time.</p>
     pub fn set_creation_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_time = input;
-        self
+        self.creation_time = input; self
     }
     /// <p>The workgroup creation date and time.</p>
     pub fn get_creation_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -118,8 +114,7 @@ impl WorkGroupSummaryBuilder {
     }
     /// <p>The engine version setting for all queries on the workgroup. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
     pub fn set_engine_version(mut self, input: ::std::option::Option<crate::types::EngineVersion>) -> Self {
-        self.engine_version = input;
-        self
+        self.engine_version = input; self
     }
     /// <p>The engine version setting for all queries on the workgroup. Queries on the <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine regardless of this setting.</p>
     pub fn get_engine_version(&self) -> &::std::option::Option<crate::types::EngineVersion> {
@@ -128,11 +123,17 @@ impl WorkGroupSummaryBuilder {
     /// Consumes the builder and constructs a [`WorkGroupSummary`](crate::types::WorkGroupSummary).
     pub fn build(self) -> crate::types::WorkGroupSummary {
         crate::types::WorkGroupSummary {
-            name: self.name,
-            state: self.state,
-            description: self.description,
-            creation_time: self.creation_time,
-            engine_version: self.engine_version,
+            name: self.name
+            ,
+            state: self.state
+            ,
+            description: self.description
+            ,
+            creation_time: self.creation_time
+            ,
+            engine_version: self.engine_version
+            ,
         }
     }
 }
+

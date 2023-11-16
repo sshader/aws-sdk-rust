@@ -3,67 +3,67 @@
 /// <p> A summary of line items in your order. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct OrderSummary {
+pub struct OrderSummary  {
     /// <p> The ID of the Outpost. </p>
     pub outpost_id: ::std::option::Option<::std::string::String>,
     /// <p> The ID of the order. </p>
     pub order_id: ::std::option::Option<::std::string::String>,
     /// <p>The type of order.</p>
     pub order_type: ::std::option::Option<crate::types::OrderType>,
-    /// <p>The status of the order.</p>
-    /// <ul>
-    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li>
-    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li>
-    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li>
-    /// </ul> <note>
-    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
+    /// <p>The status of the order.</p> 
+    /// <ul> 
+    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li> 
+    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li> 
+    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li> 
+    /// </ul> <note> 
+    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p> 
     /// </note>
     pub status: ::std::option::Option<crate::types::OrderStatus>,
     /// <p> The status of all line items in the order. </p>
-    pub line_item_counts_by_status: ::std::option::Option<::std::collections::HashMap<crate::types::LineItemStatus, i32>>,
+    pub line_item_counts_by_status: ::std::option::Option<::std::collections::HashMap::<crate::types::LineItemStatus, i32>>,
     /// <p> The submission date for the order. </p>
     pub order_submission_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p> The fulfilment date for the order. </p>
     pub order_fulfilled_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
-impl OrderSummary {
+impl  OrderSummary  {
     /// <p> The ID of the Outpost. </p>
-    pub fn outpost_id(&self) -> ::std::option::Option<&str> {
+    pub fn outpost_id(&self) -> ::std::option::Option<& str> {
         self.outpost_id.as_deref()
     }
     /// <p> The ID of the order. </p>
-    pub fn order_id(&self) -> ::std::option::Option<&str> {
+    pub fn order_id(&self) -> ::std::option::Option<& str> {
         self.order_id.as_deref()
     }
     /// <p>The type of order.</p>
-    pub fn order_type(&self) -> ::std::option::Option<&crate::types::OrderType> {
+    pub fn order_type(&self) -> ::std::option::Option<& crate::types::OrderType> {
         self.order_type.as_ref()
     }
-    /// <p>The status of the order.</p>
-    /// <ul>
-    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li>
-    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li>
-    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li>
-    /// </ul> <note>
-    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
+    /// <p>The status of the order.</p> 
+    /// <ul> 
+    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li> 
+    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li> 
+    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li> 
+    /// </ul> <note> 
+    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p> 
     /// </note>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::OrderStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::OrderStatus> {
         self.status.as_ref()
     }
     /// <p> The status of all line items in the order. </p>
-    pub fn line_item_counts_by_status(&self) -> ::std::option::Option<&::std::collections::HashMap<crate::types::LineItemStatus, i32>> {
+    pub fn line_item_counts_by_status(&self) -> ::std::option::Option<& ::std::collections::HashMap::<crate::types::LineItemStatus, i32>> {
         self.line_item_counts_by_status.as_ref()
     }
     /// <p> The submission date for the order. </p>
-    pub fn order_submission_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn order_submission_date(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.order_submission_date.as_ref()
     }
     /// <p> The fulfilment date for the order. </p>
-    pub fn order_fulfilled_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn order_fulfilled_date(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.order_fulfilled_date.as_ref()
     }
 }
@@ -82,7 +82,7 @@ pub struct OrderSummaryBuilder {
     pub(crate) order_id: ::std::option::Option<::std::string::String>,
     pub(crate) order_type: ::std::option::Option<crate::types::OrderType>,
     pub(crate) status: ::std::option::Option<crate::types::OrderStatus>,
-    pub(crate) line_item_counts_by_status: ::std::option::Option<::std::collections::HashMap<crate::types::LineItemStatus, i32>>,
+    pub(crate) line_item_counts_by_status: ::std::option::Option<::std::collections::HashMap::<crate::types::LineItemStatus, i32>>,
     pub(crate) order_submission_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) order_fulfilled_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -94,8 +94,7 @@ impl OrderSummaryBuilder {
     }
     /// <p> The ID of the Outpost. </p>
     pub fn set_outpost_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.outpost_id = input;
-        self
+        self.outpost_id = input; self
     }
     /// <p> The ID of the Outpost. </p>
     pub fn get_outpost_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -108,8 +107,7 @@ impl OrderSummaryBuilder {
     }
     /// <p> The ID of the order. </p>
     pub fn set_order_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.order_id = input;
-        self
+        self.order_id = input; self
     }
     /// <p> The ID of the order. </p>
     pub fn get_order_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -122,50 +120,48 @@ impl OrderSummaryBuilder {
     }
     /// <p>The type of order.</p>
     pub fn set_order_type(mut self, input: ::std::option::Option<crate::types::OrderType>) -> Self {
-        self.order_type = input;
-        self
+        self.order_type = input; self
     }
     /// <p>The type of order.</p>
     pub fn get_order_type(&self) -> &::std::option::Option<crate::types::OrderType> {
         &self.order_type
     }
-    /// <p>The status of the order.</p>
-    /// <ul>
-    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li>
-    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li>
-    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li>
-    /// </ul> <note>
-    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
+    /// <p>The status of the order.</p> 
+    /// <ul> 
+    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li> 
+    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li> 
+    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li> 
+    /// </ul> <note> 
+    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p> 
     /// </note>
     pub fn status(mut self, input: crate::types::OrderStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The status of the order.</p>
-    /// <ul>
-    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li>
-    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li>
-    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li>
-    /// </ul> <note>
-    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
+    /// <p>The status of the order.</p> 
+    /// <ul> 
+    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li> 
+    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li> 
+    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li> 
+    /// </ul> <note> 
+    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p> 
     /// </note>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::OrderStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the order.</p>
-    /// <ul>
-    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li>
-    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li>
-    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li>
-    /// </ul> <note>
-    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
+    /// <p>The status of the order.</p> 
+    /// <ul> 
+    /// <li> <p> <code>PREPARING</code> - Order is received and is being prepared.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more information, see the <code>LineItem</code> status.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - Order is complete.</p> </li> 
+    /// <li> <p> <code>CANCELLED</code> - Order is cancelled.</p> </li> 
+    /// <li> <p> <code>ERROR</code> - Customer should contact support.</p> </li> 
+    /// </ul> <note> 
+    /// <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>, <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p> 
     /// </note>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::OrderStatus> {
         &self.status
@@ -177,20 +173,16 @@ impl OrderSummaryBuilder {
     /// <p> The status of all line items in the order. </p>
     pub fn line_item_counts_by_status(mut self, k: crate::types::LineItemStatus, v: i32) -> Self {
         let mut hash_map = self.line_item_counts_by_status.unwrap_or_default();
-        hash_map.insert(k, v);
-        self.line_item_counts_by_status = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k, v);
+                        self.line_item_counts_by_status = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p> The status of all line items in the order. </p>
-    pub fn set_line_item_counts_by_status(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<crate::types::LineItemStatus, i32>>,
-    ) -> Self {
-        self.line_item_counts_by_status = input;
-        self
+    pub fn set_line_item_counts_by_status(mut self, input: ::std::option::Option<::std::collections::HashMap::<crate::types::LineItemStatus, i32>>) -> Self {
+        self.line_item_counts_by_status = input; self
     }
     /// <p> The status of all line items in the order. </p>
-    pub fn get_line_item_counts_by_status(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::LineItemStatus, i32>> {
+    pub fn get_line_item_counts_by_status(&self) -> &::std::option::Option<::std::collections::HashMap::<crate::types::LineItemStatus, i32>> {
         &self.line_item_counts_by_status
     }
     /// <p> The submission date for the order. </p>
@@ -200,8 +192,7 @@ impl OrderSummaryBuilder {
     }
     /// <p> The submission date for the order. </p>
     pub fn set_order_submission_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.order_submission_date = input;
-        self
+        self.order_submission_date = input; self
     }
     /// <p> The submission date for the order. </p>
     pub fn get_order_submission_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -214,8 +205,7 @@ impl OrderSummaryBuilder {
     }
     /// <p> The fulfilment date for the order. </p>
     pub fn set_order_fulfilled_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.order_fulfilled_date = input;
-        self
+        self.order_fulfilled_date = input; self
     }
     /// <p> The fulfilment date for the order. </p>
     pub fn get_order_fulfilled_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -224,13 +214,21 @@ impl OrderSummaryBuilder {
     /// Consumes the builder and constructs a [`OrderSummary`](crate::types::OrderSummary).
     pub fn build(self) -> crate::types::OrderSummary {
         crate::types::OrderSummary {
-            outpost_id: self.outpost_id,
-            order_id: self.order_id,
-            order_type: self.order_type,
-            status: self.status,
-            line_item_counts_by_status: self.line_item_counts_by_status,
-            order_submission_date: self.order_submission_date,
-            order_fulfilled_date: self.order_fulfilled_date,
+            outpost_id: self.outpost_id
+            ,
+            order_id: self.order_id
+            ,
+            order_type: self.order_type
+            ,
+            status: self.status
+            ,
+            line_item_counts_by_status: self.line_item_counts_by_status
+            ,
+            order_submission_date: self.order_submission_date
+            ,
+            order_fulfilled_date: self.order_fulfilled_date
+            ,
         }
     }
 }
+

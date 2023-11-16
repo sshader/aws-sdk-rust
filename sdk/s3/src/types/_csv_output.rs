@@ -3,11 +3,11 @@
 /// <p>Describes how uncompressed comma-separated values (CSV)-formatted results are formatted.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CsvOutput {
-    /// <p>Indicates whether to use quotation marks around output fields. </p>
-    /// <ul>
-    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li>
-    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li>
+pub struct CsvOutput  {
+    /// <p>Indicates whether to use quotation marks around output fields. </p> 
+    /// <ul> 
+    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li> 
+    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li> 
     /// </ul>
     pub quote_fields: ::std::option::Option<crate::types::QuoteFields>,
     /// <p>The single character used for escaping the quote character inside an already escaped value.</p>
@@ -19,29 +19,29 @@ pub struct CsvOutput {
     /// <p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>" a , b "</code>.</p>
     pub quote_character: ::std::option::Option<::std::string::String>,
 }
-impl CsvOutput {
-    /// <p>Indicates whether to use quotation marks around output fields. </p>
-    /// <ul>
-    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li>
-    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li>
+impl  CsvOutput  {
+    /// <p>Indicates whether to use quotation marks around output fields. </p> 
+    /// <ul> 
+    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li> 
+    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li> 
     /// </ul>
-    pub fn quote_fields(&self) -> ::std::option::Option<&crate::types::QuoteFields> {
+    pub fn quote_fields(&self) -> ::std::option::Option<& crate::types::QuoteFields> {
         self.quote_fields.as_ref()
     }
     /// <p>The single character used for escaping the quote character inside an already escaped value.</p>
-    pub fn quote_escape_character(&self) -> ::std::option::Option<&str> {
+    pub fn quote_escape_character(&self) -> ::std::option::Option<& str> {
         self.quote_escape_character.as_deref()
     }
     /// <p>A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.</p>
-    pub fn record_delimiter(&self) -> ::std::option::Option<&str> {
+    pub fn record_delimiter(&self) -> ::std::option::Option<& str> {
         self.record_delimiter.as_deref()
     }
     /// <p>The value used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
-    pub fn field_delimiter(&self) -> ::std::option::Option<&str> {
+    pub fn field_delimiter(&self) -> ::std::option::Option<& str> {
         self.field_delimiter.as_deref()
     }
     /// <p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>" a , b "</code>.</p>
-    pub fn quote_character(&self) -> ::std::option::Option<&str> {
+    pub fn quote_character(&self) -> ::std::option::Option<& str> {
         self.quote_character.as_deref()
     }
 }
@@ -63,28 +63,27 @@ pub struct CsvOutputBuilder {
     pub(crate) quote_character: ::std::option::Option<::std::string::String>,
 }
 impl CsvOutputBuilder {
-    /// <p>Indicates whether to use quotation marks around output fields. </p>
-    /// <ul>
-    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li>
-    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li>
+    /// <p>Indicates whether to use quotation marks around output fields. </p> 
+    /// <ul> 
+    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li> 
+    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li> 
     /// </ul>
     pub fn quote_fields(mut self, input: crate::types::QuoteFields) -> Self {
         self.quote_fields = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates whether to use quotation marks around output fields. </p>
-    /// <ul>
-    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li>
-    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li>
+    /// <p>Indicates whether to use quotation marks around output fields. </p> 
+    /// <ul> 
+    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li> 
+    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li> 
     /// </ul>
     pub fn set_quote_fields(mut self, input: ::std::option::Option<crate::types::QuoteFields>) -> Self {
-        self.quote_fields = input;
-        self
+        self.quote_fields = input; self
     }
-    /// <p>Indicates whether to use quotation marks around output fields. </p>
-    /// <ul>
-    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li>
-    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li>
+    /// <p>Indicates whether to use quotation marks around output fields. </p> 
+    /// <ul> 
+    /// <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li> 
+    /// <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li> 
     /// </ul>
     pub fn get_quote_fields(&self) -> &::std::option::Option<crate::types::QuoteFields> {
         &self.quote_fields
@@ -96,8 +95,7 @@ impl CsvOutputBuilder {
     }
     /// <p>The single character used for escaping the quote character inside an already escaped value.</p>
     pub fn set_quote_escape_character(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.quote_escape_character = input;
-        self
+        self.quote_escape_character = input; self
     }
     /// <p>The single character used for escaping the quote character inside an already escaped value.</p>
     pub fn get_quote_escape_character(&self) -> &::std::option::Option<::std::string::String> {
@@ -110,8 +108,7 @@ impl CsvOutputBuilder {
     }
     /// <p>A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.</p>
     pub fn set_record_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.record_delimiter = input;
-        self
+        self.record_delimiter = input; self
     }
     /// <p>A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.</p>
     pub fn get_record_delimiter(&self) -> &::std::option::Option<::std::string::String> {
@@ -124,8 +121,7 @@ impl CsvOutputBuilder {
     }
     /// <p>The value used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
     pub fn set_field_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.field_delimiter = input;
-        self
+        self.field_delimiter = input; self
     }
     /// <p>The value used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
     pub fn get_field_delimiter(&self) -> &::std::option::Option<::std::string::String> {
@@ -138,8 +134,7 @@ impl CsvOutputBuilder {
     }
     /// <p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>" a , b "</code>.</p>
     pub fn set_quote_character(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.quote_character = input;
-        self
+        self.quote_character = input; self
     }
     /// <p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>" a , b "</code>.</p>
     pub fn get_quote_character(&self) -> &::std::option::Option<::std::string::String> {
@@ -148,11 +143,17 @@ impl CsvOutputBuilder {
     /// Consumes the builder and constructs a [`CsvOutput`](crate::types::CsvOutput).
     pub fn build(self) -> crate::types::CsvOutput {
         crate::types::CsvOutput {
-            quote_fields: self.quote_fields,
-            quote_escape_character: self.quote_escape_character,
-            record_delimiter: self.record_delimiter,
-            field_delimiter: self.field_delimiter,
-            quote_character: self.quote_character,
+            quote_fields: self.quote_fields
+            ,
+            quote_escape_character: self.quote_escape_character
+            ,
+            record_delimiter: self.record_delimiter
+            ,
+            field_delimiter: self.field_delimiter
+            ,
+            quote_character: self.quote_character
+            ,
         }
     }
 }
+

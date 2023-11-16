@@ -3,13 +3,13 @@
 /// <p>Contains the configuration parameters for a <code>Lambda Invoke</code> operation.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct LambdaInvokeOperation {
+pub struct LambdaInvokeOperation  {
     /// <p>The Amazon Resource Name (ARN) for the Lambda function that the specified job will invoke on every object in the manifest.</p>
     pub function_arn: ::std::option::Option<::std::string::String>,
 }
-impl LambdaInvokeOperation {
+impl  LambdaInvokeOperation  {
     /// <p>The Amazon Resource Name (ARN) for the Lambda function that the specified job will invoke on every object in the manifest.</p>
-    pub fn function_arn(&self) -> ::std::option::Option<&str> {
+    pub fn function_arn(&self) -> ::std::option::Option<& str> {
         self.function_arn.as_deref()
     }
 }
@@ -34,8 +34,7 @@ impl LambdaInvokeOperationBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) for the Lambda function that the specified job will invoke on every object in the manifest.</p>
     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.function_arn = input;
-        self
+        self.function_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) for the Lambda function that the specified job will invoke on every object in the manifest.</p>
     pub fn get_function_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -44,7 +43,9 @@ impl LambdaInvokeOperationBuilder {
     /// Consumes the builder and constructs a [`LambdaInvokeOperation`](crate::types::LambdaInvokeOperation).
     pub fn build(self) -> crate::types::LambdaInvokeOperation {
         crate::types::LambdaInvokeOperation {
-            function_arn: self.function_arn,
+            function_arn: self.function_arn
+            ,
         }
     }
 }
+

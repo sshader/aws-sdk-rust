@@ -3,22 +3,20 @@
 /// Stores information about a field passed inside a request that resulted in an exception.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ValidationExceptionField {
+pub struct ValidationExceptionField  {
     /// The field name.
     pub name: ::std::string::String,
     /// Message describing why the field failed validation.
     pub message: ::std::string::String,
 }
-impl ValidationExceptionField {
+impl  ValidationExceptionField  {
     /// The field name.
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// Message describing why the field failed validation.
-    pub fn message(&self) -> &str {
-        use std::ops::Deref;
-        self.message.deref()
+    pub fn message(&self) -> & str {
+        use std::ops::Deref; self.message.deref()
     }
 }
 impl ValidationExceptionField {
@@ -44,8 +42,7 @@ impl ValidationExceptionFieldBuilder {
     }
     /// The field name.
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// The field name.
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -59,8 +56,7 @@ impl ValidationExceptionFieldBuilder {
     }
     /// Message describing why the field failed validation.
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.message = input;
-        self
+        self.message = input; self
     }
     /// Message describing why the field failed validation.
     pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
@@ -71,19 +67,20 @@ impl ValidationExceptionFieldBuilder {
     /// - [`name`](crate::types::builders::ValidationExceptionFieldBuilder::name)
     /// - [`message`](crate::types::builders::ValidationExceptionFieldBuilder::message)
     pub fn build(self) -> ::std::result::Result<crate::types::ValidationExceptionField, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ValidationExceptionField {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building ValidationExceptionField",
-                )
-            })?,
-            message: self.message.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "message",
-                    "message was not specified but it is required when building ValidationExceptionField",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::ValidationExceptionField {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building ValidationExceptionField")
+                    )?
+                ,
+                message: self.message
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("message", "message was not specified but it is required when building ValidationExceptionField")
+                    )?
+                ,
+            }
+        )
     }
 }
+

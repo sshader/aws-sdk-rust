@@ -2,30 +2,31 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListS3ResourcesOutput {
+pub struct ListS3ResourcesOutput  {
     /// <p>(Discontinued) A list of the associated S3 resources returned by the action.</p>
-    pub s3_resources: ::std::option::Option<::std::vec::Vec<crate::types::S3ResourceClassification>>,
+    pub s3_resources: ::std::option::Option<::std::vec::Vec::<crate::types::S3ResourceClassification>>,
     /// <p>(Discontinued) When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <code>nextToken</code> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null. </p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
-impl ListS3ResourcesOutput {
+impl  ListS3ResourcesOutput  {
     /// <p>(Discontinued) A list of the associated S3 resources returned by the action.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.s3_resources.is_none()`.
-    pub fn s3_resources(&self) -> &[crate::types::S3ResourceClassification] {
-        self.s3_resources.as_deref().unwrap_or_default()
+    pub fn s3_resources(&self) -> & [crate::types::S3ResourceClassification] {
+        self.s3_resources.as_deref()
+        .unwrap_or_default()
     }
     /// <p>(Discontinued) When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <code>nextToken</code> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null. </p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
 }
-impl ::aws_http::request_id::RequestId for ListS3ResourcesOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for ListS3ResourcesOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl ListS3ResourcesOutput {
     /// Creates a new builder-style object to manufacture [`ListS3ResourcesOutput`](crate::operation::list_s3_resources::ListS3ResourcesOutput).
     pub fn builder() -> crate::operation::list_s3_resources::builders::ListS3ResourcesOutputBuilder {
@@ -37,7 +38,7 @@ impl ListS3ResourcesOutput {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct ListS3ResourcesOutputBuilder {
-    pub(crate) s3_resources: ::std::option::Option<::std::vec::Vec<crate::types::S3ResourceClassification>>,
+    pub(crate) s3_resources: ::std::option::Option<::std::vec::Vec::<crate::types::S3ResourceClassification>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -49,17 +50,16 @@ impl ListS3ResourcesOutputBuilder {
     /// <p>(Discontinued) A list of the associated S3 resources returned by the action.</p>
     pub fn s3_resources(mut self, input: crate::types::S3ResourceClassification) -> Self {
         let mut v = self.s3_resources.unwrap_or_default();
-        v.push(input);
-        self.s3_resources = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.s3_resources = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>(Discontinued) A list of the associated S3 resources returned by the action.</p>
-    pub fn set_s3_resources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::S3ResourceClassification>>) -> Self {
-        self.s3_resources = input;
-        self
+    pub fn set_s3_resources(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::S3ResourceClassification>>) -> Self {
+        self.s3_resources = input; self
     }
     /// <p>(Discontinued) A list of the associated S3 resources returned by the action.</p>
-    pub fn get_s3_resources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::S3ResourceClassification>> {
+    pub fn get_s3_resources(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::S3ResourceClassification>> {
         &self.s3_resources
     }
     /// <p>(Discontinued) When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <code>nextToken</code> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null. </p>
@@ -69,28 +69,30 @@ impl ListS3ResourcesOutputBuilder {
     }
     /// <p>(Discontinued) When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <code>nextToken</code> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null. </p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>(Discontinued) When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <code>nextToken</code> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null. </p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`ListS3ResourcesOutput`](crate::operation::list_s3_resources::ListS3ResourcesOutput).
     pub fn build(self) -> crate::operation::list_s3_resources::ListS3ResourcesOutput {
         crate::operation::list_s3_resources::ListS3ResourcesOutput {
-            s3_resources: self.s3_resources,
-            next_token: self.next_token,
+            s3_resources: self.s3_resources
+            ,
+            next_token: self.next_token
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

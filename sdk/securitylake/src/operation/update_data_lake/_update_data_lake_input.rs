@@ -2,16 +2,17 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateDataLakeInput {
+pub struct UpdateDataLakeInput  {
     /// <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
-    pub configurations: ::std::option::Option<::std::vec::Vec<crate::types::DataLakeConfiguration>>,
+    pub configurations: ::std::option::Option<::std::vec::Vec::<crate::types::DataLakeConfiguration>>,
 }
-impl UpdateDataLakeInput {
+impl  UpdateDataLakeInput  {
     /// <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.configurations.is_none()`.
-    pub fn configurations(&self) -> &[crate::types::DataLakeConfiguration] {
-        self.configurations.as_deref().unwrap_or_default()
+    pub fn configurations(&self) -> & [crate::types::DataLakeConfiguration] {
+        self.configurations.as_deref()
+        .unwrap_or_default()
     }
 }
 impl UpdateDataLakeInput {
@@ -25,7 +26,7 @@ impl UpdateDataLakeInput {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct UpdateDataLakeInputBuilder {
-    pub(crate) configurations: ::std::option::Option<::std::vec::Vec<crate::types::DataLakeConfiguration>>,
+    pub(crate) configurations: ::std::option::Option<::std::vec::Vec::<crate::types::DataLakeConfiguration>>,
 }
 impl UpdateDataLakeInputBuilder {
     /// Appends an item to `configurations`.
@@ -35,25 +36,26 @@ impl UpdateDataLakeInputBuilder {
     /// <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
     pub fn configurations(mut self, input: crate::types::DataLakeConfiguration) -> Self {
         let mut v = self.configurations.unwrap_or_default();
-        v.push(input);
-        self.configurations = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.configurations = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
-    pub fn set_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DataLakeConfiguration>>) -> Self {
-        self.configurations = input;
-        self
+    pub fn set_configurations(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::DataLakeConfiguration>>) -> Self {
+        self.configurations = input; self
     }
     /// <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
-    pub fn get_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DataLakeConfiguration>> {
+    pub fn get_configurations(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::DataLakeConfiguration>> {
         &self.configurations
     }
     /// Consumes the builder and constructs a [`UpdateDataLakeInput`](crate::operation::update_data_lake::UpdateDataLakeInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_data_lake::UpdateDataLakeInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_data_lake::UpdateDataLakeInput {
-            configurations: self.configurations,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_data_lake::UpdateDataLakeInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_data_lake::UpdateDataLakeInput {
+                configurations: self.configurations
+                ,
+            }
+        )
     }
 }
+

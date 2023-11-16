@@ -3,15 +3,15 @@
 /// <p>A value such as an Amazon Resource Name (ARN) or an Amazon Simple Notification Service topic entered in an extension when invoked. Parameter values are specified in an extension association. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Parameter {
+pub struct Parameter  {
     /// <p>Information about the parameter.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>A parameter value must be specified in the extension association.</p>
     pub required: bool,
 }
-impl Parameter {
+impl  Parameter  {
     /// <p>Information about the parameter.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>A parameter value must be specified in the extension association.</p>
@@ -41,8 +41,7 @@ impl ParameterBuilder {
     }
     /// <p>Information about the parameter.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>Information about the parameter.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -55,8 +54,7 @@ impl ParameterBuilder {
     }
     /// <p>A parameter value must be specified in the extension association.</p>
     pub fn set_required(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.required = input;
-        self
+        self.required = input; self
     }
     /// <p>A parameter value must be specified in the extension association.</p>
     pub fn get_required(&self) -> &::std::option::Option<bool> {
@@ -65,8 +63,12 @@ impl ParameterBuilder {
     /// Consumes the builder and constructs a [`Parameter`](crate::types::Parameter).
     pub fn build(self) -> crate::types::Parameter {
         crate::types::Parameter {
-            description: self.description,
-            required: self.required.unwrap_or_default(),
+            description: self.description
+            ,
+            required: self.required
+                .unwrap_or_default()
+            ,
         }
     }
 }
+

@@ -3,19 +3,19 @@
 /// <p>Reserved for future use.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ProvidedContext {
+pub struct ProvidedContext  {
     /// <p>Reserved for future use.</p>
     pub provider_arn: ::std::option::Option<::std::string::String>,
     /// <p>Reserved for future use.</p>
     pub context_assertion: ::std::option::Option<::std::string::String>,
 }
-impl ProvidedContext {
+impl  ProvidedContext  {
     /// <p>Reserved for future use.</p>
-    pub fn provider_arn(&self) -> ::std::option::Option<&str> {
+    pub fn provider_arn(&self) -> ::std::option::Option<& str> {
         self.provider_arn.as_deref()
     }
     /// <p>Reserved for future use.</p>
-    pub fn context_assertion(&self) -> ::std::option::Option<&str> {
+    pub fn context_assertion(&self) -> ::std::option::Option<& str> {
         self.context_assertion.as_deref()
     }
 }
@@ -41,8 +41,7 @@ impl ProvidedContextBuilder {
     }
     /// <p>Reserved for future use.</p>
     pub fn set_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.provider_arn = input;
-        self
+        self.provider_arn = input; self
     }
     /// <p>Reserved for future use.</p>
     pub fn get_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -55,8 +54,7 @@ impl ProvidedContextBuilder {
     }
     /// <p>Reserved for future use.</p>
     pub fn set_context_assertion(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.context_assertion = input;
-        self
+        self.context_assertion = input; self
     }
     /// <p>Reserved for future use.</p>
     pub fn get_context_assertion(&self) -> &::std::option::Option<::std::string::String> {
@@ -65,8 +63,11 @@ impl ProvidedContextBuilder {
     /// Consumes the builder and constructs a [`ProvidedContext`](crate::types::ProvidedContext).
     pub fn build(self) -> crate::types::ProvidedContext {
         crate::types::ProvidedContext {
-            provider_arn: self.provider_arn,
-            context_assertion: self.context_assertion,
+            provider_arn: self.provider_arn
+            ,
+            context_assertion: self.context_assertion
+            ,
         }
     }
 }
+

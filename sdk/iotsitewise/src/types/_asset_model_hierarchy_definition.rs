@@ -3,22 +3,20 @@
 /// <p>Contains an asset model hierarchy used in asset model creation. An asset model hierarchy determines the kind (or type) of asset that can belong to a hierarchy.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AssetModelHierarchyDefinition {
+pub struct AssetModelHierarchyDefinition  {
     /// <p>The name of the asset model hierarchy definition (as specified in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation).</p>
     pub name: ::std::string::String,
     /// <p>The ID of an asset model for this hierarchy.</p>
     pub child_asset_model_id: ::std::string::String,
 }
-impl AssetModelHierarchyDefinition {
+impl  AssetModelHierarchyDefinition  {
     /// <p>The name of the asset model hierarchy definition (as specified in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation).</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// <p>The ID of an asset model for this hierarchy.</p>
-    pub fn child_asset_model_id(&self) -> &str {
-        use std::ops::Deref;
-        self.child_asset_model_id.deref()
+    pub fn child_asset_model_id(&self) -> & str {
+        use std::ops::Deref; self.child_asset_model_id.deref()
     }
 }
 impl AssetModelHierarchyDefinition {
@@ -44,8 +42,7 @@ impl AssetModelHierarchyDefinitionBuilder {
     }
     /// <p>The name of the asset model hierarchy definition (as specified in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation).</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the asset model hierarchy definition (as specified in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation).</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -59,8 +56,7 @@ impl AssetModelHierarchyDefinitionBuilder {
     }
     /// <p>The ID of an asset model for this hierarchy.</p>
     pub fn set_child_asset_model_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.child_asset_model_id = input;
-        self
+        self.child_asset_model_id = input; self
     }
     /// <p>The ID of an asset model for this hierarchy.</p>
     pub fn get_child_asset_model_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -71,19 +67,20 @@ impl AssetModelHierarchyDefinitionBuilder {
     /// - [`name`](crate::types::builders::AssetModelHierarchyDefinitionBuilder::name)
     /// - [`child_asset_model_id`](crate::types::builders::AssetModelHierarchyDefinitionBuilder::child_asset_model_id)
     pub fn build(self) -> ::std::result::Result<crate::types::AssetModelHierarchyDefinition, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AssetModelHierarchyDefinition {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building AssetModelHierarchyDefinition",
-                )
-            })?,
-            child_asset_model_id: self.child_asset_model_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "child_asset_model_id",
-                    "child_asset_model_id was not specified but it is required when building AssetModelHierarchyDefinition",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AssetModelHierarchyDefinition {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building AssetModelHierarchyDefinition")
+                    )?
+                ,
+                child_asset_model_id: self.child_asset_model_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("child_asset_model_id", "child_asset_model_id was not specified but it is required when building AssetModelHierarchyDefinition")
+                    )?
+                ,
+            }
+        )
     }
 }
+

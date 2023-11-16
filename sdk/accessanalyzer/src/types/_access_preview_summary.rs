@@ -3,49 +3,47 @@
 /// <p>Contains a summary of information about an access preview.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AccessPreviewSummary {
+pub struct AccessPreviewSummary  {
     /// <p>The unique ID for the access preview.</p>
     pub id: ::std::string::String,
     /// <p>The ARN of the analyzer used to generate the access preview.</p>
     pub analyzer_arn: ::std::string::String,
     /// <p>The time at which the access preview was created.</p>
     pub created_at: ::aws_smithy_types::DateTime,
-    /// <p>The status of the access preview.</p>
-    /// <ul>
-    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li>
-    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li>
-    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li>
+    /// <p>The status of the access preview.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> 
+    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li> 
+    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> 
     /// </ul>
     pub status: crate::types::AccessPreviewStatus,
     /// <p>Provides more details about the current status of the access preview. For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid proposed resource configuration.</p>
     pub status_reason: ::std::option::Option<crate::types::AccessPreviewStatusReason>,
 }
-impl AccessPreviewSummary {
+impl  AccessPreviewSummary  {
     /// <p>The unique ID for the access preview.</p>
-    pub fn id(&self) -> &str {
-        use std::ops::Deref;
-        self.id.deref()
+    pub fn id(&self) -> & str {
+        use std::ops::Deref; self.id.deref()
     }
     /// <p>The ARN of the analyzer used to generate the access preview.</p>
-    pub fn analyzer_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.analyzer_arn.deref()
+    pub fn analyzer_arn(&self) -> & str {
+        use std::ops::Deref; self.analyzer_arn.deref()
     }
     /// <p>The time at which the access preview was created.</p>
-    pub fn created_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn created_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.created_at
     }
-    /// <p>The status of the access preview.</p>
-    /// <ul>
-    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li>
-    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li>
-    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li>
+    /// <p>The status of the access preview.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> 
+    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li> 
+    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> 
     /// </ul>
-    pub fn status(&self) -> &crate::types::AccessPreviewStatus {
+    pub fn status(&self) -> & crate::types::AccessPreviewStatus {
         &self.status
     }
     /// <p>Provides more details about the current status of the access preview. For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid proposed resource configuration.</p>
-    pub fn status_reason(&self) -> ::std::option::Option<&crate::types::AccessPreviewStatusReason> {
+    pub fn status_reason(&self) -> ::std::option::Option<& crate::types::AccessPreviewStatusReason> {
         self.status_reason.as_ref()
     }
 }
@@ -75,8 +73,7 @@ impl AccessPreviewSummaryBuilder {
     }
     /// <p>The unique ID for the access preview.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// <p>The unique ID for the access preview.</p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -90,8 +87,7 @@ impl AccessPreviewSummaryBuilder {
     }
     /// <p>The ARN of the analyzer used to generate the access preview.</p>
     pub fn set_analyzer_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.analyzer_arn = input;
-        self
+        self.analyzer_arn = input; self
     }
     /// <p>The ARN of the analyzer used to generate the access preview.</p>
     pub fn get_analyzer_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -105,39 +101,37 @@ impl AccessPreviewSummaryBuilder {
     }
     /// <p>The time at which the access preview was created.</p>
     pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_at = input;
-        self
+        self.created_at = input; self
     }
     /// <p>The time at which the access preview was created.</p>
     pub fn get_created_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.created_at
     }
-    /// <p>The status of the access preview.</p>
-    /// <ul>
-    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li>
-    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li>
-    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li>
+    /// <p>The status of the access preview.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> 
+    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li> 
+    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn status(mut self, input: crate::types::AccessPreviewStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The status of the access preview.</p>
-    /// <ul>
-    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li>
-    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li>
-    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li>
+    /// <p>The status of the access preview.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> 
+    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li> 
+    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::AccessPreviewStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the access preview.</p>
-    /// <ul>
-    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li>
-    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li>
-    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li>
+    /// <p>The status of the access preview.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Creating</code> - The access preview creation is in progress.</p> </li> 
+    /// <li> <p> <code>Completed</code> - The access preview is complete and previews the findings for external access to the resource.</p> </li> 
+    /// <li> <p> <code>Failed</code> - The access preview creation has failed.</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::AccessPreviewStatus> {
         &self.status
@@ -149,8 +143,7 @@ impl AccessPreviewSummaryBuilder {
     }
     /// <p>Provides more details about the current status of the access preview. For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid proposed resource configuration.</p>
     pub fn set_status_reason(mut self, input: ::std::option::Option<crate::types::AccessPreviewStatusReason>) -> Self {
-        self.status_reason = input;
-        self
+        self.status_reason = input; self
     }
     /// <p>Provides more details about the current status of the access preview. For example, if the creation of the access preview fails, a <code>Failed</code> status is returned. This failure can be due to an internal issue with the analysis or due to an invalid proposed resource configuration.</p>
     pub fn get_status_reason(&self) -> &::std::option::Option<crate::types::AccessPreviewStatusReason> {
@@ -163,32 +156,32 @@ impl AccessPreviewSummaryBuilder {
     /// - [`created_at`](crate::types::builders::AccessPreviewSummaryBuilder::created_at)
     /// - [`status`](crate::types::builders::AccessPreviewSummaryBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::AccessPreviewSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AccessPreviewSummary {
-            id: self.id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "id",
-                    "id was not specified but it is required when building AccessPreviewSummary",
-                )
-            })?,
-            analyzer_arn: self.analyzer_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "analyzer_arn",
-                    "analyzer_arn was not specified but it is required when building AccessPreviewSummary",
-                )
-            })?,
-            created_at: self.created_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "created_at",
-                    "created_at was not specified but it is required when building AccessPreviewSummary",
-                )
-            })?,
-            status: self.status.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "status",
-                    "status was not specified but it is required when building AccessPreviewSummary",
-                )
-            })?,
-            status_reason: self.status_reason,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AccessPreviewSummary {
+                id: self.id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building AccessPreviewSummary")
+                    )?
+                ,
+                analyzer_arn: self.analyzer_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("analyzer_arn", "analyzer_arn was not specified but it is required when building AccessPreviewSummary")
+                    )?
+                ,
+                created_at: self.created_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("created_at", "created_at was not specified but it is required when building AccessPreviewSummary")
+                    )?
+                ,
+                status: self.status
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building AccessPreviewSummary")
+                    )?
+                ,
+                status_reason: self.status_reason
+                ,
+            }
+        )
     }
 }
+

@@ -5,61 +5,57 @@ pub use crate::operation::start_contact_recording::_start_contact_recording_inpu
 
 impl StartContactRecordingInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::start_contact_recording::StartContactRecordingOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_contact_recording::StartContactRecordingError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.start_contact_recording();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::start_contact_recording::StartContactRecordingOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::start_contact_recording::StartContactRecordingError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.start_contact_recording();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `StartContactRecording`.
-///
-/// <p>Starts recording the contact: </p>
-/// <ul>
-/// <li> <p>If the API is called <i>before</i> the agent joins the call, recording starts when the agent joins the call.</p> </li>
-/// <li> <p>If the API is called <i>after</i> the agent joins the call, recording starts at the time of the API call.</p> </li>
-/// </ul>
-/// <p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p>
-/// <p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording behavior</a> block.</p>
+/// 
+/// <p>Starts recording the contact: </p> 
+/// <ul> 
+/// <li> <p>If the API is called <i>before</i> the agent joins the call, recording starts when the agent joins the call.</p> </li> 
+/// <li> <p>If the API is called <i>after</i> the agent joins the call, recording starts at the time of the API call.</p> </li> 
+/// </ul> 
+/// <p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p> 
+/// <p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording behavior</a> block.</p> 
 /// <p>Only voice recordings are supported at this time.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct StartContactRecordingFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::start_contact_recording::builders::StartContactRecordingInputBuilder,
+                    inner: crate::operation::start_contact_recording::builders::StartContactRecordingInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::start_contact_recording::StartContactRecordingOutput,
-        crate::operation::start_contact_recording::StartContactRecordingError,
-    > for StartContactRecordingFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::start_contact_recording::StartContactRecordingOutput,
-            crate::operation::start_contact_recording::StartContactRecordingError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::start_contact_recording::StartContactRecordingOutput,
+                    crate::operation::start_contact_recording::StartContactRecordingError,
+                > for StartContactRecordingFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::start_contact_recording::StartContactRecordingOutput,
+                        crate::operation::start_contact_recording::StartContactRecordingError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl StartContactRecordingFluentBuilder {
     /// Creates a new `StartContactRecording`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -68,53 +64,44 @@ impl StartContactRecordingFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::start_contact_recording::StartContactRecordingOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_contact_recording::StartContactRecordingError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::start_contact_recording::StartContactRecording::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::start_contact_recording::StartContactRecording::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::start_contact_recording::StartContactRecordingOutput,
-        crate::operation::start_contact_recording::StartContactRecordingError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::start_contact_recording::StartContactRecordingOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_contact_recording::StartContactRecordingError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::start_contact_recording::StartContactRecording::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::start_contact_recording::StartContactRecording::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::start_contact_recording::StartContactRecordingOutput, crate::operation::start_contact_recording::StartContactRecordingError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
     pub fn instance_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.instance_id(input.into());
@@ -172,3 +159,4 @@ impl StartContactRecordingFluentBuilder {
         self.inner.get_voice_recording_configuration()
     }
 }
+

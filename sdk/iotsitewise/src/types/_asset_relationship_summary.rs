@@ -3,27 +3,27 @@
 /// <p>Contains information about assets that are related to one another.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AssetRelationshipSummary {
-    /// <p>The assets that are related through an asset hierarchy.</p>
+pub struct AssetRelationshipSummary  {
+    /// <p>The assets that are related through an asset hierarchy.</p> 
     /// <p>This object is present if the <code>relationshipType</code> is <code>HIERARCHY</code>.</p>
     pub hierarchy_info: ::std::option::Option<crate::types::AssetHierarchyInfo>,
-    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p>
-    /// <ul>
-    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li>
+    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li> 
     /// </ul>
     pub relationship_type: crate::types::AssetRelationshipType,
 }
-impl AssetRelationshipSummary {
-    /// <p>The assets that are related through an asset hierarchy.</p>
+impl  AssetRelationshipSummary  {
+    /// <p>The assets that are related through an asset hierarchy.</p> 
     /// <p>This object is present if the <code>relationshipType</code> is <code>HIERARCHY</code>.</p>
-    pub fn hierarchy_info(&self) -> ::std::option::Option<&crate::types::AssetHierarchyInfo> {
+    pub fn hierarchy_info(&self) -> ::std::option::Option<& crate::types::AssetHierarchyInfo> {
         self.hierarchy_info.as_ref()
     }
-    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p>
-    /// <ul>
-    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li>
+    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li> 
     /// </ul>
-    pub fn relationship_type(&self) -> &crate::types::AssetRelationshipType {
+    pub fn relationship_type(&self) -> & crate::types::AssetRelationshipType {
         &self.relationship_type
     }
 }
@@ -42,43 +42,41 @@ pub struct AssetRelationshipSummaryBuilder {
     pub(crate) relationship_type: ::std::option::Option<crate::types::AssetRelationshipType>,
 }
 impl AssetRelationshipSummaryBuilder {
-    /// <p>The assets that are related through an asset hierarchy.</p>
+    /// <p>The assets that are related through an asset hierarchy.</p> 
     /// <p>This object is present if the <code>relationshipType</code> is <code>HIERARCHY</code>.</p>
     pub fn hierarchy_info(mut self, input: crate::types::AssetHierarchyInfo) -> Self {
         self.hierarchy_info = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The assets that are related through an asset hierarchy.</p>
+    /// <p>The assets that are related through an asset hierarchy.</p> 
     /// <p>This object is present if the <code>relationshipType</code> is <code>HIERARCHY</code>.</p>
     pub fn set_hierarchy_info(mut self, input: ::std::option::Option<crate::types::AssetHierarchyInfo>) -> Self {
-        self.hierarchy_info = input;
-        self
+        self.hierarchy_info = input; self
     }
-    /// <p>The assets that are related through an asset hierarchy.</p>
+    /// <p>The assets that are related through an asset hierarchy.</p> 
     /// <p>This object is present if the <code>relationshipType</code> is <code>HIERARCHY</code>.</p>
     pub fn get_hierarchy_info(&self) -> &::std::option::Option<crate::types::AssetHierarchyInfo> {
         &self.hierarchy_info
     }
-    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p>
-    /// <ul>
-    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li>
+    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn relationship_type(mut self, input: crate::types::AssetRelationshipType) -> Self {
         self.relationship_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p>
-    /// <ul>
-    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li>
+    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li> 
     /// </ul>
     pub fn set_relationship_type(mut self, input: ::std::option::Option<crate::types::AssetRelationshipType>) -> Self {
-        self.relationship_type = input;
-        self
+        self.relationship_type = input; self
     }
-    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p>
-    /// <ul>
-    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li>
+    /// <p>The relationship type of the assets in this relationship. This value is one of the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>HIERARCHY</code> – The assets are related through an asset hierarchy. If you specify this relationship type, this asset relationship includes the <code>hierarchyInfo</code> object.</p> </li> 
     /// </ul>
     pub fn get_relationship_type(&self) -> &::std::option::Option<crate::types::AssetRelationshipType> {
         &self.relationship_type
@@ -87,14 +85,17 @@ impl AssetRelationshipSummaryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`relationship_type`](crate::types::builders::AssetRelationshipSummaryBuilder::relationship_type)
     pub fn build(self) -> ::std::result::Result<crate::types::AssetRelationshipSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AssetRelationshipSummary {
-            hierarchy_info: self.hierarchy_info,
-            relationship_type: self.relationship_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "relationship_type",
-                    "relationship_type was not specified but it is required when building AssetRelationshipSummary",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AssetRelationshipSummary {
+                hierarchy_info: self.hierarchy_info
+                ,
+                relationship_type: self.relationship_type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("relationship_type", "relationship_type was not specified but it is required when building AssetRelationshipSummary")
+                    )?
+                ,
+            }
+        )
     }
 }
+

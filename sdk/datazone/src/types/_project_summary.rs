@@ -3,7 +3,7 @@
 /// <p>The details of a Amazon DataZone project.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct ProjectSummary {
+pub struct ProjectSummary  {
     /// <p>The identifier of a Amazon DataZone domain where the project exists.</p>
     pub domain_id: ::std::string::String,
     /// <p>The identifier of a project.</p>
@@ -19,41 +19,37 @@ pub struct ProjectSummary {
     /// <p>The timestamp of when the project was updated.</p>
     pub updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
-impl ProjectSummary {
+impl  ProjectSummary  {
     /// <p>The identifier of a Amazon DataZone domain where the project exists.</p>
-    pub fn domain_id(&self) -> &str {
-        use std::ops::Deref;
-        self.domain_id.deref()
+    pub fn domain_id(&self) -> & str {
+        use std::ops::Deref; self.domain_id.deref()
     }
     /// <p>The identifier of a project.</p>
-    pub fn id(&self) -> &str {
-        use std::ops::Deref;
-        self.id.deref()
+    pub fn id(&self) -> & str {
+        use std::ops::Deref; self.id.deref()
     }
     /// <p>The name of a project.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// <p>The description of a project.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The Amazon DataZone user who created the project.</p>
-    pub fn created_by(&self) -> &str {
-        use std::ops::Deref;
-        self.created_by.deref()
+    pub fn created_by(&self) -> & str {
+        use std::ops::Deref; self.created_by.deref()
     }
     /// <p>The timestamp of when a project was created.</p>
-    pub fn created_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn created_at(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.created_at.as_ref()
     }
     /// <p>The timestamp of when the project was updated.</p>
-    pub fn updated_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn updated_at(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.updated_at.as_ref()
     }
 }
-impl ::std::fmt::Debug for ProjectSummary {
+impl  ::std::fmt::Debug for ProjectSummary  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("ProjectSummary");
         formatter.field("domain_id", &self.domain_id);
@@ -94,8 +90,7 @@ impl ProjectSummaryBuilder {
     }
     /// <p>The identifier of a Amazon DataZone domain where the project exists.</p>
     pub fn set_domain_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.domain_id = input;
-        self
+        self.domain_id = input; self
     }
     /// <p>The identifier of a Amazon DataZone domain where the project exists.</p>
     pub fn get_domain_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -109,8 +104,7 @@ impl ProjectSummaryBuilder {
     }
     /// <p>The identifier of a project.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// <p>The identifier of a project.</p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -124,8 +118,7 @@ impl ProjectSummaryBuilder {
     }
     /// <p>The name of a project.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of a project.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -138,8 +131,7 @@ impl ProjectSummaryBuilder {
     }
     /// <p>The description of a project.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The description of a project.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -153,8 +145,7 @@ impl ProjectSummaryBuilder {
     }
     /// <p>The Amazon DataZone user who created the project.</p>
     pub fn set_created_by(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.created_by = input;
-        self
+        self.created_by = input; self
     }
     /// <p>The Amazon DataZone user who created the project.</p>
     pub fn get_created_by(&self) -> &::std::option::Option<::std::string::String> {
@@ -167,8 +158,7 @@ impl ProjectSummaryBuilder {
     }
     /// <p>The timestamp of when a project was created.</p>
     pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_at = input;
-        self
+        self.created_at = input; self
     }
     /// <p>The timestamp of when a project was created.</p>
     pub fn get_created_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -181,8 +171,7 @@ impl ProjectSummaryBuilder {
     }
     /// <p>The timestamp of when the project was updated.</p>
     pub fn set_updated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.updated_at = input;
-        self
+        self.updated_at = input; self
     }
     /// <p>The timestamp of when the project was updated.</p>
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -195,35 +184,36 @@ impl ProjectSummaryBuilder {
     /// - [`name`](crate::types::builders::ProjectSummaryBuilder::name)
     /// - [`created_by`](crate::types::builders::ProjectSummaryBuilder::created_by)
     pub fn build(self) -> ::std::result::Result<crate::types::ProjectSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ProjectSummary {
-            domain_id: self.domain_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "domain_id",
-                    "domain_id was not specified but it is required when building ProjectSummary",
-                )
-            })?,
-            id: self.id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "id",
-                    "id was not specified but it is required when building ProjectSummary",
-                )
-            })?,
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building ProjectSummary",
-                )
-            })?,
-            description: self.description,
-            created_by: self.created_by.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "created_by",
-                    "created_by was not specified but it is required when building ProjectSummary",
-                )
-            })?,
-            created_at: self.created_at,
-            updated_at: self.updated_at,
-        })
+        ::std::result::Result::Ok(
+            crate::types::ProjectSummary {
+                domain_id: self.domain_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("domain_id", "domain_id was not specified but it is required when building ProjectSummary")
+                    )?
+                ,
+                id: self.id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building ProjectSummary")
+                    )?
+                ,
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building ProjectSummary")
+                    )?
+                ,
+                description: self.description
+                ,
+                created_by: self.created_by
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("created_by", "created_by was not specified but it is required when building ProjectSummary")
+                    )?
+                ,
+                created_at: self.created_at
+                ,
+                updated_at: self.updated_at
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for ProjectSummaryBuilder {
@@ -239,3 +229,4 @@ impl ::std::fmt::Debug for ProjectSummaryBuilder {
         formatter.finish()
     }
 }
+

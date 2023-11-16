@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateAccountSettingsInput {
-    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p>
+pub struct UpdateAccountSettingsInput  {
+    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p> 
     /// <p>To remove a previously configured ARN, specify an empty string.</p>
     pub pipeline_service_role_arn: ::std::option::Option<::std::string::String>,
-    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p>
+    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p> 
     /// <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set <code>pipelineProvisioningRepository</code>.</p>
     pub pipeline_provisioning_repository: ::std::option::Option<crate::types::RepositoryBranchInput>,
     /// <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the configured pipeline repository.</p>
@@ -14,15 +14,15 @@ pub struct UpdateAccountSettingsInput {
     /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based provisioning.</p>
     pub pipeline_codebuild_role_arn: ::std::option::Option<::std::string::String>,
 }
-impl UpdateAccountSettingsInput {
-    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p>
+impl  UpdateAccountSettingsInput  {
+    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p> 
     /// <p>To remove a previously configured ARN, specify an empty string.</p>
-    pub fn pipeline_service_role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn pipeline_service_role_arn(&self) -> ::std::option::Option<& str> {
         self.pipeline_service_role_arn.as_deref()
     }
-    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p>
+    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p> 
     /// <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set <code>pipelineProvisioningRepository</code>.</p>
-    pub fn pipeline_provisioning_repository(&self) -> ::std::option::Option<&crate::types::RepositoryBranchInput> {
+    pub fn pipeline_provisioning_repository(&self) -> ::std::option::Option<& crate::types::RepositoryBranchInput> {
         self.pipeline_provisioning_repository.as_ref()
     }
     /// <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the configured pipeline repository.</p>
@@ -30,7 +30,7 @@ impl UpdateAccountSettingsInput {
         self.delete_pipeline_provisioning_repository
     }
     /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based provisioning.</p>
-    pub fn pipeline_codebuild_role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn pipeline_codebuild_role_arn(&self) -> ::std::option::Option<& str> {
         self.pipeline_codebuild_role_arn.as_deref()
     }
 }
@@ -51,36 +51,34 @@ pub struct UpdateAccountSettingsInputBuilder {
     pub(crate) pipeline_codebuild_role_arn: ::std::option::Option<::std::string::String>,
 }
 impl UpdateAccountSettingsInputBuilder {
-    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p>
+    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p> 
     /// <p>To remove a previously configured ARN, specify an empty string.</p>
     pub fn pipeline_service_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.pipeline_service_role_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p>
+    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p> 
     /// <p>To remove a previously configured ARN, specify an empty string.</p>
     pub fn set_pipeline_service_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.pipeline_service_role_arn = input;
-        self
+        self.pipeline_service_role_arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p>
+    /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for self-managed provisioning.</p> 
     /// <p>To remove a previously configured ARN, specify an empty string.</p>
     pub fn get_pipeline_service_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.pipeline_service_role_arn
     }
-    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p>
+    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p> 
     /// <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set <code>pipelineProvisioningRepository</code>.</p>
     pub fn pipeline_provisioning_repository(mut self, input: crate::types::RepositoryBranchInput) -> Self {
         self.pipeline_provisioning_repository = ::std::option::Option::Some(input);
         self
     }
-    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p>
+    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p> 
     /// <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set <code>pipelineProvisioningRepository</code>.</p>
     pub fn set_pipeline_provisioning_repository(mut self, input: ::std::option::Option<crate::types::RepositoryBranchInput>) -> Self {
-        self.pipeline_provisioning_repository = input;
-        self
+        self.pipeline_provisioning_repository = input; self
     }
-    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p>
+    /// <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <code>CreateRepository</code>.</p> 
     /// <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set <code>pipelineProvisioningRepository</code>.</p>
     pub fn get_pipeline_provisioning_repository(&self) -> &::std::option::Option<crate::types::RepositoryBranchInput> {
         &self.pipeline_provisioning_repository
@@ -92,8 +90,7 @@ impl UpdateAccountSettingsInputBuilder {
     }
     /// <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the configured pipeline repository.</p>
     pub fn set_delete_pipeline_provisioning_repository(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.delete_pipeline_provisioning_repository = input;
-        self
+        self.delete_pipeline_provisioning_repository = input; self
     }
     /// <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the configured pipeline repository.</p>
     pub fn get_delete_pipeline_provisioning_repository(&self) -> &::std::option::Option<bool> {
@@ -106,23 +103,26 @@ impl UpdateAccountSettingsInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based provisioning.</p>
     pub fn set_pipeline_codebuild_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.pipeline_codebuild_role_arn = input;
-        self
+        self.pipeline_codebuild_role_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based provisioning.</p>
     pub fn get_pipeline_codebuild_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.pipeline_codebuild_role_arn
     }
     /// Consumes the builder and constructs a [`UpdateAccountSettingsInput`](crate::operation::update_account_settings::UpdateAccountSettingsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_account_settings::UpdateAccountSettingsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::update_account_settings::UpdateAccountSettingsInput {
-            pipeline_service_role_arn: self.pipeline_service_role_arn,
-            pipeline_provisioning_repository: self.pipeline_provisioning_repository,
-            delete_pipeline_provisioning_repository: self.delete_pipeline_provisioning_repository,
-            pipeline_codebuild_role_arn: self.pipeline_codebuild_role_arn,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_account_settings::UpdateAccountSettingsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_account_settings::UpdateAccountSettingsInput {
+                pipeline_service_role_arn: self.pipeline_service_role_arn
+                ,
+                pipeline_provisioning_repository: self.pipeline_provisioning_repository
+                ,
+                delete_pipeline_provisioning_repository: self.delete_pipeline_provisioning_repository
+                ,
+                pipeline_codebuild_role_arn: self.pipeline_codebuild_role_arn
+                ,
+            }
+        )
     }
 }
+

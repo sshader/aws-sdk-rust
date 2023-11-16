@@ -2,13 +2,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PutBucketPolicyInput {
+pub struct PutBucketPolicyInput  {
     /// <p>The name of the bucket.</p>
     pub bucket: ::std::option::Option<::std::string::String>,
-    /// <p>The MD5 hash of the request body.</p>
+    /// <p>The MD5 hash of the request body.</p> 
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
     pub content_md5: ::std::option::Option<::std::string::String>,
-    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
     pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p>
@@ -18,19 +18,19 @@ pub struct PutBucketPolicyInput {
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
-impl PutBucketPolicyInput {
+impl  PutBucketPolicyInput  {
     /// <p>The name of the bucket.</p>
-    pub fn bucket(&self) -> ::std::option::Option<&str> {
+    pub fn bucket(&self) -> ::std::option::Option<& str> {
         self.bucket.as_deref()
     }
-    /// <p>The MD5 hash of the request body.</p>
+    /// <p>The MD5 hash of the request body.</p> 
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-    pub fn content_md5(&self) -> ::std::option::Option<&str> {
+    pub fn content_md5(&self) -> ::std::option::Option<& str> {
         self.content_md5.as_deref()
     }
-    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
+    pub fn checksum_algorithm(&self) -> ::std::option::Option<& crate::types::ChecksumAlgorithm> {
         self.checksum_algorithm.as_ref()
     }
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p>
@@ -38,11 +38,11 @@ impl PutBucketPolicyInput {
         self.confirm_remove_self_bucket_access
     }
     /// <p>The bucket policy as a JSON document.</p>
-    pub fn policy(&self) -> ::std::option::Option<&str> {
+    pub fn policy(&self) -> ::std::option::Option<& str> {
         self.policy.as_deref()
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(&self) -> ::std::option::Option<&str> {
+    pub fn expected_bucket_owner(&self) -> ::std::option::Option<& str> {
         self.expected_bucket_owner.as_deref()
     }
 }
@@ -73,43 +73,40 @@ impl PutBucketPolicyInputBuilder {
     }
     /// <p>The name of the bucket.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.bucket = input;
-        self
+        self.bucket = input; self
     }
     /// <p>The name of the bucket.</p>
     pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
         &self.bucket
     }
-    /// <p>The MD5 hash of the request body.</p>
+    /// <p>The MD5 hash of the request body.</p> 
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
     pub fn content_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The MD5 hash of the request body.</p>
+    /// <p>The MD5 hash of the request body.</p> 
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
     pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.content_md5 = input;
-        self
+        self.content_md5 = input; self
     }
-    /// <p>The MD5 hash of the request body.</p>
+    /// <p>The MD5 hash of the request body.</p> 
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
     pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> {
         &self.content_md5
     }
-    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
     pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
     pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
-        self.checksum_algorithm = input;
-        self
+        self.checksum_algorithm = input; self
     }
-    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
     pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
@@ -121,8 +118,7 @@ impl PutBucketPolicyInputBuilder {
     }
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p>
     pub fn set_confirm_remove_self_bucket_access(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.confirm_remove_self_bucket_access = input;
-        self
+        self.confirm_remove_self_bucket_access = input; self
     }
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p>
     pub fn get_confirm_remove_self_bucket_access(&self) -> &::std::option::Option<bool> {
@@ -136,8 +132,7 @@ impl PutBucketPolicyInputBuilder {
     }
     /// <p>The bucket policy as a JSON document.</p>
     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.policy = input;
-        self
+        self.policy = input; self
     }
     /// <p>The bucket policy as a JSON document.</p>
     pub fn get_policy(&self) -> &::std::option::Option<::std::string::String> {
@@ -150,24 +145,30 @@ impl PutBucketPolicyInputBuilder {
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.expected_bucket_owner = input;
-        self
+        self.expected_bucket_owner = input; self
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
         &self.expected_bucket_owner
     }
     /// Consumes the builder and constructs a [`PutBucketPolicyInput`](crate::operation::put_bucket_policy::PutBucketPolicyInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::put_bucket_policy::PutBucketPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::put_bucket_policy::PutBucketPolicyInput {
-            bucket: self.bucket,
-            content_md5: self.content_md5,
-            checksum_algorithm: self.checksum_algorithm,
-            confirm_remove_self_bucket_access: self.confirm_remove_self_bucket_access,
-            policy: self.policy,
-            expected_bucket_owner: self.expected_bucket_owner,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::put_bucket_policy::PutBucketPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::put_bucket_policy::PutBucketPolicyInput {
+                bucket: self.bucket
+                ,
+                content_md5: self.content_md5
+                ,
+                checksum_algorithm: self.checksum_algorithm
+                ,
+                confirm_remove_self_bucket_access: self.confirm_remove_self_bucket_access
+                ,
+                policy: self.policy
+                ,
+                expected_bucket_owner: self.expected_bucket_owner
+                ,
+            }
+        )
     }
 }
+

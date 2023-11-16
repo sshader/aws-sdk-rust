@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateImageInput {
+pub struct CreateImageInput  {
     /// <p>The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.</p>
     pub image_recipe_arn: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.</p>
@@ -16,31 +16,31 @@ pub struct CreateImageInput {
     /// <p>Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.</p>
     pub enhanced_image_metadata_enabled: ::std::option::Option<bool>,
     /// <p>The tags of the image.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     /// <p>The idempotency token used to make this request idempotent.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
     /// <p>Contains settings for vulnerability scans.</p>
     pub image_scanning_configuration: ::std::option::Option<crate::types::ImageScanningConfiguration>,
 }
-impl CreateImageInput {
+impl  CreateImageInput  {
     /// <p>The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.</p>
-    pub fn image_recipe_arn(&self) -> ::std::option::Option<&str> {
+    pub fn image_recipe_arn(&self) -> ::std::option::Option<& str> {
         self.image_recipe_arn.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.</p>
-    pub fn container_recipe_arn(&self) -> ::std::option::Option<&str> {
+    pub fn container_recipe_arn(&self) -> ::std::option::Option<& str> {
         self.container_recipe_arn.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline.</p>
-    pub fn distribution_configuration_arn(&self) -> ::std::option::Option<&str> {
+    pub fn distribution_configuration_arn(&self) -> ::std::option::Option<& str> {
         self.distribution_configuration_arn.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested.</p>
-    pub fn infrastructure_configuration_arn(&self) -> ::std::option::Option<&str> {
+    pub fn infrastructure_configuration_arn(&self) -> ::std::option::Option<& str> {
         self.infrastructure_configuration_arn.as_deref()
     }
     /// <p>The image tests configuration of the image.</p>
-    pub fn image_tests_configuration(&self) -> ::std::option::Option<&crate::types::ImageTestsConfiguration> {
+    pub fn image_tests_configuration(&self) -> ::std::option::Option<& crate::types::ImageTestsConfiguration> {
         self.image_tests_configuration.as_ref()
     }
     /// <p>Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.</p>
@@ -48,15 +48,15 @@ impl CreateImageInput {
         self.enhanced_image_metadata_enabled
     }
     /// <p>The tags of the image.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
     /// <p>The idempotency token used to make this request idempotent.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
     /// <p>Contains settings for vulnerability scans.</p>
-    pub fn image_scanning_configuration(&self) -> ::std::option::Option<&crate::types::ImageScanningConfiguration> {
+    pub fn image_scanning_configuration(&self) -> ::std::option::Option<& crate::types::ImageScanningConfiguration> {
         self.image_scanning_configuration.as_ref()
     }
 }
@@ -77,7 +77,7 @@ pub struct CreateImageInputBuilder {
     pub(crate) infrastructure_configuration_arn: ::std::option::Option<::std::string::String>,
     pub(crate) image_tests_configuration: ::std::option::Option<crate::types::ImageTestsConfiguration>,
     pub(crate) enhanced_image_metadata_enabled: ::std::option::Option<bool>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
     pub(crate) image_scanning_configuration: ::std::option::Option<crate::types::ImageScanningConfiguration>,
 }
@@ -89,8 +89,7 @@ impl CreateImageInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.</p>
     pub fn set_image_recipe_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.image_recipe_arn = input;
-        self
+        self.image_recipe_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.</p>
     pub fn get_image_recipe_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -103,8 +102,7 @@ impl CreateImageInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.</p>
     pub fn set_container_recipe_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.container_recipe_arn = input;
-        self
+        self.container_recipe_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.</p>
     pub fn get_container_recipe_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -117,8 +115,7 @@ impl CreateImageInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline.</p>
     pub fn set_distribution_configuration_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.distribution_configuration_arn = input;
-        self
+        self.distribution_configuration_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline.</p>
     pub fn get_distribution_configuration_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -132,8 +129,7 @@ impl CreateImageInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested.</p>
     pub fn set_infrastructure_configuration_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.infrastructure_configuration_arn = input;
-        self
+        self.infrastructure_configuration_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested.</p>
     pub fn get_infrastructure_configuration_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -146,8 +142,7 @@ impl CreateImageInputBuilder {
     }
     /// <p>The image tests configuration of the image.</p>
     pub fn set_image_tests_configuration(mut self, input: ::std::option::Option<crate::types::ImageTestsConfiguration>) -> Self {
-        self.image_tests_configuration = input;
-        self
+        self.image_tests_configuration = input; self
     }
     /// <p>The image tests configuration of the image.</p>
     pub fn get_image_tests_configuration(&self) -> &::std::option::Option<crate::types::ImageTestsConfiguration> {
@@ -160,8 +155,7 @@ impl CreateImageInputBuilder {
     }
     /// <p>Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.</p>
     pub fn set_enhanced_image_metadata_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.enhanced_image_metadata_enabled = input;
-        self
+        self.enhanced_image_metadata_enabled = input; self
     }
     /// <p>Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.</p>
     pub fn get_enhanced_image_metadata_enabled(&self) -> &::std::option::Option<bool> {
@@ -174,17 +168,16 @@ impl CreateImageInputBuilder {
     /// <p>The tags of the image.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.tags = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>The tags of the image.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input; self
     }
     /// <p>The tags of the image.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// <p>The idempotency token used to make this request idempotent.</p>
@@ -195,8 +188,7 @@ impl CreateImageInputBuilder {
     }
     /// <p>The idempotency token used to make this request idempotent.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// <p>The idempotency token used to make this request idempotent.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -209,8 +201,7 @@ impl CreateImageInputBuilder {
     }
     /// <p>Contains settings for vulnerability scans.</p>
     pub fn set_image_scanning_configuration(mut self, input: ::std::option::Option<crate::types::ImageScanningConfiguration>) -> Self {
-        self.image_scanning_configuration = input;
-        self
+        self.image_scanning_configuration = input; self
     }
     /// <p>Contains settings for vulnerability scans.</p>
     pub fn get_image_scanning_configuration(&self) -> &::std::option::Option<crate::types::ImageScanningConfiguration> {
@@ -218,16 +209,28 @@ impl CreateImageInputBuilder {
     }
     /// Consumes the builder and constructs a [`CreateImageInput`](crate::operation::create_image::CreateImageInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::create_image::CreateImageInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_image::CreateImageInput {
-            image_recipe_arn: self.image_recipe_arn,
-            container_recipe_arn: self.container_recipe_arn,
-            distribution_configuration_arn: self.distribution_configuration_arn,
-            infrastructure_configuration_arn: self.infrastructure_configuration_arn,
-            image_tests_configuration: self.image_tests_configuration,
-            enhanced_image_metadata_enabled: self.enhanced_image_metadata_enabled,
-            tags: self.tags,
-            client_token: self.client_token,
-            image_scanning_configuration: self.image_scanning_configuration,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::create_image::CreateImageInput {
+                image_recipe_arn: self.image_recipe_arn
+                ,
+                container_recipe_arn: self.container_recipe_arn
+                ,
+                distribution_configuration_arn: self.distribution_configuration_arn
+                ,
+                infrastructure_configuration_arn: self.infrastructure_configuration_arn
+                ,
+                image_tests_configuration: self.image_tests_configuration
+                ,
+                enhanced_image_metadata_enabled: self.enhanced_image_metadata_enabled
+                ,
+                tags: self.tags
+                ,
+                client_token: self.client_token
+                ,
+                image_scanning_configuration: self.image_scanning_configuration
+                ,
+            }
+        )
     }
 }
+

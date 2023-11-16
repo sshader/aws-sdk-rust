@@ -3,13 +3,13 @@
 /// <p>Contains the state of scheduled or in-process operations on a global cluster (Aurora global database). This data type is empty unless a switchover or failover operation is scheduled or is in progress on the Aurora global database.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct FailoverState {
-    /// <p>The current status of the global cluster. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li>
-    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li>
-    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li>
-    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li>
+pub struct FailoverState  {
+    /// <p>The current status of the global cluster. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li> 
+    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li> 
+    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li> 
+    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li> 
     /// </ul>
     pub status: ::std::option::Option<crate::types::FailoverStatus>,
     /// <p>The Amazon Resource Name (ARN) of the Aurora DB cluster that is currently being demoted, and which is associated with this state.</p>
@@ -19,23 +19,23 @@ pub struct FailoverState {
     /// <p>Indicates whether the operation is a global switchover or a global failover. If data loss is allowed, then the operation is a global failover. Otherwise, it's a switchover.</p>
     pub is_data_loss_allowed: ::std::option::Option<bool>,
 }
-impl FailoverState {
-    /// <p>The current status of the global cluster. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li>
-    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li>
-    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li>
-    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li>
+impl  FailoverState  {
+    /// <p>The current status of the global cluster. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li> 
+    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li> 
+    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li> 
+    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::FailoverStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::FailoverStatus> {
         self.status.as_ref()
     }
     /// <p>The Amazon Resource Name (ARN) of the Aurora DB cluster that is currently being demoted, and which is associated with this state.</p>
-    pub fn from_db_cluster_arn(&self) -> ::std::option::Option<&str> {
+    pub fn from_db_cluster_arn(&self) -> ::std::option::Option<& str> {
         self.from_db_cluster_arn.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the Aurora DB cluster that is currently being promoted, and which is associated with this state.</p>
-    pub fn to_db_cluster_arn(&self) -> ::std::option::Option<&str> {
+    pub fn to_db_cluster_arn(&self) -> ::std::option::Option<& str> {
         self.to_db_cluster_arn.as_deref()
     }
     /// <p>Indicates whether the operation is a global switchover or a global failover. If data loss is allowed, then the operation is a global failover. Otherwise, it's a switchover.</p>
@@ -60,34 +60,33 @@ pub struct FailoverStateBuilder {
     pub(crate) is_data_loss_allowed: ::std::option::Option<bool>,
 }
 impl FailoverStateBuilder {
-    /// <p>The current status of the global cluster. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li>
-    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li>
-    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li>
-    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li>
+    /// <p>The current status of the global cluster. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li> 
+    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li> 
+    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li> 
+    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li> 
     /// </ul>
     pub fn status(mut self, input: crate::types::FailoverStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current status of the global cluster. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li>
-    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li>
-    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li>
-    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li>
+    /// <p>The current status of the global cluster. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li> 
+    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li> 
+    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li> 
+    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::FailoverStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The current status of the global cluster. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li>
-    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li>
-    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li>
-    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li>
+    /// <p>The current status of the global cluster. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li> 
+    /// <li> <p>failing-over  Aurora is promoting the chosen secondary Aurora DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li> 
+    /// <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Aurora DB cluster and the selected secondary Aurora DB cluster are returning to their previous states.</p> </li> 
+    /// <li> <p>switching-over  This status covers the range of Aurora internal operations that take place during the switchover process, such as demoting the primary Aurora DB cluster, promoting the secondary Aurora DB cluster, and synchronizing replicas.</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::FailoverStatus> {
         &self.status
@@ -99,8 +98,7 @@ impl FailoverStateBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the Aurora DB cluster that is currently being demoted, and which is associated with this state.</p>
     pub fn set_from_db_cluster_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.from_db_cluster_arn = input;
-        self
+        self.from_db_cluster_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the Aurora DB cluster that is currently being demoted, and which is associated with this state.</p>
     pub fn get_from_db_cluster_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -113,8 +111,7 @@ impl FailoverStateBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the Aurora DB cluster that is currently being promoted, and which is associated with this state.</p>
     pub fn set_to_db_cluster_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.to_db_cluster_arn = input;
-        self
+        self.to_db_cluster_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the Aurora DB cluster that is currently being promoted, and which is associated with this state.</p>
     pub fn get_to_db_cluster_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -127,8 +124,7 @@ impl FailoverStateBuilder {
     }
     /// <p>Indicates whether the operation is a global switchover or a global failover. If data loss is allowed, then the operation is a global failover. Otherwise, it's a switchover.</p>
     pub fn set_is_data_loss_allowed(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.is_data_loss_allowed = input;
-        self
+        self.is_data_loss_allowed = input; self
     }
     /// <p>Indicates whether the operation is a global switchover or a global failover. If data loss is allowed, then the operation is a global failover. Otherwise, it's a switchover.</p>
     pub fn get_is_data_loss_allowed(&self) -> &::std::option::Option<bool> {
@@ -137,10 +133,15 @@ impl FailoverStateBuilder {
     /// Consumes the builder and constructs a [`FailoverState`](crate::types::FailoverState).
     pub fn build(self) -> crate::types::FailoverState {
         crate::types::FailoverState {
-            status: self.status,
-            from_db_cluster_arn: self.from_db_cluster_arn,
-            to_db_cluster_arn: self.to_db_cluster_arn,
-            is_data_loss_allowed: self.is_data_loss_allowed,
+            status: self.status
+            ,
+            from_db_cluster_arn: self.from_db_cluster_arn
+            ,
+            to_db_cluster_arn: self.to_db_cluster_arn
+            ,
+            is_data_loss_allowed: self.is_data_loss_allowed
+            ,
         }
     }
 }
+

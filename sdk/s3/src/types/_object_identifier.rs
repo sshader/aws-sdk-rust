@@ -3,24 +3,23 @@
 /// <p>Object Identifier is unique value to identify objects.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ObjectIdentifier {
-    /// <p>Key name of the object.</p> <important>
-    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+pub struct ObjectIdentifier  {
+    /// <p>Key name of the object.</p> <important> 
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p> 
     /// </important>
     pub key: ::std::string::String,
     /// <p>VersionId for the specific version of the object to delete.</p>
     pub version_id: ::std::option::Option<::std::string::String>,
 }
-impl ObjectIdentifier {
-    /// <p>Key name of the object.</p> <important>
-    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+impl  ObjectIdentifier  {
+    /// <p>Key name of the object.</p> <important> 
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p> 
     /// </important>
-    pub fn key(&self) -> &str {
-        use std::ops::Deref;
-        self.key.deref()
+    pub fn key(&self) -> & str {
+        use std::ops::Deref; self.key.deref()
     }
     /// <p>VersionId for the specific version of the object to delete.</p>
-    pub fn version_id(&self) -> ::std::option::Option<&str> {
+    pub fn version_id(&self) -> ::std::option::Option<& str> {
         self.version_id.as_deref()
     }
 }
@@ -39,23 +38,22 @@ pub struct ObjectIdentifierBuilder {
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
 }
 impl ObjectIdentifierBuilder {
-    /// <p>Key name of the object.</p> <important>
-    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+    /// <p>Key name of the object.</p> <important> 
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p> 
     /// </important>
     /// This field is required.
     pub fn key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Key name of the object.</p> <important>
-    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+    /// <p>Key name of the object.</p> <important> 
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p> 
     /// </important>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.key = input;
-        self
+        self.key = input; self
     }
-    /// <p>Key name of the object.</p> <important>
-    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+    /// <p>Key name of the object.</p> <important> 
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p> 
     /// </important>
     pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
         &self.key
@@ -67,8 +65,7 @@ impl ObjectIdentifierBuilder {
     }
     /// <p>VersionId for the specific version of the object to delete.</p>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.version_id = input;
-        self
+        self.version_id = input; self
     }
     /// <p>VersionId for the specific version of the object to delete.</p>
     pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -78,14 +75,17 @@ impl ObjectIdentifierBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](crate::types::builders::ObjectIdentifierBuilder::key)
     pub fn build(self) -> ::std::result::Result<crate::types::ObjectIdentifier, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ObjectIdentifier {
-            key: self.key.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "key",
-                    "key was not specified but it is required when building ObjectIdentifier",
-                )
-            })?,
-            version_id: self.version_id,
-        })
+        ::std::result::Result::Ok(
+            crate::types::ObjectIdentifier {
+                key: self.key
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building ObjectIdentifier")
+                    )?
+                ,
+                version_id: self.version_id
+                ,
+            }
+        )
     }
 }
+

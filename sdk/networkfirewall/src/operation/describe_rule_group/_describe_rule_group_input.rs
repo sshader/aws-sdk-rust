@@ -2,35 +2,35 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeRuleGroupInput {
-    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+pub struct DescribeRuleGroupInput  {
+    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
     pub rule_group_name: ::std::option::Option<::std::string::String>,
-    /// <p>The Amazon Resource Name (ARN) of the rule group.</p>
+    /// <p>The Amazon Resource Name (ARN) of the rule group.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
     pub rule_group_arn: ::std::option::Option<::std::string::String>,
-    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note>
-    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
+    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note> 
+    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p> 
     /// </note>
     pub r#type: ::std::option::Option<crate::types::RuleGroupType>,
     /// <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis.</p>
     pub analyze_rule_group: ::std::option::Option<bool>,
 }
-impl DescribeRuleGroupInput {
-    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+impl  DescribeRuleGroupInput  {
+    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
-    pub fn rule_group_name(&self) -> ::std::option::Option<&str> {
+    pub fn rule_group_name(&self) -> ::std::option::Option<& str> {
         self.rule_group_name.as_deref()
     }
-    /// <p>The Amazon Resource Name (ARN) of the rule group.</p>
+    /// <p>The Amazon Resource Name (ARN) of the rule group.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
-    pub fn rule_group_arn(&self) -> ::std::option::Option<&str> {
+    pub fn rule_group_arn(&self) -> ::std::option::Option<& str> {
         self.rule_group_arn.as_deref()
     }
-    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note>
-    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
+    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note> 
+    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p> 
     /// </note>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::RuleGroupType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::RuleGroupType> {
         self.r#type.as_ref()
     }
     /// <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis.</p>
@@ -55,56 +55,53 @@ pub struct DescribeRuleGroupInputBuilder {
     pub(crate) analyze_rule_group: ::std::option::Option<bool>,
 }
 impl DescribeRuleGroupInputBuilder {
-    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
     pub fn rule_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.rule_group_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
     pub fn set_rule_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.rule_group_name = input;
-        self
+        self.rule_group_name = input; self
     }
-    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
+    /// <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
     pub fn get_rule_group_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.rule_group_name
     }
-    /// <p>The Amazon Resource Name (ARN) of the rule group.</p>
+    /// <p>The Amazon Resource Name (ARN) of the rule group.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
     pub fn rule_group_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.rule_group_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the rule group.</p>
+    /// <p>The Amazon Resource Name (ARN) of the rule group.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
     pub fn set_rule_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.rule_group_arn = input;
-        self
+        self.rule_group_arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the rule group.</p>
+    /// <p>The Amazon Resource Name (ARN) of the rule group.</p> 
     /// <p>You must specify the ARN or the name, and you can specify both. </p>
     pub fn get_rule_group_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.rule_group_arn
     }
-    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note>
-    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
+    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note> 
+    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p> 
     /// </note>
     pub fn r#type(mut self, input: crate::types::RuleGroupType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note>
-    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
+    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note> 
+    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p> 
     /// </note>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::RuleGroupType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note>
-    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
+    /// <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note> 
+    /// <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p> 
     /// </note>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::RuleGroupType> {
         &self.r#type
@@ -116,22 +113,26 @@ impl DescribeRuleGroupInputBuilder {
     }
     /// <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis.</p>
     pub fn set_analyze_rule_group(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.analyze_rule_group = input;
-        self
+        self.analyze_rule_group = input; self
     }
     /// <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis.</p>
     pub fn get_analyze_rule_group(&self) -> &::std::option::Option<bool> {
         &self.analyze_rule_group
     }
     /// Consumes the builder and constructs a [`DescribeRuleGroupInput`](crate::operation::describe_rule_group::DescribeRuleGroupInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::describe_rule_group::DescribeRuleGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::describe_rule_group::DescribeRuleGroupInput {
-            rule_group_name: self.rule_group_name,
-            rule_group_arn: self.rule_group_arn,
-            r#type: self.r#type,
-            analyze_rule_group: self.analyze_rule_group,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_rule_group::DescribeRuleGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_rule_group::DescribeRuleGroupInput {
+                rule_group_name: self.rule_group_name
+                ,
+                rule_group_arn: self.rule_group_arn
+                ,
+                r#type: self.r#type
+                ,
+                analyze_rule_group: self.analyze_rule_group
+                ,
+            }
+        )
     }
 }
+

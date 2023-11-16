@@ -5,67 +5,63 @@ pub use crate::operation::update_user_pool::_update_user_pool_input::UpdateUserP
 
 impl UpdateUserPoolInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::update_user_pool::UpdateUserPoolOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_user_pool::UpdateUserPoolError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.update_user_pool();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::update_user_pool::UpdateUserPoolOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::update_user_pool::UpdateUserPoolError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.update_user_pool();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `UpdateUserPool`.
-///
-/// <note>
-/// <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p>
-/// <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
-/// </note>
-/// <p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>.</p> <important>
-/// <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
-/// </important> <note>
-/// <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p>
-/// <p class="title"> <b>Learn more</b> </p>
-/// <ul>
-/// <li> <p> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a> </p> </li>
-/// <li> <p> <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li>
-/// </ul>
+/// 
+/// <note> 
+/// <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p> 
+/// <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i> <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a> </i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p> 
+/// </note> 
+/// <p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>.</p> <important> 
+/// <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p> 
+/// </important> <note> 
+/// <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.</p> 
+/// <p class="title"> <b>Learn more</b> </p> 
+/// <ul> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a> </p> </li> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a> </p> </li> 
+/// </ul> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateUserPoolFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_user_pool::builders::UpdateUserPoolInputBuilder,
+                    inner: crate::operation::update_user_pool::builders::UpdateUserPoolInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::update_user_pool::UpdateUserPoolOutput,
-        crate::operation::update_user_pool::UpdateUserPoolError,
-    > for UpdateUserPoolFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::update_user_pool::UpdateUserPoolOutput,
-            crate::operation::update_user_pool::UpdateUserPoolError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::update_user_pool::UpdateUserPoolOutput,
+                    crate::operation::update_user_pool::UpdateUserPoolError,
+                > for UpdateUserPoolFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::update_user_pool::UpdateUserPoolOutput,
+                        crate::operation::update_user_pool::UpdateUserPoolError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl UpdateUserPoolFluentBuilder {
     /// Creates a new `UpdateUserPool`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -74,53 +70,44 @@ impl UpdateUserPoolFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_user_pool::UpdateUserPoolOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_user_pool::UpdateUserPoolError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_user_pool::UpdateUserPool::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_user_pool::UpdateUserPool::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::update_user_pool::UpdateUserPoolOutput,
-        crate::operation::update_user_pool::UpdateUserPoolError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::update_user_pool::UpdateUserPoolOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool::UpdateUserPoolError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::update_user_pool::UpdateUserPool::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::update_user_pool::UpdateUserPool::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::update_user_pool::UpdateUserPoolOutput, crate::operation::update_user_pool::UpdateUserPoolError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The user pool ID for the user pool you want to update.</p>
     pub fn user_pool_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.user_pool_id(input.into());
@@ -149,19 +136,19 @@ impl UpdateUserPoolFluentBuilder {
     pub fn get_policies(&self) -> &::std::option::Option<crate::types::UserPoolPolicyType> {
         self.inner.get_policies()
     }
-    /// <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p>
+    /// <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p> 
     /// <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
     pub fn deletion_protection(mut self, input: crate::types::DeletionProtectionType) -> Self {
         self.inner = self.inner.deletion_protection(input);
         self
     }
-    /// <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p>
+    /// <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p> 
     /// <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
     pub fn set_deletion_protection(mut self, input: ::std::option::Option<crate::types::DeletionProtectionType>) -> Self {
         self.inner = self.inner.set_deletion_protection(input);
         self
     }
-    /// <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p>
+    /// <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p> 
     /// <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
     pub fn get_deletion_protection(&self) -> &::std::option::Option<crate::types::DeletionProtectionType> {
         self.inner.get_deletion_protection()
@@ -190,12 +177,12 @@ impl UpdateUserPoolFluentBuilder {
         self
     }
     /// <p>The attributes that are automatically verified when Amazon Cognito requests to update user pools.</p>
-    pub fn set_auto_verified_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>) -> Self {
+    pub fn set_auto_verified_attributes(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::VerifiedAttributeType>>) -> Self {
         self.inner = self.inner.set_auto_verified_attributes(input);
         self
     }
     /// <p>The attributes that are automatically verified when Amazon Cognito requests to update user pools.</p>
-    pub fn get_auto_verified_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>> {
+    pub fn get_auto_verified_attributes(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::VerifiedAttributeType>> {
         self.inner.get_auto_verified_attributes()
     }
     /// <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
@@ -282,51 +269,51 @@ impl UpdateUserPoolFluentBuilder {
     pub fn get_user_attribute_update_settings(&self) -> &::std::option::Option<crate::types::UserAttributeUpdateSettingsType> {
         self.inner.get_user_attribute_update_settings()
     }
-    /// <p>Possible values include:</p>
-    /// <ul>
-    /// <li> <p> <code>OFF</code> - MFA tokens aren't required and can't be specified during user registration.</p> </li>
-    /// <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify ON when you're initially creating a user pool. You can use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> API operation to turn MFA "ON" for existing user pools. </p> </li>
-    /// <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li>
+    /// <p>Possible values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>OFF</code> - MFA tokens aren't required and can't be specified during user registration.</p> </li> 
+    /// <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify ON when you're initially creating a user pool. You can use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> API operation to turn MFA "ON" for existing user pools. </p> </li> 
+    /// <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li> 
     /// </ul>
     pub fn mfa_configuration(mut self, input: crate::types::UserPoolMfaType) -> Self {
         self.inner = self.inner.mfa_configuration(input);
         self
     }
-    /// <p>Possible values include:</p>
-    /// <ul>
-    /// <li> <p> <code>OFF</code> - MFA tokens aren't required and can't be specified during user registration.</p> </li>
-    /// <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify ON when you're initially creating a user pool. You can use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> API operation to turn MFA "ON" for existing user pools. </p> </li>
-    /// <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li>
+    /// <p>Possible values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>OFF</code> - MFA tokens aren't required and can't be specified during user registration.</p> </li> 
+    /// <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify ON when you're initially creating a user pool. You can use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> API operation to turn MFA "ON" for existing user pools. </p> </li> 
+    /// <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li> 
     /// </ul>
     pub fn set_mfa_configuration(mut self, input: ::std::option::Option<crate::types::UserPoolMfaType>) -> Self {
         self.inner = self.inner.set_mfa_configuration(input);
         self
     }
-    /// <p>Possible values include:</p>
-    /// <ul>
-    /// <li> <p> <code>OFF</code> - MFA tokens aren't required and can't be specified during user registration.</p> </li>
-    /// <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify ON when you're initially creating a user pool. You can use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> API operation to turn MFA "ON" for existing user pools. </p> </li>
-    /// <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li>
+    /// <p>Possible values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>OFF</code> - MFA tokens aren't required and can't be specified during user registration.</p> </li> 
+    /// <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify ON when you're initially creating a user pool. You can use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> API operation to turn MFA "ON" for existing user pools. </p> </li> 
+    /// <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li> 
     /// </ul>
     pub fn get_mfa_configuration(&self) -> &::std::option::Option<crate::types::UserPoolMfaType> {
         self.inner.get_mfa_configuration()
     }
-    /// <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p> <note>
-    /// <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
+    /// <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p> <note> 
+    /// <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p> 
     /// </note>
     pub fn device_configuration(mut self, input: crate::types::DeviceConfigurationType) -> Self {
         self.inner = self.inner.device_configuration(input);
         self
     }
-    /// <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p> <note>
-    /// <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
+    /// <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p> <note> 
+    /// <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p> 
     /// </note>
     pub fn set_device_configuration(mut self, input: ::std::option::Option<crate::types::DeviceConfigurationType>) -> Self {
         self.inner = self.inner.set_device_configuration(input);
         self
     }
-    /// <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p> <note>
-    /// <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
+    /// <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p> <note> 
+    /// <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p> 
     /// </note>
     pub fn get_device_configuration(&self) -> &::std::option::Option<crate::types::DeviceConfigurationType> {
         self.inner.get_device_configuration()
@@ -364,24 +351,17 @@ impl UpdateUserPoolFluentBuilder {
     /// To override the contents of this collection use [`set_user_pool_tags`](Self::set_user_pool_tags).
     ///
     /// <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
-    pub fn user_pool_tags(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn user_pool_tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.user_pool_tags(k.into(), v.into());
         self
     }
     /// <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
-    pub fn set_user_pool_tags(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    ) -> Self {
+    pub fn set_user_pool_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_user_pool_tags(input);
         self
     }
     /// <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
-    pub fn get_user_pool_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_user_pool_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.inner.get_user_pool_tags()
     }
     /// <p>The configuration for <code>AdminCreateUser</code> requests.</p>
@@ -398,19 +378,19 @@ impl UpdateUserPoolFluentBuilder {
     pub fn get_admin_create_user_config(&self) -> &::std::option::Option<crate::types::AdminCreateUserConfigType> {
         self.inner.get_admin_create_user_config()
     }
-    /// <p>User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to risky traffic to your user pool, set to <code>ENFORCED</code>.</p>
+    /// <p>User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to risky traffic to your user pool, set to <code>ENFORCED</code>.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
     pub fn user_pool_add_ons(mut self, input: crate::types::UserPoolAddOnsType) -> Self {
         self.inner = self.inner.user_pool_add_ons(input);
         self
     }
-    /// <p>User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to risky traffic to your user pool, set to <code>ENFORCED</code>.</p>
+    /// <p>User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to risky traffic to your user pool, set to <code>ENFORCED</code>.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
     pub fn set_user_pool_add_ons(mut self, input: ::std::option::Option<crate::types::UserPoolAddOnsType>) -> Self {
         self.inner = self.inner.set_user_pool_add_ons(input);
         self
     }
-    /// <p>User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to risky traffic to your user pool, set to <code>ENFORCED</code>.</p>
+    /// <p>User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to risky traffic to your user pool, set to <code>ENFORCED</code>.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
     pub fn get_user_pool_add_ons(&self) -> &::std::option::Option<crate::types::UserPoolAddOnsType> {
         self.inner.get_user_pool_add_ons()
@@ -430,3 +410,4 @@ impl UpdateUserPoolFluentBuilder {
         self.inner.get_account_recovery_setting()
     }
 }
+

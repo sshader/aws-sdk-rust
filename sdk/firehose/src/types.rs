@@ -408,3 +408,4 @@ pub mod builders;
 
 /// Error types that Amazon Kinesis Firehose can respond with.
 pub mod error;
+

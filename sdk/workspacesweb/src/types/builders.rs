@@ -44,3 +44,4 @@ pub use crate::types::_identity_provider::IdentityProviderBuilder;
 pub use crate::types::_browser_settings_summary::BrowserSettingsSummaryBuilder;
 
 pub use crate::types::_browser_settings::BrowserSettingsBuilder;
+

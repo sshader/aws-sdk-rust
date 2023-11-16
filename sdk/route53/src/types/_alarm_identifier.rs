@@ -3,35 +3,34 @@
 /// <p>A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AlarmIdentifier {
-    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p>
+pub struct AlarmIdentifier  {
+    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p> 
     /// <p>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/cw_region.html">Amazon CloudWatch endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub region: crate::types::CloudWatchRegion,
-    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note>
-    /// <p>Route 53 supports CloudWatch alarms with the following features:</p>
-    /// <ul>
-    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li>
-    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li>
-    /// </ul>
+    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note> 
+    /// <p>Route 53 supports CloudWatch alarms with the following features:</p> 
+    /// <ul> 
+    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li> 
+    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li> 
+    /// </ul> 
     /// </note>
     pub name: ::std::string::String,
 }
-impl AlarmIdentifier {
-    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p>
+impl  AlarmIdentifier  {
+    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p> 
     /// <p>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/cw_region.html">Amazon CloudWatch endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn region(&self) -> &crate::types::CloudWatchRegion {
+    pub fn region(&self) -> & crate::types::CloudWatchRegion {
         &self.region
     }
-    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note>
-    /// <p>Route 53 supports CloudWatch alarms with the following features:</p>
-    /// <ul>
-    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li>
-    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li>
-    /// </ul>
+    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note> 
+    /// <p>Route 53 supports CloudWatch alarms with the following features:</p> 
+    /// <ul> 
+    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li> 
+    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li> 
+    /// </ul> 
     /// </note>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
 }
 impl AlarmIdentifier {
@@ -49,53 +48,51 @@ pub struct AlarmIdentifierBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
 }
 impl AlarmIdentifierBuilder {
-    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p>
+    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p> 
     /// <p>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/cw_region.html">Amazon CloudWatch endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
     /// This field is required.
     pub fn region(mut self, input: crate::types::CloudWatchRegion) -> Self {
         self.region = ::std::option::Option::Some(input);
         self
     }
-    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p>
+    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p> 
     /// <p>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/cw_region.html">Amazon CloudWatch endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_region(mut self, input: ::std::option::Option<crate::types::CloudWatchRegion>) -> Self {
-        self.region = input;
-        self
+        self.region = input; self
     }
-    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p>
+    /// <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p> 
     /// <p>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/cw_region.html">Amazon CloudWatch endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn get_region(&self) -> &::std::option::Option<crate::types::CloudWatchRegion> {
         &self.region
     }
-    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note>
-    /// <p>Route 53 supports CloudWatch alarms with the following features:</p>
-    /// <ul>
-    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li>
-    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li>
-    /// </ul>
+    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note> 
+    /// <p>Route 53 supports CloudWatch alarms with the following features:</p> 
+    /// <ul> 
+    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li> 
+    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li> 
+    /// </ul> 
     /// </note>
     /// This field is required.
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note>
-    /// <p>Route 53 supports CloudWatch alarms with the following features:</p>
-    /// <ul>
-    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li>
-    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li>
-    /// </ul>
+    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note> 
+    /// <p>Route 53 supports CloudWatch alarms with the following features:</p> 
+    /// <ul> 
+    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li> 
+    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li> 
+    /// </ul> 
     /// </note>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
-    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note>
-    /// <p>Route 53 supports CloudWatch alarms with the following features:</p>
-    /// <ul>
-    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li>
-    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li>
-    /// </ul>
+    /// <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.</p> <note> 
+    /// <p>Route 53 supports CloudWatch alarms with the following features:</p> 
+    /// <ul> 
+    /// <li> <p>Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li> 
+    /// <li> <p>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.</p> </li> 
+    /// </ul> 
     /// </note>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
@@ -105,19 +102,20 @@ impl AlarmIdentifierBuilder {
     /// - [`region`](crate::types::builders::AlarmIdentifierBuilder::region)
     /// - [`name`](crate::types::builders::AlarmIdentifierBuilder::name)
     pub fn build(self) -> ::std::result::Result<crate::types::AlarmIdentifier, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AlarmIdentifier {
-            region: self.region.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "region",
-                    "region was not specified but it is required when building AlarmIdentifier",
-                )
-            })?,
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building AlarmIdentifier",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AlarmIdentifier {
+                region: self.region
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("region", "region was not specified but it is required when building AlarmIdentifier")
+                    )?
+                ,
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building AlarmIdentifier")
+                    )?
+                ,
+            }
+        )
     }
 }
+

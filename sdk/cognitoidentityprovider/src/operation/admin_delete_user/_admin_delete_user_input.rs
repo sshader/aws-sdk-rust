@@ -3,23 +3,23 @@
 /// <p>Represents the request to delete a user as an administrator.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct AdminDeleteUserInput {
+pub struct AdminDeleteUserInput  {
     /// <p>The user pool ID for the user pool where you want to delete the user.</p>
     pub user_pool_id: ::std::option::Option<::std::string::String>,
     /// <p>The user name of the user you want to delete.</p>
     pub username: ::std::option::Option<::std::string::String>,
 }
-impl AdminDeleteUserInput {
+impl  AdminDeleteUserInput  {
     /// <p>The user pool ID for the user pool where you want to delete the user.</p>
-    pub fn user_pool_id(&self) -> ::std::option::Option<&str> {
+    pub fn user_pool_id(&self) -> ::std::option::Option<& str> {
         self.user_pool_id.as_deref()
     }
     /// <p>The user name of the user you want to delete.</p>
-    pub fn username(&self) -> ::std::option::Option<&str> {
+    pub fn username(&self) -> ::std::option::Option<& str> {
         self.username.as_deref()
     }
 }
-impl ::std::fmt::Debug for AdminDeleteUserInput {
+impl  ::std::fmt::Debug for AdminDeleteUserInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("AdminDeleteUserInput");
         formatter.field("user_pool_id", &self.user_pool_id);
@@ -50,8 +50,7 @@ impl AdminDeleteUserInputBuilder {
     }
     /// <p>The user pool ID for the user pool where you want to delete the user.</p>
     pub fn set_user_pool_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.user_pool_id = input;
-        self
+        self.user_pool_id = input; self
     }
     /// <p>The user pool ID for the user pool where you want to delete the user.</p>
     pub fn get_user_pool_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -65,21 +64,22 @@ impl AdminDeleteUserInputBuilder {
     }
     /// <p>The user name of the user you want to delete.</p>
     pub fn set_username(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.username = input;
-        self
+        self.username = input; self
     }
     /// <p>The user name of the user you want to delete.</p>
     pub fn get_username(&self) -> &::std::option::Option<::std::string::String> {
         &self.username
     }
     /// Consumes the builder and constructs a [`AdminDeleteUserInput`](crate::operation::admin_delete_user::AdminDeleteUserInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::admin_delete_user::AdminDeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::admin_delete_user::AdminDeleteUserInput {
-            user_pool_id: self.user_pool_id,
-            username: self.username,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::admin_delete_user::AdminDeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::admin_delete_user::AdminDeleteUserInput {
+                user_pool_id: self.user_pool_id
+                ,
+                username: self.username
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for AdminDeleteUserInputBuilder {
@@ -90,3 +90,4 @@ impl ::std::fmt::Debug for AdminDeleteUserInputBuilder {
         formatter.finish()
     }
 }
+

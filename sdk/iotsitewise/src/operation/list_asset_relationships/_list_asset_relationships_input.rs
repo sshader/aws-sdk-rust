@@ -2,12 +2,12 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListAssetRelationshipsInput {
+pub struct ListAssetRelationshipsInput  {
     /// <p>The ID of the asset.</p>
     pub asset_id: ::std::option::Option<::std::string::String>,
-    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p>
-    /// <ul>
-    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li>
+    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li> 
     /// </ul>
     pub traversal_type: ::std::option::Option<crate::types::TraversalType>,
     /// <p>The token to be used for the next set of paginated results.</p>
@@ -15,20 +15,20 @@ pub struct ListAssetRelationshipsInput {
     /// <p>The maximum number of results to return for each paginated request.</p>
     pub max_results: ::std::option::Option<i32>,
 }
-impl ListAssetRelationshipsInput {
+impl  ListAssetRelationshipsInput  {
     /// <p>The ID of the asset.</p>
-    pub fn asset_id(&self) -> ::std::option::Option<&str> {
+    pub fn asset_id(&self) -> ::std::option::Option<& str> {
         self.asset_id.as_deref()
     }
-    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p>
-    /// <ul>
-    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li>
+    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li> 
     /// </ul>
-    pub fn traversal_type(&self) -> ::std::option::Option<&crate::types::TraversalType> {
+    pub fn traversal_type(&self) -> ::std::option::Option<& crate::types::TraversalType> {
         self.traversal_type.as_ref()
     }
     /// <p>The token to be used for the next set of paginated results.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// <p>The maximum number of results to return for each paginated request.</p>
@@ -61,33 +61,31 @@ impl ListAssetRelationshipsInputBuilder {
     }
     /// <p>The ID of the asset.</p>
     pub fn set_asset_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.asset_id = input;
-        self
+        self.asset_id = input; self
     }
     /// <p>The ID of the asset.</p>
     pub fn get_asset_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.asset_id
     }
-    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p>
-    /// <ul>
-    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li>
+    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn traversal_type(mut self, input: crate::types::TraversalType) -> Self {
         self.traversal_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p>
-    /// <ul>
-    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li>
+    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li> 
     /// </ul>
     pub fn set_traversal_type(mut self, input: ::std::option::Option<crate::types::TraversalType>) -> Self {
-        self.traversal_type = input;
-        self
+        self.traversal_type = input; self
     }
-    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p>
-    /// <ul>
-    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li>
+    /// <p>The type of traversal to use to identify asset relationships. Choose the following option:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li> 
     /// </ul>
     pub fn get_traversal_type(&self) -> &::std::option::Option<crate::types::TraversalType> {
         &self.traversal_type
@@ -99,8 +97,7 @@ impl ListAssetRelationshipsInputBuilder {
     }
     /// <p>The token to be used for the next set of paginated results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The token to be used for the next set of paginated results.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -113,25 +110,26 @@ impl ListAssetRelationshipsInputBuilder {
     }
     /// <p>The maximum number of results to return for each paginated request.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of results to return for each paginated request.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
     }
     /// Consumes the builder and constructs a [`ListAssetRelationshipsInput`](crate::operation::list_asset_relationships::ListAssetRelationshipsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_asset_relationships::ListAssetRelationshipsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::list_asset_relationships::ListAssetRelationshipsInput {
-            asset_id: self.asset_id,
-            traversal_type: self.traversal_type,
-            next_token: self.next_token,
-            max_results: self.max_results,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_asset_relationships::ListAssetRelationshipsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_asset_relationships::ListAssetRelationshipsInput {
+                asset_id: self.asset_id
+                ,
+                traversal_type: self.traversal_type
+                ,
+                next_token: self.next_token
+                ,
+                max_results: self.max_results
+                ,
+            }
+        )
     }
 }
+

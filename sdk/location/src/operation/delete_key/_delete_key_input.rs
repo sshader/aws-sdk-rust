@@ -2,13 +2,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteKeyInput {
+pub struct DeleteKeyInput  {
     /// <p>The name of the API key to delete.</p>
     pub key_name: ::std::option::Option<::std::string::String>,
 }
-impl DeleteKeyInput {
+impl  DeleteKeyInput  {
     /// <p>The name of the API key to delete.</p>
-    pub fn key_name(&self) -> ::std::option::Option<&str> {
+    pub fn key_name(&self) -> ::std::option::Option<& str> {
         self.key_name.as_deref()
     }
 }
@@ -34,8 +34,7 @@ impl DeleteKeyInputBuilder {
     }
     /// <p>The name of the API key to delete.</p>
     pub fn set_key_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.key_name = input;
-        self
+        self.key_name = input; self
     }
     /// <p>The name of the API key to delete.</p>
     pub fn get_key_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -43,6 +42,12 @@ impl DeleteKeyInputBuilder {
     }
     /// Consumes the builder and constructs a [`DeleteKeyInput`](crate::operation::delete_key::DeleteKeyInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::delete_key::DeleteKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_key::DeleteKeyInput { key_name: self.key_name })
+        ::std::result::Result::Ok(
+            crate::operation::delete_key::DeleteKeyInput {
+                key_name: self.key_name
+                ,
+            }
+        )
     }
 }
+

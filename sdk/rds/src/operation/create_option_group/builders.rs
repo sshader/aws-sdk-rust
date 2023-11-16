@@ -5,55 +5,51 @@ pub use crate::operation::create_option_group::_create_option_group_input::Creat
 
 impl CreateOptionGroupInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_option_group::CreateOptionGroupOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_option_group::CreateOptionGroupError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_option_group();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_option_group::CreateOptionGroupOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_option_group::CreateOptionGroupError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_option_group();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateOptionGroup`.
-///
-/// <p>Creates a new option group. You can create up to 20 option groups.</p>
+/// 
+/// <p>Creates a new option group. You can create up to 20 option groups.</p> 
 /// <p>This command doesn't apply to RDS Custom.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateOptionGroupFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_option_group::builders::CreateOptionGroupInputBuilder,
+                    inner: crate::operation::create_option_group::builders::CreateOptionGroupInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_option_group::CreateOptionGroupOutput,
-        crate::operation::create_option_group::CreateOptionGroupError,
-    > for CreateOptionGroupFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_option_group::CreateOptionGroupOutput,
-            crate::operation::create_option_group::CreateOptionGroupError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_option_group::CreateOptionGroupOutput,
+                    crate::operation::create_option_group::CreateOptionGroupError,
+                > for CreateOptionGroupFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_option_group::CreateOptionGroupOutput,
+                        crate::operation::create_option_group::CreateOptionGroupError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateOptionGroupFluentBuilder {
     /// Creates a new `CreateOptionGroup`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -62,140 +58,131 @@ impl CreateOptionGroupFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_option_group::CreateOptionGroupOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_option_group::CreateOptionGroupError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_option_group::CreateOptionGroup::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_option_group::CreateOptionGroup::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_option_group::CreateOptionGroupOutput,
-        crate::operation::create_option_group::CreateOptionGroupError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>Specifies the name of the option group to be created.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must be 1 to 255 letters, numbers, or hyphens</p> </li>
-    /// <li> <p>First character must be a letter</p> </li>
-    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li>
-    /// </ul>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_option_group::CreateOptionGroupOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_option_group::CreateOptionGroupError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_option_group::CreateOptionGroup::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_option_group::CreateOptionGroup::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_option_group::CreateOptionGroupOutput, crate::operation::create_option_group::CreateOptionGroupError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>Specifies the name of the option group to be created.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must be 1 to 255 letters, numbers, or hyphens</p> </li> 
+    /// <li> <p>First character must be a letter</p> </li> 
+    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> 
+    /// </ul> 
     /// <p>Example: <code>myoptiongroup</code> </p>
     pub fn option_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.option_group_name(input.into());
         self
     }
-    /// <p>Specifies the name of the option group to be created.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must be 1 to 255 letters, numbers, or hyphens</p> </li>
-    /// <li> <p>First character must be a letter</p> </li>
-    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li>
-    /// </ul>
+    /// <p>Specifies the name of the option group to be created.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must be 1 to 255 letters, numbers, or hyphens</p> </li> 
+    /// <li> <p>First character must be a letter</p> </li> 
+    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> 
+    /// </ul> 
     /// <p>Example: <code>myoptiongroup</code> </p>
     pub fn set_option_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_option_group_name(input);
         self
     }
-    /// <p>Specifies the name of the option group to be created.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must be 1 to 255 letters, numbers, or hyphens</p> </li>
-    /// <li> <p>First character must be a letter</p> </li>
-    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li>
-    /// </ul>
+    /// <p>Specifies the name of the option group to be created.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must be 1 to 255 letters, numbers, or hyphens</p> </li> 
+    /// <li> <p>First character must be a letter</p> </li> 
+    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> 
+    /// </ul> 
     /// <p>Example: <code>myoptiongroup</code> </p>
     pub fn get_option_group_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_option_group_name()
     }
-    /// <p>Specifies the name of the engine that this option group should be associated with.</p>
-    /// <p>Valid Values:</p>
-    /// <ul>
-    /// <li> <p> <code>mariadb</code> </p> </li>
-    /// <li> <p> <code>mysql</code> </p> </li>
-    /// <li> <p> <code>oracle-ee</code> </p> </li>
-    /// <li> <p> <code>oracle-ee-cdb</code> </p> </li>
-    /// <li> <p> <code>oracle-se2</code> </p> </li>
-    /// <li> <p> <code>oracle-se2-cdb</code> </p> </li>
-    /// <li> <p> <code>postgres</code> </p> </li>
-    /// <li> <p> <code>sqlserver-ee</code> </p> </li>
-    /// <li> <p> <code>sqlserver-se</code> </p> </li>
-    /// <li> <p> <code>sqlserver-ex</code> </p> </li>
-    /// <li> <p> <code>sqlserver-web</code> </p> </li>
+    /// <p>Specifies the name of the engine that this option group should be associated with.</p> 
+    /// <p>Valid Values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>mariadb</code> </p> </li> 
+    /// <li> <p> <code>mysql</code> </p> </li> 
+    /// <li> <p> <code>oracle-ee</code> </p> </li> 
+    /// <li> <p> <code>oracle-ee-cdb</code> </p> </li> 
+    /// <li> <p> <code>oracle-se2</code> </p> </li> 
+    /// <li> <p> <code>oracle-se2-cdb</code> </p> </li> 
+    /// <li> <p> <code>postgres</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-ee</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-se</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-ex</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-web</code> </p> </li> 
     /// </ul>
     pub fn engine_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.engine_name(input.into());
         self
     }
-    /// <p>Specifies the name of the engine that this option group should be associated with.</p>
-    /// <p>Valid Values:</p>
-    /// <ul>
-    /// <li> <p> <code>mariadb</code> </p> </li>
-    /// <li> <p> <code>mysql</code> </p> </li>
-    /// <li> <p> <code>oracle-ee</code> </p> </li>
-    /// <li> <p> <code>oracle-ee-cdb</code> </p> </li>
-    /// <li> <p> <code>oracle-se2</code> </p> </li>
-    /// <li> <p> <code>oracle-se2-cdb</code> </p> </li>
-    /// <li> <p> <code>postgres</code> </p> </li>
-    /// <li> <p> <code>sqlserver-ee</code> </p> </li>
-    /// <li> <p> <code>sqlserver-se</code> </p> </li>
-    /// <li> <p> <code>sqlserver-ex</code> </p> </li>
-    /// <li> <p> <code>sqlserver-web</code> </p> </li>
+    /// <p>Specifies the name of the engine that this option group should be associated with.</p> 
+    /// <p>Valid Values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>mariadb</code> </p> </li> 
+    /// <li> <p> <code>mysql</code> </p> </li> 
+    /// <li> <p> <code>oracle-ee</code> </p> </li> 
+    /// <li> <p> <code>oracle-ee-cdb</code> </p> </li> 
+    /// <li> <p> <code>oracle-se2</code> </p> </li> 
+    /// <li> <p> <code>oracle-se2-cdb</code> </p> </li> 
+    /// <li> <p> <code>postgres</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-ee</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-se</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-ex</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-web</code> </p> </li> 
     /// </ul>
     pub fn set_engine_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_engine_name(input);
         self
     }
-    /// <p>Specifies the name of the engine that this option group should be associated with.</p>
-    /// <p>Valid Values:</p>
-    /// <ul>
-    /// <li> <p> <code>mariadb</code> </p> </li>
-    /// <li> <p> <code>mysql</code> </p> </li>
-    /// <li> <p> <code>oracle-ee</code> </p> </li>
-    /// <li> <p> <code>oracle-ee-cdb</code> </p> </li>
-    /// <li> <p> <code>oracle-se2</code> </p> </li>
-    /// <li> <p> <code>oracle-se2-cdb</code> </p> </li>
-    /// <li> <p> <code>postgres</code> </p> </li>
-    /// <li> <p> <code>sqlserver-ee</code> </p> </li>
-    /// <li> <p> <code>sqlserver-se</code> </p> </li>
-    /// <li> <p> <code>sqlserver-ex</code> </p> </li>
-    /// <li> <p> <code>sqlserver-web</code> </p> </li>
+    /// <p>Specifies the name of the engine that this option group should be associated with.</p> 
+    /// <p>Valid Values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>mariadb</code> </p> </li> 
+    /// <li> <p> <code>mysql</code> </p> </li> 
+    /// <li> <p> <code>oracle-ee</code> </p> </li> 
+    /// <li> <p> <code>oracle-ee-cdb</code> </p> </li> 
+    /// <li> <p> <code>oracle-se2</code> </p> </li> 
+    /// <li> <p> <code>oracle-se2-cdb</code> </p> </li> 
+    /// <li> <p> <code>postgres</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-ee</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-se</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-ex</code> </p> </li> 
+    /// <li> <p> <code>sqlserver-web</code> </p> </li> 
     /// </ul>
     pub fn get_engine_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_engine_name()
@@ -238,12 +225,13 @@ impl CreateOptionGroupFluentBuilder {
         self
     }
     /// <p>Tags to assign to the option group.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>Tags to assign to the option group.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
 }
+

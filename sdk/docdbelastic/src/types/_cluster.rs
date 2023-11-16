@@ -3,7 +3,7 @@
 /// <p>Returns information about a specific Elastic DocumentDB cluster.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Cluster {
+pub struct Cluster  {
     /// <p>The name of the Elastic DocumentDB cluster.</p>
     pub cluster_name: ::std::string::String,
     /// <p>The arn of the Elastic DocumentDB cluster.</p>
@@ -23,47 +23,42 @@ pub struct Cluster {
     /// <p>The number of shards in the Elastic DocumentDB cluster.</p>
     pub shard_count: i32,
     /// <p>A list of EC2 VPC security groups associated with this cluster.</p>
-    pub vpc_security_group_ids: ::std::vec::Vec<::std::string::String>,
+    pub vpc_security_group_ids: ::std::vec::Vec::<::std::string::String>,
     /// <p>The Amazon EC2 subnet IDs for the Elastic DocumentDB cluster.</p>
-    pub subnet_ids: ::std::vec::Vec<::std::string::String>,
-    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
+    pub subnet_ids: ::std::vec::Vec::<::std::string::String>,
+    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p> 
     /// <p> <i>Format</i>: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p>
     pub preferred_maintenance_window: ::std::string::String,
     /// <p>The KMS key identifier to use to encrypt the Elastic DocumentDB cluster.</p>
     pub kms_key_id: ::std::string::String,
 }
-impl Cluster {
+impl  Cluster  {
     /// <p>The name of the Elastic DocumentDB cluster.</p>
-    pub fn cluster_name(&self) -> &str {
-        use std::ops::Deref;
-        self.cluster_name.deref()
+    pub fn cluster_name(&self) -> & str {
+        use std::ops::Deref; self.cluster_name.deref()
     }
     /// <p>The arn of the Elastic DocumentDB cluster.</p>
-    pub fn cluster_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.cluster_arn.deref()
+    pub fn cluster_arn(&self) -> & str {
+        use std::ops::Deref; self.cluster_arn.deref()
     }
     /// <p>The status of the Elastic DocumentDB cluster.</p>
-    pub fn status(&self) -> &crate::types::Status {
+    pub fn status(&self) -> & crate::types::Status {
         &self.status
     }
     /// <p>The URL used to connect to the Elastic DocumentDB cluster.</p>
-    pub fn cluster_endpoint(&self) -> &str {
-        use std::ops::Deref;
-        self.cluster_endpoint.deref()
+    pub fn cluster_endpoint(&self) -> & str {
+        use std::ops::Deref; self.cluster_endpoint.deref()
     }
     /// <p>The time when the Elastic DocumentDB cluster was created in Universal Coordinated Time (UTC).</p>
-    pub fn create_time(&self) -> &str {
-        use std::ops::Deref;
-        self.create_time.deref()
+    pub fn create_time(&self) -> & str {
+        use std::ops::Deref; self.create_time.deref()
     }
     /// <p>The name of the Elastic DocumentDB cluster administrator.</p>
-    pub fn admin_user_name(&self) -> &str {
-        use std::ops::Deref;
-        self.admin_user_name.deref()
+    pub fn admin_user_name(&self) -> & str {
+        use std::ops::Deref; self.admin_user_name.deref()
     }
     /// <p>The authentication type for the Elastic DocumentDB cluster.</p>
-    pub fn auth_type(&self) -> &crate::types::Auth {
+    pub fn auth_type(&self) -> & crate::types::Auth {
         &self.auth_type
     }
     /// <p>The capacity of each shard in the Elastic DocumentDB cluster.</p>
@@ -75,25 +70,21 @@ impl Cluster {
         self.shard_count
     }
     /// <p>A list of EC2 VPC security groups associated with this cluster.</p>
-    pub fn vpc_security_group_ids(&self) -> &[::std::string::String] {
-        use std::ops::Deref;
-        self.vpc_security_group_ids.deref()
+    pub fn vpc_security_group_ids(&self) -> & [::std::string::String] {
+        use std::ops::Deref; self.vpc_security_group_ids.deref()
     }
     /// <p>The Amazon EC2 subnet IDs for the Elastic DocumentDB cluster.</p>
-    pub fn subnet_ids(&self) -> &[::std::string::String] {
-        use std::ops::Deref;
-        self.subnet_ids.deref()
+    pub fn subnet_ids(&self) -> & [::std::string::String] {
+        use std::ops::Deref; self.subnet_ids.deref()
     }
-    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
+    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p> 
     /// <p> <i>Format</i>: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p>
-    pub fn preferred_maintenance_window(&self) -> &str {
-        use std::ops::Deref;
-        self.preferred_maintenance_window.deref()
+    pub fn preferred_maintenance_window(&self) -> & str {
+        use std::ops::Deref; self.preferred_maintenance_window.deref()
     }
     /// <p>The KMS key identifier to use to encrypt the Elastic DocumentDB cluster.</p>
-    pub fn kms_key_id(&self) -> &str {
-        use std::ops::Deref;
-        self.kms_key_id.deref()
+    pub fn kms_key_id(&self) -> & str {
+        use std::ops::Deref; self.kms_key_id.deref()
     }
 }
 impl Cluster {
@@ -116,8 +107,8 @@ pub struct ClusterBuilder {
     pub(crate) auth_type: ::std::option::Option<crate::types::Auth>,
     pub(crate) shard_capacity: ::std::option::Option<i32>,
     pub(crate) shard_count: ::std::option::Option<i32>,
-    pub(crate) vpc_security_group_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) subnet_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) vpc_security_group_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    pub(crate) subnet_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) preferred_maintenance_window: ::std::option::Option<::std::string::String>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
 }
@@ -130,8 +121,7 @@ impl ClusterBuilder {
     }
     /// <p>The name of the Elastic DocumentDB cluster.</p>
     pub fn set_cluster_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.cluster_name = input;
-        self
+        self.cluster_name = input; self
     }
     /// <p>The name of the Elastic DocumentDB cluster.</p>
     pub fn get_cluster_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -145,8 +135,7 @@ impl ClusterBuilder {
     }
     /// <p>The arn of the Elastic DocumentDB cluster.</p>
     pub fn set_cluster_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.cluster_arn = input;
-        self
+        self.cluster_arn = input; self
     }
     /// <p>The arn of the Elastic DocumentDB cluster.</p>
     pub fn get_cluster_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -160,8 +149,7 @@ impl ClusterBuilder {
     }
     /// <p>The status of the Elastic DocumentDB cluster.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::Status>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>The status of the Elastic DocumentDB cluster.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::Status> {
@@ -175,8 +163,7 @@ impl ClusterBuilder {
     }
     /// <p>The URL used to connect to the Elastic DocumentDB cluster.</p>
     pub fn set_cluster_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.cluster_endpoint = input;
-        self
+        self.cluster_endpoint = input; self
     }
     /// <p>The URL used to connect to the Elastic DocumentDB cluster.</p>
     pub fn get_cluster_endpoint(&self) -> &::std::option::Option<::std::string::String> {
@@ -190,8 +177,7 @@ impl ClusterBuilder {
     }
     /// <p>The time when the Elastic DocumentDB cluster was created in Universal Coordinated Time (UTC).</p>
     pub fn set_create_time(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.create_time = input;
-        self
+        self.create_time = input; self
     }
     /// <p>The time when the Elastic DocumentDB cluster was created in Universal Coordinated Time (UTC).</p>
     pub fn get_create_time(&self) -> &::std::option::Option<::std::string::String> {
@@ -205,8 +191,7 @@ impl ClusterBuilder {
     }
     /// <p>The name of the Elastic DocumentDB cluster administrator.</p>
     pub fn set_admin_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.admin_user_name = input;
-        self
+        self.admin_user_name = input; self
     }
     /// <p>The name of the Elastic DocumentDB cluster administrator.</p>
     pub fn get_admin_user_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -220,8 +205,7 @@ impl ClusterBuilder {
     }
     /// <p>The authentication type for the Elastic DocumentDB cluster.</p>
     pub fn set_auth_type(mut self, input: ::std::option::Option<crate::types::Auth>) -> Self {
-        self.auth_type = input;
-        self
+        self.auth_type = input; self
     }
     /// <p>The authentication type for the Elastic DocumentDB cluster.</p>
     pub fn get_auth_type(&self) -> &::std::option::Option<crate::types::Auth> {
@@ -235,8 +219,7 @@ impl ClusterBuilder {
     }
     /// <p>The capacity of each shard in the Elastic DocumentDB cluster.</p>
     pub fn set_shard_capacity(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.shard_capacity = input;
-        self
+        self.shard_capacity = input; self
     }
     /// <p>The capacity of each shard in the Elastic DocumentDB cluster.</p>
     pub fn get_shard_capacity(&self) -> &::std::option::Option<i32> {
@@ -250,8 +233,7 @@ impl ClusterBuilder {
     }
     /// <p>The number of shards in the Elastic DocumentDB cluster.</p>
     pub fn set_shard_count(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.shard_count = input;
-        self
+        self.shard_count = input; self
     }
     /// <p>The number of shards in the Elastic DocumentDB cluster.</p>
     pub fn get_shard_count(&self) -> &::std::option::Option<i32> {
@@ -264,17 +246,16 @@ impl ClusterBuilder {
     /// <p>A list of EC2 VPC security groups associated with this cluster.</p>
     pub fn vpc_security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.vpc_security_group_ids.unwrap_or_default();
-        v.push(input.into());
-        self.vpc_security_group_ids = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.vpc_security_group_ids = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of EC2 VPC security groups associated with this cluster.</p>
-    pub fn set_vpc_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.vpc_security_group_ids = input;
-        self
+    pub fn set_vpc_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.vpc_security_group_ids = input; self
     }
     /// <p>A list of EC2 VPC security groups associated with this cluster.</p>
-    pub fn get_vpc_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_vpc_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.vpc_security_group_ids
     }
     /// Appends an item to `subnet_ids`.
@@ -284,33 +265,31 @@ impl ClusterBuilder {
     /// <p>The Amazon EC2 subnet IDs for the Elastic DocumentDB cluster.</p>
     pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.subnet_ids.unwrap_or_default();
-        v.push(input.into());
-        self.subnet_ids = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.subnet_ids = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The Amazon EC2 subnet IDs for the Elastic DocumentDB cluster.</p>
-    pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.subnet_ids = input;
-        self
+    pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.subnet_ids = input; self
     }
     /// <p>The Amazon EC2 subnet IDs for the Elastic DocumentDB cluster.</p>
-    pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.subnet_ids
     }
-    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
+    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p> 
     /// <p> <i>Format</i>: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p>
     /// This field is required.
     pub fn preferred_maintenance_window(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.preferred_maintenance_window = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
+    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p> 
     /// <p> <i>Format</i>: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p>
     pub fn set_preferred_maintenance_window(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.preferred_maintenance_window = input;
-        self
+        self.preferred_maintenance_window = input; self
     }
-    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
+    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p> 
     /// <p> <i>Format</i>: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p>
     pub fn get_preferred_maintenance_window(&self) -> &::std::option::Option<::std::string::String> {
         &self.preferred_maintenance_window
@@ -323,8 +302,7 @@ impl ClusterBuilder {
     }
     /// <p>The KMS key identifier to use to encrypt the Elastic DocumentDB cluster.</p>
     pub fn set_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.kms_key_id = input;
-        self
+        self.kms_key_id = input; self
     }
     /// <p>The KMS key identifier to use to encrypt the Elastic DocumentDB cluster.</p>
     pub fn get_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -346,85 +324,75 @@ impl ClusterBuilder {
     /// - [`preferred_maintenance_window`](crate::types::builders::ClusterBuilder::preferred_maintenance_window)
     /// - [`kms_key_id`](crate::types::builders::ClusterBuilder::kms_key_id)
     pub fn build(self) -> ::std::result::Result<crate::types::Cluster, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::Cluster {
-            cluster_name: self.cluster_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "cluster_name",
-                    "cluster_name was not specified but it is required when building Cluster",
-                )
-            })?,
-            cluster_arn: self.cluster_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "cluster_arn",
-                    "cluster_arn was not specified but it is required when building Cluster",
-                )
-            })?,
-            status: self.status.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "status",
-                    "status was not specified but it is required when building Cluster",
-                )
-            })?,
-            cluster_endpoint: self.cluster_endpoint.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "cluster_endpoint",
-                    "cluster_endpoint was not specified but it is required when building Cluster",
-                )
-            })?,
-            create_time: self.create_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "create_time",
-                    "create_time was not specified but it is required when building Cluster",
-                )
-            })?,
-            admin_user_name: self.admin_user_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "admin_user_name",
-                    "admin_user_name was not specified but it is required when building Cluster",
-                )
-            })?,
-            auth_type: self.auth_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "auth_type",
-                    "auth_type was not specified but it is required when building Cluster",
-                )
-            })?,
-            shard_capacity: self.shard_capacity.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "shard_capacity",
-                    "shard_capacity was not specified but it is required when building Cluster",
-                )
-            })?,
-            shard_count: self.shard_count.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "shard_count",
-                    "shard_count was not specified but it is required when building Cluster",
-                )
-            })?,
-            vpc_security_group_ids: self.vpc_security_group_ids.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "vpc_security_group_ids",
-                    "vpc_security_group_ids was not specified but it is required when building Cluster",
-                )
-            })?,
-            subnet_ids: self.subnet_ids.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "subnet_ids",
-                    "subnet_ids was not specified but it is required when building Cluster",
-                )
-            })?,
-            preferred_maintenance_window: self.preferred_maintenance_window.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "preferred_maintenance_window",
-                    "preferred_maintenance_window was not specified but it is required when building Cluster",
-                )
-            })?,
-            kms_key_id: self.kms_key_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "kms_key_id",
-                    "kms_key_id was not specified but it is required when building Cluster",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::Cluster {
+                cluster_name: self.cluster_name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("cluster_name", "cluster_name was not specified but it is required when building Cluster")
+                    )?
+                ,
+                cluster_arn: self.cluster_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("cluster_arn", "cluster_arn was not specified but it is required when building Cluster")
+                    )?
+                ,
+                status: self.status
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building Cluster")
+                    )?
+                ,
+                cluster_endpoint: self.cluster_endpoint
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("cluster_endpoint", "cluster_endpoint was not specified but it is required when building Cluster")
+                    )?
+                ,
+                create_time: self.create_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("create_time", "create_time was not specified but it is required when building Cluster")
+                    )?
+                ,
+                admin_user_name: self.admin_user_name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("admin_user_name", "admin_user_name was not specified but it is required when building Cluster")
+                    )?
+                ,
+                auth_type: self.auth_type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("auth_type", "auth_type was not specified but it is required when building Cluster")
+                    )?
+                ,
+                shard_capacity: self.shard_capacity
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("shard_capacity", "shard_capacity was not specified but it is required when building Cluster")
+                    )?
+                ,
+                shard_count: self.shard_count
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("shard_count", "shard_count was not specified but it is required when building Cluster")
+                    )?
+                ,
+                vpc_security_group_ids: self.vpc_security_group_ids
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("vpc_security_group_ids", "vpc_security_group_ids was not specified but it is required when building Cluster")
+                    )?
+                ,
+                subnet_ids: self.subnet_ids
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("subnet_ids", "subnet_ids was not specified but it is required when building Cluster")
+                    )?
+                ,
+                preferred_maintenance_window: self.preferred_maintenance_window
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("preferred_maintenance_window", "preferred_maintenance_window was not specified but it is required when building Cluster")
+                    )?
+                ,
+                kms_key_id: self.kms_key_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("kms_key_id", "kms_key_id was not specified but it is required when building Cluster")
+                    )?
+                ,
+            }
+        )
     }
 }
+

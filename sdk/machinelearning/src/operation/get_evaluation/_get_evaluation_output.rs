@@ -3,7 +3,7 @@
 /// <p>Represents the output of a <code>GetEvaluation</code> operation and describes an <code>Evaluation</code>.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetEvaluationOutput {
+pub struct GetEvaluationOutput  {
     /// <p>The evaluation ID which is same as the <code>EvaluationId</code> in the request.</p>
     pub evaluation_id: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the <code>MLModel</code> that was the focus of the evaluation.</p>
@@ -20,21 +20,21 @@ pub struct GetEvaluationOutput {
     pub last_updated_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>A user-supplied name or description of the <code>Evaluation</code>. </p>
     pub name: ::std::option::Option<::std::string::String>,
-    /// <p>The status of the evaluation. This element can have one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li>
-    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li>
-    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li>
-    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li>
+    /// <p>The status of the evaluation. This element can have one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li> 
+    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li> 
+    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li> 
     /// </ul>
     pub status: ::std::option::Option<crate::types::EntityStatus>,
-    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p>
-    /// <ul>
-    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li>
-    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li>
-    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li>
-    /// </ul>
+    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p> 
+    /// <ul> 
+    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li> 
+    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li> 
+    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li> 
+    /// </ul> 
     /// <p> For more information about performance metrics, please see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>. </p>
     pub performance_metrics: ::std::option::Option<crate::types::PerformanceMetrics>,
     /// <p>A link to the file that contains logs of the <code>CreateEvaluation</code> operation.</p>
@@ -49,66 +49,66 @@ pub struct GetEvaluationOutput {
     pub started_at: ::std::option::Option<::aws_smithy_types::DateTime>,
     _request_id: Option<String>,
 }
-impl GetEvaluationOutput {
+impl  GetEvaluationOutput  {
     /// <p>The evaluation ID which is same as the <code>EvaluationId</code> in the request.</p>
-    pub fn evaluation_id(&self) -> ::std::option::Option<&str> {
+    pub fn evaluation_id(&self) -> ::std::option::Option<& str> {
         self.evaluation_id.as_deref()
     }
     /// <p>The ID of the <code>MLModel</code> that was the focus of the evaluation.</p>
-    pub fn ml_model_id(&self) -> ::std::option::Option<&str> {
+    pub fn ml_model_id(&self) -> ::std::option::Option<& str> {
         self.ml_model_id.as_deref()
     }
     /// <p>The <code>DataSource</code> used for this evaluation.</p>
-    pub fn evaluation_data_source_id(&self) -> ::std::option::Option<&str> {
+    pub fn evaluation_data_source_id(&self) -> ::std::option::Option<& str> {
         self.evaluation_data_source_id.as_deref()
     }
     /// <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
-    pub fn input_data_location_s3(&self) -> ::std::option::Option<&str> {
+    pub fn input_data_location_s3(&self) -> ::std::option::Option<& str> {
         self.input_data_location_s3.as_deref()
     }
     /// <p>The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
-    pub fn created_by_iam_user(&self) -> ::std::option::Option<&str> {
+    pub fn created_by_iam_user(&self) -> ::std::option::Option<& str> {
         self.created_by_iam_user.as_deref()
     }
     /// <p>The time that the <code>Evaluation</code> was created. The time is expressed in epoch time.</p>
-    pub fn created_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn created_at(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.created_at.as_ref()
     }
     /// <p>The time of the most recent edit to the <code>Evaluation</code>. The time is expressed in epoch time.</p>
-    pub fn last_updated_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_updated_at(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_updated_at.as_ref()
     }
     /// <p>A user-supplied name or description of the <code>Evaluation</code>. </p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
-    /// <p>The status of the evaluation. This element can have one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li>
-    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li>
-    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li>
-    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li>
+    /// <p>The status of the evaluation. This element can have one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li> 
+    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li> 
+    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::EntityStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::EntityStatus> {
         self.status.as_ref()
     }
-    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p>
-    /// <ul>
-    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li>
-    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li>
-    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li>
-    /// </ul>
+    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p> 
+    /// <ul> 
+    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li> 
+    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li> 
+    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li> 
+    /// </ul> 
     /// <p> For more information about performance metrics, please see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>. </p>
-    pub fn performance_metrics(&self) -> ::std::option::Option<&crate::types::PerformanceMetrics> {
+    pub fn performance_metrics(&self) -> ::std::option::Option<& crate::types::PerformanceMetrics> {
         self.performance_metrics.as_ref()
     }
     /// <p>A link to the file that contains logs of the <code>CreateEvaluation</code> operation.</p>
-    pub fn log_uri(&self) -> ::std::option::Option<&str> {
+    pub fn log_uri(&self) -> ::std::option::Option<& str> {
         self.log_uri.as_deref()
     }
     /// <p>A description of the most recent details about evaluating the <code>MLModel</code>.</p>
-    pub fn message(&self) -> ::std::option::Option<&str> {
+    pub fn message(&self) -> ::std::option::Option<& str> {
         self.message.as_deref()
     }
     /// <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>Evaluation</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>Evaluation</code> is in the <code>COMPLETED</code> state.</p>
@@ -116,19 +116,19 @@ impl GetEvaluationOutput {
         self.compute_time
     }
     /// <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>Evaluation</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
-    pub fn finished_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn finished_at(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.finished_at.as_ref()
     }
     /// <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>Evaluation</code> is in the <code>PENDING</code> state.</p>
-    pub fn started_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn started_at(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.started_at.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for GetEvaluationOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for GetEvaluationOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl GetEvaluationOutput {
     /// Creates a new builder-style object to manufacture [`GetEvaluationOutput`](crate::operation::get_evaluation::GetEvaluationOutput).
     pub fn builder() -> crate::operation::get_evaluation::builders::GetEvaluationOutputBuilder {
@@ -165,8 +165,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The evaluation ID which is same as the <code>EvaluationId</code> in the request.</p>
     pub fn set_evaluation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.evaluation_id = input;
-        self
+        self.evaluation_id = input; self
     }
     /// <p>The evaluation ID which is same as the <code>EvaluationId</code> in the request.</p>
     pub fn get_evaluation_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -179,8 +178,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The ID of the <code>MLModel</code> that was the focus of the evaluation.</p>
     pub fn set_ml_model_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.ml_model_id = input;
-        self
+        self.ml_model_id = input; self
     }
     /// <p>The ID of the <code>MLModel</code> that was the focus of the evaluation.</p>
     pub fn get_ml_model_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -193,8 +191,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The <code>DataSource</code> used for this evaluation.</p>
     pub fn set_evaluation_data_source_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.evaluation_data_source_id = input;
-        self
+        self.evaluation_data_source_id = input; self
     }
     /// <p>The <code>DataSource</code> used for this evaluation.</p>
     pub fn get_evaluation_data_source_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -207,8 +204,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
     pub fn set_input_data_location_s3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.input_data_location_s3 = input;
-        self
+        self.input_data_location_s3 = input; self
     }
     /// <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
     pub fn get_input_data_location_s3(&self) -> &::std::option::Option<::std::string::String> {
@@ -221,8 +217,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
     pub fn set_created_by_iam_user(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.created_by_iam_user = input;
-        self
+        self.created_by_iam_user = input; self
     }
     /// <p>The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
     pub fn get_created_by_iam_user(&self) -> &::std::option::Option<::std::string::String> {
@@ -235,8 +230,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The time that the <code>Evaluation</code> was created. The time is expressed in epoch time.</p>
     pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_at = input;
-        self
+        self.created_at = input; self
     }
     /// <p>The time that the <code>Evaluation</code> was created. The time is expressed in epoch time.</p>
     pub fn get_created_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -249,8 +243,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The time of the most recent edit to the <code>Evaluation</code>. The time is expressed in epoch time.</p>
     pub fn set_last_updated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_updated_at = input;
-        self
+        self.last_updated_at = input; self
     }
     /// <p>The time of the most recent edit to the <code>Evaluation</code>. The time is expressed in epoch time.</p>
     pub fn get_last_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -263,76 +256,73 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>A user-supplied name or description of the <code>Evaluation</code>. </p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>A user-supplied name or description of the <code>Evaluation</code>. </p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
-    /// <p>The status of the evaluation. This element can have one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li>
-    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li>
-    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li>
-    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li>
+    /// <p>The status of the evaluation. This element can have one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li> 
+    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li> 
+    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li> 
     /// </ul>
     pub fn status(mut self, input: crate::types::EntityStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The status of the evaluation. This element can have one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li>
-    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li>
-    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li>
-    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li>
+    /// <p>The status of the evaluation. This element can have one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li> 
+    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li> 
+    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::EntityStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the evaluation. This element can have one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li>
-    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li>
-    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li>
-    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li>
-    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li>
+    /// <p>The status of the evaluation. This element can have one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</p> </li> 
+    /// <li> <p> <code>INPROGRESS</code> - The evaluation is underway.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</p> </li> 
+    /// <li> <p> <code>COMPLETED</code> - The evaluation process completed successfully.</p> </li> 
+    /// <li> <p> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::EntityStatus> {
         &self.status
     }
-    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p>
-    /// <ul>
-    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li>
-    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li>
-    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li>
-    /// </ul>
+    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p> 
+    /// <ul> 
+    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li> 
+    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li> 
+    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li> 
+    /// </ul> 
     /// <p> For more information about performance metrics, please see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>. </p>
     pub fn performance_metrics(mut self, input: crate::types::PerformanceMetrics) -> Self {
         self.performance_metrics = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p>
-    /// <ul>
-    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li>
-    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li>
-    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li>
-    /// </ul>
+    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p> 
+    /// <ul> 
+    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li> 
+    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li> 
+    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li> 
+    /// </ul> 
     /// <p> For more information about performance metrics, please see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>. </p>
     pub fn set_performance_metrics(mut self, input: ::std::option::Option<crate::types::PerformanceMetrics>) -> Self {
-        self.performance_metrics = input;
-        self
+        self.performance_metrics = input; self
     }
-    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p>
-    /// <ul>
-    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li>
-    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li>
-    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li>
-    /// </ul>
+    /// <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>: </p> 
+    /// <ul> 
+    /// <li> <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li> 
+    /// <li> <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li> 
+    /// <li> <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li> 
+    /// </ul> 
     /// <p> For more information about performance metrics, please see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>. </p>
     pub fn get_performance_metrics(&self) -> &::std::option::Option<crate::types::PerformanceMetrics> {
         &self.performance_metrics
@@ -344,8 +334,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>A link to the file that contains logs of the <code>CreateEvaluation</code> operation.</p>
     pub fn set_log_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.log_uri = input;
-        self
+        self.log_uri = input; self
     }
     /// <p>A link to the file that contains logs of the <code>CreateEvaluation</code> operation.</p>
     pub fn get_log_uri(&self) -> &::std::option::Option<::std::string::String> {
@@ -358,8 +347,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>A description of the most recent details about evaluating the <code>MLModel</code>.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.message = input;
-        self
+        self.message = input; self
     }
     /// <p>A description of the most recent details about evaluating the <code>MLModel</code>.</p>
     pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
@@ -372,8 +360,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>Evaluation</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>Evaluation</code> is in the <code>COMPLETED</code> state.</p>
     pub fn set_compute_time(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.compute_time = input;
-        self
+        self.compute_time = input; self
     }
     /// <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>Evaluation</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>Evaluation</code> is in the <code>COMPLETED</code> state.</p>
     pub fn get_compute_time(&self) -> &::std::option::Option<i64> {
@@ -386,8 +373,7 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>Evaluation</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
     pub fn set_finished_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.finished_at = input;
-        self
+        self.finished_at = input; self
     }
     /// <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>Evaluation</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
     pub fn get_finished_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -400,41 +386,56 @@ impl GetEvaluationOutputBuilder {
     }
     /// <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>Evaluation</code> is in the <code>PENDING</code> state.</p>
     pub fn set_started_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.started_at = input;
-        self
+        self.started_at = input; self
     }
     /// <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>Evaluation</code> is in the <code>PENDING</code> state.</p>
     pub fn get_started_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.started_at
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`GetEvaluationOutput`](crate::operation::get_evaluation::GetEvaluationOutput).
     pub fn build(self) -> crate::operation::get_evaluation::GetEvaluationOutput {
         crate::operation::get_evaluation::GetEvaluationOutput {
-            evaluation_id: self.evaluation_id,
-            ml_model_id: self.ml_model_id,
-            evaluation_data_source_id: self.evaluation_data_source_id,
-            input_data_location_s3: self.input_data_location_s3,
-            created_by_iam_user: self.created_by_iam_user,
-            created_at: self.created_at,
-            last_updated_at: self.last_updated_at,
-            name: self.name,
-            status: self.status,
-            performance_metrics: self.performance_metrics,
-            log_uri: self.log_uri,
-            message: self.message,
-            compute_time: self.compute_time,
-            finished_at: self.finished_at,
-            started_at: self.started_at,
+            evaluation_id: self.evaluation_id
+            ,
+            ml_model_id: self.ml_model_id
+            ,
+            evaluation_data_source_id: self.evaluation_data_source_id
+            ,
+            input_data_location_s3: self.input_data_location_s3
+            ,
+            created_by_iam_user: self.created_by_iam_user
+            ,
+            created_at: self.created_at
+            ,
+            last_updated_at: self.last_updated_at
+            ,
+            name: self.name
+            ,
+            status: self.status
+            ,
+            performance_metrics: self.performance_metrics
+            ,
+            log_uri: self.log_uri
+            ,
+            message: self.message
+            ,
+            compute_time: self.compute_time
+            ,
+            finished_at: self.finished_at
+            ,
+            started_at: self.started_at
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

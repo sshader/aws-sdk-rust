@@ -5,58 +5,54 @@ pub use crate::operation::provision_product::_provision_product_input::Provision
 
 impl ProvisionProductInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::provision_product::ProvisionProductOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::provision_product::ProvisionProductError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.provision_product();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::provision_product::ProvisionProductOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::provision_product::ProvisionProductError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.provision_product();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ProvisionProduct`.
-///
-/// <p> Provisions the specified product. </p>
-/// <p> A provisioned product is a resourced instance of a product. For example, provisioning a product that's based on an CloudFormation template launches an CloudFormation stack and its underlying resources. You can check the status of this request using <code>DescribeRecord</code>. </p>
-/// <p> If the request contains a tag key with an empty list of values, there's a tag conflict for that key. Don't include conflicted keys as tags, or this will cause the error "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>". </p> <note>
-/// <p> When provisioning a product that's been added to a portfolio, you must grant your user, group, or role access to the portfolio. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html">Granting users access</a> in the <i>Service Catalog User Guide</i>. </p>
+/// 
+/// <p> Provisions the specified product. </p> 
+/// <p> A provisioned product is a resourced instance of a product. For example, provisioning a product that's based on an CloudFormation template launches an CloudFormation stack and its underlying resources. You can check the status of this request using <code>DescribeRecord</code>. </p> 
+/// <p> If the request contains a tag key with an empty list of values, there's a tag conflict for that key. Don't include conflicted keys as tags, or this will cause the error "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>". </p> <note> 
+/// <p> When provisioning a product that's been added to a portfolio, you must grant your user, group, or role access to the portfolio. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html">Granting users access</a> in the <i>Service Catalog User Guide</i>. </p> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ProvisionProductFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::provision_product::builders::ProvisionProductInputBuilder,
+                    inner: crate::operation::provision_product::builders::ProvisionProductInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::provision_product::ProvisionProductOutput,
-        crate::operation::provision_product::ProvisionProductError,
-    > for ProvisionProductFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::provision_product::ProvisionProductOutput,
-            crate::operation::provision_product::ProvisionProductError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::provision_product::ProvisionProductOutput,
+                    crate::operation::provision_product::ProvisionProductError,
+                > for ProvisionProductFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::provision_product::ProvisionProductOutput,
+                        crate::operation::provision_product::ProvisionProductError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ProvisionProductFluentBuilder {
     /// Creates a new `ProvisionProduct`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -65,75 +61,66 @@ impl ProvisionProductFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::provision_product::ProvisionProductOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::provision_product::ProvisionProductError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::provision_product::ProvisionProduct::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::provision_product::ProvisionProduct::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::provision_product::ProvisionProductOutput,
-        crate::operation::provision_product::ProvisionProductError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::provision_product::ProvisionProductOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::provision_product::ProvisionProductError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::provision_product::ProvisionProduct::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::provision_product::ProvisionProduct::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::provision_product::ProvisionProductOutput, crate::operation::provision_product::ProvisionProductError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.accept_language(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_accept_language(input);
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_accept_language()
@@ -246,12 +233,12 @@ impl ProvisionProductFluentBuilder {
         self
     }
     /// <p>Parameters specified by the administrator that are required for provisioning the product.</p>
-    pub fn set_provisioning_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ProvisioningParameter>>) -> Self {
+    pub fn set_provisioning_parameters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ProvisioningParameter>>) -> Self {
         self.inner = self.inner.set_provisioning_parameters(input);
         self
     }
     /// <p>Parameters specified by the administrator that are required for provisioning the product.</p>
-    pub fn get_provisioning_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProvisioningParameter>> {
+    pub fn get_provisioning_parameters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ProvisioningParameter>> {
         self.inner.get_provisioning_parameters()
     }
     /// <p>An object that contains information about the provisioning preferences for a stack set.</p>
@@ -278,12 +265,12 @@ impl ProvisionProductFluentBuilder {
         self
     }
     /// <p>One or more tags.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>One or more tags.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
     /// Appends an item to `NotificationArns`.
@@ -296,12 +283,12 @@ impl ProvisionProductFluentBuilder {
         self
     }
     /// <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</p>
-    pub fn set_notification_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_notification_arns(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_notification_arns(input);
         self
     }
     /// <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</p>
-    pub fn get_notification_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_notification_arns(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_notification_arns()
     }
     /// <p>An idempotency token that uniquely identifies the provisioning request.</p>
@@ -319,3 +306,4 @@ impl ProvisionProductFluentBuilder {
         self.inner.get_provision_token()
     }
 }
+

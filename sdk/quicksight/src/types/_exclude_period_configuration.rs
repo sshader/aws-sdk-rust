@@ -3,33 +3,33 @@
 /// <p>The exclude period of <code>TimeRangeFilter</code> or <code>RelativeDatesFilter</code>.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ExcludePeriodConfiguration {
+pub struct ExcludePeriodConfiguration  {
     /// <p>The amount or number of the exclude period.</p>
     pub amount: i32,
     /// <p>The granularity or unit (day, month, year) of the exclude period.</p>
     pub granularity: crate::types::TimeGranularity,
-    /// <p>The status of the exclude period. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> </p> </li>
-    /// <li> <p> <code>DISABLED</code> </p> </li>
+    /// <p>The status of the exclude period. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> </p> </li> 
+    /// <li> <p> <code>DISABLED</code> </p> </li> 
     /// </ul>
     pub status: ::std::option::Option<crate::types::WidgetStatus>,
 }
-impl ExcludePeriodConfiguration {
+impl  ExcludePeriodConfiguration  {
     /// <p>The amount or number of the exclude period.</p>
     pub fn amount(&self) -> i32 {
         self.amount
     }
     /// <p>The granularity or unit (day, month, year) of the exclude period.</p>
-    pub fn granularity(&self) -> &crate::types::TimeGranularity {
+    pub fn granularity(&self) -> & crate::types::TimeGranularity {
         &self.granularity
     }
-    /// <p>The status of the exclude period. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> </p> </li>
-    /// <li> <p> <code>DISABLED</code> </p> </li>
+    /// <p>The status of the exclude period. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> </p> </li> 
+    /// <li> <p> <code>DISABLED</code> </p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::WidgetStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::WidgetStatus> {
         self.status.as_ref()
     }
 }
@@ -57,8 +57,7 @@ impl ExcludePeriodConfigurationBuilder {
     }
     /// <p>The amount or number of the exclude period.</p>
     pub fn set_amount(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.amount = input;
-        self
+        self.amount = input; self
     }
     /// <p>The amount or number of the exclude period.</p>
     pub fn get_amount(&self) -> &::std::option::Option<i32> {
@@ -72,35 +71,33 @@ impl ExcludePeriodConfigurationBuilder {
     }
     /// <p>The granularity or unit (day, month, year) of the exclude period.</p>
     pub fn set_granularity(mut self, input: ::std::option::Option<crate::types::TimeGranularity>) -> Self {
-        self.granularity = input;
-        self
+        self.granularity = input; self
     }
     /// <p>The granularity or unit (day, month, year) of the exclude period.</p>
     pub fn get_granularity(&self) -> &::std::option::Option<crate::types::TimeGranularity> {
         &self.granularity
     }
-    /// <p>The status of the exclude period. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> </p> </li>
-    /// <li> <p> <code>DISABLED</code> </p> </li>
+    /// <p>The status of the exclude period. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> </p> </li> 
+    /// <li> <p> <code>DISABLED</code> </p> </li> 
     /// </ul>
     pub fn status(mut self, input: crate::types::WidgetStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The status of the exclude period. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> </p> </li>
-    /// <li> <p> <code>DISABLED</code> </p> </li>
+    /// <p>The status of the exclude period. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> </p> </li> 
+    /// <li> <p> <code>DISABLED</code> </p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::WidgetStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the exclude period. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> </p> </li>
-    /// <li> <p> <code>DISABLED</code> </p> </li>
+    /// <p>The status of the exclude period. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> </p> </li> 
+    /// <li> <p> <code>DISABLED</code> </p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::WidgetStatus> {
         &self.status
@@ -110,20 +107,22 @@ impl ExcludePeriodConfigurationBuilder {
     /// - [`amount`](crate::types::builders::ExcludePeriodConfigurationBuilder::amount)
     /// - [`granularity`](crate::types::builders::ExcludePeriodConfigurationBuilder::granularity)
     pub fn build(self) -> ::std::result::Result<crate::types::ExcludePeriodConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ExcludePeriodConfiguration {
-            amount: self.amount.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "amount",
-                    "amount was not specified but it is required when building ExcludePeriodConfiguration",
-                )
-            })?,
-            granularity: self.granularity.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "granularity",
-                    "granularity was not specified but it is required when building ExcludePeriodConfiguration",
-                )
-            })?,
-            status: self.status,
-        })
+        ::std::result::Result::Ok(
+            crate::types::ExcludePeriodConfiguration {
+                amount: self.amount
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("amount", "amount was not specified but it is required when building ExcludePeriodConfiguration")
+                    )?
+                ,
+                granularity: self.granularity
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("granularity", "granularity was not specified but it is required when building ExcludePeriodConfiguration")
+                    )?
+                ,
+                status: self.status
+                ,
+            }
+        )
     }
 }
+

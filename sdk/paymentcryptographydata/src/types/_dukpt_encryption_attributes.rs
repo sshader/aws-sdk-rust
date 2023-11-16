@@ -3,10 +3,10 @@
 /// <p>Parameters that are required to encrypt plaintext data using DUKPT.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct DukptEncryptionAttributes {
+pub struct DukptEncryptionAttributes  {
     /// <p>The unique identifier known as Key Serial Number (KSN) that comes from an encrypting device using DUKPT encryption method. The KSN is derived from the encrypting device unique identifier and an internal transaction counter.</p>
     pub key_serial_number: ::std::string::String,
-    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p>
+    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p> 
     /// <p>The default is CBC.</p>
     pub mode: ::std::option::Option<crate::types::DukptEncryptionMode>,
     /// <p>The key type encrypted using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code> </p>
@@ -16,31 +16,30 @@ pub struct DukptEncryptionAttributes {
     /// <p>An input to cryptographic primitive used to provide the intial state. Typically the <code>InitializationVector</code> must have a random or psuedo-random value, but sometimes it only needs to be unpredictable or unique. If you don't provide a value, Amazon Web Services Payment Cryptography generates a random value.</p>
     pub initialization_vector: ::std::option::Option<::std::string::String>,
 }
-impl DukptEncryptionAttributes {
+impl  DukptEncryptionAttributes  {
     /// <p>The unique identifier known as Key Serial Number (KSN) that comes from an encrypting device using DUKPT encryption method. The KSN is derived from the encrypting device unique identifier and an internal transaction counter.</p>
-    pub fn key_serial_number(&self) -> &str {
-        use std::ops::Deref;
-        self.key_serial_number.deref()
+    pub fn key_serial_number(&self) -> & str {
+        use std::ops::Deref; self.key_serial_number.deref()
     }
-    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p>
+    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p> 
     /// <p>The default is CBC.</p>
-    pub fn mode(&self) -> ::std::option::Option<&crate::types::DukptEncryptionMode> {
+    pub fn mode(&self) -> ::std::option::Option<& crate::types::DukptEncryptionMode> {
         self.mode.as_ref()
     }
     /// <p>The key type encrypted using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code> </p>
-    pub fn dukpt_key_derivation_type(&self) -> ::std::option::Option<&crate::types::DukptDerivationType> {
+    pub fn dukpt_key_derivation_type(&self) -> ::std::option::Option<& crate::types::DukptDerivationType> {
         self.dukpt_key_derivation_type.as_ref()
     }
     /// <p>The type of use of DUKPT, which can be incoming data decryption, outgoing data encryption, or both.</p>
-    pub fn dukpt_key_variant(&self) -> ::std::option::Option<&crate::types::DukptKeyVariant> {
+    pub fn dukpt_key_variant(&self) -> ::std::option::Option<& crate::types::DukptKeyVariant> {
         self.dukpt_key_variant.as_ref()
     }
     /// <p>An input to cryptographic primitive used to provide the intial state. Typically the <code>InitializationVector</code> must have a random or psuedo-random value, but sometimes it only needs to be unpredictable or unique. If you don't provide a value, Amazon Web Services Payment Cryptography generates a random value.</p>
-    pub fn initialization_vector(&self) -> ::std::option::Option<&str> {
+    pub fn initialization_vector(&self) -> ::std::option::Option<& str> {
         self.initialization_vector.as_deref()
     }
 }
-impl ::std::fmt::Debug for DukptEncryptionAttributes {
+impl  ::std::fmt::Debug for DukptEncryptionAttributes  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("DukptEncryptionAttributes");
         formatter.field("key_serial_number", &self.key_serial_number);
@@ -77,26 +76,24 @@ impl DukptEncryptionAttributesBuilder {
     }
     /// <p>The unique identifier known as Key Serial Number (KSN) that comes from an encrypting device using DUKPT encryption method. The KSN is derived from the encrypting device unique identifier and an internal transaction counter.</p>
     pub fn set_key_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.key_serial_number = input;
-        self
+        self.key_serial_number = input; self
     }
     /// <p>The unique identifier known as Key Serial Number (KSN) that comes from an encrypting device using DUKPT encryption method. The KSN is derived from the encrypting device unique identifier and an internal transaction counter.</p>
     pub fn get_key_serial_number(&self) -> &::std::option::Option<::std::string::String> {
         &self.key_serial_number
     }
-    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p>
+    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p> 
     /// <p>The default is CBC.</p>
     pub fn mode(mut self, input: crate::types::DukptEncryptionMode) -> Self {
         self.mode = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p>
+    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p> 
     /// <p>The default is CBC.</p>
     pub fn set_mode(mut self, input: ::std::option::Option<crate::types::DukptEncryptionMode>) -> Self {
-        self.mode = input;
-        self
+        self.mode = input; self
     }
-    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p>
+    /// <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p> 
     /// <p>The default is CBC.</p>
     pub fn get_mode(&self) -> &::std::option::Option<crate::types::DukptEncryptionMode> {
         &self.mode
@@ -108,8 +105,7 @@ impl DukptEncryptionAttributesBuilder {
     }
     /// <p>The key type encrypted using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code> </p>
     pub fn set_dukpt_key_derivation_type(mut self, input: ::std::option::Option<crate::types::DukptDerivationType>) -> Self {
-        self.dukpt_key_derivation_type = input;
-        self
+        self.dukpt_key_derivation_type = input; self
     }
     /// <p>The key type encrypted using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code> </p>
     pub fn get_dukpt_key_derivation_type(&self) -> &::std::option::Option<crate::types::DukptDerivationType> {
@@ -122,8 +118,7 @@ impl DukptEncryptionAttributesBuilder {
     }
     /// <p>The type of use of DUKPT, which can be incoming data decryption, outgoing data encryption, or both.</p>
     pub fn set_dukpt_key_variant(mut self, input: ::std::option::Option<crate::types::DukptKeyVariant>) -> Self {
-        self.dukpt_key_variant = input;
-        self
+        self.dukpt_key_variant = input; self
     }
     /// <p>The type of use of DUKPT, which can be incoming data decryption, outgoing data encryption, or both.</p>
     pub fn get_dukpt_key_variant(&self) -> &::std::option::Option<crate::types::DukptKeyVariant> {
@@ -136,8 +131,7 @@ impl DukptEncryptionAttributesBuilder {
     }
     /// <p>An input to cryptographic primitive used to provide the intial state. Typically the <code>InitializationVector</code> must have a random or psuedo-random value, but sometimes it only needs to be unpredictable or unique. If you don't provide a value, Amazon Web Services Payment Cryptography generates a random value.</p>
     pub fn set_initialization_vector(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.initialization_vector = input;
-        self
+        self.initialization_vector = input; self
     }
     /// <p>An input to cryptographic primitive used to provide the intial state. Typically the <code>InitializationVector</code> must have a random or psuedo-random value, but sometimes it only needs to be unpredictable or unique. If you don't provide a value, Amazon Web Services Payment Cryptography generates a random value.</p>
     pub fn get_initialization_vector(&self) -> &::std::option::Option<::std::string::String> {
@@ -147,18 +141,23 @@ impl DukptEncryptionAttributesBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`key_serial_number`](crate::types::builders::DukptEncryptionAttributesBuilder::key_serial_number)
     pub fn build(self) -> ::std::result::Result<crate::types::DukptEncryptionAttributes, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::DukptEncryptionAttributes {
-            key_serial_number: self.key_serial_number.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "key_serial_number",
-                    "key_serial_number was not specified but it is required when building DukptEncryptionAttributes",
-                )
-            })?,
-            mode: self.mode,
-            dukpt_key_derivation_type: self.dukpt_key_derivation_type,
-            dukpt_key_variant: self.dukpt_key_variant,
-            initialization_vector: self.initialization_vector,
-        })
+        ::std::result::Result::Ok(
+            crate::types::DukptEncryptionAttributes {
+                key_serial_number: self.key_serial_number
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("key_serial_number", "key_serial_number was not specified but it is required when building DukptEncryptionAttributes")
+                    )?
+                ,
+                mode: self.mode
+                ,
+                dukpt_key_derivation_type: self.dukpt_key_derivation_type
+                ,
+                dukpt_key_variant: self.dukpt_key_variant
+                ,
+                initialization_vector: self.initialization_vector
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for DukptEncryptionAttributesBuilder {
@@ -172,3 +171,4 @@ impl ::std::fmt::Debug for DukptEncryptionAttributesBuilder {
         formatter.finish()
     }
 }
+

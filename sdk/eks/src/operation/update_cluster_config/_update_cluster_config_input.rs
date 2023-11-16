@@ -2,35 +2,35 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateClusterConfigInput {
+pub struct UpdateClusterConfigInput  {
     /// <p>The name of the Amazon EKS cluster to update.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>
     pub resources_vpc_config: ::std::option::Option<crate::types::VpcConfigRequest>,
-    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note>
-    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
+    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note> 
+    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p> 
     /// </note>
     pub logging: ::std::option::Option<crate::types::Logging>,
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
     pub client_request_token: ::std::option::Option<::std::string::String>,
 }
-impl UpdateClusterConfigInput {
+impl  UpdateClusterConfigInput  {
     /// <p>The name of the Amazon EKS cluster to update.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>
-    pub fn resources_vpc_config(&self) -> ::std::option::Option<&crate::types::VpcConfigRequest> {
+    pub fn resources_vpc_config(&self) -> ::std::option::Option<& crate::types::VpcConfigRequest> {
         self.resources_vpc_config.as_ref()
     }
-    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note>
-    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
+    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note> 
+    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p> 
     /// </note>
-    pub fn logging(&self) -> ::std::option::Option<&crate::types::Logging> {
+    pub fn logging(&self) -> ::std::option::Option<& crate::types::Logging> {
         self.logging.as_ref()
     }
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-    pub fn client_request_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_request_token(&self) -> ::std::option::Option<& str> {
         self.client_request_token.as_deref()
     }
 }
@@ -59,8 +59,7 @@ impl UpdateClusterConfigInputBuilder {
     }
     /// <p>The name of the Amazon EKS cluster to update.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the Amazon EKS cluster to update.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -73,29 +72,27 @@ impl UpdateClusterConfigInputBuilder {
     }
     /// <p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>
     pub fn set_resources_vpc_config(mut self, input: ::std::option::Option<crate::types::VpcConfigRequest>) -> Self {
-        self.resources_vpc_config = input;
-        self
+        self.resources_vpc_config = input; self
     }
     /// <p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>
     pub fn get_resources_vpc_config(&self) -> &::std::option::Option<crate::types::VpcConfigRequest> {
         &self.resources_vpc_config
     }
-    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note>
-    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
+    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note> 
+    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p> 
     /// </note>
     pub fn logging(mut self, input: crate::types::Logging) -> Self {
         self.logging = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note>
-    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
+    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note> 
+    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p> 
     /// </note>
     pub fn set_logging(mut self, input: ::std::option::Option<crate::types::Logging>) -> Self {
-        self.logging = input;
-        self
+        self.logging = input; self
     }
-    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note>
-    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
+    /// <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note> 
+    /// <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p> 
     /// </note>
     pub fn get_logging(&self) -> &::std::option::Option<crate::types::Logging> {
         &self.logging
@@ -107,23 +104,26 @@ impl UpdateClusterConfigInputBuilder {
     }
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
     pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_request_token = input;
-        self
+        self.client_request_token = input; self
     }
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
     pub fn get_client_request_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_request_token
     }
     /// Consumes the builder and constructs a [`UpdateClusterConfigInput`](crate::operation::update_cluster_config::UpdateClusterConfigInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_cluster_config::UpdateClusterConfigInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::update_cluster_config::UpdateClusterConfigInput {
-            name: self.name,
-            resources_vpc_config: self.resources_vpc_config,
-            logging: self.logging,
-            client_request_token: self.client_request_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_cluster_config::UpdateClusterConfigInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_cluster_config::UpdateClusterConfigInput {
+                name: self.name
+                ,
+                resources_vpc_config: self.resources_vpc_config
+                ,
+                logging: self.logging
+                ,
+                client_request_token: self.client_request_token
+                ,
+            }
+        )
     }
 }
+

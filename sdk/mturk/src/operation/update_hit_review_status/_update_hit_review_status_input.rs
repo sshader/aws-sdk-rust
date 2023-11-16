@@ -2,25 +2,25 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateHitReviewStatusInput {
+pub struct UpdateHitReviewStatusInput  {
     /// <p> The ID of the HIT to update. </p>
     pub hit_id: ::std::option::Option<::std::string::String>,
-    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p>
-    /// <ul>
-    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li>
-    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li>
+    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> 
+    /// <ul> 
+    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> 
+    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> 
     /// </ul>
     pub revert: ::std::option::Option<bool>,
 }
-impl UpdateHitReviewStatusInput {
+impl  UpdateHitReviewStatusInput  {
     /// <p> The ID of the HIT to update. </p>
-    pub fn hit_id(&self) -> ::std::option::Option<&str> {
+    pub fn hit_id(&self) -> ::std::option::Option<& str> {
         self.hit_id.as_deref()
     }
-    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p>
-    /// <ul>
-    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li>
-    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li>
+    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> 
+    /// <ul> 
+    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> 
+    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> 
     /// </ul>
     pub fn revert(&self) -> ::std::option::Option<bool> {
         self.revert
@@ -49,47 +49,47 @@ impl UpdateHitReviewStatusInputBuilder {
     }
     /// <p> The ID of the HIT to update. </p>
     pub fn set_hit_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.hit_id = input;
-        self
+        self.hit_id = input; self
     }
     /// <p> The ID of the HIT to update. </p>
     pub fn get_hit_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.hit_id
     }
-    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p>
-    /// <ul>
-    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li>
-    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li>
+    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> 
+    /// <ul> 
+    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> 
+    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> 
     /// </ul>
     pub fn revert(mut self, input: bool) -> Self {
         self.revert = ::std::option::Option::Some(input);
         self
     }
-    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p>
-    /// <ul>
-    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li>
-    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li>
+    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> 
+    /// <ul> 
+    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> 
+    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> 
     /// </ul>
     pub fn set_revert(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.revert = input;
-        self
+        self.revert = input; self
     }
-    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p>
-    /// <ul>
-    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li>
-    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li>
+    /// <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> 
+    /// <ul> 
+    /// <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> 
+    /// <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> 
     /// </ul>
     pub fn get_revert(&self) -> &::std::option::Option<bool> {
         &self.revert
     }
     /// Consumes the builder and constructs a [`UpdateHitReviewStatusInput`](crate::operation::update_hit_review_status::UpdateHitReviewStatusInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_hit_review_status::UpdateHitReviewStatusInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::update_hit_review_status::UpdateHitReviewStatusInput {
-            hit_id: self.hit_id,
-            revert: self.revert,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_hit_review_status::UpdateHitReviewStatusInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_hit_review_status::UpdateHitReviewStatusInput {
+                hit_id: self.hit_id
+                ,
+                revert: self.revert
+                ,
+            }
+        )
     }
 }
+

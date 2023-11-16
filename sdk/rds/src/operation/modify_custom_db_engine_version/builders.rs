@@ -5,57 +5,53 @@ pub use crate::operation::modify_custom_db_engine_version::_modify_custom_db_eng
 
 impl ModifyCustomDbEngineVersionInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.modify_custom_db_engine_version();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.modify_custom_db_engine_version();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ModifyCustomDBEngineVersion`.
-///
-/// <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling <code>DescribeDBEngineVersions</code>.</p> <note>
-/// <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the <code>ModifyCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for the <code>ModifyCustomDbEngineVersion</code> event.</p>
-/// </note>
+/// 
+/// <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling <code>DescribeDBEngineVersions</code>.</p> <note> 
+/// <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the <code>ModifyCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for the <code>ModifyCustomDbEngineVersion</code> event.</p> 
+/// </note> 
 /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying CEV status</a> in the <i>Amazon RDS User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ModifyCustomDBEngineVersionFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::modify_custom_db_engine_version::builders::ModifyCustomDbEngineVersionInputBuilder,
+                    inner: crate::operation::modify_custom_db_engine_version::builders::ModifyCustomDbEngineVersionInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput,
-        crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError,
-    > for ModifyCustomDBEngineVersionFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput,
-            crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput,
+                    crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError,
+                > for ModifyCustomDBEngineVersionFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput,
+                        crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ModifyCustomDBEngineVersionFluentBuilder {
     /// Creates a new `ModifyCustomDBEngineVersion`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -64,53 +60,44 @@ impl ModifyCustomDBEngineVersionFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersion::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersion::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput,
-        crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersion::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersion::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::modify_custom_db_engine_version::ModifyCustomDbEngineVersionOutput, crate::operation::modify_custom_db_engine_version::ModifyCustomDBEngineVersionError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The DB engine. The only supported values are <code>custom-oracle-ee</code> and <code>custom-oracle-ee-cdb</code>.</p>
     pub fn engine(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.engine(input.into());
@@ -153,63 +140,64 @@ impl ModifyCustomDBEngineVersionFluentBuilder {
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_description()
     }
-    /// <p>The availability status to be assigned to the CEV. Valid values are as follows:</p>
-    /// <dl>
+    /// <p>The availability status to be assigned to the CEV. Valid values are as follows:</p> 
+    /// <dl> 
     /// <dt>
     /// available
-    /// </dt>
-    /// <dd>
-    /// <p>You can use this CEV to create a new RDS Custom DB instance.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>You can use this CEV to create a new RDS Custom DB instance.</p> 
+    /// </dd> 
     /// <dt>
     /// inactive
-    /// </dt>
-    /// <dd>
-    /// <p>You can create a new RDS Custom instance by restoring a DB snapshot with this CEV. You can't patch or create new instances with this CEV.</p>
-    /// </dd>
-    /// </dl>
+    /// </dt> 
+    /// <dd> 
+    /// <p>You can create a new RDS Custom instance by restoring a DB snapshot with this CEV. You can't patch or create new instances with this CEV.</p> 
+    /// </dd> 
+    /// </dl> 
     /// <p>You can change any status to any status. A typical reason to change status is to prevent the accidental use of a CEV, or to make a deprecated CEV eligible for use again. For example, you might change the status of your CEV from <code>available</code> to <code>inactive</code>, and from <code>inactive</code> back to <code>available</code>. To change the availability status of the CEV, it must not currently be in use by an RDS Custom instance, snapshot, or automated backup.</p>
     pub fn status(mut self, input: crate::types::CustomEngineVersionStatus) -> Self {
         self.inner = self.inner.status(input);
         self
     }
-    /// <p>The availability status to be assigned to the CEV. Valid values are as follows:</p>
-    /// <dl>
+    /// <p>The availability status to be assigned to the CEV. Valid values are as follows:</p> 
+    /// <dl> 
     /// <dt>
     /// available
-    /// </dt>
-    /// <dd>
-    /// <p>You can use this CEV to create a new RDS Custom DB instance.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>You can use this CEV to create a new RDS Custom DB instance.</p> 
+    /// </dd> 
     /// <dt>
     /// inactive
-    /// </dt>
-    /// <dd>
-    /// <p>You can create a new RDS Custom instance by restoring a DB snapshot with this CEV. You can't patch or create new instances with this CEV.</p>
-    /// </dd>
-    /// </dl>
+    /// </dt> 
+    /// <dd> 
+    /// <p>You can create a new RDS Custom instance by restoring a DB snapshot with this CEV. You can't patch or create new instances with this CEV.</p> 
+    /// </dd> 
+    /// </dl> 
     /// <p>You can change any status to any status. A typical reason to change status is to prevent the accidental use of a CEV, or to make a deprecated CEV eligible for use again. For example, you might change the status of your CEV from <code>available</code> to <code>inactive</code>, and from <code>inactive</code> back to <code>available</code>. To change the availability status of the CEV, it must not currently be in use by an RDS Custom instance, snapshot, or automated backup.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::CustomEngineVersionStatus>) -> Self {
         self.inner = self.inner.set_status(input);
         self
     }
-    /// <p>The availability status to be assigned to the CEV. Valid values are as follows:</p>
-    /// <dl>
+    /// <p>The availability status to be assigned to the CEV. Valid values are as follows:</p> 
+    /// <dl> 
     /// <dt>
     /// available
-    /// </dt>
-    /// <dd>
-    /// <p>You can use this CEV to create a new RDS Custom DB instance.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>You can use this CEV to create a new RDS Custom DB instance.</p> 
+    /// </dd> 
     /// <dt>
     /// inactive
-    /// </dt>
-    /// <dd>
-    /// <p>You can create a new RDS Custom instance by restoring a DB snapshot with this CEV. You can't patch or create new instances with this CEV.</p>
-    /// </dd>
-    /// </dl>
+    /// </dt> 
+    /// <dd> 
+    /// <p>You can create a new RDS Custom instance by restoring a DB snapshot with this CEV. You can't patch or create new instances with this CEV.</p> 
+    /// </dd> 
+    /// </dl> 
     /// <p>You can change any status to any status. A typical reason to change status is to prevent the accidental use of a CEV, or to make a deprecated CEV eligible for use again. For example, you might change the status of your CEV from <code>available</code> to <code>inactive</code>, and from <code>inactive</code> back to <code>available</code>. To change the availability status of the CEV, it must not currently be in use by an RDS Custom instance, snapshot, or automated backup.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::CustomEngineVersionStatus> {
         self.inner.get_status()
     }
 }
+

@@ -5,61 +5,57 @@ pub use crate::operation::delete_access_point_policy::_delete_access_point_polic
 
 impl DeleteAccessPointPolicyInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.delete_access_point_policy();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.delete_access_point_policy();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `DeleteAccessPointPolicy`.
-///
-/// <p>Deletes the access point policy for the specified access point.</p>
-/// <p></p>
-/// <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html#API_control_DeleteAccessPointPolicy_Examples">Examples</a> section.</p>
-/// <p>The following actions are related to <code>DeleteAccessPointPolicy</code>:</p>
-/// <ul>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html">PutAccessPointPolicy</a> </p> </li>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html">GetAccessPointPolicy</a> </p> </li>
+/// 
+/// <p>Deletes the access point policy for the specified access point.</p> 
+/// <p></p> 
+/// <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html#API_control_DeleteAccessPointPolicy_Examples">Examples</a> section.</p> 
+/// <p>The following actions are related to <code>DeleteAccessPointPolicy</code>:</p> 
+/// <ul> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html">PutAccessPointPolicy</a> </p> </li> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html">GetAccessPointPolicy</a> </p> </li> 
 /// </ul>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteAccessPointPolicyFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::delete_access_point_policy::builders::DeleteAccessPointPolicyInputBuilder,
+                    inner: crate::operation::delete_access_point_policy::builders::DeleteAccessPointPolicyInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput,
-        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError,
-    > for DeleteAccessPointPolicyFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput,
-            crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput,
+                    crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError,
+                > for DeleteAccessPointPolicyFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput,
+                        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl DeleteAccessPointPolicyFluentBuilder {
     /// Creates a new `DeleteAccessPointPolicy`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -68,53 +64,44 @@ impl DeleteAccessPointPolicyFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_access_point_policy::DeleteAccessPointPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_access_point_policy::DeleteAccessPointPolicy::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput,
-        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::delete_access_point_policy::DeleteAccessPointPolicy::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::delete_access_point_policy::DeleteAccessPointPolicy::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::delete_access_point_policy::DeleteAccessPointPolicyOutput, crate::operation::delete_access_point_policy::DeleteAccessPointPolicyError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The account ID for the account that owns the specified access point.</p>
     pub fn account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.account_id(input.into());
@@ -129,8 +116,8 @@ impl DeleteAccessPointPolicyFluentBuilder {
     pub fn get_account_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_account_id()
     }
-    /// <p>The name of the access point whose policy you want to delete.</p>
-    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+    /// <p>The name of the access point whose policy you want to delete.</p> 
+    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> 
     /// <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:
     /// <region>
     /// :
@@ -146,8 +133,8 @@ impl DeleteAccessPointPolicyFluentBuilder {
         self.inner = self.inner.name(input.into());
         self
     }
-    /// <p>The name of the access point whose policy you want to delete.</p>
-    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+    /// <p>The name of the access point whose policy you want to delete.</p> 
+    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> 
     /// <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:
     /// <region>
     /// :
@@ -163,8 +150,8 @@ impl DeleteAccessPointPolicyFluentBuilder {
         self.inner = self.inner.set_name(input);
         self
     }
-    /// <p>The name of the access point whose policy you want to delete.</p>
-    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+    /// <p>The name of the access point whose policy you want to delete.</p> 
+    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> 
     /// <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:
     /// <region>
     /// :
@@ -180,3 +167,4 @@ impl DeleteAccessPointPolicyFluentBuilder {
         self.inner.get_name()
     }
 }
+

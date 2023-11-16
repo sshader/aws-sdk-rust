@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdatePortfolioShareInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+pub struct UpdatePortfolioShareInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub accept_language: ::std::option::Option<::std::string::String>,
     /// <p>The unique identifier of the portfolio for which the share will be updated.</p>
@@ -20,25 +20,25 @@ pub struct UpdatePortfolioShareInput {
     /// <p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided, the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>
     pub share_principals: ::std::option::Option<bool>,
 }
-impl UpdatePortfolioShareInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+impl  UpdatePortfolioShareInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
-    pub fn accept_language(&self) -> ::std::option::Option<&str> {
+    pub fn accept_language(&self) -> ::std::option::Option<& str> {
         self.accept_language.as_deref()
     }
     /// <p>The unique identifier of the portfolio for which the share will be updated.</p>
-    pub fn portfolio_id(&self) -> ::std::option::Option<&str> {
+    pub fn portfolio_id(&self) -> ::std::option::Option<& str> {
         self.portfolio_id.as_deref()
     }
     /// <p>The Amazon Web Services account Id of the recipient account. This field is required when updating an external account to account type share.</p>
-    pub fn account_id(&self) -> ::std::option::Option<&str> {
+    pub fn account_id(&self) -> ::std::option::Option<& str> {
         self.account_id.as_deref()
     }
     /// <p>Information about the organization node.</p>
-    pub fn organization_node(&self) -> ::std::option::Option<&crate::types::OrganizationNode> {
+    pub fn organization_node(&self) -> ::std::option::Option<& crate::types::OrganizationNode> {
         self.organization_node.as_ref()
     }
     /// <p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>
@@ -69,28 +69,27 @@ pub struct UpdatePortfolioShareInputBuilder {
     pub(crate) share_principals: ::std::option::Option<bool>,
 }
 impl UpdatePortfolioShareInputBuilder {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.accept_language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.accept_language = input;
-        self
+        self.accept_language = input; self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.accept_language
@@ -103,8 +102,7 @@ impl UpdatePortfolioShareInputBuilder {
     }
     /// <p>The unique identifier of the portfolio for which the share will be updated.</p>
     pub fn set_portfolio_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.portfolio_id = input;
-        self
+        self.portfolio_id = input; self
     }
     /// <p>The unique identifier of the portfolio for which the share will be updated.</p>
     pub fn get_portfolio_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -117,8 +115,7 @@ impl UpdatePortfolioShareInputBuilder {
     }
     /// <p>The Amazon Web Services account Id of the recipient account. This field is required when updating an external account to account type share.</p>
     pub fn set_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.account_id = input;
-        self
+        self.account_id = input; self
     }
     /// <p>The Amazon Web Services account Id of the recipient account. This field is required when updating an external account to account type share.</p>
     pub fn get_account_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -131,8 +128,7 @@ impl UpdatePortfolioShareInputBuilder {
     }
     /// <p>Information about the organization node.</p>
     pub fn set_organization_node(mut self, input: ::std::option::Option<crate::types::OrganizationNode>) -> Self {
-        self.organization_node = input;
-        self
+        self.organization_node = input; self
     }
     /// <p>Information about the organization node.</p>
     pub fn get_organization_node(&self) -> &::std::option::Option<crate::types::OrganizationNode> {
@@ -145,8 +141,7 @@ impl UpdatePortfolioShareInputBuilder {
     }
     /// <p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>
     pub fn set_share_tag_options(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.share_tag_options = input;
-        self
+        self.share_tag_options = input; self
     }
     /// <p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>
     pub fn get_share_tag_options(&self) -> &::std::option::Option<bool> {
@@ -159,25 +154,30 @@ impl UpdatePortfolioShareInputBuilder {
     }
     /// <p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided, the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>
     pub fn set_share_principals(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.share_principals = input;
-        self
+        self.share_principals = input; self
     }
     /// <p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided, the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>
     pub fn get_share_principals(&self) -> &::std::option::Option<bool> {
         &self.share_principals
     }
     /// Consumes the builder and constructs a [`UpdatePortfolioShareInput`](crate::operation::update_portfolio_share::UpdatePortfolioShareInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_portfolio_share::UpdatePortfolioShareInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::update_portfolio_share::UpdatePortfolioShareInput {
-            accept_language: self.accept_language,
-            portfolio_id: self.portfolio_id,
-            account_id: self.account_id,
-            organization_node: self.organization_node,
-            share_tag_options: self.share_tag_options,
-            share_principals: self.share_principals,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_portfolio_share::UpdatePortfolioShareInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_portfolio_share::UpdatePortfolioShareInput {
+                accept_language: self.accept_language
+                ,
+                portfolio_id: self.portfolio_id
+                ,
+                account_id: self.account_id
+                ,
+                organization_node: self.organization_node
+                ,
+                share_tag_options: self.share_tag_options
+                ,
+                share_principals: self.share_principals
+                ,
+            }
+        )
     }
 }
+

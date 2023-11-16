@@ -3,11 +3,11 @@
 /// <p>The production variant summary for a deployment when an endpoint is creating or updating with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> operations. Describes the <code>VariantStatus </code>, weight and capacity for a production variant associated with an endpoint. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PendingProductionVariantSummary {
+pub struct PendingProductionVariantSummary  {
     /// <p>The name of the variant.</p>
     pub variant_name: ::std::option::Option<::std::string::String>,
     /// <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-    pub deployed_images: ::std::option::Option<::std::vec::Vec<crate::types::DeployedImage>>,
+    pub deployed_images: ::std::option::Option<::std::vec::Vec::<crate::types::DeployedImage>>,
     /// <p>The weight associated with the variant.</p>
     pub current_weight: ::std::option::Option<f32>,
     /// <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
@@ -21,22 +21,23 @@ pub struct PendingProductionVariantSummary {
     /// <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI instances provide on-demand GPU computing for inference. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
     pub accelerator_type: ::std::option::Option<crate::types::ProductionVariantAcceleratorType>,
     /// <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-    pub variant_status: ::std::option::Option<::std::vec::Vec<crate::types::ProductionVariantStatus>>,
+    pub variant_status: ::std::option::Option<::std::vec::Vec::<crate::types::ProductionVariantStatus>>,
     /// <p>The serverless configuration for the endpoint.</p>
     pub current_serverless_config: ::std::option::Option<crate::types::ProductionVariantServerlessConfig>,
     /// <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
     pub desired_serverless_config: ::std::option::Option<crate::types::ProductionVariantServerlessConfig>,
 }
-impl PendingProductionVariantSummary {
+impl  PendingProductionVariantSummary  {
     /// <p>The name of the variant.</p>
-    pub fn variant_name(&self) -> ::std::option::Option<&str> {
+    pub fn variant_name(&self) -> ::std::option::Option<& str> {
         self.variant_name.as_deref()
     }
     /// <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.deployed_images.is_none()`.
-    pub fn deployed_images(&self) -> &[crate::types::DeployedImage] {
-        self.deployed_images.as_deref().unwrap_or_default()
+    pub fn deployed_images(&self) -> & [crate::types::DeployedImage] {
+        self.deployed_images.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The weight associated with the variant.</p>
     pub fn current_weight(&self) -> ::std::option::Option<f32> {
@@ -55,25 +56,26 @@ impl PendingProductionVariantSummary {
         self.desired_instance_count
     }
     /// <p>The type of instances associated with the variant.</p>
-    pub fn instance_type(&self) -> ::std::option::Option<&crate::types::ProductionVariantInstanceType> {
+    pub fn instance_type(&self) -> ::std::option::Option<& crate::types::ProductionVariantInstanceType> {
         self.instance_type.as_ref()
     }
     /// <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI instances provide on-demand GPU computing for inference. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
-    pub fn accelerator_type(&self) -> ::std::option::Option<&crate::types::ProductionVariantAcceleratorType> {
+    pub fn accelerator_type(&self) -> ::std::option::Option<& crate::types::ProductionVariantAcceleratorType> {
         self.accelerator_type.as_ref()
     }
     /// <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.variant_status.is_none()`.
-    pub fn variant_status(&self) -> &[crate::types::ProductionVariantStatus] {
-        self.variant_status.as_deref().unwrap_or_default()
+    pub fn variant_status(&self) -> & [crate::types::ProductionVariantStatus] {
+        self.variant_status.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The serverless configuration for the endpoint.</p>
-    pub fn current_serverless_config(&self) -> ::std::option::Option<&crate::types::ProductionVariantServerlessConfig> {
+    pub fn current_serverless_config(&self) -> ::std::option::Option<& crate::types::ProductionVariantServerlessConfig> {
         self.current_serverless_config.as_ref()
     }
     /// <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
-    pub fn desired_serverless_config(&self) -> ::std::option::Option<&crate::types::ProductionVariantServerlessConfig> {
+    pub fn desired_serverless_config(&self) -> ::std::option::Option<& crate::types::ProductionVariantServerlessConfig> {
         self.desired_serverless_config.as_ref()
     }
 }
@@ -89,14 +91,14 @@ impl PendingProductionVariantSummary {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct PendingProductionVariantSummaryBuilder {
     pub(crate) variant_name: ::std::option::Option<::std::string::String>,
-    pub(crate) deployed_images: ::std::option::Option<::std::vec::Vec<crate::types::DeployedImage>>,
+    pub(crate) deployed_images: ::std::option::Option<::std::vec::Vec::<crate::types::DeployedImage>>,
     pub(crate) current_weight: ::std::option::Option<f32>,
     pub(crate) desired_weight: ::std::option::Option<f32>,
     pub(crate) current_instance_count: ::std::option::Option<i32>,
     pub(crate) desired_instance_count: ::std::option::Option<i32>,
     pub(crate) instance_type: ::std::option::Option<crate::types::ProductionVariantInstanceType>,
     pub(crate) accelerator_type: ::std::option::Option<crate::types::ProductionVariantAcceleratorType>,
-    pub(crate) variant_status: ::std::option::Option<::std::vec::Vec<crate::types::ProductionVariantStatus>>,
+    pub(crate) variant_status: ::std::option::Option<::std::vec::Vec::<crate::types::ProductionVariantStatus>>,
     pub(crate) current_serverless_config: ::std::option::Option<crate::types::ProductionVariantServerlessConfig>,
     pub(crate) desired_serverless_config: ::std::option::Option<crate::types::ProductionVariantServerlessConfig>,
 }
@@ -109,8 +111,7 @@ impl PendingProductionVariantSummaryBuilder {
     }
     /// <p>The name of the variant.</p>
     pub fn set_variant_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.variant_name = input;
-        self
+        self.variant_name = input; self
     }
     /// <p>The name of the variant.</p>
     pub fn get_variant_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -123,17 +124,16 @@ impl PendingProductionVariantSummaryBuilder {
     /// <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
     pub fn deployed_images(mut self, input: crate::types::DeployedImage) -> Self {
         let mut v = self.deployed_images.unwrap_or_default();
-        v.push(input);
-        self.deployed_images = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.deployed_images = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-    pub fn set_deployed_images(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeployedImage>>) -> Self {
-        self.deployed_images = input;
-        self
+    pub fn set_deployed_images(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::DeployedImage>>) -> Self {
+        self.deployed_images = input; self
     }
     /// <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this <code>ProductionVariant</code>.</p>
-    pub fn get_deployed_images(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeployedImage>> {
+    pub fn get_deployed_images(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::DeployedImage>> {
         &self.deployed_images
     }
     /// <p>The weight associated with the variant.</p>
@@ -143,8 +143,7 @@ impl PendingProductionVariantSummaryBuilder {
     }
     /// <p>The weight associated with the variant.</p>
     pub fn set_current_weight(mut self, input: ::std::option::Option<f32>) -> Self {
-        self.current_weight = input;
-        self
+        self.current_weight = input; self
     }
     /// <p>The weight associated with the variant.</p>
     pub fn get_current_weight(&self) -> &::std::option::Option<f32> {
@@ -157,8 +156,7 @@ impl PendingProductionVariantSummaryBuilder {
     }
     /// <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
     pub fn set_desired_weight(mut self, input: ::std::option::Option<f32>) -> Self {
-        self.desired_weight = input;
-        self
+        self.desired_weight = input; self
     }
     /// <p>The requested weight for the variant in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
     pub fn get_desired_weight(&self) -> &::std::option::Option<f32> {
@@ -171,8 +169,7 @@ impl PendingProductionVariantSummaryBuilder {
     }
     /// <p>The number of instances associated with the variant.</p>
     pub fn set_current_instance_count(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.current_instance_count = input;
-        self
+        self.current_instance_count = input; self
     }
     /// <p>The number of instances associated with the variant.</p>
     pub fn get_current_instance_count(&self) -> &::std::option::Option<i32> {
@@ -185,8 +182,7 @@ impl PendingProductionVariantSummaryBuilder {
     }
     /// <p>The number of instances requested in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
     pub fn set_desired_instance_count(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.desired_instance_count = input;
-        self
+        self.desired_instance_count = input; self
     }
     /// <p>The number of instances requested in this deployment, as specified in the endpoint configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
     pub fn get_desired_instance_count(&self) -> &::std::option::Option<i32> {
@@ -199,8 +195,7 @@ impl PendingProductionVariantSummaryBuilder {
     }
     /// <p>The type of instances associated with the variant.</p>
     pub fn set_instance_type(mut self, input: ::std::option::Option<crate::types::ProductionVariantInstanceType>) -> Self {
-        self.instance_type = input;
-        self
+        self.instance_type = input; self
     }
     /// <p>The type of instances associated with the variant.</p>
     pub fn get_instance_type(&self) -> &::std::option::Option<crate::types::ProductionVariantInstanceType> {
@@ -213,8 +208,7 @@ impl PendingProductionVariantSummaryBuilder {
     }
     /// <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI instances provide on-demand GPU computing for inference. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
     pub fn set_accelerator_type(mut self, input: ::std::option::Option<crate::types::ProductionVariantAcceleratorType>) -> Self {
-        self.accelerator_type = input;
-        self
+        self.accelerator_type = input; self
     }
     /// <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI instances provide on-demand GPU computing for inference. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
     pub fn get_accelerator_type(&self) -> &::std::option::Option<crate::types::ProductionVariantAcceleratorType> {
@@ -227,17 +221,16 @@ impl PendingProductionVariantSummaryBuilder {
     /// <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
     pub fn variant_status(mut self, input: crate::types::ProductionVariantStatus) -> Self {
         let mut v = self.variant_status.unwrap_or_default();
-        v.push(input);
-        self.variant_status = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.variant_status = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-    pub fn set_variant_status(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ProductionVariantStatus>>) -> Self {
-        self.variant_status = input;
-        self
+    pub fn set_variant_status(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ProductionVariantStatus>>) -> Self {
+        self.variant_status = input; self
     }
     /// <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
-    pub fn get_variant_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProductionVariantStatus>> {
+    pub fn get_variant_status(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ProductionVariantStatus>> {
         &self.variant_status
     }
     /// <p>The serverless configuration for the endpoint.</p>
@@ -247,8 +240,7 @@ impl PendingProductionVariantSummaryBuilder {
     }
     /// <p>The serverless configuration for the endpoint.</p>
     pub fn set_current_serverless_config(mut self, input: ::std::option::Option<crate::types::ProductionVariantServerlessConfig>) -> Self {
-        self.current_serverless_config = input;
-        self
+        self.current_serverless_config = input; self
     }
     /// <p>The serverless configuration for the endpoint.</p>
     pub fn get_current_serverless_config(&self) -> &::std::option::Option<crate::types::ProductionVariantServerlessConfig> {
@@ -261,8 +253,7 @@ impl PendingProductionVariantSummaryBuilder {
     }
     /// <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
     pub fn set_desired_serverless_config(mut self, input: ::std::option::Option<crate::types::ProductionVariantServerlessConfig>) -> Self {
-        self.desired_serverless_config = input;
-        self
+        self.desired_serverless_config = input; self
     }
     /// <p>The serverless configuration requested for this deployment, as specified in the endpoint configuration for the endpoint.</p>
     pub fn get_desired_serverless_config(&self) -> &::std::option::Option<crate::types::ProductionVariantServerlessConfig> {
@@ -271,17 +262,29 @@ impl PendingProductionVariantSummaryBuilder {
     /// Consumes the builder and constructs a [`PendingProductionVariantSummary`](crate::types::PendingProductionVariantSummary).
     pub fn build(self) -> crate::types::PendingProductionVariantSummary {
         crate::types::PendingProductionVariantSummary {
-            variant_name: self.variant_name,
-            deployed_images: self.deployed_images,
-            current_weight: self.current_weight,
-            desired_weight: self.desired_weight,
-            current_instance_count: self.current_instance_count,
-            desired_instance_count: self.desired_instance_count,
-            instance_type: self.instance_type,
-            accelerator_type: self.accelerator_type,
-            variant_status: self.variant_status,
-            current_serverless_config: self.current_serverless_config,
-            desired_serverless_config: self.desired_serverless_config,
+            variant_name: self.variant_name
+            ,
+            deployed_images: self.deployed_images
+            ,
+            current_weight: self.current_weight
+            ,
+            desired_weight: self.desired_weight
+            ,
+            current_instance_count: self.current_instance_count
+            ,
+            desired_instance_count: self.desired_instance_count
+            ,
+            instance_type: self.instance_type
+            ,
+            accelerator_type: self.accelerator_type
+            ,
+            variant_status: self.variant_status
+            ,
+            current_serverless_config: self.current_serverless_config
+            ,
+            desired_serverless_config: self.desired_serverless_config
+            ,
         }
     }
 }
+

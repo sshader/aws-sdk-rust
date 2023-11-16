@@ -5,58 +5,54 @@ pub use crate::operation::authorize_security_group_egress::_authorize_security_g
 
 impl AuthorizeSecurityGroupEgressInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.authorize_security_group_egress();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.authorize_security_group_egress();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `AuthorizeSecurityGroupEgress`.
-///
-/// <p>Adds the specified outbound (egress) rules to a security group for use with a VPC.</p>
-/// <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified source security groups. When specifying an outbound rule for your security group in a VPC, the <code>IpPermissions</code> must include a destination for the traffic.</p>
-/// <p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p>
-/// <p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p>
+/// 
+/// <p>Adds the specified outbound (egress) rules to a security group for use with a VPC.</p> 
+/// <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified source security groups. When specifying an outbound rule for your security group in a VPC, the <code>IpPermissions</code> must include a destination for the traffic.</p> 
+/// <p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p> 
+/// <p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p> 
 /// <p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct AuthorizeSecurityGroupEgressFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::authorize_security_group_egress::builders::AuthorizeSecurityGroupEgressInputBuilder,
+                    inner: crate::operation::authorize_security_group_egress::builders::AuthorizeSecurityGroupEgressInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput,
-        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError,
-    > for AuthorizeSecurityGroupEgressFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput,
-            crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput,
+                    crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError,
+                > for AuthorizeSecurityGroupEgressFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput,
+                        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl AuthorizeSecurityGroupEgressFluentBuilder {
     /// Creates a new `AuthorizeSecurityGroupEgress`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -65,53 +61,44 @@ impl AuthorizeSecurityGroupEgressFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgress::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgress::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput,
-        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgress::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgress::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressOutput, crate::operation::authorize_security_group_egress::AuthorizeSecurityGroupEgressError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn dry_run(mut self, input: bool) -> Self {
         self.inner = self.inner.dry_run(input);
@@ -150,12 +137,12 @@ impl AuthorizeSecurityGroupEgressFluentBuilder {
         self
     }
     /// <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
-    pub fn set_ip_permissions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::IpPermission>>) -> Self {
+    pub fn set_ip_permissions(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::IpPermission>>) -> Self {
         self.inner = self.inner.set_ip_permissions(input);
         self
     }
     /// <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
-    pub fn get_ip_permissions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::IpPermission>> {
+    pub fn get_ip_permissions(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::IpPermission>> {
         self.inner.get_ip_permissions()
     }
     /// Appends an item to `TagSpecifications`.
@@ -168,12 +155,12 @@ impl AuthorizeSecurityGroupEgressFluentBuilder {
         self
     }
     /// <p>The tags applied to the security group rule.</p>
-    pub fn set_tag_specifications(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TagSpecification>>) -> Self {
+    pub fn set_tag_specifications(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::TagSpecification>>) -> Self {
         self.inner = self.inner.set_tag_specifications(input);
         self
     }
     /// <p>The tags applied to the security group rule.</p>
-    pub fn get_tag_specifications(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TagSpecification>> {
+    pub fn get_tag_specifications(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::TagSpecification>> {
         self.inner.get_tag_specifications()
     }
     /// <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
@@ -261,3 +248,4 @@ impl AuthorizeSecurityGroupEgressFluentBuilder {
         self.inner.get_source_security_group_owner_id()
     }
 }
+

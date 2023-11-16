@@ -3,17 +3,17 @@
 /// <p>Status of the connection between an endpoint and a replication instance, including Amazon Resource Names (ARNs) and the last error message issued.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Connection {
+pub struct Connection  {
     /// <p>The ARN of the replication instance.</p>
     pub replication_instance_arn: ::std::option::Option<::std::string::String>,
     /// <p>The ARN string that uniquely identifies the endpoint.</p>
     pub endpoint_arn: ::std::option::Option<::std::string::String>,
-    /// <p>The connection status. This parameter can return one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>"successful"</code> </p> </li>
-    /// <li> <p> <code>"testing"</code> </p> </li>
-    /// <li> <p> <code>"failed"</code> </p> </li>
-    /// <li> <p> <code>"deleting"</code> </p> </li>
+    /// <p>The connection status. This parameter can return one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"successful"</code> </p> </li> 
+    /// <li> <p> <code>"testing"</code> </p> </li> 
+    /// <li> <p> <code>"failed"</code> </p> </li> 
+    /// <li> <p> <code>"deleting"</code> </p> </li> 
     /// </ul>
     pub status: ::std::option::Option<::std::string::String>,
     /// <p>The error message when the connection last failed.</p>
@@ -23,35 +23,35 @@ pub struct Connection {
     /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p>
     pub replication_instance_identifier: ::std::option::Option<::std::string::String>,
 }
-impl Connection {
+impl  Connection  {
     /// <p>The ARN of the replication instance.</p>
-    pub fn replication_instance_arn(&self) -> ::std::option::Option<&str> {
+    pub fn replication_instance_arn(&self) -> ::std::option::Option<& str> {
         self.replication_instance_arn.as_deref()
     }
     /// <p>The ARN string that uniquely identifies the endpoint.</p>
-    pub fn endpoint_arn(&self) -> ::std::option::Option<&str> {
+    pub fn endpoint_arn(&self) -> ::std::option::Option<& str> {
         self.endpoint_arn.as_deref()
     }
-    /// <p>The connection status. This parameter can return one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>"successful"</code> </p> </li>
-    /// <li> <p> <code>"testing"</code> </p> </li>
-    /// <li> <p> <code>"failed"</code> </p> </li>
-    /// <li> <p> <code>"deleting"</code> </p> </li>
+    /// <p>The connection status. This parameter can return one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"successful"</code> </p> </li> 
+    /// <li> <p> <code>"testing"</code> </p> </li> 
+    /// <li> <p> <code>"failed"</code> </p> </li> 
+    /// <li> <p> <code>"deleting"</code> </p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&str> {
+    pub fn status(&self) -> ::std::option::Option<& str> {
         self.status.as_deref()
     }
     /// <p>The error message when the connection last failed.</p>
-    pub fn last_failure_message(&self) -> ::std::option::Option<&str> {
+    pub fn last_failure_message(&self) -> ::std::option::Option<& str> {
         self.last_failure_message.as_deref()
     }
     /// <p>The identifier of the endpoint. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.</p>
-    pub fn endpoint_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn endpoint_identifier(&self) -> ::std::option::Option<& str> {
         self.endpoint_identifier.as_deref()
     }
     /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p>
-    pub fn replication_instance_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn replication_instance_identifier(&self) -> ::std::option::Option<& str> {
         self.replication_instance_identifier.as_deref()
     }
 }
@@ -81,8 +81,7 @@ impl ConnectionBuilder {
     }
     /// <p>The ARN of the replication instance.</p>
     pub fn set_replication_instance_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.replication_instance_arn = input;
-        self
+        self.replication_instance_arn = input; self
     }
     /// <p>The ARN of the replication instance.</p>
     pub fn get_replication_instance_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -95,41 +94,39 @@ impl ConnectionBuilder {
     }
     /// <p>The ARN string that uniquely identifies the endpoint.</p>
     pub fn set_endpoint_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.endpoint_arn = input;
-        self
+        self.endpoint_arn = input; self
     }
     /// <p>The ARN string that uniquely identifies the endpoint.</p>
     pub fn get_endpoint_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.endpoint_arn
     }
-    /// <p>The connection status. This parameter can return one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>"successful"</code> </p> </li>
-    /// <li> <p> <code>"testing"</code> </p> </li>
-    /// <li> <p> <code>"failed"</code> </p> </li>
-    /// <li> <p> <code>"deleting"</code> </p> </li>
+    /// <p>The connection status. This parameter can return one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"successful"</code> </p> </li> 
+    /// <li> <p> <code>"testing"</code> </p> </li> 
+    /// <li> <p> <code>"failed"</code> </p> </li> 
+    /// <li> <p> <code>"deleting"</code> </p> </li> 
     /// </ul>
     pub fn status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The connection status. This parameter can return one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>"successful"</code> </p> </li>
-    /// <li> <p> <code>"testing"</code> </p> </li>
-    /// <li> <p> <code>"failed"</code> </p> </li>
-    /// <li> <p> <code>"deleting"</code> </p> </li>
+    /// <p>The connection status. This parameter can return one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"successful"</code> </p> </li> 
+    /// <li> <p> <code>"testing"</code> </p> </li> 
+    /// <li> <p> <code>"failed"</code> </p> </li> 
+    /// <li> <p> <code>"deleting"</code> </p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The connection status. This parameter can return one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>"successful"</code> </p> </li>
-    /// <li> <p> <code>"testing"</code> </p> </li>
-    /// <li> <p> <code>"failed"</code> </p> </li>
-    /// <li> <p> <code>"deleting"</code> </p> </li>
+    /// <p>The connection status. This parameter can return one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"successful"</code> </p> </li> 
+    /// <li> <p> <code>"testing"</code> </p> </li> 
+    /// <li> <p> <code>"failed"</code> </p> </li> 
+    /// <li> <p> <code>"deleting"</code> </p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.status
@@ -141,8 +138,7 @@ impl ConnectionBuilder {
     }
     /// <p>The error message when the connection last failed.</p>
     pub fn set_last_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.last_failure_message = input;
-        self
+        self.last_failure_message = input; self
     }
     /// <p>The error message when the connection last failed.</p>
     pub fn get_last_failure_message(&self) -> &::std::option::Option<::std::string::String> {
@@ -155,8 +151,7 @@ impl ConnectionBuilder {
     }
     /// <p>The identifier of the endpoint. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.</p>
     pub fn set_endpoint_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.endpoint_identifier = input;
-        self
+        self.endpoint_identifier = input; self
     }
     /// <p>The identifier of the endpoint. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.</p>
     pub fn get_endpoint_identifier(&self) -> &::std::option::Option<::std::string::String> {
@@ -169,8 +164,7 @@ impl ConnectionBuilder {
     }
     /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p>
     pub fn set_replication_instance_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.replication_instance_identifier = input;
-        self
+        self.replication_instance_identifier = input; self
     }
     /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p>
     pub fn get_replication_instance_identifier(&self) -> &::std::option::Option<::std::string::String> {
@@ -179,12 +173,19 @@ impl ConnectionBuilder {
     /// Consumes the builder and constructs a [`Connection`](crate::types::Connection).
     pub fn build(self) -> crate::types::Connection {
         crate::types::Connection {
-            replication_instance_arn: self.replication_instance_arn,
-            endpoint_arn: self.endpoint_arn,
-            status: self.status,
-            last_failure_message: self.last_failure_message,
-            endpoint_identifier: self.endpoint_identifier,
-            replication_instance_identifier: self.replication_instance_identifier,
+            replication_instance_arn: self.replication_instance_arn
+            ,
+            endpoint_arn: self.endpoint_arn
+            ,
+            status: self.status
+            ,
+            last_failure_message: self.last_failure_message
+            ,
+            endpoint_identifier: self.endpoint_identifier
+            ,
+            replication_instance_identifier: self.replication_instance_identifier
+            ,
         }
     }
 }
+

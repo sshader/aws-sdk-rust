@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct CreateInstanceInput {
+pub struct CreateInstanceInput  {
     /// <p>The idempotency token.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
     /// <p>The type of identity management for your Amazon Connect users.</p>
@@ -16,21 +16,21 @@ pub struct CreateInstanceInput {
     /// <p>Your contact center allows outbound calls.</p>
     pub outbound_calls_enabled: ::std::option::Option<bool>,
 }
-impl CreateInstanceInput {
+impl  CreateInstanceInput  {
     /// <p>The idempotency token.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
     /// <p>The type of identity management for your Amazon Connect users.</p>
-    pub fn identity_management_type(&self) -> ::std::option::Option<&crate::types::DirectoryType> {
+    pub fn identity_management_type(&self) -> ::std::option::Option<& crate::types::DirectoryType> {
         self.identity_management_type.as_ref()
     }
     /// <p>The name for your instance.</p>
-    pub fn instance_alias(&self) -> ::std::option::Option<&str> {
+    pub fn instance_alias(&self) -> ::std::option::Option<& str> {
         self.instance_alias.as_deref()
     }
     /// <p>The identifier for the directory.</p>
-    pub fn directory_id(&self) -> ::std::option::Option<&str> {
+    pub fn directory_id(&self) -> ::std::option::Option<& str> {
         self.directory_id.as_deref()
     }
     /// <p>Your contact center handles incoming contacts.</p>
@@ -42,7 +42,7 @@ impl CreateInstanceInput {
         self.outbound_calls_enabled
     }
 }
-impl ::std::fmt::Debug for CreateInstanceInput {
+impl  ::std::fmt::Debug for CreateInstanceInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("CreateInstanceInput");
         formatter.field("client_token", &self.client_token);
@@ -80,8 +80,7 @@ impl CreateInstanceInputBuilder {
     }
     /// <p>The idempotency token.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// <p>The idempotency token.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -95,8 +94,7 @@ impl CreateInstanceInputBuilder {
     }
     /// <p>The type of identity management for your Amazon Connect users.</p>
     pub fn set_identity_management_type(mut self, input: ::std::option::Option<crate::types::DirectoryType>) -> Self {
-        self.identity_management_type = input;
-        self
+        self.identity_management_type = input; self
     }
     /// <p>The type of identity management for your Amazon Connect users.</p>
     pub fn get_identity_management_type(&self) -> &::std::option::Option<crate::types::DirectoryType> {
@@ -109,8 +107,7 @@ impl CreateInstanceInputBuilder {
     }
     /// <p>The name for your instance.</p>
     pub fn set_instance_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.instance_alias = input;
-        self
+        self.instance_alias = input; self
     }
     /// <p>The name for your instance.</p>
     pub fn get_instance_alias(&self) -> &::std::option::Option<::std::string::String> {
@@ -123,8 +120,7 @@ impl CreateInstanceInputBuilder {
     }
     /// <p>The identifier for the directory.</p>
     pub fn set_directory_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.directory_id = input;
-        self
+        self.directory_id = input; self
     }
     /// <p>The identifier for the directory.</p>
     pub fn get_directory_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -138,8 +134,7 @@ impl CreateInstanceInputBuilder {
     }
     /// <p>Your contact center handles incoming contacts.</p>
     pub fn set_inbound_calls_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.inbound_calls_enabled = input;
-        self
+        self.inbound_calls_enabled = input; self
     }
     /// <p>Your contact center handles incoming contacts.</p>
     pub fn get_inbound_calls_enabled(&self) -> &::std::option::Option<bool> {
@@ -153,25 +148,30 @@ impl CreateInstanceInputBuilder {
     }
     /// <p>Your contact center allows outbound calls.</p>
     pub fn set_outbound_calls_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.outbound_calls_enabled = input;
-        self
+        self.outbound_calls_enabled = input; self
     }
     /// <p>Your contact center allows outbound calls.</p>
     pub fn get_outbound_calls_enabled(&self) -> &::std::option::Option<bool> {
         &self.outbound_calls_enabled
     }
     /// Consumes the builder and constructs a [`CreateInstanceInput`](crate::operation::create_instance::CreateInstanceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_instance::CreateInstanceInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_instance::CreateInstanceInput {
-            client_token: self.client_token,
-            identity_management_type: self.identity_management_type,
-            instance_alias: self.instance_alias,
-            directory_id: self.directory_id,
-            inbound_calls_enabled: self.inbound_calls_enabled,
-            outbound_calls_enabled: self.outbound_calls_enabled,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_instance::CreateInstanceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_instance::CreateInstanceInput {
+                client_token: self.client_token
+                ,
+                identity_management_type: self.identity_management_type
+                ,
+                instance_alias: self.instance_alias
+                ,
+                directory_id: self.directory_id
+                ,
+                inbound_calls_enabled: self.inbound_calls_enabled
+                ,
+                outbound_calls_enabled: self.outbound_calls_enabled
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for CreateInstanceInputBuilder {
@@ -186,3 +186,4 @@ impl ::std::fmt::Debug for CreateInstanceInputBuilder {
         formatter.finish()
     }
 }
+

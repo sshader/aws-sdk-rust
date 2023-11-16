@@ -18,7 +18,13 @@ pub enum Error {
     /// <p>The rate exceeds the limit.</p>
     ThrottlingException(crate::types::error::ThrottlingException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    Unhandled(crate::error::sealed_unhandled::Unhandled)
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -30,172 +36,130 @@ impl ::std::fmt::Display for Error {
             Error::ServiceUnavailableException(inner) => inner.fmt(f),
             Error::TerminalStateException(inner) => inner.fmt(f),
             Error::ThrottlingException(inner) => inner.fmt(f),
-            Error::Unhandled(inner) => inner.fmt(f),
+            Error::Unhandled(_) => if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                        write!(f, "unhandled error ({code})")
+                                    } else {
+                                        f.write_str("unhandled error")
+                                    }
         }
     }
 }
 impl From<::aws_smithy_types::error::operation::BuildError> for Error {
-    fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
-        Error::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(value).build())
-    }
-}
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_job_execution::DescribeJobExecutionError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+                fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
+                    Error::Unhandled(crate::error::sealed_unhandled::Unhandled { source: value.into(), meta: ::std::default::Default::default() })
+                }
+            }
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
+                fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
+                    match self {
+                        Self::CertificateValidationException(inner) => inner.meta(),
+Self::InvalidRequestException(inner) => inner.meta(),
+Self::InvalidStateTransitionException(inner) => inner.meta(),
+Self::ResourceNotFoundException(inner) => inner.meta(),
+Self::ServiceUnavailableException(inner) => inner.meta(),
+Self::TerminalStateException(inner) => inner.meta(),
+Self::ThrottlingException(inner) => inner.meta(),
+                        Self::Unhandled(inner) => &inner.meta,
+                    }
+                }
+            }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_job_execution::DescribeJobExecutionError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_job_execution::DescribeJobExecutionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_job_execution::DescribeJobExecutionError> for Error {
     fn from(err: crate::operation::describe_job_execution::DescribeJobExecutionError) -> Self {
         match err {
-            crate::operation::describe_job_execution::DescribeJobExecutionError::CertificateValidationException(inner) => {
-                Error::CertificateValidationException(inner)
-            }
-            crate::operation::describe_job_execution::DescribeJobExecutionError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::describe_job_execution::DescribeJobExecutionError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_job_execution::DescribeJobExecutionError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
-            crate::operation::describe_job_execution::DescribeJobExecutionError::TerminalStateException(inner) => {
-                Error::TerminalStateException(inner)
-            }
+            crate::operation::describe_job_execution::DescribeJobExecutionError::CertificateValidationException(inner) => Error::CertificateValidationException(inner),
+            crate::operation::describe_job_execution::DescribeJobExecutionError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::describe_job_execution::DescribeJobExecutionError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_job_execution::DescribeJobExecutionError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::describe_job_execution::DescribeJobExecutionError::TerminalStateException(inner) => Error::TerminalStateException(inner),
             crate::operation::describe_job_execution::DescribeJobExecutionError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::describe_job_execution::DescribeJobExecutionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_pending_job_executions::GetPendingJobExecutionsError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_pending_job_executions::GetPendingJobExecutionsError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_pending_job_executions::GetPendingJobExecutionsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_pending_job_executions::GetPendingJobExecutionsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_pending_job_executions::GetPendingJobExecutionsError> for Error {
     fn from(err: crate::operation::get_pending_job_executions::GetPendingJobExecutionsError) -> Self {
         match err {
-            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::CertificateValidationException(inner) => {
-                Error::CertificateValidationException(inner)
-            }
-            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
-            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
+            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::CertificateValidationException(inner) => Error::CertificateValidationException(inner),
+            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::get_pending_job_executions::GetPendingJobExecutionsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError> for Error {
     fn from(err: crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError) -> Self {
         match err {
-            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::CertificateValidationException(inner) => {
-                Error::CertificateValidationException(inner)
-            }
-            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
-            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
+            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::CertificateValidationException(inner) => Error::CertificateValidationException(inner),
+            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::start_next_pending_job_execution::StartNextPendingJobExecutionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_job_execution::UpdateJobExecutionError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_job_execution::UpdateJobExecutionError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_job_execution::UpdateJobExecutionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::update_job_execution::UpdateJobExecutionError> for Error {
     fn from(err: crate::operation::update_job_execution::UpdateJobExecutionError) -> Self {
         match err {
-            crate::operation::update_job_execution::UpdateJobExecutionError::CertificateValidationException(inner) => {
-                Error::CertificateValidationException(inner)
-            }
+            crate::operation::update_job_execution::UpdateJobExecutionError::CertificateValidationException(inner) => Error::CertificateValidationException(inner),
             crate::operation::update_job_execution::UpdateJobExecutionError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::update_job_execution::UpdateJobExecutionError::InvalidStateTransitionException(inner) => {
-                Error::InvalidStateTransitionException(inner)
-            }
-            crate::operation::update_job_execution::UpdateJobExecutionError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::update_job_execution::UpdateJobExecutionError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::update_job_execution::UpdateJobExecutionError::InvalidStateTransitionException(inner) => Error::InvalidStateTransitionException(inner),
+            crate::operation::update_job_execution::UpdateJobExecutionError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_job_execution::UpdateJobExecutionError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::update_job_execution::UpdateJobExecutionError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::update_job_execution::UpdateJobExecutionError::Unhandled(inner) => Error::Unhandled(inner),
         }
@@ -211,11 +175,11 @@ impl ::std::error::Error for Error {
             Error::ServiceUnavailableException(inner) => inner.source(),
             Error::TerminalStateException(inner) => inner.source(),
             Error::ThrottlingException(inner) => inner.source(),
-            Error::Unhandled(inner) => inner.source(),
+            Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source)
         }
     }
 }
-impl ::aws_http::request_id::RequestId for Error {
+impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             Self::CertificateValidationException(e) => e.request_id(),
@@ -225,7 +189,8 @@ impl ::aws_http::request_id::RequestId for Error {
             Self::ServiceUnavailableException(e) => e.request_id(),
             Self::TerminalStateException(e) => e.request_id(),
             Self::ThrottlingException(e) => e.request_id(),
-            Self::Unhandled(e) => e.request_id(),
+            Self::Unhandled(e) => e.meta.request_id(),
         }
     }
 }
+

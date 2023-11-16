@@ -3,47 +3,47 @@
 /// <p>Contains information about the status of a notebook calculation.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CalculationStatus {
+pub struct CalculationStatus  {
     /// <p>The date and time the calculation was submitted for processing.</p>
     pub submission_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The date and time the calculation completed processing.</p>
     pub completion_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>The state of the calculation execution. A description of each state follows.</p>
-    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p>
-    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p>
-    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p>
-    /// <p> <code>RUNNING</code> - The calculation is running.</p>
-    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p>
-    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p>
-    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p>
+    /// <p>The state of the calculation execution. A description of each state follows.</p> 
+    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p> 
+    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p> 
+    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p> 
+    /// <p> <code>RUNNING</code> - The calculation is running.</p> 
+    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p> 
+    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p> 
+    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p> 
     /// <p> <code>FAILED</code> - The calculation failed and is no longer running.</p>
     pub state: ::std::option::Option<crate::types::CalculationExecutionState>,
     /// <p>The reason for the calculation state change (for example, the calculation was canceled because the session was terminated).</p>
     pub state_change_reason: ::std::option::Option<::std::string::String>,
 }
-impl CalculationStatus {
+impl  CalculationStatus  {
     /// <p>The date and time the calculation was submitted for processing.</p>
-    pub fn submission_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn submission_date_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.submission_date_time.as_ref()
     }
     /// <p>The date and time the calculation completed processing.</p>
-    pub fn completion_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn completion_date_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.completion_date_time.as_ref()
     }
-    /// <p>The state of the calculation execution. A description of each state follows.</p>
-    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p>
-    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p>
-    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p>
-    /// <p> <code>RUNNING</code> - The calculation is running.</p>
-    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p>
-    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p>
-    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p>
+    /// <p>The state of the calculation execution. A description of each state follows.</p> 
+    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p> 
+    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p> 
+    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p> 
+    /// <p> <code>RUNNING</code> - The calculation is running.</p> 
+    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p> 
+    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p> 
+    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p> 
     /// <p> <code>FAILED</code> - The calculation failed and is no longer running.</p>
-    pub fn state(&self) -> ::std::option::Option<&crate::types::CalculationExecutionState> {
+    pub fn state(&self) -> ::std::option::Option<& crate::types::CalculationExecutionState> {
         self.state.as_ref()
     }
     /// <p>The reason for the calculation state change (for example, the calculation was canceled because the session was terminated).</p>
-    pub fn state_change_reason(&self) -> ::std::option::Option<&str> {
+    pub fn state_change_reason(&self) -> ::std::option::Option<& str> {
         self.state_change_reason.as_deref()
     }
 }
@@ -71,8 +71,7 @@ impl CalculationStatusBuilder {
     }
     /// <p>The date and time the calculation was submitted for processing.</p>
     pub fn set_submission_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.submission_date_time = input;
-        self
+        self.submission_date_time = input; self
     }
     /// <p>The date and time the calculation was submitted for processing.</p>
     pub fn get_submission_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -85,47 +84,45 @@ impl CalculationStatusBuilder {
     }
     /// <p>The date and time the calculation completed processing.</p>
     pub fn set_completion_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.completion_date_time = input;
-        self
+        self.completion_date_time = input; self
     }
     /// <p>The date and time the calculation completed processing.</p>
     pub fn get_completion_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.completion_date_time
     }
-    /// <p>The state of the calculation execution. A description of each state follows.</p>
-    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p>
-    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p>
-    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p>
-    /// <p> <code>RUNNING</code> - The calculation is running.</p>
-    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p>
-    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p>
-    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p>
+    /// <p>The state of the calculation execution. A description of each state follows.</p> 
+    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p> 
+    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p> 
+    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p> 
+    /// <p> <code>RUNNING</code> - The calculation is running.</p> 
+    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p> 
+    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p> 
+    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p> 
     /// <p> <code>FAILED</code> - The calculation failed and is no longer running.</p>
     pub fn state(mut self, input: crate::types::CalculationExecutionState) -> Self {
         self.state = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The state of the calculation execution. A description of each state follows.</p>
-    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p>
-    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p>
-    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p>
-    /// <p> <code>RUNNING</code> - The calculation is running.</p>
-    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p>
-    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p>
-    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p>
+    /// <p>The state of the calculation execution. A description of each state follows.</p> 
+    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p> 
+    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p> 
+    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p> 
+    /// <p> <code>RUNNING</code> - The calculation is running.</p> 
+    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p> 
+    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p> 
+    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p> 
     /// <p> <code>FAILED</code> - The calculation failed and is no longer running.</p>
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::CalculationExecutionState>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
-    /// <p>The state of the calculation execution. A description of each state follows.</p>
-    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p>
-    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p>
-    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p>
-    /// <p> <code>RUNNING</code> - The calculation is running.</p>
-    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p>
-    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p>
-    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p>
+    /// <p>The state of the calculation execution. A description of each state follows.</p> 
+    /// <p> <code>CREATING</code> - The calculation is in the process of being created.</p> 
+    /// <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p> 
+    /// <p> <code>QUEUED</code> - The calculation has been queued for processing.</p> 
+    /// <p> <code>RUNNING</code> - The calculation is running.</p> 
+    /// <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p> 
+    /// <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p> 
+    /// <p> <code>COMPLETED</code> - The calculation has completed without error.</p> 
     /// <p> <code>FAILED</code> - The calculation failed and is no longer running.</p>
     pub fn get_state(&self) -> &::std::option::Option<crate::types::CalculationExecutionState> {
         &self.state
@@ -137,8 +134,7 @@ impl CalculationStatusBuilder {
     }
     /// <p>The reason for the calculation state change (for example, the calculation was canceled because the session was terminated).</p>
     pub fn set_state_change_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.state_change_reason = input;
-        self
+        self.state_change_reason = input; self
     }
     /// <p>The reason for the calculation state change (for example, the calculation was canceled because the session was terminated).</p>
     pub fn get_state_change_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -147,10 +143,15 @@ impl CalculationStatusBuilder {
     /// Consumes the builder and constructs a [`CalculationStatus`](crate::types::CalculationStatus).
     pub fn build(self) -> crate::types::CalculationStatus {
         crate::types::CalculationStatus {
-            submission_date_time: self.submission_date_time,
-            completion_date_time: self.completion_date_time,
-            state: self.state,
-            state_change_reason: self.state_change_reason,
+            submission_date_time: self.submission_date_time
+            ,
+            completion_date_time: self.completion_date_time
+            ,
+            state: self.state
+            ,
+            state_change_reason: self.state_change_reason
+            ,
         }
     }
 }
+

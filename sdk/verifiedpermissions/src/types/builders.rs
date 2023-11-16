@@ -48,3 +48,4 @@ pub use crate::types::_cognito_user_pool_configuration::CognitoUserPoolConfigura
 pub use crate::types::_update_cognito_user_pool_configuration::UpdateCognitoUserPoolConfigurationBuilder;
 
 pub use crate::types::_identity_source_details::IdentitySourceDetailsBuilder;
+

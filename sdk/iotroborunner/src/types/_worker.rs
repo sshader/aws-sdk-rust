@@ -3,7 +3,7 @@
 /// A unit capable of performing tasks.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Worker {
+pub struct Worker  {
     /// Full ARN of the worker.
     pub arn: ::std::string::String,
     /// Filters access by the workers identifier
@@ -29,58 +29,53 @@ pub struct Worker {
     /// Worker orientation measured in units clockwise from north.
     pub orientation: ::std::option::Option<crate::types::Orientation>,
 }
-impl Worker {
+impl  Worker  {
     /// Full ARN of the worker.
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> & str {
+        use std::ops::Deref; self.arn.deref()
     }
     /// Filters access by the workers identifier
-    pub fn id(&self) -> &str {
-        use std::ops::Deref;
-        self.id.deref()
+    pub fn id(&self) -> & str {
+        use std::ops::Deref; self.id.deref()
     }
     /// Full ARN of the worker fleet.
-    pub fn fleet(&self) -> &str {
-        use std::ops::Deref;
-        self.fleet.deref()
+    pub fn fleet(&self) -> & str {
+        use std::ops::Deref; self.fleet.deref()
     }
     /// Timestamp at which the resource was created.
-    pub fn created_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn created_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.created_at
     }
     /// Timestamp at which the resource was last updated.
-    pub fn updated_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn updated_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.updated_at
     }
     /// Human friendly name of the resource.
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// Site ARN.
-    pub fn site(&self) -> &str {
-        use std::ops::Deref;
-        self.site.deref()
+    pub fn site(&self) -> & str {
+        use std::ops::Deref; self.site.deref()
     }
     /// JSON blob containing unstructured worker properties that are transient and may change during regular operation.
-    pub fn additional_transient_properties(&self) -> ::std::option::Option<&str> {
+    pub fn additional_transient_properties(&self) -> ::std::option::Option<& str> {
         self.additional_transient_properties.as_deref()
     }
     /// JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
-    pub fn additional_fixed_properties(&self) -> ::std::option::Option<&str> {
+    pub fn additional_fixed_properties(&self) -> ::std::option::Option<& str> {
         self.additional_fixed_properties.as_deref()
     }
     /// Properties of the worker that are provided by the vendor FMS.
-    pub fn vendor_properties(&self) -> ::std::option::Option<&crate::types::VendorProperties> {
+    pub fn vendor_properties(&self) -> ::std::option::Option<& crate::types::VendorProperties> {
         self.vendor_properties.as_ref()
     }
     /// Supported coordinates for worker position.
-    pub fn position(&self) -> ::std::option::Option<&crate::types::PositionCoordinates> {
+    pub fn position(&self) -> ::std::option::Option<& crate::types::PositionCoordinates> {
         self.position.as_ref()
     }
     /// Worker orientation measured in units clockwise from north.
-    pub fn orientation(&self) -> ::std::option::Option<&crate::types::Orientation> {
+    pub fn orientation(&self) -> ::std::option::Option<& crate::types::Orientation> {
         self.orientation.as_ref()
     }
 }
@@ -117,8 +112,7 @@ impl WorkerBuilder {
     }
     /// Full ARN of the worker.
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// Full ARN of the worker.
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -132,8 +126,7 @@ impl WorkerBuilder {
     }
     /// Filters access by the workers identifier
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// Filters access by the workers identifier
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -147,8 +140,7 @@ impl WorkerBuilder {
     }
     /// Full ARN of the worker fleet.
     pub fn set_fleet(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.fleet = input;
-        self
+        self.fleet = input; self
     }
     /// Full ARN of the worker fleet.
     pub fn get_fleet(&self) -> &::std::option::Option<::std::string::String> {
@@ -162,8 +154,7 @@ impl WorkerBuilder {
     }
     /// Timestamp at which the resource was created.
     pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_at = input;
-        self
+        self.created_at = input; self
     }
     /// Timestamp at which the resource was created.
     pub fn get_created_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -177,8 +168,7 @@ impl WorkerBuilder {
     }
     /// Timestamp at which the resource was last updated.
     pub fn set_updated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.updated_at = input;
-        self
+        self.updated_at = input; self
     }
     /// Timestamp at which the resource was last updated.
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -192,8 +182,7 @@ impl WorkerBuilder {
     }
     /// Human friendly name of the resource.
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// Human friendly name of the resource.
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -207,8 +196,7 @@ impl WorkerBuilder {
     }
     /// Site ARN.
     pub fn set_site(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.site = input;
-        self
+        self.site = input; self
     }
     /// Site ARN.
     pub fn get_site(&self) -> &::std::option::Option<::std::string::String> {
@@ -221,8 +209,7 @@ impl WorkerBuilder {
     }
     /// JSON blob containing unstructured worker properties that are transient and may change during regular operation.
     pub fn set_additional_transient_properties(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.additional_transient_properties = input;
-        self
+        self.additional_transient_properties = input; self
     }
     /// JSON blob containing unstructured worker properties that are transient and may change during regular operation.
     pub fn get_additional_transient_properties(&self) -> &::std::option::Option<::std::string::String> {
@@ -235,8 +222,7 @@ impl WorkerBuilder {
     }
     /// JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
     pub fn set_additional_fixed_properties(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.additional_fixed_properties = input;
-        self
+        self.additional_fixed_properties = input; self
     }
     /// JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
     pub fn get_additional_fixed_properties(&self) -> &::std::option::Option<::std::string::String> {
@@ -249,8 +235,7 @@ impl WorkerBuilder {
     }
     /// Properties of the worker that are provided by the vendor FMS.
     pub fn set_vendor_properties(mut self, input: ::std::option::Option<crate::types::VendorProperties>) -> Self {
-        self.vendor_properties = input;
-        self
+        self.vendor_properties = input; self
     }
     /// Properties of the worker that are provided by the vendor FMS.
     pub fn get_vendor_properties(&self) -> &::std::option::Option<crate::types::VendorProperties> {
@@ -263,8 +248,7 @@ impl WorkerBuilder {
     }
     /// Supported coordinates for worker position.
     pub fn set_position(mut self, input: ::std::option::Option<crate::types::PositionCoordinates>) -> Self {
-        self.position = input;
-        self
+        self.position = input; self
     }
     /// Supported coordinates for worker position.
     pub fn get_position(&self) -> &::std::option::Option<crate::types::PositionCoordinates> {
@@ -277,8 +261,7 @@ impl WorkerBuilder {
     }
     /// Worker orientation measured in units clockwise from north.
     pub fn set_orientation(mut self, input: ::std::option::Option<crate::types::Orientation>) -> Self {
-        self.orientation = input;
-        self
+        self.orientation = input; self
     }
     /// Worker orientation measured in units clockwise from north.
     pub fn get_orientation(&self) -> &::std::option::Option<crate::types::Orientation> {
@@ -294,51 +277,55 @@ impl WorkerBuilder {
     /// - [`name`](crate::types::builders::WorkerBuilder::name)
     /// - [`site`](crate::types::builders::WorkerBuilder::site)
     pub fn build(self) -> ::std::result::Result<crate::types::Worker, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::Worker {
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building Worker",
-                )
-            })?,
-            id: self.id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building Worker")
-            })?,
-            fleet: self.fleet.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "fleet",
-                    "fleet was not specified but it is required when building Worker",
-                )
-            })?,
-            created_at: self.created_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "created_at",
-                    "created_at was not specified but it is required when building Worker",
-                )
-            })?,
-            updated_at: self.updated_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "updated_at",
-                    "updated_at was not specified but it is required when building Worker",
-                )
-            })?,
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building Worker",
-                )
-            })?,
-            site: self.site.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "site",
-                    "site was not specified but it is required when building Worker",
-                )
-            })?,
-            additional_transient_properties: self.additional_transient_properties,
-            additional_fixed_properties: self.additional_fixed_properties,
-            vendor_properties: self.vendor_properties,
-            position: self.position,
-            orientation: self.orientation,
-        })
+        ::std::result::Result::Ok(
+            crate::types::Worker {
+                arn: self.arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building Worker")
+                    )?
+                ,
+                id: self.id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building Worker")
+                    )?
+                ,
+                fleet: self.fleet
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("fleet", "fleet was not specified but it is required when building Worker")
+                    )?
+                ,
+                created_at: self.created_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("created_at", "created_at was not specified but it is required when building Worker")
+                    )?
+                ,
+                updated_at: self.updated_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("updated_at", "updated_at was not specified but it is required when building Worker")
+                    )?
+                ,
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building Worker")
+                    )?
+                ,
+                site: self.site
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("site", "site was not specified but it is required when building Worker")
+                    )?
+                ,
+                additional_transient_properties: self.additional_transient_properties
+                ,
+                additional_fixed_properties: self.additional_fixed_properties
+                ,
+                vendor_properties: self.vendor_properties
+                ,
+                position: self.position
+                ,
+                orientation: self.orientation
+                ,
+            }
+        )
     }
 }
+

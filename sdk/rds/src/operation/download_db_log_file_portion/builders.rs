@@ -5,55 +5,51 @@ pub use crate::operation::download_db_log_file_portion::_download_db_log_file_po
 
 impl DownloadDbLogFilePortionInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.download_db_log_file_portion();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.download_db_log_file_portion();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `DownloadDBLogFilePortion`.
-///
-/// <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
+/// 
+/// <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p> 
 /// <p>This command doesn't apply to RDS Custom.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DownloadDBLogFilePortionFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::download_db_log_file_portion::builders::DownloadDbLogFilePortionInputBuilder,
+                    inner: crate::operation::download_db_log_file_portion::builders::DownloadDbLogFilePortionInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput,
-        crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError,
-    > for DownloadDBLogFilePortionFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput,
-            crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput,
+                    crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError,
+                > for DownloadDBLogFilePortionFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput,
+                        crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl DownloadDBLogFilePortionFluentBuilder {
     /// Creates a new `DownloadDBLogFilePortion`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -62,81 +58,72 @@ impl DownloadDBLogFilePortionFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::download_db_log_file_portion::DownloadDBLogFilePortion::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::download_db_log_file_portion::DownloadDBLogFilePortion::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput,
-        crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::download_db_log_file_portion::DownloadDBLogFilePortion::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::download_db_log_file_portion::DownloadDBLogFilePortion::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::download_db_log_file_portion::DownloadDbLogFilePortionOutput, crate::operation::download_db_log_file_portion::DownloadDBLogFilePortionError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// Create a paginator for this request
-    ///
-    /// Paginators are used by calling [`send().await`](crate::operation::download_db_log_file_portion::paginator::DownloadDbLogFilePortionPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::download_db_log_file_portion::paginator::DownloadDbLogFilePortionPaginator {
-        crate::operation::download_db_log_file_portion::paginator::DownloadDbLogFilePortionPaginator::new(self.handle, self.inner)
-    }
-    /// <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must match the identifier of an existing DBInstance.</p> </li>
+                            ///
+                            /// Paginators are used by calling [`send().await`](crate::operation::download_db_log_file_portion::paginator::DownloadDbLogFilePortionPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+                            pub fn into_paginator(self) -> crate::operation::download_db_log_file_portion::paginator::DownloadDbLogFilePortionPaginator {
+                                crate::operation::download_db_log_file_portion::paginator::DownloadDbLogFilePortionPaginator::new(self.handle, self.inner)
+                            }
+    /// <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must match the identifier of an existing DBInstance.</p> </li> 
     /// </ul>
     pub fn db_instance_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.db_instance_identifier(input.into());
         self
     }
-    /// <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must match the identifier of an existing DBInstance.</p> </li>
+    /// <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must match the identifier of an existing DBInstance.</p> </li> 
     /// </ul>
     pub fn set_db_instance_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_db_instance_identifier(input);
         self
     }
-    /// <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must match the identifier of an existing DBInstance.</p> </li>
+    /// <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must match the identifier of an existing DBInstance.</p> </li> 
     /// </ul>
     pub fn get_db_instance_identifier(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_db_instance_identifier()
@@ -169,39 +156,40 @@ impl DownloadDBLogFilePortionFluentBuilder {
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_marker()
     }
-    /// <p>The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.</p>
-    /// <p>If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.</p>
-    /// <ul>
-    /// <li> <p>If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.</p> </li>
-    /// <li> <p>If NumberOfLines is specified and Marker isn't specified, then the most recent lines from the end of the log file are returned.</p> </li>
-    /// <li> <p>If Marker is specified as "0", then the specified number of lines from the beginning of the log file are returned.</p> </li>
-    /// <li> <p>You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.</p> </li>
+    /// <p>The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.</p> 
+    /// <p>If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.</p> 
+    /// <ul> 
+    /// <li> <p>If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.</p> </li> 
+    /// <li> <p>If NumberOfLines is specified and Marker isn't specified, then the most recent lines from the end of the log file are returned.</p> </li> 
+    /// <li> <p>If Marker is specified as "0", then the specified number of lines from the beginning of the log file are returned.</p> </li> 
+    /// <li> <p>You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.</p> </li> 
     /// </ul>
     pub fn number_of_lines(mut self, input: i32) -> Self {
         self.inner = self.inner.number_of_lines(input);
         self
     }
-    /// <p>The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.</p>
-    /// <p>If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.</p>
-    /// <ul>
-    /// <li> <p>If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.</p> </li>
-    /// <li> <p>If NumberOfLines is specified and Marker isn't specified, then the most recent lines from the end of the log file are returned.</p> </li>
-    /// <li> <p>If Marker is specified as "0", then the specified number of lines from the beginning of the log file are returned.</p> </li>
-    /// <li> <p>You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.</p> </li>
+    /// <p>The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.</p> 
+    /// <p>If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.</p> 
+    /// <ul> 
+    /// <li> <p>If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.</p> </li> 
+    /// <li> <p>If NumberOfLines is specified and Marker isn't specified, then the most recent lines from the end of the log file are returned.</p> </li> 
+    /// <li> <p>If Marker is specified as "0", then the specified number of lines from the beginning of the log file are returned.</p> </li> 
+    /// <li> <p>You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.</p> </li> 
     /// </ul>
     pub fn set_number_of_lines(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_number_of_lines(input);
         self
     }
-    /// <p>The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.</p>
-    /// <p>If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.</p>
-    /// <ul>
-    /// <li> <p>If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.</p> </li>
-    /// <li> <p>If NumberOfLines is specified and Marker isn't specified, then the most recent lines from the end of the log file are returned.</p> </li>
-    /// <li> <p>If Marker is specified as "0", then the specified number of lines from the beginning of the log file are returned.</p> </li>
-    /// <li> <p>You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.</p> </li>
+    /// <p>The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.</p> 
+    /// <p>If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.</p> 
+    /// <ul> 
+    /// <li> <p>If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.</p> </li> 
+    /// <li> <p>If NumberOfLines is specified and Marker isn't specified, then the most recent lines from the end of the log file are returned.</p> </li> 
+    /// <li> <p>If Marker is specified as "0", then the specified number of lines from the beginning of the log file are returned.</p> </li> 
+    /// <li> <p>You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.</p> </li> 
     /// </ul>
     pub fn get_number_of_lines(&self) -> &::std::option::Option<i32> {
         self.inner.get_number_of_lines()
     }
 }
+

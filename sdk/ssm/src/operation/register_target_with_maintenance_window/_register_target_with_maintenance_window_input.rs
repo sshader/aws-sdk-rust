@@ -2,16 +2,16 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct RegisterTargetWithMaintenanceWindowInput {
+pub struct RegisterTargetWithMaintenanceWindowInput  {
     /// <p>The ID of the maintenance window the target should be registered with.</p>
     pub window_id: ::std::option::Option<::std::string::String>,
     /// <p>The type of target being registered with the maintenance window.</p>
     pub resource_type: ::std::option::Option<crate::types::MaintenanceWindowResourceType>,
-    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note>
-    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p>
-    /// </note>
-    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p>
-    /// <p> <b>Example 1</b>: Specify managed node IDs</p>
+    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note> 
+    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p> 
+    /// </note> 
+    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p> 
+    /// <p> <b>Example 1</b>: Specify managed node IDs</p> 
     /// <p> <code>Key=InstanceIds,Values=
     /// <instance-id-1>
     /// ,
@@ -19,8 +19,8 @@ pub struct RegisterTargetWithMaintenanceWindowInput {
     /// ,
     /// <instance-id-3></instance-id-3>
     /// </instance-id-2>
-    /// </instance-id-1></code> </p>
-    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p>
+    /// </instance-id-1></code> </p> 
+    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p> 
     /// <p> <code>Key=tag:
     /// <my-tag-key>
     /// ,Values=
@@ -28,27 +28,27 @@ pub struct RegisterTargetWithMaintenanceWindowInput {
     /// ,
     /// <my-tag-value-2></my-tag-value-2>
     /// </my-tag-value-1>
-    /// </my-tag-key></code> </p>
-    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
+    /// </my-tag-key></code> </p> 
+    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p> 
     /// <p> <code>Key=tag-key,Values=
     /// <my-tag-key-1>
     /// ,
     /// <my-tag-key-2></my-tag-key-2>
-    /// </my-tag-key-1></code> </p>
-    /// <p> <b>Example 4</b>: Use resource group names</p>
+    /// </my-tag-key-1></code> </p> 
+    /// <p> <b>Example 4</b>: Use resource group names</p> 
     /// <p> <code>Key=resource-groups:Name,Values=
-    /// <resource-group-name></resource-group-name></code> </p>
-    /// <p> <b>Example 5</b>: Use filters for resource group types</p>
+    /// <resource-group-name></resource-group-name></code> </p> 
+    /// <p> <b>Example 5</b>: Use filters for resource group types</p> 
     /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=
     /// <resource-type-1>
     /// ,
     /// <resource-type-2></resource-type-2>
-    /// </resource-type-1></code> </p> <note>
-    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p>
-    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p>
-    /// </note>
+    /// </resource-type-1></code> </p> <note> 
+    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p> 
+    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p> 
+    /// </note> 
     /// <p>For more information about these examples formats, including the best use case for each one, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    pub targets: ::std::option::Option<::std::vec::Vec<crate::types::Target>>,
+    pub targets: ::std::option::Option<::std::vec::Vec::<crate::types::Target>>,
     /// <p>User-provided value that will be included in any Amazon CloudWatch Events events raised while running tasks for these targets in this maintenance window.</p>
     pub owner_information: ::std::option::Option<::std::string::String>,
     /// <p>An optional name for the target.</p>
@@ -58,20 +58,20 @@ pub struct RegisterTargetWithMaintenanceWindowInput {
     /// <p>User-provided idempotency token.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
 }
-impl RegisterTargetWithMaintenanceWindowInput {
+impl  RegisterTargetWithMaintenanceWindowInput  {
     /// <p>The ID of the maintenance window the target should be registered with.</p>
-    pub fn window_id(&self) -> ::std::option::Option<&str> {
+    pub fn window_id(&self) -> ::std::option::Option<& str> {
         self.window_id.as_deref()
     }
     /// <p>The type of target being registered with the maintenance window.</p>
-    pub fn resource_type(&self) -> ::std::option::Option<&crate::types::MaintenanceWindowResourceType> {
+    pub fn resource_type(&self) -> ::std::option::Option<& crate::types::MaintenanceWindowResourceType> {
         self.resource_type.as_ref()
     }
-    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note>
-    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p>
-    /// </note>
-    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p>
-    /// <p> <b>Example 1</b>: Specify managed node IDs</p>
+    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note> 
+    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p> 
+    /// </note> 
+    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p> 
+    /// <p> <b>Example 1</b>: Specify managed node IDs</p> 
     /// <p> <code>Key=InstanceIds,Values=
     /// <instance-id-1>
     /// ,
@@ -79,8 +79,8 @@ impl RegisterTargetWithMaintenanceWindowInput {
     /// ,
     /// <instance-id-3></instance-id-3>
     /// </instance-id-2>
-    /// </instance-id-1></code> </p>
-    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p>
+    /// </instance-id-1></code> </p> 
+    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p> 
     /// <p> <code>Key=tag:
     /// <my-tag-key>
     /// ,Values=
@@ -88,49 +88,50 @@ impl RegisterTargetWithMaintenanceWindowInput {
     /// ,
     /// <my-tag-value-2></my-tag-value-2>
     /// </my-tag-value-1>
-    /// </my-tag-key></code> </p>
-    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
+    /// </my-tag-key></code> </p> 
+    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p> 
     /// <p> <code>Key=tag-key,Values=
     /// <my-tag-key-1>
     /// ,
     /// <my-tag-key-2></my-tag-key-2>
-    /// </my-tag-key-1></code> </p>
-    /// <p> <b>Example 4</b>: Use resource group names</p>
+    /// </my-tag-key-1></code> </p> 
+    /// <p> <b>Example 4</b>: Use resource group names</p> 
     /// <p> <code>Key=resource-groups:Name,Values=
-    /// <resource-group-name></resource-group-name></code> </p>
-    /// <p> <b>Example 5</b>: Use filters for resource group types</p>
+    /// <resource-group-name></resource-group-name></code> </p> 
+    /// <p> <b>Example 5</b>: Use filters for resource group types</p> 
     /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=
     /// <resource-type-1>
     /// ,
     /// <resource-type-2></resource-type-2>
-    /// </resource-type-1></code> </p> <note>
-    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p>
-    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p>
-    /// </note>
+    /// </resource-type-1></code> </p> <note> 
+    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p> 
+    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p> 
+    /// </note> 
     /// <p>For more information about these examples formats, including the best use case for each one, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.targets.is_none()`.
-    pub fn targets(&self) -> &[crate::types::Target] {
-        self.targets.as_deref().unwrap_or_default()
+    pub fn targets(&self) -> & [crate::types::Target] {
+        self.targets.as_deref()
+        .unwrap_or_default()
     }
     /// <p>User-provided value that will be included in any Amazon CloudWatch Events events raised while running tasks for these targets in this maintenance window.</p>
-    pub fn owner_information(&self) -> ::std::option::Option<&str> {
+    pub fn owner_information(&self) -> ::std::option::Option<& str> {
         self.owner_information.as_deref()
     }
     /// <p>An optional name for the target.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>An optional description for the target.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>User-provided idempotency token.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
 }
-impl ::std::fmt::Debug for RegisterTargetWithMaintenanceWindowInput {
+impl  ::std::fmt::Debug for RegisterTargetWithMaintenanceWindowInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("RegisterTargetWithMaintenanceWindowInput");
         formatter.field("window_id", &self.window_id);
@@ -156,7 +157,7 @@ impl RegisterTargetWithMaintenanceWindowInput {
 pub struct RegisterTargetWithMaintenanceWindowInputBuilder {
     pub(crate) window_id: ::std::option::Option<::std::string::String>,
     pub(crate) resource_type: ::std::option::Option<crate::types::MaintenanceWindowResourceType>,
-    pub(crate) targets: ::std::option::Option<::std::vec::Vec<crate::types::Target>>,
+    pub(crate) targets: ::std::option::Option<::std::vec::Vec::<crate::types::Target>>,
     pub(crate) owner_information: ::std::option::Option<::std::string::String>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
@@ -171,8 +172,7 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     }
     /// <p>The ID of the maintenance window the target should be registered with.</p>
     pub fn set_window_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.window_id = input;
-        self
+        self.window_id = input; self
     }
     /// <p>The ID of the maintenance window the target should be registered with.</p>
     pub fn get_window_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -186,8 +186,7 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     }
     /// <p>The type of target being registered with the maintenance window.</p>
     pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::MaintenanceWindowResourceType>) -> Self {
-        self.resource_type = input;
-        self
+        self.resource_type = input; self
     }
     /// <p>The type of target being registered with the maintenance window.</p>
     pub fn get_resource_type(&self) -> &::std::option::Option<crate::types::MaintenanceWindowResourceType> {
@@ -197,11 +196,11 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     ///
     /// To override the contents of this collection use [`set_targets`](Self::set_targets).
     ///
-    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note>
-    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p>
-    /// </note>
-    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p>
-    /// <p> <b>Example 1</b>: Specify managed node IDs</p>
+    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note> 
+    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p> 
+    /// </note> 
+    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p> 
+    /// <p> <b>Example 1</b>: Specify managed node IDs</p> 
     /// <p> <code>Key=InstanceIds,Values=
     /// <instance-id-1>
     /// ,
@@ -209,8 +208,8 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     /// ,
     /// <instance-id-3></instance-id-3>
     /// </instance-id-2>
-    /// </instance-id-1></code> </p>
-    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p>
+    /// </instance-id-1></code> </p> 
+    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p> 
     /// <p> <code>Key=tag:
     /// <my-tag-key>
     /// ,Values=
@@ -218,37 +217,37 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     /// ,
     /// <my-tag-value-2></my-tag-value-2>
     /// </my-tag-value-1>
-    /// </my-tag-key></code> </p>
-    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
+    /// </my-tag-key></code> </p> 
+    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p> 
     /// <p> <code>Key=tag-key,Values=
     /// <my-tag-key-1>
     /// ,
     /// <my-tag-key-2></my-tag-key-2>
-    /// </my-tag-key-1></code> </p>
-    /// <p> <b>Example 4</b>: Use resource group names</p>
+    /// </my-tag-key-1></code> </p> 
+    /// <p> <b>Example 4</b>: Use resource group names</p> 
     /// <p> <code>Key=resource-groups:Name,Values=
-    /// <resource-group-name></resource-group-name></code> </p>
-    /// <p> <b>Example 5</b>: Use filters for resource group types</p>
+    /// <resource-group-name></resource-group-name></code> </p> 
+    /// <p> <b>Example 5</b>: Use filters for resource group types</p> 
     /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=
     /// <resource-type-1>
     /// ,
     /// <resource-type-2></resource-type-2>
-    /// </resource-type-1></code> </p> <note>
-    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p>
-    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p>
-    /// </note>
+    /// </resource-type-1></code> </p> <note> 
+    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p> 
+    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p> 
+    /// </note> 
     /// <p>For more information about these examples formats, including the best use case for each one, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
     pub fn targets(mut self, input: crate::types::Target) -> Self {
         let mut v = self.targets.unwrap_or_default();
-        v.push(input);
-        self.targets = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.targets = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note>
-    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p>
-    /// </note>
-    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p>
-    /// <p> <b>Example 1</b>: Specify managed node IDs</p>
+    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note> 
+    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p> 
+    /// </note> 
+    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p> 
+    /// <p> <b>Example 1</b>: Specify managed node IDs</p> 
     /// <p> <code>Key=InstanceIds,Values=
     /// <instance-id-1>
     /// ,
@@ -256,8 +255,8 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     /// ,
     /// <instance-id-3></instance-id-3>
     /// </instance-id-2>
-    /// </instance-id-1></code> </p>
-    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p>
+    /// </instance-id-1></code> </p> 
+    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p> 
     /// <p> <code>Key=tag:
     /// <my-tag-key>
     /// ,Values=
@@ -265,35 +264,34 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     /// ,
     /// <my-tag-value-2></my-tag-value-2>
     /// </my-tag-value-1>
-    /// </my-tag-key></code> </p>
-    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
+    /// </my-tag-key></code> </p> 
+    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p> 
     /// <p> <code>Key=tag-key,Values=
     /// <my-tag-key-1>
     /// ,
     /// <my-tag-key-2></my-tag-key-2>
-    /// </my-tag-key-1></code> </p>
-    /// <p> <b>Example 4</b>: Use resource group names</p>
+    /// </my-tag-key-1></code> </p> 
+    /// <p> <b>Example 4</b>: Use resource group names</p> 
     /// <p> <code>Key=resource-groups:Name,Values=
-    /// <resource-group-name></resource-group-name></code> </p>
-    /// <p> <b>Example 5</b>: Use filters for resource group types</p>
+    /// <resource-group-name></resource-group-name></code> </p> 
+    /// <p> <b>Example 5</b>: Use filters for resource group types</p> 
     /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=
     /// <resource-type-1>
     /// ,
     /// <resource-type-2></resource-type-2>
-    /// </resource-type-1></code> </p> <note>
-    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p>
-    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p>
-    /// </note>
+    /// </resource-type-1></code> </p> <note> 
+    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p> 
+    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p> 
+    /// </note> 
     /// <p>For more information about these examples formats, including the best use case for each one, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    pub fn set_targets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Target>>) -> Self {
-        self.targets = input;
-        self
+    pub fn set_targets(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Target>>) -> Self {
+        self.targets = input; self
     }
-    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note>
-    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p>
-    /// </note>
-    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p>
-    /// <p> <b>Example 1</b>: Specify managed node IDs</p>
+    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note> 
+    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p> 
+    /// </note> 
+    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p> 
+    /// <p> <b>Example 1</b>: Specify managed node IDs</p> 
     /// <p> <code>Key=InstanceIds,Values=
     /// <instance-id-1>
     /// ,
@@ -301,8 +299,8 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     /// ,
     /// <instance-id-3></instance-id-3>
     /// </instance-id-2>
-    /// </instance-id-1></code> </p>
-    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p>
+    /// </instance-id-1></code> </p> 
+    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p> 
     /// <p> <code>Key=tag:
     /// <my-tag-key>
     /// ,Values=
@@ -310,27 +308,27 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     /// ,
     /// <my-tag-value-2></my-tag-value-2>
     /// </my-tag-value-1>
-    /// </my-tag-key></code> </p>
-    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
+    /// </my-tag-key></code> </p> 
+    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p> 
     /// <p> <code>Key=tag-key,Values=
     /// <my-tag-key-1>
     /// ,
     /// <my-tag-key-2></my-tag-key-2>
-    /// </my-tag-key-1></code> </p>
-    /// <p> <b>Example 4</b>: Use resource group names</p>
+    /// </my-tag-key-1></code> </p> 
+    /// <p> <b>Example 4</b>: Use resource group names</p> 
     /// <p> <code>Key=resource-groups:Name,Values=
-    /// <resource-group-name></resource-group-name></code> </p>
-    /// <p> <b>Example 5</b>: Use filters for resource group types</p>
+    /// <resource-group-name></resource-group-name></code> </p> 
+    /// <p> <b>Example 5</b>: Use filters for resource group types</p> 
     /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=
     /// <resource-type-1>
     /// ,
     /// <resource-type-2></resource-type-2>
-    /// </resource-type-1></code> </p> <note>
-    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p>
-    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p>
-    /// </note>
+    /// </resource-type-1></code> </p> <note> 
+    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p> 
+    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p> 
+    /// </note> 
     /// <p>For more information about these examples formats, including the best use case for each one, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    pub fn get_targets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Target>> {
+    pub fn get_targets(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Target>> {
         &self.targets
     }
     /// <p>User-provided value that will be included in any Amazon CloudWatch Events events raised while running tasks for these targets in this maintenance window.</p>
@@ -340,8 +338,7 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     }
     /// <p>User-provided value that will be included in any Amazon CloudWatch Events events raised while running tasks for these targets in this maintenance window.</p>
     pub fn set_owner_information(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.owner_information = input;
-        self
+        self.owner_information = input; self
     }
     /// <p>User-provided value that will be included in any Amazon CloudWatch Events events raised while running tasks for these targets in this maintenance window.</p>
     pub fn get_owner_information(&self) -> &::std::option::Option<::std::string::String> {
@@ -354,8 +351,7 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     }
     /// <p>An optional name for the target.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>An optional name for the target.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -368,8 +364,7 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     }
     /// <p>An optional description for the target.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>An optional description for the target.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -382,30 +377,31 @@ impl RegisterTargetWithMaintenanceWindowInputBuilder {
     }
     /// <p>User-provided idempotency token.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// <p>User-provided idempotency token.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
     /// Consumes the builder and constructs a [`RegisterTargetWithMaintenanceWindowInput`](crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(
             crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowInput {
-                window_id: self.window_id,
-                resource_type: self.resource_type,
-                targets: self.targets,
-                owner_information: self.owner_information,
-                name: self.name,
-                description: self.description,
-                client_token: self.client_token,
-            },
+                window_id: self.window_id
+                ,
+                resource_type: self.resource_type
+                ,
+                targets: self.targets
+                ,
+                owner_information: self.owner_information
+                ,
+                name: self.name
+                ,
+                description: self.description
+                ,
+                client_token: self.client_token
+                ,
+            }
         )
     }
 }
@@ -422,3 +418,4 @@ impl ::std::fmt::Debug for RegisterTargetWithMaintenanceWindowInputBuilder {
         formatter.finish()
     }
 }
+

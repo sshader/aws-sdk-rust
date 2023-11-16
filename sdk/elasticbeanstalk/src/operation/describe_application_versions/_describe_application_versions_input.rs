@@ -3,37 +3,38 @@
 /// <p>Request to describe application versions.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeApplicationVersionsInput {
+pub struct DescribeApplicationVersionsInput  {
     /// <p>Specify an application name to show only application versions for that application.</p>
     pub application_name: ::std::option::Option<::std::string::String>,
     /// <p>Specify a version label to show a specific application version.</p>
-    pub version_labels: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p>
+    pub version_labels: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available application versions are retrieved in a single response.</p>
     pub max_records: ::std::option::Option<i32>,
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
-impl DescribeApplicationVersionsInput {
+impl  DescribeApplicationVersionsInput  {
     /// <p>Specify an application name to show only application versions for that application.</p>
-    pub fn application_name(&self) -> ::std::option::Option<&str> {
+    pub fn application_name(&self) -> ::std::option::Option<& str> {
         self.application_name.as_deref()
     }
     /// <p>Specify a version label to show a specific application version.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.version_labels.is_none()`.
-    pub fn version_labels(&self) -> &[::std::string::String] {
-        self.version_labels.as_deref().unwrap_or_default()
+    pub fn version_labels(&self) -> & [::std::string::String] {
+        self.version_labels.as_deref()
+        .unwrap_or_default()
     }
-    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available application versions are retrieved in a single response.</p>
     pub fn max_records(&self) -> ::std::option::Option<i32> {
         self.max_records
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
 }
@@ -49,7 +50,7 @@ impl DescribeApplicationVersionsInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct DescribeApplicationVersionsInputBuilder {
     pub(crate) application_name: ::std::option::Option<::std::string::String>,
-    pub(crate) version_labels: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) version_labels: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) max_records: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -61,8 +62,7 @@ impl DescribeApplicationVersionsInputBuilder {
     }
     /// <p>Specify an application name to show only application versions for that application.</p>
     pub fn set_application_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.application_name = input;
-        self
+        self.application_name = input; self
     }
     /// <p>Specify an application name to show only application versions for that application.</p>
     pub fn get_application_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -75,65 +75,64 @@ impl DescribeApplicationVersionsInputBuilder {
     /// <p>Specify a version label to show a specific application version.</p>
     pub fn version_labels(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.version_labels.unwrap_or_default();
-        v.push(input.into());
-        self.version_labels = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.version_labels = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>Specify a version label to show a specific application version.</p>
-    pub fn set_version_labels(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.version_labels = input;
-        self
+    pub fn set_version_labels(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.version_labels = input; self
     }
     /// <p>Specify a version label to show a specific application version.</p>
-    pub fn get_version_labels(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_version_labels(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.version_labels
     }
-    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available application versions are retrieved in a single response.</p>
     pub fn max_records(mut self, input: i32) -> Self {
         self.max_records = ::std::option::Option::Some(input);
         self
     }
-    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available application versions are retrieved in a single response.</p>
     pub fn set_max_records(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_records = input;
-        self
+        self.max_records = input; self
     }
-    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available application versions are retrieved in a single response.</p>
     pub fn get_max_records(&self) -> &::std::option::Option<i32> {
         &self.max_records
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`DescribeApplicationVersionsInput`](crate::operation::describe_application_versions::DescribeApplicationVersionsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_application_versions::DescribeApplicationVersionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::describe_application_versions::DescribeApplicationVersionsInput {
-            application_name: self.application_name,
-            version_labels: self.version_labels,
-            max_records: self.max_records,
-            next_token: self.next_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_application_versions::DescribeApplicationVersionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_application_versions::DescribeApplicationVersionsInput {
+                application_name: self.application_name
+                ,
+                version_labels: self.version_labels
+                ,
+                max_records: self.max_records
+                ,
+                next_token: self.next_token
+                ,
+            }
+        )
     }
 }
+

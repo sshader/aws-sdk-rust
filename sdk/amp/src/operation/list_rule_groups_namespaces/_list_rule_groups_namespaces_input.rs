@@ -3,7 +3,7 @@
 /// Represents the input of a ListRuleGroupsNamespaces operation.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListRuleGroupsNamespacesInput {
+pub struct ListRuleGroupsNamespacesInput  {
     /// The ID of the workspace.
     pub workspace_id: ::std::option::Option<::std::string::String>,
     /// Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned.
@@ -13,17 +13,17 @@ pub struct ListRuleGroupsNamespacesInput {
     /// Maximum results to return in response (default=100, maximum=1000).
     pub max_results: ::std::option::Option<i32>,
 }
-impl ListRuleGroupsNamespacesInput {
+impl  ListRuleGroupsNamespacesInput  {
     /// The ID of the workspace.
-    pub fn workspace_id(&self) -> ::std::option::Option<&str> {
+    pub fn workspace_id(&self) -> ::std::option::Option<& str> {
         self.workspace_id.as_deref()
     }
     /// Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned.
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListRuleGroupsNamespaces request.
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// Maximum results to return in response (default=100, maximum=1000).
@@ -56,8 +56,7 @@ impl ListRuleGroupsNamespacesInputBuilder {
     }
     /// The ID of the workspace.
     pub fn set_workspace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workspace_id = input;
-        self
+        self.workspace_id = input; self
     }
     /// The ID of the workspace.
     pub fn get_workspace_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -70,8 +69,7 @@ impl ListRuleGroupsNamespacesInputBuilder {
     }
     /// Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned.
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned.
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -84,8 +82,7 @@ impl ListRuleGroupsNamespacesInputBuilder {
     }
     /// Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListRuleGroupsNamespaces request.
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListRuleGroupsNamespaces request.
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -98,25 +95,26 @@ impl ListRuleGroupsNamespacesInputBuilder {
     }
     /// Maximum results to return in response (default=100, maximum=1000).
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// Maximum results to return in response (default=100, maximum=1000).
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
     }
     /// Consumes the builder and constructs a [`ListRuleGroupsNamespacesInput`](crate::operation::list_rule_groups_namespaces::ListRuleGroupsNamespacesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_rule_groups_namespaces::ListRuleGroupsNamespacesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::list_rule_groups_namespaces::ListRuleGroupsNamespacesInput {
-            workspace_id: self.workspace_id,
-            name: self.name,
-            next_token: self.next_token,
-            max_results: self.max_results,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_rule_groups_namespaces::ListRuleGroupsNamespacesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_rule_groups_namespaces::ListRuleGroupsNamespacesInput {
+                workspace_id: self.workspace_id
+                ,
+                name: self.name
+                ,
+                next_token: self.next_token
+                ,
+                max_results: self.max_results
+                ,
+            }
+        )
     }
 }
+

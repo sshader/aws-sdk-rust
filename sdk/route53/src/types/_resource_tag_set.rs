@@ -3,36 +3,37 @@
 /// <p>A complex type containing a resource and its associated tags.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ResourceTagSet {
-    /// <p>The type of the resource.</p>
-    /// <ul>
-    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li>
-    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li>
+pub struct ResourceTagSet  {
+    /// <p>The type of the resource.</p> 
+    /// <ul> 
+    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li> 
+    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li> 
     /// </ul>
     pub resource_type: ::std::option::Option<crate::types::TagResourceType>,
     /// <p>The ID for the specified resource.</p>
     pub resource_id: ::std::option::Option<::std::string::String>,
     /// <p>The tags associated with the specified resource.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
-impl ResourceTagSet {
-    /// <p>The type of the resource.</p>
-    /// <ul>
-    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li>
-    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li>
+impl  ResourceTagSet  {
+    /// <p>The type of the resource.</p> 
+    /// <ul> 
+    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li> 
+    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li> 
     /// </ul>
-    pub fn resource_type(&self) -> ::std::option::Option<&crate::types::TagResourceType> {
+    pub fn resource_type(&self) -> ::std::option::Option<& crate::types::TagResourceType> {
         self.resource_type.as_ref()
     }
     /// <p>The ID for the specified resource.</p>
-    pub fn resource_id(&self) -> ::std::option::Option<&str> {
+    pub fn resource_id(&self) -> ::std::option::Option<& str> {
         self.resource_id.as_deref()
     }
     /// <p>The tags associated with the specified resource.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
-        self.tags.as_deref().unwrap_or_default()
+    pub fn tags(&self) -> & [crate::types::Tag] {
+        self.tags.as_deref()
+        .unwrap_or_default()
     }
 }
 impl ResourceTagSet {
@@ -48,31 +49,30 @@ impl ResourceTagSet {
 pub struct ResourceTagSetBuilder {
     pub(crate) resource_type: ::std::option::Option<crate::types::TagResourceType>,
     pub(crate) resource_id: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
 impl ResourceTagSetBuilder {
-    /// <p>The type of the resource.</p>
-    /// <ul>
-    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li>
-    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li>
+    /// <p>The type of the resource.</p> 
+    /// <ul> 
+    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li> 
+    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li> 
     /// </ul>
     pub fn resource_type(mut self, input: crate::types::TagResourceType) -> Self {
         self.resource_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of the resource.</p>
-    /// <ul>
-    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li>
-    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li>
+    /// <p>The type of the resource.</p> 
+    /// <ul> 
+    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li> 
+    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li> 
     /// </ul>
     pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::TagResourceType>) -> Self {
-        self.resource_type = input;
-        self
+        self.resource_type = input; self
     }
-    /// <p>The type of the resource.</p>
-    /// <ul>
-    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li>
-    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li>
+    /// <p>The type of the resource.</p> 
+    /// <ul> 
+    /// <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li> 
+    /// <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li> 
     /// </ul>
     pub fn get_resource_type(&self) -> &::std::option::Option<crate::types::TagResourceType> {
         &self.resource_type
@@ -84,8 +84,7 @@ impl ResourceTagSetBuilder {
     }
     /// <p>The ID for the specified resource.</p>
     pub fn set_resource_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_id = input;
-        self
+        self.resource_id = input; self
     }
     /// <p>The ID for the specified resource.</p>
     pub fn get_resource_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -98,25 +97,28 @@ impl ResourceTagSetBuilder {
     /// <p>The tags associated with the specified resource.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
-        v.push(input);
-        self.tags = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.tags = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The tags associated with the specified resource.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
+        self.tags = input; self
     }
     /// <p>The tags associated with the specified resource.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`ResourceTagSet`](crate::types::ResourceTagSet).
     pub fn build(self) -> crate::types::ResourceTagSet {
         crate::types::ResourceTagSet {
-            resource_type: self.resource_type,
-            resource_id: self.resource_id,
-            tags: self.tags,
+            resource_type: self.resource_type
+            ,
+            resource_id: self.resource_id
+            ,
+            tags: self.tags
+            ,
         }
     }
 }
+

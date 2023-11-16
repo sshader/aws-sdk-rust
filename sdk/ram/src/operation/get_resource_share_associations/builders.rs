@@ -5,54 +5,50 @@ pub use crate::operation::get_resource_share_associations::_get_resource_share_a
 
 impl GetResourceShareAssociationsInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_resource_share_associations::GetResourceShareAssociationsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.get_resource_share_associations();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::get_resource_share_associations::GetResourceShareAssociationsError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.get_resource_share_associations();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `GetResourceShareAssociations`.
-///
+/// 
 /// <p>Retrieves the lists of resources and principals that associated for resource shares that you own.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetResourceShareAssociationsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::get_resource_share_associations::builders::GetResourceShareAssociationsInputBuilder,
+                    inner: crate::operation::get_resource_share_associations::builders::GetResourceShareAssociationsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput,
-        crate::operation::get_resource_share_associations::GetResourceShareAssociationsError,
-    > for GetResourceShareAssociationsFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput,
-            crate::operation::get_resource_share_associations::GetResourceShareAssociationsError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput,
+                    crate::operation::get_resource_share_associations::GetResourceShareAssociationsError,
+                > for GetResourceShareAssociationsFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput,
+                        crate::operation::get_resource_share_associations::GetResourceShareAssociationsError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl GetResourceShareAssociationsFluentBuilder {
     /// Creates a new `GetResourceShareAssociations`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,81 +57,72 @@ impl GetResourceShareAssociationsFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_resource_share_associations::GetResourceShareAssociationsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_resource_share_associations::GetResourceShareAssociations::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_resource_share_associations::GetResourceShareAssociations::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput,
-        crate::operation::get_resource_share_associations::GetResourceShareAssociationsError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_resource_share_associations::GetResourceShareAssociationsError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::get_resource_share_associations::GetResourceShareAssociations::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::get_resource_share_associations::GetResourceShareAssociations::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::get_resource_share_associations::GetResourceShareAssociationsOutput, crate::operation::get_resource_share_associations::GetResourceShareAssociationsError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// Create a paginator for this request
-    ///
-    /// Paginators are used by calling [`send().await`](crate::operation::get_resource_share_associations::paginator::GetResourceShareAssociationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::get_resource_share_associations::paginator::GetResourceShareAssociationsPaginator {
-        crate::operation::get_resource_share_associations::paginator::GetResourceShareAssociationsPaginator::new(self.handle, self.inner)
-    }
-    /// <p>Specifies whether you want to retrieve the associations that involve a specified resource or principal.</p>
-    /// <ul>
-    /// <li> <p> <code>PRINCIPAL</code> – list the principals whose associations you want to see.</p> </li>
-    /// <li> <p> <code>RESOURCE</code> – list the resources whose associations you want to see.</p> </li>
+                            ///
+                            /// Paginators are used by calling [`send().await`](crate::operation::get_resource_share_associations::paginator::GetResourceShareAssociationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+                            pub fn into_paginator(self) -> crate::operation::get_resource_share_associations::paginator::GetResourceShareAssociationsPaginator {
+                                crate::operation::get_resource_share_associations::paginator::GetResourceShareAssociationsPaginator::new(self.handle, self.inner)
+                            }
+    /// <p>Specifies whether you want to retrieve the associations that involve a specified resource or principal.</p> 
+    /// <ul> 
+    /// <li> <p> <code>PRINCIPAL</code> – list the principals whose associations you want to see.</p> </li> 
+    /// <li> <p> <code>RESOURCE</code> – list the resources whose associations you want to see.</p> </li> 
     /// </ul>
     pub fn association_type(mut self, input: crate::types::ResourceShareAssociationType) -> Self {
         self.inner = self.inner.association_type(input);
         self
     }
-    /// <p>Specifies whether you want to retrieve the associations that involve a specified resource or principal.</p>
-    /// <ul>
-    /// <li> <p> <code>PRINCIPAL</code> – list the principals whose associations you want to see.</p> </li>
-    /// <li> <p> <code>RESOURCE</code> – list the resources whose associations you want to see.</p> </li>
+    /// <p>Specifies whether you want to retrieve the associations that involve a specified resource or principal.</p> 
+    /// <ul> 
+    /// <li> <p> <code>PRINCIPAL</code> – list the principals whose associations you want to see.</p> </li> 
+    /// <li> <p> <code>RESOURCE</code> – list the resources whose associations you want to see.</p> </li> 
     /// </ul>
     pub fn set_association_type(mut self, input: ::std::option::Option<crate::types::ResourceShareAssociationType>) -> Self {
         self.inner = self.inner.set_association_type(input);
         self
     }
-    /// <p>Specifies whether you want to retrieve the associations that involve a specified resource or principal.</p>
-    /// <ul>
-    /// <li> <p> <code>PRINCIPAL</code> – list the principals whose associations you want to see.</p> </li>
-    /// <li> <p> <code>RESOURCE</code> – list the resources whose associations you want to see.</p> </li>
+    /// <p>Specifies whether you want to retrieve the associations that involve a specified resource or principal.</p> 
+    /// <ul> 
+    /// <li> <p> <code>PRINCIPAL</code> – list the principals whose associations you want to see.</p> </li> 
+    /// <li> <p> <code>RESOURCE</code> – list the resources whose associations you want to see.</p> </li> 
     /// </ul>
     pub fn get_association_type(&self) -> &::std::option::Option<crate::types::ResourceShareAssociationType> {
         self.inner.get_association_type()
@@ -150,44 +137,44 @@ impl GetResourceShareAssociationsFluentBuilder {
         self
     }
     /// <p>Specifies a list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resource share whose associations you want to retrieve.</p>
-    pub fn set_resource_share_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_resource_share_arns(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_resource_share_arns(input);
         self
     }
     /// <p>Specifies a list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resource share whose associations you want to retrieve.</p>
-    pub fn get_resource_share_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_share_arns(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_resource_share_arns()
     }
-    /// <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</p>
+    /// <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</p> 
     /// <p>You cannot specify this parameter if the association type is <code>PRINCIPAL</code>.</p>
     pub fn resource_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_arn(input.into());
         self
     }
-    /// <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</p>
+    /// <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</p> 
     /// <p>You cannot specify this parameter if the association type is <code>PRINCIPAL</code>.</p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_resource_arn(input);
         self
     }
-    /// <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</p>
+    /// <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</p> 
     /// <p>You cannot specify this parameter if the association type is <code>PRINCIPAL</code>.</p>
     pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_resource_arn()
     }
-    /// <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an Amazon Web Services account ID, an organization ID, an organizational unit ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an individual IAM role or user.</p>
+    /// <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an Amazon Web Services account ID, an organization ID, an organizational unit ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an individual IAM role or user.</p> 
     /// <p>You cannot specify this parameter if the association type is <code>RESOURCE</code>.</p>
     pub fn principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.principal(input.into());
         self
     }
-    /// <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an Amazon Web Services account ID, an organization ID, an organizational unit ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an individual IAM role or user.</p>
+    /// <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an Amazon Web Services account ID, an organization ID, an organizational unit ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an individual IAM role or user.</p> 
     /// <p>You cannot specify this parameter if the association type is <code>RESOURCE</code>.</p>
     pub fn set_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_principal(input);
         self
     }
-    /// <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an Amazon Web Services account ID, an organization ID, an organizational unit ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an individual IAM role or user.</p>
+    /// <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an Amazon Web Services account ID, an organization ID, an organizational unit ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an individual IAM role or user.</p> 
     /// <p>You cannot specify this parameter if the association type is <code>RESOURCE</code>.</p>
     pub fn get_principal(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_principal()
@@ -235,3 +222,4 @@ impl GetResourceShareAssociationsFluentBuilder {
         self.inner.get_max_results()
     }
 }
+

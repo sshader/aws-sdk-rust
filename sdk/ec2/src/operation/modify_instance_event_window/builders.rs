@@ -5,58 +5,54 @@ pub use crate::operation::modify_instance_event_window::_modify_instance_event_w
 
 impl ModifyInstanceEventWindowInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.modify_instance_event_window();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.modify_instance_event_window();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ModifyInstanceEventWindow`.
-///
-/// <p>Modifies the specified event window.</p>
-/// <p>You can define either a set of time ranges or a cron expression when modifying the event window, but not both.</p>
-/// <p>To modify the targets associated with the event window, use the <code>AssociateInstanceEventWindow</code> and <code>DisassociateInstanceEventWindow</code> API.</p>
-/// <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time of the scheduled event.</p>
+/// 
+/// <p>Modifies the specified event window.</p> 
+/// <p>You can define either a set of time ranges or a cron expression when modifying the event window, but not both.</p> 
+/// <p>To modify the targets associated with the event window, use the <code>AssociateInstanceEventWindow</code> and <code>DisassociateInstanceEventWindow</code> API.</p> 
+/// <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time of the scheduled event.</p> 
 /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ModifyInstanceEventWindowFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::modify_instance_event_window::builders::ModifyInstanceEventWindowInputBuilder,
+                    inner: crate::operation::modify_instance_event_window::builders::ModifyInstanceEventWindowInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput,
-        crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError,
-    > for ModifyInstanceEventWindowFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput,
-            crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput,
+                    crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError,
+                > for ModifyInstanceEventWindowFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput,
+                        crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ModifyInstanceEventWindowFluentBuilder {
     /// Creates a new `ModifyInstanceEventWindow`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -65,53 +61,44 @@ impl ModifyInstanceEventWindowFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::modify_instance_event_window::ModifyInstanceEventWindow::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::modify_instance_event_window::ModifyInstanceEventWindow::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput,
-        crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::modify_instance_event_window::ModifyInstanceEventWindow::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::modify_instance_event_window::ModifyInstanceEventWindow::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::modify_instance_event_window::ModifyInstanceEventWindowOutput, crate::operation::modify_instance_event_window::ModifyInstanceEventWindowError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn dry_run(mut self, input: bool) -> Self {
         self.inner = self.inner.dry_run(input);
@@ -164,56 +151,57 @@ impl ModifyInstanceEventWindowFluentBuilder {
         self
     }
     /// <p>The time ranges of the event window.</p>
-    pub fn set_time_ranges(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InstanceEventWindowTimeRangeRequest>>) -> Self {
+    pub fn set_time_ranges(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::InstanceEventWindowTimeRangeRequest>>) -> Self {
         self.inner = self.inner.set_time_ranges(input);
         self
     }
     /// <p>The time ranges of the event window.</p>
-    pub fn get_time_ranges(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InstanceEventWindowTimeRangeRequest>> {
+    pub fn get_time_ranges(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::InstanceEventWindowTimeRangeRequest>> {
         self.inner.get_time_ranges()
     }
-    /// <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Only hour and day of the week values are supported.</p> </li>
-    /// <li> <p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p> </li>
-    /// <li> <p>The minute, month, and year must be specified by <code>*</code>.</p> </li>
-    /// <li> <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p> </li>
-    /// <li> <p>Each hour range must be &gt;= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p> </li>
-    /// <li> <p>The event window must be &gt;= 4 hours. The combined total time ranges in the event window must be &gt;= 4 hours.</p> </li>
-    /// </ul>
+    /// <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Only hour and day of the week values are supported.</p> </li> 
+    /// <li> <p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p> </li> 
+    /// <li> <p>The minute, month, and year must be specified by <code>*</code>.</p> </li> 
+    /// <li> <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p> </li> 
+    /// <li> <p>Each hour range must be &gt;= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p> </li> 
+    /// <li> <p>The event window must be &gt;= 4 hours. The combined total time ranges in the event window must be &gt;= 4 hours.</p> </li> 
+    /// </ul> 
     /// <p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia website</i>.</p>
     pub fn cron_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.cron_expression(input.into());
         self
     }
-    /// <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Only hour and day of the week values are supported.</p> </li>
-    /// <li> <p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p> </li>
-    /// <li> <p>The minute, month, and year must be specified by <code>*</code>.</p> </li>
-    /// <li> <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p> </li>
-    /// <li> <p>Each hour range must be &gt;= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p> </li>
-    /// <li> <p>The event window must be &gt;= 4 hours. The combined total time ranges in the event window must be &gt;= 4 hours.</p> </li>
-    /// </ul>
+    /// <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Only hour and day of the week values are supported.</p> </li> 
+    /// <li> <p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p> </li> 
+    /// <li> <p>The minute, month, and year must be specified by <code>*</code>.</p> </li> 
+    /// <li> <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p> </li> 
+    /// <li> <p>Each hour range must be &gt;= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p> </li> 
+    /// <li> <p>The event window must be &gt;= 4 hours. The combined total time ranges in the event window must be &gt;= 4 hours.</p> </li> 
+    /// </ul> 
     /// <p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia website</i>.</p>
     pub fn set_cron_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_cron_expression(input);
         self
     }
-    /// <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Only hour and day of the week values are supported.</p> </li>
-    /// <li> <p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p> </li>
-    /// <li> <p>The minute, month, and year must be specified by <code>*</code>.</p> </li>
-    /// <li> <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p> </li>
-    /// <li> <p>Each hour range must be &gt;= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p> </li>
-    /// <li> <p>The event window must be &gt;= 4 hours. The combined total time ranges in the event window must be &gt;= 4 hours.</p> </li>
-    /// </ul>
+    /// <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Only hour and day of the week values are supported.</p> </li> 
+    /// <li> <p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p> </li> 
+    /// <li> <p>The minute, month, and year must be specified by <code>*</code>.</p> </li> 
+    /// <li> <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p> </li> 
+    /// <li> <p>Each hour range must be &gt;= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p> </li> 
+    /// <li> <p>The event window must be &gt;= 4 hours. The combined total time ranges in the event window must be &gt;= 4 hours.</p> </li> 
+    /// </ul> 
     /// <p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia website</i>.</p>
     pub fn get_cron_expression(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_cron_expression()
     }
 }
+

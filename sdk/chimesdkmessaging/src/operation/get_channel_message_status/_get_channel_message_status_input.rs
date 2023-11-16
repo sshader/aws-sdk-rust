@@ -2,35 +2,35 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetChannelMessageStatusInput {
+pub struct GetChannelMessageStatusInput  {
     /// <p>The ARN of the channel</p>
     pub channel_arn: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the message.</p>
     pub message_id: ::std::option::Option<::std::string::String>,
     /// <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
     pub chime_bearer: ::std::option::Option<::std::string::String>,
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p> 
     /// </note>
     pub sub_channel_id: ::std::option::Option<::std::string::String>,
 }
-impl GetChannelMessageStatusInput {
+impl  GetChannelMessageStatusInput  {
     /// <p>The ARN of the channel</p>
-    pub fn channel_arn(&self) -> ::std::option::Option<&str> {
+    pub fn channel_arn(&self) -> ::std::option::Option<& str> {
         self.channel_arn.as_deref()
     }
     /// <p>The ID of the message.</p>
-    pub fn message_id(&self) -> ::std::option::Option<&str> {
+    pub fn message_id(&self) -> ::std::option::Option<& str> {
         self.message_id.as_deref()
     }
     /// <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
-    pub fn chime_bearer(&self) -> ::std::option::Option<&str> {
+    pub fn chime_bearer(&self) -> ::std::option::Option<& str> {
         self.chime_bearer.as_deref()
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p> 
     /// </note>
-    pub fn sub_channel_id(&self) -> ::std::option::Option<&str> {
+    pub fn sub_channel_id(&self) -> ::std::option::Option<& str> {
         self.sub_channel_id.as_deref()
     }
 }
@@ -59,8 +59,7 @@ impl GetChannelMessageStatusInputBuilder {
     }
     /// <p>The ARN of the channel</p>
     pub fn set_channel_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.channel_arn = input;
-        self
+        self.channel_arn = input; self
     }
     /// <p>The ARN of the channel</p>
     pub fn get_channel_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -74,8 +73,7 @@ impl GetChannelMessageStatusInputBuilder {
     }
     /// <p>The ID of the message.</p>
     pub fn set_message_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.message_id = input;
-        self
+        self.message_id = input; self
     }
     /// <p>The ID of the message.</p>
     pub fn get_message_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -89,45 +87,45 @@ impl GetChannelMessageStatusInputBuilder {
     }
     /// <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
     pub fn set_chime_bearer(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.chime_bearer = input;
-        self
+        self.chime_bearer = input; self
     }
     /// <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
     pub fn get_chime_bearer(&self) -> &::std::option::Option<::std::string::String> {
         &self.chime_bearer
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p> 
     /// </note>
     pub fn sub_channel_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sub_channel_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p> 
     /// </note>
     pub fn set_sub_channel_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.sub_channel_id = input;
-        self
+        self.sub_channel_id = input; self
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only required when getting message status in a SubChannel that the user belongs to.</p> 
     /// </note>
     pub fn get_sub_channel_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.sub_channel_id
     }
     /// Consumes the builder and constructs a [`GetChannelMessageStatusInput`](crate::operation::get_channel_message_status::GetChannelMessageStatusInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_channel_message_status::GetChannelMessageStatusInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_channel_message_status::GetChannelMessageStatusInput {
-            channel_arn: self.channel_arn,
-            message_id: self.message_id,
-            chime_bearer: self.chime_bearer,
-            sub_channel_id: self.sub_channel_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_channel_message_status::GetChannelMessageStatusInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_channel_message_status::GetChannelMessageStatusInput {
+                channel_arn: self.channel_arn
+                ,
+                message_id: self.message_id
+                ,
+                chime_bearer: self.chime_bearer
+                ,
+                sub_channel_id: self.sub_channel_id
+                ,
+            }
+        )
     }
 }
+

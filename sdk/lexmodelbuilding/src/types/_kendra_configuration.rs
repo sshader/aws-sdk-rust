@@ -3,30 +3,28 @@
 /// <p>Provides configuration information for the AMAZON.KendraSearchIntent intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/built-in-intent-kendra-search.html"> AMAZON.KendraSearchIntent</a>.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct KendraConfiguration {
+pub struct KendraConfiguration  {
     /// <p>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot. If the Amazon Kendra index does not exist, you get an exception when you call the <code>PutIntent</code> operation.</p>
     pub kendra_index: ::std::string::String,
-    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p>
+    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p> 
     /// <p>You can override this filter string with a new filter string at runtime.</p>
     pub query_filter_string: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of an IAM role that has permission to search the Amazon Kendra index. The role must be in the same account and Region as the Amazon Lex bot. If the role does not exist, you get an exception when you call the <code>PutIntent</code> operation.</p>
     pub role: ::std::string::String,
 }
-impl KendraConfiguration {
+impl  KendraConfiguration  {
     /// <p>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot. If the Amazon Kendra index does not exist, you get an exception when you call the <code>PutIntent</code> operation.</p>
-    pub fn kendra_index(&self) -> &str {
-        use std::ops::Deref;
-        self.kendra_index.deref()
+    pub fn kendra_index(&self) -> & str {
+        use std::ops::Deref; self.kendra_index.deref()
     }
-    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p>
+    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p> 
     /// <p>You can override this filter string with a new filter string at runtime.</p>
-    pub fn query_filter_string(&self) -> ::std::option::Option<&str> {
+    pub fn query_filter_string(&self) -> ::std::option::Option<& str> {
         self.query_filter_string.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of an IAM role that has permission to search the Amazon Kendra index. The role must be in the same account and Region as the Amazon Lex bot. If the role does not exist, you get an exception when you call the <code>PutIntent</code> operation.</p>
-    pub fn role(&self) -> &str {
-        use std::ops::Deref;
-        self.role.deref()
+    pub fn role(&self) -> & str {
+        use std::ops::Deref; self.role.deref()
     }
 }
 impl KendraConfiguration {
@@ -53,26 +51,24 @@ impl KendraConfigurationBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot. If the Amazon Kendra index does not exist, you get an exception when you call the <code>PutIntent</code> operation.</p>
     pub fn set_kendra_index(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.kendra_index = input;
-        self
+        self.kendra_index = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot. If the Amazon Kendra index does not exist, you get an exception when you call the <code>PutIntent</code> operation.</p>
     pub fn get_kendra_index(&self) -> &::std::option::Option<::std::string::String> {
         &self.kendra_index
     }
-    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p>
+    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p> 
     /// <p>You can override this filter string with a new filter string at runtime.</p>
     pub fn query_filter_string(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.query_filter_string = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p>
+    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p> 
     /// <p>You can override this filter string with a new filter string at runtime.</p>
     pub fn set_query_filter_string(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.query_filter_string = input;
-        self
+        self.query_filter_string = input; self
     }
-    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p>
+    /// <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p> 
     /// <p>You can override this filter string with a new filter string at runtime.</p>
     pub fn get_query_filter_string(&self) -> &::std::option::Option<::std::string::String> {
         &self.query_filter_string
@@ -85,8 +81,7 @@ impl KendraConfigurationBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of an IAM role that has permission to search the Amazon Kendra index. The role must be in the same account and Region as the Amazon Lex bot. If the role does not exist, you get an exception when you call the <code>PutIntent</code> operation.</p>
     pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.role = input;
-        self
+        self.role = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of an IAM role that has permission to search the Amazon Kendra index. The role must be in the same account and Region as the Amazon Lex bot. If the role does not exist, you get an exception when you call the <code>PutIntent</code> operation.</p>
     pub fn get_role(&self) -> &::std::option::Option<::std::string::String> {
@@ -97,20 +92,22 @@ impl KendraConfigurationBuilder {
     /// - [`kendra_index`](crate::types::builders::KendraConfigurationBuilder::kendra_index)
     /// - [`role`](crate::types::builders::KendraConfigurationBuilder::role)
     pub fn build(self) -> ::std::result::Result<crate::types::KendraConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::KendraConfiguration {
-            kendra_index: self.kendra_index.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "kendra_index",
-                    "kendra_index was not specified but it is required when building KendraConfiguration",
-                )
-            })?,
-            query_filter_string: self.query_filter_string,
-            role: self.role.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "role",
-                    "role was not specified but it is required when building KendraConfiguration",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::KendraConfiguration {
+                kendra_index: self.kendra_index
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("kendra_index", "kendra_index was not specified but it is required when building KendraConfiguration")
+                    )?
+                ,
+                query_filter_string: self.query_filter_string
+                ,
+                role: self.role
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("role", "role was not specified but it is required when building KendraConfiguration")
+                    )?
+                ,
+            }
+        )
     }
 }
+

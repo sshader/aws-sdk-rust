@@ -3,25 +3,25 @@
 /// <p>The connection properties of an outbound connection.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ConnectionProperties {
-    /// <important>
-    /// <p>The Endpoint attribute cannot be modified. </p>
-    /// </important>
+pub struct ConnectionProperties  {
+    /// <important> 
+    /// <p>The Endpoint attribute cannot be modified. </p> 
+    /// </important> 
     /// <p>The endpoint of the remote domain. Applicable for VPC_ENDPOINT connection mode.</p>
     pub endpoint: ::std::option::Option<::std::string::String>,
     /// <p>The connection properties for cross cluster search.</p>
     pub cross_cluster_search: ::std::option::Option<crate::types::CrossClusterSearchConnectionProperties>,
 }
-impl ConnectionProperties {
-    /// <important>
-    /// <p>The Endpoint attribute cannot be modified. </p>
-    /// </important>
+impl  ConnectionProperties  {
+    /// <important> 
+    /// <p>The Endpoint attribute cannot be modified. </p> 
+    /// </important> 
     /// <p>The endpoint of the remote domain. Applicable for VPC_ENDPOINT connection mode.</p>
-    pub fn endpoint(&self) -> ::std::option::Option<&str> {
+    pub fn endpoint(&self) -> ::std::option::Option<& str> {
         self.endpoint.as_deref()
     }
     /// <p>The connection properties for cross cluster search.</p>
-    pub fn cross_cluster_search(&self) -> ::std::option::Option<&crate::types::CrossClusterSearchConnectionProperties> {
+    pub fn cross_cluster_search(&self) -> ::std::option::Option<& crate::types::CrossClusterSearchConnectionProperties> {
         self.cross_cluster_search.as_ref()
     }
 }
@@ -40,25 +40,24 @@ pub struct ConnectionPropertiesBuilder {
     pub(crate) cross_cluster_search: ::std::option::Option<crate::types::CrossClusterSearchConnectionProperties>,
 }
 impl ConnectionPropertiesBuilder {
-    /// <important>
-    /// <p>The Endpoint attribute cannot be modified. </p>
-    /// </important>
+    /// <important> 
+    /// <p>The Endpoint attribute cannot be modified. </p> 
+    /// </important> 
     /// <p>The endpoint of the remote domain. Applicable for VPC_ENDPOINT connection mode.</p>
     pub fn endpoint(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.endpoint = ::std::option::Option::Some(input.into());
         self
     }
-    /// <important>
-    /// <p>The Endpoint attribute cannot be modified. </p>
-    /// </important>
+    /// <important> 
+    /// <p>The Endpoint attribute cannot be modified. </p> 
+    /// </important> 
     /// <p>The endpoint of the remote domain. Applicable for VPC_ENDPOINT connection mode.</p>
     pub fn set_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.endpoint = input;
-        self
+        self.endpoint = input; self
     }
-    /// <important>
-    /// <p>The Endpoint attribute cannot be modified. </p>
-    /// </important>
+    /// <important> 
+    /// <p>The Endpoint attribute cannot be modified. </p> 
+    /// </important> 
     /// <p>The endpoint of the remote domain. Applicable for VPC_ENDPOINT connection mode.</p>
     pub fn get_endpoint(&self) -> &::std::option::Option<::std::string::String> {
         &self.endpoint
@@ -70,8 +69,7 @@ impl ConnectionPropertiesBuilder {
     }
     /// <p>The connection properties for cross cluster search.</p>
     pub fn set_cross_cluster_search(mut self, input: ::std::option::Option<crate::types::CrossClusterSearchConnectionProperties>) -> Self {
-        self.cross_cluster_search = input;
-        self
+        self.cross_cluster_search = input; self
     }
     /// <p>The connection properties for cross cluster search.</p>
     pub fn get_cross_cluster_search(&self) -> &::std::option::Option<crate::types::CrossClusterSearchConnectionProperties> {
@@ -80,8 +78,11 @@ impl ConnectionPropertiesBuilder {
     /// Consumes the builder and constructs a [`ConnectionProperties`](crate::types::ConnectionProperties).
     pub fn build(self) -> crate::types::ConnectionProperties {
         crate::types::ConnectionProperties {
-            endpoint: self.endpoint,
-            cross_cluster_search: self.cross_cluster_search,
+            endpoint: self.endpoint
+            ,
+            cross_cluster_search: self.cross_cluster_search
+            ,
         }
     }
 }
+

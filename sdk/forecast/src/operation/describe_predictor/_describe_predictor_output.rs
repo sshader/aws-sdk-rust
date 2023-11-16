@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribePredictorOutput {
+pub struct DescribePredictorOutput  {
     /// <p>The ARN of the predictor.</p>
     pub predictor_arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the predictor.</p>
@@ -10,23 +10,23 @@ pub struct DescribePredictorOutput {
     /// <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
     pub algorithm_arn: ::std::option::Option<::std::string::String>,
     /// <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
-    pub auto_ml_algorithm_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub auto_ml_algorithm_arns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>The number of time-steps of the forecast. The forecast horizon is also called the prediction length.</p>
     pub forecast_horizon: ::std::option::Option<i32>,
     /// <p>The forecast types used during predictor training. Default value is <code>["0.1","0.5","0.9"]</code> </p>
-    pub forecast_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub forecast_types: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>Whether the predictor is set to perform AutoML.</p>
     pub perform_auto_ml: ::std::option::Option<bool>,
-    /// <note>
-    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p>
-    /// </note>
-    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p>
+    /// <note> 
+    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p> 
+    /// </note> 
+    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p> 
     /// <p>This parameter is only valid for predictors trained using AutoML.</p>
     pub auto_ml_override_strategy: ::std::option::Option<crate::types::AutoMlOverrideStrategy>,
     /// <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
     pub perform_hpo: ::std::option::Option<bool>,
     /// <p>The default training parameters or overrides selected during model training. When running AutoML or choosing HPO with CNN-QR or DeepAR+, the optimized values for the chosen hyperparameters are returned. For more information, see <code>aws-forecast-choosing-recipes</code>.</p>
-    pub training_parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub training_parameters: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     /// <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast evaluates a predictor by splitting a dataset into training data and testing data. The evaluation parameters define how to perform the split and the number of iterations.</p>
     pub evaluation_parameters: ::std::option::Option<crate::types::EvaluationParameters>,
     /// <p>The hyperparameter override values for the algorithm.</p>
@@ -44,73 +44,75 @@ pub struct DescribePredictorOutput {
     /// <p>Whether the predictor was created with <code>CreateAutoPredictor</code>.</p>
     pub is_auto_predictor: ::std::option::Option<bool>,
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
-    pub dataset_import_job_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    /// <p>The status of the predictor. States include:</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// </ul> <note>
-    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p>
+    pub dataset_import_job_arns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    /// <p>The status of the predictor. States include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// </ul> <note> 
+    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p> 
     /// </note>
     pub status: ::std::option::Option<::std::string::String>,
     /// <p>If an error occurred, an informational message about the error.</p>
     pub message: ::std::option::Option<::std::string::String>,
     /// <p>When the model training task was created.</p>
     pub creation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
     pub last_modification_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The accuracy metric used to optimize the predictor.</p>
     pub optimization_metric: ::std::option::Option<crate::types::OptimizationMetric>,
     _request_id: Option<String>,
 }
-impl DescribePredictorOutput {
+impl  DescribePredictorOutput  {
     /// <p>The ARN of the predictor.</p>
-    pub fn predictor_arn(&self) -> ::std::option::Option<&str> {
+    pub fn predictor_arn(&self) -> ::std::option::Option<& str> {
         self.predictor_arn.as_deref()
     }
     /// <p>The name of the predictor.</p>
-    pub fn predictor_name(&self) -> ::std::option::Option<&str> {
+    pub fn predictor_name(&self) -> ::std::option::Option<& str> {
         self.predictor_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
-    pub fn algorithm_arn(&self) -> ::std::option::Option<&str> {
+    pub fn algorithm_arn(&self) -> ::std::option::Option<& str> {
         self.algorithm_arn.as_deref()
     }
     /// <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.auto_ml_algorithm_arns.is_none()`.
-    pub fn auto_ml_algorithm_arns(&self) -> &[::std::string::String] {
-        self.auto_ml_algorithm_arns.as_deref().unwrap_or_default()
+    pub fn auto_ml_algorithm_arns(&self) -> & [::std::string::String] {
+        self.auto_ml_algorithm_arns.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The number of time-steps of the forecast. The forecast horizon is also called the prediction length.</p>
     pub fn forecast_horizon(&self) -> ::std::option::Option<i32> {
         self.forecast_horizon
     }
     /// <p>The forecast types used during predictor training. Default value is <code>["0.1","0.5","0.9"]</code> </p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.forecast_types.is_none()`.
-    pub fn forecast_types(&self) -> &[::std::string::String] {
-        self.forecast_types.as_deref().unwrap_or_default()
+    pub fn forecast_types(&self) -> & [::std::string::String] {
+        self.forecast_types.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Whether the predictor is set to perform AutoML.</p>
     pub fn perform_auto_ml(&self) -> ::std::option::Option<bool> {
         self.perform_auto_ml
     }
-    /// <note>
-    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p>
-    /// </note>
-    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p>
+    /// <note> 
+    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p> 
+    /// </note> 
+    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p> 
     /// <p>This parameter is only valid for predictors trained using AutoML.</p>
-    pub fn auto_ml_override_strategy(&self) -> ::std::option::Option<&crate::types::AutoMlOverrideStrategy> {
+    pub fn auto_ml_override_strategy(&self) -> ::std::option::Option<& crate::types::AutoMlOverrideStrategy> {
         self.auto_ml_override_strategy.as_ref()
     }
     /// <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
@@ -118,31 +120,31 @@ impl DescribePredictorOutput {
         self.perform_hpo
     }
     /// <p>The default training parameters or overrides selected during model training. When running AutoML or choosing HPO with CNN-QR or DeepAR+, the optimized values for the chosen hyperparameters are returned. For more information, see <code>aws-forecast-choosing-recipes</code>.</p>
-    pub fn training_parameters(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn training_parameters(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.training_parameters.as_ref()
     }
     /// <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast evaluates a predictor by splitting a dataset into training data and testing data. The evaluation parameters define how to perform the split and the number of iterations.</p>
-    pub fn evaluation_parameters(&self) -> ::std::option::Option<&crate::types::EvaluationParameters> {
+    pub fn evaluation_parameters(&self) -> ::std::option::Option<& crate::types::EvaluationParameters> {
         self.evaluation_parameters.as_ref()
     }
     /// <p>The hyperparameter override values for the algorithm.</p>
-    pub fn hpo_config(&self) -> ::std::option::Option<&crate::types::HyperParameterTuningJobConfig> {
+    pub fn hpo_config(&self) -> ::std::option::Option<& crate::types::HyperParameterTuningJobConfig> {
         self.hpo_config.as_ref()
     }
     /// <p>Describes the dataset group that contains the data to use to train the predictor.</p>
-    pub fn input_data_config(&self) -> ::std::option::Option<&crate::types::InputDataConfig> {
+    pub fn input_data_config(&self) -> ::std::option::Option<& crate::types::InputDataConfig> {
         self.input_data_config.as_ref()
     }
     /// <p>The featurization configuration.</p>
-    pub fn featurization_config(&self) -> ::std::option::Option<&crate::types::FeaturizationConfig> {
+    pub fn featurization_config(&self) -> ::std::option::Option<& crate::types::FeaturizationConfig> {
         self.featurization_config.as_ref()
     }
     /// <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.</p>
-    pub fn encryption_config(&self) -> ::std::option::Option<&crate::types::EncryptionConfig> {
+    pub fn encryption_config(&self) -> ::std::option::Option<& crate::types::EncryptionConfig> {
         self.encryption_config.as_ref()
     }
     /// <p>Details on the the status and results of the backtests performed to evaluate the accuracy of the predictor. You specify the number of backtests to perform when you call the operation.</p>
-    pub fn predictor_execution_details(&self) -> ::std::option::Option<&crate::types::PredictorExecutionDetails> {
+    pub fn predictor_execution_details(&self) -> ::std::option::Option<& crate::types::PredictorExecutionDetails> {
         self.predictor_execution_details.as_ref()
     }
     /// <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
@@ -154,52 +156,53 @@ impl DescribePredictorOutput {
         self.is_auto_predictor
     }
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.dataset_import_job_arns.is_none()`.
-    pub fn dataset_import_job_arns(&self) -> &[::std::string::String] {
-        self.dataset_import_job_arns.as_deref().unwrap_or_default()
+    pub fn dataset_import_job_arns(&self) -> & [::std::string::String] {
+        self.dataset_import_job_arns.as_deref()
+        .unwrap_or_default()
     }
-    /// <p>The status of the predictor. States include:</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// </ul> <note>
-    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p>
+    /// <p>The status of the predictor. States include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// </ul> <note> 
+    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p> 
     /// </note>
-    pub fn status(&self) -> ::std::option::Option<&str> {
+    pub fn status(&self) -> ::std::option::Option<& str> {
         self.status.as_deref()
     }
     /// <p>If an error occurred, an informational message about the error.</p>
-    pub fn message(&self) -> ::std::option::Option<&str> {
+    pub fn message(&self) -> ::std::option::Option<& str> {
         self.message.as_deref()
     }
     /// <p>When the model training task was created.</p>
-    pub fn creation_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_time.as_ref()
     }
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
-    pub fn last_modification_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_modification_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_modification_time.as_ref()
     }
     /// <p>The accuracy metric used to optimize the predictor.</p>
-    pub fn optimization_metric(&self) -> ::std::option::Option<&crate::types::OptimizationMetric> {
+    pub fn optimization_metric(&self) -> ::std::option::Option<& crate::types::OptimizationMetric> {
         self.optimization_metric.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for DescribePredictorOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for DescribePredictorOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl DescribePredictorOutput {
     /// Creates a new builder-style object to manufacture [`DescribePredictorOutput`](crate::operation::describe_predictor::DescribePredictorOutput).
     pub fn builder() -> crate::operation::describe_predictor::builders::DescribePredictorOutputBuilder {
@@ -214,13 +217,13 @@ pub struct DescribePredictorOutputBuilder {
     pub(crate) predictor_arn: ::std::option::Option<::std::string::String>,
     pub(crate) predictor_name: ::std::option::Option<::std::string::String>,
     pub(crate) algorithm_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) auto_ml_algorithm_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) auto_ml_algorithm_arns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) forecast_horizon: ::std::option::Option<i32>,
-    pub(crate) forecast_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) forecast_types: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) perform_auto_ml: ::std::option::Option<bool>,
     pub(crate) auto_ml_override_strategy: ::std::option::Option<crate::types::AutoMlOverrideStrategy>,
     pub(crate) perform_hpo: ::std::option::Option<bool>,
-    pub(crate) training_parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) training_parameters: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     pub(crate) evaluation_parameters: ::std::option::Option<crate::types::EvaluationParameters>,
     pub(crate) hpo_config: ::std::option::Option<crate::types::HyperParameterTuningJobConfig>,
     pub(crate) input_data_config: ::std::option::Option<crate::types::InputDataConfig>,
@@ -229,7 +232,7 @@ pub struct DescribePredictorOutputBuilder {
     pub(crate) predictor_execution_details: ::std::option::Option<crate::types::PredictorExecutionDetails>,
     pub(crate) estimated_time_remaining_in_minutes: ::std::option::Option<i64>,
     pub(crate) is_auto_predictor: ::std::option::Option<bool>,
-    pub(crate) dataset_import_job_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) dataset_import_job_arns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) status: ::std::option::Option<::std::string::String>,
     pub(crate) message: ::std::option::Option<::std::string::String>,
     pub(crate) creation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -245,8 +248,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>The ARN of the predictor.</p>
     pub fn set_predictor_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.predictor_arn = input;
-        self
+        self.predictor_arn = input; self
     }
     /// <p>The ARN of the predictor.</p>
     pub fn get_predictor_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -259,8 +261,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>The name of the predictor.</p>
     pub fn set_predictor_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.predictor_name = input;
-        self
+        self.predictor_name = input; self
     }
     /// <p>The name of the predictor.</p>
     pub fn get_predictor_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -273,8 +274,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
     pub fn set_algorithm_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.algorithm_arn = input;
-        self
+        self.algorithm_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
     pub fn get_algorithm_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -287,17 +287,16 @@ impl DescribePredictorOutputBuilder {
     /// <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
     pub fn auto_ml_algorithm_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.auto_ml_algorithm_arns.unwrap_or_default();
-        v.push(input.into());
-        self.auto_ml_algorithm_arns = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.auto_ml_algorithm_arns = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
-    pub fn set_auto_ml_algorithm_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.auto_ml_algorithm_arns = input;
-        self
+    pub fn set_auto_ml_algorithm_arns(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.auto_ml_algorithm_arns = input; self
     }
     /// <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
-    pub fn get_auto_ml_algorithm_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_auto_ml_algorithm_arns(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.auto_ml_algorithm_arns
     }
     /// <p>The number of time-steps of the forecast. The forecast horizon is also called the prediction length.</p>
@@ -307,8 +306,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>The number of time-steps of the forecast. The forecast horizon is also called the prediction length.</p>
     pub fn set_forecast_horizon(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.forecast_horizon = input;
-        self
+        self.forecast_horizon = input; self
     }
     /// <p>The number of time-steps of the forecast. The forecast horizon is also called the prediction length.</p>
     pub fn get_forecast_horizon(&self) -> &::std::option::Option<i32> {
@@ -321,17 +319,16 @@ impl DescribePredictorOutputBuilder {
     /// <p>The forecast types used during predictor training. Default value is <code>["0.1","0.5","0.9"]</code> </p>
     pub fn forecast_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.forecast_types.unwrap_or_default();
-        v.push(input.into());
-        self.forecast_types = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.forecast_types = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The forecast types used during predictor training. Default value is <code>["0.1","0.5","0.9"]</code> </p>
-    pub fn set_forecast_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.forecast_types = input;
-        self
+    pub fn set_forecast_types(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.forecast_types = input; self
     }
     /// <p>The forecast types used during predictor training. Default value is <code>["0.1","0.5","0.9"]</code> </p>
-    pub fn get_forecast_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_forecast_types(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.forecast_types
     }
     /// <p>Whether the predictor is set to perform AutoML.</p>
@@ -341,35 +338,33 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>Whether the predictor is set to perform AutoML.</p>
     pub fn set_perform_auto_ml(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.perform_auto_ml = input;
-        self
+        self.perform_auto_ml = input; self
     }
     /// <p>Whether the predictor is set to perform AutoML.</p>
     pub fn get_perform_auto_ml(&self) -> &::std::option::Option<bool> {
         &self.perform_auto_ml
     }
-    /// <note>
-    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p>
-    /// </note>
-    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p>
+    /// <note> 
+    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p> 
+    /// </note> 
+    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p> 
     /// <p>This parameter is only valid for predictors trained using AutoML.</p>
     pub fn auto_ml_override_strategy(mut self, input: crate::types::AutoMlOverrideStrategy) -> Self {
         self.auto_ml_override_strategy = ::std::option::Option::Some(input);
         self
     }
-    /// <note>
-    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p>
-    /// </note>
-    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p>
+    /// <note> 
+    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p> 
+    /// </note> 
+    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p> 
     /// <p>This parameter is only valid for predictors trained using AutoML.</p>
     pub fn set_auto_ml_override_strategy(mut self, input: ::std::option::Option<crate::types::AutoMlOverrideStrategy>) -> Self {
-        self.auto_ml_override_strategy = input;
-        self
+        self.auto_ml_override_strategy = input; self
     }
-    /// <note>
-    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p>
-    /// </note>
-    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p>
+    /// <note> 
+    /// <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta. Contact Amazon Web Services Support or your account manager to learn more about access privileges. </p> 
+    /// </note> 
+    /// <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code> is specified, the AutoML strategy optimizes predictor accuracy.</p> 
     /// <p>This parameter is only valid for predictors trained using AutoML.</p>
     pub fn get_auto_ml_override_strategy(&self) -> &::std::option::Option<crate::types::AutoMlOverrideStrategy> {
         &self.auto_ml_override_strategy
@@ -381,8 +376,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
     pub fn set_perform_hpo(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.perform_hpo = input;
-        self
+        self.perform_hpo = input; self
     }
     /// <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
     pub fn get_perform_hpo(&self) -> &::std::option::Option<bool> {
@@ -393,26 +387,18 @@ impl DescribePredictorOutputBuilder {
     /// To override the contents of this collection use [`set_training_parameters`](Self::set_training_parameters).
     ///
     /// <p>The default training parameters or overrides selected during model training. When running AutoML or choosing HPO with CNN-QR or DeepAR+, the optimized values for the chosen hyperparameters are returned. For more information, see <code>aws-forecast-choosing-recipes</code>.</p>
-    pub fn training_parameters(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn training_parameters(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.training_parameters.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.training_parameters = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.training_parameters = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>The default training parameters or overrides selected during model training. When running AutoML or choosing HPO with CNN-QR or DeepAR+, the optimized values for the chosen hyperparameters are returned. For more information, see <code>aws-forecast-choosing-recipes</code>.</p>
-    pub fn set_training_parameters(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    ) -> Self {
-        self.training_parameters = input;
-        self
+    pub fn set_training_parameters(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.training_parameters = input; self
     }
     /// <p>The default training parameters or overrides selected during model training. When running AutoML or choosing HPO with CNN-QR or DeepAR+, the optimized values for the chosen hyperparameters are returned. For more information, see <code>aws-forecast-choosing-recipes</code>.</p>
-    pub fn get_training_parameters(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_training_parameters(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.training_parameters
     }
     /// <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast evaluates a predictor by splitting a dataset into training data and testing data. The evaluation parameters define how to perform the split and the number of iterations.</p>
@@ -422,8 +408,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast evaluates a predictor by splitting a dataset into training data and testing data. The evaluation parameters define how to perform the split and the number of iterations.</p>
     pub fn set_evaluation_parameters(mut self, input: ::std::option::Option<crate::types::EvaluationParameters>) -> Self {
-        self.evaluation_parameters = input;
-        self
+        self.evaluation_parameters = input; self
     }
     /// <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast evaluates a predictor by splitting a dataset into training data and testing data. The evaluation parameters define how to perform the split and the number of iterations.</p>
     pub fn get_evaluation_parameters(&self) -> &::std::option::Option<crate::types::EvaluationParameters> {
@@ -436,8 +421,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>The hyperparameter override values for the algorithm.</p>
     pub fn set_hpo_config(mut self, input: ::std::option::Option<crate::types::HyperParameterTuningJobConfig>) -> Self {
-        self.hpo_config = input;
-        self
+        self.hpo_config = input; self
     }
     /// <p>The hyperparameter override values for the algorithm.</p>
     pub fn get_hpo_config(&self) -> &::std::option::Option<crate::types::HyperParameterTuningJobConfig> {
@@ -450,8 +434,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>Describes the dataset group that contains the data to use to train the predictor.</p>
     pub fn set_input_data_config(mut self, input: ::std::option::Option<crate::types::InputDataConfig>) -> Self {
-        self.input_data_config = input;
-        self
+        self.input_data_config = input; self
     }
     /// <p>Describes the dataset group that contains the data to use to train the predictor.</p>
     pub fn get_input_data_config(&self) -> &::std::option::Option<crate::types::InputDataConfig> {
@@ -464,8 +447,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>The featurization configuration.</p>
     pub fn set_featurization_config(mut self, input: ::std::option::Option<crate::types::FeaturizationConfig>) -> Self {
-        self.featurization_config = input;
-        self
+        self.featurization_config = input; self
     }
     /// <p>The featurization configuration.</p>
     pub fn get_featurization_config(&self) -> &::std::option::Option<crate::types::FeaturizationConfig> {
@@ -478,8 +460,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.</p>
     pub fn set_encryption_config(mut self, input: ::std::option::Option<crate::types::EncryptionConfig>) -> Self {
-        self.encryption_config = input;
-        self
+        self.encryption_config = input; self
     }
     /// <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.</p>
     pub fn get_encryption_config(&self) -> &::std::option::Option<crate::types::EncryptionConfig> {
@@ -492,8 +473,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>Details on the the status and results of the backtests performed to evaluate the accuracy of the predictor. You specify the number of backtests to perform when you call the operation.</p>
     pub fn set_predictor_execution_details(mut self, input: ::std::option::Option<crate::types::PredictorExecutionDetails>) -> Self {
-        self.predictor_execution_details = input;
-        self
+        self.predictor_execution_details = input; self
     }
     /// <p>Details on the the status and results of the backtests performed to evaluate the accuracy of the predictor. You specify the number of backtests to perform when you call the operation.</p>
     pub fn get_predictor_execution_details(&self) -> &::std::option::Option<crate::types::PredictorExecutionDetails> {
@@ -506,8 +486,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
     pub fn set_estimated_time_remaining_in_minutes(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.estimated_time_remaining_in_minutes = input;
-        self
+        self.estimated_time_remaining_in_minutes = input; self
     }
     /// <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
     pub fn get_estimated_time_remaining_in_minutes(&self) -> &::std::option::Option<i64> {
@@ -520,8 +499,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>Whether the predictor was created with <code>CreateAutoPredictor</code>.</p>
     pub fn set_is_auto_predictor(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.is_auto_predictor = input;
-        self
+        self.is_auto_predictor = input; self
     }
     /// <p>Whether the predictor was created with <code>CreateAutoPredictor</code>.</p>
     pub fn get_is_auto_predictor(&self) -> &::std::option::Option<bool> {
@@ -534,53 +512,51 @@ impl DescribePredictorOutputBuilder {
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
     pub fn dataset_import_job_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.dataset_import_job_arns.unwrap_or_default();
-        v.push(input.into());
-        self.dataset_import_job_arns = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.dataset_import_job_arns = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
-    pub fn set_dataset_import_job_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.dataset_import_job_arns = input;
-        self
+    pub fn set_dataset_import_job_arns(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.dataset_import_job_arns = input; self
     }
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
-    pub fn get_dataset_import_job_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_dataset_import_job_arns(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.dataset_import_job_arns
     }
-    /// <p>The status of the predictor. States include:</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// </ul> <note>
-    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p>
+    /// <p>The status of the predictor. States include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// </ul> <note> 
+    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p> 
     /// </note>
     pub fn status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The status of the predictor. States include:</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// </ul> <note>
-    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p>
+    /// <p>The status of the predictor. States include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// </ul> <note> 
+    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p> 
     /// </note>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the predictor. States include:</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// </ul> <note>
-    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p>
+    /// <p>The status of the predictor. States include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// </ul> <note> 
+    /// <p>The <code>Status</code> of the predictor must be <code>ACTIVE</code> before you can use the predictor to create a forecast.</p> 
     /// </note>
     pub fn get_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.status
@@ -592,8 +568,7 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>If an error occurred, an informational message about the error.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.message = input;
-        self
+        self.message = input; self
     }
     /// <p>If an error occurred, an informational message about the error.</p>
     pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
@@ -606,44 +581,42 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>When the model training task was created.</p>
     pub fn set_creation_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_time = input;
-        self
+        self.creation_time = input; self
     }
     /// <p>When the model training task was created.</p>
     pub fn get_creation_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.creation_time
     }
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
     pub fn last_modification_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.last_modification_time = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
     pub fn set_last_modification_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_modification_time = input;
-        self
+        self.last_modification_time = input; self
     }
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
     pub fn get_last_modification_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_modification_time
@@ -655,50 +628,74 @@ impl DescribePredictorOutputBuilder {
     }
     /// <p>The accuracy metric used to optimize the predictor.</p>
     pub fn set_optimization_metric(mut self, input: ::std::option::Option<crate::types::OptimizationMetric>) -> Self {
-        self.optimization_metric = input;
-        self
+        self.optimization_metric = input; self
     }
     /// <p>The accuracy metric used to optimize the predictor.</p>
     pub fn get_optimization_metric(&self) -> &::std::option::Option<crate::types::OptimizationMetric> {
         &self.optimization_metric
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`DescribePredictorOutput`](crate::operation::describe_predictor::DescribePredictorOutput).
     pub fn build(self) -> crate::operation::describe_predictor::DescribePredictorOutput {
         crate::operation::describe_predictor::DescribePredictorOutput {
-            predictor_arn: self.predictor_arn,
-            predictor_name: self.predictor_name,
-            algorithm_arn: self.algorithm_arn,
-            auto_ml_algorithm_arns: self.auto_ml_algorithm_arns,
-            forecast_horizon: self.forecast_horizon,
-            forecast_types: self.forecast_types,
-            perform_auto_ml: self.perform_auto_ml,
-            auto_ml_override_strategy: self.auto_ml_override_strategy,
-            perform_hpo: self.perform_hpo,
-            training_parameters: self.training_parameters,
-            evaluation_parameters: self.evaluation_parameters,
-            hpo_config: self.hpo_config,
-            input_data_config: self.input_data_config,
-            featurization_config: self.featurization_config,
-            encryption_config: self.encryption_config,
-            predictor_execution_details: self.predictor_execution_details,
-            estimated_time_remaining_in_minutes: self.estimated_time_remaining_in_minutes,
-            is_auto_predictor: self.is_auto_predictor,
-            dataset_import_job_arns: self.dataset_import_job_arns,
-            status: self.status,
-            message: self.message,
-            creation_time: self.creation_time,
-            last_modification_time: self.last_modification_time,
-            optimization_metric: self.optimization_metric,
+            predictor_arn: self.predictor_arn
+            ,
+            predictor_name: self.predictor_name
+            ,
+            algorithm_arn: self.algorithm_arn
+            ,
+            auto_ml_algorithm_arns: self.auto_ml_algorithm_arns
+            ,
+            forecast_horizon: self.forecast_horizon
+            ,
+            forecast_types: self.forecast_types
+            ,
+            perform_auto_ml: self.perform_auto_ml
+            ,
+            auto_ml_override_strategy: self.auto_ml_override_strategy
+            ,
+            perform_hpo: self.perform_hpo
+            ,
+            training_parameters: self.training_parameters
+            ,
+            evaluation_parameters: self.evaluation_parameters
+            ,
+            hpo_config: self.hpo_config
+            ,
+            input_data_config: self.input_data_config
+            ,
+            featurization_config: self.featurization_config
+            ,
+            encryption_config: self.encryption_config
+            ,
+            predictor_execution_details: self.predictor_execution_details
+            ,
+            estimated_time_remaining_in_minutes: self.estimated_time_remaining_in_minutes
+            ,
+            is_auto_predictor: self.is_auto_predictor
+            ,
+            dataset_import_job_arns: self.dataset_import_job_arns
+            ,
+            status: self.status
+            ,
+            message: self.message
+            ,
+            creation_time: self.creation_time
+            ,
+            last_modification_time: self.last_modification_time
+            ,
+            optimization_metric: self.optimization_metric
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

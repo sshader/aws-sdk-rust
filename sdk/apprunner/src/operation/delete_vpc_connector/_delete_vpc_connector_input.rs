@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteVpcConnectorInput {
-    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p>
+pub struct DeleteVpcConnectorInput  {
+    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p> 
     /// <p>The ARN must be a full VPC connector ARN.</p>
     pub vpc_connector_arn: ::std::option::Option<::std::string::String>,
 }
-impl DeleteVpcConnectorInput {
-    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p>
+impl  DeleteVpcConnectorInput  {
+    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p> 
     /// <p>The ARN must be a full VPC connector ARN.</p>
-    pub fn vpc_connector_arn(&self) -> ::std::option::Option<&str> {
+    pub fn vpc_connector_arn(&self) -> ::std::option::Option<& str> {
         self.vpc_connector_arn.as_deref()
     }
 }
@@ -28,31 +28,31 @@ pub struct DeleteVpcConnectorInputBuilder {
     pub(crate) vpc_connector_arn: ::std::option::Option<::std::string::String>,
 }
 impl DeleteVpcConnectorInputBuilder {
-    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p>
+    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p> 
     /// <p>The ARN must be a full VPC connector ARN.</p>
     /// This field is required.
     pub fn vpc_connector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.vpc_connector_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p>
+    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p> 
     /// <p>The ARN must be a full VPC connector ARN.</p>
     pub fn set_vpc_connector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.vpc_connector_arn = input;
-        self
+        self.vpc_connector_arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p>
+    /// <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p> 
     /// <p>The ARN must be a full VPC connector ARN.</p>
     pub fn get_vpc_connector_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.vpc_connector_arn
     }
     /// Consumes the builder and constructs a [`DeleteVpcConnectorInput`](crate::operation::delete_vpc_connector::DeleteVpcConnectorInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::delete_vpc_connector::DeleteVpcConnectorInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::delete_vpc_connector::DeleteVpcConnectorInput {
-            vpc_connector_arn: self.vpc_connector_arn,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_vpc_connector::DeleteVpcConnectorInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_vpc_connector::DeleteVpcConnectorInput {
+                vpc_connector_arn: self.vpc_connector_arn
+                ,
+            }
+        )
     }
 }
+

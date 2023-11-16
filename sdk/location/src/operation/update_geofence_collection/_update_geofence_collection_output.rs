@@ -2,42 +2,40 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateGeofenceCollectionOutput {
+pub struct UpdateGeofenceCollectionOutput  {
     /// <p>The name of the updated geofence collection.</p>
     pub collection_name: ::std::string::String,
-    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p>
-    /// <ul>
-    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p> 
+    /// <ul> 
+    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li> 
     /// </ul>
     pub collection_arn: ::std::string::String,
     /// <p>The time when the geofence collection was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>
     pub update_time: ::aws_smithy_types::DateTime,
     _request_id: Option<String>,
 }
-impl UpdateGeofenceCollectionOutput {
+impl  UpdateGeofenceCollectionOutput  {
     /// <p>The name of the updated geofence collection.</p>
-    pub fn collection_name(&self) -> &str {
-        use std::ops::Deref;
-        self.collection_name.deref()
+    pub fn collection_name(&self) -> & str {
+        use std::ops::Deref; self.collection_name.deref()
     }
-    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p>
-    /// <ul>
-    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p> 
+    /// <ul> 
+    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li> 
     /// </ul>
-    pub fn collection_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.collection_arn.deref()
+    pub fn collection_arn(&self) -> & str {
+        use std::ops::Deref; self.collection_arn.deref()
     }
     /// <p>The time when the geofence collection was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>
-    pub fn update_time(&self) -> &::aws_smithy_types::DateTime {
+    pub fn update_time(&self) -> & ::aws_smithy_types::DateTime {
         &self.update_time
     }
 }
-impl ::aws_http::request_id::RequestId for UpdateGeofenceCollectionOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for UpdateGeofenceCollectionOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl UpdateGeofenceCollectionOutput {
     /// Creates a new builder-style object to manufacture [`UpdateGeofenceCollectionOutput`](crate::operation::update_geofence_collection::UpdateGeofenceCollectionOutput).
     pub fn builder() -> crate::operation::update_geofence_collection::builders::UpdateGeofenceCollectionOutputBuilder {
@@ -63,33 +61,31 @@ impl UpdateGeofenceCollectionOutputBuilder {
     }
     /// <p>The name of the updated geofence collection.</p>
     pub fn set_collection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.collection_name = input;
-        self
+        self.collection_name = input; self
     }
     /// <p>The name of the updated geofence collection.</p>
     pub fn get_collection_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.collection_name
     }
-    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p>
-    /// <ul>
-    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p> 
+    /// <ul> 
+    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li> 
     /// </ul>
     /// This field is required.
     pub fn collection_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.collection_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p>
-    /// <ul>
-    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p> 
+    /// <ul> 
+    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li> 
     /// </ul>
     pub fn set_collection_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.collection_arn = input;
-        self
+        self.collection_arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p>
-    /// <ul>
-    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across Amazon Web Services.</p> 
+    /// <ul> 
+    /// <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li> 
     /// </ul>
     pub fn get_collection_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.collection_arn
@@ -102,53 +98,47 @@ impl UpdateGeofenceCollectionOutputBuilder {
     }
     /// <p>The time when the geofence collection was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>
     pub fn set_update_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.update_time = input;
-        self
+        self.update_time = input; self
     }
     /// <p>The time when the geofence collection was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>
     pub fn get_update_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.update_time
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`UpdateGeofenceCollectionOutput`](crate::operation::update_geofence_collection::UpdateGeofenceCollectionOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`collection_name`](crate::operation::update_geofence_collection::builders::UpdateGeofenceCollectionOutputBuilder::collection_name)
     /// - [`collection_arn`](crate::operation::update_geofence_collection::builders::UpdateGeofenceCollectionOutputBuilder::collection_arn)
     /// - [`update_time`](crate::operation::update_geofence_collection::builders::UpdateGeofenceCollectionOutputBuilder::update_time)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_geofence_collection::UpdateGeofenceCollectionOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::update_geofence_collection::UpdateGeofenceCollectionOutput {
-            collection_name: self.collection_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "collection_name",
-                    "collection_name was not specified but it is required when building UpdateGeofenceCollectionOutput",
-                )
-            })?,
-            collection_arn: self.collection_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "collection_arn",
-                    "collection_arn was not specified but it is required when building UpdateGeofenceCollectionOutput",
-                )
-            })?,
-            update_time: self.update_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "update_time",
-                    "update_time was not specified but it is required when building UpdateGeofenceCollectionOutput",
-                )
-            })?,
-            _request_id: self._request_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_geofence_collection::UpdateGeofenceCollectionOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_geofence_collection::UpdateGeofenceCollectionOutput {
+                collection_name: self.collection_name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("collection_name", "collection_name was not specified but it is required when building UpdateGeofenceCollectionOutput")
+                    )?
+                ,
+                collection_arn: self.collection_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("collection_arn", "collection_arn was not specified but it is required when building UpdateGeofenceCollectionOutput")
+                    )?
+                ,
+                update_time: self.update_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("update_time", "update_time was not specified but it is required when building UpdateGeofenceCollectionOutput")
+                    )?
+                ,
+                _request_id: self._request_id,
+            }
+        )
     }
 }
+

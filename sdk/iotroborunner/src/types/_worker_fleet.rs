@@ -3,7 +3,7 @@
 /// A collection of workers organized within a facility.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct WorkerFleet {
+pub struct WorkerFleet  {
     /// Full ARN of the worker fleet.
     pub arn: ::std::string::String,
     /// Filters access by the worker fleet's identifier
@@ -19,37 +19,33 @@ pub struct WorkerFleet {
     /// JSON blob containing additional fixed properties regarding the worker fleet
     pub additional_fixed_properties: ::std::option::Option<::std::string::String>,
 }
-impl WorkerFleet {
+impl  WorkerFleet  {
     /// Full ARN of the worker fleet.
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> & str {
+        use std::ops::Deref; self.arn.deref()
     }
     /// Filters access by the worker fleet's identifier
-    pub fn id(&self) -> &str {
-        use std::ops::Deref;
-        self.id.deref()
+    pub fn id(&self) -> & str {
+        use std::ops::Deref; self.id.deref()
     }
     /// Human friendly name of the resource.
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// Site ARN.
-    pub fn site(&self) -> &str {
-        use std::ops::Deref;
-        self.site.deref()
+    pub fn site(&self) -> & str {
+        use std::ops::Deref; self.site.deref()
     }
     /// Timestamp at which the resource was created.
-    pub fn created_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn created_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.created_at
     }
     /// Timestamp at which the resource was last updated.
-    pub fn updated_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn updated_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.updated_at
     }
     /// JSON blob containing additional fixed properties regarding the worker fleet
-    pub fn additional_fixed_properties(&self) -> ::std::option::Option<&str> {
+    pub fn additional_fixed_properties(&self) -> ::std::option::Option<& str> {
         self.additional_fixed_properties.as_deref()
     }
 }
@@ -81,8 +77,7 @@ impl WorkerFleetBuilder {
     }
     /// Full ARN of the worker fleet.
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// Full ARN of the worker fleet.
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -96,8 +91,7 @@ impl WorkerFleetBuilder {
     }
     /// Filters access by the worker fleet's identifier
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// Filters access by the worker fleet's identifier
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -111,8 +105,7 @@ impl WorkerFleetBuilder {
     }
     /// Human friendly name of the resource.
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// Human friendly name of the resource.
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -126,8 +119,7 @@ impl WorkerFleetBuilder {
     }
     /// Site ARN.
     pub fn set_site(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.site = input;
-        self
+        self.site = input; self
     }
     /// Site ARN.
     pub fn get_site(&self) -> &::std::option::Option<::std::string::String> {
@@ -141,8 +133,7 @@ impl WorkerFleetBuilder {
     }
     /// Timestamp at which the resource was created.
     pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_at = input;
-        self
+        self.created_at = input; self
     }
     /// Timestamp at which the resource was created.
     pub fn get_created_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -156,8 +147,7 @@ impl WorkerFleetBuilder {
     }
     /// Timestamp at which the resource was last updated.
     pub fn set_updated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.updated_at = input;
-        self
+        self.updated_at = input; self
     }
     /// Timestamp at which the resource was last updated.
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -170,8 +160,7 @@ impl WorkerFleetBuilder {
     }
     /// JSON blob containing additional fixed properties regarding the worker fleet
     pub fn set_additional_fixed_properties(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.additional_fixed_properties = input;
-        self
+        self.additional_fixed_properties = input; self
     }
     /// JSON blob containing additional fixed properties regarding the worker fleet
     pub fn get_additional_fixed_properties(&self) -> &::std::option::Option<::std::string::String> {
@@ -186,44 +175,42 @@ impl WorkerFleetBuilder {
     /// - [`created_at`](crate::types::builders::WorkerFleetBuilder::created_at)
     /// - [`updated_at`](crate::types::builders::WorkerFleetBuilder::updated_at)
     pub fn build(self) -> ::std::result::Result<crate::types::WorkerFleet, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::WorkerFleet {
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building WorkerFleet",
-                )
-            })?,
-            id: self.id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "id",
-                    "id was not specified but it is required when building WorkerFleet",
-                )
-            })?,
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building WorkerFleet",
-                )
-            })?,
-            site: self.site.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "site",
-                    "site was not specified but it is required when building WorkerFleet",
-                )
-            })?,
-            created_at: self.created_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "created_at",
-                    "created_at was not specified but it is required when building WorkerFleet",
-                )
-            })?,
-            updated_at: self.updated_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "updated_at",
-                    "updated_at was not specified but it is required when building WorkerFleet",
-                )
-            })?,
-            additional_fixed_properties: self.additional_fixed_properties,
-        })
+        ::std::result::Result::Ok(
+            crate::types::WorkerFleet {
+                arn: self.arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building WorkerFleet")
+                    )?
+                ,
+                id: self.id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building WorkerFleet")
+                    )?
+                ,
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building WorkerFleet")
+                    )?
+                ,
+                site: self.site
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("site", "site was not specified but it is required when building WorkerFleet")
+                    )?
+                ,
+                created_at: self.created_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("created_at", "created_at was not specified but it is required when building WorkerFleet")
+                    )?
+                ,
+                updated_at: self.updated_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("updated_at", "updated_at was not specified but it is required when building WorkerFleet")
+                    )?
+                ,
+                additional_fixed_properties: self.additional_fixed_properties
+                ,
+            }
+        )
     }
 }
+

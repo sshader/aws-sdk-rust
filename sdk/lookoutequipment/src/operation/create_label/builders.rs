@@ -5,54 +5,50 @@ pub use crate::operation::create_label::_create_label_input::CreateLabelInputBui
 
 impl CreateLabelInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_label::CreateLabelOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_label::CreateLabelError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_label();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_label::CreateLabelOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_label::CreateLabelError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_label();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateLabel`.
-///
+/// 
 /// <p> Creates a label for an event. </p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateLabelFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_label::builders::CreateLabelInputBuilder,
+                    inner: crate::operation::create_label::builders::CreateLabelInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_label::CreateLabelOutput,
-        crate::operation::create_label::CreateLabelError,
-    > for CreateLabelFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_label::CreateLabelOutput,
-            crate::operation::create_label::CreateLabelError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_label::CreateLabelOutput,
+                    crate::operation::create_label::CreateLabelError,
+                > for CreateLabelFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_label::CreateLabelOutput,
+                        crate::operation::create_label::CreateLabelError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateLabelFluentBuilder {
     /// Creates a new `CreateLabel`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,66 +57,57 @@ impl CreateLabelFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_label::CreateLabelOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_label::CreateLabelError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_label::CreateLabel::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_label::CreateLabel::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_label::CreateLabelOutput,
-        crate::operation::create_label::CreateLabelError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p> The name of a group of labels. </p>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_label::CreateLabelOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_label::CreateLabelError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_label::CreateLabel::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_label::CreateLabel::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_label::CreateLabelOutput, crate::operation::create_label::CreateLabelError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p> The name of a group of labels. </p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data. </p>
     pub fn label_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.label_group_name(input.into());
         self
     }
-    /// <p> The name of a group of labels. </p>
+    /// <p> The name of a group of labels. </p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data. </p>
     pub fn set_label_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_label_group_name(input);
         self
     }
-    /// <p> The name of a group of labels. </p>
+    /// <p> The name of a group of labels. </p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data. </p>
     pub fn get_label_group_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_label_group_name()
@@ -167,53 +154,53 @@ impl CreateLabelFluentBuilder {
     pub fn get_rating(&self) -> &::std::option::Option<crate::types::LabelRating> {
         self.inner.get_rating()
     }
-    /// <p> Provides additional information about the label. The fault code must be defined in the FaultCodes attribute of the label group.</p>
+    /// <p> Provides additional information about the label. The fault code must be defined in the FaultCodes attribute of the label group.</p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data. </p>
     pub fn fault_code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.fault_code(input.into());
         self
     }
-    /// <p> Provides additional information about the label. The fault code must be defined in the FaultCodes attribute of the label group.</p>
+    /// <p> Provides additional information about the label. The fault code must be defined in the FaultCodes attribute of the label group.</p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data. </p>
     pub fn set_fault_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_fault_code(input);
         self
     }
-    /// <p> Provides additional information about the label. The fault code must be defined in the FaultCodes attribute of the label group.</p>
+    /// <p> Provides additional information about the label. The fault code must be defined in the FaultCodes attribute of the label group.</p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data. </p>
     pub fn get_fault_code(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_fault_code()
     }
-    /// <p> Metadata providing additional information about the label. </p>
+    /// <p> Metadata providing additional information about the label. </p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
     pub fn notes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.notes(input.into());
         self
     }
-    /// <p> Metadata providing additional information about the label. </p>
+    /// <p> Metadata providing additional information about the label. </p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
     pub fn set_notes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_notes(input);
         self
     }
-    /// <p> Metadata providing additional information about the label. </p>
+    /// <p> Metadata providing additional information about the label. </p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
     pub fn get_notes(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_notes()
     }
-    /// <p> Indicates that a label pertains to a particular piece of equipment. </p>
+    /// <p> Indicates that a label pertains to a particular piece of equipment. </p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
     pub fn equipment(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.equipment(input.into());
         self
     }
-    /// <p> Indicates that a label pertains to a particular piece of equipment. </p>
+    /// <p> Indicates that a label pertains to a particular piece of equipment. </p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
     pub fn set_equipment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_equipment(input);
         self
     }
-    /// <p> Indicates that a label pertains to a particular piece of equipment. </p>
+    /// <p> Indicates that a label pertains to a particular piece of equipment. </p> 
     /// <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
     pub fn get_equipment(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_equipment()
@@ -233,3 +220,4 @@ impl CreateLabelFluentBuilder {
         self.inner.get_client_token()
     }
 }
+

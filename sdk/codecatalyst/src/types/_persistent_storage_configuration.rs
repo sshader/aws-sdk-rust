@@ -3,15 +3,15 @@
 /// <p>Information about the configuration of persistent storage for a Dev Environment. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PersistentStorageConfiguration {
-    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note>
-    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p>
+pub struct PersistentStorageConfiguration  {
+    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note> 
+    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p> 
     /// </note>
     pub size_in_gib: i32,
 }
-impl PersistentStorageConfiguration {
-    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note>
-    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p>
+impl  PersistentStorageConfiguration  {
+    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note> 
+    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p> 
     /// </note>
     pub fn size_in_gib(&self) -> i32 {
         self.size_in_gib
@@ -31,23 +31,22 @@ pub struct PersistentStorageConfigurationBuilder {
     pub(crate) size_in_gib: ::std::option::Option<i32>,
 }
 impl PersistentStorageConfigurationBuilder {
-    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note>
-    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p>
+    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note> 
+    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p> 
     /// </note>
     /// This field is required.
     pub fn size_in_gib(mut self, input: i32) -> Self {
         self.size_in_gib = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note>
-    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p>
+    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note> 
+    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p> 
     /// </note>
     pub fn set_size_in_gib(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.size_in_gib = input;
-        self
+        self.size_in_gib = input; self
     }
-    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note>
-    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p>
+    /// <p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note> 
+    /// <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p> 
     /// </note>
     pub fn get_size_in_gib(&self) -> &::std::option::Option<i32> {
         &self.size_in_gib
@@ -56,13 +55,15 @@ impl PersistentStorageConfigurationBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`size_in_gib`](crate::types::builders::PersistentStorageConfigurationBuilder::size_in_gib)
     pub fn build(self) -> ::std::result::Result<crate::types::PersistentStorageConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::PersistentStorageConfiguration {
-            size_in_gib: self.size_in_gib.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "size_in_gib",
-                    "size_in_gib was not specified but it is required when building PersistentStorageConfiguration",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::PersistentStorageConfiguration {
+                size_in_gib: self.size_in_gib
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("size_in_gib", "size_in_gib was not specified but it is required when building PersistentStorageConfiguration")
+                    )?
+                ,
+            }
+        )
     }
 }
+

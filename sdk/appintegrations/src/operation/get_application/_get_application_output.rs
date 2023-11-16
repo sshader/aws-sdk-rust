@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetApplicationOutput {
+pub struct GetApplicationOutput  {
     /// <p>The Amazon Resource Name (ARN) of the Application.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>A unique identifier for the Application.</p>
@@ -16,72 +16,74 @@ pub struct GetApplicationOutput {
     /// <p>The configuration for where the application should be loaded from.</p>
     pub application_source_config: ::std::option::Option<crate::types::ApplicationSourceConfig>,
     /// <p>The events that the application subscribes.</p>
-    pub subscriptions: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>,
+    pub subscriptions: ::std::option::Option<::std::vec::Vec::<crate::types::Subscription>>,
     /// <p>The events that the application publishes.</p>
-    pub publications: ::std::option::Option<::std::vec::Vec<crate::types::Publication>>,
+    pub publications: ::std::option::Option<::std::vec::Vec::<crate::types::Publication>>,
     /// <p>The created time of the Application.</p>
     pub created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The last modified time of the Application.</p>
     pub last_modified_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
-impl GetApplicationOutput {
+impl  GetApplicationOutput  {
     /// <p>The Amazon Resource Name (ARN) of the Application.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
     /// <p>A unique identifier for the Application.</p>
-    pub fn id(&self) -> ::std::option::Option<&str> {
+    pub fn id(&self) -> ::std::option::Option<& str> {
         self.id.as_deref()
     }
     /// <p>The name of the application.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>The namespace of the application.</p>
-    pub fn namespace(&self) -> ::std::option::Option<&str> {
+    pub fn namespace(&self) -> ::std::option::Option<& str> {
         self.namespace.as_deref()
     }
     /// <p>The description of the application.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The configuration for where the application should be loaded from.</p>
-    pub fn application_source_config(&self) -> ::std::option::Option<&crate::types::ApplicationSourceConfig> {
+    pub fn application_source_config(&self) -> ::std::option::Option<& crate::types::ApplicationSourceConfig> {
         self.application_source_config.as_ref()
     }
     /// <p>The events that the application subscribes.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.subscriptions.is_none()`.
-    pub fn subscriptions(&self) -> &[crate::types::Subscription] {
-        self.subscriptions.as_deref().unwrap_or_default()
+    pub fn subscriptions(&self) -> & [crate::types::Subscription] {
+        self.subscriptions.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The events that the application publishes.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.publications.is_none()`.
-    pub fn publications(&self) -> &[crate::types::Publication] {
-        self.publications.as_deref().unwrap_or_default()
+    pub fn publications(&self) -> & [crate::types::Publication] {
+        self.publications.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The created time of the Application.</p>
-    pub fn created_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn created_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.created_time.as_ref()
     }
     /// <p>The last modified time of the Application.</p>
-    pub fn last_modified_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_modified_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_modified_time.as_ref()
     }
     /// <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for GetApplicationOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for GetApplicationOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl GetApplicationOutput {
     /// Creates a new builder-style object to manufacture [`GetApplicationOutput`](crate::operation::get_application::GetApplicationOutput).
     pub fn builder() -> crate::operation::get_application::builders::GetApplicationOutputBuilder {
@@ -99,11 +101,11 @@ pub struct GetApplicationOutputBuilder {
     pub(crate) namespace: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) application_source_config: ::std::option::Option<crate::types::ApplicationSourceConfig>,
-    pub(crate) subscriptions: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>,
-    pub(crate) publications: ::std::option::Option<::std::vec::Vec<crate::types::Publication>>,
+    pub(crate) subscriptions: ::std::option::Option<::std::vec::Vec::<crate::types::Subscription>>,
+    pub(crate) publications: ::std::option::Option<::std::vec::Vec::<crate::types::Publication>>,
     pub(crate) created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) last_modified_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl GetApplicationOutputBuilder {
@@ -114,8 +116,7 @@ impl GetApplicationOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the Application.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the Application.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -128,8 +129,7 @@ impl GetApplicationOutputBuilder {
     }
     /// <p>A unique identifier for the Application.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// <p>A unique identifier for the Application.</p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -142,8 +142,7 @@ impl GetApplicationOutputBuilder {
     }
     /// <p>The name of the application.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the application.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -156,8 +155,7 @@ impl GetApplicationOutputBuilder {
     }
     /// <p>The namespace of the application.</p>
     pub fn set_namespace(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.namespace = input;
-        self
+        self.namespace = input; self
     }
     /// <p>The namespace of the application.</p>
     pub fn get_namespace(&self) -> &::std::option::Option<::std::string::String> {
@@ -170,8 +168,7 @@ impl GetApplicationOutputBuilder {
     }
     /// <p>The description of the application.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The description of the application.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -184,8 +181,7 @@ impl GetApplicationOutputBuilder {
     }
     /// <p>The configuration for where the application should be loaded from.</p>
     pub fn set_application_source_config(mut self, input: ::std::option::Option<crate::types::ApplicationSourceConfig>) -> Self {
-        self.application_source_config = input;
-        self
+        self.application_source_config = input; self
     }
     /// <p>The configuration for where the application should be loaded from.</p>
     pub fn get_application_source_config(&self) -> &::std::option::Option<crate::types::ApplicationSourceConfig> {
@@ -198,17 +194,16 @@ impl GetApplicationOutputBuilder {
     /// <p>The events that the application subscribes.</p>
     pub fn subscriptions(mut self, input: crate::types::Subscription) -> Self {
         let mut v = self.subscriptions.unwrap_or_default();
-        v.push(input);
-        self.subscriptions = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.subscriptions = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The events that the application subscribes.</p>
-    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>) -> Self {
-        self.subscriptions = input;
-        self
+    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Subscription>>) -> Self {
+        self.subscriptions = input; self
     }
     /// <p>The events that the application subscribes.</p>
-    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Subscription>> {
+    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Subscription>> {
         &self.subscriptions
     }
     /// Appends an item to `publications`.
@@ -218,17 +213,16 @@ impl GetApplicationOutputBuilder {
     /// <p>The events that the application publishes.</p>
     pub fn publications(mut self, input: crate::types::Publication) -> Self {
         let mut v = self.publications.unwrap_or_default();
-        v.push(input);
-        self.publications = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.publications = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The events that the application publishes.</p>
-    pub fn set_publications(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Publication>>) -> Self {
-        self.publications = input;
-        self
+    pub fn set_publications(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Publication>>) -> Self {
+        self.publications = input; self
     }
     /// <p>The events that the application publishes.</p>
-    pub fn get_publications(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Publication>> {
+    pub fn get_publications(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Publication>> {
         &self.publications
     }
     /// <p>The created time of the Application.</p>
@@ -238,8 +232,7 @@ impl GetApplicationOutputBuilder {
     }
     /// <p>The created time of the Application.</p>
     pub fn set_created_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_time = input;
-        self
+        self.created_time = input; self
     }
     /// <p>The created time of the Application.</p>
     pub fn get_created_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -252,8 +245,7 @@ impl GetApplicationOutputBuilder {
     }
     /// <p>The last modified time of the Application.</p>
     pub fn set_last_modified_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_modified_time = input;
-        self
+        self.last_modified_time = input; self
     }
     /// <p>The last modified time of the Application.</p>
     pub fn get_last_modified_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -266,43 +258,54 @@ impl GetApplicationOutputBuilder {
     /// <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.tags = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input; self
     }
     /// <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`GetApplicationOutput`](crate::operation::get_application::GetApplicationOutput).
     pub fn build(self) -> crate::operation::get_application::GetApplicationOutput {
         crate::operation::get_application::GetApplicationOutput {
-            arn: self.arn,
-            id: self.id,
-            name: self.name,
-            namespace: self.namespace,
-            description: self.description,
-            application_source_config: self.application_source_config,
-            subscriptions: self.subscriptions,
-            publications: self.publications,
-            created_time: self.created_time,
-            last_modified_time: self.last_modified_time,
-            tags: self.tags,
+            arn: self.arn
+            ,
+            id: self.id
+            ,
+            name: self.name
+            ,
+            namespace: self.namespace
+            ,
+            description: self.description
+            ,
+            application_source_config: self.application_source_config
+            ,
+            subscriptions: self.subscriptions
+            ,
+            publications: self.publications
+            ,
+            created_time: self.created_time
+            ,
+            last_modified_time: self.last_modified_time
+            ,
+            tags: self.tags
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

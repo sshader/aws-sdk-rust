@@ -3,29 +3,29 @@
 /// <p>An object specifying the measure and method by which to sort the session analytics data.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SessionDataSortBy {
-    /// <p>The measure by which to sort the session analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li>
-    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li>
-    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li>
+pub struct SessionDataSortBy  {
+    /// <p>The measure by which to sort the session analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li> 
+    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li> 
+    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li> 
     /// </ul>
     pub name: crate::types::AnalyticsSessionSortByName,
     /// <p>Specifies whether to sort the results in ascending or descending order.</p>
     pub order: crate::types::AnalyticsSortOrder,
 }
-impl SessionDataSortBy {
-    /// <p>The measure by which to sort the session analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li>
-    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li>
-    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li>
+impl  SessionDataSortBy  {
+    /// <p>The measure by which to sort the session analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li> 
+    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li> 
+    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li> 
     /// </ul>
-    pub fn name(&self) -> &crate::types::AnalyticsSessionSortByName {
+    pub fn name(&self) -> & crate::types::AnalyticsSessionSortByName {
         &self.name
     }
     /// <p>Specifies whether to sort the results in ascending or descending order.</p>
-    pub fn order(&self) -> &crate::types::AnalyticsSortOrder {
+    pub fn order(&self) -> & crate::types::AnalyticsSortOrder {
         &self.order
     }
 }
@@ -44,32 +44,31 @@ pub struct SessionDataSortByBuilder {
     pub(crate) order: ::std::option::Option<crate::types::AnalyticsSortOrder>,
 }
 impl SessionDataSortByBuilder {
-    /// <p>The measure by which to sort the session analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li>
-    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li>
-    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li>
+    /// <p>The measure by which to sort the session analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li> 
+    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li> 
+    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn name(mut self, input: crate::types::AnalyticsSessionSortByName) -> Self {
         self.name = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The measure by which to sort the session analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li>
-    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li>
-    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li>
+    /// <p>The measure by which to sort the session analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li> 
+    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li> 
+    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li> 
     /// </ul>
     pub fn set_name(mut self, input: ::std::option::Option<crate::types::AnalyticsSessionSortByName>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
-    /// <p>The measure by which to sort the session analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li>
-    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li>
-    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li>
+    /// <p>The measure by which to sort the session analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li> 
+    /// <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li> 
+    /// <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li> 
     /// </ul>
     pub fn get_name(&self) -> &::std::option::Option<crate::types::AnalyticsSessionSortByName> {
         &self.name
@@ -82,8 +81,7 @@ impl SessionDataSortByBuilder {
     }
     /// <p>Specifies whether to sort the results in ascending or descending order.</p>
     pub fn set_order(mut self, input: ::std::option::Option<crate::types::AnalyticsSortOrder>) -> Self {
-        self.order = input;
-        self
+        self.order = input; self
     }
     /// <p>Specifies whether to sort the results in ascending or descending order.</p>
     pub fn get_order(&self) -> &::std::option::Option<crate::types::AnalyticsSortOrder> {
@@ -94,19 +92,20 @@ impl SessionDataSortByBuilder {
     /// - [`name`](crate::types::builders::SessionDataSortByBuilder::name)
     /// - [`order`](crate::types::builders::SessionDataSortByBuilder::order)
     pub fn build(self) -> ::std::result::Result<crate::types::SessionDataSortBy, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::SessionDataSortBy {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building SessionDataSortBy",
-                )
-            })?,
-            order: self.order.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "order",
-                    "order was not specified but it is required when building SessionDataSortBy",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::SessionDataSortBy {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building SessionDataSortBy")
+                    )?
+                ,
+                order: self.order
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("order", "order was not specified but it is required when building SessionDataSortBy")
+                    )?
+                ,
+            }
+        )
     }
 }
+

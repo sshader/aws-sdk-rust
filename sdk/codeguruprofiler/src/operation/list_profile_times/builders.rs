@@ -5,54 +5,50 @@ pub use crate::operation::list_profile_times::_list_profile_times_input::ListPro
 
 impl ListProfileTimesInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::list_profile_times::ListProfileTimesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_profile_times::ListProfileTimesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.list_profile_times();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::list_profile_times::ListProfileTimesOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::list_profile_times::ListProfileTimesError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.list_profile_times();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ListProfileTimes`.
-///
+/// 
 /// <p>Lists the start times of the available aggregated profiles of a profiling group for an aggregation period within the specified time range.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListProfileTimesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::list_profile_times::builders::ListProfileTimesInputBuilder,
+                    inner: crate::operation::list_profile_times::builders::ListProfileTimesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::list_profile_times::ListProfileTimesOutput,
-        crate::operation::list_profile_times::ListProfileTimesError,
-    > for ListProfileTimesFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::list_profile_times::ListProfileTimesOutput,
-            crate::operation::list_profile_times::ListProfileTimesError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::list_profile_times::ListProfileTimesOutput,
+                    crate::operation::list_profile_times::ListProfileTimesError,
+                > for ListProfileTimesFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::list_profile_times::ListProfileTimesOutput,
+                        crate::operation::list_profile_times::ListProfileTimesError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ListProfileTimesFluentBuilder {
     /// Creates a new `ListProfileTimes`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,59 +57,50 @@ impl ListProfileTimesFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_profile_times::ListProfileTimesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_profile_times::ListProfileTimesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_profile_times::ListProfileTimes::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_profile_times::ListProfileTimes::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::list_profile_times::ListProfileTimesOutput,
-        crate::operation::list_profile_times::ListProfileTimesError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::list_profile_times::ListProfileTimesOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_profile_times::ListProfileTimesError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::list_profile_times::ListProfileTimes::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::list_profile_times::ListProfileTimes::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::list_profile_times::ListProfileTimesOutput, crate::operation::list_profile_times::ListProfileTimesError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// Create a paginator for this request
-    ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_profile_times::paginator::ListProfileTimesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_profile_times::paginator::ListProfileTimesPaginator {
-        crate::operation::list_profile_times::paginator::ListProfileTimesPaginator::new(self.handle, self.inner)
-    }
+                            ///
+                            /// Paginators are used by calling [`send().await`](crate::operation::list_profile_times::paginator::ListProfileTimesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+                            pub fn into_paginator(self) -> crate::operation::list_profile_times::paginator::ListProfileTimesPaginator {
+                                crate::operation::list_profile_times::paginator::ListProfileTimesPaginator::new(self.handle, self.inner)
+                            }
     /// <p>The name of the profiling group.</p>
     pub fn profiling_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.profiling_group_name(input.into());
@@ -156,31 +143,31 @@ impl ListProfileTimesFluentBuilder {
     pub fn get_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_end_time()
     }
-    /// <p> The aggregation period. This specifies the period during which an aggregation profile collects posted agent profiles for a profiling group. There are 3 valid values. </p>
-    /// <ul>
-    /// <li> <p> <code>P1D</code> — 1 day </p> </li>
-    /// <li> <p> <code>PT1H</code> — 1 hour </p> </li>
-    /// <li> <p> <code>PT5M</code> — 5 minutes </p> </li>
+    /// <p> The aggregation period. This specifies the period during which an aggregation profile collects posted agent profiles for a profiling group. There are 3 valid values. </p> 
+    /// <ul> 
+    /// <li> <p> <code>P1D</code> — 1 day </p> </li> 
+    /// <li> <p> <code>PT1H</code> — 1 hour </p> </li> 
+    /// <li> <p> <code>PT5M</code> — 5 minutes </p> </li> 
     /// </ul>
     pub fn period(mut self, input: crate::types::AggregationPeriod) -> Self {
         self.inner = self.inner.period(input);
         self
     }
-    /// <p> The aggregation period. This specifies the period during which an aggregation profile collects posted agent profiles for a profiling group. There are 3 valid values. </p>
-    /// <ul>
-    /// <li> <p> <code>P1D</code> — 1 day </p> </li>
-    /// <li> <p> <code>PT1H</code> — 1 hour </p> </li>
-    /// <li> <p> <code>PT5M</code> — 5 minutes </p> </li>
+    /// <p> The aggregation period. This specifies the period during which an aggregation profile collects posted agent profiles for a profiling group. There are 3 valid values. </p> 
+    /// <ul> 
+    /// <li> <p> <code>P1D</code> — 1 day </p> </li> 
+    /// <li> <p> <code>PT1H</code> — 1 hour </p> </li> 
+    /// <li> <p> <code>PT5M</code> — 5 minutes </p> </li> 
     /// </ul>
     pub fn set_period(mut self, input: ::std::option::Option<crate::types::AggregationPeriod>) -> Self {
         self.inner = self.inner.set_period(input);
         self
     }
-    /// <p> The aggregation period. This specifies the period during which an aggregation profile collects posted agent profiles for a profiling group. There are 3 valid values. </p>
-    /// <ul>
-    /// <li> <p> <code>P1D</code> — 1 day </p> </li>
-    /// <li> <p> <code>PT1H</code> — 1 hour </p> </li>
-    /// <li> <p> <code>PT5M</code> — 5 minutes </p> </li>
+    /// <p> The aggregation period. This specifies the period during which an aggregation profile collects posted agent profiles for a profiling group. There are 3 valid values. </p> 
+    /// <ul> 
+    /// <li> <p> <code>P1D</code> — 1 day </p> </li> 
+    /// <li> <p> <code>PT1H</code> — 1 hour </p> </li> 
+    /// <li> <p> <code>PT5M</code> — 5 minutes </p> </li> 
     /// </ul>
     pub fn get_period(&self) -> &::std::option::Option<crate::types::AggregationPeriod> {
         self.inner.get_period()
@@ -213,24 +200,25 @@ impl ListProfileTimesFluentBuilder {
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         self.inner.get_max_results()
     }
-    /// <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note>
-    /// <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>
+    /// <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> 
+    /// <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> 
     /// </note>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.next_token(input.into());
         self
     }
-    /// <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note>
-    /// <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>
+    /// <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> 
+    /// <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> 
     /// </note>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_next_token(input);
         self
     }
-    /// <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note>
-    /// <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>
+    /// <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> 
+    /// <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> 
     /// </note>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_next_token()
     }
 }
+

@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct CreateConnectorInput {
+pub struct CreateConnectorInput  {
     /// <p>Information about the capacity allocated to the connector. Exactly one of the two properties must be specified.</p>
     pub capacity: ::std::option::Option<crate::types::Capacity>,
     /// <p>A map of keys to values that represent the configuration for the connector.</p>
-    pub connector_configuration: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub connector_configuration: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     /// <p>A summary description of the connector.</p>
     pub connector_description: ::std::option::Option<::std::string::String>,
     /// <p>The name of the connector.</p>
@@ -22,65 +22,66 @@ pub struct CreateConnectorInput {
     /// <p>Details about log delivery.</p>
     pub log_delivery: ::std::option::Option<crate::types::LogDelivery>,
     /// <p>Specifies which plugins to use for the connector.</p>
-    pub plugins: ::std::option::Option<::std::vec::Vec<crate::types::Plugin>>,
+    pub plugins: ::std::option::Option<::std::vec::Vec::<crate::types::Plugin>>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.</p>
     pub service_execution_role_arn: ::std::option::Option<::std::string::String>,
     /// <p>Specifies which worker configuration to use with the connector.</p>
     pub worker_configuration: ::std::option::Option<crate::types::WorkerConfiguration>,
 }
-impl CreateConnectorInput {
+impl  CreateConnectorInput  {
     /// <p>Information about the capacity allocated to the connector. Exactly one of the two properties must be specified.</p>
-    pub fn capacity(&self) -> ::std::option::Option<&crate::types::Capacity> {
+    pub fn capacity(&self) -> ::std::option::Option<& crate::types::Capacity> {
         self.capacity.as_ref()
     }
     /// <p>A map of keys to values that represent the configuration for the connector.</p>
-    pub fn connector_configuration(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn connector_configuration(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.connector_configuration.as_ref()
     }
     /// <p>A summary description of the connector.</p>
-    pub fn connector_description(&self) -> ::std::option::Option<&str> {
+    pub fn connector_description(&self) -> ::std::option::Option<& str> {
         self.connector_description.as_deref()
     }
     /// <p>The name of the connector.</p>
-    pub fn connector_name(&self) -> ::std::option::Option<&str> {
+    pub fn connector_name(&self) -> ::std::option::Option<& str> {
         self.connector_name.as_deref()
     }
     /// <p>Specifies which Apache Kafka cluster to connect to.</p>
-    pub fn kafka_cluster(&self) -> ::std::option::Option<&crate::types::KafkaCluster> {
+    pub fn kafka_cluster(&self) -> ::std::option::Option<& crate::types::KafkaCluster> {
         self.kafka_cluster.as_ref()
     }
     /// <p>Details of the client authentication used by the Apache Kafka cluster.</p>
-    pub fn kafka_cluster_client_authentication(&self) -> ::std::option::Option<&crate::types::KafkaClusterClientAuthentication> {
+    pub fn kafka_cluster_client_authentication(&self) -> ::std::option::Option<& crate::types::KafkaClusterClientAuthentication> {
         self.kafka_cluster_client_authentication.as_ref()
     }
     /// <p>Details of encryption in transit to the Apache Kafka cluster.</p>
-    pub fn kafka_cluster_encryption_in_transit(&self) -> ::std::option::Option<&crate::types::KafkaClusterEncryptionInTransit> {
+    pub fn kafka_cluster_encryption_in_transit(&self) -> ::std::option::Option<& crate::types::KafkaClusterEncryptionInTransit> {
         self.kafka_cluster_encryption_in_transit.as_ref()
     }
     /// <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.</p>
-    pub fn kafka_connect_version(&self) -> ::std::option::Option<&str> {
+    pub fn kafka_connect_version(&self) -> ::std::option::Option<& str> {
         self.kafka_connect_version.as_deref()
     }
     /// <p>Details about log delivery.</p>
-    pub fn log_delivery(&self) -> ::std::option::Option<&crate::types::LogDelivery> {
+    pub fn log_delivery(&self) -> ::std::option::Option<& crate::types::LogDelivery> {
         self.log_delivery.as_ref()
     }
     /// <p>Specifies which plugins to use for the connector.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.plugins.is_none()`.
-    pub fn plugins(&self) -> &[crate::types::Plugin] {
-        self.plugins.as_deref().unwrap_or_default()
+    pub fn plugins(&self) -> & [crate::types::Plugin] {
+        self.plugins.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.</p>
-    pub fn service_execution_role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn service_execution_role_arn(&self) -> ::std::option::Option<& str> {
         self.service_execution_role_arn.as_deref()
     }
     /// <p>Specifies which worker configuration to use with the connector.</p>
-    pub fn worker_configuration(&self) -> ::std::option::Option<&crate::types::WorkerConfiguration> {
+    pub fn worker_configuration(&self) -> ::std::option::Option<& crate::types::WorkerConfiguration> {
         self.worker_configuration.as_ref()
     }
 }
-impl ::std::fmt::Debug for CreateConnectorInput {
+impl  ::std::fmt::Debug for CreateConnectorInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("CreateConnectorInput");
         formatter.field("capacity", &self.capacity);
@@ -110,7 +111,7 @@ impl CreateConnectorInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 pub struct CreateConnectorInputBuilder {
     pub(crate) capacity: ::std::option::Option<crate::types::Capacity>,
-    pub(crate) connector_configuration: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) connector_configuration: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     pub(crate) connector_description: ::std::option::Option<::std::string::String>,
     pub(crate) connector_name: ::std::option::Option<::std::string::String>,
     pub(crate) kafka_cluster: ::std::option::Option<crate::types::KafkaCluster>,
@@ -118,7 +119,7 @@ pub struct CreateConnectorInputBuilder {
     pub(crate) kafka_cluster_encryption_in_transit: ::std::option::Option<crate::types::KafkaClusterEncryptionInTransit>,
     pub(crate) kafka_connect_version: ::std::option::Option<::std::string::String>,
     pub(crate) log_delivery: ::std::option::Option<crate::types::LogDelivery>,
-    pub(crate) plugins: ::std::option::Option<::std::vec::Vec<crate::types::Plugin>>,
+    pub(crate) plugins: ::std::option::Option<::std::vec::Vec::<crate::types::Plugin>>,
     pub(crate) service_execution_role_arn: ::std::option::Option<::std::string::String>,
     pub(crate) worker_configuration: ::std::option::Option<crate::types::WorkerConfiguration>,
 }
@@ -131,8 +132,7 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>Information about the capacity allocated to the connector. Exactly one of the two properties must be specified.</p>
     pub fn set_capacity(mut self, input: ::std::option::Option<crate::types::Capacity>) -> Self {
-        self.capacity = input;
-        self
+        self.capacity = input; self
     }
     /// <p>Information about the capacity allocated to the connector. Exactly one of the two properties must be specified.</p>
     pub fn get_capacity(&self) -> &::std::option::Option<crate::types::Capacity> {
@@ -143,26 +143,18 @@ impl CreateConnectorInputBuilder {
     /// To override the contents of this collection use [`set_connector_configuration`](Self::set_connector_configuration).
     ///
     /// <p>A map of keys to values that represent the configuration for the connector.</p>
-    pub fn connector_configuration(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn connector_configuration(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.connector_configuration.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.connector_configuration = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.connector_configuration = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>A map of keys to values that represent the configuration for the connector.</p>
-    pub fn set_connector_configuration(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    ) -> Self {
-        self.connector_configuration = input;
-        self
+    pub fn set_connector_configuration(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.connector_configuration = input; self
     }
     /// <p>A map of keys to values that represent the configuration for the connector.</p>
-    pub fn get_connector_configuration(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_connector_configuration(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.connector_configuration
     }
     /// <p>A summary description of the connector.</p>
@@ -172,8 +164,7 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>A summary description of the connector.</p>
     pub fn set_connector_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.connector_description = input;
-        self
+        self.connector_description = input; self
     }
     /// <p>A summary description of the connector.</p>
     pub fn get_connector_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -187,8 +178,7 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>The name of the connector.</p>
     pub fn set_connector_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.connector_name = input;
-        self
+        self.connector_name = input; self
     }
     /// <p>The name of the connector.</p>
     pub fn get_connector_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -202,8 +192,7 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>Specifies which Apache Kafka cluster to connect to.</p>
     pub fn set_kafka_cluster(mut self, input: ::std::option::Option<crate::types::KafkaCluster>) -> Self {
-        self.kafka_cluster = input;
-        self
+        self.kafka_cluster = input; self
     }
     /// <p>Specifies which Apache Kafka cluster to connect to.</p>
     pub fn get_kafka_cluster(&self) -> &::std::option::Option<crate::types::KafkaCluster> {
@@ -217,8 +206,7 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>Details of the client authentication used by the Apache Kafka cluster.</p>
     pub fn set_kafka_cluster_client_authentication(mut self, input: ::std::option::Option<crate::types::KafkaClusterClientAuthentication>) -> Self {
-        self.kafka_cluster_client_authentication = input;
-        self
+        self.kafka_cluster_client_authentication = input; self
     }
     /// <p>Details of the client authentication used by the Apache Kafka cluster.</p>
     pub fn get_kafka_cluster_client_authentication(&self) -> &::std::option::Option<crate::types::KafkaClusterClientAuthentication> {
@@ -232,8 +220,7 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>Details of encryption in transit to the Apache Kafka cluster.</p>
     pub fn set_kafka_cluster_encryption_in_transit(mut self, input: ::std::option::Option<crate::types::KafkaClusterEncryptionInTransit>) -> Self {
-        self.kafka_cluster_encryption_in_transit = input;
-        self
+        self.kafka_cluster_encryption_in_transit = input; self
     }
     /// <p>Details of encryption in transit to the Apache Kafka cluster.</p>
     pub fn get_kafka_cluster_encryption_in_transit(&self) -> &::std::option::Option<crate::types::KafkaClusterEncryptionInTransit> {
@@ -247,8 +234,7 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.</p>
     pub fn set_kafka_connect_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.kafka_connect_version = input;
-        self
+        self.kafka_connect_version = input; self
     }
     /// <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.</p>
     pub fn get_kafka_connect_version(&self) -> &::std::option::Option<::std::string::String> {
@@ -261,8 +247,7 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>Details about log delivery.</p>
     pub fn set_log_delivery(mut self, input: ::std::option::Option<crate::types::LogDelivery>) -> Self {
-        self.log_delivery = input;
-        self
+        self.log_delivery = input; self
     }
     /// <p>Details about log delivery.</p>
     pub fn get_log_delivery(&self) -> &::std::option::Option<crate::types::LogDelivery> {
@@ -275,17 +260,16 @@ impl CreateConnectorInputBuilder {
     /// <p>Specifies which plugins to use for the connector.</p>
     pub fn plugins(mut self, input: crate::types::Plugin) -> Self {
         let mut v = self.plugins.unwrap_or_default();
-        v.push(input);
-        self.plugins = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.plugins = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>Specifies which plugins to use for the connector.</p>
-    pub fn set_plugins(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Plugin>>) -> Self {
-        self.plugins = input;
-        self
+    pub fn set_plugins(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Plugin>>) -> Self {
+        self.plugins = input; self
     }
     /// <p>Specifies which plugins to use for the connector.</p>
-    pub fn get_plugins(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Plugin>> {
+    pub fn get_plugins(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Plugin>> {
         &self.plugins
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.</p>
@@ -296,8 +280,7 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.</p>
     pub fn set_service_execution_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.service_execution_role_arn = input;
-        self
+        self.service_execution_role_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.</p>
     pub fn get_service_execution_role_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -310,31 +293,42 @@ impl CreateConnectorInputBuilder {
     }
     /// <p>Specifies which worker configuration to use with the connector.</p>
     pub fn set_worker_configuration(mut self, input: ::std::option::Option<crate::types::WorkerConfiguration>) -> Self {
-        self.worker_configuration = input;
-        self
+        self.worker_configuration = input; self
     }
     /// <p>Specifies which worker configuration to use with the connector.</p>
     pub fn get_worker_configuration(&self) -> &::std::option::Option<crate::types::WorkerConfiguration> {
         &self.worker_configuration
     }
     /// Consumes the builder and constructs a [`CreateConnectorInput`](crate::operation::create_connector::CreateConnectorInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_connector::CreateConnectorInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_connector::CreateConnectorInput {
-            capacity: self.capacity,
-            connector_configuration: self.connector_configuration,
-            connector_description: self.connector_description,
-            connector_name: self.connector_name,
-            kafka_cluster: self.kafka_cluster,
-            kafka_cluster_client_authentication: self.kafka_cluster_client_authentication,
-            kafka_cluster_encryption_in_transit: self.kafka_cluster_encryption_in_transit,
-            kafka_connect_version: self.kafka_connect_version,
-            log_delivery: self.log_delivery,
-            plugins: self.plugins,
-            service_execution_role_arn: self.service_execution_role_arn,
-            worker_configuration: self.worker_configuration,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_connector::CreateConnectorInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_connector::CreateConnectorInput {
+                capacity: self.capacity
+                ,
+                connector_configuration: self.connector_configuration
+                ,
+                connector_description: self.connector_description
+                ,
+                connector_name: self.connector_name
+                ,
+                kafka_cluster: self.kafka_cluster
+                ,
+                kafka_cluster_client_authentication: self.kafka_cluster_client_authentication
+                ,
+                kafka_cluster_encryption_in_transit: self.kafka_cluster_encryption_in_transit
+                ,
+                kafka_connect_version: self.kafka_connect_version
+                ,
+                log_delivery: self.log_delivery
+                ,
+                plugins: self.plugins
+                ,
+                service_execution_role_arn: self.service_execution_role_arn
+                ,
+                worker_configuration: self.worker_configuration
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for CreateConnectorInputBuilder {
@@ -355,3 +349,4 @@ impl ::std::fmt::Debug for CreateConnectorInputBuilder {
         formatter.finish()
     }
 }
+

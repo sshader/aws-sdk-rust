@@ -2,9 +2,9 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetObjectAttributesOutput {
+pub struct GetObjectAttributesOutput  {
     /// <p>Specifies whether the object retrieved was (<code>true</code>) or was not (<code>false</code>) a delete marker. If <code>false</code>, this response header does not appear in the response.</p>
-    pub delete_marker: bool,
+    pub delete_marker: ::std::option::Option<bool>,
     /// <p>The creation date of the object.</p>
     pub last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The version ID of the object.</p>
@@ -17,63 +17,63 @@ pub struct GetObjectAttributesOutput {
     pub checksum: ::std::option::Option<crate::types::Checksum>,
     /// <p>A collection of parts associated with a multipart upload.</p>
     pub object_parts: ::std::option::Option<crate::types::GetObjectAttributesParts>,
-    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
     pub storage_class: ::std::option::Option<crate::types::StorageClass>,
     /// <p>The size of the object in bytes.</p>
-    pub object_size: i64,
+    pub object_size: ::std::option::Option<i64>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl GetObjectAttributesOutput {
+impl  GetObjectAttributesOutput  {
     /// <p>Specifies whether the object retrieved was (<code>true</code>) or was not (<code>false</code>) a delete marker. If <code>false</code>, this response header does not appear in the response.</p>
-    pub fn delete_marker(&self) -> bool {
+    pub fn delete_marker(&self) -> ::std::option::Option<bool> {
         self.delete_marker
     }
     /// <p>The creation date of the object.</p>
-    pub fn last_modified(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_modified(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_modified.as_ref()
     }
     /// <p>The version ID of the object.</p>
-    pub fn version_id(&self) -> ::std::option::Option<&str> {
+    pub fn version_id(&self) -> ::std::option::Option<& str> {
         self.version_id.as_deref()
     }
     /// <p>If present, indicates that the requester was successfully charged for the request.</p>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<& crate::types::RequestCharged> {
         self.request_charged.as_ref()
     }
     /// <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
-    pub fn e_tag(&self) -> ::std::option::Option<&str> {
+    pub fn e_tag(&self) -> ::std::option::Option<& str> {
         self.e_tag.as_deref()
     }
     /// <p>The checksum or digest of the object.</p>
-    pub fn checksum(&self) -> ::std::option::Option<&crate::types::Checksum> {
+    pub fn checksum(&self) -> ::std::option::Option<& crate::types::Checksum> {
         self.checksum.as_ref()
     }
     /// <p>A collection of parts associated with a multipart upload.</p>
-    pub fn object_parts(&self) -> ::std::option::Option<&crate::types::GetObjectAttributesParts> {
+    pub fn object_parts(&self) -> ::std::option::Option<& crate::types::GetObjectAttributesParts> {
         self.object_parts.as_ref()
     }
-    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
-    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::StorageClass> {
+    pub fn storage_class(&self) -> ::std::option::Option<& crate::types::StorageClass> {
         self.storage_class.as_ref()
     }
     /// <p>The size of the object in bytes.</p>
-    pub fn object_size(&self) -> i64 {
+    pub fn object_size(&self) -> ::std::option::Option<i64> {
         self.object_size
     }
 }
 impl crate::s3_request_id::RequestIdExt for GetObjectAttributesOutput {
-    fn extended_request_id(&self) -> Option<&str> {
-        self._extended_request_id.as_deref()
-    }
-}
-impl ::aws_http::request_id::RequestId for GetObjectAttributesOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+                                fn extended_request_id(&self) -> Option<&str> {
+                                    self._extended_request_id.as_deref()
+                                }
+                            }
+impl ::aws_types::request_id::RequestId for GetObjectAttributesOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl GetObjectAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectAttributesOutput`](crate::operation::get_object_attributes::GetObjectAttributesOutput).
     pub fn builder() -> crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder {
@@ -105,8 +105,7 @@ impl GetObjectAttributesOutputBuilder {
     }
     /// <p>Specifies whether the object retrieved was (<code>true</code>) or was not (<code>false</code>) a delete marker. If <code>false</code>, this response header does not appear in the response.</p>
     pub fn set_delete_marker(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.delete_marker = input;
-        self
+        self.delete_marker = input; self
     }
     /// <p>Specifies whether the object retrieved was (<code>true</code>) or was not (<code>false</code>) a delete marker. If <code>false</code>, this response header does not appear in the response.</p>
     pub fn get_delete_marker(&self) -> &::std::option::Option<bool> {
@@ -119,8 +118,7 @@ impl GetObjectAttributesOutputBuilder {
     }
     /// <p>The creation date of the object.</p>
     pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_modified = input;
-        self
+        self.last_modified = input; self
     }
     /// <p>The creation date of the object.</p>
     pub fn get_last_modified(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -133,8 +131,7 @@ impl GetObjectAttributesOutputBuilder {
     }
     /// <p>The version ID of the object.</p>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.version_id = input;
-        self
+        self.version_id = input; self
     }
     /// <p>The version ID of the object.</p>
     pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -147,8 +144,7 @@ impl GetObjectAttributesOutputBuilder {
     }
     /// <p>If present, indicates that the requester was successfully charged for the request.</p>
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
-        self.request_charged = input;
-        self
+        self.request_charged = input; self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request.</p>
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
@@ -161,8 +157,7 @@ impl GetObjectAttributesOutputBuilder {
     }
     /// <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
     pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.e_tag = input;
-        self
+        self.e_tag = input; self
     }
     /// <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
     pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> {
@@ -175,8 +170,7 @@ impl GetObjectAttributesOutputBuilder {
     }
     /// <p>The checksum or digest of the object.</p>
     pub fn set_checksum(mut self, input: ::std::option::Option<crate::types::Checksum>) -> Self {
-        self.checksum = input;
-        self
+        self.checksum = input; self
     }
     /// <p>The checksum or digest of the object.</p>
     pub fn get_checksum(&self) -> &::std::option::Option<crate::types::Checksum> {
@@ -189,26 +183,24 @@ impl GetObjectAttributesOutputBuilder {
     }
     /// <p>A collection of parts associated with a multipart upload.</p>
     pub fn set_object_parts(mut self, input: ::std::option::Option<crate::types::GetObjectAttributesParts>) -> Self {
-        self.object_parts = input;
-        self
+        self.object_parts = input; self
     }
     /// <p>A collection of parts associated with a multipart upload.</p>
     pub fn get_object_parts(&self) -> &::std::option::Option<crate::types::GetObjectAttributesParts> {
         &self.object_parts
     }
-    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
     pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
     pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
-        self.storage_class = input;
-        self
+        self.storage_class = input; self
     }
-    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+    /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
     pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
         &self.storage_class
@@ -220,45 +212,54 @@ impl GetObjectAttributesOutputBuilder {
     }
     /// <p>The size of the object in bytes.</p>
     pub fn set_object_size(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.object_size = input;
-        self
+        self.object_size = input; self
     }
     /// <p>The size of the object in bytes.</p>
     pub fn get_object_size(&self) -> &::std::option::Option<i64> {
         &self.object_size
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
-        self._extended_request_id = Some(extended_request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
-        self._extended_request_id = extended_request_id;
-        self
-    }
+                                    self._extended_request_id = Some(extended_request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+                                    self._extended_request_id = extended_request_id;
+                                    self
+                                }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`GetObjectAttributesOutput`](crate::operation::get_object_attributes::GetObjectAttributesOutput).
     pub fn build(self) -> crate::operation::get_object_attributes::GetObjectAttributesOutput {
         crate::operation::get_object_attributes::GetObjectAttributesOutput {
-            delete_marker: self.delete_marker.unwrap_or_default(),
-            last_modified: self.last_modified,
-            version_id: self.version_id,
-            request_charged: self.request_charged,
-            e_tag: self.e_tag,
-            checksum: self.checksum,
-            object_parts: self.object_parts,
-            storage_class: self.storage_class,
-            object_size: self.object_size.unwrap_or_default(),
+            delete_marker: self.delete_marker
+            ,
+            last_modified: self.last_modified
+            ,
+            version_id: self.version_id
+            ,
+            request_charged: self.request_charged
+            ,
+            e_tag: self.e_tag
+            ,
+            checksum: self.checksum
+            ,
+            object_parts: self.object_parts
+            ,
+            storage_class: self.storage_class
+            ,
+            object_size: self.object_size
+            ,
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }
     }
 }
+

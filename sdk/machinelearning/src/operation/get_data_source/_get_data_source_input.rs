@@ -2,21 +2,21 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetDataSourceInput {
+pub struct GetDataSourceInput  {
     /// <p>The ID assigned to the <code>DataSource</code> at creation.</p>
     pub data_source_id: ::std::option::Option<::std::string::String>,
-    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p>
-    /// <p>If true, <code>DataSourceSchema</code> is returned.</p>
+    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p> 
+    /// <p>If true, <code>DataSourceSchema</code> is returned.</p> 
     /// <p>If false, <code>DataSourceSchema</code> is not returned.</p>
     pub verbose: ::std::option::Option<bool>,
 }
-impl GetDataSourceInput {
+impl  GetDataSourceInput  {
     /// <p>The ID assigned to the <code>DataSource</code> at creation.</p>
-    pub fn data_source_id(&self) -> ::std::option::Option<&str> {
+    pub fn data_source_id(&self) -> ::std::option::Option<& str> {
         self.data_source_id.as_deref()
     }
-    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p>
-    /// <p>If true, <code>DataSourceSchema</code> is returned.</p>
+    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p> 
+    /// <p>If true, <code>DataSourceSchema</code> is returned.</p> 
     /// <p>If false, <code>DataSourceSchema</code> is not returned.</p>
     pub fn verbose(&self) -> ::std::option::Option<bool> {
         self.verbose
@@ -45,40 +45,41 @@ impl GetDataSourceInputBuilder {
     }
     /// <p>The ID assigned to the <code>DataSource</code> at creation.</p>
     pub fn set_data_source_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.data_source_id = input;
-        self
+        self.data_source_id = input; self
     }
     /// <p>The ID assigned to the <code>DataSource</code> at creation.</p>
     pub fn get_data_source_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.data_source_id
     }
-    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p>
-    /// <p>If true, <code>DataSourceSchema</code> is returned.</p>
+    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p> 
+    /// <p>If true, <code>DataSourceSchema</code> is returned.</p> 
     /// <p>If false, <code>DataSourceSchema</code> is not returned.</p>
     pub fn verbose(mut self, input: bool) -> Self {
         self.verbose = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p>
-    /// <p>If true, <code>DataSourceSchema</code> is returned.</p>
+    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p> 
+    /// <p>If true, <code>DataSourceSchema</code> is returned.</p> 
     /// <p>If false, <code>DataSourceSchema</code> is not returned.</p>
     pub fn set_verbose(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.verbose = input;
-        self
+        self.verbose = input; self
     }
-    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p>
-    /// <p>If true, <code>DataSourceSchema</code> is returned.</p>
+    /// <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p> 
+    /// <p>If true, <code>DataSourceSchema</code> is returned.</p> 
     /// <p>If false, <code>DataSourceSchema</code> is not returned.</p>
     pub fn get_verbose(&self) -> &::std::option::Option<bool> {
         &self.verbose
     }
     /// Consumes the builder and constructs a [`GetDataSourceInput`](crate::operation::get_data_source::GetDataSourceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::get_data_source::GetDataSourceInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_data_source::GetDataSourceInput {
-            data_source_id: self.data_source_id,
-            verbose: self.verbose,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_data_source::GetDataSourceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_data_source::GetDataSourceInput {
+                data_source_id: self.data_source_id
+                ,
+                verbose: self.verbose
+                ,
+            }
+        )
     }
 }
+

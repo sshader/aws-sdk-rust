@@ -3,15 +3,15 @@
 /// <p>Represents an association between an Amazon Lex bot and an external messaging platform.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct BotChannelAssociation {
+pub struct BotChannelAssociation  {
     /// <p>The name of the association between the bot and the channel. </p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>A text description of the association you are creating. </p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>An alias pointing to the specific version of the Amazon Lex bot to which this association is being made. </p>
     pub bot_alias: ::std::option::Option<::std::string::String>,
-    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note>
-    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p>
+    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note> 
+    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p> 
     /// </note>
     pub bot_name: ::std::option::Option<::std::string::String>,
     /// <p>The date that the association between the Amazon Lex bot and the channel was created. </p>
@@ -19,63 +19,63 @@ pub struct BotChannelAssociation {
     /// <p>Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.</p>
     pub r#type: ::std::option::Option<crate::types::ChannelType>,
     /// <p>Provides information necessary to communicate with the messaging platform. </p>
-    pub bot_configuration: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    /// <p>The status of the bot channel. </p>
-    /// <ul>
-    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li>
-    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li>
+    pub bot_configuration: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
+    /// <p>The status of the bot channel. </p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li> 
     /// </ul>
     pub status: ::std::option::Option<crate::types::ChannelStatus>,
     /// <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the reason that it failed to create the association.</p>
     pub failure_reason: ::std::option::Option<::std::string::String>,
 }
-impl BotChannelAssociation {
+impl  BotChannelAssociation  {
     /// <p>The name of the association between the bot and the channel. </p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>A text description of the association you are creating. </p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>An alias pointing to the specific version of the Amazon Lex bot to which this association is being made. </p>
-    pub fn bot_alias(&self) -> ::std::option::Option<&str> {
+    pub fn bot_alias(&self) -> ::std::option::Option<& str> {
         self.bot_alias.as_deref()
     }
-    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note>
-    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p>
+    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note> 
+    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p> 
     /// </note>
-    pub fn bot_name(&self) -> ::std::option::Option<&str> {
+    pub fn bot_name(&self) -> ::std::option::Option<& str> {
         self.bot_name.as_deref()
     }
     /// <p>The date that the association between the Amazon Lex bot and the channel was created. </p>
-    pub fn created_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn created_date(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.created_date.as_ref()
     }
     /// <p>Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.</p>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::ChannelType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::ChannelType> {
         self.r#type.as_ref()
     }
     /// <p>Provides information necessary to communicate with the messaging platform. </p>
-    pub fn bot_configuration(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn bot_configuration(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.bot_configuration.as_ref()
     }
-    /// <p>The status of the bot channel. </p>
-    /// <ul>
-    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li>
-    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li>
+    /// <p>The status of the bot channel. </p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::ChannelStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::ChannelStatus> {
         self.status.as_ref()
     }
     /// <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the reason that it failed to create the association.</p>
-    pub fn failure_reason(&self) -> ::std::option::Option<&str> {
+    pub fn failure_reason(&self) -> ::std::option::Option<& str> {
         self.failure_reason.as_deref()
     }
 }
-impl ::std::fmt::Debug for BotChannelAssociation {
+impl  ::std::fmt::Debug for BotChannelAssociation  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("BotChannelAssociation");
         formatter.field("name", &self.name);
@@ -107,7 +107,7 @@ pub struct BotChannelAssociationBuilder {
     pub(crate) bot_name: ::std::option::Option<::std::string::String>,
     pub(crate) created_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) r#type: ::std::option::Option<crate::types::ChannelType>,
-    pub(crate) bot_configuration: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) bot_configuration: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     pub(crate) status: ::std::option::Option<crate::types::ChannelStatus>,
     pub(crate) failure_reason: ::std::option::Option<::std::string::String>,
 }
@@ -119,8 +119,7 @@ impl BotChannelAssociationBuilder {
     }
     /// <p>The name of the association between the bot and the channel. </p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the association between the bot and the channel. </p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -133,8 +132,7 @@ impl BotChannelAssociationBuilder {
     }
     /// <p>A text description of the association you are creating. </p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>A text description of the association you are creating. </p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -147,29 +145,27 @@ impl BotChannelAssociationBuilder {
     }
     /// <p>An alias pointing to the specific version of the Amazon Lex bot to which this association is being made. </p>
     pub fn set_bot_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.bot_alias = input;
-        self
+        self.bot_alias = input; self
     }
     /// <p>An alias pointing to the specific version of the Amazon Lex bot to which this association is being made. </p>
     pub fn get_bot_alias(&self) -> &::std::option::Option<::std::string::String> {
         &self.bot_alias
     }
-    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note>
-    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p>
+    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note> 
+    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p> 
     /// </note>
     pub fn bot_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.bot_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note>
-    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p>
+    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note> 
+    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p> 
     /// </note>
     pub fn set_bot_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.bot_name = input;
-        self
+        self.bot_name = input; self
     }
-    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note>
-    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p>
+    /// <p>The name of the Amazon Lex bot to which this association is being made. </p> <note> 
+    /// <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p> 
     /// </note>
     pub fn get_bot_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.bot_name
@@ -181,8 +177,7 @@ impl BotChannelAssociationBuilder {
     }
     /// <p>The date that the association between the Amazon Lex bot and the channel was created. </p>
     pub fn set_created_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_date = input;
-        self
+        self.created_date = input; self
     }
     /// <p>The date that the association between the Amazon Lex bot and the channel was created. </p>
     pub fn get_created_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -195,8 +190,7 @@ impl BotChannelAssociationBuilder {
     }
     /// <p>Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::ChannelType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
     /// <p>Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.</p>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::ChannelType> {
@@ -207,53 +201,44 @@ impl BotChannelAssociationBuilder {
     /// To override the contents of this collection use [`set_bot_configuration`](Self::set_bot_configuration).
     ///
     /// <p>Provides information necessary to communicate with the messaging platform. </p>
-    pub fn bot_configuration(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn bot_configuration(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.bot_configuration.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.bot_configuration = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.bot_configuration = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>Provides information necessary to communicate with the messaging platform. </p>
-    pub fn set_bot_configuration(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    ) -> Self {
-        self.bot_configuration = input;
-        self
+    pub fn set_bot_configuration(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.bot_configuration = input; self
     }
     /// <p>Provides information necessary to communicate with the messaging platform. </p>
-    pub fn get_bot_configuration(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_bot_configuration(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.bot_configuration
     }
-    /// <p>The status of the bot channel. </p>
-    /// <ul>
-    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li>
-    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li>
+    /// <p>The status of the bot channel. </p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li> 
     /// </ul>
     pub fn status(mut self, input: crate::types::ChannelStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The status of the bot channel. </p>
-    /// <ul>
-    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li>
-    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li>
+    /// <p>The status of the bot channel. </p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ChannelStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the bot channel. </p>
-    /// <ul>
-    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li>
-    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li>
-    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li>
+    /// <p>The status of the bot channel. </p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATED</code> - The channel has been created and is ready for use.</p> </li> 
+    /// <li> <p> <code>IN_PROGRESS</code> - Channel creation is in progress.</p> </li> 
+    /// <li> <p> <code>FAILED</code> - There was an error creating the channel. For information about the reason for the failure, see the <code>failureReason</code> field.</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::ChannelStatus> {
         &self.status
@@ -265,8 +250,7 @@ impl BotChannelAssociationBuilder {
     }
     /// <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the reason that it failed to create the association.</p>
     pub fn set_failure_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.failure_reason = input;
-        self
+        self.failure_reason = input; self
     }
     /// <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the reason that it failed to create the association.</p>
     pub fn get_failure_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -275,15 +259,24 @@ impl BotChannelAssociationBuilder {
     /// Consumes the builder and constructs a [`BotChannelAssociation`](crate::types::BotChannelAssociation).
     pub fn build(self) -> crate::types::BotChannelAssociation {
         crate::types::BotChannelAssociation {
-            name: self.name,
-            description: self.description,
-            bot_alias: self.bot_alias,
-            bot_name: self.bot_name,
-            created_date: self.created_date,
-            r#type: self.r#type,
-            bot_configuration: self.bot_configuration,
-            status: self.status,
-            failure_reason: self.failure_reason,
+            name: self.name
+            ,
+            description: self.description
+            ,
+            bot_alias: self.bot_alias
+            ,
+            bot_name: self.bot_name
+            ,
+            created_date: self.created_date
+            ,
+            r#type: self.r#type
+            ,
+            bot_configuration: self.bot_configuration
+            ,
+            status: self.status
+            ,
+            failure_reason: self.failure_reason
+            ,
         }
     }
 }
@@ -302,3 +295,4 @@ impl ::std::fmt::Debug for BotChannelAssociationBuilder {
         formatter.finish()
     }
 }
+

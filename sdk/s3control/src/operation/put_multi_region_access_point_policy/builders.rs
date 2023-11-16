@@ -5,60 +5,56 @@ pub use crate::operation::put_multi_region_access_point_policy::_put_multi_regio
 
 impl PutMultiRegionAccessPointPolicyInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.put_multi_region_access_point_policy();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.put_multi_region_access_point_policy();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `PutMultiRegionAccessPointPolicy`.
-///
-/// <p>Associates an access control policy with the specified Multi-Region Access Point. Each Multi-Region Access Point can have only one policy, so a request made to this action replaces any existing policy that is associated with the specified Multi-Region Access Point.</p>
-/// <p>This action will always be routed to the US West (Oregon) Region. For more information about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
-/// <p>The following actions are related to <code>PutMultiRegionAccessPointPolicy</code>:</p>
-/// <ul>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicy.html">GetMultiRegionAccessPointPolicy</a> </p> </li>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicyStatus.html">GetMultiRegionAccessPointPolicyStatus</a> </p> </li>
+/// 
+/// <p>Associates an access control policy with the specified Multi-Region Access Point. Each Multi-Region Access Point can have only one policy, so a request made to this action replaces any existing policy that is associated with the specified Multi-Region Access Point.</p> 
+/// <p>This action will always be routed to the US West (Oregon) Region. For more information about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p> 
+/// <p>The following actions are related to <code>PutMultiRegionAccessPointPolicy</code>:</p> 
+/// <ul> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicy.html">GetMultiRegionAccessPointPolicy</a> </p> </li> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicyStatus.html">GetMultiRegionAccessPointPolicyStatus</a> </p> </li> 
 /// </ul>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct PutMultiRegionAccessPointPolicyFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::put_multi_region_access_point_policy::builders::PutMultiRegionAccessPointPolicyInputBuilder,
+                    inner: crate::operation::put_multi_region_access_point_policy::builders::PutMultiRegionAccessPointPolicyInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput,
-        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError,
-    > for PutMultiRegionAccessPointPolicyFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput,
-            crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput,
+                    crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError,
+                > for PutMultiRegionAccessPointPolicyFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput,
+                        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl PutMultiRegionAccessPointPolicyFluentBuilder {
     /// Creates a new `PutMultiRegionAccessPointPolicy`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -67,53 +63,44 @@ impl PutMultiRegionAccessPointPolicyFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicy::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput,
-        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicy::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicy::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyOutput, crate::operation::put_multi_region_access_point_policy::PutMultiRegionAccessPointPolicyError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
     pub fn account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.account_id(input.into());
@@ -157,3 +144,4 @@ impl PutMultiRegionAccessPointPolicyFluentBuilder {
         self.inner.get_details()
     }
 }
+

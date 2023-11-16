@@ -3,7 +3,7 @@
 /// <p>Parameter information for generating a wrapped key using TR-31 or TR-34 standard.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct WrappedKey {
+pub struct WrappedKey  {
     /// <p>The <code>KeyARN</code> of the wrapped key.</p>
     pub wrapping_key_arn: ::std::string::String,
     /// <p>The key block format of a wrapped key.</p>
@@ -11,23 +11,21 @@ pub struct WrappedKey {
     /// <p>Parameter information for generating a wrapped key using TR-31 or TR-34 standard.</p>
     pub key_material: ::std::string::String,
 }
-impl WrappedKey {
+impl  WrappedKey  {
     /// <p>The <code>KeyARN</code> of the wrapped key.</p>
-    pub fn wrapping_key_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.wrapping_key_arn.deref()
+    pub fn wrapping_key_arn(&self) -> & str {
+        use std::ops::Deref; self.wrapping_key_arn.deref()
     }
     /// <p>The key block format of a wrapped key.</p>
-    pub fn wrapped_key_material_format(&self) -> &crate::types::WrappedKeyMaterialFormat {
+    pub fn wrapped_key_material_format(&self) -> & crate::types::WrappedKeyMaterialFormat {
         &self.wrapped_key_material_format
     }
     /// <p>Parameter information for generating a wrapped key using TR-31 or TR-34 standard.</p>
-    pub fn key_material(&self) -> &str {
-        use std::ops::Deref;
-        self.key_material.deref()
+    pub fn key_material(&self) -> & str {
+        use std::ops::Deref; self.key_material.deref()
     }
 }
-impl ::std::fmt::Debug for WrappedKey {
+impl  ::std::fmt::Debug for WrappedKey  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("WrappedKey");
         formatter.field("wrapping_key_arn", &self.wrapping_key_arn);
@@ -60,8 +58,7 @@ impl WrappedKeyBuilder {
     }
     /// <p>The <code>KeyARN</code> of the wrapped key.</p>
     pub fn set_wrapping_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.wrapping_key_arn = input;
-        self
+        self.wrapping_key_arn = input; self
     }
     /// <p>The <code>KeyARN</code> of the wrapped key.</p>
     pub fn get_wrapping_key_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -75,8 +72,7 @@ impl WrappedKeyBuilder {
     }
     /// <p>The key block format of a wrapped key.</p>
     pub fn set_wrapped_key_material_format(mut self, input: ::std::option::Option<crate::types::WrappedKeyMaterialFormat>) -> Self {
-        self.wrapped_key_material_format = input;
-        self
+        self.wrapped_key_material_format = input; self
     }
     /// <p>The key block format of a wrapped key.</p>
     pub fn get_wrapped_key_material_format(&self) -> &::std::option::Option<crate::types::WrappedKeyMaterialFormat> {
@@ -90,8 +86,7 @@ impl WrappedKeyBuilder {
     }
     /// <p>Parameter information for generating a wrapped key using TR-31 or TR-34 standard.</p>
     pub fn set_key_material(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.key_material = input;
-        self
+        self.key_material = input; self
     }
     /// <p>Parameter information for generating a wrapped key using TR-31 or TR-34 standard.</p>
     pub fn get_key_material(&self) -> &::std::option::Option<::std::string::String> {
@@ -103,26 +98,25 @@ impl WrappedKeyBuilder {
     /// - [`wrapped_key_material_format`](crate::types::builders::WrappedKeyBuilder::wrapped_key_material_format)
     /// - [`key_material`](crate::types::builders::WrappedKeyBuilder::key_material)
     pub fn build(self) -> ::std::result::Result<crate::types::WrappedKey, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::WrappedKey {
-            wrapping_key_arn: self.wrapping_key_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "wrapping_key_arn",
-                    "wrapping_key_arn was not specified but it is required when building WrappedKey",
-                )
-            })?,
-            wrapped_key_material_format: self.wrapped_key_material_format.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "wrapped_key_material_format",
-                    "wrapped_key_material_format was not specified but it is required when building WrappedKey",
-                )
-            })?,
-            key_material: self.key_material.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "key_material",
-                    "key_material was not specified but it is required when building WrappedKey",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::WrappedKey {
+                wrapping_key_arn: self.wrapping_key_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("wrapping_key_arn", "wrapping_key_arn was not specified but it is required when building WrappedKey")
+                    )?
+                ,
+                wrapped_key_material_format: self.wrapped_key_material_format
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("wrapped_key_material_format", "wrapped_key_material_format was not specified but it is required when building WrappedKey")
+                    )?
+                ,
+                key_material: self.key_material
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("key_material", "key_material was not specified but it is required when building WrappedKey")
+                    )?
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for WrappedKeyBuilder {
@@ -134,3 +128,4 @@ impl ::std::fmt::Debug for WrappedKeyBuilder {
         formatter.finish()
     }
 }
+

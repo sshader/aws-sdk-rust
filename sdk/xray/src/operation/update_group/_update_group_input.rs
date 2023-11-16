@@ -2,39 +2,39 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateGroupInput {
+pub struct UpdateGroupInput  {
     /// <p>The case-sensitive name of the group.</p>
     pub group_name: ::std::option::Option<::std::string::String>,
     /// <p>The ARN that was generated upon creation.</p>
     pub group_arn: ::std::option::Option<::std::string::String>,
     /// <p>The updated filter expression defining criteria by which to group traces.</p>
     pub filter_expression: ::std::option::Option<::std::string::String>,
-    /// <p>The structure containing configurations related to insights.</p>
-    /// <ul>
-    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li>
-    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li>
+    /// <p>The structure containing configurations related to insights.</p> 
+    /// <ul> 
+    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li> 
+    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li> 
     /// </ul>
     pub insights_configuration: ::std::option::Option<crate::types::InsightsConfiguration>,
 }
-impl UpdateGroupInput {
+impl  UpdateGroupInput  {
     /// <p>The case-sensitive name of the group.</p>
-    pub fn group_name(&self) -> ::std::option::Option<&str> {
+    pub fn group_name(&self) -> ::std::option::Option<& str> {
         self.group_name.as_deref()
     }
     /// <p>The ARN that was generated upon creation.</p>
-    pub fn group_arn(&self) -> ::std::option::Option<&str> {
+    pub fn group_arn(&self) -> ::std::option::Option<& str> {
         self.group_arn.as_deref()
     }
     /// <p>The updated filter expression defining criteria by which to group traces.</p>
-    pub fn filter_expression(&self) -> ::std::option::Option<&str> {
+    pub fn filter_expression(&self) -> ::std::option::Option<& str> {
         self.filter_expression.as_deref()
     }
-    /// <p>The structure containing configurations related to insights.</p>
-    /// <ul>
-    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li>
-    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li>
+    /// <p>The structure containing configurations related to insights.</p> 
+    /// <ul> 
+    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li> 
+    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li> 
     /// </ul>
-    pub fn insights_configuration(&self) -> ::std::option::Option<&crate::types::InsightsConfiguration> {
+    pub fn insights_configuration(&self) -> ::std::option::Option<& crate::types::InsightsConfiguration> {
         self.insights_configuration.as_ref()
     }
 }
@@ -62,8 +62,7 @@ impl UpdateGroupInputBuilder {
     }
     /// <p>The case-sensitive name of the group.</p>
     pub fn set_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.group_name = input;
-        self
+        self.group_name = input; self
     }
     /// <p>The case-sensitive name of the group.</p>
     pub fn get_group_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -76,8 +75,7 @@ impl UpdateGroupInputBuilder {
     }
     /// <p>The ARN that was generated upon creation.</p>
     pub fn set_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.group_arn = input;
-        self
+        self.group_arn = input; self
     }
     /// <p>The ARN that was generated upon creation.</p>
     pub fn get_group_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -90,46 +88,51 @@ impl UpdateGroupInputBuilder {
     }
     /// <p>The updated filter expression defining criteria by which to group traces.</p>
     pub fn set_filter_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.filter_expression = input;
-        self
+        self.filter_expression = input; self
     }
     /// <p>The updated filter expression defining criteria by which to group traces.</p>
     pub fn get_filter_expression(&self) -> &::std::option::Option<::std::string::String> {
         &self.filter_expression
     }
-    /// <p>The structure containing configurations related to insights.</p>
-    /// <ul>
-    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li>
-    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li>
+    /// <p>The structure containing configurations related to insights.</p> 
+    /// <ul> 
+    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li> 
+    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li> 
     /// </ul>
     pub fn insights_configuration(mut self, input: crate::types::InsightsConfiguration) -> Self {
         self.insights_configuration = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The structure containing configurations related to insights.</p>
-    /// <ul>
-    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li>
-    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li>
+    /// <p>The structure containing configurations related to insights.</p> 
+    /// <ul> 
+    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li> 
+    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li> 
     /// </ul>
     pub fn set_insights_configuration(mut self, input: ::std::option::Option<crate::types::InsightsConfiguration>) -> Self {
-        self.insights_configuration = input;
-        self
+        self.insights_configuration = input; self
     }
-    /// <p>The structure containing configurations related to insights.</p>
-    /// <ul>
-    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li>
-    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li>
+    /// <p>The structure containing configurations related to insights.</p> 
+    /// <ul> 
+    /// <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li> 
+    /// <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li> 
     /// </ul>
     pub fn get_insights_configuration(&self) -> &::std::option::Option<crate::types::InsightsConfiguration> {
         &self.insights_configuration
     }
     /// Consumes the builder and constructs a [`UpdateGroupInput`](crate::operation::update_group::UpdateGroupInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::update_group::UpdateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_group::UpdateGroupInput {
-            group_name: self.group_name,
-            group_arn: self.group_arn,
-            filter_expression: self.filter_expression,
-            insights_configuration: self.insights_configuration,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_group::UpdateGroupInput {
+                group_name: self.group_name
+                ,
+                group_arn: self.group_arn
+                ,
+                filter_expression: self.filter_expression
+                ,
+                insights_configuration: self.insights_configuration
+                ,
+            }
+        )
     }
 }
+

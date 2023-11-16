@@ -3,8 +3,8 @@
 /// <p>Provides upload configuration information. Files are uploaded from the simulation job to a location you specify. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UploadConfiguration {
-    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p>
+pub struct UploadConfiguration  {
+    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p> 
     /// <p> For example, if your simulation output location is <code>s3://my-bucket</code> and your upload configuration name is <code>robot-test</code>, your files will be uploaded to <code>s3://my-bucket/
     /// <simid>
     /// /
@@ -15,26 +15,26 @@ pub struct UploadConfiguration {
     pub name: ::std::string::String,
     /// <p> Specifies the path of the file(s) to upload. Standard Unix glob matching rules are accepted, with the addition of <code>**</code> as a <i>super asterisk</i>. For example, specifying <code>/var/log/**.log</code> causes all .log files in the <code>/var/log</code> directory tree to be collected. For more examples, see <a href="https://github.com/gobwas/glob">Glob Library</a>. </p>
     pub path: ::std::string::String,
-    /// <p>Specifies when to upload the files:</p>
-    /// <dl>
+    /// <p>Specifies when to upload the files:</p> 
+    /// <dl> 
     /// <dt>
     /// UPLOAD_ON_TERMINATE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p>
-    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p> 
+    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p> 
+    /// </dd> 
     /// <dt>
     /// UPLOAD_ROLLING_AUTO_REMOVE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p> 
+    /// </dd> 
     /// </dl>
     pub upload_behavior: crate::types::UploadBehavior,
 }
-impl UploadConfiguration {
-    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p>
+impl  UploadConfiguration  {
+    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p> 
     /// <p> For example, if your simulation output location is <code>s3://my-bucket</code> and your upload configuration name is <code>robot-test</code>, your files will be uploaded to <code>s3://my-bucket/
     /// <simid>
     /// /
@@ -42,32 +42,30 @@ impl UploadConfiguration {
     /// /robot-test
     /// </runid>
     /// </simid></code>. </p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// <p> Specifies the path of the file(s) to upload. Standard Unix glob matching rules are accepted, with the addition of <code>**</code> as a <i>super asterisk</i>. For example, specifying <code>/var/log/**.log</code> causes all .log files in the <code>/var/log</code> directory tree to be collected. For more examples, see <a href="https://github.com/gobwas/glob">Glob Library</a>. </p>
-    pub fn path(&self) -> &str {
-        use std::ops::Deref;
-        self.path.deref()
+    pub fn path(&self) -> & str {
+        use std::ops::Deref; self.path.deref()
     }
-    /// <p>Specifies when to upload the files:</p>
-    /// <dl>
+    /// <p>Specifies when to upload the files:</p> 
+    /// <dl> 
     /// <dt>
     /// UPLOAD_ON_TERMINATE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p>
-    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p> 
+    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p> 
+    /// </dd> 
     /// <dt>
     /// UPLOAD_ROLLING_AUTO_REMOVE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p> 
+    /// </dd> 
     /// </dl>
-    pub fn upload_behavior(&self) -> &crate::types::UploadBehavior {
+    pub fn upload_behavior(&self) -> & crate::types::UploadBehavior {
         &self.upload_behavior
     }
 }
@@ -87,7 +85,7 @@ pub struct UploadConfigurationBuilder {
     pub(crate) upload_behavior: ::std::option::Option<crate::types::UploadBehavior>,
 }
 impl UploadConfigurationBuilder {
-    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p>
+    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p> 
     /// <p> For example, if your simulation output location is <code>s3://my-bucket</code> and your upload configuration name is <code>robot-test</code>, your files will be uploaded to <code>s3://my-bucket/
     /// <simid>
     /// /
@@ -100,7 +98,7 @@ impl UploadConfigurationBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p>
+    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p> 
     /// <p> For example, if your simulation output location is <code>s3://my-bucket</code> and your upload configuration name is <code>robot-test</code>, your files will be uploaded to <code>s3://my-bucket/
     /// <simid>
     /// /
@@ -109,10 +107,9 @@ impl UploadConfigurationBuilder {
     /// </runid>
     /// </simid></code>. </p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
-    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p>
+    /// <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the simulation output location to determine the final path. </p> 
     /// <p> For example, if your simulation output location is <code>s3://my-bucket</code> and your upload configuration name is <code>robot-test</code>, your files will be uploaded to <code>s3://my-bucket/
     /// <simid>
     /// /
@@ -131,69 +128,67 @@ impl UploadConfigurationBuilder {
     }
     /// <p> Specifies the path of the file(s) to upload. Standard Unix glob matching rules are accepted, with the addition of <code>**</code> as a <i>super asterisk</i>. For example, specifying <code>/var/log/**.log</code> causes all .log files in the <code>/var/log</code> directory tree to be collected. For more examples, see <a href="https://github.com/gobwas/glob">Glob Library</a>. </p>
     pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.path = input;
-        self
+        self.path = input; self
     }
     /// <p> Specifies the path of the file(s) to upload. Standard Unix glob matching rules are accepted, with the addition of <code>**</code> as a <i>super asterisk</i>. For example, specifying <code>/var/log/**.log</code> causes all .log files in the <code>/var/log</code> directory tree to be collected. For more examples, see <a href="https://github.com/gobwas/glob">Glob Library</a>. </p>
     pub fn get_path(&self) -> &::std::option::Option<::std::string::String> {
         &self.path
     }
-    /// <p>Specifies when to upload the files:</p>
-    /// <dl>
+    /// <p>Specifies when to upload the files:</p> 
+    /// <dl> 
     /// <dt>
     /// UPLOAD_ON_TERMINATE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p>
-    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p> 
+    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p> 
+    /// </dd> 
     /// <dt>
     /// UPLOAD_ROLLING_AUTO_REMOVE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p> 
+    /// </dd> 
     /// </dl>
     /// This field is required.
     pub fn upload_behavior(mut self, input: crate::types::UploadBehavior) -> Self {
         self.upload_behavior = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies when to upload the files:</p>
-    /// <dl>
+    /// <p>Specifies when to upload the files:</p> 
+    /// <dl> 
     /// <dt>
     /// UPLOAD_ON_TERMINATE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p>
-    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p> 
+    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p> 
+    /// </dd> 
     /// <dt>
     /// UPLOAD_ROLLING_AUTO_REMOVE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p> 
+    /// </dd> 
     /// </dl>
     pub fn set_upload_behavior(mut self, input: ::std::option::Option<crate::types::UploadBehavior>) -> Self {
-        self.upload_behavior = input;
-        self
+        self.upload_behavior = input; self
     }
-    /// <p>Specifies when to upload the files:</p>
-    /// <dl>
+    /// <p>Specifies when to upload the files:</p> 
+    /// <dl> 
     /// <dt>
     /// UPLOAD_ON_TERMINATE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p>
-    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded once the simulation enters the <code>TERMINATING</code> state. Matching files are not uploaded until all of your code (including tools) have stopped. </p> 
+    /// <p>If there is a problem uploading a file, the upload is retried. If problems persist, no further upload attempts will be made.</p> 
+    /// </dd> 
     /// <dt>
     /// UPLOAD_ROLLING_AUTO_REMOVE
-    /// </dt>
-    /// <dd>
-    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Matching files are uploaded as they are created. They are deleted after they are uploaded. The specified path is checked every 5 seconds. A final check is made when all of your code (including tools) have stopped. </p> 
+    /// </dd> 
     /// </dl>
     pub fn get_upload_behavior(&self) -> &::std::option::Option<crate::types::UploadBehavior> {
         &self.upload_behavior
@@ -204,25 +199,25 @@ impl UploadConfigurationBuilder {
     /// - [`path`](crate::types::builders::UploadConfigurationBuilder::path)
     /// - [`upload_behavior`](crate::types::builders::UploadConfigurationBuilder::upload_behavior)
     pub fn build(self) -> ::std::result::Result<crate::types::UploadConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::UploadConfiguration {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building UploadConfiguration",
-                )
-            })?,
-            path: self.path.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "path",
-                    "path was not specified but it is required when building UploadConfiguration",
-                )
-            })?,
-            upload_behavior: self.upload_behavior.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "upload_behavior",
-                    "upload_behavior was not specified but it is required when building UploadConfiguration",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::UploadConfiguration {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building UploadConfiguration")
+                    )?
+                ,
+                path: self.path
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("path", "path was not specified but it is required when building UploadConfiguration")
+                    )?
+                ,
+                upload_behavior: self.upload_behavior
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("upload_behavior", "upload_behavior was not specified but it is required when building UploadConfiguration")
+                    )?
+                ,
+            }
+        )
     }
 }
+

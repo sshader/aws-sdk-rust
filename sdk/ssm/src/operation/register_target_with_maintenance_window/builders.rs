@@ -5,54 +5,50 @@ pub use crate::operation::register_target_with_maintenance_window::_register_tar
 
 impl RegisterTargetWithMaintenanceWindowInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.register_target_with_maintenance_window();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.register_target_with_maintenance_window();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `RegisterTargetWithMaintenanceWindow`.
-///
+/// 
 /// <p>Registers a target with a maintenance window.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct RegisterTargetWithMaintenanceWindowFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::register_target_with_maintenance_window::builders::RegisterTargetWithMaintenanceWindowInputBuilder,
+                    inner: crate::operation::register_target_with_maintenance_window::builders::RegisterTargetWithMaintenanceWindowInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput,
-        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError,
-    > for RegisterTargetWithMaintenanceWindowFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput,
-            crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput,
+                    crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError,
+                > for RegisterTargetWithMaintenanceWindowFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput,
+                        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl RegisterTargetWithMaintenanceWindowFluentBuilder {
     /// Creates a new `RegisterTargetWithMaintenanceWindow`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,54 +57,44 @@ impl RegisterTargetWithMaintenanceWindowFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindow::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindow::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput,
-        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindow::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindow::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowOutput, crate::operation::register_target_with_maintenance_window::RegisterTargetWithMaintenanceWindowError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The ID of the maintenance window the target should be registered with.</p>
     pub fn window_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.window_id(input.into());
@@ -141,11 +127,11 @@ impl RegisterTargetWithMaintenanceWindowFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_targets`](Self::set_targets).
     ///
-    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note>
-    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p>
-    /// </note>
-    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p>
-    /// <p> <b>Example 1</b>: Specify managed node IDs</p>
+    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note> 
+    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p> 
+    /// </note> 
+    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p> 
+    /// <p> <b>Example 1</b>: Specify managed node IDs</p> 
     /// <p> <code>Key=InstanceIds,Values=
     /// <instance-id-1>
     /// ,
@@ -153,8 +139,8 @@ impl RegisterTargetWithMaintenanceWindowFluentBuilder {
     /// ,
     /// <instance-id-3></instance-id-3>
     /// </instance-id-2>
-    /// </instance-id-1></code> </p>
-    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p>
+    /// </instance-id-1></code> </p> 
+    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p> 
     /// <p> <code>Key=tag:
     /// <my-tag-key>
     /// ,Values=
@@ -162,35 +148,35 @@ impl RegisterTargetWithMaintenanceWindowFluentBuilder {
     /// ,
     /// <my-tag-value-2></my-tag-value-2>
     /// </my-tag-value-1>
-    /// </my-tag-key></code> </p>
-    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
+    /// </my-tag-key></code> </p> 
+    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p> 
     /// <p> <code>Key=tag-key,Values=
     /// <my-tag-key-1>
     /// ,
     /// <my-tag-key-2></my-tag-key-2>
-    /// </my-tag-key-1></code> </p>
-    /// <p> <b>Example 4</b>: Use resource group names</p>
+    /// </my-tag-key-1></code> </p> 
+    /// <p> <b>Example 4</b>: Use resource group names</p> 
     /// <p> <code>Key=resource-groups:Name,Values=
-    /// <resource-group-name></resource-group-name></code> </p>
-    /// <p> <b>Example 5</b>: Use filters for resource group types</p>
+    /// <resource-group-name></resource-group-name></code> </p> 
+    /// <p> <b>Example 5</b>: Use filters for resource group types</p> 
     /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=
     /// <resource-type-1>
     /// ,
     /// <resource-type-2></resource-type-2>
-    /// </resource-type-1></code> </p> <note>
-    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p>
-    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p>
-    /// </note>
+    /// </resource-type-1></code> </p> <note> 
+    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p> 
+    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p> 
+    /// </note> 
     /// <p>For more information about these examples formats, including the best use case for each one, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
     pub fn targets(mut self, input: crate::types::Target) -> Self {
         self.inner = self.inner.targets(input);
         self
     }
-    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note>
-    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p>
-    /// </note>
-    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p>
-    /// <p> <b>Example 1</b>: Specify managed node IDs</p>
+    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note> 
+    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p> 
+    /// </note> 
+    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p> 
+    /// <p> <b>Example 1</b>: Specify managed node IDs</p> 
     /// <p> <code>Key=InstanceIds,Values=
     /// <instance-id-1>
     /// ,
@@ -198,8 +184,8 @@ impl RegisterTargetWithMaintenanceWindowFluentBuilder {
     /// ,
     /// <instance-id-3></instance-id-3>
     /// </instance-id-2>
-    /// </instance-id-1></code> </p>
-    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p>
+    /// </instance-id-1></code> </p> 
+    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p> 
     /// <p> <code>Key=tag:
     /// <my-tag-key>
     /// ,Values=
@@ -207,35 +193,35 @@ impl RegisterTargetWithMaintenanceWindowFluentBuilder {
     /// ,
     /// <my-tag-value-2></my-tag-value-2>
     /// </my-tag-value-1>
-    /// </my-tag-key></code> </p>
-    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
+    /// </my-tag-key></code> </p> 
+    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p> 
     /// <p> <code>Key=tag-key,Values=
     /// <my-tag-key-1>
     /// ,
     /// <my-tag-key-2></my-tag-key-2>
-    /// </my-tag-key-1></code> </p>
-    /// <p> <b>Example 4</b>: Use resource group names</p>
+    /// </my-tag-key-1></code> </p> 
+    /// <p> <b>Example 4</b>: Use resource group names</p> 
     /// <p> <code>Key=resource-groups:Name,Values=
-    /// <resource-group-name></resource-group-name></code> </p>
-    /// <p> <b>Example 5</b>: Use filters for resource group types</p>
+    /// <resource-group-name></resource-group-name></code> </p> 
+    /// <p> <b>Example 5</b>: Use filters for resource group types</p> 
     /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=
     /// <resource-type-1>
     /// ,
     /// <resource-type-2></resource-type-2>
-    /// </resource-type-1></code> </p> <note>
-    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p>
-    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p>
-    /// </note>
+    /// </resource-type-1></code> </p> <note> 
+    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p> 
+    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p> 
+    /// </note> 
     /// <p>For more information about these examples formats, including the best use case for each one, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    pub fn set_targets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Target>>) -> Self {
+    pub fn set_targets(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Target>>) -> Self {
         self.inner = self.inner.set_targets(input);
         self
     }
-    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note>
-    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p>
-    /// </note>
-    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p>
-    /// <p> <b>Example 1</b>: Specify managed node IDs</p>
+    /// <p>The targets to register with the maintenance window. In other words, the managed nodes to run commands on when the maintenance window runs.</p> <note> 
+    /// <p>If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level.</p> 
+    /// </note> 
+    /// <p>You can specify targets using managed node IDs, resource group names, or tags that have been applied to managed nodes.</p> 
+    /// <p> <b>Example 1</b>: Specify managed node IDs</p> 
     /// <p> <code>Key=InstanceIds,Values=
     /// <instance-id-1>
     /// ,
@@ -243,8 +229,8 @@ impl RegisterTargetWithMaintenanceWindowFluentBuilder {
     /// ,
     /// <instance-id-3></instance-id-3>
     /// </instance-id-2>
-    /// </instance-id-1></code> </p>
-    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p>
+    /// </instance-id-1></code> </p> 
+    /// <p> <b>Example 2</b>: Use tag key-pairs applied to managed nodes</p> 
     /// <p> <code>Key=tag:
     /// <my-tag-key>
     /// ,Values=
@@ -252,27 +238,27 @@ impl RegisterTargetWithMaintenanceWindowFluentBuilder {
     /// ,
     /// <my-tag-value-2></my-tag-value-2>
     /// </my-tag-value-1>
-    /// </my-tag-key></code> </p>
-    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p>
+    /// </my-tag-key></code> </p> 
+    /// <p> <b>Example 3</b>: Use tag-keys applied to managed nodes</p> 
     /// <p> <code>Key=tag-key,Values=
     /// <my-tag-key-1>
     /// ,
     /// <my-tag-key-2></my-tag-key-2>
-    /// </my-tag-key-1></code> </p>
-    /// <p> <b>Example 4</b>: Use resource group names</p>
+    /// </my-tag-key-1></code> </p> 
+    /// <p> <b>Example 4</b>: Use resource group names</p> 
     /// <p> <code>Key=resource-groups:Name,Values=
-    /// <resource-group-name></resource-group-name></code> </p>
-    /// <p> <b>Example 5</b>: Use filters for resource group types</p>
+    /// <resource-group-name></resource-group-name></code> </p> 
+    /// <p> <b>Example 5</b>: Use filters for resource group types</p> 
     /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=
     /// <resource-type-1>
     /// ,
     /// <resource-type-2></resource-type-2>
-    /// </resource-type-1></code> </p> <note>
-    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p>
-    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p>
-    /// </note>
+    /// </resource-type-1></code> </p> <note> 
+    /// <p>For <code>Key=resource-groups:ResourceTypeFilters</code>, specify resource types in the following format</p> 
+    /// <p> <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code> </p> 
+    /// </note> 
     /// <p>For more information about these examples formats, including the best use case for each one, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register targets with a maintenance window</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    pub fn get_targets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Target>> {
+    pub fn get_targets(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Target>> {
         self.inner.get_targets()
     }
     /// <p>User-provided value that will be included in any Amazon CloudWatch Events events raised while running tasks for these targets in this maintenance window.</p>
@@ -332,3 +318,4 @@ impl RegisterTargetWithMaintenanceWindowFluentBuilder {
         self.inner.get_client_token()
     }
 }
+

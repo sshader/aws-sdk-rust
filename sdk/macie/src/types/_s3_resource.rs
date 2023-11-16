@@ -3,20 +3,19 @@
 /// <p>(Discontinued) Contains information about the S3 resource. This data type is used as a request parameter in the <code>DisassociateS3Resources</code> action and can be used as a response parameter in the <code>AssociateS3Resources</code> and <code>UpdateS3Resources</code> actions. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct S3Resource {
+pub struct S3Resource  {
     /// <p>(Discontinued) The name of the S3 bucket.</p>
     pub bucket_name: ::std::string::String,
     /// <p>(Discontinued) The prefix of the S3 bucket.</p>
     pub prefix: ::std::option::Option<::std::string::String>,
 }
-impl S3Resource {
+impl  S3Resource  {
     /// <p>(Discontinued) The name of the S3 bucket.</p>
-    pub fn bucket_name(&self) -> &str {
-        use std::ops::Deref;
-        self.bucket_name.deref()
+    pub fn bucket_name(&self) -> & str {
+        use std::ops::Deref; self.bucket_name.deref()
     }
     /// <p>(Discontinued) The prefix of the S3 bucket.</p>
-    pub fn prefix(&self) -> ::std::option::Option<&str> {
+    pub fn prefix(&self) -> ::std::option::Option<& str> {
         self.prefix.as_deref()
     }
 }
@@ -43,8 +42,7 @@ impl S3ResourceBuilder {
     }
     /// <p>(Discontinued) The name of the S3 bucket.</p>
     pub fn set_bucket_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.bucket_name = input;
-        self
+        self.bucket_name = input; self
     }
     /// <p>(Discontinued) The name of the S3 bucket.</p>
     pub fn get_bucket_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -57,8 +55,7 @@ impl S3ResourceBuilder {
     }
     /// <p>(Discontinued) The prefix of the S3 bucket.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.prefix = input;
-        self
+        self.prefix = input; self
     }
     /// <p>(Discontinued) The prefix of the S3 bucket.</p>
     pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
@@ -68,14 +65,17 @@ impl S3ResourceBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`bucket_name`](crate::types::builders::S3ResourceBuilder::bucket_name)
     pub fn build(self) -> ::std::result::Result<crate::types::S3Resource, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::S3Resource {
-            bucket_name: self.bucket_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "bucket_name",
-                    "bucket_name was not specified but it is required when building S3Resource",
-                )
-            })?,
-            prefix: self.prefix,
-        })
+        ::std::result::Result::Ok(
+            crate::types::S3Resource {
+                bucket_name: self.bucket_name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("bucket_name", "bucket_name was not specified but it is required when building S3Resource")
+                    )?
+                ,
+                prefix: self.prefix
+                ,
+            }
+        )
     }
 }
+

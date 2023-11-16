@@ -3,21 +3,21 @@
 /// <p>The size and type of temporary storage that is used to hold data during the savedown process. All the data written to this storage space is lost when the cluster node is restarted.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct KxSavedownStorageConfiguration {
-    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li>
+pub struct KxSavedownStorageConfiguration  {
+    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li> 
     /// </ul>
     pub r#type: crate::types::KxSavedownStorageType,
     /// <p>The size of temporary storage in gibibytes.</p>
     pub size: i32,
 }
-impl KxSavedownStorageConfiguration {
-    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li>
+impl  KxSavedownStorageConfiguration  {
+    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> &crate::types::KxSavedownStorageType {
+    pub fn r#type(&self) -> & crate::types::KxSavedownStorageType {
         &self.r#type
     }
     /// <p>The size of temporary storage in gibibytes.</p>
@@ -40,26 +40,25 @@ pub struct KxSavedownStorageConfigurationBuilder {
     pub(crate) size: ::std::option::Option<i32>,
 }
 impl KxSavedownStorageConfigurationBuilder {
-    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li>
+    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn r#type(mut self, input: crate::types::KxSavedownStorageType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li>
+    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::KxSavedownStorageType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li>
+    /// <p>The type of writeable storage space for temporarily storing your savedown data. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>SDS01 – This type represents 3000 IOPS and io2 ebs volume type.</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::KxSavedownStorageType> {
         &self.r#type
@@ -72,8 +71,7 @@ impl KxSavedownStorageConfigurationBuilder {
     }
     /// <p>The size of temporary storage in gibibytes.</p>
     pub fn set_size(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.size = input;
-        self
+        self.size = input; self
     }
     /// <p>The size of temporary storage in gibibytes.</p>
     pub fn get_size(&self) -> &::std::option::Option<i32> {
@@ -84,19 +82,20 @@ impl KxSavedownStorageConfigurationBuilder {
     /// - [`r#type`](crate::types::builders::KxSavedownStorageConfigurationBuilder::r#type)
     /// - [`size`](crate::types::builders::KxSavedownStorageConfigurationBuilder::size)
     pub fn build(self) -> ::std::result::Result<crate::types::KxSavedownStorageConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::KxSavedownStorageConfiguration {
-            r#type: self.r#type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "r#type",
-                    "r#type was not specified but it is required when building KxSavedownStorageConfiguration",
-                )
-            })?,
-            size: self.size.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "size",
-                    "size was not specified but it is required when building KxSavedownStorageConfiguration",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::KxSavedownStorageConfiguration {
+                r#type: self.r#type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("r#type", "r#type was not specified but it is required when building KxSavedownStorageConfiguration")
+                    )?
+                ,
+                size: self.size
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("size", "size was not specified but it is required when building KxSavedownStorageConfiguration")
+                    )?
+                ,
+            }
+        )
     }
 }
+

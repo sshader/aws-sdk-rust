@@ -2,19 +2,19 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteDomainInput {
+pub struct DeleteDomainInput  {
     /// <p>The identifier of the Amazon Web Services domain that is to be deleted.</p>
     pub identifier: ::std::option::Option<::std::string::String>,
     /// <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
 }
-impl DeleteDomainInput {
+impl  DeleteDomainInput  {
     /// <p>The identifier of the Amazon Web Services domain that is to be deleted.</p>
-    pub fn identifier(&self) -> ::std::option::Option<&str> {
+    pub fn identifier(&self) -> ::std::option::Option<& str> {
         self.identifier.as_deref()
     }
     /// <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
 }
@@ -41,8 +41,7 @@ impl DeleteDomainInputBuilder {
     }
     /// <p>The identifier of the Amazon Web Services domain that is to be deleted.</p>
     pub fn set_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.identifier = input;
-        self
+        self.identifier = input; self
     }
     /// <p>The identifier of the Amazon Web Services domain that is to be deleted.</p>
     pub fn get_identifier(&self) -> &::std::option::Option<::std::string::String> {
@@ -55,20 +54,22 @@ impl DeleteDomainInputBuilder {
     }
     /// <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
     /// Consumes the builder and constructs a [`DeleteDomainInput`](crate::operation::delete_domain::DeleteDomainInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::delete_domain::DeleteDomainInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_domain::DeleteDomainInput {
-            identifier: self.identifier,
-            client_token: self.client_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_domain::DeleteDomainInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_domain::DeleteDomainInput {
+                identifier: self.identifier
+                ,
+                client_token: self.client_token
+                ,
+            }
+        )
     }
 }
+

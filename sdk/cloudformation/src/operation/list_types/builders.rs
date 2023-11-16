@@ -5,48 +5,50 @@ pub use crate::operation::list_types::_list_types_input::ListTypesInputBuilder;
 
 impl ListTypesInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::list_types::ListTypesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_types::ListTypesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.list_types();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::list_types::ListTypesOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::list_types::ListTypesError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.list_types();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ListTypes`.
-///
+/// 
 /// <p>Returns summary information about extension that have been registered with CloudFormation.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListTypesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::list_types::builders::ListTypesInputBuilder,
+                    inner: crate::operation::list_types::builders::ListTypesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::list_types::ListTypesOutput, crate::operation::list_types::ListTypesError>
-    for ListTypesFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::list_types::ListTypesOutput, crate::operation::list_types::ListTypesError>,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+impl
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::list_types::ListTypesOutput,
+                    crate::operation::list_types::ListTypesError,
+                > for ListTypesFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::list_types::ListTypesOutput,
+                        crate::operation::list_types::ListTypesError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ListTypesFluentBuilder {
     /// Creates a new `ListTypes`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -55,163 +57,154 @@ impl ListTypesFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_types::ListTypesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_types::ListTypesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_types::ListTypes::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_types::ListTypes::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::list_types::ListTypesOutput,
-        crate::operation::list_types::ListTypesError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::list_types::ListTypesOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_types::ListTypesError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::list_types::ListTypes::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::list_types::ListTypes::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::list_types::ListTypesOutput, crate::operation::list_types::ListTypesError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// Create a paginator for this request
-    ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_types::paginator::ListTypesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_types::paginator::ListTypesPaginator {
-        crate::operation::list_types::paginator::ListTypesPaginator::new(self.handle, self.inner)
-    }
-    /// <p>The scope at which the extensions are visible and usable in CloudFormation operations.</p>
-    /// <p>Valid values include:</p>
-    /// <ul>
-    /// <li> <p> <code>PRIVATE</code>: Extensions that are visible and usable within this account and Region. This includes:</p>
-    /// <ul>
-    /// <li> <p>Private extensions you have registered in this account and Region.</p> </li>
-    /// <li> <p>Public extensions that you have activated in this account and Region.</p> </li>
-    /// </ul> </li>
-    /// <li> <p> <code>PUBLIC</code>: Extensions that are publicly visible and available to be activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in addition to third-party publishers.</p> </li>
-    /// </ul>
+                            ///
+                            /// Paginators are used by calling [`send().await`](crate::operation::list_types::paginator::ListTypesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+                            pub fn into_paginator(self) -> crate::operation::list_types::paginator::ListTypesPaginator {
+                                crate::operation::list_types::paginator::ListTypesPaginator::new(self.handle, self.inner)
+                            }
+    /// <p>The scope at which the extensions are visible and usable in CloudFormation operations.</p> 
+    /// <p>Valid values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PRIVATE</code>: Extensions that are visible and usable within this account and Region. This includes:</p> 
+    /// <ul> 
+    /// <li> <p>Private extensions you have registered in this account and Region.</p> </li> 
+    /// <li> <p>Public extensions that you have activated in this account and Region.</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <code>PUBLIC</code>: Extensions that are publicly visible and available to be activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in addition to third-party publishers.</p> </li> 
+    /// </ul> 
     /// <p>The default is <code>PRIVATE</code>.</p>
     pub fn visibility(mut self, input: crate::types::Visibility) -> Self {
         self.inner = self.inner.visibility(input);
         self
     }
-    /// <p>The scope at which the extensions are visible and usable in CloudFormation operations.</p>
-    /// <p>Valid values include:</p>
-    /// <ul>
-    /// <li> <p> <code>PRIVATE</code>: Extensions that are visible and usable within this account and Region. This includes:</p>
-    /// <ul>
-    /// <li> <p>Private extensions you have registered in this account and Region.</p> </li>
-    /// <li> <p>Public extensions that you have activated in this account and Region.</p> </li>
-    /// </ul> </li>
-    /// <li> <p> <code>PUBLIC</code>: Extensions that are publicly visible and available to be activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in addition to third-party publishers.</p> </li>
-    /// </ul>
+    /// <p>The scope at which the extensions are visible and usable in CloudFormation operations.</p> 
+    /// <p>Valid values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PRIVATE</code>: Extensions that are visible and usable within this account and Region. This includes:</p> 
+    /// <ul> 
+    /// <li> <p>Private extensions you have registered in this account and Region.</p> </li> 
+    /// <li> <p>Public extensions that you have activated in this account and Region.</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <code>PUBLIC</code>: Extensions that are publicly visible and available to be activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in addition to third-party publishers.</p> </li> 
+    /// </ul> 
     /// <p>The default is <code>PRIVATE</code>.</p>
     pub fn set_visibility(mut self, input: ::std::option::Option<crate::types::Visibility>) -> Self {
         self.inner = self.inner.set_visibility(input);
         self
     }
-    /// <p>The scope at which the extensions are visible and usable in CloudFormation operations.</p>
-    /// <p>Valid values include:</p>
-    /// <ul>
-    /// <li> <p> <code>PRIVATE</code>: Extensions that are visible and usable within this account and Region. This includes:</p>
-    /// <ul>
-    /// <li> <p>Private extensions you have registered in this account and Region.</p> </li>
-    /// <li> <p>Public extensions that you have activated in this account and Region.</p> </li>
-    /// </ul> </li>
-    /// <li> <p> <code>PUBLIC</code>: Extensions that are publicly visible and available to be activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in addition to third-party publishers.</p> </li>
-    /// </ul>
+    /// <p>The scope at which the extensions are visible and usable in CloudFormation operations.</p> 
+    /// <p>Valid values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PRIVATE</code>: Extensions that are visible and usable within this account and Region. This includes:</p> 
+    /// <ul> 
+    /// <li> <p>Private extensions you have registered in this account and Region.</p> </li> 
+    /// <li> <p>Public extensions that you have activated in this account and Region.</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <code>PUBLIC</code>: Extensions that are publicly visible and available to be activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in addition to third-party publishers.</p> </li> 
+    /// </ul> 
     /// <p>The default is <code>PRIVATE</code>.</p>
     pub fn get_visibility(&self) -> &::std::option::Option<crate::types::Visibility> {
         self.inner.get_visibility()
     }
-    /// <p>For resource types, the provisioning behavior of the resource type. CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.</p>
-    /// <p>Valid values include:</p>
-    /// <ul>
-    /// <li> <p> <code>FULLY_MUTABLE</code>: The resource type includes an update handler to process updates to the type during stack update operations.</p> </li>
-    /// <li> <p> <code>IMMUTABLE</code>: The resource type doesn't include an update handler, so the type can't be updated and must instead be replaced during stack update operations.</p> </li>
-    /// <li> <p> <code>NON_PROVISIONABLE</code>: The resource type doesn't include create, read, and delete handlers, and therefore can't actually be provisioned.</p> </li>
-    /// </ul>
+    /// <p>For resource types, the provisioning behavior of the resource type. CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.</p> 
+    /// <p>Valid values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>FULLY_MUTABLE</code>: The resource type includes an update handler to process updates to the type during stack update operations.</p> </li> 
+    /// <li> <p> <code>IMMUTABLE</code>: The resource type doesn't include an update handler, so the type can't be updated and must instead be replaced during stack update operations.</p> </li> 
+    /// <li> <p> <code>NON_PROVISIONABLE</code>: The resource type doesn't include create, read, and delete handlers, and therefore can't actually be provisioned.</p> </li> 
+    /// </ul> 
     /// <p>The default is <code>FULLY_MUTABLE</code>.</p>
     pub fn provisioning_type(mut self, input: crate::types::ProvisioningType) -> Self {
         self.inner = self.inner.provisioning_type(input);
         self
     }
-    /// <p>For resource types, the provisioning behavior of the resource type. CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.</p>
-    /// <p>Valid values include:</p>
-    /// <ul>
-    /// <li> <p> <code>FULLY_MUTABLE</code>: The resource type includes an update handler to process updates to the type during stack update operations.</p> </li>
-    /// <li> <p> <code>IMMUTABLE</code>: The resource type doesn't include an update handler, so the type can't be updated and must instead be replaced during stack update operations.</p> </li>
-    /// <li> <p> <code>NON_PROVISIONABLE</code>: The resource type doesn't include create, read, and delete handlers, and therefore can't actually be provisioned.</p> </li>
-    /// </ul>
+    /// <p>For resource types, the provisioning behavior of the resource type. CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.</p> 
+    /// <p>Valid values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>FULLY_MUTABLE</code>: The resource type includes an update handler to process updates to the type during stack update operations.</p> </li> 
+    /// <li> <p> <code>IMMUTABLE</code>: The resource type doesn't include an update handler, so the type can't be updated and must instead be replaced during stack update operations.</p> </li> 
+    /// <li> <p> <code>NON_PROVISIONABLE</code>: The resource type doesn't include create, read, and delete handlers, and therefore can't actually be provisioned.</p> </li> 
+    /// </ul> 
     /// <p>The default is <code>FULLY_MUTABLE</code>.</p>
     pub fn set_provisioning_type(mut self, input: ::std::option::Option<crate::types::ProvisioningType>) -> Self {
         self.inner = self.inner.set_provisioning_type(input);
         self
     }
-    /// <p>For resource types, the provisioning behavior of the resource type. CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.</p>
-    /// <p>Valid values include:</p>
-    /// <ul>
-    /// <li> <p> <code>FULLY_MUTABLE</code>: The resource type includes an update handler to process updates to the type during stack update operations.</p> </li>
-    /// <li> <p> <code>IMMUTABLE</code>: The resource type doesn't include an update handler, so the type can't be updated and must instead be replaced during stack update operations.</p> </li>
-    /// <li> <p> <code>NON_PROVISIONABLE</code>: The resource type doesn't include create, read, and delete handlers, and therefore can't actually be provisioned.</p> </li>
-    /// </ul>
+    /// <p>For resource types, the provisioning behavior of the resource type. CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.</p> 
+    /// <p>Valid values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>FULLY_MUTABLE</code>: The resource type includes an update handler to process updates to the type during stack update operations.</p> </li> 
+    /// <li> <p> <code>IMMUTABLE</code>: The resource type doesn't include an update handler, so the type can't be updated and must instead be replaced during stack update operations.</p> </li> 
+    /// <li> <p> <code>NON_PROVISIONABLE</code>: The resource type doesn't include create, read, and delete handlers, and therefore can't actually be provisioned.</p> </li> 
+    /// </ul> 
     /// <p>The default is <code>FULLY_MUTABLE</code>.</p>
     pub fn get_provisioning_type(&self) -> &::std::option::Option<crate::types::ProvisioningType> {
         self.inner.get_provisioning_type()
     }
-    /// <p>The deprecation status of the extension that you want to get summary information about.</p>
-    /// <p>Valid values include:</p>
-    /// <ul>
-    /// <li> <p> <code>LIVE</code>: The extension is registered for use in CloudFormation operations.</p> </li>
-    /// <li> <p> <code>DEPRECATED</code>: The extension has been deregistered and can no longer be used in CloudFormation operations.</p> </li>
+    /// <p>The deprecation status of the extension that you want to get summary information about.</p> 
+    /// <p>Valid values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>LIVE</code>: The extension is registered for use in CloudFormation operations.</p> </li> 
+    /// <li> <p> <code>DEPRECATED</code>: The extension has been deregistered and can no longer be used in CloudFormation operations.</p> </li> 
     /// </ul>
     pub fn deprecated_status(mut self, input: crate::types::DeprecatedStatus) -> Self {
         self.inner = self.inner.deprecated_status(input);
         self
     }
-    /// <p>The deprecation status of the extension that you want to get summary information about.</p>
-    /// <p>Valid values include:</p>
-    /// <ul>
-    /// <li> <p> <code>LIVE</code>: The extension is registered for use in CloudFormation operations.</p> </li>
-    /// <li> <p> <code>DEPRECATED</code>: The extension has been deregistered and can no longer be used in CloudFormation operations.</p> </li>
+    /// <p>The deprecation status of the extension that you want to get summary information about.</p> 
+    /// <p>Valid values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>LIVE</code>: The extension is registered for use in CloudFormation operations.</p> </li> 
+    /// <li> <p> <code>DEPRECATED</code>: The extension has been deregistered and can no longer be used in CloudFormation operations.</p> </li> 
     /// </ul>
     pub fn set_deprecated_status(mut self, input: ::std::option::Option<crate::types::DeprecatedStatus>) -> Self {
         self.inner = self.inner.set_deprecated_status(input);
         self
     }
-    /// <p>The deprecation status of the extension that you want to get summary information about.</p>
-    /// <p>Valid values include:</p>
-    /// <ul>
-    /// <li> <p> <code>LIVE</code>: The extension is registered for use in CloudFormation operations.</p> </li>
-    /// <li> <p> <code>DEPRECATED</code>: The extension has been deregistered and can no longer be used in CloudFormation operations.</p> </li>
+    /// <p>The deprecation status of the extension that you want to get summary information about.</p> 
+    /// <p>Valid values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>LIVE</code>: The extension is registered for use in CloudFormation operations.</p> </li> 
+    /// <li> <p> <code>DEPRECATED</code>: The extension has been deregistered and can no longer be used in CloudFormation operations.</p> </li> 
     /// </ul>
     pub fn get_deprecated_status(&self) -> &::std::option::Option<crate::types::DeprecatedStatus> {
         self.inner.get_deprecated_status()
@@ -230,19 +223,19 @@ impl ListTypesFluentBuilder {
     pub fn get_type(&self) -> &::std::option::Option<crate::types::RegistryType> {
         self.inner.get_type()
     }
-    /// <p>Filter criteria to use in determining which extensions to return.</p>
+    /// <p>Filter criteria to use in determining which extensions to return.</p> 
     /// <p>Filters must be compatible with <code>Visibility</code> to return valid results. For example, specifying <code>AWS_TYPES</code> for <code>Category</code> and <code>PRIVATE</code> for <code>Visibility</code> returns an empty list of types, but specifying <code>PUBLIC</code> for <code>Visibility</code> returns the desired list.</p>
     pub fn filters(mut self, input: crate::types::TypeFilters) -> Self {
         self.inner = self.inner.filters(input);
         self
     }
-    /// <p>Filter criteria to use in determining which extensions to return.</p>
+    /// <p>Filter criteria to use in determining which extensions to return.</p> 
     /// <p>Filters must be compatible with <code>Visibility</code> to return valid results. For example, specifying <code>AWS_TYPES</code> for <code>Category</code> and <code>PRIVATE</code> for <code>Visibility</code> returns an empty list of types, but specifying <code>PUBLIC</code> for <code>Visibility</code> returns the desired list.</p>
     pub fn set_filters(mut self, input: ::std::option::Option<crate::types::TypeFilters>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
-    /// <p>Filter criteria to use in determining which extensions to return.</p>
+    /// <p>Filter criteria to use in determining which extensions to return.</p> 
     /// <p>Filters must be compatible with <code>Visibility</code> to return valid results. For example, specifying <code>AWS_TYPES</code> for <code>Category</code> and <code>PRIVATE</code> for <code>Visibility</code> returns an empty list of types, but specifying <code>PUBLIC</code> for <code>Visibility</code> returns the desired list.</p>
     pub fn get_filters(&self) -> &::std::option::Option<crate::types::TypeFilters> {
         self.inner.get_filters()
@@ -276,3 +269,4 @@ impl ListTypesFluentBuilder {
         self.inner.get_next_token()
     }
 }
+

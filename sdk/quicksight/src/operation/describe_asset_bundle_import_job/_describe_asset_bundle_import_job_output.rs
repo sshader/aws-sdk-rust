@@ -2,22 +2,22 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeAssetBundleImportJobOutput {
-    /// <p>Indicates the status of a job through its queuing and execution.</p>
-    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>SUCCESSFUL</code> </p> </li>
-    /// <li> <p> <code>FAILED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li>
+pub struct DescribeAssetBundleImportJobOutput  {
+    /// <p>Indicates the status of a job through its queuing and execution.</p> 
+    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SUCCESSFUL</code> </p> </li> 
+    /// <li> <p> <code>FAILED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li> 
     /// </ul>
     pub job_status: ::std::option::Option<crate::types::AssetBundleImportJobStatus>,
-    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p>
+    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
-    pub errors: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleImportJobError>>,
-    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p>
+    pub errors: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleImportJobError>>,
+    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
-    pub rollback_errors: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleImportJobError>>,
+    pub rollback_errors: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleImportJobError>>,
     /// <p>The Amazon Resource Name (ARN) for the import job.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>The time that the import job was created.</p>
@@ -38,62 +38,64 @@ pub struct DescribeAssetBundleImportJobOutput {
     pub status: i32,
     _request_id: Option<String>,
 }
-impl DescribeAssetBundleImportJobOutput {
-    /// <p>Indicates the status of a job through its queuing and execution.</p>
-    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>SUCCESSFUL</code> </p> </li>
-    /// <li> <p> <code>FAILED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li>
+impl  DescribeAssetBundleImportJobOutput  {
+    /// <p>Indicates the status of a job through its queuing and execution.</p> 
+    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SUCCESSFUL</code> </p> </li> 
+    /// <li> <p> <code>FAILED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li> 
     /// </ul>
-    pub fn job_status(&self) -> ::std::option::Option<&crate::types::AssetBundleImportJobStatus> {
+    pub fn job_status(&self) -> ::std::option::Option<& crate::types::AssetBundleImportJobStatus> {
         self.job_status.as_ref()
     }
-    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p>
+    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.errors.is_none()`.
-    pub fn errors(&self) -> &[crate::types::AssetBundleImportJobError] {
-        self.errors.as_deref().unwrap_or_default()
+    pub fn errors(&self) -> & [crate::types::AssetBundleImportJobError] {
+        self.errors.as_deref()
+        .unwrap_or_default()
     }
-    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p>
+    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.rollback_errors.is_none()`.
-    pub fn rollback_errors(&self) -> &[crate::types::AssetBundleImportJobError] {
-        self.rollback_errors.as_deref().unwrap_or_default()
+    pub fn rollback_errors(&self) -> & [crate::types::AssetBundleImportJobError] {
+        self.rollback_errors.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The Amazon Resource Name (ARN) for the import job.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
     /// <p>The time that the import job was created.</p>
-    pub fn created_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn created_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.created_time.as_ref()
     }
     /// <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code> API call.</p>
-    pub fn asset_bundle_import_job_id(&self) -> ::std::option::Option<&str> {
+    pub fn asset_bundle_import_job_id(&self) -> ::std::option::Option<& str> {
         self.asset_bundle_import_job_id.as_deref()
     }
     /// <p>The ID of the Amazon Web Services account the import job was executed in. </p>
-    pub fn aws_account_id(&self) -> ::std::option::Option<&str> {
+    pub fn aws_account_id(&self) -> ::std::option::Option<& str> {
         self.aws_account_id.as_deref()
     }
     /// <p>The source of the asset bundle zip file that contains the data that is imported by the job.</p>
-    pub fn asset_bundle_import_source(&self) -> ::std::option::Option<&crate::types::AssetBundleImportSourceDescription> {
+    pub fn asset_bundle_import_source(&self) -> ::std::option::Option<& crate::types::AssetBundleImportSourceDescription> {
         self.asset_bundle_import_source.as_ref()
     }
     /// <p>Optional overrides to be applied to the resource configuration before import.</p>
-    pub fn override_parameters(&self) -> ::std::option::Option<&crate::types::AssetBundleImportJobOverrideParameters> {
+    pub fn override_parameters(&self) -> ::std::option::Option<& crate::types::AssetBundleImportJobOverrideParameters> {
         self.override_parameters.as_ref()
     }
     /// <p>The failure action for the import job.</p>
-    pub fn failure_action(&self) -> ::std::option::Option<&crate::types::AssetBundleImportFailureAction> {
+    pub fn failure_action(&self) -> ::std::option::Option<& crate::types::AssetBundleImportFailureAction> {
         self.failure_action.as_ref()
     }
     /// <p>The Amazon Web Services request ID for this operation.</p>
-    pub fn request_id(&self) -> ::std::option::Option<&str> {
+    pub fn request_id(&self) -> ::std::option::Option<& str> {
         self.request_id.as_deref()
     }
     /// <p>The HTTP status of the response.</p>
@@ -101,11 +103,11 @@ impl DescribeAssetBundleImportJobOutput {
         self.status
     }
 }
-impl ::aws_http::request_id::RequestId for DescribeAssetBundleImportJobOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for DescribeAssetBundleImportJobOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl DescribeAssetBundleImportJobOutput {
     /// Creates a new builder-style object to manufacture [`DescribeAssetBundleImportJobOutput`](crate::operation::describe_asset_bundle_import_job::DescribeAssetBundleImportJobOutput).
     pub fn builder() -> crate::operation::describe_asset_bundle_import_job::builders::DescribeAssetBundleImportJobOutputBuilder {
@@ -118,8 +120,8 @@ impl DescribeAssetBundleImportJobOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct DescribeAssetBundleImportJobOutputBuilder {
     pub(crate) job_status: ::std::option::Option<crate::types::AssetBundleImportJobStatus>,
-    pub(crate) errors: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleImportJobError>>,
-    pub(crate) rollback_errors: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleImportJobError>>,
+    pub(crate) errors: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleImportJobError>>,
+    pub(crate) rollback_errors: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleImportJobError>>,
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) asset_bundle_import_job_id: ::std::option::Option<::std::string::String>,
@@ -132,37 +134,36 @@ pub struct DescribeAssetBundleImportJobOutputBuilder {
     _request_id: Option<String>,
 }
 impl DescribeAssetBundleImportJobOutputBuilder {
-    /// <p>Indicates the status of a job through its queuing and execution.</p>
-    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>SUCCESSFUL</code> </p> </li>
-    /// <li> <p> <code>FAILED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li>
+    /// <p>Indicates the status of a job through its queuing and execution.</p> 
+    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SUCCESSFUL</code> </p> </li> 
+    /// <li> <p> <code>FAILED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li> 
     /// </ul>
     pub fn job_status(mut self, input: crate::types::AssetBundleImportJobStatus) -> Self {
         self.job_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates the status of a job through its queuing and execution.</p>
-    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>SUCCESSFUL</code> </p> </li>
-    /// <li> <p> <code>FAILED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li>
+    /// <p>Indicates the status of a job through its queuing and execution.</p> 
+    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SUCCESSFUL</code> </p> </li> 
+    /// <li> <p> <code>FAILED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li> 
     /// </ul>
     pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::AssetBundleImportJobStatus>) -> Self {
-        self.job_status = input;
-        self
+        self.job_status = input; self
     }
-    /// <p>Indicates the status of a job through its queuing and execution.</p>
-    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>SUCCESSFUL</code> </p> </li>
-    /// <li> <p> <code>FAILED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li>
-    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li>
+    /// <p>Indicates the status of a job through its queuing and execution.</p> 
+    /// <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SUCCESSFUL</code> </p> </li> 
+    /// <li> <p> <code>FAILED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_COMPLETED</code> </p> </li> 
+    /// <li> <p> <code>FAILED_ROLLBACK_ERROR</code> </p> </li> 
     /// </ul>
     pub fn get_job_status(&self) -> &::std::option::Option<crate::types::AssetBundleImportJobStatus> {
         &self.job_status
@@ -171,46 +172,44 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     ///
     /// To override the contents of this collection use [`set_errors`](Self::set_errors).
     ///
-    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p>
+    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
     pub fn errors(mut self, input: crate::types::AssetBundleImportJobError) -> Self {
         let mut v = self.errors.unwrap_or_default();
-        v.push(input);
-        self.errors = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.errors = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p>
+    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
-    pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleImportJobError>>) -> Self {
-        self.errors = input;
-        self
+    pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleImportJobError>>) -> Self {
+        self.errors = input; self
     }
-    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p>
+    /// <p>An array of error records that describes any failures that occurred during the export job processing.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
-    pub fn get_errors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssetBundleImportJobError>> {
+    pub fn get_errors(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleImportJobError>> {
         &self.errors
     }
     /// Appends an item to `rollback_errors`.
     ///
     /// To override the contents of this collection use [`set_rollback_errors`](Self::set_rollback_errors).
     ///
-    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p>
+    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
     pub fn rollback_errors(mut self, input: crate::types::AssetBundleImportJobError) -> Self {
         let mut v = self.rollback_errors.unwrap_or_default();
-        v.push(input);
-        self.rollback_errors = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.rollback_errors = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p>
+    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
-    pub fn set_rollback_errors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleImportJobError>>) -> Self {
-        self.rollback_errors = input;
-        self
+    pub fn set_rollback_errors(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleImportJobError>>) -> Self {
+        self.rollback_errors = input; self
     }
-    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p>
+    /// <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p> 
     /// <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
-    pub fn get_rollback_errors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssetBundleImportJobError>> {
+    pub fn get_rollback_errors(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleImportJobError>> {
         &self.rollback_errors
     }
     /// <p>The Amazon Resource Name (ARN) for the import job.</p>
@@ -220,8 +219,7 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) for the import job.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) for the import job.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -234,8 +232,7 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     }
     /// <p>The time that the import job was created.</p>
     pub fn set_created_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_time = input;
-        self
+        self.created_time = input; self
     }
     /// <p>The time that the import job was created.</p>
     pub fn get_created_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -248,8 +245,7 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     }
     /// <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code> API call.</p>
     pub fn set_asset_bundle_import_job_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.asset_bundle_import_job_id = input;
-        self
+        self.asset_bundle_import_job_id = input; self
     }
     /// <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code> API call.</p>
     pub fn get_asset_bundle_import_job_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -262,8 +258,7 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     }
     /// <p>The ID of the Amazon Web Services account the import job was executed in. </p>
     pub fn set_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.aws_account_id = input;
-        self
+        self.aws_account_id = input; self
     }
     /// <p>The ID of the Amazon Web Services account the import job was executed in. </p>
     pub fn get_aws_account_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -276,8 +271,7 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     }
     /// <p>The source of the asset bundle zip file that contains the data that is imported by the job.</p>
     pub fn set_asset_bundle_import_source(mut self, input: ::std::option::Option<crate::types::AssetBundleImportSourceDescription>) -> Self {
-        self.asset_bundle_import_source = input;
-        self
+        self.asset_bundle_import_source = input; self
     }
     /// <p>The source of the asset bundle zip file that contains the data that is imported by the job.</p>
     pub fn get_asset_bundle_import_source(&self) -> &::std::option::Option<crate::types::AssetBundleImportSourceDescription> {
@@ -290,8 +284,7 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     }
     /// <p>Optional overrides to be applied to the resource configuration before import.</p>
     pub fn set_override_parameters(mut self, input: ::std::option::Option<crate::types::AssetBundleImportJobOverrideParameters>) -> Self {
-        self.override_parameters = input;
-        self
+        self.override_parameters = input; self
     }
     /// <p>Optional overrides to be applied to the resource configuration before import.</p>
     pub fn get_override_parameters(&self) -> &::std::option::Option<crate::types::AssetBundleImportJobOverrideParameters> {
@@ -304,8 +297,7 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     }
     /// <p>The failure action for the import job.</p>
     pub fn set_failure_action(mut self, input: ::std::option::Option<crate::types::AssetBundleImportFailureAction>) -> Self {
-        self.failure_action = input;
-        self
+        self.failure_action = input; self
     }
     /// <p>The failure action for the import job.</p>
     pub fn get_failure_action(&self) -> &::std::option::Option<crate::types::AssetBundleImportFailureAction> {
@@ -318,8 +310,7 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     }
     /// <p>The Amazon Web Services request ID for this operation.</p>
     pub fn set_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.request_id = input;
-        self
+        self.request_id = input; self
     }
     /// <p>The Amazon Web Services request ID for this operation.</p>
     pub fn get_request_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -332,38 +323,51 @@ impl DescribeAssetBundleImportJobOutputBuilder {
     }
     /// <p>The HTTP status of the response.</p>
     pub fn set_status(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>The HTTP status of the response.</p>
     pub fn get_status(&self) -> &::std::option::Option<i32> {
         &self.status
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`DescribeAssetBundleImportJobOutput`](crate::operation::describe_asset_bundle_import_job::DescribeAssetBundleImportJobOutput).
     pub fn build(self) -> crate::operation::describe_asset_bundle_import_job::DescribeAssetBundleImportJobOutput {
         crate::operation::describe_asset_bundle_import_job::DescribeAssetBundleImportJobOutput {
-            job_status: self.job_status,
-            errors: self.errors,
-            rollback_errors: self.rollback_errors,
-            arn: self.arn,
-            created_time: self.created_time,
-            asset_bundle_import_job_id: self.asset_bundle_import_job_id,
-            aws_account_id: self.aws_account_id,
-            asset_bundle_import_source: self.asset_bundle_import_source,
-            override_parameters: self.override_parameters,
-            failure_action: self.failure_action,
-            request_id: self.request_id,
-            status: self.status.unwrap_or_default(),
+            job_status: self.job_status
+            ,
+            errors: self.errors
+            ,
+            rollback_errors: self.rollback_errors
+            ,
+            arn: self.arn
+            ,
+            created_time: self.created_time
+            ,
+            asset_bundle_import_job_id: self.asset_bundle_import_job_id
+            ,
+            aws_account_id: self.aws_account_id
+            ,
+            asset_bundle_import_source: self.asset_bundle_import_source
+            ,
+            override_parameters: self.override_parameters
+            ,
+            failure_action: self.failure_action
+            ,
+            request_id: self.request_id
+            ,
+            status: self.status
+                .unwrap_or_default()
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

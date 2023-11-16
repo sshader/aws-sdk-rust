@@ -2,139 +2,139 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateSiteRackPhysicalPropertiesInput {
+pub struct UpdateSiteRackPhysicalPropertiesInput  {
     /// <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
     pub site_id: ::std::option::Option<::std::string::String>,
     /// <p>The power draw, in kVA, available at the hardware placement position for the rack.</p>
     pub power_draw_kva: ::std::option::Option<crate::types::PowerDrawKva>,
-    /// <p>The power option that you can provide for hardware. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li>
-    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li>
+    /// <p>The power option that you can provide for hardware. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li> 
+    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li> 
     /// </ul>
     pub power_phase: ::std::option::Option<crate::types::PowerPhase>,
-    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li>
-    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li>
-    /// </ul> </li>
-    /// <li> <p>Three-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li>
-    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li>
-    /// </ul> </li>
+    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li> 
+    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p>Three-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li> 
+    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li> 
+    /// </ul> </li> 
     /// </ul>
     pub power_connector: ::std::option::Option<crate::types::PowerConnector>,
     /// <p>Indicates whether the power feed comes above or below the rack. </p>
     pub power_feed_drop: ::std::option::Option<crate::types::PowerFeedDrop>,
     /// <p>The uplink speed the rack should support for the connection to the Region. </p>
     pub uplink_gbps: ::std::option::Option<crate::types::UplinkGbps>,
-    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p>
-    /// <ul>
-    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li>
-    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li>
-    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li>
+    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p> 
+    /// <ul> 
+    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li> 
+    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li> 
+    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li> 
     /// </ul>
     pub uplink_count: ::std::option::Option<crate::types::UplinkCount>,
     /// <p>The type of fiber that you will use to attach the Outpost to your network. </p>
     pub fiber_optic_cable_type: ::std::option::Option<crate::types::FiberOpticCableType>,
-    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p>
-    /// <ul>
-    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li>
+    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p> 
+    /// <ul> 
+    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li> 
     /// </ul>
     pub optical_standard: ::std::option::Option<crate::types::OpticalStandard>,
     /// <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000lbs. </p>
     pub maximum_supported_weight_lbs: ::std::option::Option<crate::types::MaximumSupportedWeightLbs>,
 }
-impl UpdateSiteRackPhysicalPropertiesInput {
+impl  UpdateSiteRackPhysicalPropertiesInput  {
     /// <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
-    pub fn site_id(&self) -> ::std::option::Option<&str> {
+    pub fn site_id(&self) -> ::std::option::Option<& str> {
         self.site_id.as_deref()
     }
     /// <p>The power draw, in kVA, available at the hardware placement position for the rack.</p>
-    pub fn power_draw_kva(&self) -> ::std::option::Option<&crate::types::PowerDrawKva> {
+    pub fn power_draw_kva(&self) -> ::std::option::Option<& crate::types::PowerDrawKva> {
         self.power_draw_kva.as_ref()
     }
-    /// <p>The power option that you can provide for hardware. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li>
-    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li>
+    /// <p>The power option that you can provide for hardware. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li> 
+    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li> 
     /// </ul>
-    pub fn power_phase(&self) -> ::std::option::Option<&crate::types::PowerPhase> {
+    pub fn power_phase(&self) -> ::std::option::Option<& crate::types::PowerPhase> {
         self.power_phase.as_ref()
     }
-    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li>
-    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li>
-    /// </ul> </li>
-    /// <li> <p>Three-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li>
-    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li>
-    /// </ul> </li>
+    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li> 
+    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p>Three-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li> 
+    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li> 
+    /// </ul> </li> 
     /// </ul>
-    pub fn power_connector(&self) -> ::std::option::Option<&crate::types::PowerConnector> {
+    pub fn power_connector(&self) -> ::std::option::Option<& crate::types::PowerConnector> {
         self.power_connector.as_ref()
     }
     /// <p>Indicates whether the power feed comes above or below the rack. </p>
-    pub fn power_feed_drop(&self) -> ::std::option::Option<&crate::types::PowerFeedDrop> {
+    pub fn power_feed_drop(&self) -> ::std::option::Option<& crate::types::PowerFeedDrop> {
         self.power_feed_drop.as_ref()
     }
     /// <p>The uplink speed the rack should support for the connection to the Region. </p>
-    pub fn uplink_gbps(&self) -> ::std::option::Option<&crate::types::UplinkGbps> {
+    pub fn uplink_gbps(&self) -> ::std::option::Option<& crate::types::UplinkGbps> {
         self.uplink_gbps.as_ref()
     }
-    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p>
-    /// <ul>
-    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li>
-    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li>
-    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li>
+    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p> 
+    /// <ul> 
+    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li> 
+    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li> 
+    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li> 
     /// </ul>
-    pub fn uplink_count(&self) -> ::std::option::Option<&crate::types::UplinkCount> {
+    pub fn uplink_count(&self) -> ::std::option::Option<& crate::types::UplinkCount> {
         self.uplink_count.as_ref()
     }
     /// <p>The type of fiber that you will use to attach the Outpost to your network. </p>
-    pub fn fiber_optic_cable_type(&self) -> ::std::option::Option<&crate::types::FiberOpticCableType> {
+    pub fn fiber_optic_cable_type(&self) -> ::std::option::Option<& crate::types::FiberOpticCableType> {
         self.fiber_optic_cable_type.as_ref()
     }
-    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p>
-    /// <ul>
-    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li>
+    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p> 
+    /// <ul> 
+    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li> 
     /// </ul>
-    pub fn optical_standard(&self) -> ::std::option::Option<&crate::types::OpticalStandard> {
+    pub fn optical_standard(&self) -> ::std::option::Option<& crate::types::OpticalStandard> {
         self.optical_standard.as_ref()
     }
     /// <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000lbs. </p>
-    pub fn maximum_supported_weight_lbs(&self) -> ::std::option::Option<&crate::types::MaximumSupportedWeightLbs> {
+    pub fn maximum_supported_weight_lbs(&self) -> ::std::option::Option<& crate::types::MaximumSupportedWeightLbs> {
         self.maximum_supported_weight_lbs.as_ref()
     }
 }
@@ -169,8 +169,7 @@ impl UpdateSiteRackPhysicalPropertiesInputBuilder {
     }
     /// <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
     pub fn set_site_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.site_id = input;
-        self
+        self.site_id = input; self
     }
     /// <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
     pub fn get_site_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -183,85 +182,82 @@ impl UpdateSiteRackPhysicalPropertiesInputBuilder {
     }
     /// <p>The power draw, in kVA, available at the hardware placement position for the rack.</p>
     pub fn set_power_draw_kva(mut self, input: ::std::option::Option<crate::types::PowerDrawKva>) -> Self {
-        self.power_draw_kva = input;
-        self
+        self.power_draw_kva = input; self
     }
     /// <p>The power draw, in kVA, available at the hardware placement position for the rack.</p>
     pub fn get_power_draw_kva(&self) -> &::std::option::Option<crate::types::PowerDrawKva> {
         &self.power_draw_kva
     }
-    /// <p>The power option that you can provide for hardware. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li>
-    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li>
+    /// <p>The power option that you can provide for hardware. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li> 
+    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li> 
     /// </ul>
     pub fn power_phase(mut self, input: crate::types::PowerPhase) -> Self {
         self.power_phase = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The power option that you can provide for hardware. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li>
-    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li>
+    /// <p>The power option that you can provide for hardware. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li> 
+    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li> 
     /// </ul>
     pub fn set_power_phase(mut self, input: ::std::option::Option<crate::types::PowerPhase>) -> Self {
-        self.power_phase = input;
-        self
+        self.power_phase = input; self
     }
-    /// <p>The power option that you can provide for hardware. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li>
-    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li>
+    /// <p>The power option that you can provide for hardware. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p> </li> 
+    /// <li> <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p> </li> 
     /// </ul>
     pub fn get_power_phase(&self) -> &::std::option::Option<crate::types::PowerPhase> {
         &self.power_phase
     }
-    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li>
-    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li>
-    /// </ul> </li>
-    /// <li> <p>Three-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li>
-    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li>
-    /// </ul> </li>
+    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li> 
+    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p>Three-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li> 
+    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li> 
+    /// </ul> </li> 
     /// </ul>
     pub fn power_connector(mut self, input: crate::types::PowerConnector) -> Self {
         self.power_connector = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li>
-    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li>
-    /// </ul> </li>
-    /// <li> <p>Three-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li>
-    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li>
-    /// </ul> </li>
+    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li> 
+    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p>Three-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li> 
+    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li> 
+    /// </ul> </li> 
     /// </ul>
     pub fn set_power_connector(mut self, input: ::std::option::Option<crate::types::PowerConnector>) -> Self {
-        self.power_connector = input;
-        self
+        self.power_connector = input; self
     }
-    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p>
-    /// <ul>
-    /// <li> <p>Single-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li>
-    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li>
-    /// </ul> </li>
-    /// <li> <p>Three-phase AC feed</p>
-    /// <ul>
-    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li>
-    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li>
-    /// </ul> </li>
+    /// <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p> 
+    /// <ul> 
+    /// <li> <p>Single-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>L6-30P</b> – (common in US); 30A; single phase</p> </li> 
+    /// <li> <p> <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p>Three-phase AC feed</p> 
+    /// <ul> 
+    /// <li> <p> <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p> </li> 
+    /// <li> <p> <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p> </li> 
+    /// </ul> </li> 
     /// </ul>
     pub fn get_power_connector(&self) -> &::std::option::Option<crate::types::PowerConnector> {
         &self.power_connector
@@ -273,8 +269,7 @@ impl UpdateSiteRackPhysicalPropertiesInputBuilder {
     }
     /// <p>Indicates whether the power feed comes above or below the rack. </p>
     pub fn set_power_feed_drop(mut self, input: ::std::option::Option<crate::types::PowerFeedDrop>) -> Self {
-        self.power_feed_drop = input;
-        self
+        self.power_feed_drop = input; self
     }
     /// <p>Indicates whether the power feed comes above or below the rack. </p>
     pub fn get_power_feed_drop(&self) -> &::std::option::Option<crate::types::PowerFeedDrop> {
@@ -287,38 +282,36 @@ impl UpdateSiteRackPhysicalPropertiesInputBuilder {
     }
     /// <p>The uplink speed the rack should support for the connection to the Region. </p>
     pub fn set_uplink_gbps(mut self, input: ::std::option::Option<crate::types::UplinkGbps>) -> Self {
-        self.uplink_gbps = input;
-        self
+        self.uplink_gbps = input; self
     }
     /// <p>The uplink speed the rack should support for the connection to the Region. </p>
     pub fn get_uplink_gbps(&self) -> &::std::option::Option<crate::types::UplinkGbps> {
         &self.uplink_gbps
     }
-    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p>
-    /// <ul>
-    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li>
-    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li>
-    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li>
+    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p> 
+    /// <ul> 
+    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li> 
+    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li> 
+    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li> 
     /// </ul>
     pub fn uplink_count(mut self, input: crate::types::UplinkCount) -> Self {
         self.uplink_count = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p>
-    /// <ul>
-    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li>
-    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li>
-    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li>
+    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p> 
+    /// <ul> 
+    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li> 
+    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li> 
+    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li> 
     /// </ul>
     pub fn set_uplink_count(mut self, input: ::std::option::Option<crate::types::UplinkCount>) -> Self {
-        self.uplink_count = input;
-        self
+        self.uplink_count = input; self
     }
-    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p>
-    /// <ul>
-    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li>
-    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li>
-    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li>
+    /// <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p> 
+    /// <ul> 
+    /// <li> <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p> </li> 
+    /// <li> <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p> </li> 
+    /// <li> <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p> </li> 
     /// </ul>
     pub fn get_uplink_count(&self) -> &::std::option::Option<crate::types::UplinkCount> {
         &self.uplink_count
@@ -330,68 +323,66 @@ impl UpdateSiteRackPhysicalPropertiesInputBuilder {
     }
     /// <p>The type of fiber that you will use to attach the Outpost to your network. </p>
     pub fn set_fiber_optic_cable_type(mut self, input: ::std::option::Option<crate::types::FiberOpticCableType>) -> Self {
-        self.fiber_optic_cable_type = input;
-        self
+        self.fiber_optic_cable_type = input; self
     }
     /// <p>The type of fiber that you will use to attach the Outpost to your network. </p>
     pub fn get_fiber_optic_cable_type(&self) -> &::std::option::Option<crate::types::FiberOpticCableType> {
         &self.fiber_optic_cable_type
     }
-    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p>
-    /// <ul>
-    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li>
+    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p> 
+    /// <ul> 
+    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li> 
     /// </ul>
     pub fn optical_standard(mut self, input: crate::types::OpticalStandard) -> Self {
         self.optical_standard = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p>
-    /// <ul>
-    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li>
+    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p> 
+    /// <ul> 
+    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li> 
     /// </ul>
     pub fn set_optical_standard(mut self, input: ::std::option::Option<crate::types::OpticalStandard>) -> Self {
-        self.optical_standard = input;
-        self
+        self.optical_standard = input; self
     }
-    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p>
-    /// <ul>
-    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li>
-    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li>
-    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li>
-    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li>
-    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li>
-    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li>
+    /// <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a> in the Amazon Web Services Outposts User Guide. </p> 
+    /// <ul> 
+    /// <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li> 
+    /// <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li> 
+    /// <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li> 
+    /// <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li> 
+    /// <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li> 
+    /// <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li> 
     /// </ul>
     pub fn get_optical_standard(&self) -> &::std::option::Option<crate::types::OpticalStandard> {
         &self.optical_standard
@@ -403,33 +394,38 @@ impl UpdateSiteRackPhysicalPropertiesInputBuilder {
     }
     /// <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000lbs. </p>
     pub fn set_maximum_supported_weight_lbs(mut self, input: ::std::option::Option<crate::types::MaximumSupportedWeightLbs>) -> Self {
-        self.maximum_supported_weight_lbs = input;
-        self
+        self.maximum_supported_weight_lbs = input; self
     }
     /// <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000lbs. </p>
     pub fn get_maximum_supported_weight_lbs(&self) -> &::std::option::Option<crate::types::MaximumSupportedWeightLbs> {
         &self.maximum_supported_weight_lbs
     }
     /// Consumes the builder and constructs a [`UpdateSiteRackPhysicalPropertiesInput`](crate::operation::update_site_rack_physical_properties::UpdateSiteRackPhysicalPropertiesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_site_rack_physical_properties::UpdateSiteRackPhysicalPropertiesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_site_rack_physical_properties::UpdateSiteRackPhysicalPropertiesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(
             crate::operation::update_site_rack_physical_properties::UpdateSiteRackPhysicalPropertiesInput {
-                site_id: self.site_id,
-                power_draw_kva: self.power_draw_kva,
-                power_phase: self.power_phase,
-                power_connector: self.power_connector,
-                power_feed_drop: self.power_feed_drop,
-                uplink_gbps: self.uplink_gbps,
-                uplink_count: self.uplink_count,
-                fiber_optic_cable_type: self.fiber_optic_cable_type,
-                optical_standard: self.optical_standard,
-                maximum_supported_weight_lbs: self.maximum_supported_weight_lbs,
-            },
+                site_id: self.site_id
+                ,
+                power_draw_kva: self.power_draw_kva
+                ,
+                power_phase: self.power_phase
+                ,
+                power_connector: self.power_connector
+                ,
+                power_feed_drop: self.power_feed_drop
+                ,
+                uplink_gbps: self.uplink_gbps
+                ,
+                uplink_count: self.uplink_count
+                ,
+                fiber_optic_cable_type: self.fiber_optic_cable_type
+                ,
+                optical_standard: self.optical_standard
+                ,
+                maximum_supported_weight_lbs: self.maximum_supported_weight_lbs
+                ,
+            }
         )
     }
 }
+

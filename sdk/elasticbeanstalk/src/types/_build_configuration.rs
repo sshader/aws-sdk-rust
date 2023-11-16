@@ -3,16 +3,16 @@
 /// <p>Settings for an AWS CodeBuild build.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct BuildConfiguration {
+pub struct BuildConfiguration  {
     /// <p>The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>-<i>artifact-name</i>.zip. If not provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>.zip. </p>
     pub artifact_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.</p>
     pub code_build_service_role: ::std::string::String,
-    /// <p>Information about the compute resources the build project will use.</p>
-    /// <ul>
-    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li>
+    /// <p>Information about the compute resources the build project will use.</p> 
+    /// <ul> 
+    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li> 
     /// </ul>
     pub compute_type: ::std::option::Option<crate::types::ComputeType>,
     /// <p>The ID of the Docker image to use for this build project.</p>
@@ -20,29 +20,27 @@ pub struct BuildConfiguration {
     /// <p>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.</p>
     pub timeout_in_minutes: ::std::option::Option<i32>,
 }
-impl BuildConfiguration {
+impl  BuildConfiguration  {
     /// <p>The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>-<i>artifact-name</i>.zip. If not provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>.zip. </p>
-    pub fn artifact_name(&self) -> ::std::option::Option<&str> {
+    pub fn artifact_name(&self) -> ::std::option::Option<& str> {
         self.artifact_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.</p>
-    pub fn code_build_service_role(&self) -> &str {
-        use std::ops::Deref;
-        self.code_build_service_role.deref()
+    pub fn code_build_service_role(&self) -> & str {
+        use std::ops::Deref; self.code_build_service_role.deref()
     }
-    /// <p>Information about the compute resources the build project will use.</p>
-    /// <ul>
-    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li>
+    /// <p>Information about the compute resources the build project will use.</p> 
+    /// <ul> 
+    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li> 
     /// </ul>
-    pub fn compute_type(&self) -> ::std::option::Option<&crate::types::ComputeType> {
+    pub fn compute_type(&self) -> ::std::option::Option<& crate::types::ComputeType> {
         self.compute_type.as_ref()
     }
     /// <p>The ID of the Docker image to use for this build project.</p>
-    pub fn image(&self) -> &str {
-        use std::ops::Deref;
-        self.image.deref()
+    pub fn image(&self) -> & str {
+        use std::ops::Deref; self.image.deref()
     }
     /// <p>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.</p>
     pub fn timeout_in_minutes(&self) -> ::std::option::Option<i32> {
@@ -74,8 +72,7 @@ impl BuildConfigurationBuilder {
     }
     /// <p>The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>-<i>artifact-name</i>.zip. If not provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>.zip. </p>
     pub fn set_artifact_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.artifact_name = input;
-        self
+        self.artifact_name = input; self
     }
     /// <p>The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>-<i>artifact-name</i>.zip. If not provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>.zip. </p>
     pub fn get_artifact_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -89,38 +86,36 @@ impl BuildConfigurationBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.</p>
     pub fn set_code_build_service_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.code_build_service_role = input;
-        self
+        self.code_build_service_role = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.</p>
     pub fn get_code_build_service_role(&self) -> &::std::option::Option<::std::string::String> {
         &self.code_build_service_role
     }
-    /// <p>Information about the compute resources the build project will use.</p>
-    /// <ul>
-    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li>
+    /// <p>Information about the compute resources the build project will use.</p> 
+    /// <ul> 
+    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li> 
     /// </ul>
     pub fn compute_type(mut self, input: crate::types::ComputeType) -> Self {
         self.compute_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Information about the compute resources the build project will use.</p>
-    /// <ul>
-    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li>
+    /// <p>Information about the compute resources the build project will use.</p> 
+    /// <ul> 
+    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li> 
     /// </ul>
     pub fn set_compute_type(mut self, input: ::std::option::Option<crate::types::ComputeType>) -> Self {
-        self.compute_type = input;
-        self
+        self.compute_type = input; self
     }
-    /// <p>Information about the compute resources the build project will use.</p>
-    /// <ul>
-    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li>
-    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li>
+    /// <p>Information about the compute resources the build project will use.</p> 
+    /// <ul> 
+    /// <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li> 
+    /// <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li> 
     /// </ul>
     pub fn get_compute_type(&self) -> &::std::option::Option<crate::types::ComputeType> {
         &self.compute_type
@@ -133,8 +128,7 @@ impl BuildConfigurationBuilder {
     }
     /// <p>The ID of the Docker image to use for this build project.</p>
     pub fn set_image(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.image = input;
-        self
+        self.image = input; self
     }
     /// <p>The ID of the Docker image to use for this build project.</p>
     pub fn get_image(&self) -> &::std::option::Option<::std::string::String> {
@@ -147,8 +141,7 @@ impl BuildConfigurationBuilder {
     }
     /// <p>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.</p>
     pub fn set_timeout_in_minutes(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.timeout_in_minutes = input;
-        self
+        self.timeout_in_minutes = input; self
     }
     /// <p>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.</p>
     pub fn get_timeout_in_minutes(&self) -> &::std::option::Option<i32> {
@@ -159,22 +152,26 @@ impl BuildConfigurationBuilder {
     /// - [`code_build_service_role`](crate::types::builders::BuildConfigurationBuilder::code_build_service_role)
     /// - [`image`](crate::types::builders::BuildConfigurationBuilder::image)
     pub fn build(self) -> ::std::result::Result<crate::types::BuildConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::BuildConfiguration {
-            artifact_name: self.artifact_name,
-            code_build_service_role: self.code_build_service_role.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "code_build_service_role",
-                    "code_build_service_role was not specified but it is required when building BuildConfiguration",
-                )
-            })?,
-            compute_type: self.compute_type,
-            image: self.image.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "image",
-                    "image was not specified but it is required when building BuildConfiguration",
-                )
-            })?,
-            timeout_in_minutes: self.timeout_in_minutes,
-        })
+        ::std::result::Result::Ok(
+            crate::types::BuildConfiguration {
+                artifact_name: self.artifact_name
+                ,
+                code_build_service_role: self.code_build_service_role
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("code_build_service_role", "code_build_service_role was not specified but it is required when building BuildConfiguration")
+                    )?
+                ,
+                compute_type: self.compute_type
+                ,
+                image: self.image
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("image", "image was not specified but it is required when building BuildConfiguration")
+                    )?
+                ,
+                timeout_in_minutes: self.timeout_in_minutes
+                ,
+            }
+        )
     }
 }
+

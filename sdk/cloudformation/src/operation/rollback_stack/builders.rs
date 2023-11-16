@@ -5,63 +5,59 @@ pub use crate::operation::rollback_stack::_rollback_stack_input::RollbackStackIn
 
 impl RollbackStackInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::rollback_stack::RollbackStackOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::rollback_stack::RollbackStackError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.rollback_stack();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::rollback_stack::RollbackStackOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::rollback_stack::RollbackStackError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.rollback_stack();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `RollbackStack`.
-///
-/// <p>When specifying <code>RollbackStack</code>, you preserve the state of previously provisioned resources when an operation fails. You can check the status of the stack through the <code>DescribeStacks</code> operation.</p>
-/// <p>Rolls back the specified stack to the last known stable state from <code>CREATE_FAILED</code> or <code>UPDATE_FAILED</code> stack statuses.</p>
-/// <p>This operation will delete a stack if it doesn't contain a last known stable state. A last known stable state includes any status in a <code>*_COMPLETE</code>. This includes the following stack statuses.</p>
-/// <ul>
-/// <li> <p> <code>CREATE_COMPLETE</code> </p> </li>
-/// <li> <p> <code>UPDATE_COMPLETE</code> </p> </li>
-/// <li> <p> <code>UPDATE_ROLLBACK_COMPLETE</code> </p> </li>
-/// <li> <p> <code>IMPORT_COMPLETE</code> </p> </li>
-/// <li> <p> <code>IMPORT_ROLLBACK_COMPLETE</code> </p> </li>
+/// 
+/// <p>When specifying <code>RollbackStack</code>, you preserve the state of previously provisioned resources when an operation fails. You can check the status of the stack through the <code>DescribeStacks</code> operation.</p> 
+/// <p>Rolls back the specified stack to the last known stable state from <code>CREATE_FAILED</code> or <code>UPDATE_FAILED</code> stack statuses.</p> 
+/// <p>This operation will delete a stack if it doesn't contain a last known stable state. A last known stable state includes any status in a <code>*_COMPLETE</code>. This includes the following stack statuses.</p> 
+/// <ul> 
+/// <li> <p> <code>CREATE_COMPLETE</code> </p> </li> 
+/// <li> <p> <code>UPDATE_COMPLETE</code> </p> </li> 
+/// <li> <p> <code>UPDATE_ROLLBACK_COMPLETE</code> </p> </li> 
+/// <li> <p> <code>IMPORT_COMPLETE</code> </p> </li> 
+/// <li> <p> <code>IMPORT_ROLLBACK_COMPLETE</code> </p> </li> 
 /// </ul>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct RollbackStackFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::rollback_stack::builders::RollbackStackInputBuilder,
+                    inner: crate::operation::rollback_stack::builders::RollbackStackInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::rollback_stack::RollbackStackOutput,
-        crate::operation::rollback_stack::RollbackStackError,
-    > for RollbackStackFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::rollback_stack::RollbackStackOutput,
-            crate::operation::rollback_stack::RollbackStackError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::rollback_stack::RollbackStackOutput,
+                    crate::operation::rollback_stack::RollbackStackError,
+                > for RollbackStackFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::rollback_stack::RollbackStackOutput,
+                        crate::operation::rollback_stack::RollbackStackError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl RollbackStackFluentBuilder {
     /// Creates a new `RollbackStack`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -70,53 +66,44 @@ impl RollbackStackFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::rollback_stack::RollbackStackOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::rollback_stack::RollbackStackError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::rollback_stack::RollbackStack::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::rollback_stack::RollbackStack::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::rollback_stack::RollbackStackOutput,
-        crate::operation::rollback_stack::RollbackStackError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::rollback_stack::RollbackStackOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::rollback_stack::RollbackStackError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::rollback_stack::RollbackStack::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::rollback_stack::RollbackStack::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::rollback_stack::RollbackStackOutput, crate::operation::rollback_stack::RollbackStackError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name that's associated with the stack.</p>
     pub fn stack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.stack_name(input.into());
@@ -159,21 +146,22 @@ impl RollbackStackFluentBuilder {
     pub fn get_client_request_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_client_request_token()
     }
-    /// <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p>
+    /// <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn retain_except_on_create(mut self, input: bool) -> Self {
         self.inner = self.inner.retain_except_on_create(input);
         self
     }
-    /// <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p>
+    /// <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn set_retain_except_on_create(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_retain_except_on_create(input);
         self
     }
-    /// <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p>
+    /// <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn get_retain_except_on_create(&self) -> &::std::option::Option<bool> {
         self.inner.get_retain_except_on_create()
     }
 }
+

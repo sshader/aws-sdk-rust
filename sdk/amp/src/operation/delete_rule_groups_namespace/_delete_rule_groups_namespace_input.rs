@@ -3,7 +3,7 @@
 /// Represents the input of a DeleteRuleGroupsNamespace operation.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteRuleGroupsNamespaceInput {
+pub struct DeleteRuleGroupsNamespaceInput  {
     /// The ID of the workspace to delete rule group definition.
     pub workspace_id: ::std::option::Option<::std::string::String>,
     /// The rule groups namespace name.
@@ -11,17 +11,17 @@ pub struct DeleteRuleGroupsNamespaceInput {
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
     pub client_token: ::std::option::Option<::std::string::String>,
 }
-impl DeleteRuleGroupsNamespaceInput {
+impl  DeleteRuleGroupsNamespaceInput  {
     /// The ID of the workspace to delete rule group definition.
-    pub fn workspace_id(&self) -> ::std::option::Option<&str> {
+    pub fn workspace_id(&self) -> ::std::option::Option<& str> {
         self.workspace_id.as_deref()
     }
     /// The rule groups namespace name.
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
 }
@@ -49,8 +49,7 @@ impl DeleteRuleGroupsNamespaceInputBuilder {
     }
     /// The ID of the workspace to delete rule group definition.
     pub fn set_workspace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workspace_id = input;
-        self
+        self.workspace_id = input; self
     }
     /// The ID of the workspace to delete rule group definition.
     pub fn get_workspace_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -64,8 +63,7 @@ impl DeleteRuleGroupsNamespaceInputBuilder {
     }
     /// The rule groups namespace name.
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// The rule groups namespace name.
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -78,24 +76,24 @@ impl DeleteRuleGroupsNamespaceInputBuilder {
     }
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
     /// Consumes the builder and constructs a [`DeleteRuleGroupsNamespaceInput`](crate::operation::delete_rule_groups_namespace::DeleteRuleGroupsNamespaceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_rule_groups_namespace::DeleteRuleGroupsNamespaceInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_rule_groups_namespace::DeleteRuleGroupsNamespaceInput {
-            workspace_id: self.workspace_id,
-            name: self.name,
-            client_token: self.client_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_rule_groups_namespace::DeleteRuleGroupsNamespaceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_rule_groups_namespace::DeleteRuleGroupsNamespaceInput {
+                workspace_id: self.workspace_id
+                ,
+                name: self.name
+                ,
+                client_token: self.client_token
+                ,
+            }
+        )
     }
 }
+

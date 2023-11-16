@@ -5,56 +5,52 @@ pub use crate::operation::modify_endpoint::_modify_endpoint_input::ModifyEndpoin
 
 impl ModifyEndpointInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::modify_endpoint::ModifyEndpointOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_endpoint::ModifyEndpointError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.modify_endpoint();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::modify_endpoint::ModifyEndpointOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::modify_endpoint::ModifyEndpointError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.modify_endpoint();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ModifyEndpoint`.
-///
-/// <p>Modifies the specified endpoint.</p> <note>
-/// <p>For a MySQL source or target endpoint, don't explicitly specify the database using the <code>DatabaseName</code> request parameter on the <code>ModifyEndpoint</code> API call. Specifying <code>DatabaseName</code> when you modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the DMS task.</p>
+/// 
+/// <p>Modifies the specified endpoint.</p> <note> 
+/// <p>For a MySQL source or target endpoint, don't explicitly specify the database using the <code>DatabaseName</code> request parameter on the <code>ModifyEndpoint</code> API call. Specifying <code>DatabaseName</code> when you modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the DMS task.</p> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ModifyEndpointFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::modify_endpoint::builders::ModifyEndpointInputBuilder,
+                    inner: crate::operation::modify_endpoint::builders::ModifyEndpointInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::modify_endpoint::ModifyEndpointOutput,
-        crate::operation::modify_endpoint::ModifyEndpointError,
-    > for ModifyEndpointFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::modify_endpoint::ModifyEndpointOutput,
-            crate::operation::modify_endpoint::ModifyEndpointError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::modify_endpoint::ModifyEndpointOutput,
+                    crate::operation::modify_endpoint::ModifyEndpointError,
+                > for ModifyEndpointFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::modify_endpoint::ModifyEndpointOutput,
+                        crate::operation::modify_endpoint::ModifyEndpointError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ModifyEndpointFluentBuilder {
     /// Creates a new `ModifyEndpoint`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -63,53 +59,44 @@ impl ModifyEndpointFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::modify_endpoint::ModifyEndpointOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_endpoint::ModifyEndpointError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::modify_endpoint::ModifyEndpoint::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::modify_endpoint::ModifyEndpoint::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::modify_endpoint::ModifyEndpointOutput,
-        crate::operation::modify_endpoint::ModifyEndpointError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::modify_endpoint::ModifyEndpointOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::modify_endpoint::ModifyEndpointError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::modify_endpoint::ModifyEndpoint::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::modify_endpoint::ModifyEndpoint::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::modify_endpoint::ModifyEndpointOutput, crate::operation::modify_endpoint::ModifyEndpointError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
     pub fn endpoint_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.endpoint_arn(input.into());
@@ -334,37 +321,37 @@ impl ModifyEndpointFluentBuilder {
     pub fn get_s3_settings(&self) -> &::std::option::Option<crate::types::S3Settings> {
         self.inner.get_s3_settings()
     }
-    /// <p>The settings in JSON format for the DMS transfer type of source endpoint. </p>
-    /// <p>Attributes include the following:</p>
-    /// <ul>
-    /// <li> <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p> </li>
-    /// <li> <p>BucketName - The name of the S3 bucket to use.</p> </li>
-    /// </ul>
-    /// <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string ,BucketName=string</code> </p>
+    /// <p>The settings in JSON format for the DMS transfer type of source endpoint. </p> 
+    /// <p>Attributes include the following:</p> 
+    /// <ul> 
+    /// <li> <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p> </li> 
+    /// <li> <p>BucketName - The name of the S3 bucket to use.</p> </li> 
+    /// </ul> 
+    /// <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string ,BucketName=string</code> </p> 
     /// <p>JSON syntax for these settings is as follows: <code>{ "ServiceAccessRoleArn": "string", "BucketName": "string"} </code> </p>
     pub fn dms_transfer_settings(mut self, input: crate::types::DmsTransferSettings) -> Self {
         self.inner = self.inner.dms_transfer_settings(input);
         self
     }
-    /// <p>The settings in JSON format for the DMS transfer type of source endpoint. </p>
-    /// <p>Attributes include the following:</p>
-    /// <ul>
-    /// <li> <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p> </li>
-    /// <li> <p>BucketName - The name of the S3 bucket to use.</p> </li>
-    /// </ul>
-    /// <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string ,BucketName=string</code> </p>
+    /// <p>The settings in JSON format for the DMS transfer type of source endpoint. </p> 
+    /// <p>Attributes include the following:</p> 
+    /// <ul> 
+    /// <li> <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p> </li> 
+    /// <li> <p>BucketName - The name of the S3 bucket to use.</p> </li> 
+    /// </ul> 
+    /// <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string ,BucketName=string</code> </p> 
     /// <p>JSON syntax for these settings is as follows: <code>{ "ServiceAccessRoleArn": "string", "BucketName": "string"} </code> </p>
     pub fn set_dms_transfer_settings(mut self, input: ::std::option::Option<crate::types::DmsTransferSettings>) -> Self {
         self.inner = self.inner.set_dms_transfer_settings(input);
         self
     }
-    /// <p>The settings in JSON format for the DMS transfer type of source endpoint. </p>
-    /// <p>Attributes include the following:</p>
-    /// <ul>
-    /// <li> <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p> </li>
-    /// <li> <p>BucketName - The name of the S3 bucket to use.</p> </li>
-    /// </ul>
-    /// <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string ,BucketName=string</code> </p>
+    /// <p>The settings in JSON format for the DMS transfer type of source endpoint. </p> 
+    /// <p>Attributes include the following:</p> 
+    /// <ul> 
+    /// <li> <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p> </li> 
+    /// <li> <p>BucketName - The name of the S3 bucket to use.</p> </li> 
+    /// </ul> 
+    /// <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string ,BucketName=string</code> </p> 
     /// <p>JSON syntax for these settings is as follows: <code>{ "ServiceAccessRoleArn": "string", "BucketName": "string"} </code> </p>
     pub fn get_dms_transfer_settings(&self) -> &::std::option::Option<crate::types::DmsTransferSettings> {
         self.inner.get_dms_transfer_settings()
@@ -565,34 +552,34 @@ impl ModifyEndpointFluentBuilder {
     pub fn get_redis_settings(&self) -> &::std::option::Option<crate::types::RedisSettings> {
         self.inner.get_redis_settings()
     }
-    /// <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all existing endpoint settings with the exact settings that you specify in this call. If this attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p>
-    /// <ul>
-    /// <li> <p>It replaces any endpoint settings that already exist with new values, for settings with the same names.</p> </li>
-    /// <li> <p>It creates new endpoint settings that you specify in the call, for settings with different names. </p> </li>
-    /// </ul>
-    /// <p>For example, if you call <code>create-endpoint ... --endpoint-settings '{"a":1}' ...</code>, the endpoint has the following endpoint settings: <code>'{"a":1}'</code>. If you then call <code>modify-endpoint ... --endpoint-settings '{"b":2}' ...</code> for the same endpoint, the endpoint has the following settings: <code>'{"a":1,"b":2}'</code>. </p>
+    /// <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all existing endpoint settings with the exact settings that you specify in this call. If this attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p> 
+    /// <ul> 
+    /// <li> <p>It replaces any endpoint settings that already exist with new values, for settings with the same names.</p> </li> 
+    /// <li> <p>It creates new endpoint settings that you specify in the call, for settings with different names. </p> </li> 
+    /// </ul> 
+    /// <p>For example, if you call <code>create-endpoint ... --endpoint-settings '{"a":1}' ...</code>, the endpoint has the following endpoint settings: <code>'{"a":1}'</code>. If you then call <code>modify-endpoint ... --endpoint-settings '{"b":2}' ...</code> for the same endpoint, the endpoint has the following settings: <code>'{"a":1,"b":2}'</code>. </p> 
     /// <p>However, suppose that you follow this with a call to <code>modify-endpoint ... --endpoint-settings '{"b":2}' --exact-settings ...</code> for that same endpoint again. Then the endpoint has the following settings: <code>'{"b":2}'</code>. All existing settings are replaced with the exact settings that you specify. </p>
     pub fn exact_settings(mut self, input: bool) -> Self {
         self.inner = self.inner.exact_settings(input);
         self
     }
-    /// <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all existing endpoint settings with the exact settings that you specify in this call. If this attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p>
-    /// <ul>
-    /// <li> <p>It replaces any endpoint settings that already exist with new values, for settings with the same names.</p> </li>
-    /// <li> <p>It creates new endpoint settings that you specify in the call, for settings with different names. </p> </li>
-    /// </ul>
-    /// <p>For example, if you call <code>create-endpoint ... --endpoint-settings '{"a":1}' ...</code>, the endpoint has the following endpoint settings: <code>'{"a":1}'</code>. If you then call <code>modify-endpoint ... --endpoint-settings '{"b":2}' ...</code> for the same endpoint, the endpoint has the following settings: <code>'{"a":1,"b":2}'</code>. </p>
+    /// <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all existing endpoint settings with the exact settings that you specify in this call. If this attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p> 
+    /// <ul> 
+    /// <li> <p>It replaces any endpoint settings that already exist with new values, for settings with the same names.</p> </li> 
+    /// <li> <p>It creates new endpoint settings that you specify in the call, for settings with different names. </p> </li> 
+    /// </ul> 
+    /// <p>For example, if you call <code>create-endpoint ... --endpoint-settings '{"a":1}' ...</code>, the endpoint has the following endpoint settings: <code>'{"a":1}'</code>. If you then call <code>modify-endpoint ... --endpoint-settings '{"b":2}' ...</code> for the same endpoint, the endpoint has the following settings: <code>'{"a":1,"b":2}'</code>. </p> 
     /// <p>However, suppose that you follow this with a call to <code>modify-endpoint ... --endpoint-settings '{"b":2}' --exact-settings ...</code> for that same endpoint again. Then the endpoint has the following settings: <code>'{"b":2}'</code>. All existing settings are replaced with the exact settings that you specify. </p>
     pub fn set_exact_settings(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_exact_settings(input);
         self
     }
-    /// <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all existing endpoint settings with the exact settings that you specify in this call. If this attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p>
-    /// <ul>
-    /// <li> <p>It replaces any endpoint settings that already exist with new values, for settings with the same names.</p> </li>
-    /// <li> <p>It creates new endpoint settings that you specify in the call, for settings with different names. </p> </li>
-    /// </ul>
-    /// <p>For example, if you call <code>create-endpoint ... --endpoint-settings '{"a":1}' ...</code>, the endpoint has the following endpoint settings: <code>'{"a":1}'</code>. If you then call <code>modify-endpoint ... --endpoint-settings '{"b":2}' ...</code> for the same endpoint, the endpoint has the following settings: <code>'{"a":1,"b":2}'</code>. </p>
+    /// <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all existing endpoint settings with the exact settings that you specify in this call. If this attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p> 
+    /// <ul> 
+    /// <li> <p>It replaces any endpoint settings that already exist with new values, for settings with the same names.</p> </li> 
+    /// <li> <p>It creates new endpoint settings that you specify in the call, for settings with different names. </p> </li> 
+    /// </ul> 
+    /// <p>For example, if you call <code>create-endpoint ... --endpoint-settings '{"a":1}' ...</code>, the endpoint has the following endpoint settings: <code>'{"a":1}'</code>. If you then call <code>modify-endpoint ... --endpoint-settings '{"b":2}' ...</code> for the same endpoint, the endpoint has the following settings: <code>'{"a":1,"b":2}'</code>. </p> 
     /// <p>However, suppose that you follow this with a call to <code>modify-endpoint ... --endpoint-settings '{"b":2}' --exact-settings ...</code> for that same endpoint again. Then the endpoint has the following settings: <code>'{"b":2}'</code>. All existing settings are replaced with the exact settings that you specify. </p>
     pub fn get_exact_settings(&self) -> &::std::option::Option<bool> {
         self.inner.get_exact_settings()
@@ -626,3 +613,4 @@ impl ModifyEndpointFluentBuilder {
         self.inner.get_timestream_settings()
     }
 }
+

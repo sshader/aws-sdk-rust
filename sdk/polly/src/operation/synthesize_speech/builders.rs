@@ -5,54 +5,50 @@ pub use crate::operation::synthesize_speech::_synthesize_speech_input::Synthesiz
 
 impl SynthesizeSpeechInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::synthesize_speech::SynthesizeSpeechOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::synthesize_speech::SynthesizeSpeechError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.synthesize_speech();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::synthesize_speech::SynthesizeSpeechOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::synthesize_speech::SynthesizeSpeechError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.synthesize_speech();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `SynthesizeSpeech`.
-///
+/// 
 /// <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct SynthesizeSpeechFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::synthesize_speech::builders::SynthesizeSpeechInputBuilder,
+                    inner: crate::operation::synthesize_speech::builders::SynthesizeSpeechInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::synthesize_speech::SynthesizeSpeechOutput,
-        crate::operation::synthesize_speech::SynthesizeSpeechError,
-    > for SynthesizeSpeechFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::synthesize_speech::SynthesizeSpeechOutput,
-            crate::operation::synthesize_speech::SynthesizeSpeechError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::synthesize_speech::SynthesizeSpeechOutput,
+                    crate::operation::synthesize_speech::SynthesizeSpeechError,
+                > for SynthesizeSpeechFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::synthesize_speech::SynthesizeSpeechOutput,
+                        crate::operation::synthesize_speech::SynthesizeSpeechError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl SynthesizeSpeechFluentBuilder {
     /// Creates a new `SynthesizeSpeech`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,166 +57,138 @@ impl SynthesizeSpeechFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::synthesize_speech::SynthesizeSpeechOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::synthesize_speech::SynthesizeSpeechError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::synthesize_speech::SynthesizeSpeech::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::synthesize_speech::SynthesizeSpeech::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::synthesize_speech::SynthesizeSpeechOutput,
-        crate::operation::synthesize_speech::SynthesizeSpeechError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    ///
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::synthesize_speech::SynthesizeSpeechOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::synthesize_speech::SynthesizeSpeechError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::synthesize_speech::SynthesizeSpeech::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::synthesize_speech::SynthesizeSpeech::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::synthesize_speech::SynthesizeSpeechOutput, crate::operation::synthesize_speech::SynthesizeSpeechError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// 
     /// Creates a presigned request for this operation.
-    ///
+    /// 
     /// The `presigning_config` provides additional presigning-specific config values, such as the
     /// amount of time the request should be valid for after creation.
-    ///
+    /// 
     /// Presigned requests can be given to other users or applications to access a resource or perform
     /// an operation without having access to the AWS security credentials.
-    ///
+    /// 
     /// _Important:_ If you're using credentials that can expire, such as those from STS AssumeRole or SSO, then
     /// the presigned request can only be valid for as long as the credentials used to create it are.
-    ///
+    /// 
     #[allow(unused_mut)]
-    pub async fn presigned(
-        mut self,
-        presigning_config: crate::presigning::PresigningConfig,
-    ) -> ::std::result::Result<
-        crate::presigning::PresignedRequest,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::synthesize_speech::SynthesizeSpeechError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
+                        pub async fn presigned(
+                            mut self,
+                            presigning_config: crate::presigning::PresigningConfig,
+                        ) -> ::std::result::Result<crate::presigning::PresignedRequest, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::synthesize_speech::SynthesizeSpeechError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
         #[derive(::std::fmt::Debug)]
-        struct AlternatePresigningSerializerRuntimePlugin;
-        impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AlternatePresigningSerializerRuntimePlugin {
-            fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-                let mut cfg = ::aws_smithy_types::config_bag::Layer::new("presigning_serializer");
-                cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                    crate::operation::synthesize_speech::SynthesizeSpeechPresigningRequestSerializer,
-                ));
-                ::std::option::Option::Some(cfg.freeze())
-            }
-        }
-
-        let runtime_plugins = crate::operation::synthesize_speech::SynthesizeSpeech::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        )
-        .with_client_plugin(crate::presigning_interceptors::SigV4PresigningRuntimePlugin::new(
-            presigning_config,
-            ::aws_sigv4::http_request::SignableBody::Bytes(b""),
-        ))
-        .with_operation_plugin(AlternatePresigningSerializerRuntimePlugin);
-
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let mut context = crate::operation::synthesize_speech::SynthesizeSpeech::orchestrate_with_stop_point(
-            &runtime_plugins,
-            input,
-            ::aws_smithy_runtime::client::orchestrator::StopPoint::BeforeTransmit,
-        )
-        .await
-        .map_err(|err| {
-            err.map_service_error(|err| {
-                err.downcast::<crate::operation::synthesize_speech::SynthesizeSpeechError>()
-                    .expect("correct error type")
-            })
-        })?;
-        let request = context.take_request().expect("request set before transmit");
-        crate::presigning::PresignedRequest::new(request).map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+                                struct AlternatePresigningSerializerRuntimePlugin;
+                                impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AlternatePresigningSerializerRuntimePlugin {
+                                    fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
+                                        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("presigning_serializer");
+                                        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(crate::operation::synthesize_speech::SynthesizeSpeechPresigningRequestSerializer));
+                                        ::std::option::Option::Some(cfg.freeze())
+                                    }
+                                }
+        
+                    let runtime_plugins = crate::operation::synthesize_speech::SynthesizeSpeech::operation_runtime_plugins(
+                        self.handle.runtime_plugins.clone(),
+                        &self.handle.conf,
+                        self.config_override,
+                    )
+                        .with_client_plugin(crate::presigning_interceptors::SigV4PresigningRuntimePlugin::new(presigning_config, ::aws_sigv4::http_request::SignableBody::Bytes(b"")))
+                        .with_operation_plugin(AlternatePresigningSerializerRuntimePlugin);
+        
+                    let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                    let mut context = crate::operation::synthesize_speech::SynthesizeSpeech::orchestrate_with_stop_point(&runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::BeforeTransmit)
+                        .await
+                        .map_err(|err| {
+                            err.map_service_error(|err| {
+                                err.downcast::<crate::operation::synthesize_speech::SynthesizeSpeechError>().expect("correct error type")
+                            })
+                        })?;
+                    let request = context.take_request().expect("request set before transmit");
+                    crate::presigning::PresignedRequest::new(request).map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
     }
-    /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p>
-    /// <p> <b>NTTS-only voices</b> </p>
-    /// <p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p>
-    /// <p>Type: String</p>
-    /// <p>Valid Values: <code>standard</code> | <code>neural</code> </p>
-    /// <p>Required: Yes</p>
-    /// <p> <b>Standard voices</b> </p>
+    /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p> 
+    /// <p> <b>NTTS-only voices</b> </p> 
+    /// <p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p> 
+    /// <p>Type: String</p> 
+    /// <p>Valid Values: <code>standard</code> | <code>neural</code> </p> 
+    /// <p>Required: Yes</p> 
+    /// <p> <b>Standard voices</b> </p> 
     /// <p>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>. If the engine is not specified, or is set to <code>standard</code> and an NTTS-only voice is selected, this will result in an error. </p>
     pub fn engine(mut self, input: crate::types::Engine) -> Self {
         self.inner = self.inner.engine(input);
         self
     }
-    /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p>
-    /// <p> <b>NTTS-only voices</b> </p>
-    /// <p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p>
-    /// <p>Type: String</p>
-    /// <p>Valid Values: <code>standard</code> | <code>neural</code> </p>
-    /// <p>Required: Yes</p>
-    /// <p> <b>Standard voices</b> </p>
+    /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p> 
+    /// <p> <b>NTTS-only voices</b> </p> 
+    /// <p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p> 
+    /// <p>Type: String</p> 
+    /// <p>Valid Values: <code>standard</code> | <code>neural</code> </p> 
+    /// <p>Required: Yes</p> 
+    /// <p> <b>Standard voices</b> </p> 
     /// <p>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>. If the engine is not specified, or is set to <code>standard</code> and an NTTS-only voice is selected, this will result in an error. </p>
     pub fn set_engine(mut self, input: ::std::option::Option<crate::types::Engine>) -> Self {
         self.inner = self.inner.set_engine(input);
         self
     }
-    /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p>
-    /// <p> <b>NTTS-only voices</b> </p>
-    /// <p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p>
-    /// <p>Type: String</p>
-    /// <p>Valid Values: <code>standard</code> | <code>neural</code> </p>
-    /// <p>Required: Yes</p>
-    /// <p> <b>Standard voices</b> </p>
+    /// <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p> 
+    /// <p> <b>NTTS-only voices</b> </p> 
+    /// <p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p> 
+    /// <p>Type: String</p> 
+    /// <p>Valid Values: <code>standard</code> | <code>neural</code> </p> 
+    /// <p>Required: Yes</p> 
+    /// <p> <b>Standard voices</b> </p> 
     /// <p>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>. If the engine is not specified, or is set to <code>standard</code> and an NTTS-only voice is selected, this will result in an error. </p>
     pub fn get_engine(&self) -> &::std::option::Option<crate::types::Engine> {
         self.inner.get_engine()
     }
-    /// <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p>
+    /// <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> 
     /// <p>If a bilingual voice is used and no language code is specified, Amazon Polly uses the default language of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>
     pub fn language_code(mut self, input: crate::types::LanguageCode) -> Self {
         self.inner = self.inner.language_code(input);
         self
     }
-    /// <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p>
+    /// <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> 
     /// <p>If a bilingual voice is used and no language code is specified, Amazon Polly uses the default language of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>
     pub fn set_language_code(mut self, input: ::std::option::Option<crate::types::LanguageCode>) -> Self {
         self.inner = self.inner.set_language_code(input);
         self
     }
-    /// <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p>
+    /// <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> 
     /// <p>If a bilingual voice is used and no language code is specified, Amazon Polly uses the default language of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>
     pub fn get_language_code(&self) -> &::std::option::Option<crate::types::LanguageCode> {
         self.inner.get_language_code()
@@ -235,47 +203,47 @@ impl SynthesizeSpeechFluentBuilder {
         self
     }
     /// <p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html">PutLexicon</a>.</p>
-    pub fn set_lexicon_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_lexicon_names(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_lexicon_names(input);
         self
     }
     /// <p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html">PutLexicon</a>.</p>
-    pub fn get_lexicon_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_lexicon_names(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_lexicon_names()
     }
-    /// <p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
+    /// <p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> 
     /// <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>
     pub fn output_format(mut self, input: crate::types::OutputFormat) -> Self {
         self.inner = self.inner.output_format(input);
         self
     }
-    /// <p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
+    /// <p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> 
     /// <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>
     pub fn set_output_format(mut self, input: ::std::option::Option<crate::types::OutputFormat>) -> Self {
         self.inner = self.inner.set_output_format(input);
         self
     }
-    /// <p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
+    /// <p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> 
     /// <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>
     pub fn get_output_format(&self) -> &::std::option::Option<crate::types::OutputFormat> {
         self.inner.get_output_format()
     }
-    /// <p>The audio frequency specified in Hz.</p>
-    /// <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p>
+    /// <p>The audio frequency specified in Hz.</p> 
+    /// <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p> 
     /// <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
     pub fn sample_rate(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sample_rate(input.into());
         self
     }
-    /// <p>The audio frequency specified in Hz.</p>
-    /// <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p>
+    /// <p>The audio frequency specified in Hz.</p> 
+    /// <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p> 
     /// <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
     pub fn set_sample_rate(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sample_rate(input);
         self
     }
-    /// <p>The audio frequency specified in Hz.</p>
-    /// <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p>
+    /// <p>The audio frequency specified in Hz.</p> 
+    /// <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".</p> 
     /// <p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
     pub fn get_sample_rate(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_sample_rate()
@@ -290,12 +258,12 @@ impl SynthesizeSpeechFluentBuilder {
         self
     }
     /// <p>The type of speech marks returned for the input text.</p>
-    pub fn set_speech_mark_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SpeechMarkType>>) -> Self {
+    pub fn set_speech_mark_types(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::SpeechMarkType>>) -> Self {
         self.inner = self.inner.set_speech_mark_types(input);
         self
     }
     /// <p>The type of speech marks returned for the input text.</p>
-    pub fn get_speech_mark_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SpeechMarkType>> {
+    pub fn get_speech_mark_types(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::SpeechMarkType>> {
         self.inner.get_speech_mark_types()
     }
     /// <p> Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text. </p>
@@ -341,3 +309,4 @@ impl SynthesizeSpeechFluentBuilder {
         self.inner.get_voice_id()
     }
 }
+

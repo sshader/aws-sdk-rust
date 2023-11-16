@@ -3,31 +3,31 @@
 /// <p>Contains details of a table archival operation.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ArchivalSummary {
+pub struct ArchivalSummary  {
     /// <p>The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.</p>
     pub archival_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p>
-    /// <ul>
-    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li>
+    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p> 
+    /// <ul> 
+    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li> 
     /// </ul>
     pub archival_reason: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.</p>
     pub archival_backup_arn: ::std::option::Option<::std::string::String>,
 }
-impl ArchivalSummary {
+impl  ArchivalSummary  {
     /// <p>The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.</p>
-    pub fn archival_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn archival_date_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.archival_date_time.as_ref()
     }
-    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p>
-    /// <ul>
-    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li>
+    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p> 
+    /// <ul> 
+    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li> 
     /// </ul>
-    pub fn archival_reason(&self) -> ::std::option::Option<&str> {
+    pub fn archival_reason(&self) -> ::std::option::Option<& str> {
         self.archival_reason.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.</p>
-    pub fn archival_backup_arn(&self) -> ::std::option::Option<&str> {
+    pub fn archival_backup_arn(&self) -> ::std::option::Option<& str> {
         self.archival_backup_arn.as_deref()
     }
 }
@@ -54,32 +54,30 @@ impl ArchivalSummaryBuilder {
     }
     /// <p>The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.</p>
     pub fn set_archival_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.archival_date_time = input;
-        self
+        self.archival_date_time = input; self
     }
     /// <p>The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.</p>
     pub fn get_archival_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.archival_date_time
     }
-    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p>
-    /// <ul>
-    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li>
+    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p> 
+    /// <ul> 
+    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li> 
     /// </ul>
     pub fn archival_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.archival_reason = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p>
-    /// <ul>
-    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li>
+    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p> 
+    /// <ul> 
+    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li> 
     /// </ul>
     pub fn set_archival_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.archival_reason = input;
-        self
+        self.archival_reason = input; self
     }
-    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p>
-    /// <ul>
-    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li>
+    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p> 
+    /// <ul> 
+    /// <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li> 
     /// </ul>
     pub fn get_archival_reason(&self) -> &::std::option::Option<::std::string::String> {
         &self.archival_reason
@@ -91,8 +89,7 @@ impl ArchivalSummaryBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.</p>
     pub fn set_archival_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.archival_backup_arn = input;
-        self
+        self.archival_backup_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.</p>
     pub fn get_archival_backup_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -101,9 +98,13 @@ impl ArchivalSummaryBuilder {
     /// Consumes the builder and constructs a [`ArchivalSummary`](crate::types::ArchivalSummary).
     pub fn build(self) -> crate::types::ArchivalSummary {
         crate::types::ArchivalSummary {
-            archival_date_time: self.archival_date_time,
-            archival_reason: self.archival_reason,
-            archival_backup_arn: self.archival_backup_arn,
+            archival_date_time: self.archival_date_time
+            ,
+            archival_reason: self.archival_reason
+            ,
+            archival_backup_arn: self.archival_backup_arn
+            ,
         }
     }
 }
+

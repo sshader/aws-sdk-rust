@@ -10,313 +10,234 @@ impl GetDashboardEmbedUrl {
         Self
     }
     pub(crate) async fn orchestrate(
-        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput,
-    ) -> ::std::result::Result<
-        crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >| {
-            err.map_service_error(|err| {
-                err.downcast::<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError>()
-                    .expect("correct error type")
-            })
-        };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
-        let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(
-            output
-                .downcast::<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlOutput>()
-                .expect("correct output type"),
-        )
-    }
-
-    pub(crate) async fn orchestrate_with_stop_point(
-        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput,
-        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
-    ) -> ::std::result::Result<
-        ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("quicksight", "GetDashboardEmbedUrl", input, runtime_plugins, stop_point)
-            .await
-    }
-
-    pub(crate) fn operation_runtime_plugins(
-        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
-        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
-        runtime_plugins = runtime_plugins.with_client_plugin(crate::auth_plugin::DefaultAuthOptionsPlugin::new(vec![
-            ::aws_runtime::auth::sigv4::SCHEME_ID,
-        ]));
-        if let ::std::option::Option::Some(config_override) = config_override {
-            for plugin in config_override.runtime_plugins.iter().cloned() {
-                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
-            }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
-        }
-        runtime_plugins
-    }
+                        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        input: crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput,
+                    ) -> ::std::result::Result<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<::aws_smithy_runtime_api::client::interceptors::context::Error, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>| {
+                            err.map_service_error(|err| {
+                                err.downcast::<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError>().expect("correct error type")
+                            })
+                        };
+                        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+                            .await
+                            .map_err(map_err)?;
+                        let output = context.finalize().map_err(map_err)?;
+                        ::std::result::Result::Ok(output.downcast::<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlOutput>().expect("correct output type"))
+                    }
+    
+                    pub(crate) async fn orchestrate_with_stop_point(
+                        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        input: crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput,
+                        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+                    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext, ::aws_smithy_runtime_api::client::result::SdkError<::aws_smithy_runtime_api::client::interceptors::context::Error, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
+                        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
+                            "quicksight",
+                            "GetDashboardEmbedUrl",
+                            input,
+                            runtime_plugins,
+                            stop_point
+                        ).await
+                    }
+    
+                    pub(crate) fn operation_runtime_plugins(
+                        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        client_config: &crate::config::Config,
+                        config_override: ::std::option::Option<crate::config::Builder>,
+                    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+                        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+                        runtime_plugins = runtime_plugins
+                                    .with_client_plugin(crate::auth_plugin::DefaultAuthOptionsPlugin::new(vec![::aws_runtime::auth::sigv4::SCHEME_ID]));
+                        if let ::std::option::Option::Some(config_override) = config_override {
+                            for plugin in config_override.runtime_plugins.iter().cloned() {
+                                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+                            }
+                            runtime_plugins = runtime_plugins.with_operation_plugin(
+                                crate::config::ConfigOverrideRuntimePlugin::new(config_override, client_config.config.clone(), &client_config.runtime_components)
+                            );
+                        }
+                        runtime_plugins
+                    }
 }
 impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetDashboardEmbedUrl {
-    fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("GetDashboardEmbedUrl");
+                fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
+                    let mut cfg = ::aws_smithy_types::config_bag::Layer::new("GetDashboardEmbedUrl");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            GetDashboardEmbedUrlRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            GetDashboardEmbedUrlResponseDeserializer,
-        ));
+                    cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(GetDashboardEmbedUrlRequestSerializer));
+                    cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(GetDashboardEmbedUrlResponseDeserializer));
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            ::aws_smithy_runtime_api::client::auth::static_resolver::StaticAuthSchemeOptionResolverParams::new(),
-        ));
+                    
+                    cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(::aws_smithy_runtime_api::client::auth::static_resolver::StaticAuthSchemeOptionResolverParams::new()));
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-        cfg.store_put(::aws_smithy_http::operation::Metadata::new("GetDashboardEmbedUrl", "quicksight"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
-        ::std::option::Option::Some(cfg.freeze())
-    }
-
-    fn runtime_components(
-        &self,
-        _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-        ::std::borrow::Cow::Owned(
-            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetDashboardEmbedUrl")
-                .with_interceptor(GetDashboardEmbedUrlEndpointParamsInterceptor)
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                    crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError,
-                >::new())
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                    crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError,
-                >::new())
-                .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError,
-                >::new()),
-        )
-    }
-}
-
-#[derive(Debug)]
-struct GetDashboardEmbedUrlResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetDashboardEmbedUrlResponseDeserializer {
-    fn deserialize_nonstreaming(
-        &self,
-        response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-    ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
-        let (success, status) = (response.status().is_success(), response.status().as_u16());
-        let headers = response.headers();
-        let body = response.body().bytes().expect("body loaded");
-        #[allow(unused_mut)]
-        let mut force_error = false;
-        ::tracing::debug!(request_id = ?::aws_http::request_id::RequestId::request_id(response));
-        let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_get_dashboard_embed_url::de_get_dashboard_embed_url_http_error(status, headers, body)
-        } else {
-            crate::protocol_serde::shape_get_dashboard_embed_url::de_get_dashboard_embed_url_http_response(status, headers, body)
-        };
-        crate::protocol_serde::type_erase_result(parse_result)
-    }
-}
-#[derive(Debug)]
-struct GetDashboardEmbedUrlRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDashboardEmbedUrlRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
-    fn serialize_input(
-        &self,
-        input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-        _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input
-            .downcast::<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput>()
-            .expect("correct type");
-        let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
-            .cloned()
-            .unwrap_or_default();
-        let mut request_builder = {
-            fn uri_base(
-                _input: &crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput,
-                output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
-                use ::std::fmt::Write as _;
-                let input_1 = &_input.aws_account_id;
-                let input_1 = input_1
-                    .as_ref()
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("aws_account_id", "cannot be empty or unset"))?;
-                let aws_account_id = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
-                if aws_account_id.is_empty() {
-                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "aws_account_id",
-                        "cannot be empty or unset",
+                    cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+cfg.store_put(::aws_smithy_http::operation::Metadata::new(
+                        "GetDashboardEmbedUrl",
+                        "quicksight",
                     ));
+let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
+                        signing_options.double_uri_encode = true;
+                        signing_options.content_sha256_header = false;
+                        signing_options.normalize_uri_path = true;
+                        signing_options.payload_override = None;
+
+                        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
+                            signing_options,
+                            ..::std::default::Default::default()
+                        });
+
+                    ::std::option::Option::Some(cfg.freeze())
                 }
-                let input_2 = &_input.dashboard_id;
-                let input_2 = input_2
-                    .as_ref()
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("dashboard_id", "cannot be empty or unset"))?;
-                let dashboard_id = ::aws_smithy_http::label::fmt_string(input_2, ::aws_smithy_http::label::EncodingStrategy::Default);
-                if dashboard_id.is_empty() {
-                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "dashboard_id",
-                        "cannot be empty or unset",
-                    ));
+
+                fn runtime_components(&self, _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+                    ::std::borrow::Cow::Owned(
+                        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetDashboardEmbedUrl")
+                            .with_interceptor(GetDashboardEmbedUrlEndpointParamsInterceptor)
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError>::new())
+                    )
                 }
-                ::std::write!(
-                    output,
-                    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url",
-                    AwsAccountId = aws_account_id,
-                    DashboardId = dashboard_id
-                )
-                .expect("formatting should succeed");
-                ::std::result::Result::Ok(())
             }
-            fn uri_query(
-                _input: &crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput,
-                mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
-                let mut query = ::aws_smithy_http::query::Writer::new(output);
-                let inner_3 = &_input.identity_type;
-                let inner_3 = inner_3
-                    .as_ref()
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("identity_type", "cannot be empty or unset"))?;
-                query.push_kv("creds-type", &::aws_smithy_http::query::fmt_string(&inner_3));
-                if let ::std::option::Option::Some(inner_4) = &_input.session_lifetime_in_minutes {
-                    if *inner_4 != 0 {
-                        query.push_kv("session-lifetime", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
-                    }
+
+            
+#[derive(Debug)]
+            struct GetDashboardEmbedUrlResponseDeserializer;
+            impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetDashboardEmbedUrlResponseDeserializer {
+                
+
+                fn deserialize_nonstreaming(&self, response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
+                    let (success, status) = (response.status().is_success(), response.status().as_u16());
+            let headers = response.headers();
+            let body = response.body().bytes().expect("body loaded");
+            #[allow(unused_mut)]
+            let mut force_error = false;
+            ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+            let parse_result = if !success && status != 200 || force_error {
+                crate::protocol_serde::shape_get_dashboard_embed_url::de_get_dashboard_embed_url_http_error(status, headers, body)
+            } else {
+                crate::protocol_serde::shape_get_dashboard_embed_url::de_get_dashboard_embed_url_http_response(status, headers, body)
+            };
+            crate::protocol_serde::type_erase_result(parse_result)
                 }
-                if let ::std::option::Option::Some(inner_5) = &_input.undo_redo_disabled {
-                    if *inner_5 {
-                        query.push_kv("undo-redo-disabled", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
-                    }
-                }
-                if let ::std::option::Option::Some(inner_6) = &_input.reset_disabled {
-                    if *inner_6 {
-                        query.push_kv("reset-disabled", ::aws_smithy_types::primitive::Encoder::from(*inner_6).encode());
-                    }
-                }
-                if let ::std::option::Option::Some(inner_7) = &_input.state_persistence_enabled {
-                    if *inner_7 {
-                        query.push_kv(
-                            "state-persistence-enabled",
-                            ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode(),
-                        );
-                    }
-                }
-                if let ::std::option::Option::Some(inner_8) = &_input.user_arn {
-                    {
-                        query.push_kv("user-arn", &::aws_smithy_http::query::fmt_string(&inner_8));
-                    }
-                }
-                if let ::std::option::Option::Some(inner_9) = &_input.namespace {
-                    {
-                        query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(&inner_9));
-                    }
-                }
-                if let ::std::option::Option::Some(inner_10) = &_input.additional_dashboard_ids {
-                    {
-                        for inner_11 in inner_10 {
-                            query.push_kv("additional-dashboard-ids", &::aws_smithy_http::query::fmt_string(&inner_11));
-                        }
-                    }
-                }
-                ::std::result::Result::Ok(())
             }
-            #[allow(clippy::unnecessary_wraps)]
-            fn update_http_builder(
+#[derive(Debug)]
+            struct GetDashboardEmbedUrlRequestSerializer;
+            impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDashboardEmbedUrlRequestSerializer {
+                #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+                fn serialize_input(&self, input: ::aws_smithy_runtime_api::client::interceptors::context::Input, _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+                    let input = input.downcast::<crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput>().expect("correct type");
+                    let _header_serialization_settings = _cfg.load::<crate::serialization_settings::HeaderSerializationSettings>().cloned().unwrap_or_default();
+                    let mut request_builder = {
+                        fn uri_base(_input: &crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput, output: &mut ::std::string::String) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+    use ::std::fmt::Write as _;
+    let input_1 = &_input.aws_account_id;
+    let input_1 = input_1.as_ref().ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("aws_account_id", "cannot be empty or unset"))?;
+    let aws_account_id = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
+    if aws_account_id.is_empty() {
+                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field("aws_account_id", "cannot be empty or unset"))
+                }
+    let input_2 = &_input.dashboard_id;
+    let input_2 = input_2.as_ref().ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("dashboard_id", "cannot be empty or unset"))?;
+    let dashboard_id = ::aws_smithy_http::label::fmt_string(input_2, ::aws_smithy_http::label::EncodingStrategy::Default);
+    if dashboard_id.is_empty() {
+                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field("dashboard_id", "cannot be empty or unset"))
+                }
+    ::std::write!(output, "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url", AwsAccountId = aws_account_id, DashboardId = dashboard_id).expect("formatting should succeed");
+    ::std::result::Result::Ok(())
+}
+fn uri_query(_input: &crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput, mut output: &mut ::std::string::String) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+    let mut query = ::aws_smithy_http::query::Writer::new(output);
+    let inner_3 = &_input.identity_type;
+    let inner_3 = inner_3.as_ref().ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("identity_type", "cannot be empty or unset"))?;
+    query.push_kv("creds-type", &::aws_smithy_http::query::fmt_string(&inner_3));
+    if let ::std::option::Option::Some(inner_4) = &_input.session_lifetime_in_minutes {
+        if *inner_4 != 0 {
+            query.push_kv("session-lifetime", ::aws_smithy_types::primitive::Encoder::from(*inner_4).encode());
+        }
+    }
+    if let ::std::option::Option::Some(inner_5) = &_input.undo_redo_disabled {
+        if *inner_5 {
+            query.push_kv("undo-redo-disabled", ::aws_smithy_types::primitive::Encoder::from(*inner_5).encode());
+        }
+    }
+    if let ::std::option::Option::Some(inner_6) = &_input.reset_disabled {
+        if *inner_6 {
+            query.push_kv("reset-disabled", ::aws_smithy_types::primitive::Encoder::from(*inner_6).encode());
+        }
+    }
+    if let ::std::option::Option::Some(inner_7) = &_input.state_persistence_enabled {
+        if *inner_7 {
+            query.push_kv("state-persistence-enabled", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
+        }
+    }
+    if let ::std::option::Option::Some(inner_8) = &_input.user_arn {
+         {
+            query.push_kv("user-arn", &::aws_smithy_http::query::fmt_string(&inner_8));
+        }
+    }
+    if let ::std::option::Option::Some(inner_9) = &_input.namespace {
+         {
+            query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(&inner_9));
+        }
+    }
+    if let ::std::option::Option::Some(inner_10) = &_input.additional_dashboard_ids {
+         {
+            for inner_11 in inner_10 {
+                query.push_kv("additional-dashboard-ids", &::aws_smithy_http::query::fmt_string(&inner_11));
+            }
+        }
+    }
+    ::std::result::Result::Ok(())
+}
+#[allow(clippy::unnecessary_wraps)]
+fn update_http_builder(
                 input: &crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlInput,
-                builder: ::http::request::Builder,
+                builder: ::http::request::Builder
             ) -> ::std::result::Result<::http::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
-                let mut uri = ::std::string::String::new();
-                uri_base(input, &mut uri)?;
-                uri_query(input, &mut uri)?;
-                ::std::result::Result::Ok(builder.method("GET").uri(uri))
+    let mut uri = ::std::string::String::new();
+    uri_base(input, &mut uri)?;
+    uri_query(input, &mut uri)?;
+    ::std::result::Result::Ok(builder.method("GET").uri(uri))
+}
+let mut builder = update_http_builder(&input, ::http::request::Builder::new())?;
+builder
+                    };
+                    let body = ::aws_smithy_types::body::SdkBody::from("");
+                    
+                    ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+                }
             }
-            let mut builder = update_http_builder(&input, ::http::request::Builder::new())?;
-            builder
-        };
-        let body = ::aws_smithy_types::body::SdkBody::from("");
-
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-    }
-}
 #[derive(Debug)]
-struct GetDashboardEmbedUrlEndpointParamsInterceptor;
+            struct GetDashboardEmbedUrlEndpointParamsInterceptor;
 
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetDashboardEmbedUrlEndpointParamsInterceptor {
-    fn name(&self) -> &'static str {
-        "GetDashboardEmbedUrlEndpointParamsInterceptor"
-    }
+            impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetDashboardEmbedUrlEndpointParamsInterceptor {
+                fn name(&self) -> &'static str {
+                    "GetDashboardEmbedUrlEndpointParamsInterceptor"
+                }
 
-    fn read_before_execution(
-        &self,
-        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-            '_,
-            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-        >,
-        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        let _input = context
-            .input()
-            .downcast_ref::<GetDashboardEmbedUrlInput>()
-            .ok_or("failed to downcast to GetDashboardEmbedUrlInput")?;
+                fn read_before_execution(
+                    &self,
+                    context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<'_, ::aws_smithy_runtime_api::client::interceptors::context::Input, ::aws_smithy_runtime_api::client::interceptors::context::Output, ::aws_smithy_runtime_api::client::interceptors::context::Error>,
+                    cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+                ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
+                    let _input = context.input()
+                        .downcast_ref::<GetDashboardEmbedUrlInput>()
+                        .ok_or("failed to downcast to GetDashboardEmbedUrlInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .build()
-            .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-            })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
-        ::std::result::Result::Ok(())
-    }
-}
+                    
 
-/// Do not use this.
-///
-/// Operation `*Error/*ErrorKind` types were combined into a single `*Error` enum. The `.kind` field on `*Error` no longer exists and isn't needed anymore (you can just match on the error directly since it's an enum now).
-#[deprecated(
-    note = "Operation `*Error/*ErrorKind` types were combined into a single `*Error` enum. The `.kind` field on `*Error` no longer exists and isn't needed anymore (you can just match on the error directly since it's an enum now)."
-)]
-pub type GetDashboardEmbedUrlErrorKind = GetDashboardEmbedUrlError;
+                    let params = crate::config::endpoint::Params::builder()
+                        .set_region(cfg.load::<::aws_types::region::Region>().map(|r|r.as_ref().to_owned()))
+.set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+.set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+.set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+                        .build()
+                        .map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err))?;
+                    cfg.interceptor_state().store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+                    ::std::result::Result::Ok(())
+                }
+            }
+
 /// Error type for the `GetDashboardEmbedUrlError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -341,109 +262,49 @@ pub enum GetDashboardEmbedUrlError {
     SessionLifetimeInMinutesInvalidException(crate::types::error::SessionLifetimeInMinutesInvalidException),
     /// <p>Access is throttled.</p>
     ThrottlingException(crate::types::error::ThrottlingException),
-    /// <p>This error indicates that you are calling an embedding operation in Amazon QuickSight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You can do this on the <b>Manage Amazon QuickSight</b> page. </p>
+    /// <p>This error indicates that you are calling an embedding operation in Amazon QuickSight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You can do this on the <b>Manage Amazon QuickSight</b> page. </p> 
     /// <p>After capacity pricing is added, you can use the <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a> </code> API operation with the <code>--identity-type ANONYMOUS</code> option.</p>
     UnsupportedPricingPlanException(crate::types::error::UnsupportedPricingPlanException),
     /// <p>This error indicates that you are calling an operation on an Amazon QuickSight subscription where the edition doesn't include support for that operation. Amazon Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
     UnsupportedUserEditionException(crate::types::error::UnsupportedUserEditionException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
-}
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetDashboardEmbedUrlError {
-    fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
-        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> Self {
-        Self::Unhandled({
-            let mut builder = ::aws_smithy_types::error::Unhandled::builder().source(source);
-            builder.set_meta(meta);
-            builder.build()
-        })
-    }
-}
-impl ::std::fmt::Display for GetDashboardEmbedUrlError {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        match self {
-            Self::AccessDeniedException(_inner) => _inner.fmt(f),
-            Self::DomainNotWhitelistedException(_inner) => _inner.fmt(f),
-            Self::IdentityTypeNotSupportedException(_inner) => _inner.fmt(f),
-            Self::InternalFailureException(_inner) => _inner.fmt(f),
-            Self::InvalidParameterValueException(_inner) => _inner.fmt(f),
-            Self::QuickSightUserNotFoundException(_inner) => _inner.fmt(f),
-            Self::ResourceExistsException(_inner) => _inner.fmt(f),
-            Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
-            Self::SessionLifetimeInMinutesInvalidException(_inner) => _inner.fmt(f),
-            Self::ThrottlingException(_inner) => _inner.fmt(f),
-            Self::UnsupportedPricingPlanException(_inner) => _inner.fmt(f),
-            Self::UnsupportedUserEditionException(_inner) => _inner.fmt(f),
-            Self::Unhandled(_inner) => _inner.fmt(f),
-        }
-    }
-}
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetDashboardEmbedUrlError {
-    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        match self {
-            Self::AccessDeniedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::DomainNotWhitelistedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::IdentityTypeNotSupportedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InternalFailureException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidParameterValueException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::QuickSightUserNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ResourceExistsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::SessionLifetimeInMinutesInvalidException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ThrottlingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::UnsupportedPricingPlanException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::UnsupportedUserEditionException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::Unhandled(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-        }
-    }
-}
-impl ::aws_http::request_id::RequestId for crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-impl ::aws_smithy_types::retry::ProvideErrorKind for GetDashboardEmbedUrlError {
-    fn code(&self) -> ::std::option::Option<&str> {
-        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-    }
-    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
-        ::std::option::Option::None
-    }
+                    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetDashboardEmbedUrlError) for what information is available for the error.")]
+                    Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl GetDashboardEmbedUrlError {
     /// Creates the `GetDashboardEmbedUrlError::Unhandled` variant from any error type.
-    pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
-    ) -> Self {
-        Self::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(err).build())
-    }
-
-    /// Creates the `GetDashboardEmbedUrlError::Unhandled` variant from a `::aws_smithy_types::error::ErrorMetadata`.
-    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(err.clone()).meta(err).build())
-    }
-    ///
+                    pub fn unhandled(err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>) -> Self {
+                        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source: err.into(), meta: ::std::default::Default::default() })
+                    }
+    
+                    /// Creates the `GetDashboardEmbedUrlError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+                    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+                        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source: err.clone().into(), meta: err })
+                    }
+    /// 
     /// Returns error metadata, which includes the error code, message,
     /// request ID, and potentially additional information.
-    ///
+    /// 
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         match self {
-            Self::AccessDeniedException(e) => e.meta(),
-            Self::DomainNotWhitelistedException(e) => e.meta(),
-            Self::IdentityTypeNotSupportedException(e) => e.meta(),
-            Self::InternalFailureException(e) => e.meta(),
-            Self::InvalidParameterValueException(e) => e.meta(),
-            Self::QuickSightUserNotFoundException(e) => e.meta(),
-            Self::ResourceExistsException(e) => e.meta(),
-            Self::ResourceNotFoundException(e) => e.meta(),
-            Self::SessionLifetimeInMinutesInvalidException(e) => e.meta(),
-            Self::ThrottlingException(e) => e.meta(),
-            Self::UnsupportedPricingPlanException(e) => e.meta(),
-            Self::UnsupportedUserEditionException(e) => e.meta(),
-            Self::Unhandled(e) => e.meta(),
+            Self::AccessDeniedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::DomainNotWhitelistedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::IdentityTypeNotSupportedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InternalFailureException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidParameterValueException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::QuickSightUserNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ResourceExistsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SessionLifetimeInMinutesInvalidException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::UnsupportedPricingPlanException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::UnsupportedUserEditionException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::Unhandled(e) => &e.meta,
         }
     }
     /// Returns `true` if the error kind is `GetDashboardEmbedUrlError::AccessDeniedException`.
@@ -498,22 +359,163 @@ impl GetDashboardEmbedUrlError {
 impl ::std::error::Error for GetDashboardEmbedUrlError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::AccessDeniedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::DomainNotWhitelistedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::IdentityTypeNotSupportedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InternalFailureException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidParameterValueException(_inner) => ::std::option::Option::Some(_inner),
-            Self::QuickSightUserNotFoundException(_inner) => ::std::option::Option::Some(_inner),
-            Self::ResourceExistsException(_inner) => ::std::option::Option::Some(_inner),
-            Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
-            Self::SessionLifetimeInMinutesInvalidException(_inner) => ::std::option::Option::Some(_inner),
-            Self::ThrottlingException(_inner) => ::std::option::Option::Some(_inner),
-            Self::UnsupportedPricingPlanException(_inner) => ::std::option::Option::Some(_inner),
-            Self::UnsupportedUserEditionException(_inner) => ::std::option::Option::Some(_inner),
-            Self::Unhandled(_inner) => ::std::option::Option::Some(_inner),
+            Self::AccessDeniedException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::DomainNotWhitelistedException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::IdentityTypeNotSupportedException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InternalFailureException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidParameterValueException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::QuickSightUserNotFoundException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::ResourceExistsException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::ResourceNotFoundException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::SessionLifetimeInMinutesInvalidException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::ThrottlingException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::UnsupportedPricingPlanException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::UnsupportedUserEditionException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::Unhandled(_inner) => {
+                ::std::option::Option::Some(&*_inner.source)
+            }
         }
     }
 }
+impl ::std::fmt::Display for GetDashboardEmbedUrlError {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            Self::AccessDeniedException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::DomainNotWhitelistedException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::IdentityTypeNotSupportedException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InternalFailureException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidParameterValueException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::QuickSightUserNotFoundException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::ResourceExistsException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::ResourceNotFoundException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::SessionLifetimeInMinutesInvalidException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::ThrottlingException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::UnsupportedPricingPlanException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::UnsupportedUserEditionException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::Unhandled(_inner) => {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                                    write!(f, "unhandled error ({code})")
+                                                } else {
+                                                    f.write_str("unhandled error")
+                                                }
+            }
+        }
+    }
+}
+impl ::aws_smithy_types::retry::ProvideErrorKind for GetDashboardEmbedUrlError {
+    fn code(&self) -> ::std::option::Option<&str> {
+        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+    }
+    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
+        ::std::option::Option::None
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetDashboardEmbedUrlError {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        match self {
+            Self::AccessDeniedException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::DomainNotWhitelistedException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::IdentityTypeNotSupportedException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InternalFailureException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidParameterValueException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::QuickSightUserNotFoundException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::ResourceExistsException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::ResourceNotFoundException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::SessionLifetimeInMinutesInvalidException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::ThrottlingException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::UnsupportedPricingPlanException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::UnsupportedUserEditionException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::Unhandled(_inner) => {
+                &_inner.meta
+            }
+        }
+    }
+}
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetDashboardEmbedUrlError {
+    fn create_unhandled_error(
+                        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+                        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>
+                    ) -> Self {
+        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source, meta: meta.unwrap_or_default() })
+    }
+}
+impl ::aws_types::request_id::RequestId for crate::operation::get_dashboard_embed_url::GetDashboardEmbedUrlError {
+                            fn request_id(&self) -> Option<&str> {
+                                self.meta().request_id()
+                            }
+                        }
 
 pub use crate::operation::get_dashboard_embed_url::_get_dashboard_embed_url_output::GetDashboardEmbedUrlOutput;
 
@@ -525,3 +527,4 @@ mod _get_dashboard_embed_url_output;
 
 /// Builders
 pub mod builders;
+

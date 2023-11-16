@@ -5,54 +5,50 @@ pub use crate::operation::update_image_version::_update_image_version_input::Upd
 
 impl UpdateImageVersionInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::update_image_version::UpdateImageVersionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_image_version::UpdateImageVersionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.update_image_version();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::update_image_version::UpdateImageVersionOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::update_image_version::UpdateImageVersionError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.update_image_version();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `UpdateImageVersion`.
-///
+/// 
 /// <p>Updates the properties of a SageMaker image version.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateImageVersionFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_image_version::builders::UpdateImageVersionInputBuilder,
+                    inner: crate::operation::update_image_version::builders::UpdateImageVersionInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::update_image_version::UpdateImageVersionOutput,
-        crate::operation::update_image_version::UpdateImageVersionError,
-    > for UpdateImageVersionFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::update_image_version::UpdateImageVersionOutput,
-            crate::operation::update_image_version::UpdateImageVersionError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::update_image_version::UpdateImageVersionOutput,
+                    crate::operation::update_image_version::UpdateImageVersionError,
+                > for UpdateImageVersionFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::update_image_version::UpdateImageVersionOutput,
+                        crate::operation::update_image_version::UpdateImageVersionError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl UpdateImageVersionFluentBuilder {
     /// Creates a new `UpdateImageVersion`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl UpdateImageVersionFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_image_version::UpdateImageVersionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_image_version::UpdateImageVersionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_image_version::UpdateImageVersion::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_image_version::UpdateImageVersion::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::update_image_version::UpdateImageVersionOutput,
-        crate::operation::update_image_version::UpdateImageVersionError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::update_image_version::UpdateImageVersionOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_image_version::UpdateImageVersionError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::update_image_version::UpdateImageVersion::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::update_image_version::UpdateImageVersion::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::update_image_version::UpdateImageVersionOutput, crate::operation::update_image_version::UpdateImageVersionError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name of the image.</p>
     pub fn image_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.image_name(input.into());
@@ -160,12 +147,12 @@ impl UpdateImageVersionFluentBuilder {
         self
     }
     /// <p>A list of aliases to add.</p>
-    pub fn set_aliases_to_add(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_aliases_to_add(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_aliases_to_add(input);
         self
     }
     /// <p>A list of aliases to add.</p>
-    pub fn get_aliases_to_add(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_aliases_to_add(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_aliases_to_add()
     }
     /// Appends an item to `AliasesToDelete`.
@@ -178,71 +165,71 @@ impl UpdateImageVersionFluentBuilder {
         self
     }
     /// <p>A list of aliases to delete.</p>
-    pub fn set_aliases_to_delete(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_aliases_to_delete(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_aliases_to_delete(input);
         self
     }
     /// <p>A list of aliases to delete.</p>
-    pub fn get_aliases_to_delete(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_aliases_to_delete(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_aliases_to_delete()
     }
-    /// <p>The availability of the image version specified by the maintainer.</p>
-    /// <ul>
-    /// <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li>
-    /// <li> <p> <code>STABLE</code>: The image version is stable.</p> </li>
-    /// <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li>
-    /// <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li>
+    /// <p>The availability of the image version specified by the maintainer.</p> 
+    /// <ul> 
+    /// <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li> 
+    /// <li> <p> <code>STABLE</code>: The image version is stable.</p> </li> 
+    /// <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li> 
+    /// <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li> 
     /// </ul>
     pub fn vendor_guidance(mut self, input: crate::types::VendorGuidance) -> Self {
         self.inner = self.inner.vendor_guidance(input);
         self
     }
-    /// <p>The availability of the image version specified by the maintainer.</p>
-    /// <ul>
-    /// <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li>
-    /// <li> <p> <code>STABLE</code>: The image version is stable.</p> </li>
-    /// <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li>
-    /// <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li>
+    /// <p>The availability of the image version specified by the maintainer.</p> 
+    /// <ul> 
+    /// <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li> 
+    /// <li> <p> <code>STABLE</code>: The image version is stable.</p> </li> 
+    /// <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li> 
+    /// <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li> 
     /// </ul>
     pub fn set_vendor_guidance(mut self, input: ::std::option::Option<crate::types::VendorGuidance>) -> Self {
         self.inner = self.inner.set_vendor_guidance(input);
         self
     }
-    /// <p>The availability of the image version specified by the maintainer.</p>
-    /// <ul>
-    /// <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li>
-    /// <li> <p> <code>STABLE</code>: The image version is stable.</p> </li>
-    /// <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li>
-    /// <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li>
+    /// <p>The availability of the image version specified by the maintainer.</p> 
+    /// <ul> 
+    /// <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li> 
+    /// <li> <p> <code>STABLE</code>: The image version is stable.</p> </li> 
+    /// <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li> 
+    /// <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li> 
     /// </ul>
     pub fn get_vendor_guidance(&self) -> &::std::option::Option<crate::types::VendorGuidance> {
         self.inner.get_vendor_guidance()
     }
-    /// <p>Indicates SageMaker job type compatibility.</p>
-    /// <ul>
-    /// <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p> </li>
-    /// <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p> </li>
-    /// <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p> </li>
+    /// <p>Indicates SageMaker job type compatibility.</p> 
+    /// <ul> 
+    /// <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p> </li> 
+    /// <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p> </li> 
+    /// <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p> </li> 
     /// </ul>
     pub fn job_type(mut self, input: crate::types::JobType) -> Self {
         self.inner = self.inner.job_type(input);
         self
     }
-    /// <p>Indicates SageMaker job type compatibility.</p>
-    /// <ul>
-    /// <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p> </li>
-    /// <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p> </li>
-    /// <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p> </li>
+    /// <p>Indicates SageMaker job type compatibility.</p> 
+    /// <ul> 
+    /// <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p> </li> 
+    /// <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p> </li> 
+    /// <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p> </li> 
     /// </ul>
     pub fn set_job_type(mut self, input: ::std::option::Option<crate::types::JobType>) -> Self {
         self.inner = self.inner.set_job_type(input);
         self
     }
-    /// <p>Indicates SageMaker job type compatibility.</p>
-    /// <ul>
-    /// <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p> </li>
-    /// <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p> </li>
-    /// <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p> </li>
+    /// <p>Indicates SageMaker job type compatibility.</p> 
+    /// <ul> 
+    /// <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p> </li> 
+    /// <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p> </li> 
+    /// <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p> </li> 
     /// </ul>
     pub fn get_job_type(&self) -> &::std::option::Option<crate::types::JobType> {
         self.inner.get_job_type()
@@ -275,28 +262,28 @@ impl UpdateImageVersionFluentBuilder {
     pub fn get_programming_lang(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_programming_lang()
     }
-    /// <p>Indicates CPU or GPU compatibility.</p>
-    /// <ul>
-    /// <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li>
-    /// <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li>
+    /// <p>Indicates CPU or GPU compatibility.</p> 
+    /// <ul> 
+    /// <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> 
+    /// <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> 
     /// </ul>
     pub fn processor(mut self, input: crate::types::Processor) -> Self {
         self.inner = self.inner.processor(input);
         self
     }
-    /// <p>Indicates CPU or GPU compatibility.</p>
-    /// <ul>
-    /// <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li>
-    /// <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li>
+    /// <p>Indicates CPU or GPU compatibility.</p> 
+    /// <ul> 
+    /// <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> 
+    /// <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> 
     /// </ul>
     pub fn set_processor(mut self, input: ::std::option::Option<crate::types::Processor>) -> Self {
         self.inner = self.inner.set_processor(input);
         self
     }
-    /// <p>Indicates CPU or GPU compatibility.</p>
-    /// <ul>
-    /// <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li>
-    /// <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li>
+    /// <p>Indicates CPU or GPU compatibility.</p> 
+    /// <ul> 
+    /// <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> 
+    /// <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> 
     /// </ul>
     pub fn get_processor(&self) -> &::std::option::Option<crate::types::Processor> {
         self.inner.get_processor()
@@ -330,3 +317,4 @@ impl UpdateImageVersionFluentBuilder {
         self.inner.get_release_notes()
     }
 }
+

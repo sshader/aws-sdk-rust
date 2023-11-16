@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeCreateAccountStatusInput {
-    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p>
+pub struct DescribeCreateAccountStatusInput  {
+    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
     pub create_account_request_id: ::std::option::Option<::std::string::String>,
 }
-impl DescribeCreateAccountStatusInput {
-    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p>
+impl  DescribeCreateAccountStatusInput  {
+    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
-    pub fn create_account_request_id(&self) -> ::std::option::Option<&str> {
+    pub fn create_account_request_id(&self) -> ::std::option::Option<& str> {
         self.create_account_request_id.as_deref()
     }
 }
@@ -28,33 +28,31 @@ pub struct DescribeCreateAccountStatusInputBuilder {
     pub(crate) create_account_request_id: ::std::option::Option<::std::string::String>,
 }
 impl DescribeCreateAccountStatusInputBuilder {
-    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p>
+    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
     /// This field is required.
     pub fn create_account_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.create_account_request_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p>
+    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
     pub fn set_create_account_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.create_account_request_id = input;
-        self
+        self.create_account_request_id = input; self
     }
-    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p>
+    /// <p>Specifies the <code>Id</code> value that uniquely identifies the <code>CreateAccount</code> request. You can get the value from the <code>CreateAccountStatus.Id</code> response in an earlier <code>CreateAccount</code> request, or from the <code>ListCreateAccountStatus</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
     pub fn get_create_account_request_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.create_account_request_id
     }
     /// Consumes the builder and constructs a [`DescribeCreateAccountStatusInput`](crate::operation::describe_create_account_status::DescribeCreateAccountStatusInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_create_account_status::DescribeCreateAccountStatusInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::describe_create_account_status::DescribeCreateAccountStatusInput {
-            create_account_request_id: self.create_account_request_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_create_account_status::DescribeCreateAccountStatusInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_create_account_status::DescribeCreateAccountStatusInput {
+                create_account_request_id: self.create_account_request_id
+                ,
+            }
+        )
     }
 }
+

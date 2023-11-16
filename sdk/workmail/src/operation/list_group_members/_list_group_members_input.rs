@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListGroupMembersInput {
+pub struct ListGroupMembersInput  {
     /// <p>The identifier for the organization under which the group exists.</p>
     pub organization_id: ::std::option::Option<::std::string::String>,
-    /// <p>The identifier for the group to which the members (users or groups) are associated.</p>
-    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: group@domain.tld</p> </li>
-    /// <li> <p>Group name: group</p> </li>
+    /// <p>The identifier for the group to which the members (users or groups) are associated.</p> 
+    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: group@domain.tld</p> </li> 
+    /// <li> <p>Group name: group</p> </li> 
     /// </ul>
     pub group_id: ::std::option::Option<::std::string::String>,
     /// <p> The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
@@ -18,23 +18,23 @@ pub struct ListGroupMembersInput {
     /// <p>The maximum number of results to return in a single call.</p>
     pub max_results: ::std::option::Option<i32>,
 }
-impl ListGroupMembersInput {
+impl  ListGroupMembersInput  {
     /// <p>The identifier for the organization under which the group exists.</p>
-    pub fn organization_id(&self) -> ::std::option::Option<&str> {
+    pub fn organization_id(&self) -> ::std::option::Option<& str> {
         self.organization_id.as_deref()
     }
-    /// <p>The identifier for the group to which the members (users or groups) are associated.</p>
-    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: group@domain.tld</p> </li>
-    /// <li> <p>Group name: group</p> </li>
+    /// <p>The identifier for the group to which the members (users or groups) are associated.</p> 
+    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: group@domain.tld</p> </li> 
+    /// <li> <p>Group name: group</p> </li> 
     /// </ul>
-    pub fn group_id(&self) -> ::std::option::Option<&str> {
+    pub fn group_id(&self) -> ::std::option::Option<& str> {
         self.group_id.as_deref()
     }
     /// <p> The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// <p>The maximum number of results to return in a single call.</p>
@@ -67,42 +67,40 @@ impl ListGroupMembersInputBuilder {
     }
     /// <p>The identifier for the organization under which the group exists.</p>
     pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.organization_id = input;
-        self
+        self.organization_id = input; self
     }
     /// <p>The identifier for the organization under which the group exists.</p>
     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_id
     }
-    /// <p>The identifier for the group to which the members (users or groups) are associated.</p>
-    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: group@domain.tld</p> </li>
-    /// <li> <p>Group name: group</p> </li>
+    /// <p>The identifier for the group to which the members (users or groups) are associated.</p> 
+    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: group@domain.tld</p> </li> 
+    /// <li> <p>Group name: group</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn group_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.group_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The identifier for the group to which the members (users or groups) are associated.</p>
-    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: group@domain.tld</p> </li>
-    /// <li> <p>Group name: group</p> </li>
+    /// <p>The identifier for the group to which the members (users or groups) are associated.</p> 
+    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: group@domain.tld</p> </li> 
+    /// <li> <p>Group name: group</p> </li> 
     /// </ul>
     pub fn set_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.group_id = input;
-        self
+        self.group_id = input; self
     }
-    /// <p>The identifier for the group to which the members (users or groups) are associated.</p>
-    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: group@domain.tld</p> </li>
-    /// <li> <p>Group name: group</p> </li>
+    /// <p>The identifier for the group to which the members (users or groups) are associated.</p> 
+    /// <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: group@domain.tld</p> </li> 
+    /// <li> <p>Group name: group</p> </li> 
     /// </ul>
     pub fn get_group_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.group_id
@@ -114,8 +112,7 @@ impl ListGroupMembersInputBuilder {
     }
     /// <p> The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p> The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -128,22 +125,26 @@ impl ListGroupMembersInputBuilder {
     }
     /// <p>The maximum number of results to return in a single call.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of results to return in a single call.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
     }
     /// Consumes the builder and constructs a [`ListGroupMembersInput`](crate::operation::list_group_members::ListGroupMembersInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_group_members::ListGroupMembersInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_group_members::ListGroupMembersInput {
-            organization_id: self.organization_id,
-            group_id: self.group_id,
-            next_token: self.next_token,
-            max_results: self.max_results,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_group_members::ListGroupMembersInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_group_members::ListGroupMembersInput {
+                organization_id: self.organization_id
+                ,
+                group_id: self.group_id
+                ,
+                next_token: self.next_token
+                ,
+                max_results: self.max_results
+                ,
+            }
+        )
     }
 }
+

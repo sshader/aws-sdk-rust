@@ -3,31 +3,31 @@
 /// <p>An error that explains why an action did not succeed.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ErrorReason {
-    /// <p>Service Quotas returns the following error values:</p>
-    /// <ul>
-    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li>
-    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li>
-    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li>
-    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li>
+pub struct ErrorReason  {
+    /// <p>Service Quotas returns the following error values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li> 
+    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li> 
+    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li> 
+    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li> 
     /// </ul>
     pub error_code: ::std::option::Option<crate::types::ErrorCode>,
     /// <p>The error message.</p>
     pub error_message: ::std::option::Option<::std::string::String>,
 }
-impl ErrorReason {
-    /// <p>Service Quotas returns the following error values:</p>
-    /// <ul>
-    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li>
-    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li>
-    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li>
-    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li>
+impl  ErrorReason  {
+    /// <p>Service Quotas returns the following error values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li> 
+    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li> 
+    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li> 
+    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li> 
     /// </ul>
-    pub fn error_code(&self) -> ::std::option::Option<&crate::types::ErrorCode> {
+    pub fn error_code(&self) -> ::std::option::Option<& crate::types::ErrorCode> {
         self.error_code.as_ref()
     }
     /// <p>The error message.</p>
-    pub fn error_message(&self) -> ::std::option::Option<&str> {
+    pub fn error_message(&self) -> ::std::option::Option<& str> {
         self.error_message.as_deref()
     }
 }
@@ -46,34 +46,33 @@ pub struct ErrorReasonBuilder {
     pub(crate) error_message: ::std::option::Option<::std::string::String>,
 }
 impl ErrorReasonBuilder {
-    /// <p>Service Quotas returns the following error values:</p>
-    /// <ul>
-    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li>
-    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li>
-    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li>
-    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li>
+    /// <p>Service Quotas returns the following error values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li> 
+    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li> 
+    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li> 
+    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li> 
     /// </ul>
     pub fn error_code(mut self, input: crate::types::ErrorCode) -> Self {
         self.error_code = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Service Quotas returns the following error values:</p>
-    /// <ul>
-    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li>
-    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li>
-    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li>
-    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li>
+    /// <p>Service Quotas returns the following error values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li> 
+    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li> 
+    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li> 
+    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li> 
     /// </ul>
     pub fn set_error_code(mut self, input: ::std::option::Option<crate::types::ErrorCode>) -> Self {
-        self.error_code = input;
-        self
+        self.error_code = input; self
     }
-    /// <p>Service Quotas returns the following error values:</p>
-    /// <ul>
-    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li>
-    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li>
-    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li>
-    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li>
+    /// <p>Service Quotas returns the following error values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> - The caller does not have the required permissions to complete the action. To resolve the error, you must have permission to access the Amazon Web Service or quota.</p> </li> 
+    /// <li> <p> <code>DEPENDENCY_THROTTLING_ERROR</code> - The Amazon Web Service is throttling Service Quotas. </p> </li> 
+    /// <li> <p> <code>DEPENDENCY_SERVICE_ERROR</code> - The Amazon Web Service is not available.</p> </li> 
+    /// <li> <p> <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> - There was an error in Service Quotas.</p> </li> 
     /// </ul>
     pub fn get_error_code(&self) -> &::std::option::Option<crate::types::ErrorCode> {
         &self.error_code
@@ -85,8 +84,7 @@ impl ErrorReasonBuilder {
     }
     /// <p>The error message.</p>
     pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.error_message = input;
-        self
+        self.error_message = input; self
     }
     /// <p>The error message.</p>
     pub fn get_error_message(&self) -> &::std::option::Option<::std::string::String> {
@@ -95,8 +93,11 @@ impl ErrorReasonBuilder {
     /// Consumes the builder and constructs a [`ErrorReason`](crate::types::ErrorReason).
     pub fn build(self) -> crate::types::ErrorReason {
         crate::types::ErrorReason {
-            error_code: self.error_code,
-            error_message: self.error_message,
+            error_code: self.error_code
+            ,
+            error_message: self.error_message
+            ,
         }
     }
 }
+

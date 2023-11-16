@@ -3,23 +3,23 @@
 /// <p></p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RebuildEnvironmentInput {
-    /// <p>The ID of the environment to rebuild.</p>
+pub struct RebuildEnvironmentInput  {
+    /// <p>The ID of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
     pub environment_id: ::std::option::Option<::std::string::String>,
-    /// <p>The name of the environment to rebuild.</p>
+    /// <p>The name of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
     pub environment_name: ::std::option::Option<::std::string::String>,
 }
-impl RebuildEnvironmentInput {
-    /// <p>The ID of the environment to rebuild.</p>
+impl  RebuildEnvironmentInput  {
+    /// <p>The ID of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
-    pub fn environment_id(&self) -> ::std::option::Option<&str> {
+    pub fn environment_id(&self) -> ::std::option::Option<& str> {
         self.environment_id.as_deref()
     }
-    /// <p>The name of the environment to rebuild.</p>
+    /// <p>The name of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
-    pub fn environment_name(&self) -> ::std::option::Option<&str> {
+    pub fn environment_name(&self) -> ::std::option::Option<& str> {
         self.environment_name.as_deref()
     }
 }
@@ -38,47 +38,48 @@ pub struct RebuildEnvironmentInputBuilder {
     pub(crate) environment_name: ::std::option::Option<::std::string::String>,
 }
 impl RebuildEnvironmentInputBuilder {
-    /// <p>The ID of the environment to rebuild.</p>
+    /// <p>The ID of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
     pub fn environment_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.environment_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ID of the environment to rebuild.</p>
+    /// <p>The ID of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
     pub fn set_environment_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.environment_id = input;
-        self
+        self.environment_id = input; self
     }
-    /// <p>The ID of the environment to rebuild.</p>
+    /// <p>The ID of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
     pub fn get_environment_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.environment_id
     }
-    /// <p>The name of the environment to rebuild.</p>
+    /// <p>The name of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
     pub fn environment_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.environment_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the environment to rebuild.</p>
+    /// <p>The name of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
     pub fn set_environment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.environment_name = input;
-        self
+        self.environment_name = input; self
     }
-    /// <p>The name of the environment to rebuild.</p>
+    /// <p>The name of the environment to rebuild.</p> 
     /// <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
     pub fn get_environment_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.environment_name
     }
     /// Consumes the builder and constructs a [`RebuildEnvironmentInput`](crate::operation::rebuild_environment::RebuildEnvironmentInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::rebuild_environment::RebuildEnvironmentInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::rebuild_environment::RebuildEnvironmentInput {
-            environment_id: self.environment_id,
-            environment_name: self.environment_name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::rebuild_environment::RebuildEnvironmentInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::rebuild_environment::RebuildEnvironmentInput {
+                environment_id: self.environment_id
+                ,
+                environment_name: self.environment_name
+                ,
+            }
+        )
     }
 }
+

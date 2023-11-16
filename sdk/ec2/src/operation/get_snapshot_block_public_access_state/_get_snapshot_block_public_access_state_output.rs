@@ -2,32 +2,32 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetSnapshotBlockPublicAccessStateOutput {
-    /// <p>The current state of block public access for snapshots. Possible values include:</p>
-    /// <ul>
-    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li>
-    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li>
-    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li>
+pub struct GetSnapshotBlockPublicAccessStateOutput  {
+    /// <p>The current state of block public access for snapshots. Possible values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li> 
+    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li> 
+    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li> 
     /// </ul>
     pub state: ::std::option::Option<crate::types::SnapshotBlockPublicAccessState>,
     _request_id: Option<String>,
 }
-impl GetSnapshotBlockPublicAccessStateOutput {
-    /// <p>The current state of block public access for snapshots. Possible values include:</p>
-    /// <ul>
-    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li>
-    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li>
-    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li>
+impl  GetSnapshotBlockPublicAccessStateOutput  {
+    /// <p>The current state of block public access for snapshots. Possible values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li> 
+    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li> 
+    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li> 
     /// </ul>
-    pub fn state(&self) -> ::std::option::Option<&crate::types::SnapshotBlockPublicAccessState> {
+    pub fn state(&self) -> ::std::option::Option<& crate::types::SnapshotBlockPublicAccessState> {
         self.state.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for GetSnapshotBlockPublicAccessStateOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for GetSnapshotBlockPublicAccessStateOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl GetSnapshotBlockPublicAccessStateOutput {
     /// Creates a new builder-style object to manufacture [`GetSnapshotBlockPublicAccessStateOutput`](crate::operation::get_snapshot_block_public_access_state::GetSnapshotBlockPublicAccessStateOutput).
     pub fn builder() -> crate::operation::get_snapshot_block_public_access_state::builders::GetSnapshotBlockPublicAccessStateOutputBuilder {
@@ -43,49 +43,50 @@ pub struct GetSnapshotBlockPublicAccessStateOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetSnapshotBlockPublicAccessStateOutputBuilder {
-    /// <p>The current state of block public access for snapshots. Possible values include:</p>
-    /// <ul>
-    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li>
-    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li>
-    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li>
+    /// <p>The current state of block public access for snapshots. Possible values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li> 
+    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li> 
+    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li> 
     /// </ul>
     pub fn state(mut self, input: crate::types::SnapshotBlockPublicAccessState) -> Self {
         self.state = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of block public access for snapshots. Possible values include:</p>
-    /// <ul>
-    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li>
-    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li>
-    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li>
+    /// <p>The current state of block public access for snapshots. Possible values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li> 
+    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li> 
+    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li> 
     /// </ul>
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::SnapshotBlockPublicAccessState>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
-    /// <p>The current state of block public access for snapshots. Possible values include:</p>
-    /// <ul>
-    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li>
-    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li>
-    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li>
+    /// <p>The current state of block public access for snapshots. Possible values include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>block-all-sharing</code> - All public sharing of snapshots is blocked. Users in the account can't request new public sharing. Additionally, snapshots that were already publicly shared are treated as private and are not publicly available.</p> </li> 
+    /// <li> <p> <code>block-new-sharing</code> - Only new public sharing of snapshots is blocked. Users in the account can't request new public sharing. However, snapshots that were already publicly shared, remain publicly available.</p> </li> 
+    /// <li> <p> <code>unblocked</code> - Public sharing is not blocked. Users can publicly share snapshots.</p> </li> 
     /// </ul>
     pub fn get_state(&self) -> &::std::option::Option<crate::types::SnapshotBlockPublicAccessState> {
         &self.state
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`GetSnapshotBlockPublicAccessStateOutput`](crate::operation::get_snapshot_block_public_access_state::GetSnapshotBlockPublicAccessStateOutput).
     pub fn build(self) -> crate::operation::get_snapshot_block_public_access_state::GetSnapshotBlockPublicAccessStateOutput {
         crate::operation::get_snapshot_block_public_access_state::GetSnapshotBlockPublicAccessStateOutput {
-            state: self.state,
+            state: self.state
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateChannelInput {
+pub struct UpdateChannelInput  {
     /// <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
     pub channel_group_name: ::std::option::Option<::std::string::String>,
     /// <p>The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. </p>
@@ -10,17 +10,17 @@ pub struct UpdateChannelInput {
     /// <p>Any descriptive information that you want to add to the channel for future identification purposes.</p>
     pub description: ::std::option::Option<::std::string::String>,
 }
-impl UpdateChannelInput {
+impl  UpdateChannelInput  {
     /// <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
-    pub fn channel_group_name(&self) -> ::std::option::Option<&str> {
+    pub fn channel_group_name(&self) -> ::std::option::Option<& str> {
         self.channel_group_name.as_deref()
     }
     /// <p>The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. </p>
-    pub fn channel_name(&self) -> ::std::option::Option<&str> {
+    pub fn channel_name(&self) -> ::std::option::Option<& str> {
         self.channel_name.as_deref()
     }
     /// <p>Any descriptive information that you want to add to the channel for future identification purposes.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
 }
@@ -48,8 +48,7 @@ impl UpdateChannelInputBuilder {
     }
     /// <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
     pub fn set_channel_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.channel_group_name = input;
-        self
+        self.channel_group_name = input; self
     }
     /// <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
     pub fn get_channel_group_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -63,8 +62,7 @@ impl UpdateChannelInputBuilder {
     }
     /// <p>The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. </p>
     pub fn set_channel_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.channel_name = input;
-        self
+        self.channel_name = input; self
     }
     /// <p>The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. </p>
     pub fn get_channel_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -77,21 +75,24 @@ impl UpdateChannelInputBuilder {
     }
     /// <p>Any descriptive information that you want to add to the channel for future identification purposes.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>Any descriptive information that you want to add to the channel for future identification purposes.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
     /// Consumes the builder and constructs a [`UpdateChannelInput`](crate::operation::update_channel::UpdateChannelInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_channel::UpdateChannelInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_channel::UpdateChannelInput {
-            channel_group_name: self.channel_group_name,
-            channel_name: self.channel_name,
-            description: self.description,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_channel::UpdateChannelInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_channel::UpdateChannelInput {
+                channel_group_name: self.channel_group_name
+                ,
+                channel_name: self.channel_name
+                ,
+                description: self.description
+                ,
+            }
+        )
     }
 }
+

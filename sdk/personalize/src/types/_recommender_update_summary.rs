@@ -3,49 +3,49 @@
 /// <p>Provides a summary of the properties of a recommender update. For a complete listing, call the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a> API.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RecommenderUpdateSummary {
+pub struct RecommenderUpdateSummary  {
     /// <p>The configuration details of the recommender update.</p>
     pub recommender_config: ::std::option::Option<crate::types::RecommenderConfig>,
     /// <p>The date and time (in Unix format) that the recommender update was created.</p>
     pub creation_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The date and time (in Unix time) that the recommender update was last updated.</p>
     pub last_updated_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>The status of the recommender update.</p>
-    /// <p>A recommender can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the recommender update.</p> 
+    /// <p>A recommender can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
     pub status: ::std::option::Option<::std::string::String>,
     /// <p>If a recommender update fails, the reason behind the failure.</p>
     pub failure_reason: ::std::option::Option<::std::string::String>,
 }
-impl RecommenderUpdateSummary {
+impl  RecommenderUpdateSummary  {
     /// <p>The configuration details of the recommender update.</p>
-    pub fn recommender_config(&self) -> ::std::option::Option<&crate::types::RecommenderConfig> {
+    pub fn recommender_config(&self) -> ::std::option::Option<& crate::types::RecommenderConfig> {
         self.recommender_config.as_ref()
     }
     /// <p>The date and time (in Unix format) that the recommender update was created.</p>
-    pub fn creation_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_date_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_date_time.as_ref()
     }
     /// <p>The date and time (in Unix time) that the recommender update was last updated.</p>
-    pub fn last_updated_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_updated_date_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_updated_date_time.as_ref()
     }
-    /// <p>The status of the recommender update.</p>
-    /// <p>A recommender can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the recommender update.</p> 
+    /// <p>A recommender can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&str> {
+    pub fn status(&self) -> ::std::option::Option<& str> {
         self.status.as_deref()
     }
     /// <p>If a recommender update fails, the reason behind the failure.</p>
-    pub fn failure_reason(&self) -> ::std::option::Option<&str> {
+    pub fn failure_reason(&self) -> ::std::option::Option<& str> {
         self.failure_reason.as_deref()
     }
 }
@@ -74,8 +74,7 @@ impl RecommenderUpdateSummaryBuilder {
     }
     /// <p>The configuration details of the recommender update.</p>
     pub fn set_recommender_config(mut self, input: ::std::option::Option<crate::types::RecommenderConfig>) -> Self {
-        self.recommender_config = input;
-        self
+        self.recommender_config = input; self
     }
     /// <p>The configuration details of the recommender update.</p>
     pub fn get_recommender_config(&self) -> &::std::option::Option<crate::types::RecommenderConfig> {
@@ -88,8 +87,7 @@ impl RecommenderUpdateSummaryBuilder {
     }
     /// <p>The date and time (in Unix format) that the recommender update was created.</p>
     pub fn set_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_date_time = input;
-        self
+        self.creation_date_time = input; self
     }
     /// <p>The date and time (in Unix format) that the recommender update was created.</p>
     pub fn get_creation_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -102,41 +100,39 @@ impl RecommenderUpdateSummaryBuilder {
     }
     /// <p>The date and time (in Unix time) that the recommender update was last updated.</p>
     pub fn set_last_updated_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_updated_date_time = input;
-        self
+        self.last_updated_date_time = input; self
     }
     /// <p>The date and time (in Unix time) that the recommender update was last updated.</p>
     pub fn get_last_updated_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_updated_date_time
     }
-    /// <p>The status of the recommender update.</p>
-    /// <p>A recommender can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the recommender update.</p> 
+    /// <p>A recommender can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
     pub fn status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The status of the recommender update.</p>
-    /// <p>A recommender can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the recommender update.</p> 
+    /// <p>A recommender can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the recommender update.</p>
-    /// <p>A recommender can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the recommender update.</p> 
+    /// <p>A recommender can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>STOP PENDING &gt; STOP IN_PROGRESS &gt; INACTIVE &gt; START PENDING &gt; START IN_PROGRESS &gt; ACTIVE</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.status
@@ -148,8 +144,7 @@ impl RecommenderUpdateSummaryBuilder {
     }
     /// <p>If a recommender update fails, the reason behind the failure.</p>
     pub fn set_failure_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.failure_reason = input;
-        self
+        self.failure_reason = input; self
     }
     /// <p>If a recommender update fails, the reason behind the failure.</p>
     pub fn get_failure_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -158,11 +153,17 @@ impl RecommenderUpdateSummaryBuilder {
     /// Consumes the builder and constructs a [`RecommenderUpdateSummary`](crate::types::RecommenderUpdateSummary).
     pub fn build(self) -> crate::types::RecommenderUpdateSummary {
         crate::types::RecommenderUpdateSummary {
-            recommender_config: self.recommender_config,
-            creation_date_time: self.creation_date_time,
-            last_updated_date_time: self.last_updated_date_time,
-            status: self.status,
-            failure_reason: self.failure_reason,
+            recommender_config: self.recommender_config
+            ,
+            creation_date_time: self.creation_date_time
+            ,
+            last_updated_date_time: self.last_updated_date_time
+            ,
+            status: self.status
+            ,
+            failure_reason: self.failure_reason
+            ,
         }
     }
 }
+

@@ -5,54 +5,50 @@ pub use crate::operation::update_product::_update_product_input::UpdateProductIn
 
 impl UpdateProductInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::update_product::UpdateProductOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_product::UpdateProductError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.update_product();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::update_product::UpdateProductOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::update_product::UpdateProductError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.update_product();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `UpdateProduct`.
-///
+/// 
 /// <p>Updates the specified product.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateProductFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_product::builders::UpdateProductInputBuilder,
+                    inner: crate::operation::update_product::builders::UpdateProductInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::update_product::UpdateProductOutput,
-        crate::operation::update_product::UpdateProductError,
-    > for UpdateProductFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::update_product::UpdateProductOutput,
-            crate::operation::update_product::UpdateProductError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::update_product::UpdateProductOutput,
+                    crate::operation::update_product::UpdateProductError,
+                > for UpdateProductFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::update_product::UpdateProductOutput,
+                        crate::operation::update_product::UpdateProductError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl UpdateProductFluentBuilder {
     /// Creates a new `UpdateProduct`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,75 +57,66 @@ impl UpdateProductFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_product::UpdateProductOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_product::UpdateProductError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_product::UpdateProduct::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_product::UpdateProduct::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::update_product::UpdateProductOutput,
-        crate::operation::update_product::UpdateProductError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::update_product::UpdateProductOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_product::UpdateProductError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::update_product::UpdateProduct::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::update_product::UpdateProduct::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::update_product::UpdateProductOutput, crate::operation::update_product::UpdateProductError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.accept_language(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_accept_language(input);
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_accept_language()
@@ -256,12 +243,12 @@ impl UpdateProductFluentBuilder {
         self
     }
     /// <p>The tags to add to the product.</p>
-    pub fn set_add_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_add_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_add_tags(input);
         self
     }
     /// <p>The tags to add to the product.</p>
-    pub fn get_add_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_add_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_add_tags()
     }
     /// Appends an item to `RemoveTags`.
@@ -274,38 +261,39 @@ impl UpdateProductFluentBuilder {
         self
     }
     /// <p>The tags to remove from the product.</p>
-    pub fn set_remove_tags(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_remove_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_remove_tags(input);
         self
     }
     /// <p>The tags to remove from the product.</p>
-    pub fn get_remove_tags(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_remove_tags(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_remove_tags()
     }
-    /// <p>Specifies connection details for the updated product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
-    /// <ul>
-    /// <li> <p> <code>Type</code> </p> </li>
-    /// <li> <p> <code>ConnectionParamters</code> </p> </li>
+    /// <p>Specifies connection details for the updated product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The <code>SourceConnection</code> parameter consists of the following sub-fields.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Type</code> </p> </li> 
+    /// <li> <p> <code>ConnectionParamters</code> </p> </li> 
     /// </ul>
     pub fn source_connection(mut self, input: crate::types::SourceConnection) -> Self {
         self.inner = self.inner.source_connection(input);
         self
     }
-    /// <p>Specifies connection details for the updated product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
-    /// <ul>
-    /// <li> <p> <code>Type</code> </p> </li>
-    /// <li> <p> <code>ConnectionParamters</code> </p> </li>
+    /// <p>Specifies connection details for the updated product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The <code>SourceConnection</code> parameter consists of the following sub-fields.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Type</code> </p> </li> 
+    /// <li> <p> <code>ConnectionParamters</code> </p> </li> 
     /// </ul>
     pub fn set_source_connection(mut self, input: ::std::option::Option<crate::types::SourceConnection>) -> Self {
         self.inner = self.inner.set_source_connection(input);
         self
     }
-    /// <p>Specifies connection details for the updated product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
-    /// <ul>
-    /// <li> <p> <code>Type</code> </p> </li>
-    /// <li> <p> <code>ConnectionParamters</code> </p> </li>
+    /// <p>Specifies connection details for the updated product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The <code>SourceConnection</code> parameter consists of the following sub-fields.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Type</code> </p> </li> 
+    /// <li> <p> <code>ConnectionParamters</code> </p> </li> 
     /// </ul>
     pub fn get_source_connection(&self) -> &::std::option::Option<crate::types::SourceConnection> {
         self.inner.get_source_connection()
     }
 }
+

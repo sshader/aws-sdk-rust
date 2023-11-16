@@ -2,33 +2,34 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateCaseInput {
+pub struct CreateCaseInput  {
     /// <p>The unique identifier of the Cases domain. </p>
     pub domain_id: ::std::option::Option<::std::string::String>,
     /// <p>A unique identifier of a template.</p>
     pub template_id: ::std::option::Option<::std::string::String>,
     /// <p>An array of objects with field ID (matching ListFields/DescribeField) and value union data.</p>
-    pub fields: ::std::option::Option<::std::vec::Vec<crate::types::FieldValue>>,
+    pub fields: ::std::option::Option<::std::vec::Vec::<crate::types::FieldValue>>,
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
 }
-impl CreateCaseInput {
+impl  CreateCaseInput  {
     /// <p>The unique identifier of the Cases domain. </p>
-    pub fn domain_id(&self) -> ::std::option::Option<&str> {
+    pub fn domain_id(&self) -> ::std::option::Option<& str> {
         self.domain_id.as_deref()
     }
     /// <p>A unique identifier of a template.</p>
-    pub fn template_id(&self) -> ::std::option::Option<&str> {
+    pub fn template_id(&self) -> ::std::option::Option<& str> {
         self.template_id.as_deref()
     }
     /// <p>An array of objects with field ID (matching ListFields/DescribeField) and value union data.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.fields.is_none()`.
-    pub fn fields(&self) -> &[crate::types::FieldValue] {
-        self.fields.as_deref().unwrap_or_default()
+    pub fn fields(&self) -> & [crate::types::FieldValue] {
+        self.fields.as_deref()
+        .unwrap_or_default()
     }
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
 }
@@ -45,7 +46,7 @@ impl CreateCaseInput {
 pub struct CreateCaseInputBuilder {
     pub(crate) domain_id: ::std::option::Option<::std::string::String>,
     pub(crate) template_id: ::std::option::Option<::std::string::String>,
-    pub(crate) fields: ::std::option::Option<::std::vec::Vec<crate::types::FieldValue>>,
+    pub(crate) fields: ::std::option::Option<::std::vec::Vec::<crate::types::FieldValue>>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
 }
 impl CreateCaseInputBuilder {
@@ -57,8 +58,7 @@ impl CreateCaseInputBuilder {
     }
     /// <p>The unique identifier of the Cases domain. </p>
     pub fn set_domain_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.domain_id = input;
-        self
+        self.domain_id = input; self
     }
     /// <p>The unique identifier of the Cases domain. </p>
     pub fn get_domain_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -72,8 +72,7 @@ impl CreateCaseInputBuilder {
     }
     /// <p>A unique identifier of a template.</p>
     pub fn set_template_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.template_id = input;
-        self
+        self.template_id = input; self
     }
     /// <p>A unique identifier of a template.</p>
     pub fn get_template_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -86,17 +85,16 @@ impl CreateCaseInputBuilder {
     /// <p>An array of objects with field ID (matching ListFields/DescribeField) and value union data.</p>
     pub fn fields(mut self, input: crate::types::FieldValue) -> Self {
         let mut v = self.fields.unwrap_or_default();
-        v.push(input);
-        self.fields = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.fields = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>An array of objects with field ID (matching ListFields/DescribeField) and value union data.</p>
-    pub fn set_fields(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FieldValue>>) -> Self {
-        self.fields = input;
-        self
+    pub fn set_fields(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::FieldValue>>) -> Self {
+        self.fields = input; self
     }
     /// <p>An array of objects with field ID (matching ListFields/DescribeField) and value union data.</p>
-    pub fn get_fields(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FieldValue>> {
+    pub fn get_fields(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::FieldValue>> {
         &self.fields
     }
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
@@ -106,8 +104,7 @@ impl CreateCaseInputBuilder {
     }
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -115,11 +112,18 @@ impl CreateCaseInputBuilder {
     }
     /// Consumes the builder and constructs a [`CreateCaseInput`](crate::operation::create_case::CreateCaseInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::create_case::CreateCaseInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_case::CreateCaseInput {
-            domain_id: self.domain_id,
-            template_id: self.template_id,
-            fields: self.fields,
-            client_token: self.client_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::create_case::CreateCaseInput {
+                domain_id: self.domain_id
+                ,
+                template_id: self.template_id
+                ,
+                fields: self.fields
+                ,
+                client_token: self.client_token
+                ,
+            }
+        )
     }
 }
+

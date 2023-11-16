@@ -5,54 +5,50 @@ pub use crate::operation::purchase_reserved_cache_nodes_offering::_purchase_rese
 
 impl PurchaseReservedCacheNodesOfferingInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.purchase_reserved_cache_nodes_offering();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.purchase_reserved_cache_nodes_offering();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `PurchaseReservedCacheNodesOffering`.
-///
+/// 
 /// <p>Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible for cancellation and are non-refundable. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Memcached.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct PurchaseReservedCacheNodesOfferingFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::purchase_reserved_cache_nodes_offering::builders::PurchaseReservedCacheNodesOfferingInputBuilder,
+                    inner: crate::operation::purchase_reserved_cache_nodes_offering::builders::PurchaseReservedCacheNodesOfferingInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput,
-        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError,
-    > for PurchaseReservedCacheNodesOfferingFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput,
-            crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput,
+                    crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError,
+                > for PurchaseReservedCacheNodesOfferingFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput,
+                        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl PurchaseReservedCacheNodesOfferingFluentBuilder {
     /// Creates a new `PurchaseReservedCacheNodesOffering`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,106 +57,97 @@ impl PurchaseReservedCacheNodesOfferingFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOffering::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOffering::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput,
-        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The ID of the reserved cache node offering to purchase.</p>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOffering::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOffering::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingOutput, crate::operation::purchase_reserved_cache_nodes_offering::PurchaseReservedCacheNodesOfferingError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The ID of the reserved cache node offering to purchase.</p> 
     /// <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code> </p>
     pub fn reserved_cache_nodes_offering_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.reserved_cache_nodes_offering_id(input.into());
         self
     }
-    /// <p>The ID of the reserved cache node offering to purchase.</p>
+    /// <p>The ID of the reserved cache node offering to purchase.</p> 
     /// <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code> </p>
     pub fn set_reserved_cache_nodes_offering_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_reserved_cache_nodes_offering_id(input);
         self
     }
-    /// <p>The ID of the reserved cache node offering to purchase.</p>
+    /// <p>The ID of the reserved cache node offering to purchase.</p> 
     /// <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code> </p>
     pub fn get_reserved_cache_nodes_offering_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_reserved_cache_nodes_offering_id()
     }
-    /// <p>A customer-specified identifier to track this reservation.</p> <note>
-    /// <p>The Reserved Cache Node ID is an unique customer-specified identifier to track this reservation. If this parameter is not specified, ElastiCache automatically generates an identifier for the reservation.</p>
-    /// </note>
+    /// <p>A customer-specified identifier to track this reservation.</p> <note> 
+    /// <p>The Reserved Cache Node ID is an unique customer-specified identifier to track this reservation. If this parameter is not specified, ElastiCache automatically generates an identifier for the reservation.</p> 
+    /// </note> 
     /// <p>Example: myreservationID</p>
     pub fn reserved_cache_node_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.reserved_cache_node_id(input.into());
         self
     }
-    /// <p>A customer-specified identifier to track this reservation.</p> <note>
-    /// <p>The Reserved Cache Node ID is an unique customer-specified identifier to track this reservation. If this parameter is not specified, ElastiCache automatically generates an identifier for the reservation.</p>
-    /// </note>
+    /// <p>A customer-specified identifier to track this reservation.</p> <note> 
+    /// <p>The Reserved Cache Node ID is an unique customer-specified identifier to track this reservation. If this parameter is not specified, ElastiCache automatically generates an identifier for the reservation.</p> 
+    /// </note> 
     /// <p>Example: myreservationID</p>
     pub fn set_reserved_cache_node_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_reserved_cache_node_id(input);
         self
     }
-    /// <p>A customer-specified identifier to track this reservation.</p> <note>
-    /// <p>The Reserved Cache Node ID is an unique customer-specified identifier to track this reservation. If this parameter is not specified, ElastiCache automatically generates an identifier for the reservation.</p>
-    /// </note>
+    /// <p>A customer-specified identifier to track this reservation.</p> <note> 
+    /// <p>The Reserved Cache Node ID is an unique customer-specified identifier to track this reservation. If this parameter is not specified, ElastiCache automatically generates an identifier for the reservation.</p> 
+    /// </note> 
     /// <p>Example: myreservationID</p>
     pub fn get_reserved_cache_node_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_reserved_cache_node_id()
     }
-    /// <p>The number of cache node instances to reserve.</p>
+    /// <p>The number of cache node instances to reserve.</p> 
     /// <p>Default: <code>1</code> </p>
     pub fn cache_node_count(mut self, input: i32) -> Self {
         self.inner = self.inner.cache_node_count(input);
         self
     }
-    /// <p>The number of cache node instances to reserve.</p>
+    /// <p>The number of cache node instances to reserve.</p> 
     /// <p>Default: <code>1</code> </p>
     pub fn set_cache_node_count(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_cache_node_count(input);
         self
     }
-    /// <p>The number of cache node instances to reserve.</p>
+    /// <p>The number of cache node instances to reserve.</p> 
     /// <p>Default: <code>1</code> </p>
     pub fn get_cache_node_count(&self) -> &::std::option::Option<i32> {
         self.inner.get_cache_node_count()
@@ -175,12 +162,13 @@ impl PurchaseReservedCacheNodesOfferingFluentBuilder {
         self
     }
     /// <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
 }
+

@@ -3,72 +3,69 @@
 /// <p>A route calculator resource listed in your Amazon Web Services account.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListRouteCalculatorsResponseEntry {
+pub struct ListRouteCalculatorsResponseEntry  {
     /// <p>The name of the route calculator resource.</p>
     pub calculator_name: ::std::string::String,
     /// <p>The optional description of the route calculator resource.</p>
     pub description: ::std::string::String,
-    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p>
-    /// <ul>
-    /// <li> <p> <code>Esri</code> </p> </li>
-    /// <li> <p> <code>Grab</code> </p> </li>
-    /// <li> <p> <code>Here</code> </p> </li>
-    /// </ul>
+    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Esri</code> </p> </li> 
+    /// <li> <p> <code>Grab</code> </p> </li> 
+    /// <li> <p> <code>Here</code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
     pub data_source: ::std::string::String,
     /// <p>Always returns <code>RequestBasedUsage</code>.</p>
     #[deprecated(note = "Deprecated. Always returns RequestBasedUsage.", since = "2022-02-01")]
     pub pricing_plan: ::std::option::Option<crate::types::PricingPlan>,
-    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
     pub create_time: ::aws_smithy_types::DateTime,
-    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
     pub update_time: ::aws_smithy_types::DateTime,
 }
-impl ListRouteCalculatorsResponseEntry {
+impl  ListRouteCalculatorsResponseEntry  {
     /// <p>The name of the route calculator resource.</p>
-    pub fn calculator_name(&self) -> &str {
-        use std::ops::Deref;
-        self.calculator_name.deref()
+    pub fn calculator_name(&self) -> & str {
+        use std::ops::Deref; self.calculator_name.deref()
     }
     /// <p>The optional description of the route calculator resource.</p>
-    pub fn description(&self) -> &str {
-        use std::ops::Deref;
-        self.description.deref()
+    pub fn description(&self) -> & str {
+        use std::ops::Deref; self.description.deref()
     }
-    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p>
-    /// <ul>
-    /// <li> <p> <code>Esri</code> </p> </li>
-    /// <li> <p> <code>Grab</code> </p> </li>
-    /// <li> <p> <code>Here</code> </p> </li>
-    /// </ul>
+    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Esri</code> </p> </li> 
+    /// <li> <p> <code>Grab</code> </p> </li> 
+    /// <li> <p> <code>Here</code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
-    pub fn data_source(&self) -> &str {
-        use std::ops::Deref;
-        self.data_source.deref()
+    pub fn data_source(&self) -> & str {
+        use std::ops::Deref; self.data_source.deref()
     }
     /// <p>Always returns <code>RequestBasedUsage</code>.</p>
     #[deprecated(note = "Deprecated. Always returns RequestBasedUsage.", since = "2022-02-01")]
-    pub fn pricing_plan(&self) -> ::std::option::Option<&crate::types::PricingPlan> {
+    pub fn pricing_plan(&self) -> ::std::option::Option<& crate::types::PricingPlan> {
         self.pricing_plan.as_ref()
     }
-    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
-    pub fn create_time(&self) -> &::aws_smithy_types::DateTime {
+    pub fn create_time(&self) -> & ::aws_smithy_types::DateTime {
         &self.create_time
     }
-    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
-    pub fn update_time(&self) -> &::aws_smithy_types::DateTime {
+    pub fn update_time(&self) -> & ::aws_smithy_types::DateTime {
         &self.update_time
     }
 }
@@ -99,8 +96,7 @@ impl ListRouteCalculatorsResponseEntryBuilder {
     }
     /// <p>The name of the route calculator resource.</p>
     pub fn set_calculator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.calculator_name = input;
-        self
+        self.calculator_name = input; self
     }
     /// <p>The name of the route calculator resource.</p>
     pub fn get_calculator_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -114,42 +110,40 @@ impl ListRouteCalculatorsResponseEntryBuilder {
     }
     /// <p>The optional description of the route calculator resource.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The optional description of the route calculator resource.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
-    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p>
-    /// <ul>
-    /// <li> <p> <code>Esri</code> </p> </li>
-    /// <li> <p> <code>Grab</code> </p> </li>
-    /// <li> <p> <code>Here</code> </p> </li>
-    /// </ul>
+    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Esri</code> </p> </li> 
+    /// <li> <p> <code>Grab</code> </p> </li> 
+    /// <li> <p> <code>Here</code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
     /// This field is required.
     pub fn data_source(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.data_source = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p>
-    /// <ul>
-    /// <li> <p> <code>Esri</code> </p> </li>
-    /// <li> <p> <code>Grab</code> </p> </li>
-    /// <li> <p> <code>Here</code> </p> </li>
-    /// </ul>
+    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Esri</code> </p> </li> 
+    /// <li> <p> <code>Grab</code> </p> </li> 
+    /// <li> <p> <code>Here</code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
     pub fn set_data_source(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.data_source = input;
-        self
+        self.data_source = input; self
     }
-    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p>
-    /// <ul>
-    /// <li> <p> <code>Esri</code> </p> </li>
-    /// <li> <p> <code>Grab</code> </p> </li>
-    /// <li> <p> <code>Here</code> </p> </li>
-    /// </ul>
+    /// <p>The data provider of traffic and road network data. Indicates one of the available providers:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Esri</code> </p> </li> 
+    /// <li> <p> <code>Grab</code> </p> </li> 
+    /// <li> <p> <code>Here</code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
     pub fn get_data_source(&self) -> &::std::option::Option<::std::string::String> {
         &self.data_source
@@ -163,58 +157,55 @@ impl ListRouteCalculatorsResponseEntryBuilder {
     /// <p>Always returns <code>RequestBasedUsage</code>.</p>
     #[deprecated(note = "Deprecated. Always returns RequestBasedUsage.", since = "2022-02-01")]
     pub fn set_pricing_plan(mut self, input: ::std::option::Option<crate::types::PricingPlan>) -> Self {
-        self.pricing_plan = input;
-        self
+        self.pricing_plan = input; self
     }
     /// <p>Always returns <code>RequestBasedUsage</code>.</p>
     #[deprecated(note = "Deprecated. Always returns RequestBasedUsage.", since = "2022-02-01")]
     pub fn get_pricing_plan(&self) -> &::std::option::Option<crate::types::PricingPlan> {
         &self.pricing_plan
     }
-    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
     /// This field is required.
     pub fn create_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.create_time = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
     pub fn set_create_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.create_time = input;
-        self
+        self.create_time = input; self
     }
-    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
     pub fn get_create_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.create_time
     }
-    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
     /// This field is required.
     pub fn update_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.update_time = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
     pub fn set_update_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.update_time = input;
-        self
+        self.update_time = input; self
     }
-    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
-    /// <ul>
-    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li>
+    /// <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p> 
+    /// <ul> 
+    /// <li> <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code> </p> </li> 
     /// </ul>
     pub fn get_update_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.update_time
@@ -227,38 +218,37 @@ impl ListRouteCalculatorsResponseEntryBuilder {
     /// - [`create_time`](crate::types::builders::ListRouteCalculatorsResponseEntryBuilder::create_time)
     /// - [`update_time`](crate::types::builders::ListRouteCalculatorsResponseEntryBuilder::update_time)
     pub fn build(self) -> ::std::result::Result<crate::types::ListRouteCalculatorsResponseEntry, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ListRouteCalculatorsResponseEntry {
-            calculator_name: self.calculator_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "calculator_name",
-                    "calculator_name was not specified but it is required when building ListRouteCalculatorsResponseEntry",
-                )
-            })?,
-            description: self.description.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "description",
-                    "description was not specified but it is required when building ListRouteCalculatorsResponseEntry",
-                )
-            })?,
-            data_source: self.data_source.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "data_source",
-                    "data_source was not specified but it is required when building ListRouteCalculatorsResponseEntry",
-                )
-            })?,
-            pricing_plan: self.pricing_plan,
-            create_time: self.create_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "create_time",
-                    "create_time was not specified but it is required when building ListRouteCalculatorsResponseEntry",
-                )
-            })?,
-            update_time: self.update_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "update_time",
-                    "update_time was not specified but it is required when building ListRouteCalculatorsResponseEntry",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::ListRouteCalculatorsResponseEntry {
+                calculator_name: self.calculator_name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("calculator_name", "calculator_name was not specified but it is required when building ListRouteCalculatorsResponseEntry")
+                    )?
+                ,
+                description: self.description
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("description", "description was not specified but it is required when building ListRouteCalculatorsResponseEntry")
+                    )?
+                ,
+                data_source: self.data_source
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("data_source", "data_source was not specified but it is required when building ListRouteCalculatorsResponseEntry")
+                    )?
+                ,
+                pricing_plan: self.pricing_plan
+                ,
+                create_time: self.create_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("create_time", "create_time was not specified but it is required when building ListRouteCalculatorsResponseEntry")
+                    )?
+                ,
+                update_time: self.update_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("update_time", "update_time was not specified but it is required when building ListRouteCalculatorsResponseEntry")
+                    )?
+                ,
+            }
+        )
     }
 }
+

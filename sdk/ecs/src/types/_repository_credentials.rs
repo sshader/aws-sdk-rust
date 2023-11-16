@@ -3,19 +3,18 @@
 /// <p>The repository credentials for private registry authentication.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RepositoryCredentials {
-    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note>
-    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p>
+pub struct RepositoryCredentials  {
+    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note> 
+    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p> 
     /// </note>
     pub credentials_parameter: ::std::string::String,
 }
-impl RepositoryCredentials {
-    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note>
-    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p>
+impl  RepositoryCredentials  {
+    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note> 
+    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p> 
     /// </note>
-    pub fn credentials_parameter(&self) -> &str {
-        use std::ops::Deref;
-        self.credentials_parameter.deref()
+    pub fn credentials_parameter(&self) -> & str {
+        use std::ops::Deref; self.credentials_parameter.deref()
     }
 }
 impl RepositoryCredentials {
@@ -32,23 +31,22 @@ pub struct RepositoryCredentialsBuilder {
     pub(crate) credentials_parameter: ::std::option::Option<::std::string::String>,
 }
 impl RepositoryCredentialsBuilder {
-    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note>
-    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p>
+    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note> 
+    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p> 
     /// </note>
     /// This field is required.
     pub fn credentials_parameter(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.credentials_parameter = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note>
-    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p>
+    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note> 
+    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p> 
     /// </note>
     pub fn set_credentials_parameter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.credentials_parameter = input;
-        self
+        self.credentials_parameter = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note>
-    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p>
+    /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note> 
+    /// <p>When you use the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the Amazon Web Services Management Console, you must specify the full ARN of the secret.</p> 
     /// </note>
     pub fn get_credentials_parameter(&self) -> &::std::option::Option<::std::string::String> {
         &self.credentials_parameter
@@ -57,13 +55,15 @@ impl RepositoryCredentialsBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`credentials_parameter`](crate::types::builders::RepositoryCredentialsBuilder::credentials_parameter)
     pub fn build(self) -> ::std::result::Result<crate::types::RepositoryCredentials, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::RepositoryCredentials {
-            credentials_parameter: self.credentials_parameter.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "credentials_parameter",
-                    "credentials_parameter was not specified but it is required when building RepositoryCredentials",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::RepositoryCredentials {
+                credentials_parameter: self.credentials_parameter
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("credentials_parameter", "credentials_parameter was not specified but it is required when building RepositoryCredentials")
+                    )?
+                ,
+            }
+        )
     }
 }
+

@@ -5,54 +5,50 @@ pub use crate::operation::activate_network_site::_activate_network_site_input::A
 
 impl ActivateNetworkSiteInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::activate_network_site::ActivateNetworkSiteOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::activate_network_site::ActivateNetworkSiteError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.activate_network_site();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::activate_network_site::ActivateNetworkSiteOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::activate_network_site::ActivateNetworkSiteError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.activate_network_site();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ActivateNetworkSite`.
-///
+/// 
 /// <p>Activates the specified network site.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ActivateNetworkSiteFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::activate_network_site::builders::ActivateNetworkSiteInputBuilder,
+                    inner: crate::operation::activate_network_site::builders::ActivateNetworkSiteInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::activate_network_site::ActivateNetworkSiteOutput,
-        crate::operation::activate_network_site::ActivateNetworkSiteError,
-    > for ActivateNetworkSiteFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::activate_network_site::ActivateNetworkSiteOutput,
-            crate::operation::activate_network_site::ActivateNetworkSiteError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::activate_network_site::ActivateNetworkSiteOutput,
+                    crate::operation::activate_network_site::ActivateNetworkSiteError,
+                > for ActivateNetworkSiteFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::activate_network_site::ActivateNetworkSiteOutput,
+                        crate::operation::activate_network_site::ActivateNetworkSiteError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ActivateNetworkSiteFluentBuilder {
     /// Creates a new `ActivateNetworkSite`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl ActivateNetworkSiteFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::activate_network_site::ActivateNetworkSiteOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::activate_network_site::ActivateNetworkSiteError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::activate_network_site::ActivateNetworkSite::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::activate_network_site::ActivateNetworkSite::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::activate_network_site::ActivateNetworkSiteOutput,
-        crate::operation::activate_network_site::ActivateNetworkSiteError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::activate_network_site::ActivateNetworkSiteOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::activate_network_site::ActivateNetworkSiteError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::activate_network_site::ActivateNetworkSite::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::activate_network_site::ActivateNetworkSite::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::activate_network_site::ActivateNetworkSiteOutput, crate::operation::activate_network_site::ActivateNetworkSiteError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The Amazon Resource Name (ARN) of the network site.</p>
     pub fn network_site_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.network_site_arn(input.into());
@@ -150,39 +137,40 @@ impl ActivateNetworkSiteFluentBuilder {
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_client_token()
     }
-    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p>
-    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p>
-    /// <ul>
-    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li>
-    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li>
-    /// </ul>
-    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p>
+    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p> 
+    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p> 
+    /// <ul> 
+    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li> 
+    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li> 
+    /// </ul> 
+    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p> 
     /// <p>If you do not include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, the commitment period is set to 60-days.</p>
     pub fn commitment_configuration(mut self, input: crate::types::CommitmentConfiguration) -> Self {
         self.inner = self.inner.commitment_configuration(input);
         self
     }
-    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p>
-    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p>
-    /// <ul>
-    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li>
-    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li>
-    /// </ul>
-    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p>
+    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p> 
+    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p> 
+    /// <ul> 
+    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li> 
+    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li> 
+    /// </ul> 
+    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p> 
     /// <p>If you do not include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, the commitment period is set to 60-days.</p>
     pub fn set_commitment_configuration(mut self, input: ::std::option::Option<crate::types::CommitmentConfiguration>) -> Self {
         self.inner = self.inner.set_commitment_configuration(input);
         self
     }
-    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p>
-    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p>
-    /// <ul>
-    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li>
-    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li>
-    /// </ul>
-    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p>
+    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p> 
+    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p> 
+    /// <ul> 
+    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li> 
+    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li> 
+    /// </ul> 
+    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p> 
     /// <p>If you do not include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, the commitment period is set to 60-days.</p>
     pub fn get_commitment_configuration(&self) -> &::std::option::Option<crate::types::CommitmentConfiguration> {
         self.inner.get_commitment_configuration()
     }
 }
+

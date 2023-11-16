@@ -3,7 +3,7 @@
 /// <p>Describes a WorkSpace.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Workspace {
+pub struct Workspace  {
     /// <p>The identifier of the WorkSpace.</p>
     pub workspace_id: ::std::option::Option<::std::string::String>,
     /// <p>The identifier of the Directory Service directory for the WorkSpace.</p>
@@ -12,8 +12,8 @@ pub struct Workspace {
     pub user_name: ::std::option::Option<::std::string::String>,
     /// <p>The IP address of the WorkSpace.</p>
     pub ip_address: ::std::option::Option<::std::string::String>,
-    /// <p>The operational state of the WorkSpace.</p> <note>
-    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p>
+    /// <p>The operational state of the WorkSpace.</p> <note> 
+    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p> 
     /// </note>
     pub state: ::std::option::Option<crate::types::WorkspaceState>,
     /// <p>The identifier of the bundle used to create the WorkSpace.</p>
@@ -35,55 +35,55 @@ pub struct Workspace {
     /// <p>The properties of the WorkSpace.</p>
     pub workspace_properties: ::std::option::Option<crate::types::WorkspaceProperties>,
     /// <p>The modification states of the WorkSpace.</p>
-    pub modification_states: ::std::option::Option<::std::vec::Vec<crate::types::ModificationState>>,
+    pub modification_states: ::std::option::Option<::std::vec::Vec::<crate::types::ModificationState>>,
     /// <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
-    pub related_workspaces: ::std::option::Option<::std::vec::Vec<crate::types::RelatedWorkspaceProperties>>,
+    pub related_workspaces: ::std::option::Option<::std::vec::Vec::<crate::types::RelatedWorkspaceProperties>>,
 }
-impl Workspace {
+impl  Workspace  {
     /// <p>The identifier of the WorkSpace.</p>
-    pub fn workspace_id(&self) -> ::std::option::Option<&str> {
+    pub fn workspace_id(&self) -> ::std::option::Option<& str> {
         self.workspace_id.as_deref()
     }
     /// <p>The identifier of the Directory Service directory for the WorkSpace.</p>
-    pub fn directory_id(&self) -> ::std::option::Option<&str> {
+    pub fn directory_id(&self) -> ::std::option::Option<& str> {
         self.directory_id.as_deref()
     }
     /// <p>The user for the WorkSpace.</p>
-    pub fn user_name(&self) -> ::std::option::Option<&str> {
+    pub fn user_name(&self) -> ::std::option::Option<& str> {
         self.user_name.as_deref()
     }
     /// <p>The IP address of the WorkSpace.</p>
-    pub fn ip_address(&self) -> ::std::option::Option<&str> {
+    pub fn ip_address(&self) -> ::std::option::Option<& str> {
         self.ip_address.as_deref()
     }
-    /// <p>The operational state of the WorkSpace.</p> <note>
-    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p>
+    /// <p>The operational state of the WorkSpace.</p> <note> 
+    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p> 
     /// </note>
-    pub fn state(&self) -> ::std::option::Option<&crate::types::WorkspaceState> {
+    pub fn state(&self) -> ::std::option::Option<& crate::types::WorkspaceState> {
         self.state.as_ref()
     }
     /// <p>The identifier of the bundle used to create the WorkSpace.</p>
-    pub fn bundle_id(&self) -> ::std::option::Option<&str> {
+    pub fn bundle_id(&self) -> ::std::option::Option<& str> {
         self.bundle_id.as_deref()
     }
     /// <p>The identifier of the subnet for the WorkSpace.</p>
-    pub fn subnet_id(&self) -> ::std::option::Option<&str> {
+    pub fn subnet_id(&self) -> ::std::option::Option<& str> {
         self.subnet_id.as_deref()
     }
     /// <p>The text of the error message that is returned if the WorkSpace cannot be created.</p>
-    pub fn error_message(&self) -> ::std::option::Option<&str> {
+    pub fn error_message(&self) -> ::std::option::Option<& str> {
         self.error_message.as_deref()
     }
     /// <p>The error code that is returned if the WorkSpace cannot be created.</p>
-    pub fn error_code(&self) -> ::std::option::Option<&str> {
+    pub fn error_code(&self) -> ::std::option::Option<& str> {
         self.error_code.as_deref()
     }
     /// <p>The name of the WorkSpace, as seen by the operating system. The format of this name varies. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/launch-workspaces-tutorials.html"> Launch a WorkSpace</a>. </p>
-    pub fn computer_name(&self) -> ::std::option::Option<&str> {
+    pub fn computer_name(&self) -> ::std::option::Option<& str> {
         self.computer_name.as_deref()
     }
     /// <p>The ARN of the symmetric KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys.</p>
-    pub fn volume_encryption_key(&self) -> ::std::option::Option<&str> {
+    pub fn volume_encryption_key(&self) -> ::std::option::Option<& str> {
         self.volume_encryption_key.as_deref()
     }
     /// <p>Indicates whether the data stored on the user volume is encrypted.</p>
@@ -95,20 +95,22 @@ impl Workspace {
         self.root_volume_encryption_enabled
     }
     /// <p>The properties of the WorkSpace.</p>
-    pub fn workspace_properties(&self) -> ::std::option::Option<&crate::types::WorkspaceProperties> {
+    pub fn workspace_properties(&self) -> ::std::option::Option<& crate::types::WorkspaceProperties> {
         self.workspace_properties.as_ref()
     }
     /// <p>The modification states of the WorkSpace.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.modification_states.is_none()`.
-    pub fn modification_states(&self) -> &[crate::types::ModificationState] {
-        self.modification_states.as_deref().unwrap_or_default()
+    pub fn modification_states(&self) -> & [crate::types::ModificationState] {
+        self.modification_states.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.related_workspaces.is_none()`.
-    pub fn related_workspaces(&self) -> &[crate::types::RelatedWorkspaceProperties] {
-        self.related_workspaces.as_deref().unwrap_or_default()
+    pub fn related_workspaces(&self) -> & [crate::types::RelatedWorkspaceProperties] {
+        self.related_workspaces.as_deref()
+        .unwrap_or_default()
     }
 }
 impl Workspace {
@@ -136,8 +138,8 @@ pub struct WorkspaceBuilder {
     pub(crate) user_volume_encryption_enabled: ::std::option::Option<bool>,
     pub(crate) root_volume_encryption_enabled: ::std::option::Option<bool>,
     pub(crate) workspace_properties: ::std::option::Option<crate::types::WorkspaceProperties>,
-    pub(crate) modification_states: ::std::option::Option<::std::vec::Vec<crate::types::ModificationState>>,
-    pub(crate) related_workspaces: ::std::option::Option<::std::vec::Vec<crate::types::RelatedWorkspaceProperties>>,
+    pub(crate) modification_states: ::std::option::Option<::std::vec::Vec::<crate::types::ModificationState>>,
+    pub(crate) related_workspaces: ::std::option::Option<::std::vec::Vec::<crate::types::RelatedWorkspaceProperties>>,
 }
 impl WorkspaceBuilder {
     /// <p>The identifier of the WorkSpace.</p>
@@ -147,8 +149,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The identifier of the WorkSpace.</p>
     pub fn set_workspace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workspace_id = input;
-        self
+        self.workspace_id = input; self
     }
     /// <p>The identifier of the WorkSpace.</p>
     pub fn get_workspace_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -161,8 +162,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The identifier of the Directory Service directory for the WorkSpace.</p>
     pub fn set_directory_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.directory_id = input;
-        self
+        self.directory_id = input; self
     }
     /// <p>The identifier of the Directory Service directory for the WorkSpace.</p>
     pub fn get_directory_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -175,8 +175,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The user for the WorkSpace.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.user_name = input;
-        self
+        self.user_name = input; self
     }
     /// <p>The user for the WorkSpace.</p>
     pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -189,29 +188,27 @@ impl WorkspaceBuilder {
     }
     /// <p>The IP address of the WorkSpace.</p>
     pub fn set_ip_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.ip_address = input;
-        self
+        self.ip_address = input; self
     }
     /// <p>The IP address of the WorkSpace.</p>
     pub fn get_ip_address(&self) -> &::std::option::Option<::std::string::String> {
         &self.ip_address
     }
-    /// <p>The operational state of the WorkSpace.</p> <note>
-    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p>
+    /// <p>The operational state of the WorkSpace.</p> <note> 
+    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p> 
     /// </note>
     pub fn state(mut self, input: crate::types::WorkspaceState) -> Self {
         self.state = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The operational state of the WorkSpace.</p> <note>
-    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p>
+    /// <p>The operational state of the WorkSpace.</p> <note> 
+    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p> 
     /// </note>
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::WorkspaceState>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
-    /// <p>The operational state of the WorkSpace.</p> <note>
-    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p>
+    /// <p>The operational state of the WorkSpace.</p> <note> 
+    /// <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p> 
     /// </note>
     pub fn get_state(&self) -> &::std::option::Option<crate::types::WorkspaceState> {
         &self.state
@@ -223,8 +220,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The identifier of the bundle used to create the WorkSpace.</p>
     pub fn set_bundle_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.bundle_id = input;
-        self
+        self.bundle_id = input; self
     }
     /// <p>The identifier of the bundle used to create the WorkSpace.</p>
     pub fn get_bundle_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -237,8 +233,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The identifier of the subnet for the WorkSpace.</p>
     pub fn set_subnet_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.subnet_id = input;
-        self
+        self.subnet_id = input; self
     }
     /// <p>The identifier of the subnet for the WorkSpace.</p>
     pub fn get_subnet_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -251,8 +246,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The text of the error message that is returned if the WorkSpace cannot be created.</p>
     pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.error_message = input;
-        self
+        self.error_message = input; self
     }
     /// <p>The text of the error message that is returned if the WorkSpace cannot be created.</p>
     pub fn get_error_message(&self) -> &::std::option::Option<::std::string::String> {
@@ -265,8 +259,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The error code that is returned if the WorkSpace cannot be created.</p>
     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.error_code = input;
-        self
+        self.error_code = input; self
     }
     /// <p>The error code that is returned if the WorkSpace cannot be created.</p>
     pub fn get_error_code(&self) -> &::std::option::Option<::std::string::String> {
@@ -279,8 +272,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The name of the WorkSpace, as seen by the operating system. The format of this name varies. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/launch-workspaces-tutorials.html"> Launch a WorkSpace</a>. </p>
     pub fn set_computer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.computer_name = input;
-        self
+        self.computer_name = input; self
     }
     /// <p>The name of the WorkSpace, as seen by the operating system. The format of this name varies. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/launch-workspaces-tutorials.html"> Launch a WorkSpace</a>. </p>
     pub fn get_computer_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -293,8 +285,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The ARN of the symmetric KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys.</p>
     pub fn set_volume_encryption_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.volume_encryption_key = input;
-        self
+        self.volume_encryption_key = input; self
     }
     /// <p>The ARN of the symmetric KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys.</p>
     pub fn get_volume_encryption_key(&self) -> &::std::option::Option<::std::string::String> {
@@ -307,8 +298,7 @@ impl WorkspaceBuilder {
     }
     /// <p>Indicates whether the data stored on the user volume is encrypted.</p>
     pub fn set_user_volume_encryption_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.user_volume_encryption_enabled = input;
-        self
+        self.user_volume_encryption_enabled = input; self
     }
     /// <p>Indicates whether the data stored on the user volume is encrypted.</p>
     pub fn get_user_volume_encryption_enabled(&self) -> &::std::option::Option<bool> {
@@ -321,8 +311,7 @@ impl WorkspaceBuilder {
     }
     /// <p>Indicates whether the data stored on the root volume is encrypted.</p>
     pub fn set_root_volume_encryption_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.root_volume_encryption_enabled = input;
-        self
+        self.root_volume_encryption_enabled = input; self
     }
     /// <p>Indicates whether the data stored on the root volume is encrypted.</p>
     pub fn get_root_volume_encryption_enabled(&self) -> &::std::option::Option<bool> {
@@ -335,8 +324,7 @@ impl WorkspaceBuilder {
     }
     /// <p>The properties of the WorkSpace.</p>
     pub fn set_workspace_properties(mut self, input: ::std::option::Option<crate::types::WorkspaceProperties>) -> Self {
-        self.workspace_properties = input;
-        self
+        self.workspace_properties = input; self
     }
     /// <p>The properties of the WorkSpace.</p>
     pub fn get_workspace_properties(&self) -> &::std::option::Option<crate::types::WorkspaceProperties> {
@@ -349,17 +337,16 @@ impl WorkspaceBuilder {
     /// <p>The modification states of the WorkSpace.</p>
     pub fn modification_states(mut self, input: crate::types::ModificationState) -> Self {
         let mut v = self.modification_states.unwrap_or_default();
-        v.push(input);
-        self.modification_states = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.modification_states = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The modification states of the WorkSpace.</p>
-    pub fn set_modification_states(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ModificationState>>) -> Self {
-        self.modification_states = input;
-        self
+    pub fn set_modification_states(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ModificationState>>) -> Self {
+        self.modification_states = input; self
     }
     /// <p>The modification states of the WorkSpace.</p>
-    pub fn get_modification_states(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ModificationState>> {
+    pub fn get_modification_states(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ModificationState>> {
         &self.modification_states
     }
     /// Appends an item to `related_workspaces`.
@@ -369,38 +356,54 @@ impl WorkspaceBuilder {
     /// <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
     pub fn related_workspaces(mut self, input: crate::types::RelatedWorkspaceProperties) -> Self {
         let mut v = self.related_workspaces.unwrap_or_default();
-        v.push(input);
-        self.related_workspaces = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.related_workspaces = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
-    pub fn set_related_workspaces(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RelatedWorkspaceProperties>>) -> Self {
-        self.related_workspaces = input;
-        self
+    pub fn set_related_workspaces(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::RelatedWorkspaceProperties>>) -> Self {
+        self.related_workspaces = input; self
     }
     /// <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
-    pub fn get_related_workspaces(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RelatedWorkspaceProperties>> {
+    pub fn get_related_workspaces(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::RelatedWorkspaceProperties>> {
         &self.related_workspaces
     }
     /// Consumes the builder and constructs a [`Workspace`](crate::types::Workspace).
     pub fn build(self) -> crate::types::Workspace {
         crate::types::Workspace {
-            workspace_id: self.workspace_id,
-            directory_id: self.directory_id,
-            user_name: self.user_name,
-            ip_address: self.ip_address,
-            state: self.state,
-            bundle_id: self.bundle_id,
-            subnet_id: self.subnet_id,
-            error_message: self.error_message,
-            error_code: self.error_code,
-            computer_name: self.computer_name,
-            volume_encryption_key: self.volume_encryption_key,
-            user_volume_encryption_enabled: self.user_volume_encryption_enabled,
-            root_volume_encryption_enabled: self.root_volume_encryption_enabled,
-            workspace_properties: self.workspace_properties,
-            modification_states: self.modification_states,
-            related_workspaces: self.related_workspaces,
+            workspace_id: self.workspace_id
+            ,
+            directory_id: self.directory_id
+            ,
+            user_name: self.user_name
+            ,
+            ip_address: self.ip_address
+            ,
+            state: self.state
+            ,
+            bundle_id: self.bundle_id
+            ,
+            subnet_id: self.subnet_id
+            ,
+            error_message: self.error_message
+            ,
+            error_code: self.error_code
+            ,
+            computer_name: self.computer_name
+            ,
+            volume_encryption_key: self.volume_encryption_key
+            ,
+            user_volume_encryption_enabled: self.user_volume_encryption_enabled
+            ,
+            root_volume_encryption_enabled: self.root_volume_encryption_enabled
+            ,
+            workspace_properties: self.workspace_properties
+            ,
+            modification_states: self.modification_states
+            ,
+            related_workspaces: self.related_workspaces
+            ,
         }
     }
 }
+

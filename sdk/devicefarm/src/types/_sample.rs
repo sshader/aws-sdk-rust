@@ -3,65 +3,65 @@
 /// <p>Represents a sample of performance data.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Sample {
+pub struct Sample  {
     /// <p>The sample's ARN.</p>
     pub arn: ::std::option::Option<::std::string::String>,
-    /// <p>The sample's type.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li>
-    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li>
-    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_FPS</p> </li>
-    /// <li> <p>NATIVE_FRAMES</p> </li>
-    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_FPS</p> </li>
-    /// <li> <p>OPENGL_FRAMES</p> </li>
-    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li>
-    /// <li> <p>RX</p> </li>
-    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li>
-    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li>
-    /// <li> <p>TX</p> </li>
-    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li>
+    /// <p>The sample's type.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li> 
+    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li> 
+    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_FPS</p> </li> 
+    /// <li> <p>NATIVE_FRAMES</p> </li> 
+    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_FPS</p> </li> 
+    /// <li> <p>OPENGL_FRAMES</p> </li> 
+    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>RX</p> </li> 
+    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li> 
+    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li> 
+    /// <li> <p>TX</p> </li> 
+    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li> 
     /// </ul>
     pub r#type: ::std::option::Option<crate::types::SampleType>,
     /// <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.</p>
     pub url: ::std::option::Option<::std::string::String>,
 }
-impl Sample {
+impl  Sample  {
     /// <p>The sample's ARN.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
-    /// <p>The sample's type.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li>
-    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li>
-    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_FPS</p> </li>
-    /// <li> <p>NATIVE_FRAMES</p> </li>
-    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_FPS</p> </li>
-    /// <li> <p>OPENGL_FRAMES</p> </li>
-    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li>
-    /// <li> <p>RX</p> </li>
-    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li>
-    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li>
-    /// <li> <p>TX</p> </li>
-    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li>
+    /// <p>The sample's type.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li> 
+    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li> 
+    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_FPS</p> </li> 
+    /// <li> <p>NATIVE_FRAMES</p> </li> 
+    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_FPS</p> </li> 
+    /// <li> <p>OPENGL_FRAMES</p> </li> 
+    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>RX</p> </li> 
+    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li> 
+    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li> 
+    /// <li> <p>TX</p> </li> 
+    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::SampleType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::SampleType> {
         self.r#type.as_ref()
     }
     /// <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.</p>
-    pub fn url(&self) -> ::std::option::Option<&str> {
+    pub fn url(&self) -> ::std::option::Option<& str> {
         self.url.as_deref()
     }
 }
@@ -88,83 +88,81 @@ impl SampleBuilder {
     }
     /// <p>The sample's ARN.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The sample's ARN.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.arn
     }
-    /// <p>The sample's type.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li>
-    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li>
-    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_FPS</p> </li>
-    /// <li> <p>NATIVE_FRAMES</p> </li>
-    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_FPS</p> </li>
-    /// <li> <p>OPENGL_FRAMES</p> </li>
-    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li>
-    /// <li> <p>RX</p> </li>
-    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li>
-    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li>
-    /// <li> <p>TX</p> </li>
-    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li>
+    /// <p>The sample's type.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li> 
+    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li> 
+    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_FPS</p> </li> 
+    /// <li> <p>NATIVE_FRAMES</p> </li> 
+    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_FPS</p> </li> 
+    /// <li> <p>OPENGL_FRAMES</p> </li> 
+    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>RX</p> </li> 
+    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li> 
+    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li> 
+    /// <li> <p>TX</p> </li> 
+    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: crate::types::SampleType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The sample's type.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li>
-    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li>
-    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_FPS</p> </li>
-    /// <li> <p>NATIVE_FRAMES</p> </li>
-    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_FPS</p> </li>
-    /// <li> <p>OPENGL_FRAMES</p> </li>
-    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li>
-    /// <li> <p>RX</p> </li>
-    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li>
-    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li>
-    /// <li> <p>TX</p> </li>
-    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li>
+    /// <p>The sample's type.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li> 
+    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li> 
+    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_FPS</p> </li> 
+    /// <li> <p>NATIVE_FRAMES</p> </li> 
+    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_FPS</p> </li> 
+    /// <li> <p>OPENGL_FRAMES</p> </li> 
+    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>RX</p> </li> 
+    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li> 
+    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li> 
+    /// <li> <p>TX</p> </li> 
+    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::SampleType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The sample's type.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li>
-    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li>
-    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_FPS</p> </li>
-    /// <li> <p>NATIVE_FRAMES</p> </li>
-    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li>
-    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_FPS</p> </li>
-    /// <li> <p>OPENGL_FRAMES</p> </li>
-    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li>
-    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li>
-    /// <li> <p>RX</p> </li>
-    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li>
-    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li>
-    /// <li> <p>TX</p> </li>
-    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li>
+    /// <p>The sample's type.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.</p> </li> 
+    /// <li> <p>MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.</p> </li> 
+    /// <li> <p>NATIVE_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_FPS</p> </li> 
+    /// <li> <p>NATIVE_FRAMES</p> </li> 
+    /// <li> <p>NATIVE_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>NATIVE_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_AVG_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_FPS</p> </li> 
+    /// <li> <p>OPENGL_FRAMES</p> </li> 
+    /// <li> <p>OPENGL_MAX_DRAWTIME</p> </li> 
+    /// <li> <p>OPENGL_MIN_DRAWTIME</p> </li> 
+    /// <li> <p>RX</p> </li> 
+    /// <li> <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.</p> </li> 
+    /// <li> <p>THREADS: A threads sample type. This is expressed as the total number of threads per app process.</p> </li> 
+    /// <li> <p>TX</p> </li> 
+    /// <li> <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::SampleType> {
         &self.r#type
@@ -176,8 +174,7 @@ impl SampleBuilder {
     }
     /// <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.</p>
     pub fn set_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.url = input;
-        self
+        self.url = input; self
     }
     /// <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.</p>
     pub fn get_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -186,9 +183,13 @@ impl SampleBuilder {
     /// Consumes the builder and constructs a [`Sample`](crate::types::Sample).
     pub fn build(self) -> crate::types::Sample {
         crate::types::Sample {
-            arn: self.arn,
-            r#type: self.r#type,
-            url: self.url,
+            arn: self.arn
+            ,
+            r#type: self.r#type
+            ,
+            url: self.url
+            ,
         }
     }
 }
+

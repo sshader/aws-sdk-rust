@@ -5,54 +5,50 @@ pub use crate::operation::update_push_template::_update_push_template_input::Upd
 
 impl UpdatePushTemplateInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::update_push_template::UpdatePushTemplateOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_push_template::UpdatePushTemplateError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.update_push_template();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::update_push_template::UpdatePushTemplateOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::update_push_template::UpdatePushTemplateError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.update_push_template();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `UpdatePushTemplate`.
-///
+/// 
 /// <p>Updates an existing message template for messages that are sent through a push notification channel.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdatePushTemplateFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_push_template::builders::UpdatePushTemplateInputBuilder,
+                    inner: crate::operation::update_push_template::builders::UpdatePushTemplateInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::update_push_template::UpdatePushTemplateOutput,
-        crate::operation::update_push_template::UpdatePushTemplateError,
-    > for UpdatePushTemplateFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::update_push_template::UpdatePushTemplateOutput,
-            crate::operation::update_push_template::UpdatePushTemplateError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::update_push_template::UpdatePushTemplateOutput,
+                    crate::operation::update_push_template::UpdatePushTemplateError,
+                > for UpdatePushTemplateFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::update_push_template::UpdatePushTemplateOutput,
+                        crate::operation::update_push_template::UpdatePushTemplateError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl UpdatePushTemplateFluentBuilder {
     /// Creates a new `UpdatePushTemplate`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,66 +57,57 @@ impl UpdatePushTemplateFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_push_template::UpdatePushTemplateOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_push_template::UpdatePushTemplateError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_push_template::UpdatePushTemplate::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_push_template::UpdatePushTemplate::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::update_push_template::UpdatePushTemplateOutput,
-        crate::operation::update_push_template::UpdatePushTemplateError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::update_push_template::UpdatePushTemplateOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_push_template::UpdatePushTemplateError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::update_push_template::UpdatePushTemplate::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::update_push_template::UpdatePushTemplate::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::update_push_template::UpdatePushTemplateOutput, crate::operation::update_push_template::UpdatePushTemplateError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> 
     /// <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
     pub fn create_new_version(mut self, input: bool) -> Self {
         self.inner = self.inner.create_new_version(input);
         self
     }
-    /// <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p>
+    /// <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> 
     /// <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
     pub fn set_create_new_version(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_create_new_version(input);
         self
     }
-    /// <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p>
+    /// <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> 
     /// <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
     pub fn get_create_new_version(&self) -> &::std::option::Option<bool> {
         self.inner.get_create_new_version()
@@ -153,42 +140,43 @@ impl UpdatePushTemplateFluentBuilder {
     pub fn get_template_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_template_name()
     }
-    /// <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the
-    /// <link linkend="templates-template-name-template-type-versions">Template Versions resource.</p>
-    /// <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p>
-    /// <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p>
+    /// <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the 
+    /// <link linkend="templates-template-name-template-type-versions">Template Versions resource.</p> 
+    /// <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> 
+    /// <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> 
     /// <ul>
-    /// <li><p>For a get operation, retrieves information about the active version of the template.</p></li>
-    /// <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li>
+    /// <li><p>For a get operation, retrieves information about the active version of the template.</p></li> 
+    /// <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> 
     /// <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li>
     /// </ul>
     pub fn version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.version(input.into());
         self
     }
-    /// <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the
-    /// <link linkend="templates-template-name-template-type-versions">Template Versions resource.</p>
-    /// <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p>
-    /// <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p>
+    /// <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the 
+    /// <link linkend="templates-template-name-template-type-versions">Template Versions resource.</p> 
+    /// <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> 
+    /// <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> 
     /// <ul>
-    /// <li><p>For a get operation, retrieves information about the active version of the template.</p></li>
-    /// <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li>
+    /// <li><p>For a get operation, retrieves information about the active version of the template.</p></li> 
+    /// <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> 
     /// <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li>
     /// </ul>
     pub fn set_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_version(input);
         self
     }
-    /// <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the
-    /// <link linkend="templates-template-name-template-type-versions">Template Versions resource.</p>
-    /// <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p>
-    /// <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p>
+    /// <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the 
+    /// <link linkend="templates-template-name-template-type-versions">Template Versions resource.</p> 
+    /// <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> 
+    /// <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> 
     /// <ul>
-    /// <li><p>For a get operation, retrieves information about the active version of the template.</p></li>
-    /// <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li>
+    /// <li><p>For a get operation, retrieves information about the active version of the template.</p></li> 
+    /// <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> 
     /// <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li>
     /// </ul>
     pub fn get_version(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_version()
     }
 }
+

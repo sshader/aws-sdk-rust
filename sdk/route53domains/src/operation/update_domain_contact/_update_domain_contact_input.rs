@@ -3,7 +3,7 @@
 /// <p>The UpdateDomainContact request includes the following elements.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct UpdateDomainContactInput {
+pub struct UpdateDomainContactInput  {
     /// <p>The name of the domain that you want to update contact information for.</p>
     pub domain_name: ::std::option::Option<::std::string::String>,
     /// <p>Provides detailed contact information.</p>
@@ -15,29 +15,29 @@ pub struct UpdateDomainContactInput {
     /// <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
     pub consent: ::std::option::Option<crate::types::Consent>,
 }
-impl UpdateDomainContactInput {
+impl  UpdateDomainContactInput  {
     /// <p>The name of the domain that you want to update contact information for.</p>
-    pub fn domain_name(&self) -> ::std::option::Option<&str> {
+    pub fn domain_name(&self) -> ::std::option::Option<& str> {
         self.domain_name.as_deref()
     }
     /// <p>Provides detailed contact information.</p>
-    pub fn admin_contact(&self) -> ::std::option::Option<&crate::types::ContactDetail> {
+    pub fn admin_contact(&self) -> ::std::option::Option<& crate::types::ContactDetail> {
         self.admin_contact.as_ref()
     }
     /// <p>Provides detailed contact information.</p>
-    pub fn registrant_contact(&self) -> ::std::option::Option<&crate::types::ContactDetail> {
+    pub fn registrant_contact(&self) -> ::std::option::Option<& crate::types::ContactDetail> {
         self.registrant_contact.as_ref()
     }
     /// <p>Provides detailed contact information.</p>
-    pub fn tech_contact(&self) -> ::std::option::Option<&crate::types::ContactDetail> {
+    pub fn tech_contact(&self) -> ::std::option::Option<& crate::types::ContactDetail> {
         self.tech_contact.as_ref()
     }
     /// <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
-    pub fn consent(&self) -> ::std::option::Option<&crate::types::Consent> {
+    pub fn consent(&self) -> ::std::option::Option<& crate::types::Consent> {
         self.consent.as_ref()
     }
 }
-impl ::std::fmt::Debug for UpdateDomainContactInput {
+impl  ::std::fmt::Debug for UpdateDomainContactInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("UpdateDomainContactInput");
         formatter.field("domain_name", &self.domain_name);
@@ -74,8 +74,7 @@ impl UpdateDomainContactInputBuilder {
     }
     /// <p>The name of the domain that you want to update contact information for.</p>
     pub fn set_domain_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.domain_name = input;
-        self
+        self.domain_name = input; self
     }
     /// <p>The name of the domain that you want to update contact information for.</p>
     pub fn get_domain_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -88,8 +87,7 @@ impl UpdateDomainContactInputBuilder {
     }
     /// <p>Provides detailed contact information.</p>
     pub fn set_admin_contact(mut self, input: ::std::option::Option<crate::types::ContactDetail>) -> Self {
-        self.admin_contact = input;
-        self
+        self.admin_contact = input; self
     }
     /// <p>Provides detailed contact information.</p>
     pub fn get_admin_contact(&self) -> &::std::option::Option<crate::types::ContactDetail> {
@@ -102,8 +100,7 @@ impl UpdateDomainContactInputBuilder {
     }
     /// <p>Provides detailed contact information.</p>
     pub fn set_registrant_contact(mut self, input: ::std::option::Option<crate::types::ContactDetail>) -> Self {
-        self.registrant_contact = input;
-        self
+        self.registrant_contact = input; self
     }
     /// <p>Provides detailed contact information.</p>
     pub fn get_registrant_contact(&self) -> &::std::option::Option<crate::types::ContactDetail> {
@@ -116,8 +113,7 @@ impl UpdateDomainContactInputBuilder {
     }
     /// <p>Provides detailed contact information.</p>
     pub fn set_tech_contact(mut self, input: ::std::option::Option<crate::types::ContactDetail>) -> Self {
-        self.tech_contact = input;
-        self
+        self.tech_contact = input; self
     }
     /// <p>Provides detailed contact information.</p>
     pub fn get_tech_contact(&self) -> &::std::option::Option<crate::types::ContactDetail> {
@@ -130,25 +126,28 @@ impl UpdateDomainContactInputBuilder {
     }
     /// <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
     pub fn set_consent(mut self, input: ::std::option::Option<crate::types::Consent>) -> Self {
-        self.consent = input;
-        self
+        self.consent = input; self
     }
     /// <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
     pub fn get_consent(&self) -> &::std::option::Option<crate::types::Consent> {
         &self.consent
     }
     /// Consumes the builder and constructs a [`UpdateDomainContactInput`](crate::operation::update_domain_contact::UpdateDomainContactInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_domain_contact::UpdateDomainContactInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::update_domain_contact::UpdateDomainContactInput {
-            domain_name: self.domain_name,
-            admin_contact: self.admin_contact,
-            registrant_contact: self.registrant_contact,
-            tech_contact: self.tech_contact,
-            consent: self.consent,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_domain_contact::UpdateDomainContactInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_domain_contact::UpdateDomainContactInput {
+                domain_name: self.domain_name
+                ,
+                admin_contact: self.admin_contact
+                ,
+                registrant_contact: self.registrant_contact
+                ,
+                tech_contact: self.tech_contact
+                ,
+                consent: self.consent
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for UpdateDomainContactInputBuilder {
@@ -162,3 +161,4 @@ impl ::std::fmt::Debug for UpdateDomainContactInputBuilder {
         formatter.finish()
     }
 }
+

@@ -3,10 +3,10 @@
 /// <p>Contains a summary of an asset model.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AssetModelSummary {
+pub struct AssetModelSummary  {
     /// <p>The ID of the asset model (used with IoT SiteWise APIs).</p>
     pub id: ::std::string::String,
-    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
+    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p> 
     /// <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code> </p>
     pub arn: ::std::string::String,
     /// <p>The name of the asset model.</p>
@@ -20,38 +20,34 @@ pub struct AssetModelSummary {
     /// <p>The current status of the asset model.</p>
     pub status: ::std::option::Option<crate::types::AssetModelStatus>,
 }
-impl AssetModelSummary {
+impl  AssetModelSummary  {
     /// <p>The ID of the asset model (used with IoT SiteWise APIs).</p>
-    pub fn id(&self) -> &str {
-        use std::ops::Deref;
-        self.id.deref()
+    pub fn id(&self) -> & str {
+        use std::ops::Deref; self.id.deref()
     }
-    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
+    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p> 
     /// <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code> </p>
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> & str {
+        use std::ops::Deref; self.arn.deref()
     }
     /// <p>The name of the asset model.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// <p>The asset model description.</p>
-    pub fn description(&self) -> &str {
-        use std::ops::Deref;
-        self.description.deref()
+    pub fn description(&self) -> & str {
+        use std::ops::Deref; self.description.deref()
     }
     /// <p>The date the asset model was created, in Unix epoch time.</p>
-    pub fn creation_date(&self) -> &::aws_smithy_types::DateTime {
+    pub fn creation_date(&self) -> & ::aws_smithy_types::DateTime {
         &self.creation_date
     }
     /// <p>The date the asset model was last updated, in Unix epoch time.</p>
-    pub fn last_update_date(&self) -> &::aws_smithy_types::DateTime {
+    pub fn last_update_date(&self) -> & ::aws_smithy_types::DateTime {
         &self.last_update_date
     }
     /// <p>The current status of the asset model.</p>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::AssetModelStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::AssetModelStatus> {
         self.status.as_ref()
     }
 }
@@ -83,27 +79,25 @@ impl AssetModelSummaryBuilder {
     }
     /// <p>The ID of the asset model (used with IoT SiteWise APIs).</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// <p>The ID of the asset model (used with IoT SiteWise APIs).</p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.id
     }
-    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
+    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p> 
     /// <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code> </p>
     /// This field is required.
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
+    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p> 
     /// <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code> </p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
-    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
+    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p> 
     /// <p> <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code> </p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.arn
@@ -116,8 +110,7 @@ impl AssetModelSummaryBuilder {
     }
     /// <p>The name of the asset model.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the asset model.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -131,8 +124,7 @@ impl AssetModelSummaryBuilder {
     }
     /// <p>The asset model description.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The asset model description.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -146,8 +138,7 @@ impl AssetModelSummaryBuilder {
     }
     /// <p>The date the asset model was created, in Unix epoch time.</p>
     pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_date = input;
-        self
+        self.creation_date = input; self
     }
     /// <p>The date the asset model was created, in Unix epoch time.</p>
     pub fn get_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -161,8 +152,7 @@ impl AssetModelSummaryBuilder {
     }
     /// <p>The date the asset model was last updated, in Unix epoch time.</p>
     pub fn set_last_update_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_update_date = input;
-        self
+        self.last_update_date = input; self
     }
     /// <p>The date the asset model was last updated, in Unix epoch time.</p>
     pub fn get_last_update_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -176,8 +166,7 @@ impl AssetModelSummaryBuilder {
     }
     /// <p>The current status of the asset model.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::AssetModelStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>The current status of the asset model.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::AssetModelStatus> {
@@ -192,44 +181,42 @@ impl AssetModelSummaryBuilder {
     /// - [`creation_date`](crate::types::builders::AssetModelSummaryBuilder::creation_date)
     /// - [`last_update_date`](crate::types::builders::AssetModelSummaryBuilder::last_update_date)
     pub fn build(self) -> ::std::result::Result<crate::types::AssetModelSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AssetModelSummary {
-            id: self.id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "id",
-                    "id was not specified but it is required when building AssetModelSummary",
-                )
-            })?,
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building AssetModelSummary",
-                )
-            })?,
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building AssetModelSummary",
-                )
-            })?,
-            description: self.description.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "description",
-                    "description was not specified but it is required when building AssetModelSummary",
-                )
-            })?,
-            creation_date: self.creation_date.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "creation_date",
-                    "creation_date was not specified but it is required when building AssetModelSummary",
-                )
-            })?,
-            last_update_date: self.last_update_date.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "last_update_date",
-                    "last_update_date was not specified but it is required when building AssetModelSummary",
-                )
-            })?,
-            status: self.status,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AssetModelSummary {
+                id: self.id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building AssetModelSummary")
+                    )?
+                ,
+                arn: self.arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building AssetModelSummary")
+                    )?
+                ,
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building AssetModelSummary")
+                    )?
+                ,
+                description: self.description
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("description", "description was not specified but it is required when building AssetModelSummary")
+                    )?
+                ,
+                creation_date: self.creation_date
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("creation_date", "creation_date was not specified but it is required when building AssetModelSummary")
+                    )?
+                ,
+                last_update_date: self.last_update_date
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("last_update_date", "last_update_date was not specified but it is required when building AssetModelSummary")
+                    )?
+                ,
+                status: self.status
+                ,
+            }
+        )
     }
 }
+

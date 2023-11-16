@@ -2,13 +2,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteWorkerInput {
+pub struct DeleteWorkerInput  {
     /// Full ARN of the worker.
     pub id: ::std::option::Option<::std::string::String>,
 }
-impl DeleteWorkerInput {
+impl  DeleteWorkerInput  {
     /// Full ARN of the worker.
-    pub fn id(&self) -> ::std::option::Option<&str> {
+    pub fn id(&self) -> ::std::option::Option<& str> {
         self.id.as_deref()
     }
 }
@@ -34,17 +34,20 @@ impl DeleteWorkerInputBuilder {
     }
     /// Full ARN of the worker.
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// Full ARN of the worker.
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.id
     }
     /// Consumes the builder and constructs a [`DeleteWorkerInput`](crate::operation::delete_worker::DeleteWorkerInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::delete_worker::DeleteWorkerInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_worker::DeleteWorkerInput { id: self.id })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_worker::DeleteWorkerInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_worker::DeleteWorkerInput {
+                id: self.id
+                ,
+            }
+        )
     }
 }
+

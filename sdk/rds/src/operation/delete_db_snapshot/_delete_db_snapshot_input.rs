@@ -3,15 +3,15 @@
 /// <p></p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteDbSnapshotInput {
-    /// <p>The DB snapshot identifier.</p>
+pub struct DeleteDbSnapshotInput  {
+    /// <p>The DB snapshot identifier.</p> 
     /// <p>Constraints: Must be the name of an existing DB snapshot in the <code>available</code> state.</p>
     pub db_snapshot_identifier: ::std::option::Option<::std::string::String>,
 }
-impl DeleteDbSnapshotInput {
-    /// <p>The DB snapshot identifier.</p>
+impl  DeleteDbSnapshotInput  {
+    /// <p>The DB snapshot identifier.</p> 
     /// <p>Constraints: Must be the name of an existing DB snapshot in the <code>available</code> state.</p>
-    pub fn db_snapshot_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn db_snapshot_identifier(&self) -> ::std::option::Option<& str> {
         self.db_snapshot_identifier.as_deref()
     }
 }
@@ -29,30 +29,31 @@ pub struct DeleteDbSnapshotInputBuilder {
     pub(crate) db_snapshot_identifier: ::std::option::Option<::std::string::String>,
 }
 impl DeleteDbSnapshotInputBuilder {
-    /// <p>The DB snapshot identifier.</p>
+    /// <p>The DB snapshot identifier.</p> 
     /// <p>Constraints: Must be the name of an existing DB snapshot in the <code>available</code> state.</p>
     /// This field is required.
     pub fn db_snapshot_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.db_snapshot_identifier = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The DB snapshot identifier.</p>
+    /// <p>The DB snapshot identifier.</p> 
     /// <p>Constraints: Must be the name of an existing DB snapshot in the <code>available</code> state.</p>
     pub fn set_db_snapshot_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.db_snapshot_identifier = input;
-        self
+        self.db_snapshot_identifier = input; self
     }
-    /// <p>The DB snapshot identifier.</p>
+    /// <p>The DB snapshot identifier.</p> 
     /// <p>Constraints: Must be the name of an existing DB snapshot in the <code>available</code> state.</p>
     pub fn get_db_snapshot_identifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.db_snapshot_identifier
     }
     /// Consumes the builder and constructs a [`DeleteDbSnapshotInput`](crate::operation::delete_db_snapshot::DeleteDbSnapshotInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::delete_db_snapshot::DeleteDbSnapshotInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_db_snapshot::DeleteDbSnapshotInput {
-            db_snapshot_identifier: self.db_snapshot_identifier,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_db_snapshot::DeleteDbSnapshotInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_db_snapshot::DeleteDbSnapshotInput {
+                db_snapshot_identifier: self.db_snapshot_identifier
+                ,
+            }
+        )
     }
 }
+

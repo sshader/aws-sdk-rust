@@ -2,19 +2,19 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteCanaryInput {
+pub struct DeleteCanaryInput  {
     /// <p>The name of the canary that you want to delete. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
     pub name: ::std::option::Option<::std::string::String>,
-    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p>
+    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p> 
     /// <p>Type: Boolean</p>
     pub delete_lambda: ::std::option::Option<bool>,
 }
-impl DeleteCanaryInput {
+impl  DeleteCanaryInput  {
     /// <p>The name of the canary that you want to delete. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
-    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p>
+    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p> 
     /// <p>Type: Boolean</p>
     pub fn delete_lambda(&self) -> ::std::option::Option<bool> {
         self.delete_lambda
@@ -43,37 +43,38 @@ impl DeleteCanaryInputBuilder {
     }
     /// <p>The name of the canary that you want to delete. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the canary that you want to delete. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
-    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p>
+    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p> 
     /// <p>Type: Boolean</p>
     pub fn delete_lambda(mut self, input: bool) -> Self {
         self.delete_lambda = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p>
+    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p> 
     /// <p>Type: Boolean</p>
     pub fn set_delete_lambda(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.delete_lambda = input;
-        self
+        self.delete_lambda = input; self
     }
-    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p>
+    /// <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is false.</p> 
     /// <p>Type: Boolean</p>
     pub fn get_delete_lambda(&self) -> &::std::option::Option<bool> {
         &self.delete_lambda
     }
     /// Consumes the builder and constructs a [`DeleteCanaryInput`](crate::operation::delete_canary::DeleteCanaryInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::delete_canary::DeleteCanaryInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_canary::DeleteCanaryInput {
-            name: self.name,
-            delete_lambda: self.delete_lambda,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_canary::DeleteCanaryInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_canary::DeleteCanaryInput {
+                name: self.name
+                ,
+                delete_lambda: self.delete_lambda
+                ,
+            }
+        )
     }
 }
+

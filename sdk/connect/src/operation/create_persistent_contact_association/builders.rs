@@ -5,54 +5,50 @@ pub use crate::operation::create_persistent_contact_association::_create_persist
 
 impl CreatePersistentContactAssociationInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_persistent_contact_association();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_persistent_contact_association();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreatePersistentContactAssociation`.
-///
+/// 
 /// <p>Enables rehydration of chats for the lifespan of a contact. For more information about chat rehydration, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreatePersistentContactAssociationFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_persistent_contact_association::builders::CreatePersistentContactAssociationInputBuilder,
+                    inner: crate::operation::create_persistent_contact_association::builders::CreatePersistentContactAssociationInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput,
-        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError,
-    > for CreatePersistentContactAssociationFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput,
-            crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput,
+                    crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError,
+                > for CreatePersistentContactAssociationFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput,
+                        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreatePersistentContactAssociationFluentBuilder {
     /// Creates a new `CreatePersistentContactAssociation`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl CreatePersistentContactAssociationFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_persistent_contact_association::CreatePersistentContactAssociation::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociation::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput,
-        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_persistent_contact_association::CreatePersistentContactAssociation::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_persistent_contact_association::CreatePersistentContactAssociation::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationOutput, crate::operation::create_persistent_contact_association::CreatePersistentContactAssociationError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
     pub fn instance_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.instance_id(input.into());
@@ -136,112 +123,112 @@ impl CreatePersistentContactAssociationFluentBuilder {
     pub fn get_initial_contact_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_initial_contact_id()
     }
-    /// <p>The contactId chosen for rehydration depends on the type chosen.</p>
-    /// <ul>
-    /// <li> <p> <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines what the most recent chat contact on the past ended chat session and uses it to start a persistent chat. </p> </li>
-    /// <li> <p> <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided in the <code>sourceContactId</code> field. </p> </li>
-    /// </ul>
-    /// <p>The actual contactId used for rehydration is provided in the response of this API.</p>
-    /// <p>To illustrate how to use rehydration type, consider the following example: A customer starts a chat session. Agent a1 accepts the chat and a conversation starts between the customer and Agent a1. This first contact creates a contact ID <b>C1</b>. Agent a1 then transfers the chat to Agent a2. This creates another contact ID <b>C2</b>. At this point Agent a2 ends the chat. The customer is forwarded to the disconnect flow for a post chat survey that creates another contact ID <b>C3</b>. After the chat survey, the chat session ends. Later, the customer returns and wants to resume their past chat session. At this point, the customer can have following use cases: </p>
-    /// <ul>
-    /// <li> <p> <b>Use Case 1</b>: The customer wants to continue the past chat session but they want to hide the post chat survey. For this they will use the following configuration:</p>
-    /// <ul>
-    /// <li> <p> <b>Configuration</b> </p>
-    /// <ul>
-    /// <li> <p>SourceContactId = "C2"</p> </li>
-    /// <li> <p>RehydrationType = "FROM_SEGMENT"</p> </li>
-    /// </ul> </li>
-    /// <li> <p> <b>Expected behavior</b> </p>
-    /// <ul>
-    /// <li> <p>This starts a persistent chat session from the specified past ended contact (C2). Transcripts of past chat sessions C2 and C1 are accessible in the current persistent chat session. Note that chat segment C3 is dropped from the persistent chat session.</p> </li>
-    /// </ul> </li>
-    /// </ul> </li>
-    /// <li> <p> <b>Use Case 2</b>: The customer wants to continue the past chat session and see the transcript of the entire past engagement, including the post chat survey. For this they will use the following configuration:</p>
-    /// <ul>
-    /// <li> <p> <b>Configuration</b> </p>
-    /// <ul>
-    /// <li> <p>SourceContactId = "C1"</p> </li>
-    /// <li> <p>RehydrationType = "ENTIRE_PAST_SESSION"</p> </li>
-    /// </ul> </li>
-    /// <li> <p> <b>Expected behavior</b> </p>
-    /// <ul>
-    /// <li> <p>This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session.</p> </li>
-    /// </ul> </li>
-    /// </ul> </li>
+    /// <p>The contactId chosen for rehydration depends on the type chosen.</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines what the most recent chat contact on the past ended chat session and uses it to start a persistent chat. </p> </li> 
+    /// <li> <p> <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided in the <code>sourceContactId</code> field. </p> </li> 
+    /// </ul> 
+    /// <p>The actual contactId used for rehydration is provided in the response of this API.</p> 
+    /// <p>To illustrate how to use rehydration type, consider the following example: A customer starts a chat session. Agent a1 accepts the chat and a conversation starts between the customer and Agent a1. This first contact creates a contact ID <b>C1</b>. Agent a1 then transfers the chat to Agent a2. This creates another contact ID <b>C2</b>. At this point Agent a2 ends the chat. The customer is forwarded to the disconnect flow for a post chat survey that creates another contact ID <b>C3</b>. After the chat survey, the chat session ends. Later, the customer returns and wants to resume their past chat session. At this point, the customer can have following use cases: </p> 
+    /// <ul> 
+    /// <li> <p> <b>Use Case 1</b>: The customer wants to continue the past chat session but they want to hide the post chat survey. For this they will use the following configuration:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Configuration</b> </p> 
+    /// <ul> 
+    /// <li> <p>SourceContactId = "C2"</p> </li> 
+    /// <li> <p>RehydrationType = "FROM_SEGMENT"</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <b>Expected behavior</b> </p> 
+    /// <ul> 
+    /// <li> <p>This starts a persistent chat session from the specified past ended contact (C2). Transcripts of past chat sessions C2 and C1 are accessible in the current persistent chat session. Note that chat segment C3 is dropped from the persistent chat session.</p> </li> 
+    /// </ul> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <b>Use Case 2</b>: The customer wants to continue the past chat session and see the transcript of the entire past engagement, including the post chat survey. For this they will use the following configuration:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Configuration</b> </p> 
+    /// <ul> 
+    /// <li> <p>SourceContactId = "C1"</p> </li> 
+    /// <li> <p>RehydrationType = "ENTIRE_PAST_SESSION"</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <b>Expected behavior</b> </p> 
+    /// <ul> 
+    /// <li> <p>This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session.</p> </li> 
+    /// </ul> </li> 
+    /// </ul> </li> 
     /// </ul>
     pub fn rehydration_type(mut self, input: crate::types::RehydrationType) -> Self {
         self.inner = self.inner.rehydration_type(input);
         self
     }
-    /// <p>The contactId chosen for rehydration depends on the type chosen.</p>
-    /// <ul>
-    /// <li> <p> <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines what the most recent chat contact on the past ended chat session and uses it to start a persistent chat. </p> </li>
-    /// <li> <p> <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided in the <code>sourceContactId</code> field. </p> </li>
-    /// </ul>
-    /// <p>The actual contactId used for rehydration is provided in the response of this API.</p>
-    /// <p>To illustrate how to use rehydration type, consider the following example: A customer starts a chat session. Agent a1 accepts the chat and a conversation starts between the customer and Agent a1. This first contact creates a contact ID <b>C1</b>. Agent a1 then transfers the chat to Agent a2. This creates another contact ID <b>C2</b>. At this point Agent a2 ends the chat. The customer is forwarded to the disconnect flow for a post chat survey that creates another contact ID <b>C3</b>. After the chat survey, the chat session ends. Later, the customer returns and wants to resume their past chat session. At this point, the customer can have following use cases: </p>
-    /// <ul>
-    /// <li> <p> <b>Use Case 1</b>: The customer wants to continue the past chat session but they want to hide the post chat survey. For this they will use the following configuration:</p>
-    /// <ul>
-    /// <li> <p> <b>Configuration</b> </p>
-    /// <ul>
-    /// <li> <p>SourceContactId = "C2"</p> </li>
-    /// <li> <p>RehydrationType = "FROM_SEGMENT"</p> </li>
-    /// </ul> </li>
-    /// <li> <p> <b>Expected behavior</b> </p>
-    /// <ul>
-    /// <li> <p>This starts a persistent chat session from the specified past ended contact (C2). Transcripts of past chat sessions C2 and C1 are accessible in the current persistent chat session. Note that chat segment C3 is dropped from the persistent chat session.</p> </li>
-    /// </ul> </li>
-    /// </ul> </li>
-    /// <li> <p> <b>Use Case 2</b>: The customer wants to continue the past chat session and see the transcript of the entire past engagement, including the post chat survey. For this they will use the following configuration:</p>
-    /// <ul>
-    /// <li> <p> <b>Configuration</b> </p>
-    /// <ul>
-    /// <li> <p>SourceContactId = "C1"</p> </li>
-    /// <li> <p>RehydrationType = "ENTIRE_PAST_SESSION"</p> </li>
-    /// </ul> </li>
-    /// <li> <p> <b>Expected behavior</b> </p>
-    /// <ul>
-    /// <li> <p>This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session.</p> </li>
-    /// </ul> </li>
-    /// </ul> </li>
+    /// <p>The contactId chosen for rehydration depends on the type chosen.</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines what the most recent chat contact on the past ended chat session and uses it to start a persistent chat. </p> </li> 
+    /// <li> <p> <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided in the <code>sourceContactId</code> field. </p> </li> 
+    /// </ul> 
+    /// <p>The actual contactId used for rehydration is provided in the response of this API.</p> 
+    /// <p>To illustrate how to use rehydration type, consider the following example: A customer starts a chat session. Agent a1 accepts the chat and a conversation starts between the customer and Agent a1. This first contact creates a contact ID <b>C1</b>. Agent a1 then transfers the chat to Agent a2. This creates another contact ID <b>C2</b>. At this point Agent a2 ends the chat. The customer is forwarded to the disconnect flow for a post chat survey that creates another contact ID <b>C3</b>. After the chat survey, the chat session ends. Later, the customer returns and wants to resume their past chat session. At this point, the customer can have following use cases: </p> 
+    /// <ul> 
+    /// <li> <p> <b>Use Case 1</b>: The customer wants to continue the past chat session but they want to hide the post chat survey. For this they will use the following configuration:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Configuration</b> </p> 
+    /// <ul> 
+    /// <li> <p>SourceContactId = "C2"</p> </li> 
+    /// <li> <p>RehydrationType = "FROM_SEGMENT"</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <b>Expected behavior</b> </p> 
+    /// <ul> 
+    /// <li> <p>This starts a persistent chat session from the specified past ended contact (C2). Transcripts of past chat sessions C2 and C1 are accessible in the current persistent chat session. Note that chat segment C3 is dropped from the persistent chat session.</p> </li> 
+    /// </ul> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <b>Use Case 2</b>: The customer wants to continue the past chat session and see the transcript of the entire past engagement, including the post chat survey. For this they will use the following configuration:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Configuration</b> </p> 
+    /// <ul> 
+    /// <li> <p>SourceContactId = "C1"</p> </li> 
+    /// <li> <p>RehydrationType = "ENTIRE_PAST_SESSION"</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <b>Expected behavior</b> </p> 
+    /// <ul> 
+    /// <li> <p>This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session.</p> </li> 
+    /// </ul> </li> 
+    /// </ul> </li> 
     /// </ul>
     pub fn set_rehydration_type(mut self, input: ::std::option::Option<crate::types::RehydrationType>) -> Self {
         self.inner = self.inner.set_rehydration_type(input);
         self
     }
-    /// <p>The contactId chosen for rehydration depends on the type chosen.</p>
-    /// <ul>
-    /// <li> <p> <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines what the most recent chat contact on the past ended chat session and uses it to start a persistent chat. </p> </li>
-    /// <li> <p> <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided in the <code>sourceContactId</code> field. </p> </li>
-    /// </ul>
-    /// <p>The actual contactId used for rehydration is provided in the response of this API.</p>
-    /// <p>To illustrate how to use rehydration type, consider the following example: A customer starts a chat session. Agent a1 accepts the chat and a conversation starts between the customer and Agent a1. This first contact creates a contact ID <b>C1</b>. Agent a1 then transfers the chat to Agent a2. This creates another contact ID <b>C2</b>. At this point Agent a2 ends the chat. The customer is forwarded to the disconnect flow for a post chat survey that creates another contact ID <b>C3</b>. After the chat survey, the chat session ends. Later, the customer returns and wants to resume their past chat session. At this point, the customer can have following use cases: </p>
-    /// <ul>
-    /// <li> <p> <b>Use Case 1</b>: The customer wants to continue the past chat session but they want to hide the post chat survey. For this they will use the following configuration:</p>
-    /// <ul>
-    /// <li> <p> <b>Configuration</b> </p>
-    /// <ul>
-    /// <li> <p>SourceContactId = "C2"</p> </li>
-    /// <li> <p>RehydrationType = "FROM_SEGMENT"</p> </li>
-    /// </ul> </li>
-    /// <li> <p> <b>Expected behavior</b> </p>
-    /// <ul>
-    /// <li> <p>This starts a persistent chat session from the specified past ended contact (C2). Transcripts of past chat sessions C2 and C1 are accessible in the current persistent chat session. Note that chat segment C3 is dropped from the persistent chat session.</p> </li>
-    /// </ul> </li>
-    /// </ul> </li>
-    /// <li> <p> <b>Use Case 2</b>: The customer wants to continue the past chat session and see the transcript of the entire past engagement, including the post chat survey. For this they will use the following configuration:</p>
-    /// <ul>
-    /// <li> <p> <b>Configuration</b> </p>
-    /// <ul>
-    /// <li> <p>SourceContactId = "C1"</p> </li>
-    /// <li> <p>RehydrationType = "ENTIRE_PAST_SESSION"</p> </li>
-    /// </ul> </li>
-    /// <li> <p> <b>Expected behavior</b> </p>
-    /// <ul>
-    /// <li> <p>This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session.</p> </li>
-    /// </ul> </li>
-    /// </ul> </li>
+    /// <p>The contactId chosen for rehydration depends on the type chosen.</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines what the most recent chat contact on the past ended chat session and uses it to start a persistent chat. </p> </li> 
+    /// <li> <p> <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided in the <code>sourceContactId</code> field. </p> </li> 
+    /// </ul> 
+    /// <p>The actual contactId used for rehydration is provided in the response of this API.</p> 
+    /// <p>To illustrate how to use rehydration type, consider the following example: A customer starts a chat session. Agent a1 accepts the chat and a conversation starts between the customer and Agent a1. This first contact creates a contact ID <b>C1</b>. Agent a1 then transfers the chat to Agent a2. This creates another contact ID <b>C2</b>. At this point Agent a2 ends the chat. The customer is forwarded to the disconnect flow for a post chat survey that creates another contact ID <b>C3</b>. After the chat survey, the chat session ends. Later, the customer returns and wants to resume their past chat session. At this point, the customer can have following use cases: </p> 
+    /// <ul> 
+    /// <li> <p> <b>Use Case 1</b>: The customer wants to continue the past chat session but they want to hide the post chat survey. For this they will use the following configuration:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Configuration</b> </p> 
+    /// <ul> 
+    /// <li> <p>SourceContactId = "C2"</p> </li> 
+    /// <li> <p>RehydrationType = "FROM_SEGMENT"</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <b>Expected behavior</b> </p> 
+    /// <ul> 
+    /// <li> <p>This starts a persistent chat session from the specified past ended contact (C2). Transcripts of past chat sessions C2 and C1 are accessible in the current persistent chat session. Note that chat segment C3 is dropped from the persistent chat session.</p> </li> 
+    /// </ul> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <b>Use Case 2</b>: The customer wants to continue the past chat session and see the transcript of the entire past engagement, including the post chat survey. For this they will use the following configuration:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Configuration</b> </p> 
+    /// <ul> 
+    /// <li> <p>SourceContactId = "C1"</p> </li> 
+    /// <li> <p>RehydrationType = "ENTIRE_PAST_SESSION"</p> </li> 
+    /// </ul> </li> 
+    /// <li> <p> <b>Expected behavior</b> </p> 
+    /// <ul> 
+    /// <li> <p>This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session.</p> </li> 
+    /// </ul> </li> 
+    /// </ul> </li> 
     /// </ul>
     pub fn get_rehydration_type(&self) -> &::std::option::Option<crate::types::RehydrationType> {
         self.inner.get_rehydration_type()
@@ -275,3 +262,4 @@ impl CreatePersistentContactAssociationFluentBuilder {
         self.inner.get_client_token()
     }
 }
+

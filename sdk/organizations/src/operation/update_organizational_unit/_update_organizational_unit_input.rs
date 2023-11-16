@@ -2,23 +2,23 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateOrganizationalUnitInput {
-    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p>
+pub struct UpdateOrganizationalUnitInput  {
+    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
     pub organizational_unit_id: ::std::option::Option<::std::string::String>,
-    /// <p>The new name that you want to assign to the OU.</p>
+    /// <p>The new name that you want to assign to the OU.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate this parameter is a string of any of the characters in the ASCII character range.</p>
     pub name: ::std::option::Option<::std::string::String>,
 }
-impl UpdateOrganizationalUnitInput {
-    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p>
+impl  UpdateOrganizationalUnitInput  {
+    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
-    pub fn organizational_unit_id(&self) -> ::std::option::Option<&str> {
+    pub fn organizational_unit_id(&self) -> ::std::option::Option<& str> {
         self.organizational_unit_id.as_deref()
     }
-    /// <p>The new name that you want to assign to the OU.</p>
+    /// <p>The new name that you want to assign to the OU.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate this parameter is a string of any of the characters in the ASCII character range.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
 }
@@ -37,51 +37,49 @@ pub struct UpdateOrganizationalUnitInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
 }
 impl UpdateOrganizationalUnitInputBuilder {
-    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p>
+    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
     /// This field is required.
     pub fn organizational_unit_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.organizational_unit_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p>
+    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
     pub fn set_organizational_unit_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.organizational_unit_id = input;
-        self
+        self.organizational_unit_id = input; self
     }
-    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p>
+    /// <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the <code>ListOrganizationalUnitsForParent</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
     pub fn get_organizational_unit_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.organizational_unit_id
     }
-    /// <p>The new name that you want to assign to the OU.</p>
+    /// <p>The new name that you want to assign to the OU.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate this parameter is a string of any of the characters in the ASCII character range.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The new name that you want to assign to the OU.</p>
+    /// <p>The new name that you want to assign to the OU.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate this parameter is a string of any of the characters in the ASCII character range.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
-    /// <p>The new name that you want to assign to the OU.</p>
+    /// <p>The new name that you want to assign to the OU.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate this parameter is a string of any of the characters in the ASCII character range.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
     /// Consumes the builder and constructs a [`UpdateOrganizationalUnitInput`](crate::operation::update_organizational_unit::UpdateOrganizationalUnitInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_organizational_unit::UpdateOrganizationalUnitInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::update_organizational_unit::UpdateOrganizationalUnitInput {
-            organizational_unit_id: self.organizational_unit_id,
-            name: self.name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_organizational_unit::UpdateOrganizationalUnitInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_organizational_unit::UpdateOrganizationalUnitInput {
+                organizational_unit_id: self.organizational_unit_id
+                ,
+                name: self.name
+                ,
+            }
+        )
     }
 }
+

@@ -3,39 +3,39 @@
 /// <p>An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services resources that the service discovers. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct MemberIndex {
+pub struct MemberIndex  {
     /// <p>The account ID for the index.</p>
     pub account_id: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Web Services Region in which the index exists.</p>
     pub region: ::std::option::Option<::std::string::String>,
     /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
     pub arn: ::std::option::Option<::std::string::String>,
-    /// <p>The type of index. It can be one of the following values: </p>
-    /// <ul>
-    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li>
-    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li>
+    /// <p>The type of index. It can be one of the following values: </p> 
+    /// <ul> 
+    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li> 
+    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li> 
     /// </ul>
     pub r#type: ::std::option::Option<crate::types::IndexType>,
 }
-impl MemberIndex {
+impl  MemberIndex  {
     /// <p>The account ID for the index.</p>
-    pub fn account_id(&self) -> ::std::option::Option<&str> {
+    pub fn account_id(&self) -> ::std::option::Option<& str> {
         self.account_id.as_deref()
     }
     /// <p>The Amazon Web Services Region in which the index exists.</p>
-    pub fn region(&self) -> ::std::option::Option<&str> {
+    pub fn region(&self) -> ::std::option::Option<& str> {
         self.region.as_deref()
     }
     /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
-    /// <p>The type of index. It can be one of the following values: </p>
-    /// <ul>
-    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li>
-    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li>
+    /// <p>The type of index. It can be one of the following values: </p> 
+    /// <ul> 
+    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li> 
+    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::IndexType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::IndexType> {
         self.r#type.as_ref()
     }
 }
@@ -63,8 +63,7 @@ impl MemberIndexBuilder {
     }
     /// <p>The account ID for the index.</p>
     pub fn set_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.account_id = input;
-        self
+        self.account_id = input; self
     }
     /// <p>The account ID for the index.</p>
     pub fn get_account_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -77,8 +76,7 @@ impl MemberIndexBuilder {
     }
     /// <p>The Amazon Web Services Region in which the index exists.</p>
     pub fn set_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.region = input;
-        self
+        self.region = input; self
     }
     /// <p>The Amazon Web Services Region in which the index exists.</p>
     pub fn get_region(&self) -> &::std::option::Option<::std::string::String> {
@@ -91,35 +89,33 @@ impl MemberIndexBuilder {
     }
     /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.arn
     }
-    /// <p>The type of index. It can be one of the following values: </p>
-    /// <ul>
-    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li>
-    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li>
+    /// <p>The type of index. It can be one of the following values: </p> 
+    /// <ul> 
+    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li> 
+    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: crate::types::IndexType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of index. It can be one of the following values: </p>
-    /// <ul>
-    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li>
-    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li>
+    /// <p>The type of index. It can be one of the following values: </p> 
+    /// <ul> 
+    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li> 
+    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::IndexType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of index. It can be one of the following values: </p>
-    /// <ul>
-    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li>
-    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li>
+    /// <p>The type of index. It can be one of the following values: </p> 
+    /// <ul> 
+    /// <li> <p> <code>LOCAL</code> – The index contains information about resources from only the same Amazon Web Services Region.</p> </li> 
+    /// <li> <p> <code>AGGREGATOR</code> – Resource Explorer replicates copies of the indexed information about resources in all other Amazon Web Services Regions to the aggregator index. This lets search results in the Region with the aggregator index to include resources from all Regions in the account where Resource Explorer is turned on.</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::IndexType> {
         &self.r#type
@@ -127,10 +123,15 @@ impl MemberIndexBuilder {
     /// Consumes the builder and constructs a [`MemberIndex`](crate::types::MemberIndex).
     pub fn build(self) -> crate::types::MemberIndex {
         crate::types::MemberIndex {
-            account_id: self.account_id,
-            region: self.region,
-            arn: self.arn,
-            r#type: self.r#type,
+            account_id: self.account_id
+            ,
+            region: self.region
+            ,
+            arn: self.arn
+            ,
+            r#type: self.r#type
+            ,
         }
     }
 }
+

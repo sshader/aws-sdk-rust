@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListIdentityProviderConfigsInput {
+pub struct ListIdentityProviderConfigsInput  {
     /// <p>The cluster name that you want to list identity provider configurations for.</p>
     pub cluster_name: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of identity provider configurations returned by <code>ListIdentityProviderConfigs</code> in paginated output. When you use this parameter, <code>ListIdentityProviderConfigs</code> returns only <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListIdentityProviderConfigs</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, <code>ListIdentityProviderConfigs</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
@@ -10,9 +10,9 @@ pub struct ListIdentityProviderConfigsInput {
     /// <p>The <code>nextToken</code> value returned from a previous paginated <code>IdentityProviderConfigsRequest</code> where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
-impl ListIdentityProviderConfigsInput {
+impl  ListIdentityProviderConfigsInput  {
     /// <p>The cluster name that you want to list identity provider configurations for.</p>
-    pub fn cluster_name(&self) -> ::std::option::Option<&str> {
+    pub fn cluster_name(&self) -> ::std::option::Option<& str> {
         self.cluster_name.as_deref()
     }
     /// <p>The maximum number of identity provider configurations returned by <code>ListIdentityProviderConfigs</code> in paginated output. When you use this parameter, <code>ListIdentityProviderConfigs</code> returns only <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListIdentityProviderConfigs</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, <code>ListIdentityProviderConfigs</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
@@ -20,7 +20,7 @@ impl ListIdentityProviderConfigsInput {
         self.max_results
     }
     /// <p>The <code>nextToken</code> value returned from a previous paginated <code>IdentityProviderConfigsRequest</code> where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
 }
@@ -48,8 +48,7 @@ impl ListIdentityProviderConfigsInputBuilder {
     }
     /// <p>The cluster name that you want to list identity provider configurations for.</p>
     pub fn set_cluster_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.cluster_name = input;
-        self
+        self.cluster_name = input; self
     }
     /// <p>The cluster name that you want to list identity provider configurations for.</p>
     pub fn get_cluster_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -62,8 +61,7 @@ impl ListIdentityProviderConfigsInputBuilder {
     }
     /// <p>The maximum number of identity provider configurations returned by <code>ListIdentityProviderConfigs</code> in paginated output. When you use this parameter, <code>ListIdentityProviderConfigs</code> returns only <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListIdentityProviderConfigs</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, <code>ListIdentityProviderConfigs</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of identity provider configurations returned by <code>ListIdentityProviderConfigs</code> in paginated output. When you use this parameter, <code>ListIdentityProviderConfigs</code> returns only <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListIdentityProviderConfigs</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, <code>ListIdentityProviderConfigs</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
@@ -76,24 +74,24 @@ impl ListIdentityProviderConfigsInputBuilder {
     }
     /// <p>The <code>nextToken</code> value returned from a previous paginated <code>IdentityProviderConfigsRequest</code> where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The <code>nextToken</code> value returned from a previous paginated <code>IdentityProviderConfigsRequest</code> where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListIdentityProviderConfigsInput`](crate::operation::list_identity_provider_configs::ListIdentityProviderConfigsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_identity_provider_configs::ListIdentityProviderConfigsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::list_identity_provider_configs::ListIdentityProviderConfigsInput {
-            cluster_name: self.cluster_name,
-            max_results: self.max_results,
-            next_token: self.next_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_identity_provider_configs::ListIdentityProviderConfigsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_identity_provider_configs::ListIdentityProviderConfigsInput {
+                cluster_name: self.cluster_name
+                ,
+                max_results: self.max_results
+                ,
+                next_token: self.next_token
+                ,
+            }
+        )
     }
 }
+

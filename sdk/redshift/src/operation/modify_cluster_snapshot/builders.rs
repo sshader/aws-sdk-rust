@@ -5,55 +5,51 @@ pub use crate::operation::modify_cluster_snapshot::_modify_cluster_snapshot_inpu
 
 impl ModifyClusterSnapshotInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.modify_cluster_snapshot();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.modify_cluster_snapshot();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ModifyClusterSnapshot`.
-///
-/// <p>Modifies the settings for a snapshot.</p>
+/// 
+/// <p>Modifies the settings for a snapshot.</p> 
 /// <p>This exanmple modifies the manual retention period setting for a cluster snapshot.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ModifyClusterSnapshotFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::modify_cluster_snapshot::builders::ModifyClusterSnapshotInputBuilder,
+                    inner: crate::operation::modify_cluster_snapshot::builders::ModifyClusterSnapshotInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput,
-        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError,
-    > for ModifyClusterSnapshotFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput,
-            crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput,
+                    crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError,
+                > for ModifyClusterSnapshotFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput,
+                        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ModifyClusterSnapshotFluentBuilder {
     /// Creates a new `ModifyClusterSnapshot`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -62,53 +58,44 @@ impl ModifyClusterSnapshotFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::modify_cluster_snapshot::ModifyClusterSnapshot::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshot::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput,
-        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::modify_cluster_snapshot::ModifyClusterSnapshot::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::modify_cluster_snapshot::ModifyClusterSnapshot::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotOutput, crate::operation::modify_cluster_snapshot::ModifyClusterSnapshotError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The identifier of the snapshot whose setting you want to modify.</p>
     pub fn snapshot_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.snapshot_identifier(input.into());
@@ -123,22 +110,22 @@ impl ModifyClusterSnapshotFluentBuilder {
     pub fn get_snapshot_identifier(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_snapshot_identifier()
     }
-    /// <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p>
-    /// <p>If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.</p>
+    /// <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p> 
+    /// <p>If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.</p> 
     /// <p>The value must be either -1 or an integer between 1 and 3,653.</p>
     pub fn manual_snapshot_retention_period(mut self, input: i32) -> Self {
         self.inner = self.inner.manual_snapshot_retention_period(input);
         self
     }
-    /// <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p>
-    /// <p>If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.</p>
+    /// <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p> 
+    /// <p>If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.</p> 
     /// <p>The value must be either -1 or an integer between 1 and 3,653.</p>
     pub fn set_manual_snapshot_retention_period(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_manual_snapshot_retention_period(input);
         self
     }
-    /// <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p>
-    /// <p>If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.</p>
+    /// <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p> 
+    /// <p>If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.</p> 
     /// <p>The value must be either -1 or an integer between 1 and 3,653.</p>
     pub fn get_manual_snapshot_retention_period(&self) -> &::std::option::Option<i32> {
         self.inner.get_manual_snapshot_retention_period()
@@ -158,3 +145,4 @@ impl ModifyClusterSnapshotFluentBuilder {
         self.inner.get_force()
     }
 }
+

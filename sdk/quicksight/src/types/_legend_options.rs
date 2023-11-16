@@ -3,17 +3,17 @@
 /// <p>The options for the legend setup of a visual.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct LegendOptions {
+pub struct LegendOptions  {
     /// <p>Determines whether or not the legend is visible.</p>
     pub visibility: ::std::option::Option<crate::types::Visibility>,
     /// <p>The custom title for the legend.</p>
     pub title: ::std::option::Option<crate::types::LabelOptions>,
-    /// <p>The positions for the legend. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>AUTO</code> </p> </li>
-    /// <li> <p> <code>RIGHT</code> </p> </li>
-    /// <li> <p> <code>BOTTOM</code> </p> </li>
-    /// <li> <p> <code>LEFT</code> </p> </li>
+    /// <p>The positions for the legend. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AUTO</code> </p> </li> 
+    /// <li> <p> <code>RIGHT</code> </p> </li> 
+    /// <li> <p> <code>BOTTOM</code> </p> </li> 
+    /// <li> <p> <code>LEFT</code> </p> </li> 
     /// </ul>
     pub position: ::std::option::Option<crate::types::LegendPosition>,
     /// <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
@@ -21,31 +21,31 @@ pub struct LegendOptions {
     /// <p>The height of the legend. If this value is omitted, a default height is used when rendering.</p>
     pub height: ::std::option::Option<::std::string::String>,
 }
-impl LegendOptions {
+impl  LegendOptions  {
     /// <p>Determines whether or not the legend is visible.</p>
-    pub fn visibility(&self) -> ::std::option::Option<&crate::types::Visibility> {
+    pub fn visibility(&self) -> ::std::option::Option<& crate::types::Visibility> {
         self.visibility.as_ref()
     }
     /// <p>The custom title for the legend.</p>
-    pub fn title(&self) -> ::std::option::Option<&crate::types::LabelOptions> {
+    pub fn title(&self) -> ::std::option::Option<& crate::types::LabelOptions> {
         self.title.as_ref()
     }
-    /// <p>The positions for the legend. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>AUTO</code> </p> </li>
-    /// <li> <p> <code>RIGHT</code> </p> </li>
-    /// <li> <p> <code>BOTTOM</code> </p> </li>
-    /// <li> <p> <code>LEFT</code> </p> </li>
+    /// <p>The positions for the legend. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AUTO</code> </p> </li> 
+    /// <li> <p> <code>RIGHT</code> </p> </li> 
+    /// <li> <p> <code>BOTTOM</code> </p> </li> 
+    /// <li> <p> <code>LEFT</code> </p> </li> 
     /// </ul>
-    pub fn position(&self) -> ::std::option::Option<&crate::types::LegendPosition> {
+    pub fn position(&self) -> ::std::option::Option<& crate::types::LegendPosition> {
         self.position.as_ref()
     }
     /// <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
-    pub fn width(&self) -> ::std::option::Option<&str> {
+    pub fn width(&self) -> ::std::option::Option<& str> {
         self.width.as_deref()
     }
     /// <p>The height of the legend. If this value is omitted, a default height is used when rendering.</p>
-    pub fn height(&self) -> ::std::option::Option<&str> {
+    pub fn height(&self) -> ::std::option::Option<& str> {
         self.height.as_deref()
     }
 }
@@ -74,8 +74,7 @@ impl LegendOptionsBuilder {
     }
     /// <p>Determines whether or not the legend is visible.</p>
     pub fn set_visibility(mut self, input: ::std::option::Option<crate::types::Visibility>) -> Self {
-        self.visibility = input;
-        self
+        self.visibility = input; self
     }
     /// <p>Determines whether or not the legend is visible.</p>
     pub fn get_visibility(&self) -> &::std::option::Option<crate::types::Visibility> {
@@ -88,41 +87,39 @@ impl LegendOptionsBuilder {
     }
     /// <p>The custom title for the legend.</p>
     pub fn set_title(mut self, input: ::std::option::Option<crate::types::LabelOptions>) -> Self {
-        self.title = input;
-        self
+        self.title = input; self
     }
     /// <p>The custom title for the legend.</p>
     pub fn get_title(&self) -> &::std::option::Option<crate::types::LabelOptions> {
         &self.title
     }
-    /// <p>The positions for the legend. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>AUTO</code> </p> </li>
-    /// <li> <p> <code>RIGHT</code> </p> </li>
-    /// <li> <p> <code>BOTTOM</code> </p> </li>
-    /// <li> <p> <code>LEFT</code> </p> </li>
+    /// <p>The positions for the legend. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AUTO</code> </p> </li> 
+    /// <li> <p> <code>RIGHT</code> </p> </li> 
+    /// <li> <p> <code>BOTTOM</code> </p> </li> 
+    /// <li> <p> <code>LEFT</code> </p> </li> 
     /// </ul>
     pub fn position(mut self, input: crate::types::LegendPosition) -> Self {
         self.position = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The positions for the legend. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>AUTO</code> </p> </li>
-    /// <li> <p> <code>RIGHT</code> </p> </li>
-    /// <li> <p> <code>BOTTOM</code> </p> </li>
-    /// <li> <p> <code>LEFT</code> </p> </li>
+    /// <p>The positions for the legend. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AUTO</code> </p> </li> 
+    /// <li> <p> <code>RIGHT</code> </p> </li> 
+    /// <li> <p> <code>BOTTOM</code> </p> </li> 
+    /// <li> <p> <code>LEFT</code> </p> </li> 
     /// </ul>
     pub fn set_position(mut self, input: ::std::option::Option<crate::types::LegendPosition>) -> Self {
-        self.position = input;
-        self
+        self.position = input; self
     }
-    /// <p>The positions for the legend. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>AUTO</code> </p> </li>
-    /// <li> <p> <code>RIGHT</code> </p> </li>
-    /// <li> <p> <code>BOTTOM</code> </p> </li>
-    /// <li> <p> <code>LEFT</code> </p> </li>
+    /// <p>The positions for the legend. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AUTO</code> </p> </li> 
+    /// <li> <p> <code>RIGHT</code> </p> </li> 
+    /// <li> <p> <code>BOTTOM</code> </p> </li> 
+    /// <li> <p> <code>LEFT</code> </p> </li> 
     /// </ul>
     pub fn get_position(&self) -> &::std::option::Option<crate::types::LegendPosition> {
         &self.position
@@ -134,8 +131,7 @@ impl LegendOptionsBuilder {
     }
     /// <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
     pub fn set_width(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.width = input;
-        self
+        self.width = input; self
     }
     /// <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
     pub fn get_width(&self) -> &::std::option::Option<::std::string::String> {
@@ -148,8 +144,7 @@ impl LegendOptionsBuilder {
     }
     /// <p>The height of the legend. If this value is omitted, a default height is used when rendering.</p>
     pub fn set_height(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.height = input;
-        self
+        self.height = input; self
     }
     /// <p>The height of the legend. If this value is omitted, a default height is used when rendering.</p>
     pub fn get_height(&self) -> &::std::option::Option<::std::string::String> {
@@ -158,11 +153,17 @@ impl LegendOptionsBuilder {
     /// Consumes the builder and constructs a [`LegendOptions`](crate::types::LegendOptions).
     pub fn build(self) -> crate::types::LegendOptions {
         crate::types::LegendOptions {
-            visibility: self.visibility,
-            title: self.title,
-            position: self.position,
-            width: self.width,
-            height: self.height,
+            visibility: self.visibility
+            ,
+            title: self.title
+            ,
+            position: self.position
+            ,
+            width: self.width
+            ,
+            height: self.height
+            ,
         }
     }
 }
+

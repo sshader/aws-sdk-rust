@@ -5,55 +5,51 @@ pub use crate::operation::update_stack::_update_stack_input::UpdateStackInputBui
 
 impl UpdateStackInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::update_stack::UpdateStackOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_stack::UpdateStackError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.update_stack();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::update_stack::UpdateStackOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::update_stack::UpdateStackError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.update_stack();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `UpdateStack`.
-///
-/// <p>Updates a specified stack.</p>
+/// 
+/// <p>Updates a specified stack.</p> 
 /// <p> <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User Permissions</a>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateStackFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_stack::builders::UpdateStackInputBuilder,
+                    inner: crate::operation::update_stack::builders::UpdateStackInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::update_stack::UpdateStackOutput,
-        crate::operation::update_stack::UpdateStackError,
-    > for UpdateStackFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::update_stack::UpdateStackOutput,
-            crate::operation::update_stack::UpdateStackError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::update_stack::UpdateStackOutput,
+                    crate::operation::update_stack::UpdateStackError,
+                > for UpdateStackFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::update_stack::UpdateStackOutput,
+                        crate::operation::update_stack::UpdateStackError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl UpdateStackFluentBuilder {
     /// Creates a new `UpdateStack`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -62,53 +58,44 @@ impl UpdateStackFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_stack::UpdateStackOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_stack::UpdateStackError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_stack::UpdateStack::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_stack::UpdateStack::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::update_stack::UpdateStackOutput,
-        crate::operation::update_stack::UpdateStackError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::update_stack::UpdateStackOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_stack::UpdateStackError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::update_stack::UpdateStack::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::update_stack::UpdateStack::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::update_stack::UpdateStackOutput, crate::operation::update_stack::UpdateStackError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The stack ID.</p>
     pub fn stack_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.stack_id(input.into());
@@ -147,15 +134,12 @@ impl UpdateStackFluentBuilder {
         self
     }
     /// <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
-    pub fn set_attributes(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<crate::types::StackAttributesKeys, ::std::string::String>>,
-    ) -> Self {
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap::<crate::types::StackAttributesKeys, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
     }
     /// <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::StackAttributesKeys, ::std::string::String>> {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap::<crate::types::StackAttributesKeys, ::std::string::String>> {
         self.inner.get_attributes()
     }
     /// <p>Do not use this parameter. You cannot update a stack's service role.</p>
@@ -186,99 +170,99 @@ impl UpdateStackFluentBuilder {
     pub fn get_default_instance_profile_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_default_instance_profile_arn()
     }
-    /// <p>The stack's operating system, which must be set to one of the following:</p>
-    /// <ul>
-    /// <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li>
-    /// <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li>
-    /// <li> <p> <code>CentOS Linux 7</code> </p> </li>
-    /// <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li>
-    /// <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li>
-    /// <li> <p>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> </li>
-    /// </ul>
+    /// <p>The stack's operating system, which must be set to one of the following:</p> 
+    /// <ul> 
+    /// <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li> 
+    /// <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li> 
+    /// <li> <p> <code>CentOS Linux 7</code> </p> </li> 
+    /// <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li> 
+    /// <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li> 
+    /// <li> <p>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> </li> 
+    /// </ul> 
     /// <p>The default option is the stack's current operating system. For more information about supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS OpsWorks Stacks Operating Systems</a>.</p>
     pub fn default_os(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.default_os(input.into());
         self
     }
-    /// <p>The stack's operating system, which must be set to one of the following:</p>
-    /// <ul>
-    /// <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li>
-    /// <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li>
-    /// <li> <p> <code>CentOS Linux 7</code> </p> </li>
-    /// <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li>
-    /// <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li>
-    /// <li> <p>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> </li>
-    /// </ul>
+    /// <p>The stack's operating system, which must be set to one of the following:</p> 
+    /// <ul> 
+    /// <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li> 
+    /// <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li> 
+    /// <li> <p> <code>CentOS Linux 7</code> </p> </li> 
+    /// <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li> 
+    /// <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li> 
+    /// <li> <p>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> </li> 
+    /// </ul> 
     /// <p>The default option is the stack's current operating system. For more information about supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS OpsWorks Stacks Operating Systems</a>.</p>
     pub fn set_default_os(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_default_os(input);
         self
     }
-    /// <p>The stack's operating system, which must be set to one of the following:</p>
-    /// <ul>
-    /// <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li>
-    /// <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li>
-    /// <li> <p> <code>CentOS Linux 7</code> </p> </li>
-    /// <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li>
-    /// <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li>
-    /// <li> <p>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> </li>
-    /// </ul>
+    /// <p>The stack's operating system, which must be set to one of the following:</p> 
+    /// <ul> 
+    /// <li> <p>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon Linux 2018.03</code>, <code>Amazon Linux 2017.09</code>, <code>Amazon Linux 2017.03</code>, <code>Amazon Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</p> </li> 
+    /// <li> <p>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</p> </li> 
+    /// <li> <p> <code>CentOS Linux 7</code> </p> </li> 
+    /// <li> <p> <code>Red Hat Enterprise Linux 7</code> </p> </li> 
+    /// <li> <p>A supported Windows operating system, such as <code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server Web</code>.</p> </li> 
+    /// <li> <p>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when you create instances. For more information about how to use custom AMIs with OpsWorks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using Custom AMIs</a>.</p> </li> 
+    /// </ul> 
     /// <p>The default option is the stack's current operating system. For more information about supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS OpsWorks Stacks Operating Systems</a>.</p>
     pub fn get_default_os(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_default_os()
     }
-    /// <p>The stack's new host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, <code>HostnameTheme</code> is set to <code>Layer_Dependent</code>, which creates host names by appending integers to the layer's short name. The other themes are:</p>
-    /// <ul>
-    /// <li> <p> <code>Baked_Goods</code> </p> </li>
-    /// <li> <p> <code>Clouds</code> </p> </li>
-    /// <li> <p> <code>Europe_Cities</code> </p> </li>
-    /// <li> <p> <code>Fruits</code> </p> </li>
-    /// <li> <p> <code>Greek_Deities_and_Titans</code> </p> </li>
-    /// <li> <p> <code>Legendary_creatures_from_Japan</code> </p> </li>
-    /// <li> <p> <code>Planets_and_Moons</code> </p> </li>
-    /// <li> <p> <code>Roman_Deities</code> </p> </li>
-    /// <li> <p> <code>Scottish_Islands</code> </p> </li>
-    /// <li> <p> <code>US_Cities</code> </p> </li>
-    /// <li> <p> <code>Wild_Cats</code> </p> </li>
-    /// </ul>
+    /// <p>The stack's new host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, <code>HostnameTheme</code> is set to <code>Layer_Dependent</code>, which creates host names by appending integers to the layer's short name. The other themes are:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Baked_Goods</code> </p> </li> 
+    /// <li> <p> <code>Clouds</code> </p> </li> 
+    /// <li> <p> <code>Europe_Cities</code> </p> </li> 
+    /// <li> <p> <code>Fruits</code> </p> </li> 
+    /// <li> <p> <code>Greek_Deities_and_Titans</code> </p> </li> 
+    /// <li> <p> <code>Legendary_creatures_from_Japan</code> </p> </li> 
+    /// <li> <p> <code>Planets_and_Moons</code> </p> </li> 
+    /// <li> <p> <code>Roman_Deities</code> </p> </li> 
+    /// <li> <p> <code>Scottish_Islands</code> </p> </li> 
+    /// <li> <p> <code>US_Cities</code> </p> </li> 
+    /// <li> <p> <code>Wild_Cats</code> </p> </li> 
+    /// </ul> 
     /// <p>To obtain a generated host name, call <code>GetHostNameSuggestion</code>, which returns a host name based on the current theme.</p>
     pub fn hostname_theme(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.hostname_theme(input.into());
         self
     }
-    /// <p>The stack's new host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, <code>HostnameTheme</code> is set to <code>Layer_Dependent</code>, which creates host names by appending integers to the layer's short name. The other themes are:</p>
-    /// <ul>
-    /// <li> <p> <code>Baked_Goods</code> </p> </li>
-    /// <li> <p> <code>Clouds</code> </p> </li>
-    /// <li> <p> <code>Europe_Cities</code> </p> </li>
-    /// <li> <p> <code>Fruits</code> </p> </li>
-    /// <li> <p> <code>Greek_Deities_and_Titans</code> </p> </li>
-    /// <li> <p> <code>Legendary_creatures_from_Japan</code> </p> </li>
-    /// <li> <p> <code>Planets_and_Moons</code> </p> </li>
-    /// <li> <p> <code>Roman_Deities</code> </p> </li>
-    /// <li> <p> <code>Scottish_Islands</code> </p> </li>
-    /// <li> <p> <code>US_Cities</code> </p> </li>
-    /// <li> <p> <code>Wild_Cats</code> </p> </li>
-    /// </ul>
+    /// <p>The stack's new host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, <code>HostnameTheme</code> is set to <code>Layer_Dependent</code>, which creates host names by appending integers to the layer's short name. The other themes are:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Baked_Goods</code> </p> </li> 
+    /// <li> <p> <code>Clouds</code> </p> </li> 
+    /// <li> <p> <code>Europe_Cities</code> </p> </li> 
+    /// <li> <p> <code>Fruits</code> </p> </li> 
+    /// <li> <p> <code>Greek_Deities_and_Titans</code> </p> </li> 
+    /// <li> <p> <code>Legendary_creatures_from_Japan</code> </p> </li> 
+    /// <li> <p> <code>Planets_and_Moons</code> </p> </li> 
+    /// <li> <p> <code>Roman_Deities</code> </p> </li> 
+    /// <li> <p> <code>Scottish_Islands</code> </p> </li> 
+    /// <li> <p> <code>US_Cities</code> </p> </li> 
+    /// <li> <p> <code>Wild_Cats</code> </p> </li> 
+    /// </ul> 
     /// <p>To obtain a generated host name, call <code>GetHostNameSuggestion</code>, which returns a host name based on the current theme.</p>
     pub fn set_hostname_theme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_hostname_theme(input);
         self
     }
-    /// <p>The stack's new host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, <code>HostnameTheme</code> is set to <code>Layer_Dependent</code>, which creates host names by appending integers to the layer's short name. The other themes are:</p>
-    /// <ul>
-    /// <li> <p> <code>Baked_Goods</code> </p> </li>
-    /// <li> <p> <code>Clouds</code> </p> </li>
-    /// <li> <p> <code>Europe_Cities</code> </p> </li>
-    /// <li> <p> <code>Fruits</code> </p> </li>
-    /// <li> <p> <code>Greek_Deities_and_Titans</code> </p> </li>
-    /// <li> <p> <code>Legendary_creatures_from_Japan</code> </p> </li>
-    /// <li> <p> <code>Planets_and_Moons</code> </p> </li>
-    /// <li> <p> <code>Roman_Deities</code> </p> </li>
-    /// <li> <p> <code>Scottish_Islands</code> </p> </li>
-    /// <li> <p> <code>US_Cities</code> </p> </li>
-    /// <li> <p> <code>Wild_Cats</code> </p> </li>
-    /// </ul>
+    /// <p>The stack's new host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, <code>HostnameTheme</code> is set to <code>Layer_Dependent</code>, which creates host names by appending integers to the layer's short name. The other themes are:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Baked_Goods</code> </p> </li> 
+    /// <li> <p> <code>Clouds</code> </p> </li> 
+    /// <li> <p> <code>Europe_Cities</code> </p> </li> 
+    /// <li> <p> <code>Fruits</code> </p> </li> 
+    /// <li> <p> <code>Greek_Deities_and_Titans</code> </p> </li> 
+    /// <li> <p> <code>Legendary_creatures_from_Japan</code> </p> </li> 
+    /// <li> <p> <code>Planets_and_Moons</code> </p> </li> 
+    /// <li> <p> <code>Roman_Deities</code> </p> </li> 
+    /// <li> <p> <code>Scottish_Islands</code> </p> </li> 
+    /// <li> <p> <code>US_Cities</code> </p> </li> 
+    /// <li> <p> <code>Wild_Cats</code> </p> </li> 
+    /// </ul> 
     /// <p>To obtain a generated host name, call <code>GetHostNameSuggestion</code>, which returns a host name based on the current theme.</p>
     pub fn get_hostname_theme(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_hostname_theme()
@@ -311,22 +295,22 @@ impl UpdateStackFluentBuilder {
     pub fn get_default_subnet_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_default_subnet_id()
     }
-    /// <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration JSON values or to pass data to recipes. The string should be in the following format:</p>
-    /// <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p>
+    /// <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration JSON values or to pass data to recipes. The string should be in the following format:</p> 
+    /// <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> 
     /// <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
     pub fn custom_json(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.custom_json(input.into());
         self
     }
-    /// <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration JSON values or to pass data to recipes. The string should be in the following format:</p>
-    /// <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p>
+    /// <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration JSON values or to pass data to recipes. The string should be in the following format:</p> 
+    /// <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> 
     /// <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
     pub fn set_custom_json(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_custom_json(input);
         self
     }
-    /// <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration JSON values or to pass data to recipes. The string should be in the following format:</p>
-    /// <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p>
+    /// <p>A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration JSON values or to pass data to recipes. The string should be in the following format:</p> 
+    /// <p> <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> 
     /// <p>For more information about custom JSON, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
     pub fn get_custom_json(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_custom_json()
@@ -415,71 +399,72 @@ impl UpdateStackFluentBuilder {
     pub fn get_default_root_device_type(&self) -> &::std::option::Option<crate::types::RootDeviceType> {
         self.inner.get_default_root_device_type()
     }
-    /// <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p>
-    /// <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. <code>UseOpsworksSecurityGroups</code> allows you to provide your own custom security groups instead of using the built-in groups. <code>UseOpsworksSecurityGroups</code> has the following settings: </p>
-    /// <ul>
-    /// <li> <p>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.</p> </li>
-    /// <li> <p>False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on. Custom security groups are required only for those layers that need custom settings.</p> </li>
-    /// </ul>
+    /// <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p> 
+    /// <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. <code>UseOpsworksSecurityGroups</code> allows you to provide your own custom security groups instead of using the built-in groups. <code>UseOpsworksSecurityGroups</code> has the following settings: </p> 
+    /// <ul> 
+    /// <li> <p>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.</p> </li> 
+    /// <li> <p>False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on. Custom security groups are required only for those layers that need custom settings.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
     pub fn use_opsworks_security_groups(mut self, input: bool) -> Self {
         self.inner = self.inner.use_opsworks_security_groups(input);
         self
     }
-    /// <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p>
-    /// <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. <code>UseOpsworksSecurityGroups</code> allows you to provide your own custom security groups instead of using the built-in groups. <code>UseOpsworksSecurityGroups</code> has the following settings: </p>
-    /// <ul>
-    /// <li> <p>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.</p> </li>
-    /// <li> <p>False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on. Custom security groups are required only for those layers that need custom settings.</p> </li>
-    /// </ul>
+    /// <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p> 
+    /// <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. <code>UseOpsworksSecurityGroups</code> allows you to provide your own custom security groups instead of using the built-in groups. <code>UseOpsworksSecurityGroups</code> has the following settings: </p> 
+    /// <ul> 
+    /// <li> <p>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.</p> </li> 
+    /// <li> <p>False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on. Custom security groups are required only for those layers that need custom settings.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
     pub fn set_use_opsworks_security_groups(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_use_opsworks_security_groups(input);
         self
     }
-    /// <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p>
-    /// <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. <code>UseOpsworksSecurityGroups</code> allows you to provide your own custom security groups instead of using the built-in groups. <code>UseOpsworksSecurityGroups</code> has the following settings: </p>
-    /// <ul>
-    /// <li> <p>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.</p> </li>
-    /// <li> <p>False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on. Custom security groups are required only for those layers that need custom settings.</p> </li>
-    /// </ul>
+    /// <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p> 
+    /// <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. <code>UseOpsworksSecurityGroups</code> allows you to provide your own custom security groups instead of using the built-in groups. <code>UseOpsworksSecurityGroups</code> has the following settings: </p> 
+    /// <ul> 
+    /// <li> <p>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.</p> </li> 
+    /// <li> <p>False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on. Custom security groups are required only for those layers that need custom settings.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create a New Stack</a>.</p>
     pub fn get_use_opsworks_security_groups(&self) -> &::std::option::Option<bool> {
         self.inner.get_use_opsworks_security_groups()
     }
-    /// <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p>
-    /// <ul>
-    /// <li> <p>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.</p> </li>
-    /// <li> <p>Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances.</p> </li>
-    /// </ul>
-    /// <p>The default setting is <code>LATEST</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <code>DescribeAgentVersions</code>. AgentVersion cannot be set to Chef 12.2.</p> <note>
-    /// <p>You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.</p>
+    /// <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p> 
+    /// <ul> 
+    /// <li> <p>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.</p> </li> 
+    /// <li> <p>Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances.</p> </li> 
+    /// </ul> 
+    /// <p>The default setting is <code>LATEST</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <code>DescribeAgentVersions</code>. AgentVersion cannot be set to Chef 12.2.</p> <note> 
+    /// <p>You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.</p> 
     /// </note>
     pub fn agent_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.agent_version(input.into());
         self
     }
-    /// <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p>
-    /// <ul>
-    /// <li> <p>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.</p> </li>
-    /// <li> <p>Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances.</p> </li>
-    /// </ul>
-    /// <p>The default setting is <code>LATEST</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <code>DescribeAgentVersions</code>. AgentVersion cannot be set to Chef 12.2.</p> <note>
-    /// <p>You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.</p>
+    /// <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p> 
+    /// <ul> 
+    /// <li> <p>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.</p> </li> 
+    /// <li> <p>Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances.</p> </li> 
+    /// </ul> 
+    /// <p>The default setting is <code>LATEST</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <code>DescribeAgentVersions</code>. AgentVersion cannot be set to Chef 12.2.</p> <note> 
+    /// <p>You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.</p> 
     /// </note>
     pub fn set_agent_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_agent_version(input);
         self
     }
-    /// <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p>
-    /// <ul>
-    /// <li> <p>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.</p> </li>
-    /// <li> <p>Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances.</p> </li>
-    /// </ul>
-    /// <p>The default setting is <code>LATEST</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <code>DescribeAgentVersions</code>. AgentVersion cannot be set to Chef 12.2.</p> <note>
-    /// <p>You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.</p>
+    /// <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p> 
+    /// <ul> 
+    /// <li> <p>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.</p> </li> 
+    /// <li> <p>Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances.</p> </li> 
+    /// </ul> 
+    /// <p>The default setting is <code>LATEST</code>. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call <code>DescribeAgentVersions</code>. AgentVersion cannot be set to Chef 12.2.</p> <note> 
+    /// <p>You can also specify an agent version when you create or update an instance, which overrides the stack's default setting.</p> 
     /// </note>
     pub fn get_agent_version(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_agent_version()
     }
 }
+

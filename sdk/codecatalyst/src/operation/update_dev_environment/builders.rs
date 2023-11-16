@@ -5,54 +5,50 @@ pub use crate::operation::update_dev_environment::_update_dev_environment_input:
 
 impl UpdateDevEnvironmentInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::update_dev_environment::UpdateDevEnvironmentOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_dev_environment::UpdateDevEnvironmentError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.update_dev_environment();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::update_dev_environment::UpdateDevEnvironmentOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::update_dev_environment::UpdateDevEnvironmentError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.update_dev_environment();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `UpdateDevEnvironment`.
-///
+/// 
 /// <p>Changes one or more values for a Dev Environment. Updating certain values of the Dev Environment will cause a restart.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateDevEnvironmentFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_dev_environment::builders::UpdateDevEnvironmentInputBuilder,
+                    inner: crate::operation::update_dev_environment::builders::UpdateDevEnvironmentInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::update_dev_environment::UpdateDevEnvironmentOutput,
-        crate::operation::update_dev_environment::UpdateDevEnvironmentError,
-    > for UpdateDevEnvironmentFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::update_dev_environment::UpdateDevEnvironmentOutput,
-            crate::operation::update_dev_environment::UpdateDevEnvironmentError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::update_dev_environment::UpdateDevEnvironmentOutput,
+                    crate::operation::update_dev_environment::UpdateDevEnvironmentError,
+                > for UpdateDevEnvironmentFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::update_dev_environment::UpdateDevEnvironmentOutput,
+                        crate::operation::update_dev_environment::UpdateDevEnvironmentError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl UpdateDevEnvironmentFluentBuilder {
     /// Creates a new `UpdateDevEnvironment`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl UpdateDevEnvironmentFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_dev_environment::UpdateDevEnvironmentOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_dev_environment::UpdateDevEnvironmentError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_dev_environment::UpdateDevEnvironment::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_dev_environment::UpdateDevEnvironment::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::update_dev_environment::UpdateDevEnvironmentOutput,
-        crate::operation::update_dev_environment::UpdateDevEnvironmentError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::update_dev_environment::UpdateDevEnvironmentOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_dev_environment::UpdateDevEnvironmentError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::update_dev_environment::UpdateDevEnvironment::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::update_dev_environment::UpdateDevEnvironment::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::update_dev_environment::UpdateDevEnvironmentOutput, crate::operation::update_dev_environment::UpdateDevEnvironmentError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name of the space.</p>
     pub fn space_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.space_name(input.into());
@@ -174,50 +161,50 @@ impl UpdateDevEnvironmentFluentBuilder {
         self
     }
     /// <p>Information about the integrated development environment (IDE) configured for a Dev Environment.</p>
-    pub fn set_ides(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::IdeConfiguration>>) -> Self {
+    pub fn set_ides(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::IdeConfiguration>>) -> Self {
         self.inner = self.inner.set_ides(input);
         self
     }
     /// <p>Information about the integrated development environment (IDE) configured for a Dev Environment.</p>
-    pub fn get_ides(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::IdeConfiguration>> {
+    pub fn get_ides(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::IdeConfiguration>> {
         self.inner.get_ides()
     }
-    /// <p>The Amazon EC2 instace type to use for the Dev Environment. </p> <note>
-    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p>
+    /// <p>The Amazon EC2 instace type to use for the Dev Environment. </p> <note> 
+    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p> 
     /// </note>
     pub fn instance_type(mut self, input: crate::types::InstanceType) -> Self {
         self.inner = self.inner.instance_type(input);
         self
     }
-    /// <p>The Amazon EC2 instace type to use for the Dev Environment. </p> <note>
-    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p>
+    /// <p>The Amazon EC2 instace type to use for the Dev Environment. </p> <note> 
+    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p> 
     /// </note>
     pub fn set_instance_type(mut self, input: ::std::option::Option<crate::types::InstanceType>) -> Self {
         self.inner = self.inner.set_instance_type(input);
         self
     }
-    /// <p>The Amazon EC2 instace type to use for the Dev Environment. </p> <note>
-    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p>
+    /// <p>The Amazon EC2 instace type to use for the Dev Environment. </p> <note> 
+    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p> 
     /// </note>
     pub fn get_instance_type(&self) -> &::std::option::Option<crate::types::InstanceType> {
         self.inner.get_instance_type()
     }
-    /// <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p> <note>
-    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p>
+    /// <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p> <note> 
+    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p> 
     /// </note>
     pub fn inactivity_timeout_minutes(mut self, input: i32) -> Self {
         self.inner = self.inner.inactivity_timeout_minutes(input);
         self
     }
-    /// <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p> <note>
-    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p>
+    /// <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p> <note> 
+    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p> 
     /// </note>
     pub fn set_inactivity_timeout_minutes(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_inactivity_timeout_minutes(input);
         self
     }
-    /// <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p> <note>
-    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p>
+    /// <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p> <note> 
+    /// <p>Changing this value will cause a restart of the Dev Environment if it is running.</p> 
     /// </note>
     pub fn get_inactivity_timeout_minutes(&self) -> &::std::option::Option<i32> {
         self.inner.get_inactivity_timeout_minutes()
@@ -237,3 +224,4 @@ impl UpdateDevEnvironmentFluentBuilder {
         self.inner.get_client_token()
     }
 }
+

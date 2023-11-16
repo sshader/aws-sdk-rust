@@ -2,19 +2,19 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetSystemTemplateInput {
-    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p>
-    /// <p>The ID should be in the following format.</p>
+pub struct GetSystemTemplateInput  {
+    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p> 
+    /// <p>The ID should be in the following format.</p> 
     /// <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
     pub id: ::std::option::Option<::std::string::String>,
     /// <p>The number that specifies the revision of the system to get.</p>
     pub revision_number: ::std::option::Option<i64>,
 }
-impl GetSystemTemplateInput {
-    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p>
-    /// <p>The ID should be in the following format.</p>
+impl  GetSystemTemplateInput  {
+    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p> 
+    /// <p>The ID should be in the following format.</p> 
     /// <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
-    pub fn id(&self) -> ::std::option::Option<&str> {
+    pub fn id(&self) -> ::std::option::Option<& str> {
         self.id.as_deref()
     }
     /// <p>The number that specifies the revision of the system to get.</p>
@@ -37,23 +37,22 @@ pub struct GetSystemTemplateInputBuilder {
     pub(crate) revision_number: ::std::option::Option<i64>,
 }
 impl GetSystemTemplateInputBuilder {
-    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p>
-    /// <p>The ID should be in the following format.</p>
+    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p> 
+    /// <p>The ID should be in the following format.</p> 
     /// <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
     /// This field is required.
     pub fn id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p>
-    /// <p>The ID should be in the following format.</p>
+    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p> 
+    /// <p>The ID should be in the following format.</p> 
     /// <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
-    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p>
-    /// <p>The ID should be in the following format.</p>
+    /// <p>The ID of the system to get. This ID must be in the user's namespace.</p> 
+    /// <p>The ID should be in the following format.</p> 
     /// <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.id
@@ -65,20 +64,22 @@ impl GetSystemTemplateInputBuilder {
     }
     /// <p>The number that specifies the revision of the system to get.</p>
     pub fn set_revision_number(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.revision_number = input;
-        self
+        self.revision_number = input; self
     }
     /// <p>The number that specifies the revision of the system to get.</p>
     pub fn get_revision_number(&self) -> &::std::option::Option<i64> {
         &self.revision_number
     }
     /// Consumes the builder and constructs a [`GetSystemTemplateInput`](crate::operation::get_system_template::GetSystemTemplateInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::get_system_template::GetSystemTemplateInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_system_template::GetSystemTemplateInput {
-            id: self.id,
-            revision_number: self.revision_number,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_system_template::GetSystemTemplateInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_system_template::GetSystemTemplateInput {
+                id: self.id
+                ,
+                revision_number: self.revision_number
+                ,
+            }
+        )
     }
 }
+

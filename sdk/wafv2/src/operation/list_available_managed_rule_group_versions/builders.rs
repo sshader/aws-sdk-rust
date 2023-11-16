@@ -5,113 +5,96 @@ pub use crate::operation::list_available_managed_rule_group_versions::_list_avai
 
 impl ListAvailableManagedRuleGroupVersionsInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.list_available_managed_rule_group_versions();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.list_available_managed_rule_group_versions();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ListAvailableManagedRuleGroupVersions`.
-///
+/// 
 /// <p>Returns a list of the available versions for the specified managed rule group. </p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListAvailableManagedRuleGroupVersionsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::list_available_managed_rule_group_versions::builders::ListAvailableManagedRuleGroupVersionsInputBuilder,
+                    inner: crate::operation::list_available_managed_rule_group_versions::builders::ListAvailableManagedRuleGroupVersionsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput,
-        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError,
-    > for ListAvailableManagedRuleGroupVersionsFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput,
-            crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput,
+                    crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError,
+                > for ListAvailableManagedRuleGroupVersionsFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput,
+                        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ListAvailableManagedRuleGroupVersionsFluentBuilder {
     /// Creates a new `ListAvailableManagedRuleGroupVersions`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
     /// Access the ListAvailableManagedRuleGroupVersions as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_available_managed_rule_group_versions::builders::ListAvailableManagedRuleGroupVersionsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_available_managed_rule_group_versions::builders::ListAvailableManagedRuleGroupVersionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersions::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersions::orchestrate(&runtime_plugins, input)
-            .await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput,
-        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersions::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersions::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsOutput, crate::operation::list_available_managed_rule_group_versions::ListAvailableManagedRuleGroupVersionsError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
     pub fn vendor_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.vendor_name(input.into());
@@ -140,31 +123,31 @@ impl ListAvailableManagedRuleGroupVersionsFluentBuilder {
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_name()
     }
-    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
-    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-    /// <ul>
-    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li>
-    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li>
+    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p> 
+    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> 
+    /// <ul> 
+    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> 
+    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> 
     /// </ul>
     pub fn scope(mut self, input: crate::types::Scope) -> Self {
         self.inner = self.inner.scope(input);
         self
     }
-    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
-    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-    /// <ul>
-    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li>
-    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li>
+    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p> 
+    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> 
+    /// <ul> 
+    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> 
+    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> 
     /// </ul>
     pub fn set_scope(mut self, input: ::std::option::Option<crate::types::Scope>) -> Self {
         self.inner = self.inner.set_scope(input);
         self
     }
-    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
-    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-    /// <ul>
-    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li>
-    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li>
+    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p> 
+    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> 
+    /// <ul> 
+    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> 
+    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> 
     /// </ul>
     pub fn get_scope(&self) -> &::std::option::Option<crate::types::Scope> {
         self.inner.get_scope()
@@ -198,3 +181,4 @@ impl ListAvailableManagedRuleGroupVersionsFluentBuilder {
         self.inner.get_limit()
     }
 }
+

@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateFilterInput {
+pub struct CreateFilterInput  {
     /// <p>The ID of the detector belonging to the GuardDuty account that you want to create a filter for.</p>
     pub detector_id: ::std::option::Option<::std::string::String>,
     /// <p>The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.</p>
@@ -13,242 +13,242 @@ pub struct CreateFilterInput {
     pub action: ::std::option::Option<crate::types::FilterAction>,
     /// <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
     pub rank: ::std::option::Option<i32>,
-    /// <p>Represents the criteria to be used in the filter for querying findings.</p>
-    /// <p>You can only use the following attributes to query findings:</p>
-    /// <ul>
-    /// <li> <p>accountId</p> </li>
-    /// <li> <p>id</p> </li>
-    /// <li> <p>region</p> </li>
-    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p>
-    /// <ul>
-    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li>
-    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li>
-    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li>
-    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li>
-    /// <li> <p>type</p> </li>
-    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li>
-    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.principalId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userName</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userType</p> </li>
-    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li>
-    /// <li> <p>resource.instanceDetails.imageId</p> </li>
-    /// <li> <p>resource.instanceDetails.instanceId</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.value</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li>
-    /// <li> <p>resource.instanceDetails.outpostArn</p> </li>
-    /// <li> <p>resource.resourceType</p> </li>
-    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li>
-    /// <li> <p>resource.s3BucketDetails.name</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li>
-    /// <li> <p>resource.s3BucketDetails.type</p> </li>
-    /// <li> <p>service.action.actionType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.api</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domain</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li>
-    /// <li> <p>service.additionalInfo.threatListName</p> </li>
-    /// <li> <p>service.resourceRole</p> </li>
-    /// <li> <p>resource.eksClusterDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.name</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li>
-    /// <li> <p>resource.containerDetails.image</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li>
-    /// <li> <p>resource.rdsDbUserDetails.user</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li>
-    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionName</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionArn</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.key</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.value</p> </li>
+    /// <p>Represents the criteria to be used in the filter for querying findings.</p> 
+    /// <p>You can only use the following attributes to query findings:</p> 
+    /// <ul> 
+    /// <li> <p>accountId</p> </li> 
+    /// <li> <p>id</p> </li> 
+    /// <li> <p>region</p> </li> 
+    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li> 
+    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li> 
+    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li> 
+    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li> 
+    /// <li> <p>type</p> </li> 
+    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.principalId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userName</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userType</p> </li> 
+    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li> 
+    /// <li> <p>resource.instanceDetails.imageId</p> </li> 
+    /// <li> <p>resource.instanceDetails.instanceId</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.value</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li> 
+    /// <li> <p>resource.instanceDetails.outpostArn</p> </li> 
+    /// <li> <p>resource.resourceType</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.name</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.type</p> </li> 
+    /// <li> <p>service.action.actionType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.api</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domain</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li> 
+    /// <li> <p>service.additionalInfo.threatListName</p> </li> 
+    /// <li> <p>service.resourceRole</p> </li> 
+    /// <li> <p>resource.eksClusterDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.name</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li> 
+    /// <li> <p>resource.containerDetails.image</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li> 
+    /// <li> <p>resource.rdsDbUserDetails.user</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionName</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionArn</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.key</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.value</p> </li> 
     /// </ul>
     pub finding_criteria: ::std::option::Option<crate::types::FindingCriteria>,
     /// <p>The idempotency token for the create request.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
     /// <p>The tags to be added to a new filter resource.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
 }
-impl CreateFilterInput {
+impl  CreateFilterInput  {
     /// <p>The ID of the detector belonging to the GuardDuty account that you want to create a filter for.</p>
-    pub fn detector_id(&self) -> ::std::option::Option<&str> {
+    pub fn detector_id(&self) -> ::std::option::Option<& str> {
         self.detector_id.as_deref()
     }
     /// <p>The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses (<code>{ }</code>, <code>[ ]</code>, and <code>( )</code>), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>Specifies the action that is to be applied to the findings that match the filter.</p>
-    pub fn action(&self) -> ::std::option::Option<&crate::types::FilterAction> {
+    pub fn action(&self) -> ::std::option::Option<& crate::types::FilterAction> {
         self.action.as_ref()
     }
     /// <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
     pub fn rank(&self) -> ::std::option::Option<i32> {
         self.rank
     }
-    /// <p>Represents the criteria to be used in the filter for querying findings.</p>
-    /// <p>You can only use the following attributes to query findings:</p>
-    /// <ul>
-    /// <li> <p>accountId</p> </li>
-    /// <li> <p>id</p> </li>
-    /// <li> <p>region</p> </li>
-    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p>
-    /// <ul>
-    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li>
-    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li>
-    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li>
-    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li>
-    /// <li> <p>type</p> </li>
-    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li>
-    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.principalId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userName</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userType</p> </li>
-    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li>
-    /// <li> <p>resource.instanceDetails.imageId</p> </li>
-    /// <li> <p>resource.instanceDetails.instanceId</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.value</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li>
-    /// <li> <p>resource.instanceDetails.outpostArn</p> </li>
-    /// <li> <p>resource.resourceType</p> </li>
-    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li>
-    /// <li> <p>resource.s3BucketDetails.name</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li>
-    /// <li> <p>resource.s3BucketDetails.type</p> </li>
-    /// <li> <p>service.action.actionType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.api</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domain</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li>
-    /// <li> <p>service.additionalInfo.threatListName</p> </li>
-    /// <li> <p>service.resourceRole</p> </li>
-    /// <li> <p>resource.eksClusterDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.name</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li>
-    /// <li> <p>resource.containerDetails.image</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li>
-    /// <li> <p>resource.rdsDbUserDetails.user</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li>
-    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionName</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionArn</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.key</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.value</p> </li>
+    /// <p>Represents the criteria to be used in the filter for querying findings.</p> 
+    /// <p>You can only use the following attributes to query findings:</p> 
+    /// <ul> 
+    /// <li> <p>accountId</p> </li> 
+    /// <li> <p>id</p> </li> 
+    /// <li> <p>region</p> </li> 
+    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li> 
+    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li> 
+    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li> 
+    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li> 
+    /// <li> <p>type</p> </li> 
+    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.principalId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userName</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userType</p> </li> 
+    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li> 
+    /// <li> <p>resource.instanceDetails.imageId</p> </li> 
+    /// <li> <p>resource.instanceDetails.instanceId</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.value</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li> 
+    /// <li> <p>resource.instanceDetails.outpostArn</p> </li> 
+    /// <li> <p>resource.resourceType</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.name</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.type</p> </li> 
+    /// <li> <p>service.action.actionType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.api</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domain</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li> 
+    /// <li> <p>service.additionalInfo.threatListName</p> </li> 
+    /// <li> <p>service.resourceRole</p> </li> 
+    /// <li> <p>resource.eksClusterDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.name</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li> 
+    /// <li> <p>resource.containerDetails.image</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li> 
+    /// <li> <p>resource.rdsDbUserDetails.user</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionName</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionArn</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.key</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.value</p> </li> 
     /// </ul>
-    pub fn finding_criteria(&self) -> ::std::option::Option<&crate::types::FindingCriteria> {
+    pub fn finding_criteria(&self) -> ::std::option::Option<& crate::types::FindingCriteria> {
         self.finding_criteria.as_ref()
     }
     /// <p>The idempotency token for the create request.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
     /// <p>The tags to be added to a new filter resource.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -270,7 +270,7 @@ pub struct CreateFilterInputBuilder {
     pub(crate) rank: ::std::option::Option<i32>,
     pub(crate) finding_criteria: ::std::option::Option<crate::types::FindingCriteria>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
 }
 impl CreateFilterInputBuilder {
     /// <p>The ID of the detector belonging to the GuardDuty account that you want to create a filter for.</p>
@@ -281,8 +281,7 @@ impl CreateFilterInputBuilder {
     }
     /// <p>The ID of the detector belonging to the GuardDuty account that you want to create a filter for.</p>
     pub fn set_detector_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.detector_id = input;
-        self
+        self.detector_id = input; self
     }
     /// <p>The ID of the detector belonging to the GuardDuty account that you want to create a filter for.</p>
     pub fn get_detector_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -296,8 +295,7 @@ impl CreateFilterInputBuilder {
     }
     /// <p>The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -310,8 +308,7 @@ impl CreateFilterInputBuilder {
     }
     /// <p>The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses (<code>{ }</code>, <code>[ ]</code>, and <code>( )</code>), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses (<code>{ }</code>, <code>[ ]</code>, and <code>( )</code>), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -324,8 +321,7 @@ impl CreateFilterInputBuilder {
     }
     /// <p>Specifies the action that is to be applied to the findings that match the filter.</p>
     pub fn set_action(mut self, input: ::std::option::Option<crate::types::FilterAction>) -> Self {
-        self.action = input;
-        self
+        self.action = input; self
     }
     /// <p>Specifies the action that is to be applied to the findings that match the filter.</p>
     pub fn get_action(&self) -> &::std::option::Option<crate::types::FilterAction> {
@@ -338,321 +334,319 @@ impl CreateFilterInputBuilder {
     }
     /// <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
     pub fn set_rank(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.rank = input;
-        self
+        self.rank = input; self
     }
     /// <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
     pub fn get_rank(&self) -> &::std::option::Option<i32> {
         &self.rank
     }
-    /// <p>Represents the criteria to be used in the filter for querying findings.</p>
-    /// <p>You can only use the following attributes to query findings:</p>
-    /// <ul>
-    /// <li> <p>accountId</p> </li>
-    /// <li> <p>id</p> </li>
-    /// <li> <p>region</p> </li>
-    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p>
-    /// <ul>
-    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li>
-    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li>
-    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li>
-    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li>
-    /// <li> <p>type</p> </li>
-    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li>
-    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.principalId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userName</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userType</p> </li>
-    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li>
-    /// <li> <p>resource.instanceDetails.imageId</p> </li>
-    /// <li> <p>resource.instanceDetails.instanceId</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.value</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li>
-    /// <li> <p>resource.instanceDetails.outpostArn</p> </li>
-    /// <li> <p>resource.resourceType</p> </li>
-    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li>
-    /// <li> <p>resource.s3BucketDetails.name</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li>
-    /// <li> <p>resource.s3BucketDetails.type</p> </li>
-    /// <li> <p>service.action.actionType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.api</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domain</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li>
-    /// <li> <p>service.additionalInfo.threatListName</p> </li>
-    /// <li> <p>service.resourceRole</p> </li>
-    /// <li> <p>resource.eksClusterDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.name</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li>
-    /// <li> <p>resource.containerDetails.image</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li>
-    /// <li> <p>resource.rdsDbUserDetails.user</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li>
-    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionName</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionArn</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.key</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.value</p> </li>
+    /// <p>Represents the criteria to be used in the filter for querying findings.</p> 
+    /// <p>You can only use the following attributes to query findings:</p> 
+    /// <ul> 
+    /// <li> <p>accountId</p> </li> 
+    /// <li> <p>id</p> </li> 
+    /// <li> <p>region</p> </li> 
+    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li> 
+    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li> 
+    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li> 
+    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li> 
+    /// <li> <p>type</p> </li> 
+    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.principalId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userName</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userType</p> </li> 
+    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li> 
+    /// <li> <p>resource.instanceDetails.imageId</p> </li> 
+    /// <li> <p>resource.instanceDetails.instanceId</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.value</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li> 
+    /// <li> <p>resource.instanceDetails.outpostArn</p> </li> 
+    /// <li> <p>resource.resourceType</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.name</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.type</p> </li> 
+    /// <li> <p>service.action.actionType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.api</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domain</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li> 
+    /// <li> <p>service.additionalInfo.threatListName</p> </li> 
+    /// <li> <p>service.resourceRole</p> </li> 
+    /// <li> <p>resource.eksClusterDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.name</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li> 
+    /// <li> <p>resource.containerDetails.image</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li> 
+    /// <li> <p>resource.rdsDbUserDetails.user</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionName</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionArn</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.key</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.value</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn finding_criteria(mut self, input: crate::types::FindingCriteria) -> Self {
         self.finding_criteria = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Represents the criteria to be used in the filter for querying findings.</p>
-    /// <p>You can only use the following attributes to query findings:</p>
-    /// <ul>
-    /// <li> <p>accountId</p> </li>
-    /// <li> <p>id</p> </li>
-    /// <li> <p>region</p> </li>
-    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p>
-    /// <ul>
-    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li>
-    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li>
-    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li>
-    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li>
-    /// <li> <p>type</p> </li>
-    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li>
-    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.principalId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userName</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userType</p> </li>
-    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li>
-    /// <li> <p>resource.instanceDetails.imageId</p> </li>
-    /// <li> <p>resource.instanceDetails.instanceId</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.value</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li>
-    /// <li> <p>resource.instanceDetails.outpostArn</p> </li>
-    /// <li> <p>resource.resourceType</p> </li>
-    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li>
-    /// <li> <p>resource.s3BucketDetails.name</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li>
-    /// <li> <p>resource.s3BucketDetails.type</p> </li>
-    /// <li> <p>service.action.actionType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.api</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domain</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li>
-    /// <li> <p>service.additionalInfo.threatListName</p> </li>
-    /// <li> <p>service.resourceRole</p> </li>
-    /// <li> <p>resource.eksClusterDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.name</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li>
-    /// <li> <p>resource.containerDetails.image</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li>
-    /// <li> <p>resource.rdsDbUserDetails.user</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li>
-    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionName</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionArn</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.key</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.value</p> </li>
+    /// <p>Represents the criteria to be used in the filter for querying findings.</p> 
+    /// <p>You can only use the following attributes to query findings:</p> 
+    /// <ul> 
+    /// <li> <p>accountId</p> </li> 
+    /// <li> <p>id</p> </li> 
+    /// <li> <p>region</p> </li> 
+    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li> 
+    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li> 
+    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li> 
+    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li> 
+    /// <li> <p>type</p> </li> 
+    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.principalId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userName</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userType</p> </li> 
+    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li> 
+    /// <li> <p>resource.instanceDetails.imageId</p> </li> 
+    /// <li> <p>resource.instanceDetails.instanceId</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.value</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li> 
+    /// <li> <p>resource.instanceDetails.outpostArn</p> </li> 
+    /// <li> <p>resource.resourceType</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.name</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.type</p> </li> 
+    /// <li> <p>service.action.actionType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.api</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domain</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li> 
+    /// <li> <p>service.additionalInfo.threatListName</p> </li> 
+    /// <li> <p>service.resourceRole</p> </li> 
+    /// <li> <p>resource.eksClusterDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.name</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li> 
+    /// <li> <p>resource.containerDetails.image</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li> 
+    /// <li> <p>resource.rdsDbUserDetails.user</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionName</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionArn</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.key</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.value</p> </li> 
     /// </ul>
     pub fn set_finding_criteria(mut self, input: ::std::option::Option<crate::types::FindingCriteria>) -> Self {
-        self.finding_criteria = input;
-        self
+        self.finding_criteria = input; self
     }
-    /// <p>Represents the criteria to be used in the filter for querying findings.</p>
-    /// <p>You can only use the following attributes to query findings:</p>
-    /// <ul>
-    /// <li> <p>accountId</p> </li>
-    /// <li> <p>id</p> </li>
-    /// <li> <p>region</p> </li>
-    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p>
-    /// <ul>
-    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li>
-    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li>
-    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li>
-    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li>
-    /// <li> <p>type</p> </li>
-    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li>
-    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.principalId</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userName</p> </li>
-    /// <li> <p>resource.accessKeyDetails.userType</p> </li>
-    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li>
-    /// <li> <p>resource.instanceDetails.imageId</p> </li>
-    /// <li> <p>resource.instanceDetails.instanceId</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.instanceDetails.tags.value</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li>
-    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li>
-    /// <li> <p>resource.instanceDetails.outpostArn</p> </li>
-    /// <li> <p>resource.resourceType</p> </li>
-    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li>
-    /// <li> <p>resource.s3BucketDetails.name</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li>
-    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li>
-    /// <li> <p>resource.s3BucketDetails.type</p> </li>
-    /// <li> <p>service.action.actionType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.api</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domain</p> </li>
-    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li>
-    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li>
-    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li>
-    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li>
-    /// <li> <p>service.additionalInfo.threatListName</p> </li>
-    /// <li> <p>service.resourceRole</p> </li>
-    /// <li> <p>resource.eksClusterDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li>
-    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li>
-    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.name</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li>
-    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li>
-    /// <li> <p>resource.containerDetails.image</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li>
-    /// <li> <p>resource.rdsDbUserDetails.user</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li>
-    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li>
-    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>service.runtimeDetails.process.name</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionName</p> </li>
-    /// <li> <p>resource.lambdaDetails.functionArn</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.key</p> </li>
-    /// <li> <p>resource.lambdaDetails.tags.value</p> </li>
+    /// <p>Represents the criteria to be used in the filter for querying findings.</p> 
+    /// <p>You can only use the following attributes to query findings:</p> 
+    /// <ul> 
+    /// <li> <p>accountId</p> </li> 
+    /// <li> <p>id</p> </li> 
+    /// <li> <p>region</p> </li> 
+    /// <li> <p>severity</p> <p>To filter on the basis of severity, the API and CLI use the following input list for the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a> condition:</p> 
+    /// <ul> 
+    /// <li> <p> <b>Low</b>: <code>["1", "2", "3"]</code> </p> </li> 
+    /// <li> <p> <b>Medium</b>: <code>["4", "5", "6"]</code> </p> </li> 
+    /// <li> <p> <b>High</b>: <code>["7", "8", "9"]</code> </p> </li> 
+    /// </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity levels for GuardDuty findings</a>.</p> </li> 
+    /// <li> <p>type</p> </li> 
+    /// <li> <p>updatedAt</p> <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.accessKeyId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.principalId</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userName</p> </li> 
+    /// <li> <p>resource.accessKeyDetails.userType</p> </li> 
+    /// <li> <p>resource.instanceDetails.iamInstanceProfile.id</p> </li> 
+    /// <li> <p>resource.instanceDetails.imageId</p> </li> 
+    /// <li> <p>resource.instanceDetails.instanceId</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.instanceDetails.tags.value</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicDnsName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.publicIp</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.subnetId</p> </li> 
+    /// <li> <p>resource.instanceDetails.networkInterfaces.vpcId</p> </li> 
+    /// <li> <p>resource.instanceDetails.outpostArn</p> </li> 
+    /// <li> <p>resource.resourceType</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.name</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.key</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.tags.value</p> </li> 
+    /// <li> <p>resource.s3BucketDetails.type</p> </li> 
+    /// <li> <p>service.action.actionType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.api</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.callerType</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.errorCode</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domain</p> </li> 
+    /// <li> <p>service.action.dnsRequestAction.domainWithSuffix</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.blocked</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.connectionDirection</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localPortDetails.port</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.remotePortDetails.port</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.namespace</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.requestUri</p> </li> 
+    /// <li> <p>service.action.kubernetesApiCallAction.statusCode</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p> </li> 
+    /// <li> <p>service.action.networkConnectionAction.protocol</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.serviceName</p> </li> 
+    /// <li> <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p> </li> 
+    /// <li> <p>service.additionalInfo.threatListName</p> </li> 
+    /// <li> <p>service.resourceRole</p> </li> 
+    /// <li> <p>resource.eksClusterDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesUserDetails.username</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p> </li> 
+    /// <li> <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanId</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p> </li> 
+    /// <li> <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.name</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.containers.image</p> </li> 
+    /// <li> <p>resource.ecsClusterDetails.taskDetails.definitionArn</p> </li> 
+    /// <li> <p>resource.containerDetails.image</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.engine</p> </li> 
+    /// <li> <p>resource.rdsDbUserDetails.user</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.key</p> </li> 
+    /// <li> <p>resource.rdsDbInstanceDetails.tags.value</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.executableSha256</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>service.runtimeDetails.process.name</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionName</p> </li> 
+    /// <li> <p>resource.lambdaDetails.functionArn</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.key</p> </li> 
+    /// <li> <p>resource.lambdaDetails.tags.value</p> </li> 
     /// </ul>
     pub fn get_finding_criteria(&self) -> &::std::option::Option<crate::types::FindingCriteria> {
         &self.finding_criteria
@@ -664,8 +658,7 @@ impl CreateFilterInputBuilder {
     }
     /// <p>The idempotency token for the create request.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// <p>The idempotency token for the create request.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -678,32 +671,40 @@ impl CreateFilterInputBuilder {
     /// <p>The tags to be added to a new filter resource.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.tags = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>The tags to be added to a new filter resource.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input; self
     }
     /// <p>The tags to be added to a new filter resource.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateFilterInput`](crate::operation::create_filter::CreateFilterInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_filter::CreateFilterInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_filter::CreateFilterInput {
-            detector_id: self.detector_id,
-            name: self.name,
-            description: self.description,
-            action: self.action,
-            rank: self.rank,
-            finding_criteria: self.finding_criteria,
-            client_token: self.client_token,
-            tags: self.tags,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_filter::CreateFilterInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_filter::CreateFilterInput {
+                detector_id: self.detector_id
+                ,
+                name: self.name
+                ,
+                description: self.description
+                ,
+                action: self.action
+                ,
+                rank: self.rank
+                ,
+                finding_criteria: self.finding_criteria
+                ,
+                client_token: self.client_token
+                ,
+                tags: self.tags
+                ,
+            }
+        )
     }
 }
+

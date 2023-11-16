@@ -2,22 +2,23 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DisassociateS3ResourcesInput {
+pub struct DisassociateS3ResourcesInput  {
     /// <p>(Discontinued) The ID of the Amazon Macie Classic member account whose resources you want to remove from being monitored by Macie Classic.</p>
     pub member_account_id: ::std::option::Option<::std::string::String>,
     /// <p>(Discontinued) The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie Classic.</p>
-    pub associated_s3_resources: ::std::option::Option<::std::vec::Vec<crate::types::S3Resource>>,
+    pub associated_s3_resources: ::std::option::Option<::std::vec::Vec::<crate::types::S3Resource>>,
 }
-impl DisassociateS3ResourcesInput {
+impl  DisassociateS3ResourcesInput  {
     /// <p>(Discontinued) The ID of the Amazon Macie Classic member account whose resources you want to remove from being monitored by Macie Classic.</p>
-    pub fn member_account_id(&self) -> ::std::option::Option<&str> {
+    pub fn member_account_id(&self) -> ::std::option::Option<& str> {
         self.member_account_id.as_deref()
     }
     /// <p>(Discontinued) The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie Classic.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.associated_s3_resources.is_none()`.
-    pub fn associated_s3_resources(&self) -> &[crate::types::S3Resource] {
-        self.associated_s3_resources.as_deref().unwrap_or_default()
+    pub fn associated_s3_resources(&self) -> & [crate::types::S3Resource] {
+        self.associated_s3_resources.as_deref()
+        .unwrap_or_default()
     }
 }
 impl DisassociateS3ResourcesInput {
@@ -32,7 +33,7 @@ impl DisassociateS3ResourcesInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct DisassociateS3ResourcesInputBuilder {
     pub(crate) member_account_id: ::std::option::Option<::std::string::String>,
-    pub(crate) associated_s3_resources: ::std::option::Option<::std::vec::Vec<crate::types::S3Resource>>,
+    pub(crate) associated_s3_resources: ::std::option::Option<::std::vec::Vec::<crate::types::S3Resource>>,
 }
 impl DisassociateS3ResourcesInputBuilder {
     /// <p>(Discontinued) The ID of the Amazon Macie Classic member account whose resources you want to remove from being monitored by Macie Classic.</p>
@@ -42,8 +43,7 @@ impl DisassociateS3ResourcesInputBuilder {
     }
     /// <p>(Discontinued) The ID of the Amazon Macie Classic member account whose resources you want to remove from being monitored by Macie Classic.</p>
     pub fn set_member_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.member_account_id = input;
-        self
+        self.member_account_id = input; self
     }
     /// <p>(Discontinued) The ID of the Amazon Macie Classic member account whose resources you want to remove from being monitored by Macie Classic.</p>
     pub fn get_member_account_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -56,29 +56,28 @@ impl DisassociateS3ResourcesInputBuilder {
     /// <p>(Discontinued) The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie Classic.</p>
     pub fn associated_s3_resources(mut self, input: crate::types::S3Resource) -> Self {
         let mut v = self.associated_s3_resources.unwrap_or_default();
-        v.push(input);
-        self.associated_s3_resources = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.associated_s3_resources = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>(Discontinued) The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie Classic.</p>
-    pub fn set_associated_s3_resources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::S3Resource>>) -> Self {
-        self.associated_s3_resources = input;
-        self
+    pub fn set_associated_s3_resources(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::S3Resource>>) -> Self {
+        self.associated_s3_resources = input; self
     }
     /// <p>(Discontinued) The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie Classic.</p>
-    pub fn get_associated_s3_resources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::S3Resource>> {
+    pub fn get_associated_s3_resources(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::S3Resource>> {
         &self.associated_s3_resources
     }
     /// Consumes the builder and constructs a [`DisassociateS3ResourcesInput`](crate::operation::disassociate_s3_resources::DisassociateS3ResourcesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::disassociate_s3_resources::DisassociateS3ResourcesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::disassociate_s3_resources::DisassociateS3ResourcesInput {
-            member_account_id: self.member_account_id,
-            associated_s3_resources: self.associated_s3_resources,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::disassociate_s3_resources::DisassociateS3ResourcesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::disassociate_s3_resources::DisassociateS3ResourcesInput {
+                member_account_id: self.member_account_id
+                ,
+                associated_s3_resources: self.associated_s3_resources
+                ,
+            }
+        )
     }
 }
+

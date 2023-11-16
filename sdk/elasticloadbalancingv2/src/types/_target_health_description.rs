@@ -3,7 +3,7 @@
 /// <p>Information about the health of a target.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct TargetHealthDescription {
+pub struct TargetHealthDescription  {
     /// <p>The description of the target.</p>
     pub target: ::std::option::Option<crate::types::TargetDescription>,
     /// <p>The port to use to connect with the target.</p>
@@ -11,17 +11,17 @@ pub struct TargetHealthDescription {
     /// <p>The health information for the target.</p>
     pub target_health: ::std::option::Option<crate::types::TargetHealth>,
 }
-impl TargetHealthDescription {
+impl  TargetHealthDescription  {
     /// <p>The description of the target.</p>
-    pub fn target(&self) -> ::std::option::Option<&crate::types::TargetDescription> {
+    pub fn target(&self) -> ::std::option::Option<& crate::types::TargetDescription> {
         self.target.as_ref()
     }
     /// <p>The port to use to connect with the target.</p>
-    pub fn health_check_port(&self) -> ::std::option::Option<&str> {
+    pub fn health_check_port(&self) -> ::std::option::Option<& str> {
         self.health_check_port.as_deref()
     }
     /// <p>The health information for the target.</p>
-    pub fn target_health(&self) -> ::std::option::Option<&crate::types::TargetHealth> {
+    pub fn target_health(&self) -> ::std::option::Option<& crate::types::TargetHealth> {
         self.target_health.as_ref()
     }
 }
@@ -48,8 +48,7 @@ impl TargetHealthDescriptionBuilder {
     }
     /// <p>The description of the target.</p>
     pub fn set_target(mut self, input: ::std::option::Option<crate::types::TargetDescription>) -> Self {
-        self.target = input;
-        self
+        self.target = input; self
     }
     /// <p>The description of the target.</p>
     pub fn get_target(&self) -> &::std::option::Option<crate::types::TargetDescription> {
@@ -62,8 +61,7 @@ impl TargetHealthDescriptionBuilder {
     }
     /// <p>The port to use to connect with the target.</p>
     pub fn set_health_check_port(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.health_check_port = input;
-        self
+        self.health_check_port = input; self
     }
     /// <p>The port to use to connect with the target.</p>
     pub fn get_health_check_port(&self) -> &::std::option::Option<::std::string::String> {
@@ -76,8 +74,7 @@ impl TargetHealthDescriptionBuilder {
     }
     /// <p>The health information for the target.</p>
     pub fn set_target_health(mut self, input: ::std::option::Option<crate::types::TargetHealth>) -> Self {
-        self.target_health = input;
-        self
+        self.target_health = input; self
     }
     /// <p>The health information for the target.</p>
     pub fn get_target_health(&self) -> &::std::option::Option<crate::types::TargetHealth> {
@@ -86,9 +83,13 @@ impl TargetHealthDescriptionBuilder {
     /// Consumes the builder and constructs a [`TargetHealthDescription`](crate::types::TargetHealthDescription).
     pub fn build(self) -> crate::types::TargetHealthDescription {
         crate::types::TargetHealthDescription {
-            target: self.target,
-            health_check_port: self.health_check_port,
-            target_health: self.target_health,
+            target: self.target
+            ,
+            health_check_port: self.health_check_port
+            ,
+            target_health: self.target_health
+            ,
         }
     }
 }
+

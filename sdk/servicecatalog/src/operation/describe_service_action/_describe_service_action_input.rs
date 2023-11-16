@@ -2,27 +2,27 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeServiceActionInput {
+pub struct DescribeServiceActionInput  {
     /// <p>The self-service action identifier.</p>
     pub id: ::std::option::Option<::std::string::String>,
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub accept_language: ::std::option::Option<::std::string::String>,
 }
-impl DescribeServiceActionInput {
+impl  DescribeServiceActionInput  {
     /// <p>The self-service action identifier.</p>
-    pub fn id(&self) -> ::std::option::Option<&str> {
+    pub fn id(&self) -> ::std::option::Option<& str> {
         self.id.as_deref()
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
-    pub fn accept_language(&self) -> ::std::option::Option<&str> {
+    pub fn accept_language(&self) -> ::std::option::Option<& str> {
         self.accept_language.as_deref()
     }
 }
@@ -49,47 +49,47 @@ impl DescribeServiceActionInputBuilder {
     }
     /// <p>The self-service action identifier.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// <p>The self-service action identifier.</p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.id
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.accept_language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.accept_language = input;
-        self
+        self.accept_language = input; self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.accept_language
     }
     /// Consumes the builder and constructs a [`DescribeServiceActionInput`](crate::operation::describe_service_action::DescribeServiceActionInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::describe_service_action::DescribeServiceActionInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::describe_service_action::DescribeServiceActionInput {
-            id: self.id,
-            accept_language: self.accept_language,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_service_action::DescribeServiceActionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_service_action::DescribeServiceActionInput {
+                id: self.id
+                ,
+                accept_language: self.accept_language
+                ,
+            }
+        )
     }
 }
+

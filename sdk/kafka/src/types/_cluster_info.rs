@@ -3,7 +3,7 @@
 /// <p>Returns information about a cluster.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ClusterInfo {
+pub struct ClusterInfo  {
     /// <p>Arn of active cluster operation.</p>
     pub active_operation_arn: ::std::option::Option<::std::string::String>,
     /// <p>Information about the broker nodes.</p>
@@ -35,7 +35,7 @@ pub struct ClusterInfo {
     #[allow(missing_docs)] // documentation missing in model
     pub state_info: ::std::option::Option<crate::types::StateInfo>,
     /// <p>Tags attached to the cluster.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     /// <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
     pub zookeeper_connect_string: ::std::option::Option<::std::string::String>,
     /// <p>The connection string to use to connect to zookeeper cluster on Tls port.</p>
@@ -43,53 +43,53 @@ pub struct ClusterInfo {
     /// <p>This controls storage mode for supported storage tiers.</p>
     pub storage_mode: ::std::option::Option<crate::types::StorageMode>,
 }
-impl ClusterInfo {
+impl  ClusterInfo  {
     /// <p>Arn of active cluster operation.</p>
-    pub fn active_operation_arn(&self) -> ::std::option::Option<&str> {
+    pub fn active_operation_arn(&self) -> ::std::option::Option<& str> {
         self.active_operation_arn.as_deref()
     }
     /// <p>Information about the broker nodes.</p>
-    pub fn broker_node_group_info(&self) -> ::std::option::Option<&crate::types::BrokerNodeGroupInfo> {
+    pub fn broker_node_group_info(&self) -> ::std::option::Option<& crate::types::BrokerNodeGroupInfo> {
         self.broker_node_group_info.as_ref()
     }
     /// <p>Includes all client authentication information.</p>
-    pub fn client_authentication(&self) -> ::std::option::Option<&crate::types::ClientAuthentication> {
+    pub fn client_authentication(&self) -> ::std::option::Option<& crate::types::ClientAuthentication> {
         self.client_authentication.as_ref()
     }
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
-    pub fn cluster_arn(&self) -> ::std::option::Option<&str> {
+    pub fn cluster_arn(&self) -> ::std::option::Option<& str> {
         self.cluster_arn.as_deref()
     }
     /// <p>The name of the cluster.</p>
-    pub fn cluster_name(&self) -> ::std::option::Option<&str> {
+    pub fn cluster_name(&self) -> ::std::option::Option<& str> {
         self.cluster_name.as_deref()
     }
     /// <p>The time when the cluster was created.</p>
-    pub fn creation_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_time.as_ref()
     }
     /// <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>
-    pub fn current_broker_software_info(&self) -> ::std::option::Option<&crate::types::BrokerSoftwareInfo> {
+    pub fn current_broker_software_info(&self) -> ::std::option::Option<& crate::types::BrokerSoftwareInfo> {
         self.current_broker_software_info.as_ref()
     }
     /// <p>The current version of the MSK cluster.</p>
-    pub fn current_version(&self) -> ::std::option::Option<&str> {
+    pub fn current_version(&self) -> ::std::option::Option<& str> {
         self.current_version.as_deref()
     }
     /// <p>Includes all encryption-related information.</p>
-    pub fn encryption_info(&self) -> ::std::option::Option<&crate::types::EncryptionInfo> {
+    pub fn encryption_info(&self) -> ::std::option::Option<& crate::types::EncryptionInfo> {
         self.encryption_info.as_ref()
     }
     /// <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href="https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html">Monitoring</a>.</p>
-    pub fn enhanced_monitoring(&self) -> ::std::option::Option<&crate::types::EnhancedMonitoring> {
+    pub fn enhanced_monitoring(&self) -> ::std::option::Option<& crate::types::EnhancedMonitoring> {
         self.enhanced_monitoring.as_ref()
     }
     /// <p>Settings for open monitoring using Prometheus.</p>
-    pub fn open_monitoring(&self) -> ::std::option::Option<&crate::types::OpenMonitoring> {
+    pub fn open_monitoring(&self) -> ::std::option::Option<& crate::types::OpenMonitoring> {
         self.open_monitoring.as_ref()
     }
     #[allow(missing_docs)] // documentation missing in model
-    pub fn logging_info(&self) -> ::std::option::Option<&crate::types::LoggingInfo> {
+    pub fn logging_info(&self) -> ::std::option::Option<& crate::types::LoggingInfo> {
         self.logging_info.as_ref()
     }
     /// <p>The number of broker nodes in the cluster.</p>
@@ -97,27 +97,27 @@ impl ClusterInfo {
         self.number_of_broker_nodes
     }
     /// <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
-    pub fn state(&self) -> ::std::option::Option<&crate::types::ClusterState> {
+    pub fn state(&self) -> ::std::option::Option<& crate::types::ClusterState> {
         self.state.as_ref()
     }
     #[allow(missing_docs)] // documentation missing in model
-    pub fn state_info(&self) -> ::std::option::Option<&crate::types::StateInfo> {
+    pub fn state_info(&self) -> ::std::option::Option<& crate::types::StateInfo> {
         self.state_info.as_ref()
     }
     /// <p>Tags attached to the cluster.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
     /// <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
-    pub fn zookeeper_connect_string(&self) -> ::std::option::Option<&str> {
+    pub fn zookeeper_connect_string(&self) -> ::std::option::Option<& str> {
         self.zookeeper_connect_string.as_deref()
     }
     /// <p>The connection string to use to connect to zookeeper cluster on Tls port.</p>
-    pub fn zookeeper_connect_string_tls(&self) -> ::std::option::Option<&str> {
+    pub fn zookeeper_connect_string_tls(&self) -> ::std::option::Option<& str> {
         self.zookeeper_connect_string_tls.as_deref()
     }
     /// <p>This controls storage mode for supported storage tiers.</p>
-    pub fn storage_mode(&self) -> ::std::option::Option<&crate::types::StorageMode> {
+    pub fn storage_mode(&self) -> ::std::option::Option<& crate::types::StorageMode> {
         self.storage_mode.as_ref()
     }
 }
@@ -147,7 +147,7 @@ pub struct ClusterInfoBuilder {
     pub(crate) number_of_broker_nodes: ::std::option::Option<i32>,
     pub(crate) state: ::std::option::Option<crate::types::ClusterState>,
     pub(crate) state_info: ::std::option::Option<crate::types::StateInfo>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     pub(crate) zookeeper_connect_string: ::std::option::Option<::std::string::String>,
     pub(crate) zookeeper_connect_string_tls: ::std::option::Option<::std::string::String>,
     pub(crate) storage_mode: ::std::option::Option<crate::types::StorageMode>,
@@ -160,8 +160,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>Arn of active cluster operation.</p>
     pub fn set_active_operation_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.active_operation_arn = input;
-        self
+        self.active_operation_arn = input; self
     }
     /// <p>Arn of active cluster operation.</p>
     pub fn get_active_operation_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -174,8 +173,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>Information about the broker nodes.</p>
     pub fn set_broker_node_group_info(mut self, input: ::std::option::Option<crate::types::BrokerNodeGroupInfo>) -> Self {
-        self.broker_node_group_info = input;
-        self
+        self.broker_node_group_info = input; self
     }
     /// <p>Information about the broker nodes.</p>
     pub fn get_broker_node_group_info(&self) -> &::std::option::Option<crate::types::BrokerNodeGroupInfo> {
@@ -188,8 +186,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>Includes all client authentication information.</p>
     pub fn set_client_authentication(mut self, input: ::std::option::Option<crate::types::ClientAuthentication>) -> Self {
-        self.client_authentication = input;
-        self
+        self.client_authentication = input; self
     }
     /// <p>Includes all client authentication information.</p>
     pub fn get_client_authentication(&self) -> &::std::option::Option<crate::types::ClientAuthentication> {
@@ -202,8 +199,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
     pub fn set_cluster_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.cluster_arn = input;
-        self
+        self.cluster_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
     pub fn get_cluster_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -216,8 +212,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>The name of the cluster.</p>
     pub fn set_cluster_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.cluster_name = input;
-        self
+        self.cluster_name = input; self
     }
     /// <p>The name of the cluster.</p>
     pub fn get_cluster_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -230,8 +225,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>The time when the cluster was created.</p>
     pub fn set_creation_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_time = input;
-        self
+        self.creation_time = input; self
     }
     /// <p>The time when the cluster was created.</p>
     pub fn get_creation_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -244,8 +238,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>
     pub fn set_current_broker_software_info(mut self, input: ::std::option::Option<crate::types::BrokerSoftwareInfo>) -> Self {
-        self.current_broker_software_info = input;
-        self
+        self.current_broker_software_info = input; self
     }
     /// <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>
     pub fn get_current_broker_software_info(&self) -> &::std::option::Option<crate::types::BrokerSoftwareInfo> {
@@ -258,8 +251,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>The current version of the MSK cluster.</p>
     pub fn set_current_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.current_version = input;
-        self
+        self.current_version = input; self
     }
     /// <p>The current version of the MSK cluster.</p>
     pub fn get_current_version(&self) -> &::std::option::Option<::std::string::String> {
@@ -272,8 +264,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>Includes all encryption-related information.</p>
     pub fn set_encryption_info(mut self, input: ::std::option::Option<crate::types::EncryptionInfo>) -> Self {
-        self.encryption_info = input;
-        self
+        self.encryption_info = input; self
     }
     /// <p>Includes all encryption-related information.</p>
     pub fn get_encryption_info(&self) -> &::std::option::Option<crate::types::EncryptionInfo> {
@@ -286,8 +277,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href="https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html">Monitoring</a>.</p>
     pub fn set_enhanced_monitoring(mut self, input: ::std::option::Option<crate::types::EnhancedMonitoring>) -> Self {
-        self.enhanced_monitoring = input;
-        self
+        self.enhanced_monitoring = input; self
     }
     /// <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href="https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html">Monitoring</a>.</p>
     pub fn get_enhanced_monitoring(&self) -> &::std::option::Option<crate::types::EnhancedMonitoring> {
@@ -300,8 +290,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>Settings for open monitoring using Prometheus.</p>
     pub fn set_open_monitoring(mut self, input: ::std::option::Option<crate::types::OpenMonitoring>) -> Self {
-        self.open_monitoring = input;
-        self
+        self.open_monitoring = input; self
     }
     /// <p>Settings for open monitoring using Prometheus.</p>
     pub fn get_open_monitoring(&self) -> &::std::option::Option<crate::types::OpenMonitoring> {
@@ -314,8 +303,7 @@ impl ClusterInfoBuilder {
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn set_logging_info(mut self, input: ::std::option::Option<crate::types::LoggingInfo>) -> Self {
-        self.logging_info = input;
-        self
+        self.logging_info = input; self
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn get_logging_info(&self) -> &::std::option::Option<crate::types::LoggingInfo> {
@@ -328,8 +316,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>The number of broker nodes in the cluster.</p>
     pub fn set_number_of_broker_nodes(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.number_of_broker_nodes = input;
-        self
+        self.number_of_broker_nodes = input; self
     }
     /// <p>The number of broker nodes in the cluster.</p>
     pub fn get_number_of_broker_nodes(&self) -> &::std::option::Option<i32> {
@@ -342,8 +329,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::ClusterState>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
     /// <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
     pub fn get_state(&self) -> &::std::option::Option<crate::types::ClusterState> {
@@ -356,8 +342,7 @@ impl ClusterInfoBuilder {
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn set_state_info(mut self, input: ::std::option::Option<crate::types::StateInfo>) -> Self {
-        self.state_info = input;
-        self
+        self.state_info = input; self
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn get_state_info(&self) -> &::std::option::Option<crate::types::StateInfo> {
@@ -370,17 +355,16 @@ impl ClusterInfoBuilder {
     /// <p>Tags attached to the cluster.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.tags = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>Tags attached to the cluster.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input; self
     }
     /// <p>Tags attached to the cluster.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
@@ -390,8 +374,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
     pub fn set_zookeeper_connect_string(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.zookeeper_connect_string = input;
-        self
+        self.zookeeper_connect_string = input; self
     }
     /// <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
     pub fn get_zookeeper_connect_string(&self) -> &::std::option::Option<::std::string::String> {
@@ -404,8 +387,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>The connection string to use to connect to zookeeper cluster on Tls port.</p>
     pub fn set_zookeeper_connect_string_tls(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.zookeeper_connect_string_tls = input;
-        self
+        self.zookeeper_connect_string_tls = input; self
     }
     /// <p>The connection string to use to connect to zookeeper cluster on Tls port.</p>
     pub fn get_zookeeper_connect_string_tls(&self) -> &::std::option::Option<::std::string::String> {
@@ -418,8 +400,7 @@ impl ClusterInfoBuilder {
     }
     /// <p>This controls storage mode for supported storage tiers.</p>
     pub fn set_storage_mode(mut self, input: ::std::option::Option<crate::types::StorageMode>) -> Self {
-        self.storage_mode = input;
-        self
+        self.storage_mode = input; self
     }
     /// <p>This controls storage mode for supported storage tiers.</p>
     pub fn get_storage_mode(&self) -> &::std::option::Option<crate::types::StorageMode> {
@@ -428,25 +409,45 @@ impl ClusterInfoBuilder {
     /// Consumes the builder and constructs a [`ClusterInfo`](crate::types::ClusterInfo).
     pub fn build(self) -> crate::types::ClusterInfo {
         crate::types::ClusterInfo {
-            active_operation_arn: self.active_operation_arn,
-            broker_node_group_info: self.broker_node_group_info,
-            client_authentication: self.client_authentication,
-            cluster_arn: self.cluster_arn,
-            cluster_name: self.cluster_name,
-            creation_time: self.creation_time,
-            current_broker_software_info: self.current_broker_software_info,
-            current_version: self.current_version,
-            encryption_info: self.encryption_info,
-            enhanced_monitoring: self.enhanced_monitoring,
-            open_monitoring: self.open_monitoring,
-            logging_info: self.logging_info,
-            number_of_broker_nodes: self.number_of_broker_nodes,
-            state: self.state,
-            state_info: self.state_info,
-            tags: self.tags,
-            zookeeper_connect_string: self.zookeeper_connect_string,
-            zookeeper_connect_string_tls: self.zookeeper_connect_string_tls,
-            storage_mode: self.storage_mode,
+            active_operation_arn: self.active_operation_arn
+            ,
+            broker_node_group_info: self.broker_node_group_info
+            ,
+            client_authentication: self.client_authentication
+            ,
+            cluster_arn: self.cluster_arn
+            ,
+            cluster_name: self.cluster_name
+            ,
+            creation_time: self.creation_time
+            ,
+            current_broker_software_info: self.current_broker_software_info
+            ,
+            current_version: self.current_version
+            ,
+            encryption_info: self.encryption_info
+            ,
+            enhanced_monitoring: self.enhanced_monitoring
+            ,
+            open_monitoring: self.open_monitoring
+            ,
+            logging_info: self.logging_info
+            ,
+            number_of_broker_nodes: self.number_of_broker_nodes
+            ,
+            state: self.state
+            ,
+            state_info: self.state_info
+            ,
+            tags: self.tags
+            ,
+            zookeeper_connect_string: self.zookeeper_connect_string
+            ,
+            zookeeper_connect_string_tls: self.zookeeper_connect_string_tls
+            ,
+            storage_mode: self.storage_mode
+            ,
         }
     }
 }
+

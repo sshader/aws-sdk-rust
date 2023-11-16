@@ -3,7 +3,7 @@
 /// <p> Provide details about an Amazon MSK cluster.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AwsMskClusterClusterInfoDetails {
+pub struct AwsMskClusterClusterInfoDetails  {
     /// <p> Includes encryption-related information, such as the KMS key used for encrypting data at rest and whether you want Amazon MSK to encrypt your data in transit.</p>
     pub encryption_info: ::std::option::Option<crate::types::AwsMskClusterClusterInfoEncryptionInfoDetails>,
     /// <p> The current version of the MSK cluster.</p>
@@ -15,13 +15,13 @@ pub struct AwsMskClusterClusterInfoDetails {
     /// <p> Provides information for different modes of client authentication.</p>
     pub client_authentication: ::std::option::Option<crate::types::AwsMskClusterClusterInfoClientAuthenticationDetails>,
 }
-impl AwsMskClusterClusterInfoDetails {
+impl  AwsMskClusterClusterInfoDetails  {
     /// <p> Includes encryption-related information, such as the KMS key used for encrypting data at rest and whether you want Amazon MSK to encrypt your data in transit.</p>
-    pub fn encryption_info(&self) -> ::std::option::Option<&crate::types::AwsMskClusterClusterInfoEncryptionInfoDetails> {
+    pub fn encryption_info(&self) -> ::std::option::Option<& crate::types::AwsMskClusterClusterInfoEncryptionInfoDetails> {
         self.encryption_info.as_ref()
     }
     /// <p> The current version of the MSK cluster.</p>
-    pub fn current_version(&self) -> ::std::option::Option<&str> {
+    pub fn current_version(&self) -> ::std::option::Option<& str> {
         self.current_version.as_deref()
     }
     /// <p> The number of broker nodes in the cluster.</p>
@@ -29,11 +29,11 @@ impl AwsMskClusterClusterInfoDetails {
         self.number_of_broker_nodes
     }
     /// <p> The name of the cluster.</p>
-    pub fn cluster_name(&self) -> ::std::option::Option<&str> {
+    pub fn cluster_name(&self) -> ::std::option::Option<& str> {
         self.cluster_name.as_deref()
     }
     /// <p> Provides information for different modes of client authentication.</p>
-    pub fn client_authentication(&self) -> ::std::option::Option<&crate::types::AwsMskClusterClusterInfoClientAuthenticationDetails> {
+    pub fn client_authentication(&self) -> ::std::option::Option<& crate::types::AwsMskClusterClusterInfoClientAuthenticationDetails> {
         self.client_authentication.as_ref()
     }
 }
@@ -62,8 +62,7 @@ impl AwsMskClusterClusterInfoDetailsBuilder {
     }
     /// <p> Includes encryption-related information, such as the KMS key used for encrypting data at rest and whether you want Amazon MSK to encrypt your data in transit.</p>
     pub fn set_encryption_info(mut self, input: ::std::option::Option<crate::types::AwsMskClusterClusterInfoEncryptionInfoDetails>) -> Self {
-        self.encryption_info = input;
-        self
+        self.encryption_info = input; self
     }
     /// <p> Includes encryption-related information, such as the KMS key used for encrypting data at rest and whether you want Amazon MSK to encrypt your data in transit.</p>
     pub fn get_encryption_info(&self) -> &::std::option::Option<crate::types::AwsMskClusterClusterInfoEncryptionInfoDetails> {
@@ -76,8 +75,7 @@ impl AwsMskClusterClusterInfoDetailsBuilder {
     }
     /// <p> The current version of the MSK cluster.</p>
     pub fn set_current_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.current_version = input;
-        self
+        self.current_version = input; self
     }
     /// <p> The current version of the MSK cluster.</p>
     pub fn get_current_version(&self) -> &::std::option::Option<::std::string::String> {
@@ -90,8 +88,7 @@ impl AwsMskClusterClusterInfoDetailsBuilder {
     }
     /// <p> The number of broker nodes in the cluster.</p>
     pub fn set_number_of_broker_nodes(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.number_of_broker_nodes = input;
-        self
+        self.number_of_broker_nodes = input; self
     }
     /// <p> The number of broker nodes in the cluster.</p>
     pub fn get_number_of_broker_nodes(&self) -> &::std::option::Option<i32> {
@@ -104,8 +101,7 @@ impl AwsMskClusterClusterInfoDetailsBuilder {
     }
     /// <p> The name of the cluster.</p>
     pub fn set_cluster_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.cluster_name = input;
-        self
+        self.cluster_name = input; self
     }
     /// <p> The name of the cluster.</p>
     pub fn get_cluster_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -117,12 +113,8 @@ impl AwsMskClusterClusterInfoDetailsBuilder {
         self
     }
     /// <p> Provides information for different modes of client authentication.</p>
-    pub fn set_client_authentication(
-        mut self,
-        input: ::std::option::Option<crate::types::AwsMskClusterClusterInfoClientAuthenticationDetails>,
-    ) -> Self {
-        self.client_authentication = input;
-        self
+    pub fn set_client_authentication(mut self, input: ::std::option::Option<crate::types::AwsMskClusterClusterInfoClientAuthenticationDetails>) -> Self {
+        self.client_authentication = input; self
     }
     /// <p> Provides information for different modes of client authentication.</p>
     pub fn get_client_authentication(&self) -> &::std::option::Option<crate::types::AwsMskClusterClusterInfoClientAuthenticationDetails> {
@@ -131,11 +123,17 @@ impl AwsMskClusterClusterInfoDetailsBuilder {
     /// Consumes the builder and constructs a [`AwsMskClusterClusterInfoDetails`](crate::types::AwsMskClusterClusterInfoDetails).
     pub fn build(self) -> crate::types::AwsMskClusterClusterInfoDetails {
         crate::types::AwsMskClusterClusterInfoDetails {
-            encryption_info: self.encryption_info,
-            current_version: self.current_version,
-            number_of_broker_nodes: self.number_of_broker_nodes,
-            cluster_name: self.cluster_name,
-            client_authentication: self.client_authentication,
+            encryption_info: self.encryption_info
+            ,
+            current_version: self.current_version
+            ,
+            number_of_broker_nodes: self.number_of_broker_nodes
+            ,
+            cluster_name: self.cluster_name
+            ,
+            client_authentication: self.client_authentication
+            ,
         }
     }
 }
+

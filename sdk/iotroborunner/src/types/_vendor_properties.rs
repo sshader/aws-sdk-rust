@@ -3,7 +3,7 @@
 /// Properties of the worker that are provided by the vendor FMS.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct VendorProperties {
+pub struct VendorProperties  {
     /// The worker ID defined by the vendor FMS.
     pub vendor_worker_id: ::std::string::String,
     /// The worker IP address defined by the vendor FMS.
@@ -13,22 +13,21 @@ pub struct VendorProperties {
     /// JSON blob containing unstructured vendor properties that are fixed and won't change during regular operation.
     pub vendor_additional_fixed_properties: ::std::option::Option<::std::string::String>,
 }
-impl VendorProperties {
+impl  VendorProperties  {
     /// The worker ID defined by the vendor FMS.
-    pub fn vendor_worker_id(&self) -> &str {
-        use std::ops::Deref;
-        self.vendor_worker_id.deref()
+    pub fn vendor_worker_id(&self) -> & str {
+        use std::ops::Deref; self.vendor_worker_id.deref()
     }
     /// The worker IP address defined by the vendor FMS.
-    pub fn vendor_worker_ip_address(&self) -> ::std::option::Option<&str> {
+    pub fn vendor_worker_ip_address(&self) -> ::std::option::Option<& str> {
         self.vendor_worker_ip_address.as_deref()
     }
     /// JSON blob containing unstructured vendor properties that are transient and may change during regular operation.
-    pub fn vendor_additional_transient_properties(&self) -> ::std::option::Option<&str> {
+    pub fn vendor_additional_transient_properties(&self) -> ::std::option::Option<& str> {
         self.vendor_additional_transient_properties.as_deref()
     }
     /// JSON blob containing unstructured vendor properties that are fixed and won't change during regular operation.
-    pub fn vendor_additional_fixed_properties(&self) -> ::std::option::Option<&str> {
+    pub fn vendor_additional_fixed_properties(&self) -> ::std::option::Option<& str> {
         self.vendor_additional_fixed_properties.as_deref()
     }
 }
@@ -57,8 +56,7 @@ impl VendorPropertiesBuilder {
     }
     /// The worker ID defined by the vendor FMS.
     pub fn set_vendor_worker_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.vendor_worker_id = input;
-        self
+        self.vendor_worker_id = input; self
     }
     /// The worker ID defined by the vendor FMS.
     pub fn get_vendor_worker_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -71,8 +69,7 @@ impl VendorPropertiesBuilder {
     }
     /// The worker IP address defined by the vendor FMS.
     pub fn set_vendor_worker_ip_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.vendor_worker_ip_address = input;
-        self
+        self.vendor_worker_ip_address = input; self
     }
     /// The worker IP address defined by the vendor FMS.
     pub fn get_vendor_worker_ip_address(&self) -> &::std::option::Option<::std::string::String> {
@@ -85,8 +82,7 @@ impl VendorPropertiesBuilder {
     }
     /// JSON blob containing unstructured vendor properties that are transient and may change during regular operation.
     pub fn set_vendor_additional_transient_properties(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.vendor_additional_transient_properties = input;
-        self
+        self.vendor_additional_transient_properties = input; self
     }
     /// JSON blob containing unstructured vendor properties that are transient and may change during regular operation.
     pub fn get_vendor_additional_transient_properties(&self) -> &::std::option::Option<::std::string::String> {
@@ -99,8 +95,7 @@ impl VendorPropertiesBuilder {
     }
     /// JSON blob containing unstructured vendor properties that are fixed and won't change during regular operation.
     pub fn set_vendor_additional_fixed_properties(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.vendor_additional_fixed_properties = input;
-        self
+        self.vendor_additional_fixed_properties = input; self
     }
     /// JSON blob containing unstructured vendor properties that are fixed and won't change during regular operation.
     pub fn get_vendor_additional_fixed_properties(&self) -> &::std::option::Option<::std::string::String> {
@@ -110,16 +105,21 @@ impl VendorPropertiesBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`vendor_worker_id`](crate::types::builders::VendorPropertiesBuilder::vendor_worker_id)
     pub fn build(self) -> ::std::result::Result<crate::types::VendorProperties, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::VendorProperties {
-            vendor_worker_id: self.vendor_worker_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "vendor_worker_id",
-                    "vendor_worker_id was not specified but it is required when building VendorProperties",
-                )
-            })?,
-            vendor_worker_ip_address: self.vendor_worker_ip_address,
-            vendor_additional_transient_properties: self.vendor_additional_transient_properties,
-            vendor_additional_fixed_properties: self.vendor_additional_fixed_properties,
-        })
+        ::std::result::Result::Ok(
+            crate::types::VendorProperties {
+                vendor_worker_id: self.vendor_worker_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("vendor_worker_id", "vendor_worker_id was not specified but it is required when building VendorProperties")
+                    )?
+                ,
+                vendor_worker_ip_address: self.vendor_worker_ip_address
+                ,
+                vendor_additional_transient_properties: self.vendor_additional_transient_properties
+                ,
+                vendor_additional_fixed_properties: self.vendor_additional_fixed_properties
+                ,
+            }
+        )
     }
 }
+

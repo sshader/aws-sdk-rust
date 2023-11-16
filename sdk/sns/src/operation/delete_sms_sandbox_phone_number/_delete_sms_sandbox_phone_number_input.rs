@@ -2,13 +2,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteSmsSandboxPhoneNumberInput {
+pub struct DeleteSmsSandboxPhoneNumberInput  {
     /// <p>The destination phone number to delete.</p>
     pub phone_number: ::std::option::Option<::std::string::String>,
 }
-impl DeleteSmsSandboxPhoneNumberInput {
+impl  DeleteSmsSandboxPhoneNumberInput  {
     /// <p>The destination phone number to delete.</p>
-    pub fn phone_number(&self) -> ::std::option::Option<&str> {
+    pub fn phone_number(&self) -> ::std::option::Option<& str> {
         self.phone_number.as_deref()
     }
 }
@@ -34,22 +34,20 @@ impl DeleteSmsSandboxPhoneNumberInputBuilder {
     }
     /// <p>The destination phone number to delete.</p>
     pub fn set_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.phone_number = input;
-        self
+        self.phone_number = input; self
     }
     /// <p>The destination phone number to delete.</p>
     pub fn get_phone_number(&self) -> &::std::option::Option<::std::string::String> {
         &self.phone_number
     }
     /// Consumes the builder and constructs a [`DeleteSmsSandboxPhoneNumberInput`](crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput {
-            phone_number: self.phone_number,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput {
+                phone_number: self.phone_number
+                ,
+            }
+        )
     }
 }
+

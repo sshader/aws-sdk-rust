@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateProvisioningArtifactInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+pub struct CreateProvisioningArtifactInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub accept_language: ::std::option::Option<::std::string::String>,
     /// <p>The product identifier.</p>
@@ -16,25 +16,25 @@ pub struct CreateProvisioningArtifactInput {
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
     pub idempotency_token: ::std::option::Option<::std::string::String>,
 }
-impl CreateProvisioningArtifactInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+impl  CreateProvisioningArtifactInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
-    pub fn accept_language(&self) -> ::std::option::Option<&str> {
+    pub fn accept_language(&self) -> ::std::option::Option<& str> {
         self.accept_language.as_deref()
     }
     /// <p>The product identifier.</p>
-    pub fn product_id(&self) -> ::std::option::Option<&str> {
+    pub fn product_id(&self) -> ::std::option::Option<& str> {
         self.product_id.as_deref()
     }
     /// <p>The configuration for the provisioning artifact.</p>
-    pub fn parameters(&self) -> ::std::option::Option<&crate::types::ProvisioningArtifactProperties> {
+    pub fn parameters(&self) -> ::std::option::Option<& crate::types::ProvisioningArtifactProperties> {
         self.parameters.as_ref()
     }
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    pub fn idempotency_token(&self) -> ::std::option::Option<&str> {
+    pub fn idempotency_token(&self) -> ::std::option::Option<& str> {
         self.idempotency_token.as_deref()
     }
 }
@@ -55,28 +55,27 @@ pub struct CreateProvisioningArtifactInputBuilder {
     pub(crate) idempotency_token: ::std::option::Option<::std::string::String>,
 }
 impl CreateProvisioningArtifactInputBuilder {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.accept_language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.accept_language = input;
-        self
+        self.accept_language = input; self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.accept_language
@@ -89,8 +88,7 @@ impl CreateProvisioningArtifactInputBuilder {
     }
     /// <p>The product identifier.</p>
     pub fn set_product_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.product_id = input;
-        self
+        self.product_id = input; self
     }
     /// <p>The product identifier.</p>
     pub fn get_product_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -104,8 +102,7 @@ impl CreateProvisioningArtifactInputBuilder {
     }
     /// <p>The configuration for the provisioning artifact.</p>
     pub fn set_parameters(mut self, input: ::std::option::Option<crate::types::ProvisioningArtifactProperties>) -> Self {
-        self.parameters = input;
-        self
+        self.parameters = input; self
     }
     /// <p>The configuration for the provisioning artifact.</p>
     pub fn get_parameters(&self) -> &::std::option::Option<crate::types::ProvisioningArtifactProperties> {
@@ -119,25 +116,26 @@ impl CreateProvisioningArtifactInputBuilder {
     }
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
     pub fn set_idempotency_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.idempotency_token = input;
-        self
+        self.idempotency_token = input; self
     }
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
     pub fn get_idempotency_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.idempotency_token
     }
     /// Consumes the builder and constructs a [`CreateProvisioningArtifactInput`](crate::operation::create_provisioning_artifact::CreateProvisioningArtifactInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_provisioning_artifact::CreateProvisioningArtifactInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::create_provisioning_artifact::CreateProvisioningArtifactInput {
-            accept_language: self.accept_language,
-            product_id: self.product_id,
-            parameters: self.parameters,
-            idempotency_token: self.idempotency_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_provisioning_artifact::CreateProvisioningArtifactInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_provisioning_artifact::CreateProvisioningArtifactInput {
+                accept_language: self.accept_language
+                ,
+                product_id: self.product_id
+                ,
+                parameters: self.parameters
+                ,
+                idempotency_token: self.idempotency_token
+                ,
+            }
+        )
     }
 }
+

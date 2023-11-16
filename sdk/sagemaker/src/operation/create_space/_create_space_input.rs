@@ -2,33 +2,34 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateSpaceInput {
+pub struct CreateSpaceInput  {
     /// <p>The ID of the associated Domain.</p>
     pub domain_id: ::std::option::Option<::std::string::String>,
     /// <p>The name of the space.</p>
     pub space_name: ::std::option::Option<::std::string::String>,
     /// <p>Tags to associated with the space. Each tag consists of a key and an optional value. Tag keys must be unique for each resource. Tags are searchable using the <code>Search</code> API.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
     /// <p>A collection of space settings.</p>
     pub space_settings: ::std::option::Option<crate::types::SpaceSettings>,
 }
-impl CreateSpaceInput {
+impl  CreateSpaceInput  {
     /// <p>The ID of the associated Domain.</p>
-    pub fn domain_id(&self) -> ::std::option::Option<&str> {
+    pub fn domain_id(&self) -> ::std::option::Option<& str> {
         self.domain_id.as_deref()
     }
     /// <p>The name of the space.</p>
-    pub fn space_name(&self) -> ::std::option::Option<&str> {
+    pub fn space_name(&self) -> ::std::option::Option<& str> {
         self.space_name.as_deref()
     }
     /// <p>Tags to associated with the space. Each tag consists of a key and an optional value. Tag keys must be unique for each resource. Tags are searchable using the <code>Search</code> API.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
-        self.tags.as_deref().unwrap_or_default()
+    pub fn tags(&self) -> & [crate::types::Tag] {
+        self.tags.as_deref()
+        .unwrap_or_default()
     }
     /// <p>A collection of space settings.</p>
-    pub fn space_settings(&self) -> ::std::option::Option<&crate::types::SpaceSettings> {
+    pub fn space_settings(&self) -> ::std::option::Option<& crate::types::SpaceSettings> {
         self.space_settings.as_ref()
     }
 }
@@ -45,7 +46,7 @@ impl CreateSpaceInput {
 pub struct CreateSpaceInputBuilder {
     pub(crate) domain_id: ::std::option::Option<::std::string::String>,
     pub(crate) space_name: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
     pub(crate) space_settings: ::std::option::Option<crate::types::SpaceSettings>,
 }
 impl CreateSpaceInputBuilder {
@@ -57,8 +58,7 @@ impl CreateSpaceInputBuilder {
     }
     /// <p>The ID of the associated Domain.</p>
     pub fn set_domain_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.domain_id = input;
-        self
+        self.domain_id = input; self
     }
     /// <p>The ID of the associated Domain.</p>
     pub fn get_domain_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -72,8 +72,7 @@ impl CreateSpaceInputBuilder {
     }
     /// <p>The name of the space.</p>
     pub fn set_space_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.space_name = input;
-        self
+        self.space_name = input; self
     }
     /// <p>The name of the space.</p>
     pub fn get_space_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -86,17 +85,16 @@ impl CreateSpaceInputBuilder {
     /// <p>Tags to associated with the space. Each tag consists of a key and an optional value. Tag keys must be unique for each resource. Tags are searchable using the <code>Search</code> API.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
-        v.push(input);
-        self.tags = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.tags = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>Tags to associated with the space. Each tag consists of a key and an optional value. Tag keys must be unique for each resource. Tags are searchable using the <code>Search</code> API.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
+        self.tags = input; self
     }
     /// <p>Tags to associated with the space. Each tag consists of a key and an optional value. Tag keys must be unique for each resource. Tags are searchable using the <code>Search</code> API.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         &self.tags
     }
     /// <p>A collection of space settings.</p>
@@ -106,8 +104,7 @@ impl CreateSpaceInputBuilder {
     }
     /// <p>A collection of space settings.</p>
     pub fn set_space_settings(mut self, input: ::std::option::Option<crate::types::SpaceSettings>) -> Self {
-        self.space_settings = input;
-        self
+        self.space_settings = input; self
     }
     /// <p>A collection of space settings.</p>
     pub fn get_space_settings(&self) -> &::std::option::Option<crate::types::SpaceSettings> {
@@ -115,11 +112,18 @@ impl CreateSpaceInputBuilder {
     }
     /// Consumes the builder and constructs a [`CreateSpaceInput`](crate::operation::create_space::CreateSpaceInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::create_space::CreateSpaceInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_space::CreateSpaceInput {
-            domain_id: self.domain_id,
-            space_name: self.space_name,
-            tags: self.tags,
-            space_settings: self.space_settings,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::create_space::CreateSpaceInput {
+                domain_id: self.domain_id
+                ,
+                space_name: self.space_name
+                ,
+                tags: self.tags
+                ,
+                space_settings: self.space_settings
+                ,
+            }
+        )
     }
 }
+

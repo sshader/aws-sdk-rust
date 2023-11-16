@@ -5,54 +5,50 @@ pub use crate::operation::search_local_gateway_routes::_search_local_gateway_rou
 
 impl SearchLocalGatewayRoutesInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.search_local_gateway_routes();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.search_local_gateway_routes();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `SearchLocalGatewayRoutes`.
-///
+/// 
 /// <p>Searches for routes in the specified local gateway route table.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct SearchLocalGatewayRoutesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::search_local_gateway_routes::builders::SearchLocalGatewayRoutesInputBuilder,
+                    inner: crate::operation::search_local_gateway_routes::builders::SearchLocalGatewayRoutesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput,
-        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError,
-    > for SearchLocalGatewayRoutesFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput,
-            crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput,
+                    crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError,
+                > for SearchLocalGatewayRoutesFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput,
+                        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl SearchLocalGatewayRoutesFluentBuilder {
     /// Creates a new `SearchLocalGatewayRoutes`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,59 +57,50 @@ impl SearchLocalGatewayRoutesFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutes::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutes::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput,
-        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutes::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutes::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesOutput, crate::operation::search_local_gateway_routes::SearchLocalGatewayRoutesError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// Create a paginator for this request
-    ///
-    /// Paginators are used by calling [`send().await`](crate::operation::search_local_gateway_routes::paginator::SearchLocalGatewayRoutesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::search_local_gateway_routes::paginator::SearchLocalGatewayRoutesPaginator {
-        crate::operation::search_local_gateway_routes::paginator::SearchLocalGatewayRoutesPaginator::new(self.handle, self.inner)
-    }
+                            ///
+                            /// Paginators are used by calling [`send().await`](crate::operation::search_local_gateway_routes::paginator::SearchLocalGatewayRoutesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+                            pub fn into_paginator(self) -> crate::operation::search_local_gateway_routes::paginator::SearchLocalGatewayRoutesPaginator {
+                                crate::operation::search_local_gateway_routes::paginator::SearchLocalGatewayRoutesPaginator::new(self.handle, self.inner)
+                            }
     /// <p>The ID of the local gateway route table.</p>
     pub fn local_gateway_route_table_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.local_gateway_route_table_id(input.into());
@@ -132,45 +119,45 @@ impl SearchLocalGatewayRoutesFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
     ///
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>prefix-list-id</code> - The ID of the prefix list.</p> </li>
-    /// <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li>
-    /// <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li>
-    /// <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li>
-    /// <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li>
-    /// <li> <p> <code>state</code> - The state of the route.</p> </li>
-    /// <li> <p> <code>type</code> - The route type.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>prefix-list-id</code> - The ID of the prefix list.</p> </li> 
+    /// <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li> 
+    /// <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li> 
+    /// <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li> 
+    /// <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li> 
+    /// <li> <p> <code>state</code> - The state of the route.</p> </li> 
+    /// <li> <p> <code>type</code> - The route type.</p> </li> 
     /// </ul>
     pub fn filters(mut self, input: crate::types::Filter) -> Self {
         self.inner = self.inner.filters(input);
         self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>prefix-list-id</code> - The ID of the prefix list.</p> </li>
-    /// <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li>
-    /// <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li>
-    /// <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li>
-    /// <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li>
-    /// <li> <p> <code>state</code> - The state of the route.</p> </li>
-    /// <li> <p> <code>type</code> - The route type.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>prefix-list-id</code> - The ID of the prefix list.</p> </li> 
+    /// <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li> 
+    /// <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li> 
+    /// <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li> 
+    /// <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li> 
+    /// <li> <p> <code>state</code> - The state of the route.</p> </li> 
+    /// <li> <p> <code>type</code> - The route type.</p> </li> 
     /// </ul>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>prefix-list-id</code> - The ID of the prefix list.</p> </li>
-    /// <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li>
-    /// <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li>
-    /// <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li>
-    /// <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li>
-    /// <li> <p> <code>state</code> - The state of the route.</p> </li>
-    /// <li> <p> <code>type</code> - The route type.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>prefix-list-id</code> - The ID of the prefix list.</p> </li> 
+    /// <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li> 
+    /// <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li> 
+    /// <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li> 
+    /// <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code> as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li> 
+    /// <li> <p> <code>state</code> - The state of the route.</p> </li> 
+    /// <li> <p> <code>type</code> - The route type.</p> </li> 
     /// </ul>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Filter>> {
         self.inner.get_filters()
     }
     /// <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -216,3 +203,4 @@ impl SearchLocalGatewayRoutesFluentBuilder {
         self.inner.get_dry_run()
     }
 }
+

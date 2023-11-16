@@ -3,7 +3,7 @@
 /// <p>Container for the request parameters to the <code>UpdateDomain</code> operation.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateDomainConfigInput {
+pub struct UpdateDomainConfigInput  {
     /// <p>The name of the domain that you're updating.</p>
     pub domain_name: ::std::option::Option<::std::string::String>,
     /// <p>Changes that you want to make to the cluster configuration, such as the instance type and number of EC2 instances.</p>
@@ -16,20 +16,20 @@ pub struct UpdateDomainConfigInput {
     pub vpc_options: ::std::option::Option<crate::types::VpcOptions>,
     /// <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch Dashboards.</p>
     pub cognito_options: ::std::option::Option<crate::types::CognitoOptions>,
-    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li>
-    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li>
-    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li>
-    /// </ul>
+    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li> 
+    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li> 
+    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
-    pub advanced_options: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub advanced_options: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     /// <p>Identity and Access Management (IAM) access policy as a JSON-formatted string.</p>
     pub access_policies: ::std::option::Option<::std::string::String>,
     /// <p>The type of IP addresses supported by the endpoint for the domain.</p>
     pub ip_address_type: ::std::option::Option<crate::types::IpAddressType>,
     /// <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
-    pub log_publishing_options: ::std::option::Option<::std::collections::HashMap<crate::types::LogType, crate::types::LogPublishingOption>>,
+    pub log_publishing_options: ::std::option::Option<::std::collections::HashMap::<crate::types::LogType, crate::types::LogPublishingOption>>,
     /// <p>Encryption at rest options for the domain.</p>
     pub encryption_at_rest_options: ::std::option::Option<crate::types::EncryptionAtRestOptions>,
     /// <p>Additional options for the domain endpoint, such as whether to require HTTPS for all traffic.</p>
@@ -42,10 +42,10 @@ pub struct UpdateDomainConfigInput {
     pub auto_tune_options: ::std::option::Option<crate::types::AutoTuneOptions>,
     /// <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request should return the results of a dry run analysis without actually applying the change. A dry run determines what type of deployment the update will cause.</p>
     pub dry_run: ::std::option::Option<bool>,
-    /// <p>The type of dry run to perform.</p>
-    /// <ul>
-    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li>
-    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li>
+    /// <p>The type of dry run to perform.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li> 
+    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li> 
     /// </ul>
     pub dry_run_mode: ::std::option::Option<crate::types::DryRunMode>,
     /// <p>Off-peak window options for the domain.</p>
@@ -53,93 +53,91 @@ pub struct UpdateDomainConfigInput {
     /// <p>Service software update options for the domain.</p>
     pub software_update_options: ::std::option::Option<crate::types::SoftwareUpdateOptions>,
 }
-impl UpdateDomainConfigInput {
+impl  UpdateDomainConfigInput  {
     /// <p>The name of the domain that you're updating.</p>
-    pub fn domain_name(&self) -> ::std::option::Option<&str> {
+    pub fn domain_name(&self) -> ::std::option::Option<& str> {
         self.domain_name.as_deref()
     }
     /// <p>Changes that you want to make to the cluster configuration, such as the instance type and number of EC2 instances.</p>
-    pub fn cluster_config(&self) -> ::std::option::Option<&crate::types::ClusterConfig> {
+    pub fn cluster_config(&self) -> ::std::option::Option<& crate::types::ClusterConfig> {
         self.cluster_config.as_ref()
     }
     /// <p>The type and size of the EBS volume to attach to instances in the domain.</p>
-    pub fn ebs_options(&self) -> ::std::option::Option<&crate::types::EbsOptions> {
+    pub fn ebs_options(&self) -> ::std::option::Option<& crate::types::EbsOptions> {
         self.ebs_options.as_ref()
     }
     /// <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. </p>
-    pub fn snapshot_options(&self) -> ::std::option::Option<&crate::types::SnapshotOptions> {
+    pub fn snapshot_options(&self) -> ::std::option::Option<& crate::types::SnapshotOptions> {
         self.snapshot_options.as_ref()
     }
     /// <p>Options to specify the subnets and security groups for a VPC endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html">Launching your Amazon OpenSearch Service domains using a VPC</a>.</p>
-    pub fn vpc_options(&self) -> ::std::option::Option<&crate::types::VpcOptions> {
+    pub fn vpc_options(&self) -> ::std::option::Option<& crate::types::VpcOptions> {
         self.vpc_options.as_ref()
     }
     /// <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch Dashboards.</p>
-    pub fn cognito_options(&self) -> ::std::option::Option<&crate::types::CognitoOptions> {
+    pub fn cognito_options(&self) -> ::std::option::Option<& crate::types::CognitoOptions> {
         self.cognito_options.as_ref()
     }
-    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li>
-    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li>
-    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li>
-    /// </ul>
+    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li> 
+    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li> 
+    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
-    pub fn advanced_options(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn advanced_options(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.advanced_options.as_ref()
     }
     /// <p>Identity and Access Management (IAM) access policy as a JSON-formatted string.</p>
-    pub fn access_policies(&self) -> ::std::option::Option<&str> {
+    pub fn access_policies(&self) -> ::std::option::Option<& str> {
         self.access_policies.as_deref()
     }
     /// <p>The type of IP addresses supported by the endpoint for the domain.</p>
-    pub fn ip_address_type(&self) -> ::std::option::Option<&crate::types::IpAddressType> {
+    pub fn ip_address_type(&self) -> ::std::option::Option<& crate::types::IpAddressType> {
         self.ip_address_type.as_ref()
     }
     /// <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
-    pub fn log_publishing_options(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<crate::types::LogType, crate::types::LogPublishingOption>> {
+    pub fn log_publishing_options(&self) -> ::std::option::Option<& ::std::collections::HashMap::<crate::types::LogType, crate::types::LogPublishingOption>> {
         self.log_publishing_options.as_ref()
     }
     /// <p>Encryption at rest options for the domain.</p>
-    pub fn encryption_at_rest_options(&self) -> ::std::option::Option<&crate::types::EncryptionAtRestOptions> {
+    pub fn encryption_at_rest_options(&self) -> ::std::option::Option<& crate::types::EncryptionAtRestOptions> {
         self.encryption_at_rest_options.as_ref()
     }
     /// <p>Additional options for the domain endpoint, such as whether to require HTTPS for all traffic.</p>
-    pub fn domain_endpoint_options(&self) -> ::std::option::Option<&crate::types::DomainEndpointOptions> {
+    pub fn domain_endpoint_options(&self) -> ::std::option::Option<& crate::types::DomainEndpointOptions> {
         self.domain_endpoint_options.as_ref()
     }
     /// <p>Node-to-node encryption options for the domain.</p>
-    pub fn node_to_node_encryption_options(&self) -> ::std::option::Option<&crate::types::NodeToNodeEncryptionOptions> {
+    pub fn node_to_node_encryption_options(&self) -> ::std::option::Option<& crate::types::NodeToNodeEncryptionOptions> {
         self.node_to_node_encryption_options.as_ref()
     }
     /// <p>Options for fine-grained access control.</p>
-    pub fn advanced_security_options(&self) -> ::std::option::Option<&crate::types::AdvancedSecurityOptionsInput> {
+    pub fn advanced_security_options(&self) -> ::std::option::Option<& crate::types::AdvancedSecurityOptionsInput> {
         self.advanced_security_options.as_ref()
     }
     /// <p>Options for Auto-Tune.</p>
-    pub fn auto_tune_options(&self) -> ::std::option::Option<&crate::types::AutoTuneOptions> {
+    pub fn auto_tune_options(&self) -> ::std::option::Option<& crate::types::AutoTuneOptions> {
         self.auto_tune_options.as_ref()
     }
     /// <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request should return the results of a dry run analysis without actually applying the change. A dry run determines what type of deployment the update will cause.</p>
     pub fn dry_run(&self) -> ::std::option::Option<bool> {
         self.dry_run
     }
-    /// <p>The type of dry run to perform.</p>
-    /// <ul>
-    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li>
-    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li>
+    /// <p>The type of dry run to perform.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li> 
+    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li> 
     /// </ul>
-    pub fn dry_run_mode(&self) -> ::std::option::Option<&crate::types::DryRunMode> {
+    pub fn dry_run_mode(&self) -> ::std::option::Option<& crate::types::DryRunMode> {
         self.dry_run_mode.as_ref()
     }
     /// <p>Off-peak window options for the domain.</p>
-    pub fn off_peak_window_options(&self) -> ::std::option::Option<&crate::types::OffPeakWindowOptions> {
+    pub fn off_peak_window_options(&self) -> ::std::option::Option<& crate::types::OffPeakWindowOptions> {
         self.off_peak_window_options.as_ref()
     }
     /// <p>Service software update options for the domain.</p>
-    pub fn software_update_options(&self) -> ::std::option::Option<&crate::types::SoftwareUpdateOptions> {
+    pub fn software_update_options(&self) -> ::std::option::Option<& crate::types::SoftwareUpdateOptions> {
         self.software_update_options.as_ref()
     }
 }
@@ -160,10 +158,10 @@ pub struct UpdateDomainConfigInputBuilder {
     pub(crate) snapshot_options: ::std::option::Option<crate::types::SnapshotOptions>,
     pub(crate) vpc_options: ::std::option::Option<crate::types::VpcOptions>,
     pub(crate) cognito_options: ::std::option::Option<crate::types::CognitoOptions>,
-    pub(crate) advanced_options: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) advanced_options: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     pub(crate) access_policies: ::std::option::Option<::std::string::String>,
     pub(crate) ip_address_type: ::std::option::Option<crate::types::IpAddressType>,
-    pub(crate) log_publishing_options: ::std::option::Option<::std::collections::HashMap<crate::types::LogType, crate::types::LogPublishingOption>>,
+    pub(crate) log_publishing_options: ::std::option::Option<::std::collections::HashMap::<crate::types::LogType, crate::types::LogPublishingOption>>,
     pub(crate) encryption_at_rest_options: ::std::option::Option<crate::types::EncryptionAtRestOptions>,
     pub(crate) domain_endpoint_options: ::std::option::Option<crate::types::DomainEndpointOptions>,
     pub(crate) node_to_node_encryption_options: ::std::option::Option<crate::types::NodeToNodeEncryptionOptions>,
@@ -183,8 +181,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>The name of the domain that you're updating.</p>
     pub fn set_domain_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.domain_name = input;
-        self
+        self.domain_name = input; self
     }
     /// <p>The name of the domain that you're updating.</p>
     pub fn get_domain_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -197,8 +194,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Changes that you want to make to the cluster configuration, such as the instance type and number of EC2 instances.</p>
     pub fn set_cluster_config(mut self, input: ::std::option::Option<crate::types::ClusterConfig>) -> Self {
-        self.cluster_config = input;
-        self
+        self.cluster_config = input; self
     }
     /// <p>Changes that you want to make to the cluster configuration, such as the instance type and number of EC2 instances.</p>
     pub fn get_cluster_config(&self) -> &::std::option::Option<crate::types::ClusterConfig> {
@@ -211,8 +207,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>The type and size of the EBS volume to attach to instances in the domain.</p>
     pub fn set_ebs_options(mut self, input: ::std::option::Option<crate::types::EbsOptions>) -> Self {
-        self.ebs_options = input;
-        self
+        self.ebs_options = input; self
     }
     /// <p>The type and size of the EBS volume to attach to instances in the domain.</p>
     pub fn get_ebs_options(&self) -> &::std::option::Option<crate::types::EbsOptions> {
@@ -225,8 +220,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. </p>
     pub fn set_snapshot_options(mut self, input: ::std::option::Option<crate::types::SnapshotOptions>) -> Self {
-        self.snapshot_options = input;
-        self
+        self.snapshot_options = input; self
     }
     /// <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. </p>
     pub fn get_snapshot_options(&self) -> &::std::option::Option<crate::types::SnapshotOptions> {
@@ -239,8 +233,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Options to specify the subnets and security groups for a VPC endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html">Launching your Amazon OpenSearch Service domains using a VPC</a>.</p>
     pub fn set_vpc_options(mut self, input: ::std::option::Option<crate::types::VpcOptions>) -> Self {
-        self.vpc_options = input;
-        self
+        self.vpc_options = input; self
     }
     /// <p>Options to specify the subnets and security groups for a VPC endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html">Launching your Amazon OpenSearch Service domains using a VPC</a>.</p>
     pub fn get_vpc_options(&self) -> &::std::option::Option<crate::types::VpcOptions> {
@@ -253,8 +246,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch Dashboards.</p>
     pub fn set_cognito_options(mut self, input: ::std::option::Option<crate::types::CognitoOptions>) -> Self {
-        self.cognito_options = input;
-        self
+        self.cognito_options = input; self
     }
     /// <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch Dashboards.</p>
     pub fn get_cognito_options(&self) -> &::std::option::Option<crate::types::CognitoOptions> {
@@ -264,45 +256,37 @@ impl UpdateDomainConfigInputBuilder {
     ///
     /// To override the contents of this collection use [`set_advanced_options`](Self::set_advanced_options).
     ///
-    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li>
-    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li>
-    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li>
-    /// </ul>
+    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li> 
+    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li> 
+    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
-    pub fn advanced_options(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn advanced_options(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.advanced_options.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.advanced_options = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.advanced_options = ::std::option::Option::Some(hash_map);
+                        self
     }
-    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li>
-    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li>
-    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li>
-    /// </ul>
+    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li> 
+    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li> 
+    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
-    pub fn set_advanced_options(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    ) -> Self {
-        self.advanced_options = input;
-        self
+    pub fn set_advanced_options(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.advanced_options = input; self
     }
-    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li>
-    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li>
-    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li>
-    /// </ul>
+    /// <p>Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.</p> </li> 
+    /// <li> <p> <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.</p> </li> 
+    /// <li> <p> <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a <code>TooManyClauses</code> error.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
-    pub fn get_advanced_options(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_advanced_options(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.advanced_options
     }
     /// <p>Identity and Access Management (IAM) access policy as a JSON-formatted string.</p>
@@ -312,8 +296,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Identity and Access Management (IAM) access policy as a JSON-formatted string.</p>
     pub fn set_access_policies(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.access_policies = input;
-        self
+        self.access_policies = input; self
     }
     /// <p>Identity and Access Management (IAM) access policy as a JSON-formatted string.</p>
     pub fn get_access_policies(&self) -> &::std::option::Option<::std::string::String> {
@@ -326,8 +309,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>The type of IP addresses supported by the endpoint for the domain.</p>
     pub fn set_ip_address_type(mut self, input: ::std::option::Option<crate::types::IpAddressType>) -> Self {
-        self.ip_address_type = input;
-        self
+        self.ip_address_type = input; self
     }
     /// <p>The type of IP addresses supported by the endpoint for the domain.</p>
     pub fn get_ip_address_type(&self) -> &::std::option::Option<crate::types::IpAddressType> {
@@ -340,22 +322,16 @@ impl UpdateDomainConfigInputBuilder {
     /// <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
     pub fn log_publishing_options(mut self, k: crate::types::LogType, v: crate::types::LogPublishingOption) -> Self {
         let mut hash_map = self.log_publishing_options.unwrap_or_default();
-        hash_map.insert(k, v);
-        self.log_publishing_options = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k, v);
+                        self.log_publishing_options = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
-    pub fn set_log_publishing_options(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<crate::types::LogType, crate::types::LogPublishingOption>>,
-    ) -> Self {
-        self.log_publishing_options = input;
-        self
+    pub fn set_log_publishing_options(mut self, input: ::std::option::Option<::std::collections::HashMap::<crate::types::LogType, crate::types::LogPublishingOption>>) -> Self {
+        self.log_publishing_options = input; self
     }
     /// <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
-    pub fn get_log_publishing_options(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::LogType, crate::types::LogPublishingOption>> {
+    pub fn get_log_publishing_options(&self) -> &::std::option::Option<::std::collections::HashMap::<crate::types::LogType, crate::types::LogPublishingOption>> {
         &self.log_publishing_options
     }
     /// <p>Encryption at rest options for the domain.</p>
@@ -365,8 +341,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Encryption at rest options for the domain.</p>
     pub fn set_encryption_at_rest_options(mut self, input: ::std::option::Option<crate::types::EncryptionAtRestOptions>) -> Self {
-        self.encryption_at_rest_options = input;
-        self
+        self.encryption_at_rest_options = input; self
     }
     /// <p>Encryption at rest options for the domain.</p>
     pub fn get_encryption_at_rest_options(&self) -> &::std::option::Option<crate::types::EncryptionAtRestOptions> {
@@ -379,8 +354,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Additional options for the domain endpoint, such as whether to require HTTPS for all traffic.</p>
     pub fn set_domain_endpoint_options(mut self, input: ::std::option::Option<crate::types::DomainEndpointOptions>) -> Self {
-        self.domain_endpoint_options = input;
-        self
+        self.domain_endpoint_options = input; self
     }
     /// <p>Additional options for the domain endpoint, such as whether to require HTTPS for all traffic.</p>
     pub fn get_domain_endpoint_options(&self) -> &::std::option::Option<crate::types::DomainEndpointOptions> {
@@ -393,8 +367,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Node-to-node encryption options for the domain.</p>
     pub fn set_node_to_node_encryption_options(mut self, input: ::std::option::Option<crate::types::NodeToNodeEncryptionOptions>) -> Self {
-        self.node_to_node_encryption_options = input;
-        self
+        self.node_to_node_encryption_options = input; self
     }
     /// <p>Node-to-node encryption options for the domain.</p>
     pub fn get_node_to_node_encryption_options(&self) -> &::std::option::Option<crate::types::NodeToNodeEncryptionOptions> {
@@ -407,8 +380,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Options for fine-grained access control.</p>
     pub fn set_advanced_security_options(mut self, input: ::std::option::Option<crate::types::AdvancedSecurityOptionsInput>) -> Self {
-        self.advanced_security_options = input;
-        self
+        self.advanced_security_options = input; self
     }
     /// <p>Options for fine-grained access control.</p>
     pub fn get_advanced_security_options(&self) -> &::std::option::Option<crate::types::AdvancedSecurityOptionsInput> {
@@ -421,8 +393,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Options for Auto-Tune.</p>
     pub fn set_auto_tune_options(mut self, input: ::std::option::Option<crate::types::AutoTuneOptions>) -> Self {
-        self.auto_tune_options = input;
-        self
+        self.auto_tune_options = input; self
     }
     /// <p>Options for Auto-Tune.</p>
     pub fn get_auto_tune_options(&self) -> &::std::option::Option<crate::types::AutoTuneOptions> {
@@ -435,35 +406,33 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request should return the results of a dry run analysis without actually applying the change. A dry run determines what type of deployment the update will cause.</p>
     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.dry_run = input;
-        self
+        self.dry_run = input; self
     }
     /// <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request should return the results of a dry run analysis without actually applying the change. A dry run determines what type of deployment the update will cause.</p>
     pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
         &self.dry_run
     }
-    /// <p>The type of dry run to perform.</p>
-    /// <ul>
-    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li>
-    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li>
+    /// <p>The type of dry run to perform.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li> 
+    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li> 
     /// </ul>
     pub fn dry_run_mode(mut self, input: crate::types::DryRunMode) -> Self {
         self.dry_run_mode = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of dry run to perform.</p>
-    /// <ul>
-    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li>
-    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li>
+    /// <p>The type of dry run to perform.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li> 
+    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li> 
     /// </ul>
     pub fn set_dry_run_mode(mut self, input: ::std::option::Option<crate::types::DryRunMode>) -> Self {
-        self.dry_run_mode = input;
-        self
+        self.dry_run_mode = input; self
     }
-    /// <p>The type of dry run to perform.</p>
-    /// <ul>
-    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li>
-    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li>
+    /// <p>The type of dry run to perform.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Basic</code> only returns the type of deployment (blue/green or dynamic) that the update will cause.</p> </li> 
+    /// <li> <p> <code>Verbose</code> runs an additional check to validate the changes you're making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p> </li> 
     /// </ul>
     pub fn get_dry_run_mode(&self) -> &::std::option::Option<crate::types::DryRunMode> {
         &self.dry_run_mode
@@ -475,8 +444,7 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Off-peak window options for the domain.</p>
     pub fn set_off_peak_window_options(mut self, input: ::std::option::Option<crate::types::OffPeakWindowOptions>) -> Self {
-        self.off_peak_window_options = input;
-        self
+        self.off_peak_window_options = input; self
     }
     /// <p>Off-peak window options for the domain.</p>
     pub fn get_off_peak_window_options(&self) -> &::std::option::Option<crate::types::OffPeakWindowOptions> {
@@ -489,38 +457,56 @@ impl UpdateDomainConfigInputBuilder {
     }
     /// <p>Service software update options for the domain.</p>
     pub fn set_software_update_options(mut self, input: ::std::option::Option<crate::types::SoftwareUpdateOptions>) -> Self {
-        self.software_update_options = input;
-        self
+        self.software_update_options = input; self
     }
     /// <p>Service software update options for the domain.</p>
     pub fn get_software_update_options(&self) -> &::std::option::Option<crate::types::SoftwareUpdateOptions> {
         &self.software_update_options
     }
     /// Consumes the builder and constructs a [`UpdateDomainConfigInput`](crate::operation::update_domain_config::UpdateDomainConfigInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_domain_config::UpdateDomainConfigInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::update_domain_config::UpdateDomainConfigInput {
-            domain_name: self.domain_name,
-            cluster_config: self.cluster_config,
-            ebs_options: self.ebs_options,
-            snapshot_options: self.snapshot_options,
-            vpc_options: self.vpc_options,
-            cognito_options: self.cognito_options,
-            advanced_options: self.advanced_options,
-            access_policies: self.access_policies,
-            ip_address_type: self.ip_address_type,
-            log_publishing_options: self.log_publishing_options,
-            encryption_at_rest_options: self.encryption_at_rest_options,
-            domain_endpoint_options: self.domain_endpoint_options,
-            node_to_node_encryption_options: self.node_to_node_encryption_options,
-            advanced_security_options: self.advanced_security_options,
-            auto_tune_options: self.auto_tune_options,
-            dry_run: self.dry_run,
-            dry_run_mode: self.dry_run_mode,
-            off_peak_window_options: self.off_peak_window_options,
-            software_update_options: self.software_update_options,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_domain_config::UpdateDomainConfigInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_domain_config::UpdateDomainConfigInput {
+                domain_name: self.domain_name
+                ,
+                cluster_config: self.cluster_config
+                ,
+                ebs_options: self.ebs_options
+                ,
+                snapshot_options: self.snapshot_options
+                ,
+                vpc_options: self.vpc_options
+                ,
+                cognito_options: self.cognito_options
+                ,
+                advanced_options: self.advanced_options
+                ,
+                access_policies: self.access_policies
+                ,
+                ip_address_type: self.ip_address_type
+                ,
+                log_publishing_options: self.log_publishing_options
+                ,
+                encryption_at_rest_options: self.encryption_at_rest_options
+                ,
+                domain_endpoint_options: self.domain_endpoint_options
+                ,
+                node_to_node_encryption_options: self.node_to_node_encryption_options
+                ,
+                advanced_security_options: self.advanced_security_options
+                ,
+                auto_tune_options: self.auto_tune_options
+                ,
+                dry_run: self.dry_run
+                ,
+                dry_run_mode: self.dry_run_mode
+                ,
+                off_peak_window_options: self.off_peak_window_options
+                ,
+                software_update_options: self.software_update_options
+                ,
+            }
+        )
     }
 }
+

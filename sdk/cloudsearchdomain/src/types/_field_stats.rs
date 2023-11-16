@@ -3,11 +3,11 @@
 /// <p>The statistics for a field calculated in the request.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct FieldStats {
-    /// <p>The minimum value found in the specified field in the result set.</p>
+pub struct FieldStats  {
+    /// <p>The minimum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub min: ::std::option::Option<::std::string::String>,
-    /// <p>The maximum value found in the specified field in the result set.</p>
+    /// <p>The maximum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>max</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>max</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub max: ::std::option::Option<::std::string::String>,
     /// <p>The number of documents that contain a value in the specified field in the result set.</p>
@@ -18,21 +18,21 @@ pub struct FieldStats {
     pub sum: f64,
     /// <p>The sum of all field values in the result set squared.</p>
     pub sum_of_squares: f64,
-    /// <p>The average of the values found in the specified field in the result set.</p>
+    /// <p>The average of the values found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>mean</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>mean</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub mean: ::std::option::Option<::std::string::String>,
     /// <p>The standard deviation of the values in the specified field in the result set.</p>
     pub stddev: f64,
 }
-impl FieldStats {
-    /// <p>The minimum value found in the specified field in the result set.</p>
+impl  FieldStats  {
+    /// <p>The minimum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
-    pub fn min(&self) -> ::std::option::Option<&str> {
+    pub fn min(&self) -> ::std::option::Option<& str> {
         self.min.as_deref()
     }
-    /// <p>The maximum value found in the specified field in the result set.</p>
+    /// <p>The maximum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>max</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>max</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
-    pub fn max(&self) -> ::std::option::Option<&str> {
+    pub fn max(&self) -> ::std::option::Option<& str> {
         self.max.as_deref()
     }
     /// <p>The number of documents that contain a value in the specified field in the result set.</p>
@@ -51,9 +51,9 @@ impl FieldStats {
     pub fn sum_of_squares(&self) -> f64 {
         self.sum_of_squares
     }
-    /// <p>The average of the values found in the specified field in the result set.</p>
+    /// <p>The average of the values found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>mean</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>mean</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
-    pub fn mean(&self) -> ::std::option::Option<&str> {
+    pub fn mean(&self) -> ::std::option::Option<& str> {
         self.mean.as_deref()
     }
     /// <p>The standard deviation of the values in the specified field in the result set.</p>
@@ -82,36 +82,34 @@ pub struct FieldStatsBuilder {
     pub(crate) stddev: ::std::option::Option<f64>,
 }
 impl FieldStatsBuilder {
-    /// <p>The minimum value found in the specified field in the result set.</p>
+    /// <p>The minimum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub fn min(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.min = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The minimum value found in the specified field in the result set.</p>
+    /// <p>The minimum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub fn set_min(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.min = input;
-        self
+        self.min = input; self
     }
-    /// <p>The minimum value found in the specified field in the result set.</p>
+    /// <p>The minimum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub fn get_min(&self) -> &::std::option::Option<::std::string::String> {
         &self.min
     }
-    /// <p>The maximum value found in the specified field in the result set.</p>
+    /// <p>The maximum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>max</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>max</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub fn max(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.max = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The maximum value found in the specified field in the result set.</p>
+    /// <p>The maximum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>max</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>max</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub fn set_max(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.max = input;
-        self
+        self.max = input; self
     }
-    /// <p>The maximum value found in the specified field in the result set.</p>
+    /// <p>The maximum value found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>max</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>max</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub fn get_max(&self) -> &::std::option::Option<::std::string::String> {
         &self.max
@@ -123,8 +121,7 @@ impl FieldStatsBuilder {
     }
     /// <p>The number of documents that contain a value in the specified field in the result set.</p>
     pub fn set_count(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.count = input;
-        self
+        self.count = input; self
     }
     /// <p>The number of documents that contain a value in the specified field in the result set.</p>
     pub fn get_count(&self) -> &::std::option::Option<i64> {
@@ -137,8 +134,7 @@ impl FieldStatsBuilder {
     }
     /// <p>The number of documents that do not contain a value in the specified field in the result set.</p>
     pub fn set_missing(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.missing = input;
-        self
+        self.missing = input; self
     }
     /// <p>The number of documents that do not contain a value in the specified field in the result set.</p>
     pub fn get_missing(&self) -> &::std::option::Option<i64> {
@@ -151,8 +147,7 @@ impl FieldStatsBuilder {
     }
     /// <p>The sum of the field values across the documents in the result set. <code>null</code> for date fields.</p>
     pub fn set_sum(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.sum = input;
-        self
+        self.sum = input; self
     }
     /// <p>The sum of the field values across the documents in the result set. <code>null</code> for date fields.</p>
     pub fn get_sum(&self) -> &::std::option::Option<f64> {
@@ -165,26 +160,24 @@ impl FieldStatsBuilder {
     }
     /// <p>The sum of all field values in the result set squared.</p>
     pub fn set_sum_of_squares(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.sum_of_squares = input;
-        self
+        self.sum_of_squares = input; self
     }
     /// <p>The sum of all field values in the result set squared.</p>
     pub fn get_sum_of_squares(&self) -> &::std::option::Option<f64> {
         &self.sum_of_squares
     }
-    /// <p>The average of the values found in the specified field in the result set.</p>
+    /// <p>The average of the values found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>mean</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>mean</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub fn mean(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.mean = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The average of the values found in the specified field in the result set.</p>
+    /// <p>The average of the values found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>mean</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>mean</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub fn set_mean(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.mean = input;
-        self
+        self.mean = input; self
     }
-    /// <p>The average of the values found in the specified field in the result set.</p>
+    /// <p>The average of the values found in the specified field in the result set.</p> 
     /// <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>mean</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>mean</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
     pub fn get_mean(&self) -> &::std::option::Option<::std::string::String> {
         &self.mean
@@ -196,8 +189,7 @@ impl FieldStatsBuilder {
     }
     /// <p>The standard deviation of the values in the specified field in the result set.</p>
     pub fn set_stddev(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.stddev = input;
-        self
+        self.stddev = input; self
     }
     /// <p>The standard deviation of the values in the specified field in the result set.</p>
     pub fn get_stddev(&self) -> &::std::option::Option<f64> {
@@ -206,14 +198,28 @@ impl FieldStatsBuilder {
     /// Consumes the builder and constructs a [`FieldStats`](crate::types::FieldStats).
     pub fn build(self) -> crate::types::FieldStats {
         crate::types::FieldStats {
-            min: self.min,
-            max: self.max,
-            count: self.count.unwrap_or_default(),
-            missing: self.missing.unwrap_or_default(),
-            sum: self.sum.unwrap_or_default(),
-            sum_of_squares: self.sum_of_squares.unwrap_or_default(),
-            mean: self.mean,
-            stddev: self.stddev.unwrap_or_default(),
+            min: self.min
+            ,
+            max: self.max
+            ,
+            count: self.count
+                .unwrap_or_default()
+            ,
+            missing: self.missing
+                .unwrap_or_default()
+            ,
+            sum: self.sum
+                .unwrap_or_default()
+            ,
+            sum_of_squares: self.sum_of_squares
+                .unwrap_or_default()
+            ,
+            mean: self.mean
+            ,
+            stddev: self.stddev
+                .unwrap_or_default()
+            ,
         }
     }
 }
+

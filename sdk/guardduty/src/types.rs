@@ -844,3 +844,4 @@ pub mod builders;
 
 /// Error types that Amazon GuardDuty can respond with.
 pub mod error;
+

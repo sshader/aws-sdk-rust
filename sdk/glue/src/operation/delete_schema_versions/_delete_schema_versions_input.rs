@@ -2,27 +2,27 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteSchemaVersionsInput {
+pub struct DeleteSchemaVersionsInput  {
     /// <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
     pub schema_id: ::std::option::Option<crate::types::SchemaId>,
-    /// <p>A version range may be supplied which may be of the format:</p>
-    /// <ul>
-    /// <li> <p>a single version number, 5</p> </li>
-    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li>
+    /// <p>A version range may be supplied which may be of the format:</p> 
+    /// <ul> 
+    /// <li> <p>a single version number, 5</p> </li> 
+    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li> 
     /// </ul>
     pub versions: ::std::option::Option<::std::string::String>,
 }
-impl DeleteSchemaVersionsInput {
+impl  DeleteSchemaVersionsInput  {
     /// <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
-    pub fn schema_id(&self) -> ::std::option::Option<&crate::types::SchemaId> {
+    pub fn schema_id(&self) -> ::std::option::Option<& crate::types::SchemaId> {
         self.schema_id.as_ref()
     }
-    /// <p>A version range may be supplied which may be of the format:</p>
-    /// <ul>
-    /// <li> <p>a single version number, 5</p> </li>
-    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li>
+    /// <p>A version range may be supplied which may be of the format:</p> 
+    /// <ul> 
+    /// <li> <p>a single version number, 5</p> </li> 
+    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li> 
     /// </ul>
-    pub fn versions(&self) -> ::std::option::Option<&str> {
+    pub fn versions(&self) -> ::std::option::Option<& str> {
         self.versions.as_deref()
     }
 }
@@ -49,48 +49,48 @@ impl DeleteSchemaVersionsInputBuilder {
     }
     /// <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
     pub fn set_schema_id(mut self, input: ::std::option::Option<crate::types::SchemaId>) -> Self {
-        self.schema_id = input;
-        self
+        self.schema_id = input; self
     }
     /// <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
     pub fn get_schema_id(&self) -> &::std::option::Option<crate::types::SchemaId> {
         &self.schema_id
     }
-    /// <p>A version range may be supplied which may be of the format:</p>
-    /// <ul>
-    /// <li> <p>a single version number, 5</p> </li>
-    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li>
+    /// <p>A version range may be supplied which may be of the format:</p> 
+    /// <ul> 
+    /// <li> <p>a single version number, 5</p> </li> 
+    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn versions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.versions = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A version range may be supplied which may be of the format:</p>
-    /// <ul>
-    /// <li> <p>a single version number, 5</p> </li>
-    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li>
+    /// <p>A version range may be supplied which may be of the format:</p> 
+    /// <ul> 
+    /// <li> <p>a single version number, 5</p> </li> 
+    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li> 
     /// </ul>
     pub fn set_versions(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.versions = input;
-        self
+        self.versions = input; self
     }
-    /// <p>A version range may be supplied which may be of the format:</p>
-    /// <ul>
-    /// <li> <p>a single version number, 5</p> </li>
-    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li>
+    /// <p>A version range may be supplied which may be of the format:</p> 
+    /// <ul> 
+    /// <li> <p>a single version number, 5</p> </li> 
+    /// <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li> 
     /// </ul>
     pub fn get_versions(&self) -> &::std::option::Option<::std::string::String> {
         &self.versions
     }
     /// Consumes the builder and constructs a [`DeleteSchemaVersionsInput`](crate::operation::delete_schema_versions::DeleteSchemaVersionsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::delete_schema_versions::DeleteSchemaVersionsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::delete_schema_versions::DeleteSchemaVersionsInput {
-            schema_id: self.schema_id,
-            versions: self.versions,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_schema_versions::DeleteSchemaVersionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_schema_versions::DeleteSchemaVersionsInput {
+                schema_id: self.schema_id
+                ,
+                versions: self.versions
+                ,
+            }
+        )
     }
 }
+

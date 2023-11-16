@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateSiteInput {
+pub struct CreateSiteInput  {
     /// Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
     pub client_token: ::std::option::Option<::std::string::String>,
     /// Human friendly name of the resource.
@@ -12,21 +12,21 @@ pub struct CreateSiteInput {
     /// A high-level description of the site.
     pub description: ::std::option::Option<::std::string::String>,
 }
-impl CreateSiteInput {
+impl  CreateSiteInput  {
     /// Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
     /// Human friendly name of the resource.
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// A valid ISO 3166-1 alpha-2 code for the country in which the site resides. e.g., US.
-    pub fn country_code(&self) -> ::std::option::Option<&str> {
+    pub fn country_code(&self) -> ::std::option::Option<& str> {
         self.country_code.as_deref()
     }
     /// A high-level description of the site.
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
 }
@@ -54,8 +54,7 @@ impl CreateSiteInputBuilder {
     }
     /// Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -69,8 +68,7 @@ impl CreateSiteInputBuilder {
     }
     /// Human friendly name of the resource.
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// Human friendly name of the resource.
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -84,8 +82,7 @@ impl CreateSiteInputBuilder {
     }
     /// A valid ISO 3166-1 alpha-2 code for the country in which the site resides. e.g., US.
     pub fn set_country_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.country_code = input;
-        self
+        self.country_code = input; self
     }
     /// A valid ISO 3166-1 alpha-2 code for the country in which the site resides. e.g., US.
     pub fn get_country_code(&self) -> &::std::option::Option<::std::string::String> {
@@ -98,8 +95,7 @@ impl CreateSiteInputBuilder {
     }
     /// A high-level description of the site.
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// A high-level description of the site.
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -107,11 +103,18 @@ impl CreateSiteInputBuilder {
     }
     /// Consumes the builder and constructs a [`CreateSiteInput`](crate::operation::create_site::CreateSiteInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::create_site::CreateSiteInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_site::CreateSiteInput {
-            client_token: self.client_token,
-            name: self.name,
-            country_code: self.country_code,
-            description: self.description,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::create_site::CreateSiteInput {
+                client_token: self.client_token
+                ,
+                name: self.name
+                ,
+                country_code: self.country_code
+                ,
+                description: self.description
+                ,
+            }
+        )
     }
 }
+

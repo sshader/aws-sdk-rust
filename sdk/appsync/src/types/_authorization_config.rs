@@ -3,25 +3,25 @@
 /// <p>The authorization configuration in case the HTTP endpoint requires authorization.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AuthorizationConfig {
-    /// <p>The authorization type that the HTTP endpoint requires.</p>
-    /// <ul>
-    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li>
+pub struct AuthorizationConfig  {
+    /// <p>The authorization type that the HTTP endpoint requires.</p> 
+    /// <ul> 
+    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li> 
     /// </ul>
     pub authorization_type: crate::types::AuthorizationType,
     /// <p>The Identity and Access Management (IAM) settings.</p>
     pub aws_iam_config: ::std::option::Option<crate::types::AwsIamConfig>,
 }
-impl AuthorizationConfig {
-    /// <p>The authorization type that the HTTP endpoint requires.</p>
-    /// <ul>
-    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li>
+impl  AuthorizationConfig  {
+    /// <p>The authorization type that the HTTP endpoint requires.</p> 
+    /// <ul> 
+    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li> 
     /// </ul>
-    pub fn authorization_type(&self) -> &crate::types::AuthorizationType {
+    pub fn authorization_type(&self) -> & crate::types::AuthorizationType {
         &self.authorization_type
     }
     /// <p>The Identity and Access Management (IAM) settings.</p>
-    pub fn aws_iam_config(&self) -> ::std::option::Option<&crate::types::AwsIamConfig> {
+    pub fn aws_iam_config(&self) -> ::std::option::Option<& crate::types::AwsIamConfig> {
         self.aws_iam_config.as_ref()
     }
 }
@@ -40,26 +40,25 @@ pub struct AuthorizationConfigBuilder {
     pub(crate) aws_iam_config: ::std::option::Option<crate::types::AwsIamConfig>,
 }
 impl AuthorizationConfigBuilder {
-    /// <p>The authorization type that the HTTP endpoint requires.</p>
-    /// <ul>
-    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li>
+    /// <p>The authorization type that the HTTP endpoint requires.</p> 
+    /// <ul> 
+    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn authorization_type(mut self, input: crate::types::AuthorizationType) -> Self {
         self.authorization_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The authorization type that the HTTP endpoint requires.</p>
-    /// <ul>
-    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li>
+    /// <p>The authorization type that the HTTP endpoint requires.</p> 
+    /// <ul> 
+    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li> 
     /// </ul>
     pub fn set_authorization_type(mut self, input: ::std::option::Option<crate::types::AuthorizationType>) -> Self {
-        self.authorization_type = input;
-        self
+        self.authorization_type = input; self
     }
-    /// <p>The authorization type that the HTTP endpoint requires.</p>
-    /// <ul>
-    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li>
+    /// <p>The authorization type that the HTTP endpoint requires.</p> 
+    /// <ul> 
+    /// <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li> 
     /// </ul>
     pub fn get_authorization_type(&self) -> &::std::option::Option<crate::types::AuthorizationType> {
         &self.authorization_type
@@ -71,8 +70,7 @@ impl AuthorizationConfigBuilder {
     }
     /// <p>The Identity and Access Management (IAM) settings.</p>
     pub fn set_aws_iam_config(mut self, input: ::std::option::Option<crate::types::AwsIamConfig>) -> Self {
-        self.aws_iam_config = input;
-        self
+        self.aws_iam_config = input; self
     }
     /// <p>The Identity and Access Management (IAM) settings.</p>
     pub fn get_aws_iam_config(&self) -> &::std::option::Option<crate::types::AwsIamConfig> {
@@ -82,14 +80,17 @@ impl AuthorizationConfigBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`authorization_type`](crate::types::builders::AuthorizationConfigBuilder::authorization_type)
     pub fn build(self) -> ::std::result::Result<crate::types::AuthorizationConfig, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AuthorizationConfig {
-            authorization_type: self.authorization_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "authorization_type",
-                    "authorization_type was not specified but it is required when building AuthorizationConfig",
-                )
-            })?,
-            aws_iam_config: self.aws_iam_config,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AuthorizationConfig {
+                authorization_type: self.authorization_type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("authorization_type", "authorization_type was not specified but it is required when building AuthorizationConfig")
+                    )?
+                ,
+                aws_iam_config: self.aws_iam_config
+                ,
+            }
+        )
     }
 }
+

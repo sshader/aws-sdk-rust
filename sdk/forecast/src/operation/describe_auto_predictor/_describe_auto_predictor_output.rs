@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeAutoPredictorOutput {
+pub struct DescribeAutoPredictorOutput  {
     /// <p>The Amazon Resource Name (ARN) of the predictor</p>
     pub predictor_arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the predictor.</p>
@@ -10,14 +10,14 @@ pub struct DescribeAutoPredictorOutput {
     /// <p>The number of time-steps that the model predicts. The forecast horizon is also called the prediction length.</p>
     pub forecast_horizon: ::std::option::Option<i32>,
     /// <p>The forecast types used during predictor training. Default value is ["0.1","0.5","0.9"].</p>
-    pub forecast_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    /// <p>The frequency of predictions in a forecast.</p>
+    pub forecast_types: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    /// <p>The frequency of predictions in a forecast.</p> 
     /// <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
     pub forecast_frequency: ::std::option::Option<::std::string::String>,
     /// <p>An array of dimension (field) names that specify the attributes used to group your time series.</p>
-    pub forecast_dimensions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub forecast_dimensions: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
-    pub dataset_import_job_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub dataset_import_job_arns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>The data configuration for your dataset group and any additional datasets.</p>
     pub data_config: ::std::option::Option<crate::types::DataConfig>,
     /// <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key. You can specify this optional object in the <code>CreateDataset</code> and <code>CreatePredictor</code> requests.</p>
@@ -26,25 +26,25 @@ pub struct DescribeAutoPredictorOutput {
     pub reference_predictor_summary: ::std::option::Option<crate::types::ReferencePredictorSummary>,
     /// <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
     pub estimated_time_remaining_in_minutes: ::std::option::Option<i64>,
-    /// <p>The status of the predictor. States include: </p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
+    /// <p>The status of the predictor. States include: </p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
     /// </ul>
     pub status: ::std::option::Option<::std::string::String>,
     /// <p>In the event of an error, a message detailing the cause of the error.</p>
     pub message: ::std::option::Option<::std::string::String>,
     /// <p>The timestamp of the CreateAutoPredictor request.</p>
     pub creation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
     pub last_modification_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The accuracy metric used to optimize the predictor.</p>
@@ -57,13 +57,13 @@ pub struct DescribeAutoPredictorOutput {
     pub time_alignment_boundary: ::std::option::Option<crate::types::TimeAlignmentBoundary>,
     _request_id: Option<String>,
 }
-impl DescribeAutoPredictorOutput {
+impl  DescribeAutoPredictorOutput  {
     /// <p>The Amazon Resource Name (ARN) of the predictor</p>
-    pub fn predictor_arn(&self) -> ::std::option::Option<&str> {
+    pub fn predictor_arn(&self) -> ::std::option::Option<& str> {
         self.predictor_arn.as_deref()
     }
     /// <p>The name of the predictor.</p>
-    pub fn predictor_name(&self) -> ::std::option::Option<&str> {
+    pub fn predictor_name(&self) -> ::std::option::Option<& str> {
         self.predictor_name.as_deref()
     }
     /// <p>The number of time-steps that the model predicts. The forecast horizon is also called the prediction length.</p>
@@ -71,95 +71,98 @@ impl DescribeAutoPredictorOutput {
         self.forecast_horizon
     }
     /// <p>The forecast types used during predictor training. Default value is ["0.1","0.5","0.9"].</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.forecast_types.is_none()`.
-    pub fn forecast_types(&self) -> &[::std::string::String] {
-        self.forecast_types.as_deref().unwrap_or_default()
+    pub fn forecast_types(&self) -> & [::std::string::String] {
+        self.forecast_types.as_deref()
+        .unwrap_or_default()
     }
-    /// <p>The frequency of predictions in a forecast.</p>
+    /// <p>The frequency of predictions in a forecast.</p> 
     /// <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
-    pub fn forecast_frequency(&self) -> ::std::option::Option<&str> {
+    pub fn forecast_frequency(&self) -> ::std::option::Option<& str> {
         self.forecast_frequency.as_deref()
     }
     /// <p>An array of dimension (field) names that specify the attributes used to group your time series.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.forecast_dimensions.is_none()`.
-    pub fn forecast_dimensions(&self) -> &[::std::string::String] {
-        self.forecast_dimensions.as_deref().unwrap_or_default()
+    pub fn forecast_dimensions(&self) -> & [::std::string::String] {
+        self.forecast_dimensions.as_deref()
+        .unwrap_or_default()
     }
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.dataset_import_job_arns.is_none()`.
-    pub fn dataset_import_job_arns(&self) -> &[::std::string::String] {
-        self.dataset_import_job_arns.as_deref().unwrap_or_default()
+    pub fn dataset_import_job_arns(&self) -> & [::std::string::String] {
+        self.dataset_import_job_arns.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The data configuration for your dataset group and any additional datasets.</p>
-    pub fn data_config(&self) -> ::std::option::Option<&crate::types::DataConfig> {
+    pub fn data_config(&self) -> ::std::option::Option<& crate::types::DataConfig> {
         self.data_config.as_ref()
     }
     /// <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key. You can specify this optional object in the <code>CreateDataset</code> and <code>CreatePredictor</code> requests.</p>
-    pub fn encryption_config(&self) -> ::std::option::Option<&crate::types::EncryptionConfig> {
+    pub fn encryption_config(&self) -> ::std::option::Option<& crate::types::EncryptionConfig> {
         self.encryption_config.as_ref()
     }
     /// <p>The ARN and state of the reference predictor. This parameter is only valid for retrained or upgraded predictors.</p>
-    pub fn reference_predictor_summary(&self) -> ::std::option::Option<&crate::types::ReferencePredictorSummary> {
+    pub fn reference_predictor_summary(&self) -> ::std::option::Option<& crate::types::ReferencePredictorSummary> {
         self.reference_predictor_summary.as_ref()
     }
     /// <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
     pub fn estimated_time_remaining_in_minutes(&self) -> ::std::option::Option<i64> {
         self.estimated_time_remaining_in_minutes
     }
-    /// <p>The status of the predictor. States include: </p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
+    /// <p>The status of the predictor. States include: </p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&str> {
+    pub fn status(&self) -> ::std::option::Option<& str> {
         self.status.as_deref()
     }
     /// <p>In the event of an error, a message detailing the cause of the error.</p>
-    pub fn message(&self) -> ::std::option::Option<&str> {
+    pub fn message(&self) -> ::std::option::Option<& str> {
         self.message.as_deref()
     }
     /// <p>The timestamp of the CreateAutoPredictor request.</p>
-    pub fn creation_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_time.as_ref()
     }
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
-    pub fn last_modification_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_modification_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_modification_time.as_ref()
     }
     /// <p>The accuracy metric used to optimize the predictor.</p>
-    pub fn optimization_metric(&self) -> ::std::option::Option<&crate::types::OptimizationMetric> {
+    pub fn optimization_metric(&self) -> ::std::option::Option<& crate::types::OptimizationMetric> {
         self.optimization_metric.as_ref()
     }
     /// <p>Provides the status and ARN of the Predictor Explainability.</p>
-    pub fn explainability_info(&self) -> ::std::option::Option<&crate::types::ExplainabilityInfo> {
+    pub fn explainability_info(&self) -> ::std::option::Option<& crate::types::ExplainabilityInfo> {
         self.explainability_info.as_ref()
     }
     /// <p>A object with the Amazon Resource Name (ARN) and status of the monitor resource.</p>
-    pub fn monitor_info(&self) -> ::std::option::Option<&crate::types::MonitorInfo> {
+    pub fn monitor_info(&self) -> ::std::option::Option<& crate::types::MonitorInfo> {
         self.monitor_info.as_ref()
     }
     /// <p>The time boundary Forecast uses when aggregating data.</p>
-    pub fn time_alignment_boundary(&self) -> ::std::option::Option<&crate::types::TimeAlignmentBoundary> {
+    pub fn time_alignment_boundary(&self) -> ::std::option::Option<& crate::types::TimeAlignmentBoundary> {
         self.time_alignment_boundary.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for DescribeAutoPredictorOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for DescribeAutoPredictorOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl DescribeAutoPredictorOutput {
     /// Creates a new builder-style object to manufacture [`DescribeAutoPredictorOutput`](crate::operation::describe_auto_predictor::DescribeAutoPredictorOutput).
     pub fn builder() -> crate::operation::describe_auto_predictor::builders::DescribeAutoPredictorOutputBuilder {
@@ -174,10 +177,10 @@ pub struct DescribeAutoPredictorOutputBuilder {
     pub(crate) predictor_arn: ::std::option::Option<::std::string::String>,
     pub(crate) predictor_name: ::std::option::Option<::std::string::String>,
     pub(crate) forecast_horizon: ::std::option::Option<i32>,
-    pub(crate) forecast_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) forecast_types: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) forecast_frequency: ::std::option::Option<::std::string::String>,
-    pub(crate) forecast_dimensions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) dataset_import_job_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) forecast_dimensions: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    pub(crate) dataset_import_job_arns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) data_config: ::std::option::Option<crate::types::DataConfig>,
     pub(crate) encryption_config: ::std::option::Option<crate::types::EncryptionConfig>,
     pub(crate) reference_predictor_summary: ::std::option::Option<crate::types::ReferencePredictorSummary>,
@@ -200,8 +203,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the predictor</p>
     pub fn set_predictor_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.predictor_arn = input;
-        self
+        self.predictor_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the predictor</p>
     pub fn get_predictor_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -214,8 +216,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>The name of the predictor.</p>
     pub fn set_predictor_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.predictor_name = input;
-        self
+        self.predictor_name = input; self
     }
     /// <p>The name of the predictor.</p>
     pub fn get_predictor_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -228,8 +229,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>The number of time-steps that the model predicts. The forecast horizon is also called the prediction length.</p>
     pub fn set_forecast_horizon(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.forecast_horizon = input;
-        self
+        self.forecast_horizon = input; self
     }
     /// <p>The number of time-steps that the model predicts. The forecast horizon is also called the prediction length.</p>
     pub fn get_forecast_horizon(&self) -> &::std::option::Option<i32> {
@@ -242,32 +242,30 @@ impl DescribeAutoPredictorOutputBuilder {
     /// <p>The forecast types used during predictor training. Default value is ["0.1","0.5","0.9"].</p>
     pub fn forecast_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.forecast_types.unwrap_or_default();
-        v.push(input.into());
-        self.forecast_types = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.forecast_types = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The forecast types used during predictor training. Default value is ["0.1","0.5","0.9"].</p>
-    pub fn set_forecast_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.forecast_types = input;
-        self
+    pub fn set_forecast_types(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.forecast_types = input; self
     }
     /// <p>The forecast types used during predictor training. Default value is ["0.1","0.5","0.9"].</p>
-    pub fn get_forecast_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_forecast_types(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.forecast_types
     }
-    /// <p>The frequency of predictions in a forecast.</p>
+    /// <p>The frequency of predictions in a forecast.</p> 
     /// <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
     pub fn forecast_frequency(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.forecast_frequency = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The frequency of predictions in a forecast.</p>
+    /// <p>The frequency of predictions in a forecast.</p> 
     /// <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
     pub fn set_forecast_frequency(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.forecast_frequency = input;
-        self
+        self.forecast_frequency = input; self
     }
-    /// <p>The frequency of predictions in a forecast.</p>
+    /// <p>The frequency of predictions in a forecast.</p> 
     /// <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
     pub fn get_forecast_frequency(&self) -> &::std::option::Option<::std::string::String> {
         &self.forecast_frequency
@@ -279,17 +277,16 @@ impl DescribeAutoPredictorOutputBuilder {
     /// <p>An array of dimension (field) names that specify the attributes used to group your time series.</p>
     pub fn forecast_dimensions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.forecast_dimensions.unwrap_or_default();
-        v.push(input.into());
-        self.forecast_dimensions = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.forecast_dimensions = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>An array of dimension (field) names that specify the attributes used to group your time series.</p>
-    pub fn set_forecast_dimensions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.forecast_dimensions = input;
-        self
+    pub fn set_forecast_dimensions(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.forecast_dimensions = input; self
     }
     /// <p>An array of dimension (field) names that specify the attributes used to group your time series.</p>
-    pub fn get_forecast_dimensions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_forecast_dimensions(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.forecast_dimensions
     }
     /// Appends an item to `dataset_import_job_arns`.
@@ -299,17 +296,16 @@ impl DescribeAutoPredictorOutputBuilder {
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
     pub fn dataset_import_job_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.dataset_import_job_arns.unwrap_or_default();
-        v.push(input.into());
-        self.dataset_import_job_arns = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.dataset_import_job_arns = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
-    pub fn set_dataset_import_job_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.dataset_import_job_arns = input;
-        self
+    pub fn set_dataset_import_job_arns(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.dataset_import_job_arns = input; self
     }
     /// <p>An array of the ARNs of the dataset import jobs used to import training data for the predictor.</p>
-    pub fn get_dataset_import_job_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_dataset_import_job_arns(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.dataset_import_job_arns
     }
     /// <p>The data configuration for your dataset group and any additional datasets.</p>
@@ -319,8 +315,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>The data configuration for your dataset group and any additional datasets.</p>
     pub fn set_data_config(mut self, input: ::std::option::Option<crate::types::DataConfig>) -> Self {
-        self.data_config = input;
-        self
+        self.data_config = input; self
     }
     /// <p>The data configuration for your dataset group and any additional datasets.</p>
     pub fn get_data_config(&self) -> &::std::option::Option<crate::types::DataConfig> {
@@ -333,8 +328,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key. You can specify this optional object in the <code>CreateDataset</code> and <code>CreatePredictor</code> requests.</p>
     pub fn set_encryption_config(mut self, input: ::std::option::Option<crate::types::EncryptionConfig>) -> Self {
-        self.encryption_config = input;
-        self
+        self.encryption_config = input; self
     }
     /// <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key. You can specify this optional object in the <code>CreateDataset</code> and <code>CreatePredictor</code> requests.</p>
     pub fn get_encryption_config(&self) -> &::std::option::Option<crate::types::EncryptionConfig> {
@@ -347,8 +341,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>The ARN and state of the reference predictor. This parameter is only valid for retrained or upgraded predictors.</p>
     pub fn set_reference_predictor_summary(mut self, input: ::std::option::Option<crate::types::ReferencePredictorSummary>) -> Self {
-        self.reference_predictor_summary = input;
-        self
+        self.reference_predictor_summary = input; self
     }
     /// <p>The ARN and state of the reference predictor. This parameter is only valid for retrained or upgraded predictors.</p>
     pub fn get_reference_predictor_summary(&self) -> &::std::option::Option<crate::types::ReferencePredictorSummary> {
@@ -361,41 +354,39 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
     pub fn set_estimated_time_remaining_in_minutes(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.estimated_time_remaining_in_minutes = input;
-        self
+        self.estimated_time_remaining_in_minutes = input; self
     }
     /// <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
     pub fn get_estimated_time_remaining_in_minutes(&self) -> &::std::option::Option<i64> {
         &self.estimated_time_remaining_in_minutes
     }
-    /// <p>The status of the predictor. States include: </p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
+    /// <p>The status of the predictor. States include: </p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
     /// </ul>
     pub fn status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The status of the predictor. States include: </p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
+    /// <p>The status of the predictor. States include: </p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the predictor. States include: </p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> </p> </li>
-    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li>
-    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li>
+    /// <p>The status of the predictor. States include: </p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> </p> </li> 
+    /// <li> <p> <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code> </p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> </p> </li> 
+    /// <li> <p> <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code> </p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.status
@@ -407,8 +398,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>In the event of an error, a message detailing the cause of the error.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.message = input;
-        self
+        self.message = input; self
     }
     /// <p>In the event of an error, a message detailing the cause of the error.</p>
     pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
@@ -421,44 +411,42 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>The timestamp of the CreateAutoPredictor request.</p>
     pub fn set_creation_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_time = input;
-        self
+        self.creation_time = input; self
     }
     /// <p>The timestamp of the CreateAutoPredictor request.</p>
     pub fn get_creation_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.creation_time
     }
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
     pub fn last_modification_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.last_modification_time = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
     pub fn set_last_modification_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_modification_time = input;
-        self
+        self.last_modification_time = input; self
     }
-    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
-    /// <ul>
-    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li>
-    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li>
-    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li>
-    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li>
+    /// <p>The last time the resource was modified. The timestamp depends on the status of the job:</p> 
+    /// <ul> 
+    /// <li> <p> <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p> </li> 
+    /// <li> <p> <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPING</code> - The current timestamp.</p> </li> 
+    /// <li> <p> <code>CREATE_STOPPED</code> - When the job stopped.</p> </li> 
+    /// <li> <p> <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.</p> </li> 
     /// </ul>
     pub fn get_last_modification_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_modification_time
@@ -470,8 +458,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>The accuracy metric used to optimize the predictor.</p>
     pub fn set_optimization_metric(mut self, input: ::std::option::Option<crate::types::OptimizationMetric>) -> Self {
-        self.optimization_metric = input;
-        self
+        self.optimization_metric = input; self
     }
     /// <p>The accuracy metric used to optimize the predictor.</p>
     pub fn get_optimization_metric(&self) -> &::std::option::Option<crate::types::OptimizationMetric> {
@@ -484,8 +471,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>Provides the status and ARN of the Predictor Explainability.</p>
     pub fn set_explainability_info(mut self, input: ::std::option::Option<crate::types::ExplainabilityInfo>) -> Self {
-        self.explainability_info = input;
-        self
+        self.explainability_info = input; self
     }
     /// <p>Provides the status and ARN of the Predictor Explainability.</p>
     pub fn get_explainability_info(&self) -> &::std::option::Option<crate::types::ExplainabilityInfo> {
@@ -498,8 +484,7 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>A object with the Amazon Resource Name (ARN) and status of the monitor resource.</p>
     pub fn set_monitor_info(mut self, input: ::std::option::Option<crate::types::MonitorInfo>) -> Self {
-        self.monitor_info = input;
-        self
+        self.monitor_info = input; self
     }
     /// <p>A object with the Amazon Resource Name (ARN) and status of the monitor resource.</p>
     pub fn get_monitor_info(&self) -> &::std::option::Option<crate::types::MonitorInfo> {
@@ -512,45 +497,64 @@ impl DescribeAutoPredictorOutputBuilder {
     }
     /// <p>The time boundary Forecast uses when aggregating data.</p>
     pub fn set_time_alignment_boundary(mut self, input: ::std::option::Option<crate::types::TimeAlignmentBoundary>) -> Self {
-        self.time_alignment_boundary = input;
-        self
+        self.time_alignment_boundary = input; self
     }
     /// <p>The time boundary Forecast uses when aggregating data.</p>
     pub fn get_time_alignment_boundary(&self) -> &::std::option::Option<crate::types::TimeAlignmentBoundary> {
         &self.time_alignment_boundary
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`DescribeAutoPredictorOutput`](crate::operation::describe_auto_predictor::DescribeAutoPredictorOutput).
     pub fn build(self) -> crate::operation::describe_auto_predictor::DescribeAutoPredictorOutput {
         crate::operation::describe_auto_predictor::DescribeAutoPredictorOutput {
-            predictor_arn: self.predictor_arn,
-            predictor_name: self.predictor_name,
-            forecast_horizon: self.forecast_horizon,
-            forecast_types: self.forecast_types,
-            forecast_frequency: self.forecast_frequency,
-            forecast_dimensions: self.forecast_dimensions,
-            dataset_import_job_arns: self.dataset_import_job_arns,
-            data_config: self.data_config,
-            encryption_config: self.encryption_config,
-            reference_predictor_summary: self.reference_predictor_summary,
-            estimated_time_remaining_in_minutes: self.estimated_time_remaining_in_minutes,
-            status: self.status,
-            message: self.message,
-            creation_time: self.creation_time,
-            last_modification_time: self.last_modification_time,
-            optimization_metric: self.optimization_metric,
-            explainability_info: self.explainability_info,
-            monitor_info: self.monitor_info,
-            time_alignment_boundary: self.time_alignment_boundary,
+            predictor_arn: self.predictor_arn
+            ,
+            predictor_name: self.predictor_name
+            ,
+            forecast_horizon: self.forecast_horizon
+            ,
+            forecast_types: self.forecast_types
+            ,
+            forecast_frequency: self.forecast_frequency
+            ,
+            forecast_dimensions: self.forecast_dimensions
+            ,
+            dataset_import_job_arns: self.dataset_import_job_arns
+            ,
+            data_config: self.data_config
+            ,
+            encryption_config: self.encryption_config
+            ,
+            reference_predictor_summary: self.reference_predictor_summary
+            ,
+            estimated_time_remaining_in_minutes: self.estimated_time_remaining_in_minutes
+            ,
+            status: self.status
+            ,
+            message: self.message
+            ,
+            creation_time: self.creation_time
+            ,
+            last_modification_time: self.last_modification_time
+            ,
+            optimization_metric: self.optimization_metric
+            ,
+            explainability_info: self.explainability_info
+            ,
+            monitor_info: self.monitor_info
+            ,
+            time_alignment_boundary: self.time_alignment_boundary
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

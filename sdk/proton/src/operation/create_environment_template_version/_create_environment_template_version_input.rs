@@ -2,53 +2,54 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct CreateEnvironmentTemplateVersionInput {
+pub struct CreateEnvironmentTemplateVersionInput  {
     /// <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first request created.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
     /// <p>The name of the environment template.</p>
     pub template_name: ::std::option::Option<::std::string::String>,
     /// <p>A description of the new version of an environment template.</p>
     pub description: ::std::option::Option<::std::string::String>,
-    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p>
+    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p> 
     /// <p>To create a new major and minor version of the environment template, exclude <code>major Version</code>.</p>
     pub major_version: ::std::option::Option<::std::string::String>,
     /// <p>An object that includes the template bundle S3 bucket path and name for the new version of an template.</p>
     pub source: ::std::option::Option<crate::types::TemplateVersionSourceInput>,
-    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p>
+    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
-impl CreateEnvironmentTemplateVersionInput {
+impl  CreateEnvironmentTemplateVersionInput  {
     /// <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first request created.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
     /// <p>The name of the environment template.</p>
-    pub fn template_name(&self) -> ::std::option::Option<&str> {
+    pub fn template_name(&self) -> ::std::option::Option<& str> {
         self.template_name.as_deref()
     }
     /// <p>A description of the new version of an environment template.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
-    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p>
+    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p> 
     /// <p>To create a new major and minor version of the environment template, exclude <code>major Version</code>.</p>
-    pub fn major_version(&self) -> ::std::option::Option<&str> {
+    pub fn major_version(&self) -> ::std::option::Option<& str> {
         self.major_version.as_deref()
     }
     /// <p>An object that includes the template bundle S3 bucket path and name for the new version of an template.</p>
-    pub fn source(&self) -> ::std::option::Option<&crate::types::TemplateVersionSourceInput> {
+    pub fn source(&self) -> ::std::option::Option<& crate::types::TemplateVersionSourceInput> {
         self.source.as_ref()
     }
-    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p>
+    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
-        self.tags.as_deref().unwrap_or_default()
+    pub fn tags(&self) -> & [crate::types::Tag] {
+        self.tags.as_deref()
+        .unwrap_or_default()
     }
 }
-impl ::std::fmt::Debug for CreateEnvironmentTemplateVersionInput {
+impl  ::std::fmt::Debug for CreateEnvironmentTemplateVersionInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("CreateEnvironmentTemplateVersionInput");
         formatter.field("client_token", &self.client_token);
@@ -76,7 +77,7 @@ pub struct CreateEnvironmentTemplateVersionInputBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) major_version: ::std::option::Option<::std::string::String>,
     pub(crate) source: ::std::option::Option<crate::types::TemplateVersionSourceInput>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
 impl CreateEnvironmentTemplateVersionInputBuilder {
     /// <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first request created.</p>
@@ -86,8 +87,7 @@ impl CreateEnvironmentTemplateVersionInputBuilder {
     }
     /// <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first request created.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first request created.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -101,8 +101,7 @@ impl CreateEnvironmentTemplateVersionInputBuilder {
     }
     /// <p>The name of the environment template.</p>
     pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.template_name = input;
-        self
+        self.template_name = input; self
     }
     /// <p>The name of the environment template.</p>
     pub fn get_template_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -115,26 +114,24 @@ impl CreateEnvironmentTemplateVersionInputBuilder {
     }
     /// <p>A description of the new version of an environment template.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>A description of the new version of an environment template.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
-    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p>
+    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p> 
     /// <p>To create a new major and minor version of the environment template, exclude <code>major Version</code>.</p>
     pub fn major_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.major_version = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p>
+    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p> 
     /// <p>To create a new major and minor version of the environment template, exclude <code>major Version</code>.</p>
     pub fn set_major_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.major_version = input;
-        self
+        self.major_version = input; self
     }
-    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p>
+    /// <p>To create a new minor version of the environment template, include <code>major Version</code>.</p> 
     /// <p>To create a new major and minor version of the environment template, exclude <code>major Version</code>.</p>
     pub fn get_major_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.major_version
@@ -147,8 +144,7 @@ impl CreateEnvironmentTemplateVersionInputBuilder {
     }
     /// <p>An object that includes the template bundle S3 bucket path and name for the new version of an template.</p>
     pub fn set_source(mut self, input: ::std::option::Option<crate::types::TemplateVersionSourceInput>) -> Self {
-        self.source = input;
-        self
+        self.source = input; self
     }
     /// <p>An object that includes the template bundle S3 bucket path and name for the new version of an template.</p>
     pub fn get_source(&self) -> &::std::option::Option<crate::types::TemplateVersionSourceInput> {
@@ -158,41 +154,41 @@ impl CreateEnvironmentTemplateVersionInputBuilder {
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
-    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p>
+    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
-        v.push(input);
-        self.tags = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.tags = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p>
+    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
+        self.tags = input; self
     }
-    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p>
+    /// <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateEnvironmentTemplateVersionInput`](crate::operation::create_environment_template_version::CreateEnvironmentTemplateVersionInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_environment_template_version::CreateEnvironmentTemplateVersionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_environment_template_version::CreateEnvironmentTemplateVersionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(
             crate::operation::create_environment_template_version::CreateEnvironmentTemplateVersionInput {
-                client_token: self.client_token,
-                template_name: self.template_name,
-                description: self.description,
-                major_version: self.major_version,
-                source: self.source,
-                tags: self.tags,
-            },
+                client_token: self.client_token
+                ,
+                template_name: self.template_name
+                ,
+                description: self.description
+                ,
+                major_version: self.major_version
+                ,
+                source: self.source
+                ,
+                tags: self.tags
+                ,
+            }
         )
     }
 }
@@ -208,3 +204,4 @@ impl ::std::fmt::Debug for CreateEnvironmentTemplateVersionInputBuilder {
         formatter.finish()
     }
 }
+

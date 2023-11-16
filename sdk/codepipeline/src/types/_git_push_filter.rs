@@ -3,13 +3,13 @@
 /// <p>The event criteria that specify when a specified repository event will start the pipeline for the specified trigger configuration, such as the lists of Git tags to include and exclude.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GitPushFilter {
+pub struct GitPushFilter  {
     /// <p>The field that contains the details for the Git tags trigger configuration.</p>
     pub tags: ::std::option::Option<crate::types::GitTagFilterCriteria>,
 }
-impl GitPushFilter {
+impl  GitPushFilter  {
     /// <p>The field that contains the details for the Git tags trigger configuration.</p>
-    pub fn tags(&self) -> ::std::option::Option<&crate::types::GitTagFilterCriteria> {
+    pub fn tags(&self) -> ::std::option::Option<& crate::types::GitTagFilterCriteria> {
         self.tags.as_ref()
     }
 }
@@ -34,8 +34,7 @@ impl GitPushFilterBuilder {
     }
     /// <p>The field that contains the details for the Git tags trigger configuration.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<crate::types::GitTagFilterCriteria>) -> Self {
-        self.tags = input;
-        self
+        self.tags = input; self
     }
     /// <p>The field that contains the details for the Git tags trigger configuration.</p>
     pub fn get_tags(&self) -> &::std::option::Option<crate::types::GitTagFilterCriteria> {
@@ -43,6 +42,10 @@ impl GitPushFilterBuilder {
     }
     /// Consumes the builder and constructs a [`GitPushFilter`](crate::types::GitPushFilter).
     pub fn build(self) -> crate::types::GitPushFilter {
-        crate::types::GitPushFilter { tags: self.tags }
+        crate::types::GitPushFilter {
+            tags: self.tags
+            ,
+        }
     }
 }
+

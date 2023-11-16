@@ -3,25 +3,25 @@
 /// Represents the input of a CreateWorkspace operation.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateWorkspaceInput {
+pub struct CreateWorkspaceInput  {
     /// An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
     pub alias: ::std::option::Option<::std::string::String>,
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
     pub client_token: ::std::option::Option<::std::string::String>,
     /// Optional, user-provided tags for this workspace.
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
 }
-impl CreateWorkspaceInput {
+impl  CreateWorkspaceInput  {
     /// An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
-    pub fn alias(&self) -> ::std::option::Option<&str> {
+    pub fn alias(&self) -> ::std::option::Option<& str> {
         self.alias.as_deref()
     }
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
     /// Optional, user-provided tags for this workspace.
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -38,7 +38,7 @@ impl CreateWorkspaceInput {
 pub struct CreateWorkspaceInputBuilder {
     pub(crate) alias: ::std::option::Option<::std::string::String>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
 }
 impl CreateWorkspaceInputBuilder {
     /// An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
@@ -48,8 +48,7 @@ impl CreateWorkspaceInputBuilder {
     }
     /// An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
     pub fn set_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.alias = input;
-        self
+        self.alias = input; self
     }
     /// An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
     pub fn get_alias(&self) -> &::std::option::Option<::std::string::String> {
@@ -62,8 +61,7 @@ impl CreateWorkspaceInputBuilder {
     }
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -76,27 +74,30 @@ impl CreateWorkspaceInputBuilder {
     /// Optional, user-provided tags for this workspace.
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.tags = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// Optional, user-provided tags for this workspace.
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input; self
     }
     /// Optional, user-provided tags for this workspace.
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateWorkspaceInput`](crate::operation::create_workspace::CreateWorkspaceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_workspace::CreateWorkspaceInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_workspace::CreateWorkspaceInput {
-            alias: self.alias,
-            client_token: self.client_token,
-            tags: self.tags,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_workspace::CreateWorkspaceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_workspace::CreateWorkspaceInput {
+                alias: self.alias
+                ,
+                client_token: self.client_token
+                ,
+                tags: self.tags
+                ,
+            }
+        )
     }
 }
+

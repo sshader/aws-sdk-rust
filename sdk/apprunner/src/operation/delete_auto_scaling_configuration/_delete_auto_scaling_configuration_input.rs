@@ -2,21 +2,21 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteAutoScalingConfigurationInput {
-    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p>
+pub struct DeleteAutoScalingConfigurationInput  {
+    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p> 
     /// <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is deleted.</p>
     pub auto_scaling_configuration_arn: ::std::option::Option<::std::string::String>,
-    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p>
+    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p> 
     /// <p>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value for the Amazon Resource Name (ARN) is a partial ARN ending with: <code>.../name</code>.</p>
     pub delete_all_revisions: ::std::option::Option<bool>,
 }
-impl DeleteAutoScalingConfigurationInput {
-    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p>
+impl  DeleteAutoScalingConfigurationInput  {
+    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p> 
     /// <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is deleted.</p>
-    pub fn auto_scaling_configuration_arn(&self) -> ::std::option::Option<&str> {
+    pub fn auto_scaling_configuration_arn(&self) -> ::std::option::Option<& str> {
         self.auto_scaling_configuration_arn.as_deref()
     }
-    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p>
+    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p> 
     /// <p>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value for the Amazon Resource Name (ARN) is a partial ARN ending with: <code>.../name</code>.</p>
     pub fn delete_all_revisions(&self) -> ::std::option::Option<bool> {
         self.delete_all_revisions
@@ -37,51 +37,49 @@ pub struct DeleteAutoScalingConfigurationInputBuilder {
     pub(crate) delete_all_revisions: ::std::option::Option<bool>,
 }
 impl DeleteAutoScalingConfigurationInputBuilder {
-    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p>
+    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p> 
     /// <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is deleted.</p>
     /// This field is required.
     pub fn auto_scaling_configuration_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.auto_scaling_configuration_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p>
+    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p> 
     /// <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is deleted.</p>
     pub fn set_auto_scaling_configuration_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.auto_scaling_configuration_arn = input;
-        self
+        self.auto_scaling_configuration_arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p>
+    /// <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p> 
     /// <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is deleted.</p>
     pub fn get_auto_scaling_configuration_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.auto_scaling_configuration_arn
     }
-    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p>
+    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p> 
     /// <p>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value for the Amazon Resource Name (ARN) is a partial ARN ending with: <code>.../name</code>.</p>
     pub fn delete_all_revisions(mut self, input: bool) -> Self {
         self.delete_all_revisions = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p>
+    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p> 
     /// <p>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value for the Amazon Resource Name (ARN) is a partial ARN ending with: <code>.../name</code>.</p>
     pub fn set_delete_all_revisions(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.delete_all_revisions = input;
-        self
+        self.delete_all_revisions = input; self
     }
-    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p>
+    /// <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p> 
     /// <p>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value for the Amazon Resource Name (ARN) is a partial ARN ending with: <code>.../name</code>.</p>
     pub fn get_delete_all_revisions(&self) -> &::std::option::Option<bool> {
         &self.delete_all_revisions
     }
     /// Consumes the builder and constructs a [`DeleteAutoScalingConfigurationInput`](crate::operation::delete_auto_scaling_configuration::DeleteAutoScalingConfigurationInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_auto_scaling_configuration::DeleteAutoScalingConfigurationInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_auto_scaling_configuration::DeleteAutoScalingConfigurationInput {
-            auto_scaling_configuration_arn: self.auto_scaling_configuration_arn,
-            delete_all_revisions: self.delete_all_revisions,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_auto_scaling_configuration::DeleteAutoScalingConfigurationInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_auto_scaling_configuration::DeleteAutoScalingConfigurationInput {
+                auto_scaling_configuration_arn: self.auto_scaling_configuration_arn
+                ,
+                delete_all_revisions: self.delete_all_revisions
+                ,
+            }
+        )
     }
 }
+

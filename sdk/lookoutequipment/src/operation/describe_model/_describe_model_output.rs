@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeModelOutput {
+pub struct DescribeModelOutput  {
     /// <p>The name of the machine learning model being described. </p>
     pub model_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the machine learning model being described. </p>
@@ -25,7 +25,7 @@ pub struct DescribeModelOutput {
     pub evaluation_data_end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p> The Amazon Resource Name (ARN) of a role with permission to access the data source for the machine learning model being described. </p>
     pub role_arn: ::std::option::Option<::std::string::String>,
-    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p>
+    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p> 
     /// <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the prefix "PT" to the rate you want. The value for a 1 second rate is therefore <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>, and the value for a 1 hour rate is <i>PT1H</i> </p>
     pub data_pre_processing_configuration: ::std::option::Option<crate::types::DataPreProcessingConfiguration>,
     /// <p>Specifies the current status of the model being described. Status describes the status of the most recent action of the model. </p>
@@ -86,102 +86,102 @@ pub struct DescribeModelOutput {
     pub retraining_scheduler_status: ::std::option::Option<crate::types::RetrainingSchedulerStatus>,
     _request_id: Option<String>,
 }
-impl DescribeModelOutput {
+impl  DescribeModelOutput  {
     /// <p>The name of the machine learning model being described. </p>
-    pub fn model_name(&self) -> ::std::option::Option<&str> {
+    pub fn model_name(&self) -> ::std::option::Option<& str> {
         self.model_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the machine learning model being described. </p>
-    pub fn model_arn(&self) -> ::std::option::Option<&str> {
+    pub fn model_arn(&self) -> ::std::option::Option<& str> {
         self.model_arn.as_deref()
     }
     /// <p>The name of the dataset being used by the machine learning being described. </p>
-    pub fn dataset_name(&self) -> ::std::option::Option<&str> {
+    pub fn dataset_name(&self) -> ::std::option::Option<& str> {
         self.dataset_name.as_deref()
     }
     /// <p>The Amazon Resouce Name (ARN) of the dataset used to create the machine learning model being described. </p>
-    pub fn dataset_arn(&self) -> ::std::option::Option<&str> {
+    pub fn dataset_arn(&self) -> ::std::option::Option<& str> {
         self.dataset_arn.as_deref()
     }
     /// <p>A JSON description of the data that is in each time series dataset, including names, column names, and data types. </p>
-    pub fn schema(&self) -> ::std::option::Option<&str> {
+    pub fn schema(&self) -> ::std::option::Option<& str> {
         self.schema.as_deref()
     }
     /// <p>Specifies configuration information about the labels input, including its S3 location. </p>
-    pub fn labels_input_configuration(&self) -> ::std::option::Option<&crate::types::LabelsInputConfiguration> {
+    pub fn labels_input_configuration(&self) -> ::std::option::Option<& crate::types::LabelsInputConfiguration> {
         self.labels_input_configuration.as_ref()
     }
     /// <p> Indicates the time reference in the dataset that was used to begin the subset of training data for the machine learning model. </p>
-    pub fn training_data_start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn training_data_start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.training_data_start_time.as_ref()
     }
     /// <p> Indicates the time reference in the dataset that was used to end the subset of training data for the machine learning model. </p>
-    pub fn training_data_end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn training_data_end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.training_data_end_time.as_ref()
     }
     /// <p> Indicates the time reference in the dataset that was used to begin the subset of evaluation data for the machine learning model. </p>
-    pub fn evaluation_data_start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn evaluation_data_start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.evaluation_data_start_time.as_ref()
     }
     /// <p> Indicates the time reference in the dataset that was used to end the subset of evaluation data for the machine learning model. </p>
-    pub fn evaluation_data_end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn evaluation_data_end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.evaluation_data_end_time.as_ref()
     }
     /// <p> The Amazon Resource Name (ARN) of a role with permission to access the data source for the machine learning model being described. </p>
-    pub fn role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn role_arn(&self) -> ::std::option::Option<& str> {
         self.role_arn.as_deref()
     }
-    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p>
+    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p> 
     /// <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the prefix "PT" to the rate you want. The value for a 1 second rate is therefore <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>, and the value for a 1 hour rate is <i>PT1H</i> </p>
-    pub fn data_pre_processing_configuration(&self) -> ::std::option::Option<&crate::types::DataPreProcessingConfiguration> {
+    pub fn data_pre_processing_configuration(&self) -> ::std::option::Option<& crate::types::DataPreProcessingConfiguration> {
         self.data_pre_processing_configuration.as_ref()
     }
     /// <p>Specifies the current status of the model being described. Status describes the status of the most recent action of the model. </p>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::ModelStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::ModelStatus> {
         self.status.as_ref()
     }
     /// <p>Indicates the time at which the training of the machine learning model began. </p>
-    pub fn training_execution_start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn training_execution_start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.training_execution_start_time.as_ref()
     }
     /// <p>Indicates the time at which the training of the machine learning model was completed. </p>
-    pub fn training_execution_end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn training_execution_end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.training_execution_end_time.as_ref()
     }
     /// <p>If the training of the machine learning model failed, this indicates the reason for that failure. </p>
-    pub fn failed_reason(&self) -> ::std::option::Option<&str> {
+    pub fn failed_reason(&self) -> ::std::option::Option<& str> {
         self.failed_reason.as_deref()
     }
     /// <p>The Model Metrics show an aggregated summary of the model's performance within the evaluation time range. This is the JSON content of the metrics created when evaluating the model. </p>
-    pub fn model_metrics(&self) -> ::std::option::Option<&str> {
+    pub fn model_metrics(&self) -> ::std::option::Option<& str> {
         self.model_metrics.as_deref()
     }
     /// <p>Indicates the last time the machine learning model was updated. The type of update is not specified. </p>
-    pub fn last_updated_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_updated_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_updated_time.as_ref()
     }
     /// <p>Indicates the time and date at which the machine learning model was created. </p>
-    pub fn created_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn created_at(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.created_at.as_ref()
     }
     /// <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout for Equipment. </p>
-    pub fn server_side_kms_key_id(&self) -> ::std::option::Option<&str> {
+    pub fn server_side_kms_key_id(&self) -> ::std::option::Option<& str> {
         self.server_side_kms_key_id.as_deref()
     }
     /// <p>Indicates that the asset associated with this sensor has been shut off. As long as this condition is met, Lookout for Equipment will not use data from this asset for training, evaluation, or inference.</p>
-    pub fn off_condition(&self) -> ::std::option::Option<&str> {
+    pub fn off_condition(&self) -> ::std::option::Option<& str> {
         self.off_condition.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the source model version. This field appears if the active model version was imported.</p>
-    pub fn source_model_version_arn(&self) -> ::std::option::Option<&str> {
+    pub fn source_model_version_arn(&self) -> ::std::option::Option<& str> {
         self.source_model_version_arn.as_deref()
     }
     /// <p>The date and time when the import job was started. This field appears if the active model version was imported.</p>
-    pub fn import_job_start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn import_job_start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.import_job_start_time.as_ref()
     }
     /// <p>The date and time when the import job was completed. This field appears if the active model version was imported.</p>
-    pub fn import_job_end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn import_job_end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.import_job_end_time.as_ref()
     }
     /// <p>The name of the model version used by the inference schedular when running a scheduled inference execution.</p>
@@ -189,11 +189,11 @@ impl DescribeModelOutput {
         self.active_model_version
     }
     /// <p>The Amazon Resource Name (ARN) of the model version used by the inference scheduler when running a scheduled inference execution.</p>
-    pub fn active_model_version_arn(&self) -> ::std::option::Option<&str> {
+    pub fn active_model_version_arn(&self) -> ::std::option::Option<& str> {
         self.active_model_version_arn.as_deref()
     }
     /// <p>The date the active model version was activated.</p>
-    pub fn model_version_activated_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn model_version_activated_at(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.model_version_activated_at.as_ref()
     }
     /// <p>The model version that was set as the active model version prior to the current active model version.</p>
@@ -201,23 +201,23 @@ impl DescribeModelOutput {
         self.previous_active_model_version
     }
     /// <p>The ARN of the model version that was set as the active model version prior to the current active model version.</p>
-    pub fn previous_active_model_version_arn(&self) -> ::std::option::Option<&str> {
+    pub fn previous_active_model_version_arn(&self) -> ::std::option::Option<& str> {
         self.previous_active_model_version_arn.as_deref()
     }
     /// <p>The date and time when the previous active model version was activated.</p>
-    pub fn previous_model_version_activated_at(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn previous_model_version_activated_at(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.previous_model_version_activated_at.as_ref()
     }
     /// <p>If the model version was retrained, this field shows a summary of the performance of the prior model on the new training range. You can use the information in this JSON-formatted object to compare the new model version and the prior model version.</p>
-    pub fn prior_model_metrics(&self) -> ::std::option::Option<&str> {
+    pub fn prior_model_metrics(&self) -> ::std::option::Option<& str> {
         self.prior_model_metrics.as_deref()
     }
     /// <p>If the model version was generated by retraining and the training failed, this indicates the reason for that failure. </p>
-    pub fn latest_scheduled_retraining_failed_reason(&self) -> ::std::option::Option<&str> {
+    pub fn latest_scheduled_retraining_failed_reason(&self) -> ::std::option::Option<& str> {
         self.latest_scheduled_retraining_failed_reason.as_deref()
     }
     /// <p>Indicates the status of the most recent scheduled retraining run. </p>
-    pub fn latest_scheduled_retraining_status(&self) -> ::std::option::Option<&crate::types::ModelVersionStatus> {
+    pub fn latest_scheduled_retraining_status(&self) -> ::std::option::Option<& crate::types::ModelVersionStatus> {
         self.latest_scheduled_retraining_status.as_ref()
     }
     /// <p>Indicates the most recent model version that was generated by retraining. </p>
@@ -225,7 +225,7 @@ impl DescribeModelOutput {
         self.latest_scheduled_retraining_model_version
     }
     /// <p>Indicates the start time of the most recent scheduled retraining run. </p>
-    pub fn latest_scheduled_retraining_start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn latest_scheduled_retraining_start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.latest_scheduled_retraining_start_time.as_ref()
     }
     /// <p>Indicates the number of days of data used in the most recent scheduled retraining run. </p>
@@ -233,27 +233,27 @@ impl DescribeModelOutput {
         self.latest_scheduled_retraining_available_data_in_days
     }
     /// <p>Indicates the date and time that the next scheduled retraining run will start on. Lookout for Equipment truncates the time you provide to the nearest UTC day.</p>
-    pub fn next_scheduled_retraining_start_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn next_scheduled_retraining_start_date(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.next_scheduled_retraining_start_date.as_ref()
     }
     /// <p>Indicates the start time of the inference data that has been accumulated. </p>
-    pub fn accumulated_inference_data_start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn accumulated_inference_data_start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.accumulated_inference_data_start_time.as_ref()
     }
     /// <p>Indicates the end time of the inference data that has been accumulated. </p>
-    pub fn accumulated_inference_data_end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn accumulated_inference_data_end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.accumulated_inference_data_end_time.as_ref()
     }
     /// <p>Indicates the status of the retraining scheduler. </p>
-    pub fn retraining_scheduler_status(&self) -> ::std::option::Option<&crate::types::RetrainingSchedulerStatus> {
+    pub fn retraining_scheduler_status(&self) -> ::std::option::Option<& crate::types::RetrainingSchedulerStatus> {
         self.retraining_scheduler_status.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for DescribeModelOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for DescribeModelOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl DescribeModelOutput {
     /// Creates a new builder-style object to manufacture [`DescribeModelOutput`](crate::operation::describe_model::DescribeModelOutput).
     pub fn builder() -> crate::operation::describe_model::builders::DescribeModelOutputBuilder {
@@ -315,8 +315,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The name of the machine learning model being described. </p>
     pub fn set_model_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.model_name = input;
-        self
+        self.model_name = input; self
     }
     /// <p>The name of the machine learning model being described. </p>
     pub fn get_model_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -329,8 +328,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the machine learning model being described. </p>
     pub fn set_model_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.model_arn = input;
-        self
+        self.model_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the machine learning model being described. </p>
     pub fn get_model_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -343,8 +341,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The name of the dataset being used by the machine learning being described. </p>
     pub fn set_dataset_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.dataset_name = input;
-        self
+        self.dataset_name = input; self
     }
     /// <p>The name of the dataset being used by the machine learning being described. </p>
     pub fn get_dataset_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -357,8 +354,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The Amazon Resouce Name (ARN) of the dataset used to create the machine learning model being described. </p>
     pub fn set_dataset_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.dataset_arn = input;
-        self
+        self.dataset_arn = input; self
     }
     /// <p>The Amazon Resouce Name (ARN) of the dataset used to create the machine learning model being described. </p>
     pub fn get_dataset_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -371,8 +367,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>A JSON description of the data that is in each time series dataset, including names, column names, and data types. </p>
     pub fn set_schema(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.schema = input;
-        self
+        self.schema = input; self
     }
     /// <p>A JSON description of the data that is in each time series dataset, including names, column names, and data types. </p>
     pub fn get_schema(&self) -> &::std::option::Option<::std::string::String> {
@@ -385,8 +380,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Specifies configuration information about the labels input, including its S3 location. </p>
     pub fn set_labels_input_configuration(mut self, input: ::std::option::Option<crate::types::LabelsInputConfiguration>) -> Self {
-        self.labels_input_configuration = input;
-        self
+        self.labels_input_configuration = input; self
     }
     /// <p>Specifies configuration information about the labels input, including its S3 location. </p>
     pub fn get_labels_input_configuration(&self) -> &::std::option::Option<crate::types::LabelsInputConfiguration> {
@@ -399,8 +393,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p> Indicates the time reference in the dataset that was used to begin the subset of training data for the machine learning model. </p>
     pub fn set_training_data_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.training_data_start_time = input;
-        self
+        self.training_data_start_time = input; self
     }
     /// <p> Indicates the time reference in the dataset that was used to begin the subset of training data for the machine learning model. </p>
     pub fn get_training_data_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -413,8 +406,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p> Indicates the time reference in the dataset that was used to end the subset of training data for the machine learning model. </p>
     pub fn set_training_data_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.training_data_end_time = input;
-        self
+        self.training_data_end_time = input; self
     }
     /// <p> Indicates the time reference in the dataset that was used to end the subset of training data for the machine learning model. </p>
     pub fn get_training_data_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -427,8 +419,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p> Indicates the time reference in the dataset that was used to begin the subset of evaluation data for the machine learning model. </p>
     pub fn set_evaluation_data_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.evaluation_data_start_time = input;
-        self
+        self.evaluation_data_start_time = input; self
     }
     /// <p> Indicates the time reference in the dataset that was used to begin the subset of evaluation data for the machine learning model. </p>
     pub fn get_evaluation_data_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -441,8 +432,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p> Indicates the time reference in the dataset that was used to end the subset of evaluation data for the machine learning model. </p>
     pub fn set_evaluation_data_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.evaluation_data_end_time = input;
-        self
+        self.evaluation_data_end_time = input; self
     }
     /// <p> Indicates the time reference in the dataset that was used to end the subset of evaluation data for the machine learning model. </p>
     pub fn get_evaluation_data_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -455,26 +445,24 @@ impl DescribeModelOutputBuilder {
     }
     /// <p> The Amazon Resource Name (ARN) of a role with permission to access the data source for the machine learning model being described. </p>
     pub fn set_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.role_arn = input;
-        self
+        self.role_arn = input; self
     }
     /// <p> The Amazon Resource Name (ARN) of a role with permission to access the data source for the machine learning model being described. </p>
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_arn
     }
-    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p>
+    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p> 
     /// <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the prefix "PT" to the rate you want. The value for a 1 second rate is therefore <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>, and the value for a 1 hour rate is <i>PT1H</i> </p>
     pub fn data_pre_processing_configuration(mut self, input: crate::types::DataPreProcessingConfiguration) -> Self {
         self.data_pre_processing_configuration = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p>
+    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p> 
     /// <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the prefix "PT" to the rate you want. The value for a 1 second rate is therefore <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>, and the value for a 1 hour rate is <i>PT1H</i> </p>
     pub fn set_data_pre_processing_configuration(mut self, input: ::std::option::Option<crate::types::DataPreProcessingConfiguration>) -> Self {
-        self.data_pre_processing_configuration = input;
-        self
+        self.data_pre_processing_configuration = input; self
     }
-    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p>
+    /// <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of the data after post processing by Amazon Lookout for Equipment. For example, if you provide data that has been collected at a 1 second level and you want the system to resample the data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1 minute.</p> 
     /// <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the prefix "PT" to the rate you want. The value for a 1 second rate is therefore <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>, and the value for a 1 hour rate is <i>PT1H</i> </p>
     pub fn get_data_pre_processing_configuration(&self) -> &::std::option::Option<crate::types::DataPreProcessingConfiguration> {
         &self.data_pre_processing_configuration
@@ -486,8 +474,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Specifies the current status of the model being described. Status describes the status of the most recent action of the model. </p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ModelStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>Specifies the current status of the model being described. Status describes the status of the most recent action of the model. </p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::ModelStatus> {
@@ -500,8 +487,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the time at which the training of the machine learning model began. </p>
     pub fn set_training_execution_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.training_execution_start_time = input;
-        self
+        self.training_execution_start_time = input; self
     }
     /// <p>Indicates the time at which the training of the machine learning model began. </p>
     pub fn get_training_execution_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -514,8 +500,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the time at which the training of the machine learning model was completed. </p>
     pub fn set_training_execution_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.training_execution_end_time = input;
-        self
+        self.training_execution_end_time = input; self
     }
     /// <p>Indicates the time at which the training of the machine learning model was completed. </p>
     pub fn get_training_execution_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -528,8 +513,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>If the training of the machine learning model failed, this indicates the reason for that failure. </p>
     pub fn set_failed_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.failed_reason = input;
-        self
+        self.failed_reason = input; self
     }
     /// <p>If the training of the machine learning model failed, this indicates the reason for that failure. </p>
     pub fn get_failed_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -542,8 +526,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The Model Metrics show an aggregated summary of the model's performance within the evaluation time range. This is the JSON content of the metrics created when evaluating the model. </p>
     pub fn set_model_metrics(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.model_metrics = input;
-        self
+        self.model_metrics = input; self
     }
     /// <p>The Model Metrics show an aggregated summary of the model's performance within the evaluation time range. This is the JSON content of the metrics created when evaluating the model. </p>
     pub fn get_model_metrics(&self) -> &::std::option::Option<::std::string::String> {
@@ -556,8 +539,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the last time the machine learning model was updated. The type of update is not specified. </p>
     pub fn set_last_updated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_updated_time = input;
-        self
+        self.last_updated_time = input; self
     }
     /// <p>Indicates the last time the machine learning model was updated. The type of update is not specified. </p>
     pub fn get_last_updated_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -570,8 +552,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the time and date at which the machine learning model was created. </p>
     pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_at = input;
-        self
+        self.created_at = input; self
     }
     /// <p>Indicates the time and date at which the machine learning model was created. </p>
     pub fn get_created_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -584,8 +565,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout for Equipment. </p>
     pub fn set_server_side_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.server_side_kms_key_id = input;
-        self
+        self.server_side_kms_key_id = input; self
     }
     /// <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout for Equipment. </p>
     pub fn get_server_side_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -598,8 +578,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates that the asset associated with this sensor has been shut off. As long as this condition is met, Lookout for Equipment will not use data from this asset for training, evaluation, or inference.</p>
     pub fn set_off_condition(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.off_condition = input;
-        self
+        self.off_condition = input; self
     }
     /// <p>Indicates that the asset associated with this sensor has been shut off. As long as this condition is met, Lookout for Equipment will not use data from this asset for training, evaluation, or inference.</p>
     pub fn get_off_condition(&self) -> &::std::option::Option<::std::string::String> {
@@ -612,8 +591,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the source model version. This field appears if the active model version was imported.</p>
     pub fn set_source_model_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.source_model_version_arn = input;
-        self
+        self.source_model_version_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the source model version. This field appears if the active model version was imported.</p>
     pub fn get_source_model_version_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -626,8 +604,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The date and time when the import job was started. This field appears if the active model version was imported.</p>
     pub fn set_import_job_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.import_job_start_time = input;
-        self
+        self.import_job_start_time = input; self
     }
     /// <p>The date and time when the import job was started. This field appears if the active model version was imported.</p>
     pub fn get_import_job_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -640,8 +617,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The date and time when the import job was completed. This field appears if the active model version was imported.</p>
     pub fn set_import_job_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.import_job_end_time = input;
-        self
+        self.import_job_end_time = input; self
     }
     /// <p>The date and time when the import job was completed. This field appears if the active model version was imported.</p>
     pub fn get_import_job_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -654,8 +630,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The name of the model version used by the inference schedular when running a scheduled inference execution.</p>
     pub fn set_active_model_version(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.active_model_version = input;
-        self
+        self.active_model_version = input; self
     }
     /// <p>The name of the model version used by the inference schedular when running a scheduled inference execution.</p>
     pub fn get_active_model_version(&self) -> &::std::option::Option<i64> {
@@ -668,8 +643,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the model version used by the inference scheduler when running a scheduled inference execution.</p>
     pub fn set_active_model_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.active_model_version_arn = input;
-        self
+        self.active_model_version_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the model version used by the inference scheduler when running a scheduled inference execution.</p>
     pub fn get_active_model_version_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -682,8 +656,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The date the active model version was activated.</p>
     pub fn set_model_version_activated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.model_version_activated_at = input;
-        self
+        self.model_version_activated_at = input; self
     }
     /// <p>The date the active model version was activated.</p>
     pub fn get_model_version_activated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -696,8 +669,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The model version that was set as the active model version prior to the current active model version.</p>
     pub fn set_previous_active_model_version(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.previous_active_model_version = input;
-        self
+        self.previous_active_model_version = input; self
     }
     /// <p>The model version that was set as the active model version prior to the current active model version.</p>
     pub fn get_previous_active_model_version(&self) -> &::std::option::Option<i64> {
@@ -710,8 +682,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The ARN of the model version that was set as the active model version prior to the current active model version.</p>
     pub fn set_previous_active_model_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.previous_active_model_version_arn = input;
-        self
+        self.previous_active_model_version_arn = input; self
     }
     /// <p>The ARN of the model version that was set as the active model version prior to the current active model version.</p>
     pub fn get_previous_active_model_version_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -724,8 +695,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>The date and time when the previous active model version was activated.</p>
     pub fn set_previous_model_version_activated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.previous_model_version_activated_at = input;
-        self
+        self.previous_model_version_activated_at = input; self
     }
     /// <p>The date and time when the previous active model version was activated.</p>
     pub fn get_previous_model_version_activated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -738,8 +708,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>If the model version was retrained, this field shows a summary of the performance of the prior model on the new training range. You can use the information in this JSON-formatted object to compare the new model version and the prior model version.</p>
     pub fn set_prior_model_metrics(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.prior_model_metrics = input;
-        self
+        self.prior_model_metrics = input; self
     }
     /// <p>If the model version was retrained, this field shows a summary of the performance of the prior model on the new training range. You can use the information in this JSON-formatted object to compare the new model version and the prior model version.</p>
     pub fn get_prior_model_metrics(&self) -> &::std::option::Option<::std::string::String> {
@@ -752,8 +721,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>If the model version was generated by retraining and the training failed, this indicates the reason for that failure. </p>
     pub fn set_latest_scheduled_retraining_failed_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.latest_scheduled_retraining_failed_reason = input;
-        self
+        self.latest_scheduled_retraining_failed_reason = input; self
     }
     /// <p>If the model version was generated by retraining and the training failed, this indicates the reason for that failure. </p>
     pub fn get_latest_scheduled_retraining_failed_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -766,8 +734,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the status of the most recent scheduled retraining run. </p>
     pub fn set_latest_scheduled_retraining_status(mut self, input: ::std::option::Option<crate::types::ModelVersionStatus>) -> Self {
-        self.latest_scheduled_retraining_status = input;
-        self
+        self.latest_scheduled_retraining_status = input; self
     }
     /// <p>Indicates the status of the most recent scheduled retraining run. </p>
     pub fn get_latest_scheduled_retraining_status(&self) -> &::std::option::Option<crate::types::ModelVersionStatus> {
@@ -780,8 +747,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the most recent model version that was generated by retraining. </p>
     pub fn set_latest_scheduled_retraining_model_version(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.latest_scheduled_retraining_model_version = input;
-        self
+        self.latest_scheduled_retraining_model_version = input; self
     }
     /// <p>Indicates the most recent model version that was generated by retraining. </p>
     pub fn get_latest_scheduled_retraining_model_version(&self) -> &::std::option::Option<i64> {
@@ -794,8 +760,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the start time of the most recent scheduled retraining run. </p>
     pub fn set_latest_scheduled_retraining_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.latest_scheduled_retraining_start_time = input;
-        self
+        self.latest_scheduled_retraining_start_time = input; self
     }
     /// <p>Indicates the start time of the most recent scheduled retraining run. </p>
     pub fn get_latest_scheduled_retraining_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -808,8 +773,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the number of days of data used in the most recent scheduled retraining run. </p>
     pub fn set_latest_scheduled_retraining_available_data_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.latest_scheduled_retraining_available_data_in_days = input;
-        self
+        self.latest_scheduled_retraining_available_data_in_days = input; self
     }
     /// <p>Indicates the number of days of data used in the most recent scheduled retraining run. </p>
     pub fn get_latest_scheduled_retraining_available_data_in_days(&self) -> &::std::option::Option<i32> {
@@ -822,8 +786,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the date and time that the next scheduled retraining run will start on. Lookout for Equipment truncates the time you provide to the nearest UTC day.</p>
     pub fn set_next_scheduled_retraining_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.next_scheduled_retraining_start_date = input;
-        self
+        self.next_scheduled_retraining_start_date = input; self
     }
     /// <p>Indicates the date and time that the next scheduled retraining run will start on. Lookout for Equipment truncates the time you provide to the nearest UTC day.</p>
     pub fn get_next_scheduled_retraining_start_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -836,8 +799,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the start time of the inference data that has been accumulated. </p>
     pub fn set_accumulated_inference_data_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.accumulated_inference_data_start_time = input;
-        self
+        self.accumulated_inference_data_start_time = input; self
     }
     /// <p>Indicates the start time of the inference data that has been accumulated. </p>
     pub fn get_accumulated_inference_data_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -850,8 +812,7 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the end time of the inference data that has been accumulated. </p>
     pub fn set_accumulated_inference_data_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.accumulated_inference_data_end_time = input;
-        self
+        self.accumulated_inference_data_end_time = input; self
     }
     /// <p>Indicates the end time of the inference data that has been accumulated. </p>
     pub fn get_accumulated_inference_data_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -864,66 +825,106 @@ impl DescribeModelOutputBuilder {
     }
     /// <p>Indicates the status of the retraining scheduler. </p>
     pub fn set_retraining_scheduler_status(mut self, input: ::std::option::Option<crate::types::RetrainingSchedulerStatus>) -> Self {
-        self.retraining_scheduler_status = input;
-        self
+        self.retraining_scheduler_status = input; self
     }
     /// <p>Indicates the status of the retraining scheduler. </p>
     pub fn get_retraining_scheduler_status(&self) -> &::std::option::Option<crate::types::RetrainingSchedulerStatus> {
         &self.retraining_scheduler_status
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`DescribeModelOutput`](crate::operation::describe_model::DescribeModelOutput).
     pub fn build(self) -> crate::operation::describe_model::DescribeModelOutput {
         crate::operation::describe_model::DescribeModelOutput {
-            model_name: self.model_name,
-            model_arn: self.model_arn,
-            dataset_name: self.dataset_name,
-            dataset_arn: self.dataset_arn,
-            schema: self.schema,
-            labels_input_configuration: self.labels_input_configuration,
-            training_data_start_time: self.training_data_start_time,
-            training_data_end_time: self.training_data_end_time,
-            evaluation_data_start_time: self.evaluation_data_start_time,
-            evaluation_data_end_time: self.evaluation_data_end_time,
-            role_arn: self.role_arn,
-            data_pre_processing_configuration: self.data_pre_processing_configuration,
-            status: self.status,
-            training_execution_start_time: self.training_execution_start_time,
-            training_execution_end_time: self.training_execution_end_time,
-            failed_reason: self.failed_reason,
-            model_metrics: self.model_metrics,
-            last_updated_time: self.last_updated_time,
-            created_at: self.created_at,
-            server_side_kms_key_id: self.server_side_kms_key_id,
-            off_condition: self.off_condition,
-            source_model_version_arn: self.source_model_version_arn,
-            import_job_start_time: self.import_job_start_time,
-            import_job_end_time: self.import_job_end_time,
-            active_model_version: self.active_model_version,
-            active_model_version_arn: self.active_model_version_arn,
-            model_version_activated_at: self.model_version_activated_at,
-            previous_active_model_version: self.previous_active_model_version,
-            previous_active_model_version_arn: self.previous_active_model_version_arn,
-            previous_model_version_activated_at: self.previous_model_version_activated_at,
-            prior_model_metrics: self.prior_model_metrics,
-            latest_scheduled_retraining_failed_reason: self.latest_scheduled_retraining_failed_reason,
-            latest_scheduled_retraining_status: self.latest_scheduled_retraining_status,
-            latest_scheduled_retraining_model_version: self.latest_scheduled_retraining_model_version,
-            latest_scheduled_retraining_start_time: self.latest_scheduled_retraining_start_time,
-            latest_scheduled_retraining_available_data_in_days: self.latest_scheduled_retraining_available_data_in_days,
-            next_scheduled_retraining_start_date: self.next_scheduled_retraining_start_date,
-            accumulated_inference_data_start_time: self.accumulated_inference_data_start_time,
-            accumulated_inference_data_end_time: self.accumulated_inference_data_end_time,
-            retraining_scheduler_status: self.retraining_scheduler_status,
+            model_name: self.model_name
+            ,
+            model_arn: self.model_arn
+            ,
+            dataset_name: self.dataset_name
+            ,
+            dataset_arn: self.dataset_arn
+            ,
+            schema: self.schema
+            ,
+            labels_input_configuration: self.labels_input_configuration
+            ,
+            training_data_start_time: self.training_data_start_time
+            ,
+            training_data_end_time: self.training_data_end_time
+            ,
+            evaluation_data_start_time: self.evaluation_data_start_time
+            ,
+            evaluation_data_end_time: self.evaluation_data_end_time
+            ,
+            role_arn: self.role_arn
+            ,
+            data_pre_processing_configuration: self.data_pre_processing_configuration
+            ,
+            status: self.status
+            ,
+            training_execution_start_time: self.training_execution_start_time
+            ,
+            training_execution_end_time: self.training_execution_end_time
+            ,
+            failed_reason: self.failed_reason
+            ,
+            model_metrics: self.model_metrics
+            ,
+            last_updated_time: self.last_updated_time
+            ,
+            created_at: self.created_at
+            ,
+            server_side_kms_key_id: self.server_side_kms_key_id
+            ,
+            off_condition: self.off_condition
+            ,
+            source_model_version_arn: self.source_model_version_arn
+            ,
+            import_job_start_time: self.import_job_start_time
+            ,
+            import_job_end_time: self.import_job_end_time
+            ,
+            active_model_version: self.active_model_version
+            ,
+            active_model_version_arn: self.active_model_version_arn
+            ,
+            model_version_activated_at: self.model_version_activated_at
+            ,
+            previous_active_model_version: self.previous_active_model_version
+            ,
+            previous_active_model_version_arn: self.previous_active_model_version_arn
+            ,
+            previous_model_version_activated_at: self.previous_model_version_activated_at
+            ,
+            prior_model_metrics: self.prior_model_metrics
+            ,
+            latest_scheduled_retraining_failed_reason: self.latest_scheduled_retraining_failed_reason
+            ,
+            latest_scheduled_retraining_status: self.latest_scheduled_retraining_status
+            ,
+            latest_scheduled_retraining_model_version: self.latest_scheduled_retraining_model_version
+            ,
+            latest_scheduled_retraining_start_time: self.latest_scheduled_retraining_start_time
+            ,
+            latest_scheduled_retraining_available_data_in_days: self.latest_scheduled_retraining_available_data_in_days
+            ,
+            next_scheduled_retraining_start_date: self.next_scheduled_retraining_start_date
+            ,
+            accumulated_inference_data_start_time: self.accumulated_inference_data_start_time
+            ,
+            accumulated_inference_data_end_time: self.accumulated_inference_data_end_time
+            ,
+            retraining_scheduler_status: self.retraining_scheduler_status
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

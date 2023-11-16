@@ -2,39 +2,40 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateBulkImportJobInput {
+pub struct CreateBulkImportJobInput  {
     /// <p>The unique name that helps identify the job request.</p>
     pub job_name: ::std::option::Option<::std::string::String>,
     /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>
     pub job_role_arn: ::std::option::Option<::std::string::String>,
     /// <p>The files in the specified Amazon S3 bucket that contain your data.</p>
-    pub files: ::std::option::Option<::std::vec::Vec<crate::types::File>>,
+    pub files: ::std::option::Option<::std::vec::Vec::<crate::types::File>>,
     /// <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
     pub error_report_location: ::std::option::Option<crate::types::ErrorReportLocation>,
     /// <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
     pub job_configuration: ::std::option::Option<crate::types::JobConfiguration>,
 }
-impl CreateBulkImportJobInput {
+impl  CreateBulkImportJobInput  {
     /// <p>The unique name that helps identify the job request.</p>
-    pub fn job_name(&self) -> ::std::option::Option<&str> {
+    pub fn job_name(&self) -> ::std::option::Option<& str> {
         self.job_name.as_deref()
     }
     /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>
-    pub fn job_role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn job_role_arn(&self) -> ::std::option::Option<& str> {
         self.job_role_arn.as_deref()
     }
     /// <p>The files in the specified Amazon S3 bucket that contain your data.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.files.is_none()`.
-    pub fn files(&self) -> &[crate::types::File] {
-        self.files.as_deref().unwrap_or_default()
+    pub fn files(&self) -> & [crate::types::File] {
+        self.files.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
-    pub fn error_report_location(&self) -> ::std::option::Option<&crate::types::ErrorReportLocation> {
+    pub fn error_report_location(&self) -> ::std::option::Option<& crate::types::ErrorReportLocation> {
         self.error_report_location.as_ref()
     }
     /// <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
-    pub fn job_configuration(&self) -> ::std::option::Option<&crate::types::JobConfiguration> {
+    pub fn job_configuration(&self) -> ::std::option::Option<& crate::types::JobConfiguration> {
         self.job_configuration.as_ref()
     }
 }
@@ -51,7 +52,7 @@ impl CreateBulkImportJobInput {
 pub struct CreateBulkImportJobInputBuilder {
     pub(crate) job_name: ::std::option::Option<::std::string::String>,
     pub(crate) job_role_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) files: ::std::option::Option<::std::vec::Vec<crate::types::File>>,
+    pub(crate) files: ::std::option::Option<::std::vec::Vec::<crate::types::File>>,
     pub(crate) error_report_location: ::std::option::Option<crate::types::ErrorReportLocation>,
     pub(crate) job_configuration: ::std::option::Option<crate::types::JobConfiguration>,
 }
@@ -64,8 +65,7 @@ impl CreateBulkImportJobInputBuilder {
     }
     /// <p>The unique name that helps identify the job request.</p>
     pub fn set_job_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.job_name = input;
-        self
+        self.job_name = input; self
     }
     /// <p>The unique name that helps identify the job request.</p>
     pub fn get_job_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -79,8 +79,7 @@ impl CreateBulkImportJobInputBuilder {
     }
     /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>
     pub fn set_job_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.job_role_arn = input;
-        self
+        self.job_role_arn = input; self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>
     pub fn get_job_role_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -93,17 +92,16 @@ impl CreateBulkImportJobInputBuilder {
     /// <p>The files in the specified Amazon S3 bucket that contain your data.</p>
     pub fn files(mut self, input: crate::types::File) -> Self {
         let mut v = self.files.unwrap_or_default();
-        v.push(input);
-        self.files = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.files = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The files in the specified Amazon S3 bucket that contain your data.</p>
-    pub fn set_files(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::File>>) -> Self {
-        self.files = input;
-        self
+    pub fn set_files(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::File>>) -> Self {
+        self.files = input; self
     }
     /// <p>The files in the specified Amazon S3 bucket that contain your data.</p>
-    pub fn get_files(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::File>> {
+    pub fn get_files(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::File>> {
         &self.files
     }
     /// <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
@@ -114,8 +112,7 @@ impl CreateBulkImportJobInputBuilder {
     }
     /// <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
     pub fn set_error_report_location(mut self, input: ::std::option::Option<crate::types::ErrorReportLocation>) -> Self {
-        self.error_report_location = input;
-        self
+        self.error_report_location = input; self
     }
     /// <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
     pub fn get_error_report_location(&self) -> &::std::option::Option<crate::types::ErrorReportLocation> {
@@ -129,24 +126,28 @@ impl CreateBulkImportJobInputBuilder {
     }
     /// <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
     pub fn set_job_configuration(mut self, input: ::std::option::Option<crate::types::JobConfiguration>) -> Self {
-        self.job_configuration = input;
-        self
+        self.job_configuration = input; self
     }
     /// <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
     pub fn get_job_configuration(&self) -> &::std::option::Option<crate::types::JobConfiguration> {
         &self.job_configuration
     }
     /// Consumes the builder and constructs a [`CreateBulkImportJobInput`](crate::operation::create_bulk_import_job::CreateBulkImportJobInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_bulk_import_job::CreateBulkImportJobInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::create_bulk_import_job::CreateBulkImportJobInput {
-            job_name: self.job_name,
-            job_role_arn: self.job_role_arn,
-            files: self.files,
-            error_report_location: self.error_report_location,
-            job_configuration: self.job_configuration,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_bulk_import_job::CreateBulkImportJobInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_bulk_import_job::CreateBulkImportJobInput {
+                job_name: self.job_name
+                ,
+                job_role_arn: self.job_role_arn
+                ,
+                files: self.files
+                ,
+                error_report_location: self.error_report_location
+                ,
+                job_configuration: self.job_configuration
+                ,
+            }
+        )
     }
 }
+

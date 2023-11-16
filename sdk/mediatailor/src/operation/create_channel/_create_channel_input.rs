@@ -2,49 +2,50 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateChannelInput {
+pub struct CreateChannelInput  {
     /// <p>The name of the channel.</p>
     pub channel_name: ::std::option::Option<::std::string::String>,
     /// <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
     pub filler_slate: ::std::option::Option<crate::types::SlateSource>,
     /// <p>The channel's output properties.</p>
-    pub outputs: ::std::option::Option<::std::vec::Vec<crate::types::RequestOutputItem>>,
-    /// <p>The type of playback mode to use for this channel.</p>
-    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p>
+    pub outputs: ::std::option::Option<::std::vec::Vec::<crate::types::RequestOutputItem>>,
+    /// <p>The type of playback mode to use for this channel.</p> 
+    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p> 
     /// <p> <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
     pub playback_mode: ::std::option::Option<crate::types::PlaybackMode>,
     /// <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     /// <p>The tier of the channel.</p>
     pub tier: ::std::option::Option<crate::types::Tier>,
 }
-impl CreateChannelInput {
+impl  CreateChannelInput  {
     /// <p>The name of the channel.</p>
-    pub fn channel_name(&self) -> ::std::option::Option<&str> {
+    pub fn channel_name(&self) -> ::std::option::Option<& str> {
         self.channel_name.as_deref()
     }
     /// <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
-    pub fn filler_slate(&self) -> ::std::option::Option<&crate::types::SlateSource> {
+    pub fn filler_slate(&self) -> ::std::option::Option<& crate::types::SlateSource> {
         self.filler_slate.as_ref()
     }
     /// <p>The channel's output properties.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.outputs.is_none()`.
-    pub fn outputs(&self) -> &[crate::types::RequestOutputItem] {
-        self.outputs.as_deref().unwrap_or_default()
+    pub fn outputs(&self) -> & [crate::types::RequestOutputItem] {
+        self.outputs.as_deref()
+        .unwrap_or_default()
     }
-    /// <p>The type of playback mode to use for this channel.</p>
-    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p>
+    /// <p>The type of playback mode to use for this channel.</p> 
+    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p> 
     /// <p> <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
-    pub fn playback_mode(&self) -> ::std::option::Option<&crate::types::PlaybackMode> {
+    pub fn playback_mode(&self) -> ::std::option::Option<& crate::types::PlaybackMode> {
         self.playback_mode.as_ref()
     }
     /// <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
     /// <p>The tier of the channel.</p>
-    pub fn tier(&self) -> ::std::option::Option<&crate::types::Tier> {
+    pub fn tier(&self) -> ::std::option::Option<& crate::types::Tier> {
         self.tier.as_ref()
     }
 }
@@ -61,9 +62,9 @@ impl CreateChannelInput {
 pub struct CreateChannelInputBuilder {
     pub(crate) channel_name: ::std::option::Option<::std::string::String>,
     pub(crate) filler_slate: ::std::option::Option<crate::types::SlateSource>,
-    pub(crate) outputs: ::std::option::Option<::std::vec::Vec<crate::types::RequestOutputItem>>,
+    pub(crate) outputs: ::std::option::Option<::std::vec::Vec::<crate::types::RequestOutputItem>>,
     pub(crate) playback_mode: ::std::option::Option<crate::types::PlaybackMode>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     pub(crate) tier: ::std::option::Option<crate::types::Tier>,
 }
 impl CreateChannelInputBuilder {
@@ -75,8 +76,7 @@ impl CreateChannelInputBuilder {
     }
     /// <p>The name of the channel.</p>
     pub fn set_channel_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.channel_name = input;
-        self
+        self.channel_name = input; self
     }
     /// <p>The name of the channel.</p>
     pub fn get_channel_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -89,8 +89,7 @@ impl CreateChannelInputBuilder {
     }
     /// <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
     pub fn set_filler_slate(mut self, input: ::std::option::Option<crate::types::SlateSource>) -> Self {
-        self.filler_slate = input;
-        self
+        self.filler_slate = input; self
     }
     /// <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the <code>LINEAR</code> <code>PlaybackMode</code>. MediaTailor doesn't support filler slate for channels using the <code>LOOP</code> <code>PlaybackMode</code>.</p>
     pub fn get_filler_slate(&self) -> &::std::option::Option<crate::types::SlateSource> {
@@ -103,36 +102,34 @@ impl CreateChannelInputBuilder {
     /// <p>The channel's output properties.</p>
     pub fn outputs(mut self, input: crate::types::RequestOutputItem) -> Self {
         let mut v = self.outputs.unwrap_or_default();
-        v.push(input);
-        self.outputs = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.outputs = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The channel's output properties.</p>
-    pub fn set_outputs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RequestOutputItem>>) -> Self {
-        self.outputs = input;
-        self
+    pub fn set_outputs(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::RequestOutputItem>>) -> Self {
+        self.outputs = input; self
     }
     /// <p>The channel's output properties.</p>
-    pub fn get_outputs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RequestOutputItem>> {
+    pub fn get_outputs(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::RequestOutputItem>> {
         &self.outputs
     }
-    /// <p>The type of playback mode to use for this channel.</p>
-    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p>
+    /// <p>The type of playback mode to use for this channel.</p> 
+    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p> 
     /// <p> <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
     /// This field is required.
     pub fn playback_mode(mut self, input: crate::types::PlaybackMode) -> Self {
         self.playback_mode = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of playback mode to use for this channel.</p>
-    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p>
+    /// <p>The type of playback mode to use for this channel.</p> 
+    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p> 
     /// <p> <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
     pub fn set_playback_mode(mut self, input: ::std::option::Option<crate::types::PlaybackMode>) -> Self {
-        self.playback_mode = input;
-        self
+        self.playback_mode = input; self
     }
-    /// <p>The type of playback mode to use for this channel.</p>
-    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p>
+    /// <p>The type of playback mode to use for this channel.</p> 
+    /// <p> <code>LINEAR</code> - The programs in the schedule play once back-to-back in the schedule.</p> 
     /// <p> <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
     pub fn get_playback_mode(&self) -> &::std::option::Option<crate::types::PlaybackMode> {
         &self.playback_mode
@@ -144,17 +141,16 @@ impl CreateChannelInputBuilder {
     /// <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.tags = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input; self
     }
     /// <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// <p>The tier of the channel.</p>
@@ -164,24 +160,30 @@ impl CreateChannelInputBuilder {
     }
     /// <p>The tier of the channel.</p>
     pub fn set_tier(mut self, input: ::std::option::Option<crate::types::Tier>) -> Self {
-        self.tier = input;
-        self
+        self.tier = input; self
     }
     /// <p>The tier of the channel.</p>
     pub fn get_tier(&self) -> &::std::option::Option<crate::types::Tier> {
         &self.tier
     }
     /// Consumes the builder and constructs a [`CreateChannelInput`](crate::operation::create_channel::CreateChannelInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_channel::CreateChannelInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_channel::CreateChannelInput {
-            channel_name: self.channel_name,
-            filler_slate: self.filler_slate,
-            outputs: self.outputs,
-            playback_mode: self.playback_mode,
-            tags: self.tags,
-            tier: self.tier,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_channel::CreateChannelInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_channel::CreateChannelInput {
+                channel_name: self.channel_name
+                ,
+                filler_slate: self.filler_slate
+                ,
+                outputs: self.outputs
+                ,
+                playback_mode: self.playback_mode
+                ,
+                tags: self.tags
+                ,
+                tier: self.tier
+                ,
+            }
+        )
     }
 }
+

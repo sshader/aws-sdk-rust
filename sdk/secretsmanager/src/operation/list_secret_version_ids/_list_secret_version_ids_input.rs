@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListSecretVersionIdsInput {
-    /// <p>The ARN or name of the secret whose versions you want to list.</p>
+pub struct ListSecretVersionIdsInput  {
+    /// <p>The ARN or name of the secret whose versions you want to list.</p> 
     /// <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
     pub secret_id: ::std::option::Option<::std::string::String>,
-    /// <p>The number of results to include in the response.</p>
+    /// <p>The number of results to include in the response.</p> 
     /// <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>. To get the next results, call <code>ListSecretVersionIds</code> again with the value from <code>NextToken</code>. </p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>A token that indicates where the output should continue from, if a previous call did not show all results. To get the next results, call <code>ListSecretVersionIds</code> again with this value.</p>
@@ -14,19 +14,19 @@ pub struct ListSecretVersionIdsInput {
     /// <p>Specifies whether to include versions of secrets that don't have any staging labels attached to them. Versions without staging labels are considered deprecated and are subject to deletion by Secrets Manager. By default, versions without staging labels aren't included.</p>
     pub include_deprecated: ::std::option::Option<bool>,
 }
-impl ListSecretVersionIdsInput {
-    /// <p>The ARN or name of the secret whose versions you want to list.</p>
+impl  ListSecretVersionIdsInput  {
+    /// <p>The ARN or name of the secret whose versions you want to list.</p> 
     /// <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
-    pub fn secret_id(&self) -> ::std::option::Option<&str> {
+    pub fn secret_id(&self) -> ::std::option::Option<& str> {
         self.secret_id.as_deref()
     }
-    /// <p>The number of results to include in the response.</p>
+    /// <p>The number of results to include in the response.</p> 
     /// <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>. To get the next results, call <code>ListSecretVersionIds</code> again with the value from <code>NextToken</code>. </p>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
         self.max_results
     }
     /// <p>A token that indicates where the output should continue from, if a previous call did not show all results. To get the next results, call <code>ListSecretVersionIds</code> again with this value.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// <p>Specifies whether to include versions of secrets that don't have any staging labels attached to them. Versions without staging labels are considered deprecated and are subject to deletion by Secrets Manager. By default, versions without staging labels aren't included.</p>
@@ -51,37 +51,35 @@ pub struct ListSecretVersionIdsInputBuilder {
     pub(crate) include_deprecated: ::std::option::Option<bool>,
 }
 impl ListSecretVersionIdsInputBuilder {
-    /// <p>The ARN or name of the secret whose versions you want to list.</p>
+    /// <p>The ARN or name of the secret whose versions you want to list.</p> 
     /// <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
     /// This field is required.
     pub fn secret_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.secret_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ARN or name of the secret whose versions you want to list.</p>
+    /// <p>The ARN or name of the secret whose versions you want to list.</p> 
     /// <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
     pub fn set_secret_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.secret_id = input;
-        self
+        self.secret_id = input; self
     }
-    /// <p>The ARN or name of the secret whose versions you want to list.</p>
+    /// <p>The ARN or name of the secret whose versions you want to list.</p> 
     /// <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
     pub fn get_secret_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.secret_id
     }
-    /// <p>The number of results to include in the response.</p>
+    /// <p>The number of results to include in the response.</p> 
     /// <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>. To get the next results, call <code>ListSecretVersionIds</code> again with the value from <code>NextToken</code>. </p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The number of results to include in the response.</p>
+    /// <p>The number of results to include in the response.</p> 
     /// <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>. To get the next results, call <code>ListSecretVersionIds</code> again with the value from <code>NextToken</code>. </p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
-    /// <p>The number of results to include in the response.</p>
+    /// <p>The number of results to include in the response.</p> 
     /// <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>. To get the next results, call <code>ListSecretVersionIds</code> again with the value from <code>NextToken</code>. </p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
@@ -93,8 +91,7 @@ impl ListSecretVersionIdsInputBuilder {
     }
     /// <p>A token that indicates where the output should continue from, if a previous call did not show all results. To get the next results, call <code>ListSecretVersionIds</code> again with this value.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>A token that indicates where the output should continue from, if a previous call did not show all results. To get the next results, call <code>ListSecretVersionIds</code> again with this value.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -107,23 +104,26 @@ impl ListSecretVersionIdsInputBuilder {
     }
     /// <p>Specifies whether to include versions of secrets that don't have any staging labels attached to them. Versions without staging labels are considered deprecated and are subject to deletion by Secrets Manager. By default, versions without staging labels aren't included.</p>
     pub fn set_include_deprecated(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.include_deprecated = input;
-        self
+        self.include_deprecated = input; self
     }
     /// <p>Specifies whether to include versions of secrets that don't have any staging labels attached to them. Versions without staging labels are considered deprecated and are subject to deletion by Secrets Manager. By default, versions without staging labels aren't included.</p>
     pub fn get_include_deprecated(&self) -> &::std::option::Option<bool> {
         &self.include_deprecated
     }
     /// Consumes the builder and constructs a [`ListSecretVersionIdsInput`](crate::operation::list_secret_version_ids::ListSecretVersionIdsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_secret_version_ids::ListSecretVersionIdsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::list_secret_version_ids::ListSecretVersionIdsInput {
-            secret_id: self.secret_id,
-            max_results: self.max_results,
-            next_token: self.next_token,
-            include_deprecated: self.include_deprecated,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_secret_version_ids::ListSecretVersionIdsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_secret_version_ids::ListSecretVersionIdsInput {
+                secret_id: self.secret_id
+                ,
+                max_results: self.max_results
+                ,
+                next_token: self.next_token
+                ,
+                include_deprecated: self.include_deprecated
+                ,
+            }
+        )
     }
 }
+

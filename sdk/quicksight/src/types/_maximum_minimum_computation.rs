@@ -3,7 +3,7 @@
 /// <p>The maximum and minimum computation configuration.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct MaximumMinimumComputation {
+pub struct MaximumMinimumComputation  {
     /// <p>The ID for a computation.</p>
     pub computation_id: ::std::string::String,
     /// <p>The name of a computation.</p>
@@ -12,37 +12,36 @@ pub struct MaximumMinimumComputation {
     pub time: ::std::option::Option<crate::types::DimensionField>,
     /// <p>The value field that is used in a computation.</p>
     pub value: ::std::option::Option<crate::types::MeasureField>,
-    /// <p>The type of computation. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p>MAXIMUM: A maximum computation.</p> </li>
-    /// <li> <p>MINIMUM: A minimum computation.</p> </li>
+    /// <p>The type of computation. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p>MAXIMUM: A maximum computation.</p> </li> 
+    /// <li> <p>MINIMUM: A minimum computation.</p> </li> 
     /// </ul>
     pub r#type: crate::types::MaximumMinimumComputationType,
 }
-impl MaximumMinimumComputation {
+impl  MaximumMinimumComputation  {
     /// <p>The ID for a computation.</p>
-    pub fn computation_id(&self) -> &str {
-        use std::ops::Deref;
-        self.computation_id.deref()
+    pub fn computation_id(&self) -> & str {
+        use std::ops::Deref; self.computation_id.deref()
     }
     /// <p>The name of a computation.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>The time field that is used in a computation.</p>
-    pub fn time(&self) -> ::std::option::Option<&crate::types::DimensionField> {
+    pub fn time(&self) -> ::std::option::Option<& crate::types::DimensionField> {
         self.time.as_ref()
     }
     /// <p>The value field that is used in a computation.</p>
-    pub fn value(&self) -> ::std::option::Option<&crate::types::MeasureField> {
+    pub fn value(&self) -> ::std::option::Option<& crate::types::MeasureField> {
         self.value.as_ref()
     }
-    /// <p>The type of computation. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p>MAXIMUM: A maximum computation.</p> </li>
-    /// <li> <p>MINIMUM: A minimum computation.</p> </li>
+    /// <p>The type of computation. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p>MAXIMUM: A maximum computation.</p> </li> 
+    /// <li> <p>MINIMUM: A minimum computation.</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> &crate::types::MaximumMinimumComputationType {
+    pub fn r#type(&self) -> & crate::types::MaximumMinimumComputationType {
         &self.r#type
     }
 }
@@ -72,8 +71,7 @@ impl MaximumMinimumComputationBuilder {
     }
     /// <p>The ID for a computation.</p>
     pub fn set_computation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.computation_id = input;
-        self
+        self.computation_id = input; self
     }
     /// <p>The ID for a computation.</p>
     pub fn get_computation_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -86,8 +84,7 @@ impl MaximumMinimumComputationBuilder {
     }
     /// <p>The name of a computation.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of a computation.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -100,8 +97,7 @@ impl MaximumMinimumComputationBuilder {
     }
     /// <p>The time field that is used in a computation.</p>
     pub fn set_time(mut self, input: ::std::option::Option<crate::types::DimensionField>) -> Self {
-        self.time = input;
-        self
+        self.time = input; self
     }
     /// <p>The time field that is used in a computation.</p>
     pub fn get_time(&self) -> &::std::option::Option<crate::types::DimensionField> {
@@ -114,36 +110,34 @@ impl MaximumMinimumComputationBuilder {
     }
     /// <p>The value field that is used in a computation.</p>
     pub fn set_value(mut self, input: ::std::option::Option<crate::types::MeasureField>) -> Self {
-        self.value = input;
-        self
+        self.value = input; self
     }
     /// <p>The value field that is used in a computation.</p>
     pub fn get_value(&self) -> &::std::option::Option<crate::types::MeasureField> {
         &self.value
     }
-    /// <p>The type of computation. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p>MAXIMUM: A maximum computation.</p> </li>
-    /// <li> <p>MINIMUM: A minimum computation.</p> </li>
+    /// <p>The type of computation. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p>MAXIMUM: A maximum computation.</p> </li> 
+    /// <li> <p>MINIMUM: A minimum computation.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn r#type(mut self, input: crate::types::MaximumMinimumComputationType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of computation. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p>MAXIMUM: A maximum computation.</p> </li>
-    /// <li> <p>MINIMUM: A minimum computation.</p> </li>
+    /// <p>The type of computation. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p>MAXIMUM: A maximum computation.</p> </li> 
+    /// <li> <p>MINIMUM: A minimum computation.</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::MaximumMinimumComputationType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of computation. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p>MAXIMUM: A maximum computation.</p> </li>
-    /// <li> <p>MINIMUM: A minimum computation.</p> </li>
+    /// <p>The type of computation. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p>MAXIMUM: A maximum computation.</p> </li> 
+    /// <li> <p>MINIMUM: A minimum computation.</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::MaximumMinimumComputationType> {
         &self.r#type
@@ -153,22 +147,26 @@ impl MaximumMinimumComputationBuilder {
     /// - [`computation_id`](crate::types::builders::MaximumMinimumComputationBuilder::computation_id)
     /// - [`r#type`](crate::types::builders::MaximumMinimumComputationBuilder::r#type)
     pub fn build(self) -> ::std::result::Result<crate::types::MaximumMinimumComputation, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::MaximumMinimumComputation {
-            computation_id: self.computation_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "computation_id",
-                    "computation_id was not specified but it is required when building MaximumMinimumComputation",
-                )
-            })?,
-            name: self.name,
-            time: self.time,
-            value: self.value,
-            r#type: self.r#type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "r#type",
-                    "r#type was not specified but it is required when building MaximumMinimumComputation",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::MaximumMinimumComputation {
+                computation_id: self.computation_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("computation_id", "computation_id was not specified but it is required when building MaximumMinimumComputation")
+                    )?
+                ,
+                name: self.name
+                ,
+                time: self.time
+                ,
+                value: self.value
+                ,
+                r#type: self.r#type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("r#type", "r#type was not specified but it is required when building MaximumMinimumComputation")
+                    )?
+                ,
+            }
+        )
     }
 }
+

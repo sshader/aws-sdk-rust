@@ -2,29 +2,29 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteGameServerGroupInput {
+pub struct DeleteGameServerGroupInput  {
     /// <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
     pub game_server_group_name: ::std::option::Option<::std::string::String>,
-    /// <p>The type of delete to perform. Options include the following:</p>
-    /// <ul>
-    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li>
-    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li>
-    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li>
+    /// <p>The type of delete to perform. Options include the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li> 
+    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li> 
+    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li> 
     /// </ul>
     pub delete_option: ::std::option::Option<crate::types::GameServerGroupDeleteOption>,
 }
-impl DeleteGameServerGroupInput {
+impl  DeleteGameServerGroupInput  {
     /// <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
-    pub fn game_server_group_name(&self) -> ::std::option::Option<&str> {
+    pub fn game_server_group_name(&self) -> ::std::option::Option<& str> {
         self.game_server_group_name.as_deref()
     }
-    /// <p>The type of delete to perform. Options include the following:</p>
-    /// <ul>
-    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li>
-    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li>
-    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li>
+    /// <p>The type of delete to perform. Options include the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li> 
+    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li> 
+    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li> 
     /// </ul>
-    pub fn delete_option(&self) -> ::std::option::Option<&crate::types::GameServerGroupDeleteOption> {
+    pub fn delete_option(&self) -> ::std::option::Option<& crate::types::GameServerGroupDeleteOption> {
         self.delete_option.as_ref()
     }
 }
@@ -51,50 +51,50 @@ impl DeleteGameServerGroupInputBuilder {
     }
     /// <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
     pub fn set_game_server_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.game_server_group_name = input;
-        self
+        self.game_server_group_name = input; self
     }
     /// <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
     pub fn get_game_server_group_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.game_server_group_name
     }
-    /// <p>The type of delete to perform. Options include the following:</p>
-    /// <ul>
-    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li>
-    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li>
-    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li>
+    /// <p>The type of delete to perform. Options include the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li> 
+    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li> 
+    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li> 
     /// </ul>
     pub fn delete_option(mut self, input: crate::types::GameServerGroupDeleteOption) -> Self {
         self.delete_option = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of delete to perform. Options include the following:</p>
-    /// <ul>
-    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li>
-    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li>
-    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li>
+    /// <p>The type of delete to perform. Options include the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li> 
+    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li> 
+    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li> 
     /// </ul>
     pub fn set_delete_option(mut self, input: ::std::option::Option<crate::types::GameServerGroupDeleteOption>) -> Self {
-        self.delete_option = input;
-        self
+        self.delete_option = input; self
     }
-    /// <p>The type of delete to perform. Options include the following:</p>
-    /// <ul>
-    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li>
-    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li>
-    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li>
+    /// <p>The type of delete to perform. Options include the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li> 
+    /// <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li> 
+    /// <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li> 
     /// </ul>
     pub fn get_delete_option(&self) -> &::std::option::Option<crate::types::GameServerGroupDeleteOption> {
         &self.delete_option
     }
     /// Consumes the builder and constructs a [`DeleteGameServerGroupInput`](crate::operation::delete_game_server_group::DeleteGameServerGroupInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::delete_game_server_group::DeleteGameServerGroupInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::delete_game_server_group::DeleteGameServerGroupInput {
-            game_server_group_name: self.game_server_group_name,
-            delete_option: self.delete_option,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_game_server_group::DeleteGameServerGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_game_server_group::DeleteGameServerGroupInput {
+                game_server_group_name: self.game_server_group_name
+                ,
+                delete_option: self.delete_option
+                ,
+            }
+        )
     }
 }
+

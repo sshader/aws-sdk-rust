@@ -5,59 +5,55 @@ pub use crate::operation::get_asset_property_aggregates::_get_asset_property_agg
 
 impl GetAssetPropertyAggregatesInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.get_asset_property_aggregates();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.get_asset_property_aggregates();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `GetAssetPropertyAggregates`.
-///
-/// <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
-/// <p>To identify an asset property, you must specify one of the following:</p>
-/// <ul>
-/// <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li>
-/// <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p> </li>
+/// 
+/// <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p> 
+/// <p>To identify an asset property, you must specify one of the following:</p> 
+/// <ul> 
+/// <li> <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p> </li> 
+/// <li> <p>A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p> </li> 
 /// </ul>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetAssetPropertyAggregatesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::get_asset_property_aggregates::builders::GetAssetPropertyAggregatesInputBuilder,
+                    inner: crate::operation::get_asset_property_aggregates::builders::GetAssetPropertyAggregatesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput,
-        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError,
-    > for GetAssetPropertyAggregatesFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput,
-            crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput,
+                    crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError,
+                > for GetAssetPropertyAggregatesFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput,
+                        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl GetAssetPropertyAggregatesFluentBuilder {
     /// Creates a new `GetAssetPropertyAggregates`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -66,59 +62,50 @@ impl GetAssetPropertyAggregatesFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregates::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregates::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput,
-        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregates::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregates::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesOutput, crate::operation::get_asset_property_aggregates::GetAssetPropertyAggregatesError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// Create a paginator for this request
-    ///
-    /// Paginators are used by calling [`send().await`](crate::operation::get_asset_property_aggregates::paginator::GetAssetPropertyAggregatesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::get_asset_property_aggregates::paginator::GetAssetPropertyAggregatesPaginator {
-        crate::operation::get_asset_property_aggregates::paginator::GetAssetPropertyAggregatesPaginator::new(self.handle, self.inner)
-    }
+                            ///
+                            /// Paginators are used by calling [`send().await`](crate::operation::get_asset_property_aggregates::paginator::GetAssetPropertyAggregatesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+                            pub fn into_paginator(self) -> crate::operation::get_asset_property_aggregates::paginator::GetAssetPropertyAggregatesPaginator {
+                                crate::operation::get_asset_property_aggregates::paginator::GetAssetPropertyAggregatesPaginator::new(self.handle, self.inner)
+                            }
     /// <p>The ID of the asset.</p>
     pub fn asset_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.asset_id(input.into());
@@ -171,12 +158,12 @@ impl GetAssetPropertyAggregatesFluentBuilder {
         self
     }
     /// <p>The data aggregating function.</p>
-    pub fn set_aggregate_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AggregateType>>) -> Self {
+    pub fn set_aggregate_types(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AggregateType>>) -> Self {
         self.inner = self.inner.set_aggregate_types(input);
         self
     }
     /// <p>The data aggregating function.</p>
-    pub fn get_aggregate_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregateType>> {
+    pub fn get_aggregate_types(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AggregateType>> {
         self.inner.get_aggregate_types()
     }
     /// <p>The time interval over which to aggregate data.</p>
@@ -203,12 +190,12 @@ impl GetAssetPropertyAggregatesFluentBuilder {
         self
     }
     /// <p>The quality by which to filter asset data.</p>
-    pub fn set_qualities(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Quality>>) -> Self {
+    pub fn set_qualities(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Quality>>) -> Self {
         self.inner = self.inner.set_qualities(input);
         self
     }
     /// <p>The quality by which to filter asset data.</p>
-    pub fn get_qualities(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Quality>> {
+    pub fn get_qualities(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Quality>> {
         self.inner.get_qualities()
     }
     /// <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
@@ -239,19 +226,19 @@ impl GetAssetPropertyAggregatesFluentBuilder {
     pub fn get_end_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_end_date()
     }
-    /// <p>The chronological sorting order of the requested information.</p>
+    /// <p>The chronological sorting order of the requested information.</p> 
     /// <p>Default: <code>ASCENDING</code> </p>
     pub fn time_ordering(mut self, input: crate::types::TimeOrdering) -> Self {
         self.inner = self.inner.time_ordering(input);
         self
     }
-    /// <p>The chronological sorting order of the requested information.</p>
+    /// <p>The chronological sorting order of the requested information.</p> 
     /// <p>Default: <code>ASCENDING</code> </p>
     pub fn set_time_ordering(mut self, input: ::std::option::Option<crate::types::TimeOrdering>) -> Self {
         self.inner = self.inner.set_time_ordering(input);
         self
     }
-    /// <p>The chronological sorting order of the requested information.</p>
+    /// <p>The chronological sorting order of the requested information.</p> 
     /// <p>Default: <code>ASCENDING</code> </p>
     pub fn get_time_ordering(&self) -> &::std::option::Option<crate::types::TimeOrdering> {
         self.inner.get_time_ordering()
@@ -270,30 +257,31 @@ impl GetAssetPropertyAggregatesFluentBuilder {
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_next_token()
     }
-    /// <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p>
-    /// <ul>
-    /// <li> <p>The size of the result set is equal to 1 MB.</p> </li>
-    /// <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 250.</p> </li>
+    /// <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p> 
+    /// <ul> 
+    /// <li> <p>The size of the result set is equal to 1 MB.</p> </li> 
+    /// <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 250.</p> </li> 
     /// </ul>
     pub fn max_results(mut self, input: i32) -> Self {
         self.inner = self.inner.max_results(input);
         self
     }
-    /// <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p>
-    /// <ul>
-    /// <li> <p>The size of the result set is equal to 1 MB.</p> </li>
-    /// <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 250.</p> </li>
+    /// <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p> 
+    /// <ul> 
+    /// <li> <p>The size of the result set is equal to 1 MB.</p> </li> 
+    /// <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 250.</p> </li> 
     /// </ul>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_max_results(input);
         self
     }
-    /// <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p>
-    /// <ul>
-    /// <li> <p>The size of the result set is equal to 1 MB.</p> </li>
-    /// <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 250.</p> </li>
+    /// <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p> 
+    /// <ul> 
+    /// <li> <p>The size of the result set is equal to 1 MB.</p> </li> 
+    /// <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 250.</p> </li> 
     /// </ul>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         self.inner.get_max_results()
     }
 }
+

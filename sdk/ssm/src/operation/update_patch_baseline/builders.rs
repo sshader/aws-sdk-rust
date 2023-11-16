@@ -5,56 +5,52 @@ pub use crate::operation::update_patch_baseline::_update_patch_baseline_input::U
 
 impl UpdatePatchBaselineInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::update_patch_baseline::UpdatePatchBaselineOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_patch_baseline::UpdatePatchBaselineError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.update_patch_baseline();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::update_patch_baseline::UpdatePatchBaselineOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::update_patch_baseline::UpdatePatchBaselineError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.update_patch_baseline();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `UpdatePatchBaseline`.
-///
-/// <p>Modifies an existing patch baseline. Fields not specified in the request are left unchanged.</p> <note>
-/// <p>For information about valid key-value pairs in <code>PatchFilters</code> for each supported operating system type, see <code>PatchFilter</code>.</p>
+/// 
+/// <p>Modifies an existing patch baseline. Fields not specified in the request are left unchanged.</p> <note> 
+/// <p>For information about valid key-value pairs in <code>PatchFilters</code> for each supported operating system type, see <code>PatchFilter</code>.</p> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdatePatchBaselineFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_patch_baseline::builders::UpdatePatchBaselineInputBuilder,
+                    inner: crate::operation::update_patch_baseline::builders::UpdatePatchBaselineInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::update_patch_baseline::UpdatePatchBaselineOutput,
-        crate::operation::update_patch_baseline::UpdatePatchBaselineError,
-    > for UpdatePatchBaselineFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::update_patch_baseline::UpdatePatchBaselineOutput,
-            crate::operation::update_patch_baseline::UpdatePatchBaselineError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::update_patch_baseline::UpdatePatchBaselineOutput,
+                    crate::operation::update_patch_baseline::UpdatePatchBaselineError,
+                > for UpdatePatchBaselineFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::update_patch_baseline::UpdatePatchBaselineOutput,
+                        crate::operation::update_patch_baseline::UpdatePatchBaselineError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl UpdatePatchBaselineFluentBuilder {
     /// Creates a new `UpdatePatchBaseline`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -63,53 +59,44 @@ impl UpdatePatchBaselineFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_patch_baseline::UpdatePatchBaselineOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_patch_baseline::UpdatePatchBaselineError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_patch_baseline::UpdatePatchBaseline::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_patch_baseline::UpdatePatchBaseline::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::update_patch_baseline::UpdatePatchBaselineOutput,
-        crate::operation::update_patch_baseline::UpdatePatchBaselineError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::update_patch_baseline::UpdatePatchBaselineOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_patch_baseline::UpdatePatchBaselineError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::update_patch_baseline::UpdatePatchBaseline::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::update_patch_baseline::UpdatePatchBaseline::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::update_patch_baseline::UpdatePatchBaselineOutput, crate::operation::update_patch_baseline::UpdatePatchBaselineError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The ID of the patch baseline to update.</p>
     pub fn baseline_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.baseline_id(input.into());
@@ -170,21 +157,21 @@ impl UpdatePatchBaselineFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_approved_patches`](Self::set_approved_patches).
     ///
-    /// <p>A list of explicitly approved patches for the baseline.</p>
+    /// <p>A list of explicitly approved patches for the baseline.</p> 
     /// <p>For information about accepted formats for lists of approved patches and rejected patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
     pub fn approved_patches(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.approved_patches(input.into());
         self
     }
-    /// <p>A list of explicitly approved patches for the baseline.</p>
+    /// <p>A list of explicitly approved patches for the baseline.</p> 
     /// <p>For information about accepted formats for lists of approved patches and rejected patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    pub fn set_approved_patches(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_approved_patches(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_approved_patches(input);
         self
     }
-    /// <p>A list of explicitly approved patches for the baseline.</p>
+    /// <p>A list of explicitly approved patches for the baseline.</p> 
     /// <p>For information about accepted formats for lists of approved patches and rejected patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    pub fn get_approved_patches(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_approved_patches(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_approved_patches()
     }
     /// <p>Assigns a new compliance severity level to an existing patch baseline.</p>
@@ -219,45 +206,45 @@ impl UpdatePatchBaselineFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_rejected_patches`](Self::set_rejected_patches).
     ///
-    /// <p>A list of explicitly rejected patches for the baseline.</p>
+    /// <p>A list of explicitly rejected patches for the baseline.</p> 
     /// <p>For information about accepted formats for lists of approved patches and rejected patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
     pub fn rejected_patches(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.rejected_patches(input.into());
         self
     }
-    /// <p>A list of explicitly rejected patches for the baseline.</p>
+    /// <p>A list of explicitly rejected patches for the baseline.</p> 
     /// <p>For information about accepted formats for lists of approved patches and rejected patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    pub fn set_rejected_patches(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_rejected_patches(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_rejected_patches(input);
         self
     }
-    /// <p>A list of explicitly rejected patches for the baseline.</p>
+    /// <p>A list of explicitly rejected patches for the baseline.</p> 
     /// <p>For information about accepted formats for lists of approved patches and rejected patches, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-    pub fn get_rejected_patches(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_rejected_patches(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_rejected_patches()
     }
-    /// <p>The action for Patch Manager to take on patches included in the <code>RejectedPackages</code> list.</p>
-    /// <ul>
-    /// <li> <p> <b> <code>ALLOW_AS_DEPENDENCY</code> </b>: A package in the <code>Rejected</code> patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as <code>InstalledOther</code>. This is the default action if no option is specified.</p> </li>
-    /// <li> <p> <b> <code>BLOCK</code> </b>: Packages in the <code>RejectedPatches</code> list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the <code>Rejected</code> patches list, it is considered non-compliant with the patch baseline, and its status is reported as <code>InstalledRejected</code>.</p> </li>
+    /// <p>The action for Patch Manager to take on patches included in the <code>RejectedPackages</code> list.</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>ALLOW_AS_DEPENDENCY</code> </b>: A package in the <code>Rejected</code> patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as <code>InstalledOther</code>. This is the default action if no option is specified.</p> </li> 
+    /// <li> <p> <b> <code>BLOCK</code> </b>: Packages in the <code>RejectedPatches</code> list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the <code>Rejected</code> patches list, it is considered non-compliant with the patch baseline, and its status is reported as <code>InstalledRejected</code>.</p> </li> 
     /// </ul>
     pub fn rejected_patches_action(mut self, input: crate::types::PatchAction) -> Self {
         self.inner = self.inner.rejected_patches_action(input);
         self
     }
-    /// <p>The action for Patch Manager to take on patches included in the <code>RejectedPackages</code> list.</p>
-    /// <ul>
-    /// <li> <p> <b> <code>ALLOW_AS_DEPENDENCY</code> </b>: A package in the <code>Rejected</code> patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as <code>InstalledOther</code>. This is the default action if no option is specified.</p> </li>
-    /// <li> <p> <b> <code>BLOCK</code> </b>: Packages in the <code>RejectedPatches</code> list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the <code>Rejected</code> patches list, it is considered non-compliant with the patch baseline, and its status is reported as <code>InstalledRejected</code>.</p> </li>
+    /// <p>The action for Patch Manager to take on patches included in the <code>RejectedPackages</code> list.</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>ALLOW_AS_DEPENDENCY</code> </b>: A package in the <code>Rejected</code> patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as <code>InstalledOther</code>. This is the default action if no option is specified.</p> </li> 
+    /// <li> <p> <b> <code>BLOCK</code> </b>: Packages in the <code>RejectedPatches</code> list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the <code>Rejected</code> patches list, it is considered non-compliant with the patch baseline, and its status is reported as <code>InstalledRejected</code>.</p> </li> 
     /// </ul>
     pub fn set_rejected_patches_action(mut self, input: ::std::option::Option<crate::types::PatchAction>) -> Self {
         self.inner = self.inner.set_rejected_patches_action(input);
         self
     }
-    /// <p>The action for Patch Manager to take on patches included in the <code>RejectedPackages</code> list.</p>
-    /// <ul>
-    /// <li> <p> <b> <code>ALLOW_AS_DEPENDENCY</code> </b>: A package in the <code>Rejected</code> patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as <code>InstalledOther</code>. This is the default action if no option is specified.</p> </li>
-    /// <li> <p> <b> <code>BLOCK</code> </b>: Packages in the <code>RejectedPatches</code> list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the <code>Rejected</code> patches list, it is considered non-compliant with the patch baseline, and its status is reported as <code>InstalledRejected</code>.</p> </li>
+    /// <p>The action for Patch Manager to take on patches included in the <code>RejectedPackages</code> list.</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>ALLOW_AS_DEPENDENCY</code> </b>: A package in the <code>Rejected</code> patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as <code>InstalledOther</code>. This is the default action if no option is specified.</p> </li> 
+    /// <li> <p> <b> <code>BLOCK</code> </b>: Packages in the <code>RejectedPatches</code> list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the <code>Rejected</code> patches list, it is considered non-compliant with the patch baseline, and its status is reported as <code>InstalledRejected</code>.</p> </li> 
     /// </ul>
     pub fn get_rejected_patches_action(&self) -> &::std::option::Option<crate::types::PatchAction> {
         self.inner.get_rejected_patches_action()
@@ -286,12 +273,12 @@ impl UpdatePatchBaselineFluentBuilder {
         self
     }
     /// <p>Information about the patches to use to update the managed nodes, including target operating systems and source repositories. Applies to Linux managed nodes only.</p>
-    pub fn set_sources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PatchSource>>) -> Self {
+    pub fn set_sources(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::PatchSource>>) -> Self {
         self.inner = self.inner.set_sources(input);
         self
     }
     /// <p>Information about the patches to use to update the managed nodes, including target operating systems and source repositories. Applies to Linux managed nodes only.</p>
-    pub fn get_sources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PatchSource>> {
+    pub fn get_sources(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::PatchSource>> {
         self.inner.get_sources()
     }
     /// <p>If True, then all fields that are required by the <code>CreatePatchBaseline</code> operation are also required for this API request. Optional fields that aren't specified are set to null.</p>
@@ -309,3 +296,4 @@ impl UpdatePatchBaselineFluentBuilder {
         self.inner.get_replace()
     }
 }
+

@@ -3,7 +3,7 @@
 /// <p>The standard profile of a customer.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct Profile {
+pub struct Profile  {
     /// <p>The unique identifier of a customer profile.</p>
     pub profile_id: ::std::option::Option<::std::string::String>,
     /// <p>A unique account number that you have given to the customer.</p>
@@ -47,131 +47,132 @@ pub struct Profile {
     /// <p>The customer’s billing address.</p>
     pub billing_address: ::std::option::Option<crate::types::Address>,
     /// <p>A key value pair of attributes of a customer profile.</p>
-    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p>
-    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p>
-    /// <ul>
-    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li>
-    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li>
-    /// </ul>
+    pub attributes: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
+    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p> 
+    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li> 
+    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li> 
+    /// </ul> 
     /// <p>The <code>OR</code> relationship is the default behavior if the <code>LogicalOperator</code> parameter is not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.</p>
-    pub found_by_items: ::std::option::Option<::std::vec::Vec<crate::types::FoundByKeyValue>>,
+    pub found_by_items: ::std::option::Option<::std::vec::Vec::<crate::types::FoundByKeyValue>>,
     /// <p>An alternative to PartyType which accepts any string as input.</p>
     pub party_type_string: ::std::option::Option<::std::string::String>,
     /// <p>An alternative to Gender which accepts any string as input.</p>
     pub gender_string: ::std::option::Option<::std::string::String>,
 }
-impl Profile {
+impl  Profile  {
     /// <p>The unique identifier of a customer profile.</p>
-    pub fn profile_id(&self) -> ::std::option::Option<&str> {
+    pub fn profile_id(&self) -> ::std::option::Option<& str> {
         self.profile_id.as_deref()
     }
     /// <p>A unique account number that you have given to the customer.</p>
-    pub fn account_number(&self) -> ::std::option::Option<&str> {
+    pub fn account_number(&self) -> ::std::option::Option<& str> {
         self.account_number.as_deref()
     }
     /// <p>Any additional information relevant to the customer’s profile.</p>
-    pub fn additional_information(&self) -> ::std::option::Option<&str> {
+    pub fn additional_information(&self) -> ::std::option::Option<& str> {
         self.additional_information.as_deref()
     }
     /// <p>The type of profile used to describe the customer.</p>
-    pub fn party_type(&self) -> ::std::option::Option<&crate::types::PartyType> {
+    pub fn party_type(&self) -> ::std::option::Option<& crate::types::PartyType> {
         self.party_type.as_ref()
     }
     /// <p>The name of the customer’s business.</p>
-    pub fn business_name(&self) -> ::std::option::Option<&str> {
+    pub fn business_name(&self) -> ::std::option::Option<& str> {
         self.business_name.as_deref()
     }
     /// <p>The customer’s first name.</p>
-    pub fn first_name(&self) -> ::std::option::Option<&str> {
+    pub fn first_name(&self) -> ::std::option::Option<& str> {
         self.first_name.as_deref()
     }
     /// <p>The customer’s middle name.</p>
-    pub fn middle_name(&self) -> ::std::option::Option<&str> {
+    pub fn middle_name(&self) -> ::std::option::Option<& str> {
         self.middle_name.as_deref()
     }
     /// <p>The customer’s last name.</p>
-    pub fn last_name(&self) -> ::std::option::Option<&str> {
+    pub fn last_name(&self) -> ::std::option::Option<& str> {
         self.last_name.as_deref()
     }
     /// <p>The customer’s birth date. </p>
-    pub fn birth_date(&self) -> ::std::option::Option<&str> {
+    pub fn birth_date(&self) -> ::std::option::Option<& str> {
         self.birth_date.as_deref()
     }
     /// <p>The gender with which the customer identifies. </p>
-    pub fn gender(&self) -> ::std::option::Option<&crate::types::Gender> {
+    pub fn gender(&self) -> ::std::option::Option<& crate::types::Gender> {
         self.gender.as_ref()
     }
     /// <p>The customer's phone number, which has not been specified as a mobile, home, or business number.</p>
-    pub fn phone_number(&self) -> ::std::option::Option<&str> {
+    pub fn phone_number(&self) -> ::std::option::Option<& str> {
         self.phone_number.as_deref()
     }
     /// <p>The customer’s mobile phone number.</p>
-    pub fn mobile_phone_number(&self) -> ::std::option::Option<&str> {
+    pub fn mobile_phone_number(&self) -> ::std::option::Option<& str> {
         self.mobile_phone_number.as_deref()
     }
     /// <p>The customer’s home phone number.</p>
-    pub fn home_phone_number(&self) -> ::std::option::Option<&str> {
+    pub fn home_phone_number(&self) -> ::std::option::Option<& str> {
         self.home_phone_number.as_deref()
     }
     /// <p>The customer’s home phone number.</p>
-    pub fn business_phone_number(&self) -> ::std::option::Option<&str> {
+    pub fn business_phone_number(&self) -> ::std::option::Option<& str> {
         self.business_phone_number.as_deref()
     }
     /// <p>The customer’s email address, which has not been specified as a personal or business address. </p>
-    pub fn email_address(&self) -> ::std::option::Option<&str> {
+    pub fn email_address(&self) -> ::std::option::Option<& str> {
         self.email_address.as_deref()
     }
     /// <p>The customer’s personal email address.</p>
-    pub fn personal_email_address(&self) -> ::std::option::Option<&str> {
+    pub fn personal_email_address(&self) -> ::std::option::Option<& str> {
         self.personal_email_address.as_deref()
     }
     /// <p>The customer’s business email address.</p>
-    pub fn business_email_address(&self) -> ::std::option::Option<&str> {
+    pub fn business_email_address(&self) -> ::std::option::Option<& str> {
         self.business_email_address.as_deref()
     }
     /// <p>A generic address associated with the customer that is not mailing, shipping, or billing.</p>
-    pub fn address(&self) -> ::std::option::Option<&crate::types::Address> {
+    pub fn address(&self) -> ::std::option::Option<& crate::types::Address> {
         self.address.as_ref()
     }
     /// <p>The customer’s shipping address.</p>
-    pub fn shipping_address(&self) -> ::std::option::Option<&crate::types::Address> {
+    pub fn shipping_address(&self) -> ::std::option::Option<& crate::types::Address> {
         self.shipping_address.as_ref()
     }
     /// <p>The customer’s mailing address.</p>
-    pub fn mailing_address(&self) -> ::std::option::Option<&crate::types::Address> {
+    pub fn mailing_address(&self) -> ::std::option::Option<& crate::types::Address> {
         self.mailing_address.as_ref()
     }
     /// <p>The customer’s billing address.</p>
-    pub fn billing_address(&self) -> ::std::option::Option<&crate::types::Address> {
+    pub fn billing_address(&self) -> ::std::option::Option<& crate::types::Address> {
         self.billing_address.as_ref()
     }
     /// <p>A key value pair of attributes of a customer profile.</p>
-    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn attributes(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.attributes.as_ref()
     }
-    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p>
-    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p>
-    /// <ul>
-    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li>
-    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li>
-    /// </ul>
+    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p> 
+    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li> 
+    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li> 
+    /// </ul> 
     /// <p>The <code>OR</code> relationship is the default behavior if the <code>LogicalOperator</code> parameter is not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.found_by_items.is_none()`.
-    pub fn found_by_items(&self) -> &[crate::types::FoundByKeyValue] {
-        self.found_by_items.as_deref().unwrap_or_default()
+    pub fn found_by_items(&self) -> & [crate::types::FoundByKeyValue] {
+        self.found_by_items.as_deref()
+        .unwrap_or_default()
     }
     /// <p>An alternative to PartyType which accepts any string as input.</p>
-    pub fn party_type_string(&self) -> ::std::option::Option<&str> {
+    pub fn party_type_string(&self) -> ::std::option::Option<& str> {
         self.party_type_string.as_deref()
     }
     /// <p>An alternative to Gender which accepts any string as input.</p>
-    pub fn gender_string(&self) -> ::std::option::Option<&str> {
+    pub fn gender_string(&self) -> ::std::option::Option<& str> {
         self.gender_string.as_deref()
     }
 }
-impl ::std::fmt::Debug for Profile {
+impl  ::std::fmt::Debug for Profile  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("Profile");
         formatter.field("profile_id", &self.profile_id);
@@ -234,8 +235,8 @@ pub struct ProfileBuilder {
     pub(crate) shipping_address: ::std::option::Option<crate::types::Address>,
     pub(crate) mailing_address: ::std::option::Option<crate::types::Address>,
     pub(crate) billing_address: ::std::option::Option<crate::types::Address>,
-    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) found_by_items: ::std::option::Option<::std::vec::Vec<crate::types::FoundByKeyValue>>,
+    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
+    pub(crate) found_by_items: ::std::option::Option<::std::vec::Vec::<crate::types::FoundByKeyValue>>,
     pub(crate) party_type_string: ::std::option::Option<::std::string::String>,
     pub(crate) gender_string: ::std::option::Option<::std::string::String>,
 }
@@ -247,8 +248,7 @@ impl ProfileBuilder {
     }
     /// <p>The unique identifier of a customer profile.</p>
     pub fn set_profile_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.profile_id = input;
-        self
+        self.profile_id = input; self
     }
     /// <p>The unique identifier of a customer profile.</p>
     pub fn get_profile_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -261,8 +261,7 @@ impl ProfileBuilder {
     }
     /// <p>A unique account number that you have given to the customer.</p>
     pub fn set_account_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.account_number = input;
-        self
+        self.account_number = input; self
     }
     /// <p>A unique account number that you have given to the customer.</p>
     pub fn get_account_number(&self) -> &::std::option::Option<::std::string::String> {
@@ -275,8 +274,7 @@ impl ProfileBuilder {
     }
     /// <p>Any additional information relevant to the customer’s profile.</p>
     pub fn set_additional_information(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.additional_information = input;
-        self
+        self.additional_information = input; self
     }
     /// <p>Any additional information relevant to the customer’s profile.</p>
     pub fn get_additional_information(&self) -> &::std::option::Option<::std::string::String> {
@@ -289,8 +287,7 @@ impl ProfileBuilder {
     }
     /// <p>The type of profile used to describe the customer.</p>
     pub fn set_party_type(mut self, input: ::std::option::Option<crate::types::PartyType>) -> Self {
-        self.party_type = input;
-        self
+        self.party_type = input; self
     }
     /// <p>The type of profile used to describe the customer.</p>
     pub fn get_party_type(&self) -> &::std::option::Option<crate::types::PartyType> {
@@ -303,8 +300,7 @@ impl ProfileBuilder {
     }
     /// <p>The name of the customer’s business.</p>
     pub fn set_business_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.business_name = input;
-        self
+        self.business_name = input; self
     }
     /// <p>The name of the customer’s business.</p>
     pub fn get_business_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -317,8 +313,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s first name.</p>
     pub fn set_first_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.first_name = input;
-        self
+        self.first_name = input; self
     }
     /// <p>The customer’s first name.</p>
     pub fn get_first_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -331,8 +326,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s middle name.</p>
     pub fn set_middle_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.middle_name = input;
-        self
+        self.middle_name = input; self
     }
     /// <p>The customer’s middle name.</p>
     pub fn get_middle_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -345,8 +339,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s last name.</p>
     pub fn set_last_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.last_name = input;
-        self
+        self.last_name = input; self
     }
     /// <p>The customer’s last name.</p>
     pub fn get_last_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -359,8 +352,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s birth date. </p>
     pub fn set_birth_date(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.birth_date = input;
-        self
+        self.birth_date = input; self
     }
     /// <p>The customer’s birth date. </p>
     pub fn get_birth_date(&self) -> &::std::option::Option<::std::string::String> {
@@ -373,8 +365,7 @@ impl ProfileBuilder {
     }
     /// <p>The gender with which the customer identifies. </p>
     pub fn set_gender(mut self, input: ::std::option::Option<crate::types::Gender>) -> Self {
-        self.gender = input;
-        self
+        self.gender = input; self
     }
     /// <p>The gender with which the customer identifies. </p>
     pub fn get_gender(&self) -> &::std::option::Option<crate::types::Gender> {
@@ -387,8 +378,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer's phone number, which has not been specified as a mobile, home, or business number.</p>
     pub fn set_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.phone_number = input;
-        self
+        self.phone_number = input; self
     }
     /// <p>The customer's phone number, which has not been specified as a mobile, home, or business number.</p>
     pub fn get_phone_number(&self) -> &::std::option::Option<::std::string::String> {
@@ -401,8 +391,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s mobile phone number.</p>
     pub fn set_mobile_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.mobile_phone_number = input;
-        self
+        self.mobile_phone_number = input; self
     }
     /// <p>The customer’s mobile phone number.</p>
     pub fn get_mobile_phone_number(&self) -> &::std::option::Option<::std::string::String> {
@@ -415,8 +404,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s home phone number.</p>
     pub fn set_home_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.home_phone_number = input;
-        self
+        self.home_phone_number = input; self
     }
     /// <p>The customer’s home phone number.</p>
     pub fn get_home_phone_number(&self) -> &::std::option::Option<::std::string::String> {
@@ -429,8 +417,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s home phone number.</p>
     pub fn set_business_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.business_phone_number = input;
-        self
+        self.business_phone_number = input; self
     }
     /// <p>The customer’s home phone number.</p>
     pub fn get_business_phone_number(&self) -> &::std::option::Option<::std::string::String> {
@@ -443,8 +430,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s email address, which has not been specified as a personal or business address. </p>
     pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.email_address = input;
-        self
+        self.email_address = input; self
     }
     /// <p>The customer’s email address, which has not been specified as a personal or business address. </p>
     pub fn get_email_address(&self) -> &::std::option::Option<::std::string::String> {
@@ -457,8 +443,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s personal email address.</p>
     pub fn set_personal_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.personal_email_address = input;
-        self
+        self.personal_email_address = input; self
     }
     /// <p>The customer’s personal email address.</p>
     pub fn get_personal_email_address(&self) -> &::std::option::Option<::std::string::String> {
@@ -471,8 +456,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s business email address.</p>
     pub fn set_business_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.business_email_address = input;
-        self
+        self.business_email_address = input; self
     }
     /// <p>The customer’s business email address.</p>
     pub fn get_business_email_address(&self) -> &::std::option::Option<::std::string::String> {
@@ -485,8 +469,7 @@ impl ProfileBuilder {
     }
     /// <p>A generic address associated with the customer that is not mailing, shipping, or billing.</p>
     pub fn set_address(mut self, input: ::std::option::Option<crate::types::Address>) -> Self {
-        self.address = input;
-        self
+        self.address = input; self
     }
     /// <p>A generic address associated with the customer that is not mailing, shipping, or billing.</p>
     pub fn get_address(&self) -> &::std::option::Option<crate::types::Address> {
@@ -499,8 +482,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s shipping address.</p>
     pub fn set_shipping_address(mut self, input: ::std::option::Option<crate::types::Address>) -> Self {
-        self.shipping_address = input;
-        self
+        self.shipping_address = input; self
     }
     /// <p>The customer’s shipping address.</p>
     pub fn get_shipping_address(&self) -> &::std::option::Option<crate::types::Address> {
@@ -513,8 +495,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s mailing address.</p>
     pub fn set_mailing_address(mut self, input: ::std::option::Option<crate::types::Address>) -> Self {
-        self.mailing_address = input;
-        self
+        self.mailing_address = input; self
     }
     /// <p>The customer’s mailing address.</p>
     pub fn get_mailing_address(&self) -> &::std::option::Option<crate::types::Address> {
@@ -527,8 +508,7 @@ impl ProfileBuilder {
     }
     /// <p>The customer’s billing address.</p>
     pub fn set_billing_address(mut self, input: ::std::option::Option<crate::types::Address>) -> Self {
-        self.billing_address = input;
-        self
+        self.billing_address = input; self
     }
     /// <p>The customer’s billing address.</p>
     pub fn get_billing_address(&self) -> &::std::option::Option<crate::types::Address> {
@@ -541,55 +521,53 @@ impl ProfileBuilder {
     /// <p>A key value pair of attributes of a customer profile.</p>
     pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.attributes.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.attributes = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.attributes = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>A key value pair of attributes of a customer profile.</p>
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.attributes = input;
-        self
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.attributes = input; self
     }
     /// <p>A key value pair of attributes of a customer profile.</p>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.attributes
     }
     /// Appends an item to `found_by_items`.
     ///
     /// To override the contents of this collection use [`set_found_by_items`](Self::set_found_by_items).
     ///
-    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p>
-    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p>
-    /// <ul>
-    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li>
-    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li>
-    /// </ul>
+    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p> 
+    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li> 
+    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li> 
+    /// </ul> 
     /// <p>The <code>OR</code> relationship is the default behavior if the <code>LogicalOperator</code> parameter is not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.</p>
     pub fn found_by_items(mut self, input: crate::types::FoundByKeyValue) -> Self {
         let mut v = self.found_by_items.unwrap_or_default();
-        v.push(input);
-        self.found_by_items = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.found_by_items = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p>
-    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p>
-    /// <ul>
-    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li>
-    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li>
-    /// </ul>
+    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p> 
+    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li> 
+    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li> 
+    /// </ul> 
     /// <p>The <code>OR</code> relationship is the default behavior if the <code>LogicalOperator</code> parameter is not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.</p>
-    pub fn set_found_by_items(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FoundByKeyValue>>) -> Self {
-        self.found_by_items = input;
-        self
+    pub fn set_found_by_items(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::FoundByKeyValue>>) -> Self {
+        self.found_by_items = input; self
     }
-    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p>
-    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p>
-    /// <ul>
-    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li>
-    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li>
-    /// </ul>
+    /// <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response. An item is a key-value(s) pair that matches an attribute in the profile.</p> 
+    /// <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted based on the <code>LogicalOperator</code> used in the request:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AND</code> - The profile included in the response matched all of the search keys specified in the request. The <code>FoundByItems</code> will include all of the key-value(s) pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p> </li> 
+    /// <li> <p> <code>OR</code> - The profile included in the response matched at least one of the search keys specified in the request. The <code>FoundByItems</code> will include each of the key-value(s) pairs that the profile was found by.</p> </li> 
+    /// </ul> 
     /// <p>The <code>OR</code> relationship is the default behavior if the <code>LogicalOperator</code> parameter is not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.</p>
-    pub fn get_found_by_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FoundByKeyValue>> {
+    pub fn get_found_by_items(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::FoundByKeyValue>> {
         &self.found_by_items
     }
     /// <p>An alternative to PartyType which accepts any string as input.</p>
@@ -599,8 +577,7 @@ impl ProfileBuilder {
     }
     /// <p>An alternative to PartyType which accepts any string as input.</p>
     pub fn set_party_type_string(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.party_type_string = input;
-        self
+        self.party_type_string = input; self
     }
     /// <p>An alternative to PartyType which accepts any string as input.</p>
     pub fn get_party_type_string(&self) -> &::std::option::Option<::std::string::String> {
@@ -613,8 +590,7 @@ impl ProfileBuilder {
     }
     /// <p>An alternative to Gender which accepts any string as input.</p>
     pub fn set_gender_string(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.gender_string = input;
-        self
+        self.gender_string = input; self
     }
     /// <p>An alternative to Gender which accepts any string as input.</p>
     pub fn get_gender_string(&self) -> &::std::option::Option<::std::string::String> {
@@ -623,31 +599,56 @@ impl ProfileBuilder {
     /// Consumes the builder and constructs a [`Profile`](crate::types::Profile).
     pub fn build(self) -> crate::types::Profile {
         crate::types::Profile {
-            profile_id: self.profile_id,
-            account_number: self.account_number,
-            additional_information: self.additional_information,
-            party_type: self.party_type,
-            business_name: self.business_name,
-            first_name: self.first_name,
-            middle_name: self.middle_name,
-            last_name: self.last_name,
-            birth_date: self.birth_date,
-            gender: self.gender,
-            phone_number: self.phone_number,
-            mobile_phone_number: self.mobile_phone_number,
-            home_phone_number: self.home_phone_number,
-            business_phone_number: self.business_phone_number,
-            email_address: self.email_address,
-            personal_email_address: self.personal_email_address,
-            business_email_address: self.business_email_address,
-            address: self.address,
-            shipping_address: self.shipping_address,
-            mailing_address: self.mailing_address,
-            billing_address: self.billing_address,
-            attributes: self.attributes,
-            found_by_items: self.found_by_items,
-            party_type_string: self.party_type_string,
-            gender_string: self.gender_string,
+            profile_id: self.profile_id
+            ,
+            account_number: self.account_number
+            ,
+            additional_information: self.additional_information
+            ,
+            party_type: self.party_type
+            ,
+            business_name: self.business_name
+            ,
+            first_name: self.first_name
+            ,
+            middle_name: self.middle_name
+            ,
+            last_name: self.last_name
+            ,
+            birth_date: self.birth_date
+            ,
+            gender: self.gender
+            ,
+            phone_number: self.phone_number
+            ,
+            mobile_phone_number: self.mobile_phone_number
+            ,
+            home_phone_number: self.home_phone_number
+            ,
+            business_phone_number: self.business_phone_number
+            ,
+            email_address: self.email_address
+            ,
+            personal_email_address: self.personal_email_address
+            ,
+            business_email_address: self.business_email_address
+            ,
+            address: self.address
+            ,
+            shipping_address: self.shipping_address
+            ,
+            mailing_address: self.mailing_address
+            ,
+            billing_address: self.billing_address
+            ,
+            attributes: self.attributes
+            ,
+            found_by_items: self.found_by_items
+            ,
+            party_type_string: self.party_type_string
+            ,
+            gender_string: self.gender_string
+            ,
         }
     }
 }
@@ -682,3 +683,4 @@ impl ::std::fmt::Debug for ProfileBuilder {
         formatter.finish()
     }
 }
+

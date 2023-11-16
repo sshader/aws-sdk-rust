@@ -5,54 +5,50 @@ pub use crate::operation::start_mailbox_export_job::_start_mailbox_export_job_in
 
 impl StartMailboxExportJobInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_mailbox_export_job::StartMailboxExportJobError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.start_mailbox_export_job();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::start_mailbox_export_job::StartMailboxExportJobError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.start_mailbox_export_job();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `StartMailboxExportJob`.
-///
+/// 
 /// <p>Starts a mailbox export job to export MIME-format email messages and calendar items from the specified mailbox to the specified Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting mailbox content</a> in the <i>WorkMail Administrator Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct StartMailboxExportJobFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::start_mailbox_export_job::builders::StartMailboxExportJobInputBuilder,
+                    inner: crate::operation::start_mailbox_export_job::builders::StartMailboxExportJobInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput,
-        crate::operation::start_mailbox_export_job::StartMailboxExportJobError,
-    > for StartMailboxExportJobFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput,
-            crate::operation::start_mailbox_export_job::StartMailboxExportJobError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput,
+                    crate::operation::start_mailbox_export_job::StartMailboxExportJobError,
+                > for StartMailboxExportJobFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput,
+                        crate::operation::start_mailbox_export_job::StartMailboxExportJobError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl StartMailboxExportJobFluentBuilder {
     /// Creates a new `StartMailboxExportJob`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl StartMailboxExportJobFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_mailbox_export_job::StartMailboxExportJobError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::start_mailbox_export_job::StartMailboxExportJob::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::start_mailbox_export_job::StartMailboxExportJob::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput,
-        crate::operation::start_mailbox_export_job::StartMailboxExportJobError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_mailbox_export_job::StartMailboxExportJobError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::start_mailbox_export_job::StartMailboxExportJob::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::start_mailbox_export_job::StartMailboxExportJob::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::start_mailbox_export_job::StartMailboxExportJobOutput, crate::operation::start_mailbox_export_job::StartMailboxExportJobError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The idempotency token for the client request.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_token(input.into());
@@ -136,34 +123,34 @@ impl StartMailboxExportJobFluentBuilder {
     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_organization_id()
     }
-    /// <p>The identifier of the user or resource associated with the mailbox.</p>
-    /// <p>The identifier can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789 , or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The identifier of the user or resource associated with the mailbox.</p> 
+    /// <p>The identifier can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789 , or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     pub fn entity_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.entity_id(input.into());
         self
     }
-    /// <p>The identifier of the user or resource associated with the mailbox.</p>
-    /// <p>The identifier can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789 , or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The identifier of the user or resource associated with the mailbox.</p> 
+    /// <p>The identifier can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789 , or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     pub fn set_entity_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_entity_id(input);
         self
     }
-    /// <p>The identifier of the user or resource associated with the mailbox.</p>
-    /// <p>The identifier can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789 , or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The identifier of the user or resource associated with the mailbox.</p> 
+    /// <p>The identifier can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789 , or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     pub fn get_entity_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_entity_id()
@@ -239,3 +226,4 @@ impl StartMailboxExportJobFluentBuilder {
         self.inner.get_s3_prefix()
     }
 }
+

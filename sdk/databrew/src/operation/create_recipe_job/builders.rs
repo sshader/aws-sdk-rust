@@ -5,54 +5,50 @@ pub use crate::operation::create_recipe_job::_create_recipe_job_input::CreateRec
 
 impl CreateRecipeJobInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_recipe_job::CreateRecipeJobOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_recipe_job::CreateRecipeJobError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_recipe_job();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_recipe_job::CreateRecipeJobOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_recipe_job::CreateRecipeJobError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_recipe_job();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateRecipeJob`.
-///
+/// 
 /// <p>Creates a new job to transform input data, using steps defined in an existing Glue DataBrew recipe</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateRecipeJobFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_recipe_job::builders::CreateRecipeJobInputBuilder,
+                    inner: crate::operation::create_recipe_job::builders::CreateRecipeJobInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_recipe_job::CreateRecipeJobOutput,
-        crate::operation::create_recipe_job::CreateRecipeJobError,
-    > for CreateRecipeJobFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_recipe_job::CreateRecipeJobOutput,
-            crate::operation::create_recipe_job::CreateRecipeJobError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_recipe_job::CreateRecipeJobOutput,
+                    crate::operation::create_recipe_job::CreateRecipeJobError,
+                > for CreateRecipeJobFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_recipe_job::CreateRecipeJobOutput,
+                        crate::operation::create_recipe_job::CreateRecipeJobError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateRecipeJobFluentBuilder {
     /// Creates a new `CreateRecipeJob`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl CreateRecipeJobFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_recipe_job::CreateRecipeJobOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_recipe_job::CreateRecipeJobError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_recipe_job::CreateRecipeJob::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_recipe_job::CreateRecipeJob::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_recipe_job::CreateRecipeJobOutput,
-        crate::operation::create_recipe_job::CreateRecipeJobError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_recipe_job::CreateRecipeJobOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_recipe_job::CreateRecipeJobError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_recipe_job::CreateRecipeJob::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_recipe_job::CreateRecipeJob::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_recipe_job::CreateRecipeJobOutput, crate::operation::create_recipe_job::CreateRecipeJobError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name of the dataset that this job processes.</p>
     pub fn dataset_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.dataset_name(input.into());
@@ -136,28 +123,28 @@ impl CreateRecipeJobFluentBuilder {
     pub fn get_encryption_key_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_encryption_key_arn()
     }
-    /// <p>The encryption mode for the job, which can be one of the following:</p>
-    /// <ul>
-    /// <li> <p> <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p> </li>
-    /// <li> <p> <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p> </li>
+    /// <p>The encryption mode for the job, which can be one of the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p> </li> 
+    /// <li> <p> <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p> </li> 
     /// </ul>
     pub fn encryption_mode(mut self, input: crate::types::EncryptionMode) -> Self {
         self.inner = self.inner.encryption_mode(input);
         self
     }
-    /// <p>The encryption mode for the job, which can be one of the following:</p>
-    /// <ul>
-    /// <li> <p> <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p> </li>
-    /// <li> <p> <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p> </li>
+    /// <p>The encryption mode for the job, which can be one of the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p> </li> 
+    /// <li> <p> <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p> </li> 
     /// </ul>
     pub fn set_encryption_mode(mut self, input: ::std::option::Option<crate::types::EncryptionMode>) -> Self {
         self.inner = self.inner.set_encryption_mode(input);
         self
     }
-    /// <p>The encryption mode for the job, which can be one of the following:</p>
-    /// <ul>
-    /// <li> <p> <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p> </li>
-    /// <li> <p> <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p> </li>
+    /// <p>The encryption mode for the job, which can be one of the following:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p> </li> 
+    /// <li> <p> <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p> </li> 
     /// </ul>
     pub fn get_encryption_mode(&self) -> &::std::option::Option<crate::types::EncryptionMode> {
         self.inner.get_encryption_mode()
@@ -228,12 +215,12 @@ impl CreateRecipeJobFluentBuilder {
         self
     }
     /// <p>One or more artifacts that represent the output from running the job.</p>
-    pub fn set_outputs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Output>>) -> Self {
+    pub fn set_outputs(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Output>>) -> Self {
         self.inner = self.inner.set_outputs(input);
         self
     }
     /// <p>One or more artifacts that represent the output from running the job.</p>
-    pub fn get_outputs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Output>> {
+    pub fn get_outputs(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Output>> {
         self.inner.get_outputs()
     }
     /// Appends an item to `DataCatalogOutputs`.
@@ -246,12 +233,12 @@ impl CreateRecipeJobFluentBuilder {
         self
     }
     /// <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
-    pub fn set_data_catalog_outputs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DataCatalogOutput>>) -> Self {
+    pub fn set_data_catalog_outputs(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::DataCatalogOutput>>) -> Self {
         self.inner = self.inner.set_data_catalog_outputs(input);
         self
     }
     /// <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
-    pub fn get_data_catalog_outputs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DataCatalogOutput>> {
+    pub fn get_data_catalog_outputs(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::DataCatalogOutput>> {
         self.inner.get_data_catalog_outputs()
     }
     /// Appends an item to `DatabaseOutputs`.
@@ -264,12 +251,12 @@ impl CreateRecipeJobFluentBuilder {
         self
     }
     /// <p>Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write to. </p>
-    pub fn set_database_outputs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DatabaseOutput>>) -> Self {
+    pub fn set_database_outputs(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::DatabaseOutput>>) -> Self {
         self.inner = self.inner.set_database_outputs(input);
         self
     }
     /// <p>Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write to. </p>
-    pub fn get_database_outputs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DatabaseOutput>> {
+    pub fn get_database_outputs(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::DatabaseOutput>> {
         self.inner.get_database_outputs()
     }
     /// <p>Either the name of an existing project, or a combination of a recipe and a dataset to associate with the recipe.</p>
@@ -324,12 +311,12 @@ impl CreateRecipeJobFluentBuilder {
         self
     }
     /// <p>Metadata tags to apply to this job.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>Metadata tags to apply to this job.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
     /// <p>The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of <code>TIMEOUT</code>.</p>
@@ -347,3 +334,4 @@ impl CreateRecipeJobFluentBuilder {
         self.inner.get_timeout()
     }
 }
+

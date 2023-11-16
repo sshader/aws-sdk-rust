@@ -3,45 +3,45 @@
 /// <p>Information about the progress of a deployment job.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ProgressDetail {
-    /// <p>The current progress status.</p>
-    /// <dl>
+pub struct ProgressDetail  {
+    /// <p>The current progress status.</p> 
+    /// <dl> 
     /// <dt>
     /// Validating
-    /// </dt>
-    /// <dd>
-    /// <p>Validating the deployment.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Validating the deployment.</p> 
+    /// </dd> 
     /// <dt>
     /// DownloadingExtracting
-    /// </dt>
-    /// <dd>
-    /// <p>Downloading and extracting the bundle on the robot.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Downloading and extracting the bundle on the robot.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPreLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing pre-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing pre-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Launching
-    /// </dt>
-    /// <dd>
-    /// <p>Launching the robot application.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Launching the robot application.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPostLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing post-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing post-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Finished
-    /// </dt>
-    /// <dd>
-    /// <p>Deployment is complete.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Deployment is complete.</p> 
+    /// </dd> 
     /// </dl>
     pub current_progress: ::std::option::Option<crate::types::RobotDeploymentStep>,
     /// <p>Precentage of the step that is done. This currently only applies to the <code>Downloading/Extracting</code> step of the deployment. It is empty for other steps.</p>
@@ -51,47 +51,47 @@ pub struct ProgressDetail {
     /// <p>The Amazon Resource Name (ARN) of the deployment job.</p>
     pub target_resource: ::std::option::Option<::std::string::String>,
 }
-impl ProgressDetail {
-    /// <p>The current progress status.</p>
-    /// <dl>
+impl  ProgressDetail  {
+    /// <p>The current progress status.</p> 
+    /// <dl> 
     /// <dt>
     /// Validating
-    /// </dt>
-    /// <dd>
-    /// <p>Validating the deployment.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Validating the deployment.</p> 
+    /// </dd> 
     /// <dt>
     /// DownloadingExtracting
-    /// </dt>
-    /// <dd>
-    /// <p>Downloading and extracting the bundle on the robot.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Downloading and extracting the bundle on the robot.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPreLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing pre-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing pre-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Launching
-    /// </dt>
-    /// <dd>
-    /// <p>Launching the robot application.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Launching the robot application.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPostLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing post-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing post-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Finished
-    /// </dt>
-    /// <dd>
-    /// <p>Deployment is complete.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Deployment is complete.</p> 
+    /// </dd> 
     /// </dl>
-    pub fn current_progress(&self) -> ::std::option::Option<&crate::types::RobotDeploymentStep> {
+    pub fn current_progress(&self) -> ::std::option::Option<& crate::types::RobotDeploymentStep> {
         self.current_progress.as_ref()
     }
     /// <p>Precentage of the step that is done. This currently only applies to the <code>Downloading/Extracting</code> step of the deployment. It is empty for other steps.</p>
@@ -103,7 +103,7 @@ impl ProgressDetail {
         self.estimated_time_remaining_seconds
     }
     /// <p>The Amazon Resource Name (ARN) of the deployment job.</p>
-    pub fn target_resource(&self) -> ::std::option::Option<&str> {
+    pub fn target_resource(&self) -> ::std::option::Option<& str> {
         self.target_resource.as_deref()
     }
 }
@@ -124,130 +124,129 @@ pub struct ProgressDetailBuilder {
     pub(crate) target_resource: ::std::option::Option<::std::string::String>,
 }
 impl ProgressDetailBuilder {
-    /// <p>The current progress status.</p>
-    /// <dl>
+    /// <p>The current progress status.</p> 
+    /// <dl> 
     /// <dt>
     /// Validating
-    /// </dt>
-    /// <dd>
-    /// <p>Validating the deployment.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Validating the deployment.</p> 
+    /// </dd> 
     /// <dt>
     /// DownloadingExtracting
-    /// </dt>
-    /// <dd>
-    /// <p>Downloading and extracting the bundle on the robot.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Downloading and extracting the bundle on the robot.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPreLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing pre-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing pre-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Launching
-    /// </dt>
-    /// <dd>
-    /// <p>Launching the robot application.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Launching the robot application.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPostLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing post-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing post-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Finished
-    /// </dt>
-    /// <dd>
-    /// <p>Deployment is complete.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Deployment is complete.</p> 
+    /// </dd> 
     /// </dl>
     pub fn current_progress(mut self, input: crate::types::RobotDeploymentStep) -> Self {
         self.current_progress = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current progress status.</p>
-    /// <dl>
+    /// <p>The current progress status.</p> 
+    /// <dl> 
     /// <dt>
     /// Validating
-    /// </dt>
-    /// <dd>
-    /// <p>Validating the deployment.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Validating the deployment.</p> 
+    /// </dd> 
     /// <dt>
     /// DownloadingExtracting
-    /// </dt>
-    /// <dd>
-    /// <p>Downloading and extracting the bundle on the robot.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Downloading and extracting the bundle on the robot.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPreLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing pre-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing pre-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Launching
-    /// </dt>
-    /// <dd>
-    /// <p>Launching the robot application.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Launching the robot application.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPostLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing post-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing post-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Finished
-    /// </dt>
-    /// <dd>
-    /// <p>Deployment is complete.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Deployment is complete.</p> 
+    /// </dd> 
     /// </dl>
     pub fn set_current_progress(mut self, input: ::std::option::Option<crate::types::RobotDeploymentStep>) -> Self {
-        self.current_progress = input;
-        self
+        self.current_progress = input; self
     }
-    /// <p>The current progress status.</p>
-    /// <dl>
+    /// <p>The current progress status.</p> 
+    /// <dl> 
     /// <dt>
     /// Validating
-    /// </dt>
-    /// <dd>
-    /// <p>Validating the deployment.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Validating the deployment.</p> 
+    /// </dd> 
     /// <dt>
     /// DownloadingExtracting
-    /// </dt>
-    /// <dd>
-    /// <p>Downloading and extracting the bundle on the robot.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Downloading and extracting the bundle on the robot.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPreLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing pre-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing pre-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Launching
-    /// </dt>
-    /// <dd>
-    /// <p>Launching the robot application.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Launching the robot application.</p> 
+    /// </dd> 
     /// <dt>
     /// ExecutingPostLaunch
-    /// </dt>
-    /// <dd>
-    /// <p>Executing post-launch script(s) if provided.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Executing post-launch script(s) if provided.</p> 
+    /// </dd> 
     /// <dt>
     /// Finished
-    /// </dt>
-    /// <dd>
-    /// <p>Deployment is complete.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Deployment is complete.</p> 
+    /// </dd> 
     /// </dl>
     pub fn get_current_progress(&self) -> &::std::option::Option<crate::types::RobotDeploymentStep> {
         &self.current_progress
@@ -259,8 +258,7 @@ impl ProgressDetailBuilder {
     }
     /// <p>Precentage of the step that is done. This currently only applies to the <code>Downloading/Extracting</code> step of the deployment. It is empty for other steps.</p>
     pub fn set_percent_done(mut self, input: ::std::option::Option<f32>) -> Self {
-        self.percent_done = input;
-        self
+        self.percent_done = input; self
     }
     /// <p>Precentage of the step that is done. This currently only applies to the <code>Downloading/Extracting</code> step of the deployment. It is empty for other steps.</p>
     pub fn get_percent_done(&self) -> &::std::option::Option<f32> {
@@ -273,8 +271,7 @@ impl ProgressDetailBuilder {
     }
     /// <p>Estimated amount of time in seconds remaining in the step. This currently only applies to the <code>Downloading/Extracting</code> step of the deployment. It is empty for other steps.</p>
     pub fn set_estimated_time_remaining_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.estimated_time_remaining_seconds = input;
-        self
+        self.estimated_time_remaining_seconds = input; self
     }
     /// <p>Estimated amount of time in seconds remaining in the step. This currently only applies to the <code>Downloading/Extracting</code> step of the deployment. It is empty for other steps.</p>
     pub fn get_estimated_time_remaining_seconds(&self) -> &::std::option::Option<i32> {
@@ -287,8 +284,7 @@ impl ProgressDetailBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the deployment job.</p>
     pub fn set_target_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.target_resource = input;
-        self
+        self.target_resource = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the deployment job.</p>
     pub fn get_target_resource(&self) -> &::std::option::Option<::std::string::String> {
@@ -297,10 +293,15 @@ impl ProgressDetailBuilder {
     /// Consumes the builder and constructs a [`ProgressDetail`](crate::types::ProgressDetail).
     pub fn build(self) -> crate::types::ProgressDetail {
         crate::types::ProgressDetail {
-            current_progress: self.current_progress,
-            percent_done: self.percent_done,
-            estimated_time_remaining_seconds: self.estimated_time_remaining_seconds,
-            target_resource: self.target_resource,
+            current_progress: self.current_progress
+            ,
+            percent_done: self.percent_done
+            ,
+            estimated_time_remaining_seconds: self.estimated_time_remaining_seconds
+            ,
+            target_resource: self.target_resource
+            ,
         }
     }
 }
+

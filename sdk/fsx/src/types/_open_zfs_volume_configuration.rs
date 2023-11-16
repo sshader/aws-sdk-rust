@@ -3,7 +3,7 @@
 /// <p>The configuration of an Amazon FSx for OpenZFS volume.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct OpenZfsVolumeConfiguration {
+pub struct OpenZfsVolumeConfiguration  {
     /// <p>The ID of the parent volume.</p>
     pub parent_volume_id: ::std::option::Option<::std::string::String>,
     /// <p>The path to the volume from the root volume. For example, <code>fsx/parentVolume/volume1</code>.</p>
@@ -14,11 +14,11 @@ pub struct OpenZfsVolumeConfiguration {
     pub storage_capacity_quota_gib: ::std::option::Option<i32>,
     /// <p>The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB. Most workloads should use the default record size. For guidance on when to set a custom record size, see the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
     pub record_size_kib: ::std::option::Option<i32>,
-    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p>
-    /// <ul>
-    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li>
-    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li>
-    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li>
+    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p> 
+    /// <ul> 
+    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li> 
+    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li> 
+    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li> 
     /// </ul>
     pub data_compression_type: ::std::option::Option<crate::types::OpenZfsDataCompressionType>,
     /// <p>A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags for the volume are copied to snapshots where the user doesn't specify tags. If this value is <code>true</code> and you specify one or more tags, only the specified tags are copied to snapshots. If you specify one or more tags when creating the snapshot, no tags are copied from the volume, regardless of this value.</p>
@@ -28,9 +28,9 @@ pub struct OpenZfsVolumeConfiguration {
     /// <p>A Boolean value indicating whether the volume is read-only.</p>
     pub read_only: ::std::option::Option<bool>,
     /// <p>The configuration object for mounting a Network File System (NFS) file system.</p>
-    pub nfs_exports: ::std::option::Option<::std::vec::Vec<crate::types::OpenZfsNfsExport>>,
+    pub nfs_exports: ::std::option::Option<::std::vec::Vec::<crate::types::OpenZfsNfsExport>>,
     /// <p>An object specifying how much storage users or groups can use on the volume.</p>
-    pub user_and_group_quotas: ::std::option::Option<::std::vec::Vec<crate::types::OpenZfsUserOrGroupQuota>>,
+    pub user_and_group_quotas: ::std::option::Option<::std::vec::Vec::<crate::types::OpenZfsUserOrGroupQuota>>,
     /// <p>Specifies the ID of the snapshot to which the volume was restored.</p>
     pub restore_to_snapshot: ::std::option::Option<::std::string::String>,
     /// <p>A Boolean value indicating whether snapshots between the current state and the specified snapshot should be deleted when a volume is restored from snapshot.</p>
@@ -38,13 +38,13 @@ pub struct OpenZfsVolumeConfiguration {
     /// <p>A Boolean value indicating whether dependent clone volumes created from intermediate snapshots should be deleted when a volume is restored from snapshot.</p>
     pub delete_cloned_volumes: ::std::option::Option<bool>,
 }
-impl OpenZfsVolumeConfiguration {
+impl  OpenZfsVolumeConfiguration  {
     /// <p>The ID of the parent volume.</p>
-    pub fn parent_volume_id(&self) -> ::std::option::Option<&str> {
+    pub fn parent_volume_id(&self) -> ::std::option::Option<& str> {
         self.parent_volume_id.as_deref()
     }
     /// <p>The path to the volume from the root volume. For example, <code>fsx/parentVolume/volume1</code>.</p>
-    pub fn volume_path(&self) -> ::std::option::Option<&str> {
+    pub fn volume_path(&self) -> ::std::option::Option<& str> {
         self.volume_path.as_deref()
     }
     /// <p>The amount of storage in gibibytes (GiB) to reserve from the parent volume. You can't reserve more storage than the parent volume has reserved.</p>
@@ -59,13 +59,13 @@ impl OpenZfsVolumeConfiguration {
     pub fn record_size_kib(&self) -> ::std::option::Option<i32> {
         self.record_size_kib
     }
-    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p>
-    /// <ul>
-    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li>
-    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li>
-    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li>
+    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p> 
+    /// <ul> 
+    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li> 
+    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li> 
+    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li> 
     /// </ul>
-    pub fn data_compression_type(&self) -> ::std::option::Option<&crate::types::OpenZfsDataCompressionType> {
+    pub fn data_compression_type(&self) -> ::std::option::Option<& crate::types::OpenZfsDataCompressionType> {
         self.data_compression_type.as_ref()
     }
     /// <p>A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags for the volume are copied to snapshots where the user doesn't specify tags. If this value is <code>true</code> and you specify one or more tags, only the specified tags are copied to snapshots. If you specify one or more tags when creating the snapshot, no tags are copied from the volume, regardless of this value.</p>
@@ -73,7 +73,7 @@ impl OpenZfsVolumeConfiguration {
         self.copy_tags_to_snapshots
     }
     /// <p>The configuration object that specifies the snapshot to use as the origin of the data for the volume.</p>
-    pub fn origin_snapshot(&self) -> ::std::option::Option<&crate::types::OpenZfsOriginSnapshotConfiguration> {
+    pub fn origin_snapshot(&self) -> ::std::option::Option<& crate::types::OpenZfsOriginSnapshotConfiguration> {
         self.origin_snapshot.as_ref()
     }
     /// <p>A Boolean value indicating whether the volume is read-only.</p>
@@ -81,19 +81,21 @@ impl OpenZfsVolumeConfiguration {
         self.read_only
     }
     /// <p>The configuration object for mounting a Network File System (NFS) file system.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.nfs_exports.is_none()`.
-    pub fn nfs_exports(&self) -> &[crate::types::OpenZfsNfsExport] {
-        self.nfs_exports.as_deref().unwrap_or_default()
+    pub fn nfs_exports(&self) -> & [crate::types::OpenZfsNfsExport] {
+        self.nfs_exports.as_deref()
+        .unwrap_or_default()
     }
     /// <p>An object specifying how much storage users or groups can use on the volume.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_and_group_quotas.is_none()`.
-    pub fn user_and_group_quotas(&self) -> &[crate::types::OpenZfsUserOrGroupQuota] {
-        self.user_and_group_quotas.as_deref().unwrap_or_default()
+    pub fn user_and_group_quotas(&self) -> & [crate::types::OpenZfsUserOrGroupQuota] {
+        self.user_and_group_quotas.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Specifies the ID of the snapshot to which the volume was restored.</p>
-    pub fn restore_to_snapshot(&self) -> ::std::option::Option<&str> {
+    pub fn restore_to_snapshot(&self) -> ::std::option::Option<& str> {
         self.restore_to_snapshot.as_deref()
     }
     /// <p>A Boolean value indicating whether snapshots between the current state and the specified snapshot should be deleted when a volume is restored from snapshot.</p>
@@ -125,8 +127,8 @@ pub struct OpenZfsVolumeConfigurationBuilder {
     pub(crate) copy_tags_to_snapshots: ::std::option::Option<bool>,
     pub(crate) origin_snapshot: ::std::option::Option<crate::types::OpenZfsOriginSnapshotConfiguration>,
     pub(crate) read_only: ::std::option::Option<bool>,
-    pub(crate) nfs_exports: ::std::option::Option<::std::vec::Vec<crate::types::OpenZfsNfsExport>>,
-    pub(crate) user_and_group_quotas: ::std::option::Option<::std::vec::Vec<crate::types::OpenZfsUserOrGroupQuota>>,
+    pub(crate) nfs_exports: ::std::option::Option<::std::vec::Vec::<crate::types::OpenZfsNfsExport>>,
+    pub(crate) user_and_group_quotas: ::std::option::Option<::std::vec::Vec::<crate::types::OpenZfsUserOrGroupQuota>>,
     pub(crate) restore_to_snapshot: ::std::option::Option<::std::string::String>,
     pub(crate) delete_intermediate_snaphots: ::std::option::Option<bool>,
     pub(crate) delete_cloned_volumes: ::std::option::Option<bool>,
@@ -139,8 +141,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>The ID of the parent volume.</p>
     pub fn set_parent_volume_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.parent_volume_id = input;
-        self
+        self.parent_volume_id = input; self
     }
     /// <p>The ID of the parent volume.</p>
     pub fn get_parent_volume_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -153,8 +154,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>The path to the volume from the root volume. For example, <code>fsx/parentVolume/volume1</code>.</p>
     pub fn set_volume_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.volume_path = input;
-        self
+        self.volume_path = input; self
     }
     /// <p>The path to the volume from the root volume. For example, <code>fsx/parentVolume/volume1</code>.</p>
     pub fn get_volume_path(&self) -> &::std::option::Option<::std::string::String> {
@@ -167,8 +167,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>The amount of storage in gibibytes (GiB) to reserve from the parent volume. You can't reserve more storage than the parent volume has reserved.</p>
     pub fn set_storage_capacity_reservation_gib(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.storage_capacity_reservation_gib = input;
-        self
+        self.storage_capacity_reservation_gib = input; self
     }
     /// <p>The amount of storage in gibibytes (GiB) to reserve from the parent volume. You can't reserve more storage than the parent volume has reserved.</p>
     pub fn get_storage_capacity_reservation_gib(&self) -> &::std::option::Option<i32> {
@@ -181,8 +180,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>The maximum amount of storage in gibibtyes (GiB) that the volume can use from its parent. You can specify a quota larger than the storage on the parent volume.</p>
     pub fn set_storage_capacity_quota_gib(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.storage_capacity_quota_gib = input;
-        self
+        self.storage_capacity_quota_gib = input; self
     }
     /// <p>The maximum amount of storage in gibibtyes (GiB) that the volume can use from its parent. You can specify a quota larger than the storage on the parent volume.</p>
     pub fn get_storage_capacity_quota_gib(&self) -> &::std::option::Option<i32> {
@@ -195,38 +193,36 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB. Most workloads should use the default record size. For guidance on when to set a custom record size, see the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
     pub fn set_record_size_kib(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.record_size_kib = input;
-        self
+        self.record_size_kib = input; self
     }
     /// <p>The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB. Most workloads should use the default record size. For guidance on when to set a custom record size, see the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
     pub fn get_record_size_kib(&self) -> &::std::option::Option<i32> {
         &self.record_size_kib
     }
-    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p>
-    /// <ul>
-    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li>
-    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li>
-    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li>
+    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p> 
+    /// <ul> 
+    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li> 
+    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li> 
+    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li> 
     /// </ul>
     pub fn data_compression_type(mut self, input: crate::types::OpenZfsDataCompressionType) -> Self {
         self.data_compression_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p>
-    /// <ul>
-    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li>
-    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li>
-    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li>
+    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p> 
+    /// <ul> 
+    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li> 
+    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li> 
+    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li> 
     /// </ul>
     pub fn set_data_compression_type(mut self, input: ::std::option::Option<crate::types::OpenZfsDataCompressionType>) -> Self {
-        self.data_compression_type = input;
-        self
+        self.data_compression_type = input; self
     }
-    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p>
-    /// <ul>
-    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li>
-    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li>
-    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li>
+    /// <p>Specifies the method used to compress the data on the volume. The compression type is <code>NONE</code> by default.</p> 
+    /// <ul> 
+    /// <li> <p> <code>NONE</code> - Doesn't compress the data on the volume. <code>NONE</code> is the default.</p> </li> 
+    /// <li> <p> <code>ZSTD</code> - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.</p> </li> 
+    /// <li> <p> <code>LZ4</code> - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.</p> </li> 
     /// </ul>
     pub fn get_data_compression_type(&self) -> &::std::option::Option<crate::types::OpenZfsDataCompressionType> {
         &self.data_compression_type
@@ -238,8 +234,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags for the volume are copied to snapshots where the user doesn't specify tags. If this value is <code>true</code> and you specify one or more tags, only the specified tags are copied to snapshots. If you specify one or more tags when creating the snapshot, no tags are copied from the volume, regardless of this value.</p>
     pub fn set_copy_tags_to_snapshots(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.copy_tags_to_snapshots = input;
-        self
+        self.copy_tags_to_snapshots = input; self
     }
     /// <p>A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags for the volume are copied to snapshots where the user doesn't specify tags. If this value is <code>true</code> and you specify one or more tags, only the specified tags are copied to snapshots. If you specify one or more tags when creating the snapshot, no tags are copied from the volume, regardless of this value.</p>
     pub fn get_copy_tags_to_snapshots(&self) -> &::std::option::Option<bool> {
@@ -252,8 +247,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>The configuration object that specifies the snapshot to use as the origin of the data for the volume.</p>
     pub fn set_origin_snapshot(mut self, input: ::std::option::Option<crate::types::OpenZfsOriginSnapshotConfiguration>) -> Self {
-        self.origin_snapshot = input;
-        self
+        self.origin_snapshot = input; self
     }
     /// <p>The configuration object that specifies the snapshot to use as the origin of the data for the volume.</p>
     pub fn get_origin_snapshot(&self) -> &::std::option::Option<crate::types::OpenZfsOriginSnapshotConfiguration> {
@@ -266,8 +260,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>A Boolean value indicating whether the volume is read-only.</p>
     pub fn set_read_only(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.read_only = input;
-        self
+        self.read_only = input; self
     }
     /// <p>A Boolean value indicating whether the volume is read-only.</p>
     pub fn get_read_only(&self) -> &::std::option::Option<bool> {
@@ -280,17 +273,16 @@ impl OpenZfsVolumeConfigurationBuilder {
     /// <p>The configuration object for mounting a Network File System (NFS) file system.</p>
     pub fn nfs_exports(mut self, input: crate::types::OpenZfsNfsExport) -> Self {
         let mut v = self.nfs_exports.unwrap_or_default();
-        v.push(input);
-        self.nfs_exports = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.nfs_exports = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The configuration object for mounting a Network File System (NFS) file system.</p>
-    pub fn set_nfs_exports(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OpenZfsNfsExport>>) -> Self {
-        self.nfs_exports = input;
-        self
+    pub fn set_nfs_exports(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::OpenZfsNfsExport>>) -> Self {
+        self.nfs_exports = input; self
     }
     /// <p>The configuration object for mounting a Network File System (NFS) file system.</p>
-    pub fn get_nfs_exports(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OpenZfsNfsExport>> {
+    pub fn get_nfs_exports(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::OpenZfsNfsExport>> {
         &self.nfs_exports
     }
     /// Appends an item to `user_and_group_quotas`.
@@ -300,17 +292,16 @@ impl OpenZfsVolumeConfigurationBuilder {
     /// <p>An object specifying how much storage users or groups can use on the volume.</p>
     pub fn user_and_group_quotas(mut self, input: crate::types::OpenZfsUserOrGroupQuota) -> Self {
         let mut v = self.user_and_group_quotas.unwrap_or_default();
-        v.push(input);
-        self.user_and_group_quotas = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.user_and_group_quotas = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>An object specifying how much storage users or groups can use on the volume.</p>
-    pub fn set_user_and_group_quotas(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OpenZfsUserOrGroupQuota>>) -> Self {
-        self.user_and_group_quotas = input;
-        self
+    pub fn set_user_and_group_quotas(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::OpenZfsUserOrGroupQuota>>) -> Self {
+        self.user_and_group_quotas = input; self
     }
     /// <p>An object specifying how much storage users or groups can use on the volume.</p>
-    pub fn get_user_and_group_quotas(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OpenZfsUserOrGroupQuota>> {
+    pub fn get_user_and_group_quotas(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::OpenZfsUserOrGroupQuota>> {
         &self.user_and_group_quotas
     }
     /// <p>Specifies the ID of the snapshot to which the volume was restored.</p>
@@ -320,8 +311,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>Specifies the ID of the snapshot to which the volume was restored.</p>
     pub fn set_restore_to_snapshot(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.restore_to_snapshot = input;
-        self
+        self.restore_to_snapshot = input; self
     }
     /// <p>Specifies the ID of the snapshot to which the volume was restored.</p>
     pub fn get_restore_to_snapshot(&self) -> &::std::option::Option<::std::string::String> {
@@ -334,8 +324,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>A Boolean value indicating whether snapshots between the current state and the specified snapshot should be deleted when a volume is restored from snapshot.</p>
     pub fn set_delete_intermediate_snaphots(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.delete_intermediate_snaphots = input;
-        self
+        self.delete_intermediate_snaphots = input; self
     }
     /// <p>A Boolean value indicating whether snapshots between the current state and the specified snapshot should be deleted when a volume is restored from snapshot.</p>
     pub fn get_delete_intermediate_snaphots(&self) -> &::std::option::Option<bool> {
@@ -348,8 +337,7 @@ impl OpenZfsVolumeConfigurationBuilder {
     }
     /// <p>A Boolean value indicating whether dependent clone volumes created from intermediate snapshots should be deleted when a volume is restored from snapshot.</p>
     pub fn set_delete_cloned_volumes(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.delete_cloned_volumes = input;
-        self
+        self.delete_cloned_volumes = input; self
     }
     /// <p>A Boolean value indicating whether dependent clone volumes created from intermediate snapshots should be deleted when a volume is restored from snapshot.</p>
     pub fn get_delete_cloned_volumes(&self) -> &::std::option::Option<bool> {
@@ -358,20 +346,35 @@ impl OpenZfsVolumeConfigurationBuilder {
     /// Consumes the builder and constructs a [`OpenZfsVolumeConfiguration`](crate::types::OpenZfsVolumeConfiguration).
     pub fn build(self) -> crate::types::OpenZfsVolumeConfiguration {
         crate::types::OpenZfsVolumeConfiguration {
-            parent_volume_id: self.parent_volume_id,
-            volume_path: self.volume_path,
-            storage_capacity_reservation_gib: self.storage_capacity_reservation_gib,
-            storage_capacity_quota_gib: self.storage_capacity_quota_gib,
-            record_size_kib: self.record_size_kib,
-            data_compression_type: self.data_compression_type,
-            copy_tags_to_snapshots: self.copy_tags_to_snapshots,
-            origin_snapshot: self.origin_snapshot,
-            read_only: self.read_only,
-            nfs_exports: self.nfs_exports,
-            user_and_group_quotas: self.user_and_group_quotas,
-            restore_to_snapshot: self.restore_to_snapshot,
-            delete_intermediate_snaphots: self.delete_intermediate_snaphots,
-            delete_cloned_volumes: self.delete_cloned_volumes,
+            parent_volume_id: self.parent_volume_id
+            ,
+            volume_path: self.volume_path
+            ,
+            storage_capacity_reservation_gib: self.storage_capacity_reservation_gib
+            ,
+            storage_capacity_quota_gib: self.storage_capacity_quota_gib
+            ,
+            record_size_kib: self.record_size_kib
+            ,
+            data_compression_type: self.data_compression_type
+            ,
+            copy_tags_to_snapshots: self.copy_tags_to_snapshots
+            ,
+            origin_snapshot: self.origin_snapshot
+            ,
+            read_only: self.read_only
+            ,
+            nfs_exports: self.nfs_exports
+            ,
+            user_and_group_quotas: self.user_and_group_quotas
+            ,
+            restore_to_snapshot: self.restore_to_snapshot
+            ,
+            delete_intermediate_snaphots: self.delete_intermediate_snaphots
+            ,
+            delete_cloned_volumes: self.delete_cloned_volumes
+            ,
         }
     }
 }
+

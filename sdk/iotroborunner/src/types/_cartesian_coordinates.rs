@@ -3,7 +3,7 @@
 /// Cartesian coordinates in 3D space relative to the RoboRunner origin.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CartesianCoordinates {
+pub struct CartesianCoordinates  {
     /// X coordinate.
     pub x: f64,
     /// Y coordinate.
@@ -11,7 +11,7 @@ pub struct CartesianCoordinates {
     /// Z coordinate.
     pub z: ::std::option::Option<f64>,
 }
-impl CartesianCoordinates {
+impl  CartesianCoordinates  {
     /// X coordinate.
     pub fn x(&self) -> f64 {
         self.x
@@ -49,8 +49,7 @@ impl CartesianCoordinatesBuilder {
     }
     /// X coordinate.
     pub fn set_x(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.x = input;
-        self
+        self.x = input; self
     }
     /// X coordinate.
     pub fn get_x(&self) -> &::std::option::Option<f64> {
@@ -64,8 +63,7 @@ impl CartesianCoordinatesBuilder {
     }
     /// Y coordinate.
     pub fn set_y(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.y = input;
-        self
+        self.y = input; self
     }
     /// Y coordinate.
     pub fn get_y(&self) -> &::std::option::Option<f64> {
@@ -78,8 +76,7 @@ impl CartesianCoordinatesBuilder {
     }
     /// Z coordinate.
     pub fn set_z(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.z = input;
-        self
+        self.z = input; self
     }
     /// Z coordinate.
     pub fn get_z(&self) -> &::std::option::Option<f64> {
@@ -90,20 +87,22 @@ impl CartesianCoordinatesBuilder {
     /// - [`x`](crate::types::builders::CartesianCoordinatesBuilder::x)
     /// - [`y`](crate::types::builders::CartesianCoordinatesBuilder::y)
     pub fn build(self) -> ::std::result::Result<crate::types::CartesianCoordinates, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::CartesianCoordinates {
-            x: self.x.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "x",
-                    "x was not specified but it is required when building CartesianCoordinates",
-                )
-            })?,
-            y: self.y.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "y",
-                    "y was not specified but it is required when building CartesianCoordinates",
-                )
-            })?,
-            z: self.z,
-        })
+        ::std::result::Result::Ok(
+            crate::types::CartesianCoordinates {
+                x: self.x
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("x", "x was not specified but it is required when building CartesianCoordinates")
+                    )?
+                ,
+                y: self.y
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("y", "y was not specified but it is required when building CartesianCoordinates")
+                    )?
+                ,
+                z: self.z
+                ,
+            }
+        )
     }
 }
+

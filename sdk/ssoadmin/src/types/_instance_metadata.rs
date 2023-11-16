@@ -3,19 +3,19 @@
 /// <p>Provides information about the IAM Identity Center instance.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct InstanceMetadata {
+pub struct InstanceMetadata  {
     /// <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub instance_arn: ::std::option::Option<::std::string::String>,
     /// <p>The identifier of the identity store that is connected to the IAM Identity Center instance.</p>
     pub identity_store_id: ::std::option::Option<::std::string::String>,
 }
-impl InstanceMetadata {
+impl  InstanceMetadata  {
     /// <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn instance_arn(&self) -> ::std::option::Option<&str> {
+    pub fn instance_arn(&self) -> ::std::option::Option<& str> {
         self.instance_arn.as_deref()
     }
     /// <p>The identifier of the identity store that is connected to the IAM Identity Center instance.</p>
-    pub fn identity_store_id(&self) -> ::std::option::Option<&str> {
+    pub fn identity_store_id(&self) -> ::std::option::Option<& str> {
         self.identity_store_id.as_deref()
     }
 }
@@ -41,8 +41,7 @@ impl InstanceMetadataBuilder {
     }
     /// <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_instance_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.instance_arn = input;
-        self
+        self.instance_arn = input; self
     }
     /// <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn get_instance_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -55,8 +54,7 @@ impl InstanceMetadataBuilder {
     }
     /// <p>The identifier of the identity store that is connected to the IAM Identity Center instance.</p>
     pub fn set_identity_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.identity_store_id = input;
-        self
+        self.identity_store_id = input; self
     }
     /// <p>The identifier of the identity store that is connected to the IAM Identity Center instance.</p>
     pub fn get_identity_store_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -65,8 +63,11 @@ impl InstanceMetadataBuilder {
     /// Consumes the builder and constructs a [`InstanceMetadata`](crate::types::InstanceMetadata).
     pub fn build(self) -> crate::types::InstanceMetadata {
         crate::types::InstanceMetadata {
-            instance_arn: self.instance_arn,
-            identity_store_id: self.identity_store_id,
+            instance_arn: self.instance_arn
+            ,
+            identity_store_id: self.identity_store_id
+            ,
         }
     }
 }
+

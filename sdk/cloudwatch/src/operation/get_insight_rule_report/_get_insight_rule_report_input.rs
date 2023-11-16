@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetInsightRuleReportInput {
+pub struct GetInsightRuleReportInput  {
     /// <p>The name of the rule that you want to see data from.</p>
     pub rule_name: ::std::option::Option<::std::string::String>,
     /// <p>The start time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</p>
@@ -13,31 +13,31 @@ pub struct GetInsightRuleReportInput {
     pub period: ::std::option::Option<i32>,
     /// <p>The maximum number of contributors to include in the report. The range is 1 to 100. If you omit this, the default of 10 is used.</p>
     pub max_contributor_count: ::std::option::Option<i32>,
-    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p>
-    /// <ul>
-    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li>
-    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li>
-    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li>
-    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li>
+    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p> 
+    /// <ul> 
+    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li> 
+    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li> 
+    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li> 
     /// </ul>
-    pub metrics: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub metrics: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code> and <code>Maximum</code>.</p>
     pub order_by: ::std::option::Option<::std::string::String>,
 }
-impl GetInsightRuleReportInput {
+impl  GetInsightRuleReportInput  {
     /// <p>The name of the rule that you want to see data from.</p>
-    pub fn rule_name(&self) -> ::std::option::Option<&str> {
+    pub fn rule_name(&self) -> ::std::option::Option<& str> {
         self.rule_name.as_deref()
     }
     /// <p>The start time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</p>
-    pub fn start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.start_time.as_ref()
     }
     /// <p>The end time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</p>
-    pub fn end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.end_time.as_ref()
     }
     /// <p>The period, in seconds, to use for the statistics in the <code>InsightRuleMetricDatapoint</code> results.</p>
@@ -48,23 +48,24 @@ impl GetInsightRuleReportInput {
     pub fn max_contributor_count(&self) -> ::std::option::Option<i32> {
         self.max_contributor_count
     }
-    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p>
-    /// <ul>
-    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li>
-    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li>
-    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li>
-    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li>
+    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p> 
+    /// <ul> 
+    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li> 
+    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li> 
+    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.metrics.is_none()`.
-    pub fn metrics(&self) -> &[::std::string::String] {
-        self.metrics.as_deref().unwrap_or_default()
+    pub fn metrics(&self) -> & [::std::string::String] {
+        self.metrics.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code> and <code>Maximum</code>.</p>
-    pub fn order_by(&self) -> ::std::option::Option<&str> {
+    pub fn order_by(&self) -> ::std::option::Option<& str> {
         self.order_by.as_deref()
     }
 }
@@ -84,7 +85,7 @@ pub struct GetInsightRuleReportInputBuilder {
     pub(crate) end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) period: ::std::option::Option<i32>,
     pub(crate) max_contributor_count: ::std::option::Option<i32>,
-    pub(crate) metrics: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) metrics: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) order_by: ::std::option::Option<::std::string::String>,
 }
 impl GetInsightRuleReportInputBuilder {
@@ -96,8 +97,7 @@ impl GetInsightRuleReportInputBuilder {
     }
     /// <p>The name of the rule that you want to see data from.</p>
     pub fn set_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.rule_name = input;
-        self
+        self.rule_name = input; self
     }
     /// <p>The name of the rule that you want to see data from.</p>
     pub fn get_rule_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -111,8 +111,7 @@ impl GetInsightRuleReportInputBuilder {
     }
     /// <p>The start time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</p>
     pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.start_time = input;
-        self
+        self.start_time = input; self
     }
     /// <p>The start time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</p>
     pub fn get_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -126,8 +125,7 @@ impl GetInsightRuleReportInputBuilder {
     }
     /// <p>The end time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</p>
     pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.end_time = input;
-        self
+        self.end_time = input; self
     }
     /// <p>The end time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</p>
     pub fn get_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -141,8 +139,7 @@ impl GetInsightRuleReportInputBuilder {
     }
     /// <p>The period, in seconds, to use for the statistics in the <code>InsightRuleMetricDatapoint</code> results.</p>
     pub fn set_period(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.period = input;
-        self
+        self.period = input; self
     }
     /// <p>The period, in seconds, to use for the statistics in the <code>InsightRuleMetricDatapoint</code> results.</p>
     pub fn get_period(&self) -> &::std::option::Option<i32> {
@@ -155,8 +152,7 @@ impl GetInsightRuleReportInputBuilder {
     }
     /// <p>The maximum number of contributors to include in the report. The range is 1 to 100. If you omit this, the default of 10 is used.</p>
     pub fn set_max_contributor_count(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_contributor_count = input;
-        self
+        self.max_contributor_count = input; self
     }
     /// <p>The maximum number of contributors to include in the report. The range is 1 to 100. If you omit this, the default of 10 is used.</p>
     pub fn get_max_contributor_count(&self) -> &::std::option::Option<i32> {
@@ -166,47 +162,46 @@ impl GetInsightRuleReportInputBuilder {
     ///
     /// To override the contents of this collection use [`set_metrics`](Self::set_metrics).
     ///
-    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p>
-    /// <ul>
-    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li>
-    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li>
-    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li>
-    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li>
+    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p> 
+    /// <ul> 
+    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li> 
+    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li> 
+    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li> 
     /// </ul>
     pub fn metrics(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.metrics.unwrap_or_default();
-        v.push(input.into());
-        self.metrics = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.metrics = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p>
-    /// <ul>
-    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li>
-    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li>
-    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li>
-    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li>
+    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p> 
+    /// <ul> 
+    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li> 
+    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li> 
+    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li> 
     /// </ul>
-    pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.metrics = input;
-        self
+    pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.metrics = input; self
     }
-    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p>
-    /// <ul>
-    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li>
-    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li>
-    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li>
-    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li>
-    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li>
+    /// <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p> 
+    /// <ul> 
+    /// <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li> 
+    /// <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li> 
+    /// <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li> 
+    /// <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li> 
     /// </ul>
-    pub fn get_metrics(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_metrics(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.metrics
     }
     /// <p>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code> and <code>Maximum</code>.</p>
@@ -216,26 +211,32 @@ impl GetInsightRuleReportInputBuilder {
     }
     /// <p>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code> and <code>Maximum</code>.</p>
     pub fn set_order_by(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.order_by = input;
-        self
+        self.order_by = input; self
     }
     /// <p>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code> and <code>Maximum</code>.</p>
     pub fn get_order_by(&self) -> &::std::option::Option<::std::string::String> {
         &self.order_by
     }
     /// Consumes the builder and constructs a [`GetInsightRuleReportInput`](crate::operation::get_insight_rule_report::GetInsightRuleReportInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::get_insight_rule_report::GetInsightRuleReportInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_insight_rule_report::GetInsightRuleReportInput {
-            rule_name: self.rule_name,
-            start_time: self.start_time,
-            end_time: self.end_time,
-            period: self.period,
-            max_contributor_count: self.max_contributor_count,
-            metrics: self.metrics,
-            order_by: self.order_by,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_insight_rule_report::GetInsightRuleReportInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_insight_rule_report::GetInsightRuleReportInput {
+                rule_name: self.rule_name
+                ,
+                start_time: self.start_time
+                ,
+                end_time: self.end_time
+                ,
+                period: self.period
+                ,
+                max_contributor_count: self.max_contributor_count
+                ,
+                metrics: self.metrics
+                ,
+                order_by: self.order_by
+                ,
+            }
+        )
     }
 }
+

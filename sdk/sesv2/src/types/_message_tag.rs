@@ -3,38 +3,36 @@
 /// <p>Contains the name and value of a tag that you apply to an email. You can use message tags when you publish email sending events. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct MessageTag {
-    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+pub struct MessageTag  {
+    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
     pub name: ::std::string::String,
-    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
     pub value: ::std::string::String,
 }
-impl MessageTag {
-    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+impl  MessageTag  {
+    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
-    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
-    pub fn value(&self) -> &str {
-        use std::ops::Deref;
-        self.value.deref()
+    pub fn value(&self) -> & str {
+        use std::ops::Deref; self.value.deref()
     }
 }
 impl MessageTag {
@@ -52,56 +50,54 @@ pub struct MessageTagBuilder {
     pub(crate) value: ::std::option::Option<::std::string::String>,
 }
 impl MessageTagBuilder {
-    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
-    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+    /// <p>The name of the message tag. The message tag name has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
-    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.value = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
     pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.value = input;
-        self
+        self.value = input; self
     }
-    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p>
-    /// <ul>
-    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li>
-    /// <li> <p>It can contain no more than 256 characters.</p> </li>
+    /// <p>The value of the message tag. The message tag value has to meet the following criteria:</p> 
+    /// <ul> 
+    /// <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> 
+    /// <li> <p>It can contain no more than 256 characters.</p> </li> 
     /// </ul>
     pub fn get_value(&self) -> &::std::option::Option<::std::string::String> {
         &self.value
@@ -111,19 +107,20 @@ impl MessageTagBuilder {
     /// - [`name`](crate::types::builders::MessageTagBuilder::name)
     /// - [`value`](crate::types::builders::MessageTagBuilder::value)
     pub fn build(self) -> ::std::result::Result<crate::types::MessageTag, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::MessageTag {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building MessageTag",
-                )
-            })?,
-            value: self.value.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "value",
-                    "value was not specified but it is required when building MessageTag",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::MessageTag {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building MessageTag")
+                    )?
+                ,
+                value: self.value
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("value", "value was not specified but it is required when building MessageTag")
+                    )?
+                ,
+            }
+        )
     }
 }
+

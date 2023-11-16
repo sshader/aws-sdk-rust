@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListTransactionsInput {
+pub struct ListTransactionsInput  {
     /// <p>The address (either a contract or wallet), whose transactions are being requested.</p>
     pub address: ::std::option::Option<::std::string::String>,
     /// <p>The blockchain network where the transactions occurred.</p>
@@ -15,40 +15,40 @@ pub struct ListTransactionsInput {
     pub sort: ::std::option::Option<crate::types::ListTransactionsSort>,
     /// <p>The pagination token that indicates the next set of results to retrieve.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
-    /// <p>The maximum number of transactions to list.</p> <note>
-    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p>
-    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p>
+    /// <p>The maximum number of transactions to list.</p> <note> 
+    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> 
+    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> 
     /// </note>
     pub max_results: ::std::option::Option<i32>,
 }
-impl ListTransactionsInput {
+impl  ListTransactionsInput  {
     /// <p>The address (either a contract or wallet), whose transactions are being requested.</p>
-    pub fn address(&self) -> ::std::option::Option<&str> {
+    pub fn address(&self) -> ::std::option::Option<& str> {
         self.address.as_deref()
     }
     /// <p>The blockchain network where the transactions occurred.</p>
-    pub fn network(&self) -> ::std::option::Option<&crate::types::QueryNetwork> {
+    pub fn network(&self) -> ::std::option::Option<& crate::types::QueryNetwork> {
         self.network.as_ref()
     }
     /// <p>The container for time.</p>
-    pub fn from_blockchain_instant(&self) -> ::std::option::Option<&crate::types::BlockchainInstant> {
+    pub fn from_blockchain_instant(&self) -> ::std::option::Option<& crate::types::BlockchainInstant> {
         self.from_blockchain_instant.as_ref()
     }
     /// <p>The container for time.</p>
-    pub fn to_blockchain_instant(&self) -> ::std::option::Option<&crate::types::BlockchainInstant> {
+    pub fn to_blockchain_instant(&self) -> ::std::option::Option<& crate::types::BlockchainInstant> {
         self.to_blockchain_instant.as_ref()
     }
     /// <p>Sorts items in an ascending order if the first page starts at <code>fromTime</code>. Sorts items in a descending order if the first page starts at <code>toTime</code>.</p>
-    pub fn sort(&self) -> ::std::option::Option<&crate::types::ListTransactionsSort> {
+    pub fn sort(&self) -> ::std::option::Option<& crate::types::ListTransactionsSort> {
         self.sort.as_ref()
     }
     /// <p>The pagination token that indicates the next set of results to retrieve.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
-    /// <p>The maximum number of transactions to list.</p> <note>
-    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p>
-    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p>
+    /// <p>The maximum number of transactions to list.</p> <note> 
+    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> 
+    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> 
     /// </note>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
         self.max_results
@@ -82,8 +82,7 @@ impl ListTransactionsInputBuilder {
     }
     /// <p>The address (either a contract or wallet), whose transactions are being requested.</p>
     pub fn set_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.address = input;
-        self
+        self.address = input; self
     }
     /// <p>The address (either a contract or wallet), whose transactions are being requested.</p>
     pub fn get_address(&self) -> &::std::option::Option<::std::string::String> {
@@ -97,8 +96,7 @@ impl ListTransactionsInputBuilder {
     }
     /// <p>The blockchain network where the transactions occurred.</p>
     pub fn set_network(mut self, input: ::std::option::Option<crate::types::QueryNetwork>) -> Self {
-        self.network = input;
-        self
+        self.network = input; self
     }
     /// <p>The blockchain network where the transactions occurred.</p>
     pub fn get_network(&self) -> &::std::option::Option<crate::types::QueryNetwork> {
@@ -111,8 +109,7 @@ impl ListTransactionsInputBuilder {
     }
     /// <p>The container for time.</p>
     pub fn set_from_blockchain_instant(mut self, input: ::std::option::Option<crate::types::BlockchainInstant>) -> Self {
-        self.from_blockchain_instant = input;
-        self
+        self.from_blockchain_instant = input; self
     }
     /// <p>The container for time.</p>
     pub fn get_from_blockchain_instant(&self) -> &::std::option::Option<crate::types::BlockchainInstant> {
@@ -125,8 +122,7 @@ impl ListTransactionsInputBuilder {
     }
     /// <p>The container for time.</p>
     pub fn set_to_blockchain_instant(mut self, input: ::std::option::Option<crate::types::BlockchainInstant>) -> Self {
-        self.to_blockchain_instant = input;
-        self
+        self.to_blockchain_instant = input; self
     }
     /// <p>The container for time.</p>
     pub fn get_to_blockchain_instant(&self) -> &::std::option::Option<crate::types::BlockchainInstant> {
@@ -139,8 +135,7 @@ impl ListTransactionsInputBuilder {
     }
     /// <p>Sorts items in an ascending order if the first page starts at <code>fromTime</code>. Sorts items in a descending order if the first page starts at <code>toTime</code>.</p>
     pub fn set_sort(mut self, input: ::std::option::Option<crate::types::ListTransactionsSort>) -> Self {
-        self.sort = input;
-        self
+        self.sort = input; self
     }
     /// <p>Sorts items in an ascending order if the first page starts at <code>fromTime</code>. Sorts items in a descending order if the first page starts at <code>toTime</code>.</p>
     pub fn get_sort(&self) -> &::std::option::Option<crate::types::ListTransactionsSort> {
@@ -153,48 +148,54 @@ impl ListTransactionsInputBuilder {
     }
     /// <p>The pagination token that indicates the next set of results to retrieve.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The pagination token that indicates the next set of results to retrieve.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
-    /// <p>The maximum number of transactions to list.</p> <note>
-    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p>
-    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p>
+    /// <p>The maximum number of transactions to list.</p> <note> 
+    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> 
+    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> 
     /// </note>
     pub fn max_results(mut self, input: i32) -> Self {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The maximum number of transactions to list.</p> <note>
-    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p>
-    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p>
+    /// <p>The maximum number of transactions to list.</p> <note> 
+    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> 
+    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> 
     /// </note>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
-    /// <p>The maximum number of transactions to list.</p> <note>
-    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p>
-    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p>
+    /// <p>The maximum number of transactions to list.</p> <note> 
+    /// <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> 
+    /// <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> 
     /// </note>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
     }
     /// Consumes the builder and constructs a [`ListTransactionsInput`](crate::operation::list_transactions::ListTransactionsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_transactions::ListTransactionsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_transactions::ListTransactionsInput {
-            address: self.address,
-            network: self.network,
-            from_blockchain_instant: self.from_blockchain_instant,
-            to_blockchain_instant: self.to_blockchain_instant,
-            sort: self.sort,
-            next_token: self.next_token,
-            max_results: self.max_results,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_transactions::ListTransactionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_transactions::ListTransactionsInput {
+                address: self.address
+                ,
+                network: self.network
+                ,
+                from_blockchain_instant: self.from_blockchain_instant
+                ,
+                to_blockchain_instant: self.to_blockchain_instant
+                ,
+                sort: self.sort
+                ,
+                next_token: self.next_token
+                ,
+                max_results: self.max_results
+                ,
+            }
+        )
     }
 }
+

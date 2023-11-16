@@ -2,19 +2,19 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateSystemTemplateInput {
+pub struct CreateSystemTemplateInput  {
     /// <p>The <code>DefinitionDocument</code> used to create the system.</p>
     pub definition: ::std::option::Option<crate::types::DefinitionDocument>,
-    /// <p>The namespace version in which the system is to be created.</p>
+    /// <p>The namespace version in which the system is to be created.</p> 
     /// <p>If no value is specified, the latest version is used by default.</p>
     pub compatible_namespace_version: ::std::option::Option<i64>,
 }
-impl CreateSystemTemplateInput {
+impl  CreateSystemTemplateInput  {
     /// <p>The <code>DefinitionDocument</code> used to create the system.</p>
-    pub fn definition(&self) -> ::std::option::Option<&crate::types::DefinitionDocument> {
+    pub fn definition(&self) -> ::std::option::Option<& crate::types::DefinitionDocument> {
         self.definition.as_ref()
     }
-    /// <p>The namespace version in which the system is to be created.</p>
+    /// <p>The namespace version in which the system is to be created.</p> 
     /// <p>If no value is specified, the latest version is used by default.</p>
     pub fn compatible_namespace_version(&self) -> ::std::option::Option<i64> {
         self.compatible_namespace_version
@@ -43,38 +43,38 @@ impl CreateSystemTemplateInputBuilder {
     }
     /// <p>The <code>DefinitionDocument</code> used to create the system.</p>
     pub fn set_definition(mut self, input: ::std::option::Option<crate::types::DefinitionDocument>) -> Self {
-        self.definition = input;
-        self
+        self.definition = input; self
     }
     /// <p>The <code>DefinitionDocument</code> used to create the system.</p>
     pub fn get_definition(&self) -> &::std::option::Option<crate::types::DefinitionDocument> {
         &self.definition
     }
-    /// <p>The namespace version in which the system is to be created.</p>
+    /// <p>The namespace version in which the system is to be created.</p> 
     /// <p>If no value is specified, the latest version is used by default.</p>
     pub fn compatible_namespace_version(mut self, input: i64) -> Self {
         self.compatible_namespace_version = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The namespace version in which the system is to be created.</p>
+    /// <p>The namespace version in which the system is to be created.</p> 
     /// <p>If no value is specified, the latest version is used by default.</p>
     pub fn set_compatible_namespace_version(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.compatible_namespace_version = input;
-        self
+        self.compatible_namespace_version = input; self
     }
-    /// <p>The namespace version in which the system is to be created.</p>
+    /// <p>The namespace version in which the system is to be created.</p> 
     /// <p>If no value is specified, the latest version is used by default.</p>
     pub fn get_compatible_namespace_version(&self) -> &::std::option::Option<i64> {
         &self.compatible_namespace_version
     }
     /// Consumes the builder and constructs a [`CreateSystemTemplateInput`](crate::operation::create_system_template::CreateSystemTemplateInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_system_template::CreateSystemTemplateInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::create_system_template::CreateSystemTemplateInput {
-            definition: self.definition,
-            compatible_namespace_version: self.compatible_namespace_version,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_system_template::CreateSystemTemplateInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_system_template::CreateSystemTemplateInput {
+                definition: self.definition
+                ,
+                compatible_namespace_version: self.compatible_namespace_version
+                ,
+            }
+        )
     }
 }
+

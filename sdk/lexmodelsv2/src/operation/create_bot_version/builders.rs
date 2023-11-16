@@ -5,55 +5,51 @@ pub use crate::operation::create_bot_version::_create_bot_version_input::CreateB
 
 impl CreateBotVersionInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_bot_version::CreateBotVersionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_bot_version::CreateBotVersionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_bot_version();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_bot_version::CreateBotVersionOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_bot_version::CreateBotVersionError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_bot_version();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateBotVersion`.
-///
-/// <p>Creates a new version of the bot based on the <code>DRAFT</code> version. If the <code>DRAFT</code> version of this resource hasn't changed since you created the last version, Amazon Lex doesn't create a new version, it returns the last created version.</p>
+/// 
+/// <p>Creates a new version of the bot based on the <code>DRAFT</code> version. If the <code>DRAFT</code> version of this resource hasn't changed since you created the last version, Amazon Lex doesn't create a new version, it returns the last created version.</p> 
 /// <p>When you create the first version of a bot, Amazon Lex sets the version to 1. Subsequent versions increment by 1.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateBotVersionFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_bot_version::builders::CreateBotVersionInputBuilder,
+                    inner: crate::operation::create_bot_version::builders::CreateBotVersionInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_bot_version::CreateBotVersionOutput,
-        crate::operation::create_bot_version::CreateBotVersionError,
-    > for CreateBotVersionFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_bot_version::CreateBotVersionOutput,
-            crate::operation::create_bot_version::CreateBotVersionError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_bot_version::CreateBotVersionOutput,
+                    crate::operation::create_bot_version::CreateBotVersionError,
+                > for CreateBotVersionFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_bot_version::CreateBotVersionOutput,
+                        crate::operation::create_bot_version::CreateBotVersionError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateBotVersionFluentBuilder {
     /// Creates a new `CreateBotVersion`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -62,53 +58,44 @@ impl CreateBotVersionFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_bot_version::CreateBotVersionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_bot_version::CreateBotVersionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_bot_version::CreateBotVersion::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_bot_version::CreateBotVersion::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_bot_version::CreateBotVersionOutput,
-        crate::operation::create_bot_version::CreateBotVersionError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_bot_version::CreateBotVersionOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_bot_version::CreateBotVersionError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_bot_version::CreateBotVersion::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_bot_version::CreateBotVersion::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_bot_version::CreateBotVersionOutput, crate::operation::create_bot_version::CreateBotVersionError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The identifier of the bot to create the version for.</p>
     pub fn bot_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.bot_id(input.into());
@@ -142,26 +129,18 @@ impl CreateBotVersionFluentBuilder {
     /// To override the contents of this collection use [`set_bot_version_locale_specification`](Self::set_bot_version_locale_specification).
     ///
     /// <p>Specifies the locales that Amazon Lex adds to this version. You can choose the <code>Draft</code> version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.</p>
-    pub fn bot_version_locale_specification(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::BotVersionLocaleDetails,
-    ) -> Self {
+    pub fn bot_version_locale_specification(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::BotVersionLocaleDetails) -> Self {
         self.inner = self.inner.bot_version_locale_specification(k.into(), v);
         self
     }
     /// <p>Specifies the locales that Amazon Lex adds to this version. You can choose the <code>Draft</code> version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.</p>
-    pub fn set_bot_version_locale_specification(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::BotVersionLocaleDetails>>,
-    ) -> Self {
+    pub fn set_bot_version_locale_specification(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, crate::types::BotVersionLocaleDetails>>) -> Self {
         self.inner = self.inner.set_bot_version_locale_specification(input);
         self
     }
     /// <p>Specifies the locales that Amazon Lex adds to this version. You can choose the <code>Draft</code> version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.</p>
-    pub fn get_bot_version_locale_specification(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::BotVersionLocaleDetails>> {
+    pub fn get_bot_version_locale_specification(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, crate::types::BotVersionLocaleDetails>> {
         self.inner.get_bot_version_locale_specification()
     }
 }
+

@@ -3,31 +3,31 @@
 /// <p>Account takeover action type.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AccountTakeoverActionType {
+pub struct AccountTakeoverActionType  {
     /// <p>Flag specifying whether to send a notification.</p>
     pub notify: bool,
-    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li>
-    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li>
-    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li>
-    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li>
+    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> 
+    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li> 
+    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li> 
+    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li> 
     /// </ul>
     pub event_action: crate::types::AccountTakeoverEventActionType,
 }
-impl AccountTakeoverActionType {
+impl  AccountTakeoverActionType  {
     /// <p>Flag specifying whether to send a notification.</p>
     pub fn notify(&self) -> bool {
         self.notify
     }
-    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li>
-    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li>
-    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li>
-    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li>
+    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> 
+    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li> 
+    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li> 
+    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li> 
     /// </ul>
-    pub fn event_action(&self) -> &crate::types::AccountTakeoverEventActionType {
+    pub fn event_action(&self) -> & crate::types::AccountTakeoverEventActionType {
         &self.event_action
     }
 }
@@ -54,42 +54,40 @@ impl AccountTakeoverActionTypeBuilder {
     }
     /// <p>Flag specifying whether to send a notification.</p>
     pub fn set_notify(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.notify = input;
-        self
+        self.notify = input; self
     }
     /// <p>Flag specifying whether to send a notification.</p>
     pub fn get_notify(&self) -> &::std::option::Option<bool> {
         &self.notify
     }
-    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li>
-    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li>
-    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li>
-    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li>
+    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> 
+    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li> 
+    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li> 
+    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn event_action(mut self, input: crate::types::AccountTakeoverEventActionType) -> Self {
         self.event_action = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li>
-    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li>
-    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li>
-    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li>
+    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> 
+    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li> 
+    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li> 
+    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li> 
     /// </ul>
     pub fn set_event_action(mut self, input: ::std::option::Option<crate::types::AccountTakeoverEventActionType>) -> Self {
-        self.event_action = input;
-        self
+        self.event_action = input; self
     }
-    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li>
-    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li>
-    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li>
-    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li>
+    /// <p>The action to take in response to the account takeover action. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>BLOCK</code> Choosing this action will block the request.</p> </li> 
+    /// <li> <p> <code>MFA_IF_CONFIGURED</code> Present an MFA challenge if user has configured it, else allow the request.</p> </li> 
+    /// <li> <p> <code>MFA_REQUIRED</code> Present an MFA challenge if user has configured it, else block the request.</p> </li> 
+    /// <li> <p> <code>NO_ACTION</code> Allow the user to sign in.</p> </li> 
     /// </ul>
     pub fn get_event_action(&self) -> &::std::option::Option<crate::types::AccountTakeoverEventActionType> {
         &self.event_action
@@ -98,14 +96,18 @@ impl AccountTakeoverActionTypeBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`event_action`](crate::types::builders::AccountTakeoverActionTypeBuilder::event_action)
     pub fn build(self) -> ::std::result::Result<crate::types::AccountTakeoverActionType, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AccountTakeoverActionType {
-            notify: self.notify.unwrap_or_default(),
-            event_action: self.event_action.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "event_action",
-                    "event_action was not specified but it is required when building AccountTakeoverActionType",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AccountTakeoverActionType {
+                notify: self.notify
+                    .unwrap_or_default()
+                ,
+                event_action: self.event_action
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("event_action", "event_action was not specified but it is required when building AccountTakeoverActionType")
+                    )?
+                ,
+            }
+        )
     }
 }
+

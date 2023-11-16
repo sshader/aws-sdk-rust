@@ -3,23 +3,22 @@
 /// <p>The configuration for the Glue Crawler for the third-party custom source.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CustomLogSourceCrawlerConfiguration {
-    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p>
-    /// <ul>
-    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li>
-    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li>
+pub struct CustomLogSourceCrawlerConfiguration  {
+    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p> 
+    /// <ul> 
+    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li> 
+    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li> 
     /// </ul>
     pub role_arn: ::std::string::String,
 }
-impl CustomLogSourceCrawlerConfiguration {
-    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p>
-    /// <ul>
-    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li>
-    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li>
+impl  CustomLogSourceCrawlerConfiguration  {
+    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p> 
+    /// <ul> 
+    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li> 
+    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li> 
     /// </ul>
-    pub fn role_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.role_arn.deref()
+    pub fn role_arn(&self) -> & str {
+        use std::ops::Deref; self.role_arn.deref()
     }
 }
 impl CustomLogSourceCrawlerConfiguration {
@@ -36,29 +35,28 @@ pub struct CustomLogSourceCrawlerConfigurationBuilder {
     pub(crate) role_arn: ::std::option::Option<::std::string::String>,
 }
 impl CustomLogSourceCrawlerConfigurationBuilder {
-    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p>
-    /// <ul>
-    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li>
-    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p> 
+    /// <ul> 
+    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li> 
+    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p>
-    /// <ul>
-    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li>
-    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p> 
+    /// <ul> 
+    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li> 
+    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li> 
     /// </ul>
     pub fn set_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.role_arn = input;
-        self
+        self.role_arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p>
-    /// <ul>
-    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li>
-    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p> 
+    /// <ul> 
+    /// <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li> 
+    /// <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li> 
     /// </ul>
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_arn
@@ -67,13 +65,15 @@ impl CustomLogSourceCrawlerConfigurationBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`role_arn`](crate::types::builders::CustomLogSourceCrawlerConfigurationBuilder::role_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::CustomLogSourceCrawlerConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::CustomLogSourceCrawlerConfiguration {
-            role_arn: self.role_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "role_arn",
-                    "role_arn was not specified but it is required when building CustomLogSourceCrawlerConfiguration",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::CustomLogSourceCrawlerConfiguration {
+                role_arn: self.role_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("role_arn", "role_arn was not specified but it is required when building CustomLogSourceCrawlerConfiguration")
+                    )?
+                ,
+            }
+        )
     }
 }
+

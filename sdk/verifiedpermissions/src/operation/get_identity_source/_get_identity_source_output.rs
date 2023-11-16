@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct GetIdentitySourceOutput {
+pub struct GetIdentitySourceOutput  {
     /// <p>The date and time that the identity source was originally created.</p>
     pub created_date: ::aws_smithy_types::DateTime,
     /// <p>A structure that describes the configuration of the identity source.</p>
@@ -17,36 +17,33 @@ pub struct GetIdentitySourceOutput {
     pub principal_entity_type: ::std::string::String,
     _request_id: Option<String>,
 }
-impl GetIdentitySourceOutput {
+impl  GetIdentitySourceOutput  {
     /// <p>The date and time that the identity source was originally created.</p>
-    pub fn created_date(&self) -> &::aws_smithy_types::DateTime {
+    pub fn created_date(&self) -> & ::aws_smithy_types::DateTime {
         &self.created_date
     }
     /// <p>A structure that describes the configuration of the identity source.</p>
-    pub fn details(&self) -> ::std::option::Option<&crate::types::IdentitySourceDetails> {
+    pub fn details(&self) -> ::std::option::Option<& crate::types::IdentitySourceDetails> {
         self.details.as_ref()
     }
     /// <p>The ID of the identity source.</p>
-    pub fn identity_source_id(&self) -> &str {
-        use std::ops::Deref;
-        self.identity_source_id.deref()
+    pub fn identity_source_id(&self) -> & str {
+        use std::ops::Deref; self.identity_source_id.deref()
     }
     /// <p>The date and time that the identity source was most recently updated.</p>
-    pub fn last_updated_date(&self) -> &::aws_smithy_types::DateTime {
+    pub fn last_updated_date(&self) -> & ::aws_smithy_types::DateTime {
         &self.last_updated_date
     }
     /// <p>The ID of the policy store that contains the identity source.</p>
-    pub fn policy_store_id(&self) -> &str {
-        use std::ops::Deref;
-        self.policy_store_id.deref()
+    pub fn policy_store_id(&self) -> & str {
+        use std::ops::Deref; self.policy_store_id.deref()
     }
     /// <p>The data type of principals generated for identities authenticated by this identity source.</p>
-    pub fn principal_entity_type(&self) -> &str {
-        use std::ops::Deref;
-        self.principal_entity_type.deref()
+    pub fn principal_entity_type(&self) -> & str {
+        use std::ops::Deref; self.principal_entity_type.deref()
     }
 }
-impl ::std::fmt::Debug for GetIdentitySourceOutput {
+impl  ::std::fmt::Debug for GetIdentitySourceOutput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("GetIdentitySourceOutput");
         formatter.field("created_date", &self.created_date);
@@ -59,11 +56,11 @@ impl ::std::fmt::Debug for GetIdentitySourceOutput {
         formatter.finish()
     }
 }
-impl ::aws_http::request_id::RequestId for GetIdentitySourceOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for GetIdentitySourceOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl GetIdentitySourceOutput {
     /// Creates a new builder-style object to manufacture [`GetIdentitySourceOutput`](crate::operation::get_identity_source::GetIdentitySourceOutput).
     pub fn builder() -> crate::operation::get_identity_source::builders::GetIdentitySourceOutputBuilder {
@@ -92,8 +89,7 @@ impl GetIdentitySourceOutputBuilder {
     }
     /// <p>The date and time that the identity source was originally created.</p>
     pub fn set_created_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_date = input;
-        self
+        self.created_date = input; self
     }
     /// <p>The date and time that the identity source was originally created.</p>
     pub fn get_created_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -107,8 +103,7 @@ impl GetIdentitySourceOutputBuilder {
     }
     /// <p>A structure that describes the configuration of the identity source.</p>
     pub fn set_details(mut self, input: ::std::option::Option<crate::types::IdentitySourceDetails>) -> Self {
-        self.details = input;
-        self
+        self.details = input; self
     }
     /// <p>A structure that describes the configuration of the identity source.</p>
     pub fn get_details(&self) -> &::std::option::Option<crate::types::IdentitySourceDetails> {
@@ -122,8 +117,7 @@ impl GetIdentitySourceOutputBuilder {
     }
     /// <p>The ID of the identity source.</p>
     pub fn set_identity_source_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.identity_source_id = input;
-        self
+        self.identity_source_id = input; self
     }
     /// <p>The ID of the identity source.</p>
     pub fn get_identity_source_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -137,8 +131,7 @@ impl GetIdentitySourceOutputBuilder {
     }
     /// <p>The date and time that the identity source was most recently updated.</p>
     pub fn set_last_updated_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_updated_date = input;
-        self
+        self.last_updated_date = input; self
     }
     /// <p>The date and time that the identity source was most recently updated.</p>
     pub fn get_last_updated_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -152,8 +145,7 @@ impl GetIdentitySourceOutputBuilder {
     }
     /// <p>The ID of the policy store that contains the identity source.</p>
     pub fn set_policy_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.policy_store_id = input;
-        self
+        self.policy_store_id = input; self
     }
     /// <p>The ID of the policy store that contains the identity source.</p>
     pub fn get_policy_store_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -167,22 +159,21 @@ impl GetIdentitySourceOutputBuilder {
     }
     /// <p>The data type of principals generated for identities authenticated by this identity source.</p>
     pub fn set_principal_entity_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.principal_entity_type = input;
-        self
+        self.principal_entity_type = input; self
     }
     /// <p>The data type of principals generated for identities authenticated by this identity source.</p>
     pub fn get_principal_entity_type(&self) -> &::std::option::Option<::std::string::String> {
         &self.principal_entity_type
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`GetIdentitySourceOutput`](crate::operation::get_identity_source::GetIdentitySourceOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`created_date`](crate::operation::get_identity_source::builders::GetIdentitySourceOutputBuilder::created_date)
@@ -190,43 +181,39 @@ impl GetIdentitySourceOutputBuilder {
     /// - [`last_updated_date`](crate::operation::get_identity_source::builders::GetIdentitySourceOutputBuilder::last_updated_date)
     /// - [`policy_store_id`](crate::operation::get_identity_source::builders::GetIdentitySourceOutputBuilder::policy_store_id)
     /// - [`principal_entity_type`](crate::operation::get_identity_source::builders::GetIdentitySourceOutputBuilder::principal_entity_type)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::get_identity_source::GetIdentitySourceOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_identity_source::GetIdentitySourceOutput {
-            created_date: self.created_date.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "created_date",
-                    "created_date was not specified but it is required when building GetIdentitySourceOutput",
-                )
-            })?,
-            details: self.details,
-            identity_source_id: self.identity_source_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "identity_source_id",
-                    "identity_source_id was not specified but it is required when building GetIdentitySourceOutput",
-                )
-            })?,
-            last_updated_date: self.last_updated_date.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "last_updated_date",
-                    "last_updated_date was not specified but it is required when building GetIdentitySourceOutput",
-                )
-            })?,
-            policy_store_id: self.policy_store_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "policy_store_id",
-                    "policy_store_id was not specified but it is required when building GetIdentitySourceOutput",
-                )
-            })?,
-            principal_entity_type: self.principal_entity_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "principal_entity_type",
-                    "principal_entity_type was not specified but it is required when building GetIdentitySourceOutput",
-                )
-            })?,
-            _request_id: self._request_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_identity_source::GetIdentitySourceOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_identity_source::GetIdentitySourceOutput {
+                created_date: self.created_date
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("created_date", "created_date was not specified but it is required when building GetIdentitySourceOutput")
+                    )?
+                ,
+                details: self.details
+                ,
+                identity_source_id: self.identity_source_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("identity_source_id", "identity_source_id was not specified but it is required when building GetIdentitySourceOutput")
+                    )?
+                ,
+                last_updated_date: self.last_updated_date
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("last_updated_date", "last_updated_date was not specified but it is required when building GetIdentitySourceOutput")
+                    )?
+                ,
+                policy_store_id: self.policy_store_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("policy_store_id", "policy_store_id was not specified but it is required when building GetIdentitySourceOutput")
+                    )?
+                ,
+                principal_entity_type: self.principal_entity_type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("principal_entity_type", "principal_entity_type was not specified but it is required when building GetIdentitySourceOutput")
+                    )?
+                ,
+                _request_id: self._request_id,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for GetIdentitySourceOutputBuilder {
@@ -242,3 +229,4 @@ impl ::std::fmt::Debug for GetIdentitySourceOutputBuilder {
         formatter.finish()
     }
 }
+

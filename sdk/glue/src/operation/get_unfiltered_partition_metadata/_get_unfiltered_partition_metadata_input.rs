@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetUnfilteredPartitionMetadataInput {
+pub struct GetUnfilteredPartitionMetadataInput  {
     /// <p>The catalog ID where the partition resides.</p>
     pub catalog_id: ::std::option::Option<::std::string::String>,
     /// <p>(Required) Specifies the name of a database that contains the partition.</p>
@@ -10,40 +10,42 @@ pub struct GetUnfilteredPartitionMetadataInput {
     /// <p>(Required) Specifies the name of a table that contains the partition.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
     /// <p>(Required) A list of partition key values.</p>
-    pub partition_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub partition_values: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>A structure containing Lake Formation audit context information.</p>
     pub audit_context: ::std::option::Option<crate::types::AuditContext>,
     /// <p>(Required) A list of supported permission types. </p>
-    pub supported_permission_types: ::std::option::Option<::std::vec::Vec<crate::types::PermissionType>>,
+    pub supported_permission_types: ::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>>,
 }
-impl GetUnfilteredPartitionMetadataInput {
+impl  GetUnfilteredPartitionMetadataInput  {
     /// <p>The catalog ID where the partition resides.</p>
-    pub fn catalog_id(&self) -> ::std::option::Option<&str> {
+    pub fn catalog_id(&self) -> ::std::option::Option<& str> {
         self.catalog_id.as_deref()
     }
     /// <p>(Required) Specifies the name of a database that contains the partition.</p>
-    pub fn database_name(&self) -> ::std::option::Option<&str> {
+    pub fn database_name(&self) -> ::std::option::Option<& str> {
         self.database_name.as_deref()
     }
     /// <p>(Required) Specifies the name of a table that contains the partition.</p>
-    pub fn table_name(&self) -> ::std::option::Option<&str> {
+    pub fn table_name(&self) -> ::std::option::Option<& str> {
         self.table_name.as_deref()
     }
     /// <p>(Required) A list of partition key values.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.partition_values.is_none()`.
-    pub fn partition_values(&self) -> &[::std::string::String] {
-        self.partition_values.as_deref().unwrap_or_default()
+    pub fn partition_values(&self) -> & [::std::string::String] {
+        self.partition_values.as_deref()
+        .unwrap_or_default()
     }
     /// <p>A structure containing Lake Formation audit context information.</p>
-    pub fn audit_context(&self) -> ::std::option::Option<&crate::types::AuditContext> {
+    pub fn audit_context(&self) -> ::std::option::Option<& crate::types::AuditContext> {
         self.audit_context.as_ref()
     }
     /// <p>(Required) A list of supported permission types. </p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.supported_permission_types.is_none()`.
-    pub fn supported_permission_types(&self) -> &[crate::types::PermissionType] {
-        self.supported_permission_types.as_deref().unwrap_or_default()
+    pub fn supported_permission_types(&self) -> & [crate::types::PermissionType] {
+        self.supported_permission_types.as_deref()
+        .unwrap_or_default()
     }
 }
 impl GetUnfilteredPartitionMetadataInput {
@@ -60,9 +62,9 @@ pub struct GetUnfilteredPartitionMetadataInputBuilder {
     pub(crate) catalog_id: ::std::option::Option<::std::string::String>,
     pub(crate) database_name: ::std::option::Option<::std::string::String>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
-    pub(crate) partition_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) partition_values: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) audit_context: ::std::option::Option<crate::types::AuditContext>,
-    pub(crate) supported_permission_types: ::std::option::Option<::std::vec::Vec<crate::types::PermissionType>>,
+    pub(crate) supported_permission_types: ::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>>,
 }
 impl GetUnfilteredPartitionMetadataInputBuilder {
     /// <p>The catalog ID where the partition resides.</p>
@@ -73,8 +75,7 @@ impl GetUnfilteredPartitionMetadataInputBuilder {
     }
     /// <p>The catalog ID where the partition resides.</p>
     pub fn set_catalog_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.catalog_id = input;
-        self
+        self.catalog_id = input; self
     }
     /// <p>The catalog ID where the partition resides.</p>
     pub fn get_catalog_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -88,8 +89,7 @@ impl GetUnfilteredPartitionMetadataInputBuilder {
     }
     /// <p>(Required) Specifies the name of a database that contains the partition.</p>
     pub fn set_database_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.database_name = input;
-        self
+        self.database_name = input; self
     }
     /// <p>(Required) Specifies the name of a database that contains the partition.</p>
     pub fn get_database_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -103,8 +103,7 @@ impl GetUnfilteredPartitionMetadataInputBuilder {
     }
     /// <p>(Required) Specifies the name of a table that contains the partition.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.table_name = input;
-        self
+        self.table_name = input; self
     }
     /// <p>(Required) Specifies the name of a table that contains the partition.</p>
     pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -117,17 +116,16 @@ impl GetUnfilteredPartitionMetadataInputBuilder {
     /// <p>(Required) A list of partition key values.</p>
     pub fn partition_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.partition_values.unwrap_or_default();
-        v.push(input.into());
-        self.partition_values = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.partition_values = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>(Required) A list of partition key values.</p>
-    pub fn set_partition_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.partition_values = input;
-        self
+    pub fn set_partition_values(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.partition_values = input; self
     }
     /// <p>(Required) A list of partition key values.</p>
-    pub fn get_partition_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_partition_values(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.partition_values
     }
     /// <p>A structure containing Lake Formation audit context information.</p>
@@ -137,8 +135,7 @@ impl GetUnfilteredPartitionMetadataInputBuilder {
     }
     /// <p>A structure containing Lake Formation audit context information.</p>
     pub fn set_audit_context(mut self, input: ::std::option::Option<crate::types::AuditContext>) -> Self {
-        self.audit_context = input;
-        self
+        self.audit_context = input; self
     }
     /// <p>A structure containing Lake Formation audit context information.</p>
     pub fn get_audit_context(&self) -> &::std::option::Option<crate::types::AuditContext> {
@@ -151,33 +148,36 @@ impl GetUnfilteredPartitionMetadataInputBuilder {
     /// <p>(Required) A list of supported permission types. </p>
     pub fn supported_permission_types(mut self, input: crate::types::PermissionType) -> Self {
         let mut v = self.supported_permission_types.unwrap_or_default();
-        v.push(input);
-        self.supported_permission_types = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.supported_permission_types = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>(Required) A list of supported permission types. </p>
-    pub fn set_supported_permission_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PermissionType>>) -> Self {
-        self.supported_permission_types = input;
-        self
+    pub fn set_supported_permission_types(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>>) -> Self {
+        self.supported_permission_types = input; self
     }
     /// <p>(Required) A list of supported permission types. </p>
-    pub fn get_supported_permission_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PermissionType>> {
+    pub fn get_supported_permission_types(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>> {
         &self.supported_permission_types
     }
     /// Consumes the builder and constructs a [`GetUnfilteredPartitionMetadataInput`](crate::operation::get_unfiltered_partition_metadata::GetUnfilteredPartitionMetadataInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_unfiltered_partition_metadata::GetUnfilteredPartitionMetadataInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_unfiltered_partition_metadata::GetUnfilteredPartitionMetadataInput {
-            catalog_id: self.catalog_id,
-            database_name: self.database_name,
-            table_name: self.table_name,
-            partition_values: self.partition_values,
-            audit_context: self.audit_context,
-            supported_permission_types: self.supported_permission_types,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_unfiltered_partition_metadata::GetUnfilteredPartitionMetadataInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_unfiltered_partition_metadata::GetUnfilteredPartitionMetadataInput {
+                catalog_id: self.catalog_id
+                ,
+                database_name: self.database_name
+                ,
+                table_name: self.table_name
+                ,
+                partition_values: self.partition_values
+                ,
+                audit_context: self.audit_context
+                ,
+                supported_permission_types: self.supported_permission_types
+                ,
+            }
+        )
     }
 }
+

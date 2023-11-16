@@ -3,25 +3,25 @@
 /// <p>The defining characteristics of a specific version of an Amazon Web Services TOE component.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ComponentVersion {
-    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note>
-    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p>
-    /// <ol>
-    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li>
+pub struct ComponentVersion  {
+    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note> 
+    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p> 
+    /// <ol> 
+    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li> 
     /// <li> <p>Version ARNs have only the first three nodes: <major>
     /// .
     /// <minor>
     /// .
     /// <patch></patch>
     /// </minor>
-    /// </major></p> </li>
-    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li>
-    /// </ol>
+    /// </major></p> </li> 
+    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li> 
+    /// </ol> 
     /// </note>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the component.</p>
     pub name: ::std::option::Option<::std::string::String>,
-    /// <p>The semantic version of the component.</p> <note>
+    /// <p>The semantic version of the component.</p> <note> 
     /// <p>The semantic version has four nodes: <major>
     /// .
     /// <minor>
@@ -33,10 +33,10 @@ pub struct ComponentVersion {
     /// </build>
     /// </patch>
     /// </minor>
-    /// </major></p>
-    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p>
-    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p>
-    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p>
+    /// </major></p> 
+    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p> 
+    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p> 
+    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> 
     /// </note>
     pub version: ::std::option::Option<::std::string::String>,
     /// <p>The description of the component.</p>
@@ -44,7 +44,7 @@ pub struct ComponentVersion {
     /// <p>The platform of the component.</p>
     pub platform: ::std::option::Option<crate::types::Platform>,
     /// <p>he operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.</p>
-    pub supported_os_versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub supported_os_versions: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>The type of the component denotes whether the component is used to build the image or only to test it.</p>
     pub r#type: ::std::option::Option<crate::types::ComponentType>,
     /// <p>The owner of the component.</p>
@@ -52,29 +52,29 @@ pub struct ComponentVersion {
     /// <p>The date that the component was created.</p>
     pub date_created: ::std::option::Option<::std::string::String>,
 }
-impl ComponentVersion {
-    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note>
-    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p>
-    /// <ol>
-    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li>
+impl  ComponentVersion  {
+    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note> 
+    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p> 
+    /// <ol> 
+    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li> 
     /// <li> <p>Version ARNs have only the first three nodes: <major>
     /// .
     /// <minor>
     /// .
     /// <patch></patch>
     /// </minor>
-    /// </major></p> </li>
-    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li>
-    /// </ol>
+    /// </major></p> </li> 
+    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li> 
+    /// </ol> 
     /// </note>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
     /// <p>The name of the component.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
-    /// <p>The semantic version of the component.</p> <note>
+    /// <p>The semantic version of the component.</p> <note> 
     /// <p>The semantic version has four nodes: <major>
     /// .
     /// <minor>
@@ -86,38 +86,39 @@ impl ComponentVersion {
     /// </build>
     /// </patch>
     /// </minor>
-    /// </major></p>
-    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p>
-    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p>
-    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p>
+    /// </major></p> 
+    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p> 
+    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p> 
+    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> 
     /// </note>
-    pub fn version(&self) -> ::std::option::Option<&str> {
+    pub fn version(&self) -> ::std::option::Option<& str> {
         self.version.as_deref()
     }
     /// <p>The description of the component.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The platform of the component.</p>
-    pub fn platform(&self) -> ::std::option::Option<&crate::types::Platform> {
+    pub fn platform(&self) -> ::std::option::Option<& crate::types::Platform> {
         self.platform.as_ref()
     }
     /// <p>he operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.supported_os_versions.is_none()`.
-    pub fn supported_os_versions(&self) -> &[::std::string::String] {
-        self.supported_os_versions.as_deref().unwrap_or_default()
+    pub fn supported_os_versions(&self) -> & [::std::string::String] {
+        self.supported_os_versions.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The type of the component denotes whether the component is used to build the image or only to test it.</p>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::ComponentType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::ComponentType> {
         self.r#type.as_ref()
     }
     /// <p>The owner of the component.</p>
-    pub fn owner(&self) -> ::std::option::Option<&str> {
+    pub fn owner(&self) -> ::std::option::Option<& str> {
         self.owner.as_deref()
     }
     /// <p>The date that the component was created.</p>
-    pub fn date_created(&self) -> ::std::option::Option<&str> {
+    pub fn date_created(&self) -> ::std::option::Option<& str> {
         self.date_created.as_deref()
     }
 }
@@ -137,61 +138,60 @@ pub struct ComponentVersionBuilder {
     pub(crate) version: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) platform: ::std::option::Option<crate::types::Platform>,
-    pub(crate) supported_os_versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) supported_os_versions: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) r#type: ::std::option::Option<crate::types::ComponentType>,
     pub(crate) owner: ::std::option::Option<::std::string::String>,
     pub(crate) date_created: ::std::option::Option<::std::string::String>,
 }
 impl ComponentVersionBuilder {
-    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note>
-    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p>
-    /// <ol>
-    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note> 
+    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p> 
+    /// <ol> 
+    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li> 
     /// <li> <p>Version ARNs have only the first three nodes: <major>
     /// .
     /// <minor>
     /// .
     /// <patch></patch>
     /// </minor>
-    /// </major></p> </li>
-    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li>
-    /// </ol>
+    /// </major></p> </li> 
+    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li> 
+    /// </ol> 
     /// </note>
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note>
-    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p>
-    /// <ol>
-    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note> 
+    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p> 
+    /// <ol> 
+    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li> 
     /// <li> <p>Version ARNs have only the first three nodes: <major>
     /// .
     /// <minor>
     /// .
     /// <patch></patch>
     /// </minor>
-    /// </major></p> </li>
-    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li>
-    /// </ol>
+    /// </major></p> </li> 
+    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li> 
+    /// </ol> 
     /// </note>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note>
-    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p>
-    /// <ol>
-    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li>
+    /// <p>The Amazon Resource Name (ARN) of the component.</p> <note> 
+    /// <p>Semantic versioning is included in each object's Amazon Resource Name (ARN), at the level that applies to that object as follows:</p> 
+    /// <ol> 
+    /// <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li> 
     /// <li> <p>Version ARNs have only the first three nodes: <major>
     /// .
     /// <minor>
     /// .
     /// <patch></patch>
     /// </minor>
-    /// </major></p> </li>
-    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li>
-    /// </ol>
+    /// </major></p> </li> 
+    /// <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li> 
+    /// </ol> 
     /// </note>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.arn
@@ -203,14 +203,13 @@ impl ComponentVersionBuilder {
     }
     /// <p>The name of the component.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the component.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
-    /// <p>The semantic version of the component.</p> <note>
+    /// <p>The semantic version of the component.</p> <note> 
     /// <p>The semantic version has four nodes: <major>
     /// .
     /// <minor>
@@ -222,16 +221,16 @@ impl ComponentVersionBuilder {
     /// </build>
     /// </patch>
     /// </minor>
-    /// </major></p>
-    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p>
-    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p>
-    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p>
+    /// </major></p> 
+    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p> 
+    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p> 
+    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> 
     /// </note>
     pub fn version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The semantic version of the component.</p> <note>
+    /// <p>The semantic version of the component.</p> <note> 
     /// <p>The semantic version has four nodes: <major>
     /// .
     /// <minor>
@@ -243,16 +242,15 @@ impl ComponentVersionBuilder {
     /// </build>
     /// </patch>
     /// </minor>
-    /// </major></p>
-    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p>
-    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p>
-    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p>
+    /// </major></p> 
+    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p> 
+    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p> 
+    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> 
     /// </note>
     pub fn set_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.version = input;
-        self
+        self.version = input; self
     }
-    /// <p>The semantic version of the component.</p> <note>
+    /// <p>The semantic version of the component.</p> <note> 
     /// <p>The semantic version has four nodes: <major>
     /// .
     /// <minor>
@@ -264,10 +262,10 @@ impl ComponentVersionBuilder {
     /// </build>
     /// </patch>
     /// </minor>
-    /// </major></p>
-    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p>
-    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p>
-    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p>
+    /// </major></p> 
+    /// <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p> 
+    /// <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p> 
+    /// <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> 
     /// </note>
     pub fn get_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.version
@@ -279,8 +277,7 @@ impl ComponentVersionBuilder {
     }
     /// <p>The description of the component.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The description of the component.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -293,8 +290,7 @@ impl ComponentVersionBuilder {
     }
     /// <p>The platform of the component.</p>
     pub fn set_platform(mut self, input: ::std::option::Option<crate::types::Platform>) -> Self {
-        self.platform = input;
-        self
+        self.platform = input; self
     }
     /// <p>The platform of the component.</p>
     pub fn get_platform(&self) -> &::std::option::Option<crate::types::Platform> {
@@ -307,17 +303,16 @@ impl ComponentVersionBuilder {
     /// <p>he operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.</p>
     pub fn supported_os_versions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.supported_os_versions.unwrap_or_default();
-        v.push(input.into());
-        self.supported_os_versions = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.supported_os_versions = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>he operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.</p>
-    pub fn set_supported_os_versions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.supported_os_versions = input;
-        self
+    pub fn set_supported_os_versions(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.supported_os_versions = input; self
     }
     /// <p>he operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.</p>
-    pub fn get_supported_os_versions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_supported_os_versions(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.supported_os_versions
     }
     /// <p>The type of the component denotes whether the component is used to build the image or only to test it.</p>
@@ -327,8 +322,7 @@ impl ComponentVersionBuilder {
     }
     /// <p>The type of the component denotes whether the component is used to build the image or only to test it.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::ComponentType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
     /// <p>The type of the component denotes whether the component is used to build the image or only to test it.</p>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::ComponentType> {
@@ -341,8 +335,7 @@ impl ComponentVersionBuilder {
     }
     /// <p>The owner of the component.</p>
     pub fn set_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.owner = input;
-        self
+        self.owner = input; self
     }
     /// <p>The owner of the component.</p>
     pub fn get_owner(&self) -> &::std::option::Option<::std::string::String> {
@@ -355,8 +348,7 @@ impl ComponentVersionBuilder {
     }
     /// <p>The date that the component was created.</p>
     pub fn set_date_created(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.date_created = input;
-        self
+        self.date_created = input; self
     }
     /// <p>The date that the component was created.</p>
     pub fn get_date_created(&self) -> &::std::option::Option<::std::string::String> {
@@ -365,15 +357,25 @@ impl ComponentVersionBuilder {
     /// Consumes the builder and constructs a [`ComponentVersion`](crate::types::ComponentVersion).
     pub fn build(self) -> crate::types::ComponentVersion {
         crate::types::ComponentVersion {
-            arn: self.arn,
-            name: self.name,
-            version: self.version,
-            description: self.description,
-            platform: self.platform,
-            supported_os_versions: self.supported_os_versions,
-            r#type: self.r#type,
-            owner: self.owner,
-            date_created: self.date_created,
+            arn: self.arn
+            ,
+            name: self.name
+            ,
+            version: self.version
+            ,
+            description: self.description
+            ,
+            platform: self.platform
+            ,
+            supported_os_versions: self.supported_os_versions
+            ,
+            r#type: self.r#type
+            ,
+            owner: self.owner
+            ,
+            date_created: self.date_created
+            ,
         }
     }
 }
+

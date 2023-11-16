@@ -2,24 +2,24 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CopyDbParameterGroupOutput {
-    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p>
+pub struct CopyDbParameterGroupOutput  {
+    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p> 
     /// <p>This data type is used as a response element in the <code>DescribeDBParameterGroups</code> action.</p>
     pub db_parameter_group: ::std::option::Option<crate::types::DbParameterGroup>,
     _request_id: Option<String>,
 }
-impl CopyDbParameterGroupOutput {
-    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p>
+impl  CopyDbParameterGroupOutput  {
+    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p> 
     /// <p>This data type is used as a response element in the <code>DescribeDBParameterGroups</code> action.</p>
-    pub fn db_parameter_group(&self) -> ::std::option::Option<&crate::types::DbParameterGroup> {
+    pub fn db_parameter_group(&self) -> ::std::option::Option<& crate::types::DbParameterGroup> {
         self.db_parameter_group.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for CopyDbParameterGroupOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for CopyDbParameterGroupOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl CopyDbParameterGroupOutput {
     /// Creates a new builder-style object to manufacture [`CopyDbParameterGroupOutput`](crate::operation::copy_db_parameter_group::CopyDbParameterGroupOutput).
     pub fn builder() -> crate::operation::copy_db_parameter_group::builders::CopyDbParameterGroupOutputBuilder {
@@ -35,37 +35,38 @@ pub struct CopyDbParameterGroupOutputBuilder {
     _request_id: Option<String>,
 }
 impl CopyDbParameterGroupOutputBuilder {
-    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p>
+    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p> 
     /// <p>This data type is used as a response element in the <code>DescribeDBParameterGroups</code> action.</p>
     pub fn db_parameter_group(mut self, input: crate::types::DbParameterGroup) -> Self {
         self.db_parameter_group = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p>
+    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p> 
     /// <p>This data type is used as a response element in the <code>DescribeDBParameterGroups</code> action.</p>
     pub fn set_db_parameter_group(mut self, input: ::std::option::Option<crate::types::DbParameterGroup>) -> Self {
-        self.db_parameter_group = input;
-        self
+        self.db_parameter_group = input; self
     }
-    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p>
+    /// <p>Contains the details of an Amazon Neptune DB parameter group.</p> 
     /// <p>This data type is used as a response element in the <code>DescribeDBParameterGroups</code> action.</p>
     pub fn get_db_parameter_group(&self) -> &::std::option::Option<crate::types::DbParameterGroup> {
         &self.db_parameter_group
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`CopyDbParameterGroupOutput`](crate::operation::copy_db_parameter_group::CopyDbParameterGroupOutput).
     pub fn build(self) -> crate::operation::copy_db_parameter_group::CopyDbParameterGroupOutput {
         crate::operation::copy_db_parameter_group::CopyDbParameterGroupOutput {
-            db_parameter_group: self.db_parameter_group,
+            db_parameter_group: self.db_parameter_group
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

@@ -3,21 +3,21 @@
 /// <p> The configuration that allows you to choose how you want to update code on a cluster. Depending on the option you choose, you can reduce the time it takes to update the cluster. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct KxClusterCodeDeploymentConfiguration {
-    /// <p> The type of deployment that you want on a cluster. </p>
-    /// <ul>
-    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li>
-    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li>
+pub struct KxClusterCodeDeploymentConfiguration  {
+    /// <p> The type of deployment that you want on a cluster. </p> 
+    /// <ul> 
+    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li> 
+    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li> 
     /// </ul>
     pub deployment_strategy: crate::types::KxClusterCodeDeploymentStrategy,
 }
-impl KxClusterCodeDeploymentConfiguration {
-    /// <p> The type of deployment that you want on a cluster. </p>
-    /// <ul>
-    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li>
-    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li>
+impl  KxClusterCodeDeploymentConfiguration  {
+    /// <p> The type of deployment that you want on a cluster. </p> 
+    /// <ul> 
+    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li> 
+    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li> 
     /// </ul>
-    pub fn deployment_strategy(&self) -> &crate::types::KxClusterCodeDeploymentStrategy {
+    pub fn deployment_strategy(&self) -> & crate::types::KxClusterCodeDeploymentStrategy {
         &self.deployment_strategy
     }
 }
@@ -35,29 +35,28 @@ pub struct KxClusterCodeDeploymentConfigurationBuilder {
     pub(crate) deployment_strategy: ::std::option::Option<crate::types::KxClusterCodeDeploymentStrategy>,
 }
 impl KxClusterCodeDeploymentConfigurationBuilder {
-    /// <p> The type of deployment that you want on a cluster. </p>
-    /// <ul>
-    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li>
-    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li>
+    /// <p> The type of deployment that you want on a cluster. </p> 
+    /// <ul> 
+    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li> 
+    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li> 
     /// </ul>
     /// This field is required.
     pub fn deployment_strategy(mut self, input: crate::types::KxClusterCodeDeploymentStrategy) -> Self {
         self.deployment_strategy = ::std::option::Option::Some(input);
         self
     }
-    /// <p> The type of deployment that you want on a cluster. </p>
-    /// <ul>
-    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li>
-    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li>
+    /// <p> The type of deployment that you want on a cluster. </p> 
+    /// <ul> 
+    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li> 
+    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li> 
     /// </ul>
     pub fn set_deployment_strategy(mut self, input: ::std::option::Option<crate::types::KxClusterCodeDeploymentStrategy>) -> Self {
-        self.deployment_strategy = input;
-        self
+        self.deployment_strategy = input; self
     }
-    /// <p> The type of deployment that you want on a cluster. </p>
-    /// <ul>
-    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li>
-    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li>
+    /// <p> The type of deployment that you want on a cluster. </p> 
+    /// <ul> 
+    /// <li> <p>ROLLING – This options updates the cluster by stopping the exiting q process and starting a new q process with updated configuration.</p> </li> 
+    /// <li> <p>FORCE – This option updates the cluster by immediately stopping all the running processes before starting up new ones with the updated configuration. </p> </li> 
     /// </ul>
     pub fn get_deployment_strategy(&self) -> &::std::option::Option<crate::types::KxClusterCodeDeploymentStrategy> {
         &self.deployment_strategy
@@ -65,16 +64,16 @@ impl KxClusterCodeDeploymentConfigurationBuilder {
     /// Consumes the builder and constructs a [`KxClusterCodeDeploymentConfiguration`](crate::types::KxClusterCodeDeploymentConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`deployment_strategy`](crate::types::builders::KxClusterCodeDeploymentConfigurationBuilder::deployment_strategy)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::types::KxClusterCodeDeploymentConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::KxClusterCodeDeploymentConfiguration {
-            deployment_strategy: self.deployment_strategy.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "deployment_strategy",
-                    "deployment_strategy was not specified but it is required when building KxClusterCodeDeploymentConfiguration",
-                )
-            })?,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::types::KxClusterCodeDeploymentConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::types::KxClusterCodeDeploymentConfiguration {
+                deployment_strategy: self.deployment_strategy
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("deployment_strategy", "deployment_strategy was not specified but it is required when building KxClusterCodeDeploymentConfiguration")
+                    )?
+                ,
+            }
+        )
     }
 }
+

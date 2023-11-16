@@ -3,9 +3,9 @@
 /// <p>A data volume that's used in a job's container properties.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Volume {
-    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note>
-    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p>
+pub struct Volume  {
+    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note> 
+    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p> 
     /// </note>
     pub host: ::std::option::Option<crate::types::Host>,
     /// <p>The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.</p>
@@ -13,19 +13,19 @@ pub struct Volume {
     /// <p>This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a <code>platformVersion</code> of at least <code>1.4.0</code>.</p>
     pub efs_volume_configuration: ::std::option::Option<crate::types::EfsVolumeConfiguration>,
 }
-impl Volume {
-    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note>
-    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p>
+impl  Volume  {
+    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note> 
+    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p> 
     /// </note>
-    pub fn host(&self) -> ::std::option::Option<&crate::types::Host> {
+    pub fn host(&self) -> ::std::option::Option<& crate::types::Host> {
         self.host.as_ref()
     }
     /// <p>The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a <code>platformVersion</code> of at least <code>1.4.0</code>.</p>
-    pub fn efs_volume_configuration(&self) -> ::std::option::Option<&crate::types::EfsVolumeConfiguration> {
+    pub fn efs_volume_configuration(&self) -> ::std::option::Option<& crate::types::EfsVolumeConfiguration> {
         self.efs_volume_configuration.as_ref()
     }
 }
@@ -45,22 +45,21 @@ pub struct VolumeBuilder {
     pub(crate) efs_volume_configuration: ::std::option::Option<crate::types::EfsVolumeConfiguration>,
 }
 impl VolumeBuilder {
-    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note>
-    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p>
+    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note> 
+    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p> 
     /// </note>
     pub fn host(mut self, input: crate::types::Host) -> Self {
         self.host = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note>
-    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p>
+    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note> 
+    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p> 
     /// </note>
     pub fn set_host(mut self, input: ::std::option::Option<crate::types::Host>) -> Self {
-        self.host = input;
-        self
+        self.host = input; self
     }
-    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note>
-    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p>
+    /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note> 
+    /// <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p> 
     /// </note>
     pub fn get_host(&self) -> &::std::option::Option<crate::types::Host> {
         &self.host
@@ -72,8 +71,7 @@ impl VolumeBuilder {
     }
     /// <p>The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -86,8 +84,7 @@ impl VolumeBuilder {
     }
     /// <p>This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a <code>platformVersion</code> of at least <code>1.4.0</code>.</p>
     pub fn set_efs_volume_configuration(mut self, input: ::std::option::Option<crate::types::EfsVolumeConfiguration>) -> Self {
-        self.efs_volume_configuration = input;
-        self
+        self.efs_volume_configuration = input; self
     }
     /// <p>This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a <code>platformVersion</code> of at least <code>1.4.0</code>.</p>
     pub fn get_efs_volume_configuration(&self) -> &::std::option::Option<crate::types::EfsVolumeConfiguration> {
@@ -96,9 +93,13 @@ impl VolumeBuilder {
     /// Consumes the builder and constructs a [`Volume`](crate::types::Volume).
     pub fn build(self) -> crate::types::Volume {
         crate::types::Volume {
-            host: self.host,
-            name: self.name,
-            efs_volume_configuration: self.efs_volume_configuration,
+            host: self.host
+            ,
+            name: self.name
+            ,
+            efs_volume_configuration: self.efs_volume_configuration
+            ,
         }
     }
 }
+

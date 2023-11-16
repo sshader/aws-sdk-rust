@@ -3,7 +3,7 @@
 /// <p>A control from a date filter that is used to specify date and time.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct FilterDateTimePickerControl {
+pub struct FilterDateTimePickerControl  {
     /// <p>The ID of the <code>FilterDateTimePickerControl</code>.</p>
     pub filter_control_id: ::std::string::String,
     /// <p>The title of the <code>FilterDateTimePickerControl</code>.</p>
@@ -12,39 +12,36 @@ pub struct FilterDateTimePickerControl {
     pub source_filter_id: ::std::string::String,
     /// <p>The display options of a control.</p>
     pub display_options: ::std::option::Option<crate::types::DateTimePickerControlDisplayOptions>,
-    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li>
-    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li>
+    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li> 
+    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li> 
     /// </ul>
     pub r#type: ::std::option::Option<crate::types::SheetControlDateTimePickerType>,
 }
-impl FilterDateTimePickerControl {
+impl  FilterDateTimePickerControl  {
     /// <p>The ID of the <code>FilterDateTimePickerControl</code>.</p>
-    pub fn filter_control_id(&self) -> &str {
-        use std::ops::Deref;
-        self.filter_control_id.deref()
+    pub fn filter_control_id(&self) -> & str {
+        use std::ops::Deref; self.filter_control_id.deref()
     }
     /// <p>The title of the <code>FilterDateTimePickerControl</code>.</p>
-    pub fn title(&self) -> &str {
-        use std::ops::Deref;
-        self.title.deref()
+    pub fn title(&self) -> & str {
+        use std::ops::Deref; self.title.deref()
     }
     /// <p>The source filter ID of the <code>FilterDateTimePickerControl</code>.</p>
-    pub fn source_filter_id(&self) -> &str {
-        use std::ops::Deref;
-        self.source_filter_id.deref()
+    pub fn source_filter_id(&self) -> & str {
+        use std::ops::Deref; self.source_filter_id.deref()
     }
     /// <p>The display options of a control.</p>
-    pub fn display_options(&self) -> ::std::option::Option<&crate::types::DateTimePickerControlDisplayOptions> {
+    pub fn display_options(&self) -> ::std::option::Option<& crate::types::DateTimePickerControlDisplayOptions> {
         self.display_options.as_ref()
     }
-    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li>
-    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li>
+    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li> 
+    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::SheetControlDateTimePickerType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::SheetControlDateTimePickerType> {
         self.r#type.as_ref()
     }
 }
@@ -74,8 +71,7 @@ impl FilterDateTimePickerControlBuilder {
     }
     /// <p>The ID of the <code>FilterDateTimePickerControl</code>.</p>
     pub fn set_filter_control_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.filter_control_id = input;
-        self
+        self.filter_control_id = input; self
     }
     /// <p>The ID of the <code>FilterDateTimePickerControl</code>.</p>
     pub fn get_filter_control_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -89,8 +85,7 @@ impl FilterDateTimePickerControlBuilder {
     }
     /// <p>The title of the <code>FilterDateTimePickerControl</code>.</p>
     pub fn set_title(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.title = input;
-        self
+        self.title = input; self
     }
     /// <p>The title of the <code>FilterDateTimePickerControl</code>.</p>
     pub fn get_title(&self) -> &::std::option::Option<::std::string::String> {
@@ -104,8 +99,7 @@ impl FilterDateTimePickerControlBuilder {
     }
     /// <p>The source filter ID of the <code>FilterDateTimePickerControl</code>.</p>
     pub fn set_source_filter_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.source_filter_id = input;
-        self
+        self.source_filter_id = input; self
     }
     /// <p>The source filter ID of the <code>FilterDateTimePickerControl</code>.</p>
     pub fn get_source_filter_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -118,35 +112,33 @@ impl FilterDateTimePickerControlBuilder {
     }
     /// <p>The display options of a control.</p>
     pub fn set_display_options(mut self, input: ::std::option::Option<crate::types::DateTimePickerControlDisplayOptions>) -> Self {
-        self.display_options = input;
-        self
+        self.display_options = input; self
     }
     /// <p>The display options of a control.</p>
     pub fn get_display_options(&self) -> &::std::option::Option<crate::types::DateTimePickerControlDisplayOptions> {
         &self.display_options
     }
-    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li>
-    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li>
+    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li> 
+    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: crate::types::SheetControlDateTimePickerType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li>
-    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li>
+    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li> 
+    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::SheetControlDateTimePickerType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li>
-    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li>
+    /// <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p> </li> 
+    /// <li> <p> <code>DATE_RANGE</code>: The filter condition is a date time range.</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::SheetControlDateTimePickerType> {
         &self.r#type
@@ -157,27 +149,29 @@ impl FilterDateTimePickerControlBuilder {
     /// - [`title`](crate::types::builders::FilterDateTimePickerControlBuilder::title)
     /// - [`source_filter_id`](crate::types::builders::FilterDateTimePickerControlBuilder::source_filter_id)
     pub fn build(self) -> ::std::result::Result<crate::types::FilterDateTimePickerControl, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::FilterDateTimePickerControl {
-            filter_control_id: self.filter_control_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "filter_control_id",
-                    "filter_control_id was not specified but it is required when building FilterDateTimePickerControl",
-                )
-            })?,
-            title: self.title.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "title",
-                    "title was not specified but it is required when building FilterDateTimePickerControl",
-                )
-            })?,
-            source_filter_id: self.source_filter_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "source_filter_id",
-                    "source_filter_id was not specified but it is required when building FilterDateTimePickerControl",
-                )
-            })?,
-            display_options: self.display_options,
-            r#type: self.r#type,
-        })
+        ::std::result::Result::Ok(
+            crate::types::FilterDateTimePickerControl {
+                filter_control_id: self.filter_control_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("filter_control_id", "filter_control_id was not specified but it is required when building FilterDateTimePickerControl")
+                    )?
+                ,
+                title: self.title
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("title", "title was not specified but it is required when building FilterDateTimePickerControl")
+                    )?
+                ,
+                source_filter_id: self.source_filter_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("source_filter_id", "source_filter_id was not specified but it is required when building FilterDateTimePickerControl")
+                    )?
+                ,
+                display_options: self.display_options
+                ,
+                r#type: self.r#type
+                ,
+            }
+        )
     }
 }
+

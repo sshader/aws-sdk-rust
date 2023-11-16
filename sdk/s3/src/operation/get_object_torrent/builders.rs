@@ -5,62 +5,58 @@ pub use crate::operation::get_object_torrent::_get_object_torrent_input::GetObje
 
 impl GetObjectTorrentInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::get_object_torrent::GetObjectTorrentOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_object_torrent::GetObjectTorrentError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.get_object_torrent();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::get_object_torrent::GetObjectTorrentOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::get_object_torrent::GetObjectTorrentError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.get_object_torrent();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `GetObjectTorrent`.
-///
-/// <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're distributing large files.</p> <note>
-/// <p>You can get torrent only for objects that are less than 5 GB in size, and that are not encrypted using server-side encryption with a customer-provided encryption key.</p>
-/// </note>
-/// <p>To use GET, you must have READ access to the object.</p>
-/// <p>This action is not supported by Amazon S3 on Outposts.</p>
-/// <p>The following action is related to <code>GetObjectTorrent</code>:</p>
-/// <ul>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a> </p> </li>
+/// 
+/// <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're distributing large files.</p> <note> 
+/// <p>You can get torrent only for objects that are less than 5 GB in size, and that are not encrypted using server-side encryption with a customer-provided encryption key.</p> 
+/// </note> 
+/// <p>To use GET, you must have READ access to the object.</p> 
+/// <p>This action is not supported by Amazon S3 on Outposts.</p> 
+/// <p>The following action is related to <code>GetObjectTorrent</code>:</p> 
+/// <ul> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a> </p> </li> 
 /// </ul>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetObjectTorrentFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::get_object_torrent::builders::GetObjectTorrentInputBuilder,
+                    inner: crate::operation::get_object_torrent::builders::GetObjectTorrentInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::get_object_torrent::GetObjectTorrentOutput,
-        crate::operation::get_object_torrent::GetObjectTorrentError,
-    > for GetObjectTorrentFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::get_object_torrent::GetObjectTorrentOutput,
-            crate::operation::get_object_torrent::GetObjectTorrentError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::get_object_torrent::GetObjectTorrentOutput,
+                    crate::operation::get_object_torrent::GetObjectTorrentError,
+                > for GetObjectTorrentFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::get_object_torrent::GetObjectTorrentOutput,
+                        crate::operation::get_object_torrent::GetObjectTorrentError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl GetObjectTorrentFluentBuilder {
     /// Creates a new `GetObjectTorrent`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -69,53 +65,44 @@ impl GetObjectTorrentFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_object_torrent::GetObjectTorrentOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_object_torrent::GetObjectTorrentError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_object_torrent::GetObjectTorrent::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_object_torrent::GetObjectTorrent::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::get_object_torrent::GetObjectTorrentOutput,
-        crate::operation::get_object_torrent::GetObjectTorrentError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::get_object_torrent::GetObjectTorrentOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_object_torrent::GetObjectTorrentError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::get_object_torrent::GetObjectTorrent::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::get_object_torrent::GetObjectTorrent::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::get_object_torrent::GetObjectTorrentOutput, crate::operation::get_object_torrent::GetObjectTorrentError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name of the bucket containing the object for which to get the torrent files.</p>
     pub fn bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.bucket(input.into());
@@ -173,3 +160,4 @@ impl GetObjectTorrentFluentBuilder {
         self.inner.get_expected_bucket_owner()
     }
 }
+

@@ -3,31 +3,31 @@
 /// <p>Contains information about a component dependency for a Lambda function component.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ComponentDependencyRequirement {
-    /// <p>The component version requirement for the component dependency.</p>
+pub struct ComponentDependencyRequirement  {
+    /// <p>The component version requirement for the component dependency.</p> 
     /// <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href="https://semver.org/">Semantic Versioning</a>.</p>
     pub version_requirement: ::std::option::Option<::std::string::String>,
-    /// <p>The type of this dependency. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li>
-    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li>
-    /// </ul>
+    /// <p>The type of this dependency. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li> 
+    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li> 
+    /// </ul> 
     /// <p>Default: <code>HARD</code> </p>
     pub dependency_type: ::std::option::Option<crate::types::ComponentDependencyType>,
 }
-impl ComponentDependencyRequirement {
-    /// <p>The component version requirement for the component dependency.</p>
+impl  ComponentDependencyRequirement  {
+    /// <p>The component version requirement for the component dependency.</p> 
     /// <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href="https://semver.org/">Semantic Versioning</a>.</p>
-    pub fn version_requirement(&self) -> ::std::option::Option<&str> {
+    pub fn version_requirement(&self) -> ::std::option::Option<& str> {
         self.version_requirement.as_deref()
     }
-    /// <p>The type of this dependency. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li>
-    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li>
-    /// </ul>
+    /// <p>The type of this dependency. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li> 
+    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li> 
+    /// </ul> 
     /// <p>Default: <code>HARD</code> </p>
-    pub fn dependency_type(&self) -> ::std::option::Option<&crate::types::ComponentDependencyType> {
+    pub fn dependency_type(&self) -> ::std::option::Option<& crate::types::ComponentDependencyType> {
         self.dependency_type.as_ref()
     }
 }
@@ -46,48 +46,46 @@ pub struct ComponentDependencyRequirementBuilder {
     pub(crate) dependency_type: ::std::option::Option<crate::types::ComponentDependencyType>,
 }
 impl ComponentDependencyRequirementBuilder {
-    /// <p>The component version requirement for the component dependency.</p>
+    /// <p>The component version requirement for the component dependency.</p> 
     /// <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href="https://semver.org/">Semantic Versioning</a>.</p>
     pub fn version_requirement(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version_requirement = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The component version requirement for the component dependency.</p>
+    /// <p>The component version requirement for the component dependency.</p> 
     /// <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href="https://semver.org/">Semantic Versioning</a>.</p>
     pub fn set_version_requirement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.version_requirement = input;
-        self
+        self.version_requirement = input; self
     }
-    /// <p>The component version requirement for the component dependency.</p>
+    /// <p>The component version requirement for the component dependency.</p> 
     /// <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href="https://semver.org/">Semantic Versioning</a>.</p>
     pub fn get_version_requirement(&self) -> &::std::option::Option<::std::string::String> {
         &self.version_requirement
     }
-    /// <p>The type of this dependency. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li>
-    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li>
-    /// </ul>
+    /// <p>The type of this dependency. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li> 
+    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li> 
+    /// </ul> 
     /// <p>Default: <code>HARD</code> </p>
     pub fn dependency_type(mut self, input: crate::types::ComponentDependencyType) -> Self {
         self.dependency_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of this dependency. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li>
-    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li>
-    /// </ul>
+    /// <p>The type of this dependency. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li> 
+    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li> 
+    /// </ul> 
     /// <p>Default: <code>HARD</code> </p>
     pub fn set_dependency_type(mut self, input: ::std::option::Option<crate::types::ComponentDependencyType>) -> Self {
-        self.dependency_type = input;
-        self
+        self.dependency_type = input; self
     }
-    /// <p>The type of this dependency. Choose from the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li>
-    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li>
-    /// </ul>
+    /// <p>The type of this dependency. Choose from the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SOFT</code> – The component doesn't restart if the dependency changes state.</p> </li> 
+    /// <li> <p> <code>HARD</code> – The component restarts if the dependency changes state.</p> </li> 
+    /// </ul> 
     /// <p>Default: <code>HARD</code> </p>
     pub fn get_dependency_type(&self) -> &::std::option::Option<crate::types::ComponentDependencyType> {
         &self.dependency_type
@@ -95,8 +93,11 @@ impl ComponentDependencyRequirementBuilder {
     /// Consumes the builder and constructs a [`ComponentDependencyRequirement`](crate::types::ComponentDependencyRequirement).
     pub fn build(self) -> crate::types::ComponentDependencyRequirement {
         crate::types::ComponentDependencyRequirement {
-            version_requirement: self.version_requirement,
-            dependency_type: self.dependency_type,
+            version_requirement: self.version_requirement
+            ,
+            dependency_type: self.dependency_type
+            ,
         }
     }
 }
+

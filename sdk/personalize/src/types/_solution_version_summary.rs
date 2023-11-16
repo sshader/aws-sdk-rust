@@ -3,13 +3,13 @@
 /// <p>Provides a summary of the properties of a solution version. For a complete listing, call the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a> API.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SolutionVersionSummary {
+pub struct SolutionVersionSummary  {
     /// <p>The Amazon Resource Name (ARN) of the solution version.</p>
     pub solution_version_arn: ::std::option::Option<::std::string::String>,
-    /// <p>The status of the solution version.</p>
-    /// <p>A solution version can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
+    /// <p>The status of the solution version.</p> 
+    /// <p>A solution version can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
     /// </ul>
     pub status: ::std::option::Option<::std::string::String>,
     /// <p>The date and time (in Unix time) that this version of a solution was created.</p>
@@ -19,29 +19,29 @@ pub struct SolutionVersionSummary {
     /// <p>If a solution version fails, the reason behind the failure.</p>
     pub failure_reason: ::std::option::Option<::std::string::String>,
 }
-impl SolutionVersionSummary {
+impl  SolutionVersionSummary  {
     /// <p>The Amazon Resource Name (ARN) of the solution version.</p>
-    pub fn solution_version_arn(&self) -> ::std::option::Option<&str> {
+    pub fn solution_version_arn(&self) -> ::std::option::Option<& str> {
         self.solution_version_arn.as_deref()
     }
-    /// <p>The status of the solution version.</p>
-    /// <p>A solution version can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
+    /// <p>The status of the solution version.</p> 
+    /// <p>A solution version can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&str> {
+    pub fn status(&self) -> ::std::option::Option<& str> {
         self.status.as_deref()
     }
     /// <p>The date and time (in Unix time) that this version of a solution was created.</p>
-    pub fn creation_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_date_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_date_time.as_ref()
     }
     /// <p>The date and time (in Unix time) that the solution version was last updated.</p>
-    pub fn last_updated_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_updated_date_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_updated_date_time.as_ref()
     }
     /// <p>If a solution version fails, the reason behind the failure.</p>
-    pub fn failure_reason(&self) -> ::std::option::Option<&str> {
+    pub fn failure_reason(&self) -> ::std::option::Option<& str> {
         self.failure_reason.as_deref()
     }
 }
@@ -70,35 +70,33 @@ impl SolutionVersionSummaryBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the solution version.</p>
     pub fn set_solution_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.solution_version_arn = input;
-        self
+        self.solution_version_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the solution version.</p>
     pub fn get_solution_version_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.solution_version_arn
     }
-    /// <p>The status of the solution version.</p>
-    /// <p>A solution version can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
+    /// <p>The status of the solution version.</p> 
+    /// <p>A solution version can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
     /// </ul>
     pub fn status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The status of the solution version.</p>
-    /// <p>A solution version can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
+    /// <p>The status of the solution version.</p> 
+    /// <p>A solution version can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the solution version.</p>
-    /// <p>A solution version can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
+    /// <p>The status of the solution version.</p> 
+    /// <p>A solution version can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.status
@@ -110,8 +108,7 @@ impl SolutionVersionSummaryBuilder {
     }
     /// <p>The date and time (in Unix time) that this version of a solution was created.</p>
     pub fn set_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_date_time = input;
-        self
+        self.creation_date_time = input; self
     }
     /// <p>The date and time (in Unix time) that this version of a solution was created.</p>
     pub fn get_creation_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -124,8 +121,7 @@ impl SolutionVersionSummaryBuilder {
     }
     /// <p>The date and time (in Unix time) that the solution version was last updated.</p>
     pub fn set_last_updated_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_updated_date_time = input;
-        self
+        self.last_updated_date_time = input; self
     }
     /// <p>The date and time (in Unix time) that the solution version was last updated.</p>
     pub fn get_last_updated_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -138,8 +134,7 @@ impl SolutionVersionSummaryBuilder {
     }
     /// <p>If a solution version fails, the reason behind the failure.</p>
     pub fn set_failure_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.failure_reason = input;
-        self
+        self.failure_reason = input; self
     }
     /// <p>If a solution version fails, the reason behind the failure.</p>
     pub fn get_failure_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -148,11 +143,17 @@ impl SolutionVersionSummaryBuilder {
     /// Consumes the builder and constructs a [`SolutionVersionSummary`](crate::types::SolutionVersionSummary).
     pub fn build(self) -> crate::types::SolutionVersionSummary {
         crate::types::SolutionVersionSummary {
-            solution_version_arn: self.solution_version_arn,
-            status: self.status,
-            creation_date_time: self.creation_date_time,
-            last_updated_date_time: self.last_updated_date_time,
-            failure_reason: self.failure_reason,
+            solution_version_arn: self.solution_version_arn
+            ,
+            status: self.status
+            ,
+            creation_date_time: self.creation_date_time
+            ,
+            last_updated_date_time: self.last_updated_date_time
+            ,
+            failure_reason: self.failure_reason
+            ,
         }
     }
 }
+

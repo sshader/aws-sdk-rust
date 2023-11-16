@@ -3,19 +3,19 @@
 /// Represents the status of a logging configuration.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct LoggingConfigurationStatus {
+pub struct LoggingConfigurationStatus  {
     /// Status code of the logging configuration.
     pub status_code: crate::types::LoggingConfigurationStatusCode,
     /// The reason for failure if any.
     pub status_reason: ::std::option::Option<::std::string::String>,
 }
-impl LoggingConfigurationStatus {
+impl  LoggingConfigurationStatus  {
     /// Status code of the logging configuration.
-    pub fn status_code(&self) -> &crate::types::LoggingConfigurationStatusCode {
+    pub fn status_code(&self) -> & crate::types::LoggingConfigurationStatusCode {
         &self.status_code
     }
     /// The reason for failure if any.
-    pub fn status_reason(&self) -> ::std::option::Option<&str> {
+    pub fn status_reason(&self) -> ::std::option::Option<& str> {
         self.status_reason.as_deref()
     }
 }
@@ -42,8 +42,7 @@ impl LoggingConfigurationStatusBuilder {
     }
     /// Status code of the logging configuration.
     pub fn set_status_code(mut self, input: ::std::option::Option<crate::types::LoggingConfigurationStatusCode>) -> Self {
-        self.status_code = input;
-        self
+        self.status_code = input; self
     }
     /// Status code of the logging configuration.
     pub fn get_status_code(&self) -> &::std::option::Option<crate::types::LoggingConfigurationStatusCode> {
@@ -56,8 +55,7 @@ impl LoggingConfigurationStatusBuilder {
     }
     /// The reason for failure if any.
     pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.status_reason = input;
-        self
+        self.status_reason = input; self
     }
     /// The reason for failure if any.
     pub fn get_status_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -67,14 +65,17 @@ impl LoggingConfigurationStatusBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`status_code`](crate::types::builders::LoggingConfigurationStatusBuilder::status_code)
     pub fn build(self) -> ::std::result::Result<crate::types::LoggingConfigurationStatus, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::LoggingConfigurationStatus {
-            status_code: self.status_code.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "status_code",
-                    "status_code was not specified but it is required when building LoggingConfigurationStatus",
-                )
-            })?,
-            status_reason: self.status_reason,
-        })
+        ::std::result::Result::Ok(
+            crate::types::LoggingConfigurationStatus {
+                status_code: self.status_code
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("status_code", "status_code was not specified but it is required when building LoggingConfigurationStatus")
+                    )?
+                ,
+                status_reason: self.status_reason
+                ,
+            }
+        )
     }
 }
+

@@ -3,48 +3,46 @@
 /// <p>The request is invalid.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct InvalidRequestException {
+pub struct InvalidRequestException  {
     #[allow(missing_docs)] // documentation missing in model
     pub message: ::std::option::Option<::std::string::String>,
     #[allow(missing_docs)] // documentation missing in model
     pub reason: ::std::option::Option<crate::types::InvalidRequestReason>,
-    /// <p>Provides additional detail about why the request failed:</p>
-    /// <ul>
-    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li>
-    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li>
-    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li>
-    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li>
+    /// <p>Provides additional detail about why the request failed:</p> 
+    /// <ul> 
+    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li> 
+    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li> 
+    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li> 
+    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li> 
     /// </ul>
     pub detail: ::std::option::Option<crate::types::InvalidRequestDetail>,
     pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
-impl InvalidRequestException {
+impl  InvalidRequestException  {
     #[allow(missing_docs)] // documentation missing in model
-    pub fn reason(&self) -> ::std::option::Option<&crate::types::InvalidRequestReason> {
+    pub fn reason(&self) -> ::std::option::Option<& crate::types::InvalidRequestReason> {
         self.reason.as_ref()
     }
-    /// <p>Provides additional detail about why the request failed:</p>
-    /// <ul>
-    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li>
-    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li>
-    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li>
-    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li>
+    /// <p>Provides additional detail about why the request failed:</p> 
+    /// <ul> 
+    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li> 
+    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li> 
+    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li> 
+    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li> 
     /// </ul>
-    pub fn detail(&self) -> ::std::option::Option<&crate::types::InvalidRequestDetail> {
+    pub fn detail(&self) -> ::std::option::Option<& crate::types::InvalidRequestDetail> {
         self.detail.as_ref()
     }
 }
 impl InvalidRequestException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
-    }
+                        pub fn message(&self) -> ::std::option::Option<& str> { self.message.as_deref() }
 }
 impl ::std::fmt::Display for InvalidRequestException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         ::std::write!(f, "InvalidRequestException")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
-            {
+             {
                 ::std::write!(f, ": {}", inner_1)?;
             }
         }
@@ -52,16 +50,14 @@ impl ::std::fmt::Display for InvalidRequestException {
     }
 }
 impl ::std::error::Error for InvalidRequestException {}
-impl ::aws_http::request_id::RequestId for crate::types::error::InvalidRequestException {
+impl ::aws_types::request_id::RequestId for crate::types::error::InvalidRequestException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidRequestException {
-    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        &self.meta
-    }
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata { &self.meta }
 }
 impl InvalidRequestException {
     /// Creates a new builder-style object to manufacture [`InvalidRequestException`](crate::types::error::InvalidRequestException).
@@ -87,8 +83,7 @@ impl InvalidRequestExceptionBuilder {
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.message = input;
-        self
+        self.message = input; self
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
@@ -101,63 +96,65 @@ impl InvalidRequestExceptionBuilder {
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn set_reason(mut self, input: ::std::option::Option<crate::types::InvalidRequestReason>) -> Self {
-        self.reason = input;
-        self
+        self.reason = input; self
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn get_reason(&self) -> &::std::option::Option<crate::types::InvalidRequestReason> {
         &self.reason
     }
-    /// <p>Provides additional detail about why the request failed:</p>
-    /// <ul>
-    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li>
-    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li>
-    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li>
-    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li>
+    /// <p>Provides additional detail about why the request failed:</p> 
+    /// <ul> 
+    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li> 
+    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li> 
+    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li> 
+    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li> 
     /// </ul>
     pub fn detail(mut self, input: crate::types::InvalidRequestDetail) -> Self {
         self.detail = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Provides additional detail about why the request failed:</p>
-    /// <ul>
-    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li>
-    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li>
-    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li>
-    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li>
+    /// <p>Provides additional detail about why the request failed:</p> 
+    /// <ul> 
+    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li> 
+    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li> 
+    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li> 
+    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li> 
     /// </ul>
     pub fn set_detail(mut self, input: ::std::option::Option<crate::types::InvalidRequestDetail>) -> Self {
-        self.detail = input;
-        self
+        self.detail = input; self
     }
-    /// <p>Provides additional detail about why the request failed:</p>
-    /// <ul>
-    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li>
-    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li>
-    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li>
-    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li>
+    /// <p>Provides additional detail about why the request failed:</p> 
+    /// <ul> 
+    /// <li> <p>Document size is too large - Check the size of your file and resubmit the request.</p> </li> 
+    /// <li> <p>Document type is not supported - Check the file type and resubmit the request.</p> </li> 
+    /// <li> <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p> </li> 
+    /// <li> <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p> </li> 
     /// </ul>
     pub fn get_detail(&self) -> &::std::option::Option<crate::types::InvalidRequestDetail> {
         &self.detail
     }
     /// Sets error metadata
-    pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        self.meta = Some(meta);
-        self
-    }
-
-    /// Sets error metadata
-    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
-        self.meta = meta;
-        self
-    }
+                                            pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+                                                self.meta = Some(meta);
+                                                self
+                                            }
+    
+                                            /// Sets error metadata
+                                            pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+                                                self.meta = meta;
+                                                self
+                                            }
     /// Consumes the builder and constructs a [`InvalidRequestException`](crate::types::error::InvalidRequestException).
     pub fn build(self) -> crate::types::error::InvalidRequestException {
         crate::types::error::InvalidRequestException {
-            message: self.message,
-            reason: self.reason,
-            detail: self.detail,
+            message: self.message
+            ,
+            reason: self.reason
+            ,
+            detail: self.detail
+            ,
             meta: self.meta.unwrap_or_default(),
         }
     }
 }
+

@@ -2,37 +2,37 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdatePrimaryEmailAddressInput {
+pub struct UpdatePrimaryEmailAddressInput  {
     /// <p>The organization that contains the user, group, or resource to update.</p>
     pub organization_id: ::std::option::Option<::std::string::String>,
-    /// <p>The user, group, or resource to update.</p>
-    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The user, group, or resource to update.</p> 
+    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     pub entity_id: ::std::option::Option<::std::string::String>,
     /// <p>The value of the email to be updated as primary.</p>
     pub email: ::std::option::Option<::std::string::String>,
 }
-impl UpdatePrimaryEmailAddressInput {
+impl  UpdatePrimaryEmailAddressInput  {
     /// <p>The organization that contains the user, group, or resource to update.</p>
-    pub fn organization_id(&self) -> ::std::option::Option<&str> {
+    pub fn organization_id(&self) -> ::std::option::Option<& str> {
         self.organization_id.as_deref()
     }
-    /// <p>The user, group, or resource to update.</p>
-    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The user, group, or resource to update.</p> 
+    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
-    pub fn entity_id(&self) -> ::std::option::Option<&str> {
+    pub fn entity_id(&self) -> ::std::option::Option<& str> {
         self.entity_id.as_deref()
     }
     /// <p>The value of the email to be updated as primary.</p>
-    pub fn email(&self) -> ::std::option::Option<&str> {
+    pub fn email(&self) -> ::std::option::Option<& str> {
         self.email.as_deref()
     }
 }
@@ -60,42 +60,40 @@ impl UpdatePrimaryEmailAddressInputBuilder {
     }
     /// <p>The organization that contains the user, group, or resource to update.</p>
     pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.organization_id = input;
-        self
+        self.organization_id = input; self
     }
     /// <p>The organization that contains the user, group, or resource to update.</p>
     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_id
     }
-    /// <p>The user, group, or resource to update.</p>
-    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The user, group, or resource to update.</p> 
+    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn entity_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.entity_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The user, group, or resource to update.</p>
-    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The user, group, or resource to update.</p> 
+    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     pub fn set_entity_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.entity_id = input;
-        self
+        self.entity_id = input; self
     }
-    /// <p>The user, group, or resource to update.</p>
-    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The user, group, or resource to update.</p> 
+    /// <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     pub fn get_entity_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.entity_id
@@ -108,24 +106,24 @@ impl UpdatePrimaryEmailAddressInputBuilder {
     }
     /// <p>The value of the email to be updated as primary.</p>
     pub fn set_email(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.email = input;
-        self
+        self.email = input; self
     }
     /// <p>The value of the email to be updated as primary.</p>
     pub fn get_email(&self) -> &::std::option::Option<::std::string::String> {
         &self.email
     }
     /// Consumes the builder and constructs a [`UpdatePrimaryEmailAddressInput`](crate::operation::update_primary_email_address::UpdatePrimaryEmailAddressInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_primary_email_address::UpdatePrimaryEmailAddressInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::update_primary_email_address::UpdatePrimaryEmailAddressInput {
-            organization_id: self.organization_id,
-            entity_id: self.entity_id,
-            email: self.email,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_primary_email_address::UpdatePrimaryEmailAddressInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_primary_email_address::UpdatePrimaryEmailAddressInput {
+                organization_id: self.organization_id
+                ,
+                entity_id: self.entity_id
+                ,
+                email: self.email
+                ,
+            }
+        )
     }
 }
+

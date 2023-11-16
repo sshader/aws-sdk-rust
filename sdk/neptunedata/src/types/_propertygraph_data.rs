@@ -3,15 +3,15 @@
 /// <p>A Gremlin or openCypher change record.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PropertygraphData {
+pub struct PropertygraphData  {
     /// <p>The ID of the Gremlin or openCypher element.</p>
     pub id: ::std::string::String,
-    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li>
-    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li>
-    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li>
-    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li>
+    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li> 
     /// </ul>
     pub r#type: ::std::string::String,
     /// <p>The property name. For element labels, this is <code>label</code>.</p>
@@ -23,38 +23,35 @@ pub struct PropertygraphData {
     /// <p>If this is an edge (type = <code>e</code>), the ID of the corresponding <code>to</code> vertex or target node.</p>
     pub to: ::std::option::Option<::std::string::String>,
 }
-impl PropertygraphData {
+impl  PropertygraphData  {
     /// <p>The ID of the Gremlin or openCypher element.</p>
-    pub fn id(&self) -> &str {
-        use std::ops::Deref;
-        self.id.deref()
+    pub fn id(&self) -> & str {
+        use std::ops::Deref; self.id.deref()
     }
-    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li>
-    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li>
-    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li>
-    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li>
+    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> &str {
-        use std::ops::Deref;
-        self.r#type.deref()
+    pub fn r#type(&self) -> & str {
+        use std::ops::Deref; self.r#type.deref()
     }
     /// <p>The property name. For element labels, this is <code>label</code>.</p>
-    pub fn key(&self) -> &str {
-        use std::ops::Deref;
-        self.key.deref()
+    pub fn key(&self) -> & str {
+        use std::ops::Deref; self.key.deref()
     }
     /// <p>This is a JSON object that contains a value field for the value itself, and a datatype field for the JSON data type of that value:</p>
-    pub fn value(&self) -> &::aws_smithy_types::Document {
+    pub fn value(&self) -> & ::aws_smithy_types::Document {
         &self.value
     }
     /// <p>If this is an edge (type = <code>e</code>), the ID of the corresponding <code>from</code> vertex or source node.</p>
-    pub fn from(&self) -> ::std::option::Option<&str> {
+    pub fn from(&self) -> ::std::option::Option<& str> {
         self.from.as_deref()
     }
     /// <p>If this is an edge (type = <code>e</code>), the ID of the corresponding <code>to</code> vertex or target node.</p>
-    pub fn to(&self) -> ::std::option::Option<&str> {
+    pub fn to(&self) -> ::std::option::Option<& str> {
         self.to.as_deref()
     }
 }
@@ -85,42 +82,40 @@ impl PropertygraphDataBuilder {
     }
     /// <p>The ID of the Gremlin or openCypher element.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// <p>The ID of the Gremlin or openCypher element.</p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.id
     }
-    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li>
-    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li>
-    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li>
-    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li>
+    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn r#type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.r#type = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li>
-    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li>
-    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li>
-    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li>
+    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li>
-    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li>
-    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li>
-    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li>
+    /// <p>The type of this Gremlin or openCypher element. Must be one of:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>v1</code> </b> &nbsp; - &nbsp; Vertex label for Gremlin, or node label for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>vp</code> </b> &nbsp; - &nbsp; Vertex properties for Gremlin, or node properties for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>e</code> </b> &nbsp; - &nbsp; Edge and edge label for Gremlin, or relationship and relationship type for openCypher.</p> </li> 
+    /// <li> <p> <b> <code>ep</code> </b> &nbsp; - &nbsp; Edge properties for Gremlin, or relationship properties for openCypher.</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<::std::string::String> {
         &self.r#type
@@ -133,8 +128,7 @@ impl PropertygraphDataBuilder {
     }
     /// <p>The property name. For element labels, this is <code>label</code>.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.key = input;
-        self
+        self.key = input; self
     }
     /// <p>The property name. For element labels, this is <code>label</code>.</p>
     pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
@@ -148,8 +142,7 @@ impl PropertygraphDataBuilder {
     }
     /// <p>This is a JSON object that contains a value field for the value itself, and a datatype field for the JSON data type of that value:</p>
     pub fn set_value(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
-        self.value = input;
-        self
+        self.value = input; self
     }
     /// <p>This is a JSON object that contains a value field for the value itself, and a datatype field for the JSON data type of that value:</p>
     pub fn get_value(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
@@ -162,8 +155,7 @@ impl PropertygraphDataBuilder {
     }
     /// <p>If this is an edge (type = <code>e</code>), the ID of the corresponding <code>from</code> vertex or source node.</p>
     pub fn set_from(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.from = input;
-        self
+        self.from = input; self
     }
     /// <p>If this is an edge (type = <code>e</code>), the ID of the corresponding <code>from</code> vertex or source node.</p>
     pub fn get_from(&self) -> &::std::option::Option<::std::string::String> {
@@ -176,8 +168,7 @@ impl PropertygraphDataBuilder {
     }
     /// <p>If this is an edge (type = <code>e</code>), the ID of the corresponding <code>to</code> vertex or target node.</p>
     pub fn set_to(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.to = input;
-        self
+        self.to = input; self
     }
     /// <p>If this is an edge (type = <code>e</code>), the ID of the corresponding <code>to</code> vertex or target node.</p>
     pub fn get_to(&self) -> &::std::option::Option<::std::string::String> {
@@ -190,33 +181,34 @@ impl PropertygraphDataBuilder {
     /// - [`key`](crate::types::builders::PropertygraphDataBuilder::key)
     /// - [`value`](crate::types::builders::PropertygraphDataBuilder::value)
     pub fn build(self) -> ::std::result::Result<crate::types::PropertygraphData, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::PropertygraphData {
-            id: self.id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "id",
-                    "id was not specified but it is required when building PropertygraphData",
-                )
-            })?,
-            r#type: self.r#type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "r#type",
-                    "r#type was not specified but it is required when building PropertygraphData",
-                )
-            })?,
-            key: self.key.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "key",
-                    "key was not specified but it is required when building PropertygraphData",
-                )
-            })?,
-            value: self.value.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "value",
-                    "value was not specified but it is required when building PropertygraphData",
-                )
-            })?,
-            from: self.from,
-            to: self.to,
-        })
+        ::std::result::Result::Ok(
+            crate::types::PropertygraphData {
+                id: self.id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building PropertygraphData")
+                    )?
+                ,
+                r#type: self.r#type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("r#type", "r#type was not specified but it is required when building PropertygraphData")
+                    )?
+                ,
+                key: self.key
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building PropertygraphData")
+                    )?
+                ,
+                value: self.value
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("value", "value was not specified but it is required when building PropertygraphData")
+                    )?
+                ,
+                from: self.from
+                ,
+                to: self.to
+                ,
+            }
+        )
     }
 }
+

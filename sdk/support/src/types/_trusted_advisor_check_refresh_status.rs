@@ -3,38 +3,36 @@
 /// <p>The refresh status of a Trusted Advisor check.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct TrustedAdvisorCheckRefreshStatus {
+pub struct TrustedAdvisorCheckRefreshStatus  {
     /// <p>The unique identifier for the Trusted Advisor check.</p>
     pub check_id: ::std::string::String,
-    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p>
-    /// <ul>
-    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li>
-    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li>
-    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li>
-    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li>
-    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li>
+    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p> 
+    /// <ul> 
+    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li> 
+    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li> 
+    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li> 
+    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li> 
+    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li> 
     /// </ul>
     pub status: ::std::string::String,
     /// <p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.</p>
     pub millis_until_next_refreshable: i64,
 }
-impl TrustedAdvisorCheckRefreshStatus {
+impl  TrustedAdvisorCheckRefreshStatus  {
     /// <p>The unique identifier for the Trusted Advisor check.</p>
-    pub fn check_id(&self) -> &str {
-        use std::ops::Deref;
-        self.check_id.deref()
+    pub fn check_id(&self) -> & str {
+        use std::ops::Deref; self.check_id.deref()
     }
-    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p>
-    /// <ul>
-    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li>
-    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li>
-    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li>
-    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li>
-    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li>
+    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p> 
+    /// <ul> 
+    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li> 
+    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li> 
+    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li> 
+    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li> 
+    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li> 
     /// </ul>
-    pub fn status(&self) -> &str {
-        use std::ops::Deref;
-        self.status.deref()
+    pub fn status(&self) -> & str {
+        use std::ops::Deref; self.status.deref()
     }
     /// <p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.</p>
     pub fn millis_until_next_refreshable(&self) -> i64 {
@@ -65,45 +63,43 @@ impl TrustedAdvisorCheckRefreshStatusBuilder {
     }
     /// <p>The unique identifier for the Trusted Advisor check.</p>
     pub fn set_check_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.check_id = input;
-        self
+        self.check_id = input; self
     }
     /// <p>The unique identifier for the Trusted Advisor check.</p>
     pub fn get_check_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.check_id
     }
-    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p>
-    /// <ul>
-    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li>
-    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li>
-    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li>
-    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li>
-    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li>
+    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p> 
+    /// <ul> 
+    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li> 
+    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li> 
+    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li> 
+    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li> 
+    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p>
-    /// <ul>
-    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li>
-    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li>
-    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li>
-    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li>
-    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li>
+    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p> 
+    /// <ul> 
+    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li> 
+    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li> 
+    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li> 
+    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li> 
+    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p>
-    /// <ul>
-    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li>
-    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li>
-    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li>
-    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li>
-    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li>
+    /// <p>The status of the Trusted Advisor check for which a refresh has been requested: </p> 
+    /// <ul> 
+    /// <li> <p> <code>none</code> - The check is not refreshed or the non-success status exceeds the timeout</p> </li> 
+    /// <li> <p> <code>enqueued</code> - The check refresh requests has entered the refresh queue</p> </li> 
+    /// <li> <p> <code>processing</code> - The check refresh request is picked up by the rule processing engine</p> </li> 
+    /// <li> <p> <code>success</code> - The check is successfully refreshed</p> </li> 
+    /// <li> <p> <code>abandoned</code> - The check refresh has failed</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.status
@@ -116,8 +112,7 @@ impl TrustedAdvisorCheckRefreshStatusBuilder {
     }
     /// <p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.</p>
     pub fn set_millis_until_next_refreshable(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.millis_until_next_refreshable = input;
-        self
+        self.millis_until_next_refreshable = input; self
     }
     /// <p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.</p>
     pub fn get_millis_until_next_refreshable(&self) -> &::std::option::Option<i64> {
@@ -128,20 +123,23 @@ impl TrustedAdvisorCheckRefreshStatusBuilder {
     /// - [`check_id`](crate::types::builders::TrustedAdvisorCheckRefreshStatusBuilder::check_id)
     /// - [`status`](crate::types::builders::TrustedAdvisorCheckRefreshStatusBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::TrustedAdvisorCheckRefreshStatus, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::TrustedAdvisorCheckRefreshStatus {
-            check_id: self.check_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "check_id",
-                    "check_id was not specified but it is required when building TrustedAdvisorCheckRefreshStatus",
-                )
-            })?,
-            status: self.status.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "status",
-                    "status was not specified but it is required when building TrustedAdvisorCheckRefreshStatus",
-                )
-            })?,
-            millis_until_next_refreshable: self.millis_until_next_refreshable.unwrap_or_default(),
-        })
+        ::std::result::Result::Ok(
+            crate::types::TrustedAdvisorCheckRefreshStatus {
+                check_id: self.check_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("check_id", "check_id was not specified but it is required when building TrustedAdvisorCheckRefreshStatus")
+                    )?
+                ,
+                status: self.status
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building TrustedAdvisorCheckRefreshStatus")
+                    )?
+                ,
+                millis_until_next_refreshable: self.millis_until_next_refreshable
+                    .unwrap_or_default()
+                ,
+            }
+        )
     }
 }
+

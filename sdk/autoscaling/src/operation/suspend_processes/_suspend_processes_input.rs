@@ -2,46 +2,47 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SuspendProcessesInput {
+pub struct SuspendProcessesInput  {
     /// <p>The name of the Auto Scaling group.</p>
     pub auto_scaling_group_name: ::std::option::Option<::std::string::String>,
-    /// <p>One or more of the following processes:</p>
-    /// <ul>
-    /// <li> <p> <code>Launch</code> </p> </li>
-    /// <li> <p> <code>Terminate</code> </p> </li>
-    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li>
-    /// <li> <p> <code>AlarmNotification</code> </p> </li>
-    /// <li> <p> <code>AZRebalance</code> </p> </li>
-    /// <li> <p> <code>HealthCheck</code> </p> </li>
-    /// <li> <p> <code>InstanceRefresh</code> </p> </li>
-    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li>
-    /// <li> <p> <code>ScheduledActions</code> </p> </li>
-    /// </ul>
+    /// <p>One or more of the following processes:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Launch</code> </p> </li> 
+    /// <li> <p> <code>Terminate</code> </p> </li> 
+    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li> 
+    /// <li> <p> <code>AlarmNotification</code> </p> </li> 
+    /// <li> <p> <code>AZRebalance</code> </p> </li> 
+    /// <li> <p> <code>HealthCheck</code> </p> </li> 
+    /// <li> <p> <code>InstanceRefresh</code> </p> </li> 
+    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li> 
+    /// <li> <p> <code>ScheduledActions</code> </p> </li> 
+    /// </ul> 
     /// <p>If you omit this property, all processes are specified.</p>
-    pub scaling_processes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub scaling_processes: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
-impl SuspendProcessesInput {
+impl  SuspendProcessesInput  {
     /// <p>The name of the Auto Scaling group.</p>
-    pub fn auto_scaling_group_name(&self) -> ::std::option::Option<&str> {
+    pub fn auto_scaling_group_name(&self) -> ::std::option::Option<& str> {
         self.auto_scaling_group_name.as_deref()
     }
-    /// <p>One or more of the following processes:</p>
-    /// <ul>
-    /// <li> <p> <code>Launch</code> </p> </li>
-    /// <li> <p> <code>Terminate</code> </p> </li>
-    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li>
-    /// <li> <p> <code>AlarmNotification</code> </p> </li>
-    /// <li> <p> <code>AZRebalance</code> </p> </li>
-    /// <li> <p> <code>HealthCheck</code> </p> </li>
-    /// <li> <p> <code>InstanceRefresh</code> </p> </li>
-    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li>
-    /// <li> <p> <code>ScheduledActions</code> </p> </li>
-    /// </ul>
+    /// <p>One or more of the following processes:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Launch</code> </p> </li> 
+    /// <li> <p> <code>Terminate</code> </p> </li> 
+    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li> 
+    /// <li> <p> <code>AlarmNotification</code> </p> </li> 
+    /// <li> <p> <code>AZRebalance</code> </p> </li> 
+    /// <li> <p> <code>HealthCheck</code> </p> </li> 
+    /// <li> <p> <code>InstanceRefresh</code> </p> </li> 
+    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li> 
+    /// <li> <p> <code>ScheduledActions</code> </p> </li> 
+    /// </ul> 
     /// <p>If you omit this property, all processes are specified.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.scaling_processes.is_none()`.
-    pub fn scaling_processes(&self) -> &[::std::string::String] {
-        self.scaling_processes.as_deref().unwrap_or_default()
+    pub fn scaling_processes(&self) -> & [::std::string::String] {
+        self.scaling_processes.as_deref()
+        .unwrap_or_default()
     }
 }
 impl SuspendProcessesInput {
@@ -56,7 +57,7 @@ impl SuspendProcessesInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct SuspendProcessesInputBuilder {
     pub(crate) auto_scaling_group_name: ::std::option::Option<::std::string::String>,
-    pub(crate) scaling_processes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) scaling_processes: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
 impl SuspendProcessesInputBuilder {
     /// <p>The name of the Auto Scaling group.</p>
@@ -67,8 +68,7 @@ impl SuspendProcessesInputBuilder {
     }
     /// <p>The name of the Auto Scaling group.</p>
     pub fn set_auto_scaling_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.auto_scaling_group_name = input;
-        self
+        self.auto_scaling_group_name = input; self
     }
     /// <p>The name of the Auto Scaling group.</p>
     pub fn get_auto_scaling_group_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -78,65 +78,67 @@ impl SuspendProcessesInputBuilder {
     ///
     /// To override the contents of this collection use [`set_scaling_processes`](Self::set_scaling_processes).
     ///
-    /// <p>One or more of the following processes:</p>
-    /// <ul>
-    /// <li> <p> <code>Launch</code> </p> </li>
-    /// <li> <p> <code>Terminate</code> </p> </li>
-    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li>
-    /// <li> <p> <code>AlarmNotification</code> </p> </li>
-    /// <li> <p> <code>AZRebalance</code> </p> </li>
-    /// <li> <p> <code>HealthCheck</code> </p> </li>
-    /// <li> <p> <code>InstanceRefresh</code> </p> </li>
-    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li>
-    /// <li> <p> <code>ScheduledActions</code> </p> </li>
-    /// </ul>
+    /// <p>One or more of the following processes:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Launch</code> </p> </li> 
+    /// <li> <p> <code>Terminate</code> </p> </li> 
+    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li> 
+    /// <li> <p> <code>AlarmNotification</code> </p> </li> 
+    /// <li> <p> <code>AZRebalance</code> </p> </li> 
+    /// <li> <p> <code>HealthCheck</code> </p> </li> 
+    /// <li> <p> <code>InstanceRefresh</code> </p> </li> 
+    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li> 
+    /// <li> <p> <code>ScheduledActions</code> </p> </li> 
+    /// </ul> 
     /// <p>If you omit this property, all processes are specified.</p>
     pub fn scaling_processes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.scaling_processes.unwrap_or_default();
-        v.push(input.into());
-        self.scaling_processes = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.scaling_processes = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>One or more of the following processes:</p>
-    /// <ul>
-    /// <li> <p> <code>Launch</code> </p> </li>
-    /// <li> <p> <code>Terminate</code> </p> </li>
-    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li>
-    /// <li> <p> <code>AlarmNotification</code> </p> </li>
-    /// <li> <p> <code>AZRebalance</code> </p> </li>
-    /// <li> <p> <code>HealthCheck</code> </p> </li>
-    /// <li> <p> <code>InstanceRefresh</code> </p> </li>
-    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li>
-    /// <li> <p> <code>ScheduledActions</code> </p> </li>
-    /// </ul>
+    /// <p>One or more of the following processes:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Launch</code> </p> </li> 
+    /// <li> <p> <code>Terminate</code> </p> </li> 
+    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li> 
+    /// <li> <p> <code>AlarmNotification</code> </p> </li> 
+    /// <li> <p> <code>AZRebalance</code> </p> </li> 
+    /// <li> <p> <code>HealthCheck</code> </p> </li> 
+    /// <li> <p> <code>InstanceRefresh</code> </p> </li> 
+    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li> 
+    /// <li> <p> <code>ScheduledActions</code> </p> </li> 
+    /// </ul> 
     /// <p>If you omit this property, all processes are specified.</p>
-    pub fn set_scaling_processes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.scaling_processes = input;
-        self
+    pub fn set_scaling_processes(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.scaling_processes = input; self
     }
-    /// <p>One or more of the following processes:</p>
-    /// <ul>
-    /// <li> <p> <code>Launch</code> </p> </li>
-    /// <li> <p> <code>Terminate</code> </p> </li>
-    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li>
-    /// <li> <p> <code>AlarmNotification</code> </p> </li>
-    /// <li> <p> <code>AZRebalance</code> </p> </li>
-    /// <li> <p> <code>HealthCheck</code> </p> </li>
-    /// <li> <p> <code>InstanceRefresh</code> </p> </li>
-    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li>
-    /// <li> <p> <code>ScheduledActions</code> </p> </li>
-    /// </ul>
+    /// <p>One or more of the following processes:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Launch</code> </p> </li> 
+    /// <li> <p> <code>Terminate</code> </p> </li> 
+    /// <li> <p> <code>AddToLoadBalancer</code> </p> </li> 
+    /// <li> <p> <code>AlarmNotification</code> </p> </li> 
+    /// <li> <p> <code>AZRebalance</code> </p> </li> 
+    /// <li> <p> <code>HealthCheck</code> </p> </li> 
+    /// <li> <p> <code>InstanceRefresh</code> </p> </li> 
+    /// <li> <p> <code>ReplaceUnhealthy</code> </p> </li> 
+    /// <li> <p> <code>ScheduledActions</code> </p> </li> 
+    /// </ul> 
     /// <p>If you omit this property, all processes are specified.</p>
-    pub fn get_scaling_processes(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_scaling_processes(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.scaling_processes
     }
     /// Consumes the builder and constructs a [`SuspendProcessesInput`](crate::operation::suspend_processes::SuspendProcessesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::suspend_processes::SuspendProcessesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::suspend_processes::SuspendProcessesInput {
-            auto_scaling_group_name: self.auto_scaling_group_name,
-            scaling_processes: self.scaling_processes,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::suspend_processes::SuspendProcessesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::suspend_processes::SuspendProcessesInput {
+                auto_scaling_group_name: self.auto_scaling_group_name
+                ,
+                scaling_processes: self.scaling_processes
+                ,
+            }
+        )
     }
 }
+

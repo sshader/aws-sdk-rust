@@ -3,27 +3,27 @@
 /// <p>Contains information about an exponential rollout rate for a configuration deployment job.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct IoTJobExponentialRolloutRate {
+pub struct IoTJobExponentialRolloutRate  {
     /// <p>The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.</p>
     pub base_rate_per_minute: i32,
-    /// <p>The exponential factor to increase the rollout rate for the job.</p>
+    /// <p>The exponential factor to increase the rollout rate for the job.</p> 
     /// <p>This parameter supports up to one digit after the decimal (for example, you can specify <code>1.5</code>, but not <code>1.55</code>).</p>
     pub increment_factor: f64,
     /// <p>The criteria to increase the rollout rate for the job.</p>
     pub rate_increase_criteria: ::std::option::Option<crate::types::IoTJobRateIncreaseCriteria>,
 }
-impl IoTJobExponentialRolloutRate {
+impl  IoTJobExponentialRolloutRate  {
     /// <p>The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.</p>
     pub fn base_rate_per_minute(&self) -> i32 {
         self.base_rate_per_minute
     }
-    /// <p>The exponential factor to increase the rollout rate for the job.</p>
+    /// <p>The exponential factor to increase the rollout rate for the job.</p> 
     /// <p>This parameter supports up to one digit after the decimal (for example, you can specify <code>1.5</code>, but not <code>1.55</code>).</p>
     pub fn increment_factor(&self) -> f64 {
         self.increment_factor
     }
     /// <p>The criteria to increase the rollout rate for the job.</p>
-    pub fn rate_increase_criteria(&self) -> ::std::option::Option<&crate::types::IoTJobRateIncreaseCriteria> {
+    pub fn rate_increase_criteria(&self) -> ::std::option::Option<& crate::types::IoTJobRateIncreaseCriteria> {
         self.rate_increase_criteria.as_ref()
     }
 }
@@ -51,27 +51,25 @@ impl IoTJobExponentialRolloutRateBuilder {
     }
     /// <p>The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.</p>
     pub fn set_base_rate_per_minute(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.base_rate_per_minute = input;
-        self
+        self.base_rate_per_minute = input; self
     }
     /// <p>The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.</p>
     pub fn get_base_rate_per_minute(&self) -> &::std::option::Option<i32> {
         &self.base_rate_per_minute
     }
-    /// <p>The exponential factor to increase the rollout rate for the job.</p>
+    /// <p>The exponential factor to increase the rollout rate for the job.</p> 
     /// <p>This parameter supports up to one digit after the decimal (for example, you can specify <code>1.5</code>, but not <code>1.55</code>).</p>
     /// This field is required.
     pub fn increment_factor(mut self, input: f64) -> Self {
         self.increment_factor = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The exponential factor to increase the rollout rate for the job.</p>
+    /// <p>The exponential factor to increase the rollout rate for the job.</p> 
     /// <p>This parameter supports up to one digit after the decimal (for example, you can specify <code>1.5</code>, but not <code>1.55</code>).</p>
     pub fn set_increment_factor(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.increment_factor = input;
-        self
+        self.increment_factor = input; self
     }
-    /// <p>The exponential factor to increase the rollout rate for the job.</p>
+    /// <p>The exponential factor to increase the rollout rate for the job.</p> 
     /// <p>This parameter supports up to one digit after the decimal (for example, you can specify <code>1.5</code>, but not <code>1.55</code>).</p>
     pub fn get_increment_factor(&self) -> &::std::option::Option<f64> {
         &self.increment_factor
@@ -84,8 +82,7 @@ impl IoTJobExponentialRolloutRateBuilder {
     }
     /// <p>The criteria to increase the rollout rate for the job.</p>
     pub fn set_rate_increase_criteria(mut self, input: ::std::option::Option<crate::types::IoTJobRateIncreaseCriteria>) -> Self {
-        self.rate_increase_criteria = input;
-        self
+        self.rate_increase_criteria = input; self
     }
     /// <p>The criteria to increase the rollout rate for the job.</p>
     pub fn get_rate_increase_criteria(&self) -> &::std::option::Option<crate::types::IoTJobRateIncreaseCriteria> {
@@ -96,20 +93,22 @@ impl IoTJobExponentialRolloutRateBuilder {
     /// - [`base_rate_per_minute`](crate::types::builders::IoTJobExponentialRolloutRateBuilder::base_rate_per_minute)
     /// - [`increment_factor`](crate::types::builders::IoTJobExponentialRolloutRateBuilder::increment_factor)
     pub fn build(self) -> ::std::result::Result<crate::types::IoTJobExponentialRolloutRate, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::IoTJobExponentialRolloutRate {
-            base_rate_per_minute: self.base_rate_per_minute.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "base_rate_per_minute",
-                    "base_rate_per_minute was not specified but it is required when building IoTJobExponentialRolloutRate",
-                )
-            })?,
-            increment_factor: self.increment_factor.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "increment_factor",
-                    "increment_factor was not specified but it is required when building IoTJobExponentialRolloutRate",
-                )
-            })?,
-            rate_increase_criteria: self.rate_increase_criteria,
-        })
+        ::std::result::Result::Ok(
+            crate::types::IoTJobExponentialRolloutRate {
+                base_rate_per_minute: self.base_rate_per_minute
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("base_rate_per_minute", "base_rate_per_minute was not specified but it is required when building IoTJobExponentialRolloutRate")
+                    )?
+                ,
+                increment_factor: self.increment_factor
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("increment_factor", "increment_factor was not specified but it is required when building IoTJobExponentialRolloutRate")
+                    )?
+                ,
+                rate_increase_criteria: self.rate_increase_criteria
+                ,
+            }
+        )
     }
 }
+

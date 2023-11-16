@@ -2,49 +2,50 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct CreateSiteInput {
+pub struct CreateSiteInput  {
     /// <p>The ID of the global network.</p>
     pub global_network_id: ::std::option::Option<::std::string::String>,
-    /// <p>A description of your site.</p>
+    /// <p>A description of your site.</p> 
     /// <p>Constraints: Maximum length of 256 characters.</p>
     pub description: ::std::option::Option<::std::string::String>,
-    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>
-    /// <ul>
-    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li>
-    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li>
-    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li>
+    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li> 
+    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> 
+    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> 
     /// </ul>
     pub location: ::std::option::Option<crate::types::Location>,
     /// <p>The tags to apply to the resource during creation.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
-impl CreateSiteInput {
+impl  CreateSiteInput  {
     /// <p>The ID of the global network.</p>
-    pub fn global_network_id(&self) -> ::std::option::Option<&str> {
+    pub fn global_network_id(&self) -> ::std::option::Option<& str> {
         self.global_network_id.as_deref()
     }
-    /// <p>A description of your site.</p>
+    /// <p>A description of your site.</p> 
     /// <p>Constraints: Maximum length of 256 characters.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
-    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>
-    /// <ul>
-    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li>
-    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li>
-    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li>
+    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li> 
+    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> 
+    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> 
     /// </ul>
-    pub fn location(&self) -> ::std::option::Option<&crate::types::Location> {
+    pub fn location(&self) -> ::std::option::Option<& crate::types::Location> {
         self.location.as_ref()
     }
     /// <p>The tags to apply to the resource during creation.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
-        self.tags.as_deref().unwrap_or_default()
+    pub fn tags(&self) -> & [crate::types::Tag] {
+        self.tags.as_deref()
+        .unwrap_or_default()
     }
 }
-impl ::std::fmt::Debug for CreateSiteInput {
+impl  ::std::fmt::Debug for CreateSiteInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("CreateSiteInput");
         formatter.field("global_network_id", &self.global_network_id);
@@ -68,7 +69,7 @@ pub struct CreateSiteInputBuilder {
     pub(crate) global_network_id: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) location: ::std::option::Option<crate::types::Location>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
 impl CreateSiteInputBuilder {
     /// <p>The ID of the global network.</p>
@@ -79,55 +80,52 @@ impl CreateSiteInputBuilder {
     }
     /// <p>The ID of the global network.</p>
     pub fn set_global_network_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.global_network_id = input;
-        self
+        self.global_network_id = input; self
     }
     /// <p>The ID of the global network.</p>
     pub fn get_global_network_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.global_network_id
     }
-    /// <p>A description of your site.</p>
+    /// <p>A description of your site.</p> 
     /// <p>Constraints: Maximum length of 256 characters.</p>
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A description of your site.</p>
+    /// <p>A description of your site.</p> 
     /// <p>Constraints: Maximum length of 256 characters.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
-    /// <p>A description of your site.</p>
+    /// <p>A description of your site.</p> 
     /// <p>Constraints: Maximum length of 256 characters.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
-    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>
-    /// <ul>
-    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li>
-    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li>
-    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li>
+    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li> 
+    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> 
+    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> 
     /// </ul>
     pub fn location(mut self, input: crate::types::Location) -> Self {
         self.location = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>
-    /// <ul>
-    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li>
-    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li>
-    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li>
+    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li> 
+    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> 
+    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> 
     /// </ul>
     pub fn set_location(mut self, input: ::std::option::Option<crate::types::Location>) -> Self {
-        self.location = input;
-        self
+        self.location = input; self
     }
-    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>
-    /// <ul>
-    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li>
-    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li>
-    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li>
+    /// <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Address</code>: The physical address of the site.</p> </li> 
+    /// <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> 
+    /// <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> 
     /// </ul>
     pub fn get_location(&self) -> &::std::option::Option<crate::types::Location> {
         &self.location
@@ -139,27 +137,32 @@ impl CreateSiteInputBuilder {
     /// <p>The tags to apply to the resource during creation.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
-        v.push(input);
-        self.tags = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.tags = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The tags to apply to the resource during creation.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
+        self.tags = input; self
     }
     /// <p>The tags to apply to the resource during creation.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateSiteInput`](crate::operation::create_site::CreateSiteInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::create_site::CreateSiteInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_site::CreateSiteInput {
-            global_network_id: self.global_network_id,
-            description: self.description,
-            location: self.location,
-            tags: self.tags,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::create_site::CreateSiteInput {
+                global_network_id: self.global_network_id
+                ,
+                description: self.description
+                ,
+                location: self.location
+                ,
+                tags: self.tags
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for CreateSiteInputBuilder {
@@ -172,3 +175,4 @@ impl ::std::fmt::Debug for CreateSiteInputBuilder {
         formatter.finish()
     }
 }
+

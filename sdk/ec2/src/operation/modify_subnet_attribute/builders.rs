@@ -5,64 +5,60 @@ pub use crate::operation::modify_subnet_attribute::_modify_subnet_attribute_inpu
 
 impl ModifySubnetAttributeInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_subnet_attribute::ModifySubnetAttributeError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.modify_subnet_attribute();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::modify_subnet_attribute::ModifySubnetAttributeError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.modify_subnet_attribute();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ModifySubnetAttribute`.
-///
-/// <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
-/// <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
-/// <ul>
-/// <li> <p>To modify a subnet on an Outpost rack, set both <code>MapCustomerOwnedIpOnLaunch</code> and <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single attribute.</p> </li>
-/// <li> <p>To modify a subnet on an Outpost server, set either <code>EnableLniAtDeviceIndex</code> or <code>DisableLniAtDeviceIndex</code>.</p> </li>
-/// </ul>
-/// <p>For more information about Amazon Web Services Outposts, see the following:</p>
-/// <ul>
-/// <li> <p> <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost servers</a> </p> </li>
-/// <li> <p> <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html">Outpost racks</a> </p> </li>
+/// 
+/// <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p> 
+/// <p>Use this action to modify subnets on Amazon Web Services Outposts.</p> 
+/// <ul> 
+/// <li> <p>To modify a subnet on an Outpost rack, set both <code>MapCustomerOwnedIpOnLaunch</code> and <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single attribute.</p> </li> 
+/// <li> <p>To modify a subnet on an Outpost server, set either <code>EnableLniAtDeviceIndex</code> or <code>DisableLniAtDeviceIndex</code>.</p> </li> 
+/// </ul> 
+/// <p>For more information about Amazon Web Services Outposts, see the following:</p> 
+/// <ul> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost servers</a> </p> </li> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html">Outpost racks</a> </p> </li> 
 /// </ul>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ModifySubnetAttributeFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::modify_subnet_attribute::builders::ModifySubnetAttributeInputBuilder,
+                    inner: crate::operation::modify_subnet_attribute::builders::ModifySubnetAttributeInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput,
-        crate::operation::modify_subnet_attribute::ModifySubnetAttributeError,
-    > for ModifySubnetAttributeFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput,
-            crate::operation::modify_subnet_attribute::ModifySubnetAttributeError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput,
+                    crate::operation::modify_subnet_attribute::ModifySubnetAttributeError,
+                > for ModifySubnetAttributeFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput,
+                        crate::operation::modify_subnet_attribute::ModifySubnetAttributeError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ModifySubnetAttributeFluentBuilder {
     /// Creates a new `ModifySubnetAttribute`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -71,66 +67,57 @@ impl ModifySubnetAttributeFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_subnet_attribute::ModifySubnetAttributeError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::modify_subnet_attribute::ModifySubnetAttribute::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::modify_subnet_attribute::ModifySubnetAttribute::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput,
-        crate::operation::modify_subnet_attribute::ModifySubnetAttributeError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>Specify <code>true</code> to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address). </p>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::modify_subnet_attribute::ModifySubnetAttributeError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::modify_subnet_attribute::ModifySubnetAttribute::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::modify_subnet_attribute::ModifySubnetAttribute::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::modify_subnet_attribute::ModifySubnetAttributeOutput, crate::operation::modify_subnet_attribute::ModifySubnetAttributeError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>Specify <code>true</code> to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address). </p> 
     /// <p>If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version <code>2016-11-15</code> or later of the Amazon EC2 API.</p>
     pub fn assign_ipv6_address_on_creation(mut self, input: crate::types::AttributeBooleanValue) -> Self {
         self.inner = self.inner.assign_ipv6_address_on_creation(input);
         self
     }
-    /// <p>Specify <code>true</code> to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address). </p>
+    /// <p>Specify <code>true</code> to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address). </p> 
     /// <p>If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version <code>2016-11-15</code> or later of the Amazon EC2 API.</p>
     pub fn set_assign_ipv6_address_on_creation(mut self, input: ::std::option::Option<crate::types::AttributeBooleanValue>) -> Self {
         self.inner = self.inner.set_assign_ipv6_address_on_creation(input);
         self
     }
-    /// <p>Specify <code>true</code> to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address). </p>
+    /// <p>Specify <code>true</code> to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address). </p> 
     /// <p>If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version <code>2016-11-15</code> or later of the Amazon EC2 API.</p>
     pub fn get_assign_ipv6_address_on_creation(&self) -> &::std::option::Option<crate::types::AttributeBooleanValue> {
         self.inner.get_assign_ipv6_address_on_creation()
@@ -163,36 +150,36 @@ impl ModifySubnetAttributeFluentBuilder {
     pub fn get_subnet_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_subnet_id()
     }
-    /// <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.</p>
+    /// <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.</p> 
     /// <p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>
     pub fn map_customer_owned_ip_on_launch(mut self, input: crate::types::AttributeBooleanValue) -> Self {
         self.inner = self.inner.map_customer_owned_ip_on_launch(input);
         self
     }
-    /// <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.</p>
+    /// <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.</p> 
     /// <p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>
     pub fn set_map_customer_owned_ip_on_launch(mut self, input: ::std::option::Option<crate::types::AttributeBooleanValue>) -> Self {
         self.inner = self.inner.set_map_customer_owned_ip_on_launch(input);
         self
     }
-    /// <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.</p>
+    /// <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.</p> 
     /// <p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>
     pub fn get_map_customer_owned_ip_on_launch(&self) -> &::std::option::Option<crate::types::AttributeBooleanValue> {
         self.inner.get_map_customer_owned_ip_on_launch()
     }
-    /// <p>The customer-owned IPv4 address pool associated with the subnet.</p>
+    /// <p>The customer-owned IPv4 address pool associated with the subnet.</p> 
     /// <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
     pub fn customer_owned_ipv4_pool(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.customer_owned_ipv4_pool(input.into());
         self
     }
-    /// <p>The customer-owned IPv4 address pool associated with the subnet.</p>
+    /// <p>The customer-owned IPv4 address pool associated with the subnet.</p> 
     /// <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
     pub fn set_customer_owned_ipv4_pool(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_customer_owned_ipv4_pool(input);
         self
     }
-    /// <p>The customer-owned IPv4 address pool associated with the subnet.</p>
+    /// <p>The customer-owned IPv4 address pool associated with the subnet.</p> 
     /// <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
     pub fn get_customer_owned_ipv4_pool(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_customer_owned_ipv4_pool()
@@ -282,3 +269,4 @@ impl ModifySubnetAttributeFluentBuilder {
         self.inner.get_disable_lni_at_device_index()
     }
 }
+

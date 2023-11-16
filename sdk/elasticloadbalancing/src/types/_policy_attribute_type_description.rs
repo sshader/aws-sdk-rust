@@ -3,7 +3,7 @@
 /// <p>Information about a policy attribute type.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PolicyAttributeTypeDescription {
+pub struct PolicyAttributeTypeDescription  {
     /// <p>The name of the attribute.</p>
     pub attribute_name: ::std::option::Option<::std::string::String>,
     /// <p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>
@@ -12,42 +12,42 @@ pub struct PolicyAttributeTypeDescription {
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The default value of the attribute, if applicable.</p>
     pub default_value: ::std::option::Option<::std::string::String>,
-    /// <p>The cardinality of the attribute.</p>
-    /// <p>Valid values:</p>
-    /// <ul>
-    /// <li> <p>ONE(1) : Single value required</p> </li>
-    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li>
-    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li>
-    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li>
+    /// <p>The cardinality of the attribute.</p> 
+    /// <p>Valid values:</p> 
+    /// <ul> 
+    /// <li> <p>ONE(1) : Single value required</p> </li> 
+    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li> 
+    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li> 
+    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li> 
     /// </ul>
     pub cardinality: ::std::option::Option<::std::string::String>,
 }
-impl PolicyAttributeTypeDescription {
+impl  PolicyAttributeTypeDescription  {
     /// <p>The name of the attribute.</p>
-    pub fn attribute_name(&self) -> ::std::option::Option<&str> {
+    pub fn attribute_name(&self) -> ::std::option::Option<& str> {
         self.attribute_name.as_deref()
     }
     /// <p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>
-    pub fn attribute_type(&self) -> ::std::option::Option<&str> {
+    pub fn attribute_type(&self) -> ::std::option::Option<& str> {
         self.attribute_type.as_deref()
     }
     /// <p>A description of the attribute.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The default value of the attribute, if applicable.</p>
-    pub fn default_value(&self) -> ::std::option::Option<&str> {
+    pub fn default_value(&self) -> ::std::option::Option<& str> {
         self.default_value.as_deref()
     }
-    /// <p>The cardinality of the attribute.</p>
-    /// <p>Valid values:</p>
-    /// <ul>
-    /// <li> <p>ONE(1) : Single value required</p> </li>
-    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li>
-    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li>
-    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li>
+    /// <p>The cardinality of the attribute.</p> 
+    /// <p>Valid values:</p> 
+    /// <ul> 
+    /// <li> <p>ONE(1) : Single value required</p> </li> 
+    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li> 
+    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li> 
+    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li> 
     /// </ul>
-    pub fn cardinality(&self) -> ::std::option::Option<&str> {
+    pub fn cardinality(&self) -> ::std::option::Option<& str> {
         self.cardinality.as_deref()
     }
 }
@@ -76,8 +76,7 @@ impl PolicyAttributeTypeDescriptionBuilder {
     }
     /// <p>The name of the attribute.</p>
     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.attribute_name = input;
-        self
+        self.attribute_name = input; self
     }
     /// <p>The name of the attribute.</p>
     pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -90,8 +89,7 @@ impl PolicyAttributeTypeDescriptionBuilder {
     }
     /// <p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>
     pub fn set_attribute_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.attribute_type = input;
-        self
+        self.attribute_type = input; self
     }
     /// <p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>
     pub fn get_attribute_type(&self) -> &::std::option::Option<::std::string::String> {
@@ -104,8 +102,7 @@ impl PolicyAttributeTypeDescriptionBuilder {
     }
     /// <p>A description of the attribute.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>A description of the attribute.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -118,44 +115,42 @@ impl PolicyAttributeTypeDescriptionBuilder {
     }
     /// <p>The default value of the attribute, if applicable.</p>
     pub fn set_default_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.default_value = input;
-        self
+        self.default_value = input; self
     }
     /// <p>The default value of the attribute, if applicable.</p>
     pub fn get_default_value(&self) -> &::std::option::Option<::std::string::String> {
         &self.default_value
     }
-    /// <p>The cardinality of the attribute.</p>
-    /// <p>Valid values:</p>
-    /// <ul>
-    /// <li> <p>ONE(1) : Single value required</p> </li>
-    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li>
-    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li>
-    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li>
+    /// <p>The cardinality of the attribute.</p> 
+    /// <p>Valid values:</p> 
+    /// <ul> 
+    /// <li> <p>ONE(1) : Single value required</p> </li> 
+    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li> 
+    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li> 
+    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li> 
     /// </ul>
     pub fn cardinality(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.cardinality = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The cardinality of the attribute.</p>
-    /// <p>Valid values:</p>
-    /// <ul>
-    /// <li> <p>ONE(1) : Single value required</p> </li>
-    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li>
-    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li>
-    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li>
+    /// <p>The cardinality of the attribute.</p> 
+    /// <p>Valid values:</p> 
+    /// <ul> 
+    /// <li> <p>ONE(1) : Single value required</p> </li> 
+    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li> 
+    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li> 
+    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li> 
     /// </ul>
     pub fn set_cardinality(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.cardinality = input;
-        self
+        self.cardinality = input; self
     }
-    /// <p>The cardinality of the attribute.</p>
-    /// <p>Valid values:</p>
-    /// <ul>
-    /// <li> <p>ONE(1) : Single value required</p> </li>
-    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li>
-    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li>
-    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li>
+    /// <p>The cardinality of the attribute.</p> 
+    /// <p>Valid values:</p> 
+    /// <ul> 
+    /// <li> <p>ONE(1) : Single value required</p> </li> 
+    /// <li> <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p> </li> 
+    /// <li> <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p> </li> 
+    /// <li> <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p> </li> 
     /// </ul>
     pub fn get_cardinality(&self) -> &::std::option::Option<::std::string::String> {
         &self.cardinality
@@ -163,11 +158,17 @@ impl PolicyAttributeTypeDescriptionBuilder {
     /// Consumes the builder and constructs a [`PolicyAttributeTypeDescription`](crate::types::PolicyAttributeTypeDescription).
     pub fn build(self) -> crate::types::PolicyAttributeTypeDescription {
         crate::types::PolicyAttributeTypeDescription {
-            attribute_name: self.attribute_name,
-            attribute_type: self.attribute_type,
-            description: self.description,
-            default_value: self.default_value,
-            cardinality: self.cardinality,
+            attribute_name: self.attribute_name
+            ,
+            attribute_type: self.attribute_type
+            ,
+            description: self.description
+            ,
+            default_value: self.default_value
+            ,
+            cardinality: self.cardinality
+            ,
         }
     }
 }
+

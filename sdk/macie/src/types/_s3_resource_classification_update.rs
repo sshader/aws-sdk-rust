@@ -3,7 +3,7 @@
 /// <p>(Discontinued) The S3 resources whose classification types you want to update. This data type is used as a request parameter in the <code>UpdateS3Resources</code> action. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct S3ResourceClassificationUpdate {
+pub struct S3ResourceClassificationUpdate  {
     /// <p>(Discontinued) The name of the S3 bucket whose classification types you want to update.</p>
     pub bucket_name: ::std::string::String,
     /// <p>(Discontinued) The prefix of the S3 bucket whose classification types you want to update.</p>
@@ -11,18 +11,17 @@ pub struct S3ResourceClassificationUpdate {
     /// <p>(Discontinued) The classification type that you want to update for the resource associated with Amazon Macie Classic. </p>
     pub classification_type_update: ::std::option::Option<crate::types::ClassificationTypeUpdate>,
 }
-impl S3ResourceClassificationUpdate {
+impl  S3ResourceClassificationUpdate  {
     /// <p>(Discontinued) The name of the S3 bucket whose classification types you want to update.</p>
-    pub fn bucket_name(&self) -> &str {
-        use std::ops::Deref;
-        self.bucket_name.deref()
+    pub fn bucket_name(&self) -> & str {
+        use std::ops::Deref; self.bucket_name.deref()
     }
     /// <p>(Discontinued) The prefix of the S3 bucket whose classification types you want to update.</p>
-    pub fn prefix(&self) -> ::std::option::Option<&str> {
+    pub fn prefix(&self) -> ::std::option::Option<& str> {
         self.prefix.as_deref()
     }
     /// <p>(Discontinued) The classification type that you want to update for the resource associated with Amazon Macie Classic. </p>
-    pub fn classification_type_update(&self) -> ::std::option::Option<&crate::types::ClassificationTypeUpdate> {
+    pub fn classification_type_update(&self) -> ::std::option::Option<& crate::types::ClassificationTypeUpdate> {
         self.classification_type_update.as_ref()
     }
 }
@@ -50,8 +49,7 @@ impl S3ResourceClassificationUpdateBuilder {
     }
     /// <p>(Discontinued) The name of the S3 bucket whose classification types you want to update.</p>
     pub fn set_bucket_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.bucket_name = input;
-        self
+        self.bucket_name = input; self
     }
     /// <p>(Discontinued) The name of the S3 bucket whose classification types you want to update.</p>
     pub fn get_bucket_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -64,8 +62,7 @@ impl S3ResourceClassificationUpdateBuilder {
     }
     /// <p>(Discontinued) The prefix of the S3 bucket whose classification types you want to update.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.prefix = input;
-        self
+        self.prefix = input; self
     }
     /// <p>(Discontinued) The prefix of the S3 bucket whose classification types you want to update.</p>
     pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
@@ -79,8 +76,7 @@ impl S3ResourceClassificationUpdateBuilder {
     }
     /// <p>(Discontinued) The classification type that you want to update for the resource associated with Amazon Macie Classic. </p>
     pub fn set_classification_type_update(mut self, input: ::std::option::Option<crate::types::ClassificationTypeUpdate>) -> Self {
-        self.classification_type_update = input;
-        self
+        self.classification_type_update = input; self
     }
     /// <p>(Discontinued) The classification type that you want to update for the resource associated with Amazon Macie Classic. </p>
     pub fn get_classification_type_update(&self) -> &::std::option::Option<crate::types::ClassificationTypeUpdate> {
@@ -90,15 +86,19 @@ impl S3ResourceClassificationUpdateBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`bucket_name`](crate::types::builders::S3ResourceClassificationUpdateBuilder::bucket_name)
     pub fn build(self) -> ::std::result::Result<crate::types::S3ResourceClassificationUpdate, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::S3ResourceClassificationUpdate {
-            bucket_name: self.bucket_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "bucket_name",
-                    "bucket_name was not specified but it is required when building S3ResourceClassificationUpdate",
-                )
-            })?,
-            prefix: self.prefix,
-            classification_type_update: self.classification_type_update,
-        })
+        ::std::result::Result::Ok(
+            crate::types::S3ResourceClassificationUpdate {
+                bucket_name: self.bucket_name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("bucket_name", "bucket_name was not specified but it is required when building S3ResourceClassificationUpdate")
+                    )?
+                ,
+                prefix: self.prefix
+                ,
+                classification_type_update: self.classification_type_update
+                ,
+            }
+        )
     }
 }
+

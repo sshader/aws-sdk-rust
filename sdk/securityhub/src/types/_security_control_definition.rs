@@ -3,7 +3,7 @@
 /// <p> Provides metadata for a security control, including its unique standard-agnostic identifier, title, description, severity, availability in Amazon Web Services Regions, and a link to remediation steps. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SecurityControlDefinition {
+pub struct SecurityControlDefinition  {
     /// <p> The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3). </p>
     pub security_control_id: ::std::option::Option<::std::string::String>,
     /// <p> The title of a security control. </p>
@@ -17,29 +17,29 @@ pub struct SecurityControlDefinition {
     /// <p> Specifies whether a security control is available in the current Amazon Web Services Region. </p>
     pub current_region_availability: ::std::option::Option<crate::types::RegionAvailabilityStatus>,
 }
-impl SecurityControlDefinition {
+impl  SecurityControlDefinition  {
     /// <p> The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3). </p>
-    pub fn security_control_id(&self) -> ::std::option::Option<&str> {
+    pub fn security_control_id(&self) -> ::std::option::Option<& str> {
         self.security_control_id.as_deref()
     }
     /// <p> The title of a security control. </p>
-    pub fn title(&self) -> ::std::option::Option<&str> {
+    pub fn title(&self) -> ::std::option::Option<& str> {
         self.title.as_deref()
     }
     /// <p> The description of a security control across standards. This typically summarizes how Security Hub evaluates the control and the conditions under which it produces a failed finding. This parameter doesn't reference a specific standard. </p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p> A link to Security Hub documentation that explains how to remediate a failed finding for a security control. </p>
-    pub fn remediation_url(&self) -> ::std::option::Option<&str> {
+    pub fn remediation_url(&self) -> ::std::option::Option<& str> {
         self.remediation_url.as_deref()
     }
     /// <p> The severity of a security control. For more information about how Security Hub determines control severity, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the <i>Security Hub User Guide</i>. </p>
-    pub fn severity_rating(&self) -> ::std::option::Option<&crate::types::SeverityRating> {
+    pub fn severity_rating(&self) -> ::std::option::Option<& crate::types::SeverityRating> {
         self.severity_rating.as_ref()
     }
     /// <p> Specifies whether a security control is available in the current Amazon Web Services Region. </p>
-    pub fn current_region_availability(&self) -> ::std::option::Option<&crate::types::RegionAvailabilityStatus> {
+    pub fn current_region_availability(&self) -> ::std::option::Option<& crate::types::RegionAvailabilityStatus> {
         self.current_region_availability.as_ref()
     }
 }
@@ -70,8 +70,7 @@ impl SecurityControlDefinitionBuilder {
     }
     /// <p> The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3). </p>
     pub fn set_security_control_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.security_control_id = input;
-        self
+        self.security_control_id = input; self
     }
     /// <p> The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3). </p>
     pub fn get_security_control_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -85,8 +84,7 @@ impl SecurityControlDefinitionBuilder {
     }
     /// <p> The title of a security control. </p>
     pub fn set_title(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.title = input;
-        self
+        self.title = input; self
     }
     /// <p> The title of a security control. </p>
     pub fn get_title(&self) -> &::std::option::Option<::std::string::String> {
@@ -100,8 +98,7 @@ impl SecurityControlDefinitionBuilder {
     }
     /// <p> The description of a security control across standards. This typically summarizes how Security Hub evaluates the control and the conditions under which it produces a failed finding. This parameter doesn't reference a specific standard. </p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p> The description of a security control across standards. This typically summarizes how Security Hub evaluates the control and the conditions under which it produces a failed finding. This parameter doesn't reference a specific standard. </p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -115,8 +112,7 @@ impl SecurityControlDefinitionBuilder {
     }
     /// <p> A link to Security Hub documentation that explains how to remediate a failed finding for a security control. </p>
     pub fn set_remediation_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.remediation_url = input;
-        self
+        self.remediation_url = input; self
     }
     /// <p> A link to Security Hub documentation that explains how to remediate a failed finding for a security control. </p>
     pub fn get_remediation_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -130,8 +126,7 @@ impl SecurityControlDefinitionBuilder {
     }
     /// <p> The severity of a security control. For more information about how Security Hub determines control severity, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the <i>Security Hub User Guide</i>. </p>
     pub fn set_severity_rating(mut self, input: ::std::option::Option<crate::types::SeverityRating>) -> Self {
-        self.severity_rating = input;
-        self
+        self.severity_rating = input; self
     }
     /// <p> The severity of a security control. For more information about how Security Hub determines control severity, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the <i>Security Hub User Guide</i>. </p>
     pub fn get_severity_rating(&self) -> &::std::option::Option<crate::types::SeverityRating> {
@@ -145,8 +140,7 @@ impl SecurityControlDefinitionBuilder {
     }
     /// <p> Specifies whether a security control is available in the current Amazon Web Services Region. </p>
     pub fn set_current_region_availability(mut self, input: ::std::option::Option<crate::types::RegionAvailabilityStatus>) -> Self {
-        self.current_region_availability = input;
-        self
+        self.current_region_availability = input; self
     }
     /// <p> Specifies whether a security control is available in the current Amazon Web Services Region. </p>
     pub fn get_current_region_availability(&self) -> &::std::option::Option<crate::types::RegionAvailabilityStatus> {
@@ -155,12 +149,19 @@ impl SecurityControlDefinitionBuilder {
     /// Consumes the builder and constructs a [`SecurityControlDefinition`](crate::types::SecurityControlDefinition).
     pub fn build(self) -> crate::types::SecurityControlDefinition {
         crate::types::SecurityControlDefinition {
-            security_control_id: self.security_control_id,
-            title: self.title,
-            description: self.description,
-            remediation_url: self.remediation_url,
-            severity_rating: self.severity_rating,
-            current_region_availability: self.current_region_availability,
+            security_control_id: self.security_control_id
+            ,
+            title: self.title
+            ,
+            description: self.description
+            ,
+            remediation_url: self.remediation_url
+            ,
+            severity_rating: self.severity_rating
+            ,
+            current_region_availability: self.current_region_availability
+            ,
         }
     }
 }
+

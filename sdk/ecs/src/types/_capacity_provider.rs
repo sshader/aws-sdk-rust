@@ -3,7 +3,7 @@
 /// <p>The details for a capacity provider.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CapacityProvider {
+pub struct CapacityProvider  {
     /// <p>The Amazon Resource Name (ARN) that identifies the capacity provider.</p>
     pub capacity_provider_arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the capacity provider.</p>
@@ -12,103 +12,104 @@ pub struct CapacityProvider {
     pub status: ::std::option::Option<crate::types::CapacityProviderStatus>,
     /// <p>The Auto Scaling group settings for the capacity provider.</p>
     pub auto_scaling_group_provider: ::std::option::Option<crate::types::AutoScalingGroupProvider>,
-    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p>
-    /// <dl>
+    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p> 
+    /// <dl> 
     /// <dt>
     /// DELETE_IN_PROGRESS
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider is in the process of being deleted.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider is in the process of being deleted.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_COMPLETE
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_FAILED
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p> 
+    /// </dd> 
     /// </dl>
     pub update_status: ::std::option::Option<crate::types::CapacityProviderUpdateStatus>,
     /// <p>The update status reason. This provides further details about the update status for the capacity provider.</p>
     pub update_status_reason: ::std::option::Option<::std::string::String>,
-    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p>
-    /// <p>The following basic restrictions apply to tags:</p>
-    /// <ul>
-    /// <li> <p>Maximum number of tags per resource - 50</p> </li>
-    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li>
-    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li>
-    /// <li> <p>Tag keys and values are case-sensitive.</p> </li>
-    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li>
+    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p> 
+    /// <p>The following basic restrictions apply to tags:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum number of tags per resource - 50</p> </li> 
+    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> 
+    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> 
+    /// <li> <p>Tag keys and values are case-sensitive.</p> </li> 
+    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> 
     /// </ul>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
-impl CapacityProvider {
+impl  CapacityProvider  {
     /// <p>The Amazon Resource Name (ARN) that identifies the capacity provider.</p>
-    pub fn capacity_provider_arn(&self) -> ::std::option::Option<&str> {
+    pub fn capacity_provider_arn(&self) -> ::std::option::Option<& str> {
         self.capacity_provider_arn.as_deref()
     }
     /// <p>The name of the capacity provider.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>The current status of the capacity provider. Only capacity providers in an <code>ACTIVE</code> state can be used in a cluster. When a capacity provider is successfully deleted, it has an <code>INACTIVE</code> status.</p>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::CapacityProviderStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::CapacityProviderStatus> {
         self.status.as_ref()
     }
     /// <p>The Auto Scaling group settings for the capacity provider.</p>
-    pub fn auto_scaling_group_provider(&self) -> ::std::option::Option<&crate::types::AutoScalingGroupProvider> {
+    pub fn auto_scaling_group_provider(&self) -> ::std::option::Option<& crate::types::AutoScalingGroupProvider> {
         self.auto_scaling_group_provider.as_ref()
     }
-    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p>
-    /// <dl>
+    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p> 
+    /// <dl> 
     /// <dt>
     /// DELETE_IN_PROGRESS
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider is in the process of being deleted.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider is in the process of being deleted.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_COMPLETE
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_FAILED
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p> 
+    /// </dd> 
     /// </dl>
-    pub fn update_status(&self) -> ::std::option::Option<&crate::types::CapacityProviderUpdateStatus> {
+    pub fn update_status(&self) -> ::std::option::Option<& crate::types::CapacityProviderUpdateStatus> {
         self.update_status.as_ref()
     }
     /// <p>The update status reason. This provides further details about the update status for the capacity provider.</p>
-    pub fn update_status_reason(&self) -> ::std::option::Option<&str> {
+    pub fn update_status_reason(&self) -> ::std::option::Option<& str> {
         self.update_status_reason.as_deref()
     }
-    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p>
-    /// <p>The following basic restrictions apply to tags:</p>
-    /// <ul>
-    /// <li> <p>Maximum number of tags per resource - 50</p> </li>
-    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li>
-    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li>
-    /// <li> <p>Tag keys and values are case-sensitive.</p> </li>
-    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li>
+    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p> 
+    /// <p>The following basic restrictions apply to tags:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum number of tags per resource - 50</p> </li> 
+    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> 
+    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> 
+    /// <li> <p>Tag keys and values are case-sensitive.</p> </li> 
+    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
-        self.tags.as_deref().unwrap_or_default()
+    pub fn tags(&self) -> & [crate::types::Tag] {
+        self.tags.as_deref()
+        .unwrap_or_default()
     }
 }
 impl CapacityProvider {
@@ -128,7 +129,7 @@ pub struct CapacityProviderBuilder {
     pub(crate) auto_scaling_group_provider: ::std::option::Option<crate::types::AutoScalingGroupProvider>,
     pub(crate) update_status: ::std::option::Option<crate::types::CapacityProviderUpdateStatus>,
     pub(crate) update_status_reason: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
 impl CapacityProviderBuilder {
     /// <p>The Amazon Resource Name (ARN) that identifies the capacity provider.</p>
@@ -138,8 +139,7 @@ impl CapacityProviderBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) that identifies the capacity provider.</p>
     pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.capacity_provider_arn = input;
-        self
+        self.capacity_provider_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) that identifies the capacity provider.</p>
     pub fn get_capacity_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -152,8 +152,7 @@ impl CapacityProviderBuilder {
     }
     /// <p>The name of the capacity provider.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the capacity provider.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -166,8 +165,7 @@ impl CapacityProviderBuilder {
     }
     /// <p>The current status of the capacity provider. Only capacity providers in an <code>ACTIVE</code> state can be used in a cluster. When a capacity provider is successfully deleted, it has an <code>INACTIVE</code> status.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::CapacityProviderStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>The current status of the capacity provider. Only capacity providers in an <code>ACTIVE</code> state can be used in a cluster. When a capacity provider is successfully deleted, it has an <code>INACTIVE</code> status.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::CapacityProviderStatus> {
@@ -180,83 +178,81 @@ impl CapacityProviderBuilder {
     }
     /// <p>The Auto Scaling group settings for the capacity provider.</p>
     pub fn set_auto_scaling_group_provider(mut self, input: ::std::option::Option<crate::types::AutoScalingGroupProvider>) -> Self {
-        self.auto_scaling_group_provider = input;
-        self
+        self.auto_scaling_group_provider = input; self
     }
     /// <p>The Auto Scaling group settings for the capacity provider.</p>
     pub fn get_auto_scaling_group_provider(&self) -> &::std::option::Option<crate::types::AutoScalingGroupProvider> {
         &self.auto_scaling_group_provider
     }
-    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p>
-    /// <dl>
+    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p> 
+    /// <dl> 
     /// <dt>
     /// DELETE_IN_PROGRESS
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider is in the process of being deleted.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider is in the process of being deleted.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_COMPLETE
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_FAILED
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p> 
+    /// </dd> 
     /// </dl>
     pub fn update_status(mut self, input: crate::types::CapacityProviderUpdateStatus) -> Self {
         self.update_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p>
-    /// <dl>
+    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p> 
+    /// <dl> 
     /// <dt>
     /// DELETE_IN_PROGRESS
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider is in the process of being deleted.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider is in the process of being deleted.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_COMPLETE
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_FAILED
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p> 
+    /// </dd> 
     /// </dl>
     pub fn set_update_status(mut self, input: ::std::option::Option<crate::types::CapacityProviderUpdateStatus>) -> Self {
-        self.update_status = input;
-        self
+        self.update_status = input; self
     }
-    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p>
-    /// <dl>
+    /// <p>The update status of the capacity provider. The following are the possible states that is returned.</p> 
+    /// <dl> 
     /// <dt>
     /// DELETE_IN_PROGRESS
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider is in the process of being deleted.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider is in the process of being deleted.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_COMPLETE
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider was successfully deleted and has an <code>INACTIVE</code> status.</p> 
+    /// </dd> 
     /// <dt>
     /// DELETE_FAILED
-    /// </dt>
-    /// <dd>
-    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The capacity provider can't be deleted. The update status reason provides further details about why the delete failed.</p> 
+    /// </dd> 
     /// </dl>
     pub fn get_update_status(&self) -> &::std::option::Option<crate::types::CapacityProviderUpdateStatus> {
         &self.update_status
@@ -268,8 +264,7 @@ impl CapacityProviderBuilder {
     }
     /// <p>The update status reason. This provides further details about the update status for the capacity provider.</p>
     pub fn set_update_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.update_status_reason = input;
-        self
+        self.update_status_reason = input; self
     }
     /// <p>The update status reason. This provides further details about the update status for the capacity provider.</p>
     pub fn get_update_status_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -279,62 +274,69 @@ impl CapacityProviderBuilder {
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
-    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p>
-    /// <p>The following basic restrictions apply to tags:</p>
-    /// <ul>
-    /// <li> <p>Maximum number of tags per resource - 50</p> </li>
-    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li>
-    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li>
-    /// <li> <p>Tag keys and values are case-sensitive.</p> </li>
-    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li>
+    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p> 
+    /// <p>The following basic restrictions apply to tags:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum number of tags per resource - 50</p> </li> 
+    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> 
+    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> 
+    /// <li> <p>Tag keys and values are case-sensitive.</p> </li> 
+    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> 
     /// </ul>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
-        v.push(input);
-        self.tags = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.tags = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p>
-    /// <p>The following basic restrictions apply to tags:</p>
-    /// <ul>
-    /// <li> <p>Maximum number of tags per resource - 50</p> </li>
-    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li>
-    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li>
-    /// <li> <p>Tag keys and values are case-sensitive.</p> </li>
-    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li>
+    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p> 
+    /// <p>The following basic restrictions apply to tags:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum number of tags per resource - 50</p> </li> 
+    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> 
+    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> 
+    /// <li> <p>Tag keys and values are case-sensitive.</p> </li> 
+    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> 
     /// </ul>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
+        self.tags = input; self
     }
-    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p>
-    /// <p>The following basic restrictions apply to tags:</p>
-    /// <ul>
-    /// <li> <p>Maximum number of tags per resource - 50</p> </li>
-    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li>
-    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li>
-    /// <li> <p>Tag keys and values are case-sensitive.</p> </li>
-    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li>
+    /// <p>The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.</p> 
+    /// <p>The following basic restrictions apply to tags:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum number of tags per resource - 50</p> </li> 
+    /// <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> 
+    /// <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> 
+    /// <li> <p>Tag keys and values are case-sensitive.</p> </li> 
+    /// <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> 
     /// </ul>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CapacityProvider`](crate::types::CapacityProvider).
     pub fn build(self) -> crate::types::CapacityProvider {
         crate::types::CapacityProvider {
-            capacity_provider_arn: self.capacity_provider_arn,
-            name: self.name,
-            status: self.status,
-            auto_scaling_group_provider: self.auto_scaling_group_provider,
-            update_status: self.update_status,
-            update_status_reason: self.update_status_reason,
-            tags: self.tags,
+            capacity_provider_arn: self.capacity_provider_arn
+            ,
+            name: self.name
+            ,
+            status: self.status
+            ,
+            auto_scaling_group_provider: self.auto_scaling_group_provider
+            ,
+            update_status: self.update_status
+            ,
+            update_status_reason: self.update_status_reason
+            ,
+            tags: self.tags
+            ,
         }
     }
 }
+

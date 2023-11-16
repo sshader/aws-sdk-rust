@@ -3,13 +3,13 @@
 /// <p>The criteria by which the behavior is determined to be normal.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct BehaviorCriteria {
-    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p>
-    /// <ul>
-    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li>
-    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li>
+pub struct BehaviorCriteria  {
+    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li> 
+    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li> 
     /// </ul>
     pub comparison_operator: ::std::option::Option<crate::types::ComparisonOperator>,
     /// <p>The value to be compared with the <code>metric</code>.</p>
@@ -25,19 +25,19 @@ pub struct BehaviorCriteria {
     /// <p> The configuration of an ML Detect </p>
     pub ml_detection_config: ::std::option::Option<crate::types::MachineLearningDetectionConfig>,
 }
-impl BehaviorCriteria {
-    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p>
-    /// <ul>
-    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li>
-    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li>
+impl  BehaviorCriteria  {
+    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li> 
+    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li> 
     /// </ul>
-    pub fn comparison_operator(&self) -> ::std::option::Option<&crate::types::ComparisonOperator> {
+    pub fn comparison_operator(&self) -> ::std::option::Option<& crate::types::ComparisonOperator> {
         self.comparison_operator.as_ref()
     }
     /// <p>The value to be compared with the <code>metric</code>.</p>
-    pub fn value(&self) -> ::std::option::Option<&crate::types::MetricValue> {
+    pub fn value(&self) -> ::std::option::Option<& crate::types::MetricValue> {
         self.value.as_ref()
     }
     /// <p>Use this to specify the time duration over which the behavior is evaluated, for those criteria that have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank. Cannot be used with list-based metric datatypes.</p>
@@ -53,11 +53,11 @@ impl BehaviorCriteria {
         self.consecutive_datapoints_to_clear
     }
     /// <p>A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>
-    pub fn statistical_threshold(&self) -> ::std::option::Option<&crate::types::StatisticalThreshold> {
+    pub fn statistical_threshold(&self) -> ::std::option::Option<& crate::types::StatisticalThreshold> {
         self.statistical_threshold.as_ref()
     }
     /// <p> The configuration of an ML Detect </p>
-    pub fn ml_detection_config(&self) -> ::std::option::Option<&crate::types::MachineLearningDetectionConfig> {
+    pub fn ml_detection_config(&self) -> ::std::option::Option<& crate::types::MachineLearningDetectionConfig> {
         self.ml_detection_config.as_ref()
     }
 }
@@ -81,34 +81,33 @@ pub struct BehaviorCriteriaBuilder {
     pub(crate) ml_detection_config: ::std::option::Option<crate::types::MachineLearningDetectionConfig>,
 }
 impl BehaviorCriteriaBuilder {
-    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p>
-    /// <ul>
-    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li>
-    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li>
+    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li> 
+    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li> 
     /// </ul>
     pub fn comparison_operator(mut self, input: crate::types::ComparisonOperator) -> Self {
         self.comparison_operator = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p>
-    /// <ul>
-    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li>
-    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li>
+    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li> 
+    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li> 
     /// </ul>
     pub fn set_comparison_operator(mut self, input: ::std::option::Option<crate::types::ComparisonOperator>) -> Self {
-        self.comparison_operator = input;
-        self
+        self.comparison_operator = input; self
     }
-    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p>
-    /// <ul>
-    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li>
-    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li>
-    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li>
+    /// <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code> </p> </li> 
+    /// <li> <p> <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code> </p> </li> 
+    /// <li> <p> <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code> </p> </li> 
     /// </ul>
     pub fn get_comparison_operator(&self) -> &::std::option::Option<crate::types::ComparisonOperator> {
         &self.comparison_operator
@@ -120,8 +119,7 @@ impl BehaviorCriteriaBuilder {
     }
     /// <p>The value to be compared with the <code>metric</code>.</p>
     pub fn set_value(mut self, input: ::std::option::Option<crate::types::MetricValue>) -> Self {
-        self.value = input;
-        self
+        self.value = input; self
     }
     /// <p>The value to be compared with the <code>metric</code>.</p>
     pub fn get_value(&self) -> &::std::option::Option<crate::types::MetricValue> {
@@ -134,8 +132,7 @@ impl BehaviorCriteriaBuilder {
     }
     /// <p>Use this to specify the time duration over which the behavior is evaluated, for those criteria that have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank. Cannot be used with list-based metric datatypes.</p>
     pub fn set_duration_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.duration_seconds = input;
-        self
+        self.duration_seconds = input; self
     }
     /// <p>Use this to specify the time duration over which the behavior is evaluated, for those criteria that have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank. Cannot be used with list-based metric datatypes.</p>
     pub fn get_duration_seconds(&self) -> &::std::option::Option<i32> {
@@ -148,8 +145,7 @@ impl BehaviorCriteriaBuilder {
     }
     /// <p>If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.</p>
     pub fn set_consecutive_datapoints_to_alarm(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.consecutive_datapoints_to_alarm = input;
-        self
+        self.consecutive_datapoints_to_alarm = input; self
     }
     /// <p>If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.</p>
     pub fn get_consecutive_datapoints_to_alarm(&self) -> &::std::option::Option<i32> {
@@ -162,8 +158,7 @@ impl BehaviorCriteriaBuilder {
     }
     /// <p>If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.</p>
     pub fn set_consecutive_datapoints_to_clear(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.consecutive_datapoints_to_clear = input;
-        self
+        self.consecutive_datapoints_to_clear = input; self
     }
     /// <p>If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.</p>
     pub fn get_consecutive_datapoints_to_clear(&self) -> &::std::option::Option<i32> {
@@ -176,8 +171,7 @@ impl BehaviorCriteriaBuilder {
     }
     /// <p>A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>
     pub fn set_statistical_threshold(mut self, input: ::std::option::Option<crate::types::StatisticalThreshold>) -> Self {
-        self.statistical_threshold = input;
-        self
+        self.statistical_threshold = input; self
     }
     /// <p>A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>
     pub fn get_statistical_threshold(&self) -> &::std::option::Option<crate::types::StatisticalThreshold> {
@@ -190,8 +184,7 @@ impl BehaviorCriteriaBuilder {
     }
     /// <p> The configuration of an ML Detect </p>
     pub fn set_ml_detection_config(mut self, input: ::std::option::Option<crate::types::MachineLearningDetectionConfig>) -> Self {
-        self.ml_detection_config = input;
-        self
+        self.ml_detection_config = input; self
     }
     /// <p> The configuration of an ML Detect </p>
     pub fn get_ml_detection_config(&self) -> &::std::option::Option<crate::types::MachineLearningDetectionConfig> {
@@ -200,13 +193,21 @@ impl BehaviorCriteriaBuilder {
     /// Consumes the builder and constructs a [`BehaviorCriteria`](crate::types::BehaviorCriteria).
     pub fn build(self) -> crate::types::BehaviorCriteria {
         crate::types::BehaviorCriteria {
-            comparison_operator: self.comparison_operator,
-            value: self.value,
-            duration_seconds: self.duration_seconds,
-            consecutive_datapoints_to_alarm: self.consecutive_datapoints_to_alarm,
-            consecutive_datapoints_to_clear: self.consecutive_datapoints_to_clear,
-            statistical_threshold: self.statistical_threshold,
-            ml_detection_config: self.ml_detection_config,
+            comparison_operator: self.comparison_operator
+            ,
+            value: self.value
+            ,
+            duration_seconds: self.duration_seconds
+            ,
+            consecutive_datapoints_to_alarm: self.consecutive_datapoints_to_alarm
+            ,
+            consecutive_datapoints_to_clear: self.consecutive_datapoints_to_clear
+            ,
+            statistical_threshold: self.statistical_threshold
+            ,
+            ml_detection_config: self.ml_detection_config
+            ,
         }
     }
 }
+

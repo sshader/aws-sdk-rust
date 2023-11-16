@@ -3,21 +3,20 @@
 /// <p>Describes an asset hierarchy that contains a hierarchy's name and ID.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AssetHierarchy {
+pub struct AssetHierarchy  {
     /// <p>The ID of the hierarchy. This ID is a <code>hierarchyId</code>.</p>
     pub id: ::std::option::Option<::std::string::String>,
     /// <p>The hierarchy name provided in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation.</p>
     pub name: ::std::string::String,
 }
-impl AssetHierarchy {
+impl  AssetHierarchy  {
     /// <p>The ID of the hierarchy. This ID is a <code>hierarchyId</code>.</p>
-    pub fn id(&self) -> ::std::option::Option<&str> {
+    pub fn id(&self) -> ::std::option::Option<& str> {
         self.id.as_deref()
     }
     /// <p>The hierarchy name provided in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
 }
 impl AssetHierarchy {
@@ -42,8 +41,7 @@ impl AssetHierarchyBuilder {
     }
     /// <p>The ID of the hierarchy. This ID is a <code>hierarchyId</code>.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// <p>The ID of the hierarchy. This ID is a <code>hierarchyId</code>.</p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -57,8 +55,7 @@ impl AssetHierarchyBuilder {
     }
     /// <p>The hierarchy name provided in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The hierarchy name provided in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -68,14 +65,17 @@ impl AssetHierarchyBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::types::builders::AssetHierarchyBuilder::name)
     pub fn build(self) -> ::std::result::Result<crate::types::AssetHierarchy, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AssetHierarchy {
-            id: self.id,
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building AssetHierarchy",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AssetHierarchy {
+                id: self.id
+                ,
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building AssetHierarchy")
+                    )?
+                ,
+            }
+        )
     }
 }
+

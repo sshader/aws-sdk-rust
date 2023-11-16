@@ -3,39 +3,40 @@
 /// <p>Contains the parameters for DescribeReservedInstancesListings.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeReservedInstancesListingsInput {
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li>
-    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li>
-    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li>
-    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li>
+pub struct DescribeReservedInstancesListingsInput  {
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li> 
+    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li> 
+    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li> 
+    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li> 
     /// </ul>
-    pub filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    pub filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
     /// <p>One or more Reserved Instance IDs.</p>
     pub reserved_instances_id: ::std::option::Option<::std::string::String>,
     /// <p>One or more Reserved Instance listing IDs.</p>
     pub reserved_instances_listing_id: ::std::option::Option<::std::string::String>,
 }
-impl DescribeReservedInstancesListingsInput {
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li>
-    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li>
-    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li>
-    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li>
+impl  DescribeReservedInstancesListingsInput  {
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li> 
+    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li> 
+    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li> 
+    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filters.is_none()`.
-    pub fn filters(&self) -> &[crate::types::Filter] {
-        self.filters.as_deref().unwrap_or_default()
+    pub fn filters(&self) -> & [crate::types::Filter] {
+        self.filters.as_deref()
+        .unwrap_or_default()
     }
     /// <p>One or more Reserved Instance IDs.</p>
-    pub fn reserved_instances_id(&self) -> ::std::option::Option<&str> {
+    pub fn reserved_instances_id(&self) -> ::std::option::Option<& str> {
         self.reserved_instances_id.as_deref()
     }
     /// <p>One or more Reserved Instance listing IDs.</p>
-    pub fn reserved_instances_listing_id(&self) -> ::std::option::Option<&str> {
+    pub fn reserved_instances_listing_id(&self) -> ::std::option::Option<& str> {
         self.reserved_instances_listing_id.as_deref()
     }
 }
@@ -50,7 +51,7 @@ impl DescribeReservedInstancesListingsInput {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct DescribeReservedInstancesListingsInputBuilder {
-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    pub(crate) filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
     pub(crate) reserved_instances_id: ::std::option::Option<::std::string::String>,
     pub(crate) reserved_instances_listing_id: ::std::option::Option<::std::string::String>,
 }
@@ -59,38 +60,37 @@ impl DescribeReservedInstancesListingsInputBuilder {
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
     ///
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li>
-    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li>
-    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li>
-    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li> 
+    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li> 
+    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li> 
+    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li> 
     /// </ul>
     pub fn filters(mut self, input: crate::types::Filter) -> Self {
         let mut v = self.filters.unwrap_or_default();
-        v.push(input);
-        self.filters = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.filters = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li>
-    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li>
-    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li>
-    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li> 
+    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li> 
+    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li> 
+    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li> 
     /// </ul>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
-        self.filters = input;
-        self
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>) -> Self {
+        self.filters = input; self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li>
-    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li>
-    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li>
-    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li> 
+    /// <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li> 
+    /// <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li> 
+    /// <li> <p> <code>status-message</code> - The reason for the status.</p> </li> 
     /// </ul>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Filter>> {
         &self.filters
     }
     /// <p>One or more Reserved Instance IDs.</p>
@@ -100,8 +100,7 @@ impl DescribeReservedInstancesListingsInputBuilder {
     }
     /// <p>One or more Reserved Instance IDs.</p>
     pub fn set_reserved_instances_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.reserved_instances_id = input;
-        self
+        self.reserved_instances_id = input; self
     }
     /// <p>One or more Reserved Instance IDs.</p>
     pub fn get_reserved_instances_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -114,26 +113,24 @@ impl DescribeReservedInstancesListingsInputBuilder {
     }
     /// <p>One or more Reserved Instance listing IDs.</p>
     pub fn set_reserved_instances_listing_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.reserved_instances_listing_id = input;
-        self
+        self.reserved_instances_listing_id = input; self
     }
     /// <p>One or more Reserved Instance listing IDs.</p>
     pub fn get_reserved_instances_listing_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.reserved_instances_listing_id
     }
     /// Consumes the builder and constructs a [`DescribeReservedInstancesListingsInput`](crate::operation::describe_reserved_instances_listings::DescribeReservedInstancesListingsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_reserved_instances_listings::DescribeReservedInstancesListingsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_reserved_instances_listings::DescribeReservedInstancesListingsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(
             crate::operation::describe_reserved_instances_listings::DescribeReservedInstancesListingsInput {
-                filters: self.filters,
-                reserved_instances_id: self.reserved_instances_id,
-                reserved_instances_listing_id: self.reserved_instances_listing_id,
-            },
+                filters: self.filters
+                ,
+                reserved_instances_id: self.reserved_instances_id
+                ,
+                reserved_instances_listing_id: self.reserved_instances_listing_id
+                ,
+            }
         )
     }
 }
+

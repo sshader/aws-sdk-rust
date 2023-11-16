@@ -14,7 +14,13 @@ pub enum Error {
     /// <p>The request could not be completed due to throttling.</p>
     ThrottlingException(crate::types::error::ThrottlingException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    Unhandled(crate::error::sealed_unhandled::Unhandled)
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -24,96 +30,89 @@ impl ::std::fmt::Display for Error {
             Error::ResourceNotFoundException(inner) => inner.fmt(f),
             Error::ServiceUnavailableException(inner) => inner.fmt(f),
             Error::ThrottlingException(inner) => inner.fmt(f),
-            Error::Unhandled(inner) => inner.fmt(f),
+            Error::Unhandled(_) => if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                        write!(f, "unhandled error ({code})")
+                                    } else {
+                                        f.write_str("unhandled error")
+                                    }
         }
     }
 }
 impl From<::aws_smithy_types::error::operation::BuildError> for Error {
-    fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
-        Error::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(value).build())
-    }
-}
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError, R>,
-    ) -> Self {
+                fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
+                    Error::Unhandled(crate::error::sealed_unhandled::Unhandled { source: value.into(), meta: ::std::default::Default::default() })
+                }
+            }
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
+                fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
+                    match self {
+                        Self::InternalFailureException(inner) => inner.meta(),
+Self::InvalidRequestException(inner) => inner.meta(),
+Self::ResourceNotFoundException(inner) => inner.meta(),
+Self::ServiceUnavailableException(inner) => inner.meta(),
+Self::ThrottlingException(inner) => inner.meta(),
+                        Self::Unhandled(inner) => &inner.meta,
+                    }
+                }
+            }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError> for Error {
     fn from(err: crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError) -> Self {
         match err {
-            crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError::InternalFailureException(inner) => {
-                Error::InternalFailureException(inner)
-            }
-            crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::batch_acknowledge_alarm::BatchAcknowledgeAlarmError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_delete_detector::BatchDeleteDetectorError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_delete_detector::BatchDeleteDetectorError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_delete_detector::BatchDeleteDetectorError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::batch_delete_detector::BatchDeleteDetectorError> for Error {
     fn from(err: crate::operation::batch_delete_detector::BatchDeleteDetectorError) -> Self {
         match err {
-            crate::operation::batch_delete_detector::BatchDeleteDetectorError::InternalFailureException(inner) => {
-                Error::InternalFailureException(inner)
-            }
-            crate::operation::batch_delete_detector::BatchDeleteDetectorError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::batch_delete_detector::BatchDeleteDetectorError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::batch_delete_detector::BatchDeleteDetectorError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::batch_delete_detector::BatchDeleteDetectorError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::batch_delete_detector::BatchDeleteDetectorError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::batch_delete_detector::BatchDeleteDetectorError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::batch_delete_detector::BatchDeleteDetectorError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_disable_alarm::BatchDisableAlarmError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_disable_alarm::BatchDisableAlarmError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_disable_alarm::BatchDisableAlarmError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -122,27 +121,22 @@ impl From<crate::operation::batch_disable_alarm::BatchDisableAlarmError> for Err
         match err {
             crate::operation::batch_disable_alarm::BatchDisableAlarmError::InternalFailureException(inner) => Error::InternalFailureException(inner),
             crate::operation::batch_disable_alarm::BatchDisableAlarmError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::batch_disable_alarm::BatchDisableAlarmError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::batch_disable_alarm::BatchDisableAlarmError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::batch_disable_alarm::BatchDisableAlarmError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::batch_disable_alarm::BatchDisableAlarmError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_enable_alarm::BatchEnableAlarmError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_enable_alarm::BatchEnableAlarmError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_enable_alarm::BatchEnableAlarmError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -151,27 +145,22 @@ impl From<crate::operation::batch_enable_alarm::BatchEnableAlarmError> for Error
         match err {
             crate::operation::batch_enable_alarm::BatchEnableAlarmError::InternalFailureException(inner) => Error::InternalFailureException(inner),
             crate::operation::batch_enable_alarm::BatchEnableAlarmError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::batch_enable_alarm::BatchEnableAlarmError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::batch_enable_alarm::BatchEnableAlarmError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::batch_enable_alarm::BatchEnableAlarmError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::batch_enable_alarm::BatchEnableAlarmError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_put_message::BatchPutMessageError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_put_message::BatchPutMessageError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_put_message::BatchPutMessageError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -180,27 +169,22 @@ impl From<crate::operation::batch_put_message::BatchPutMessageError> for Error {
         match err {
             crate::operation::batch_put_message::BatchPutMessageError::InternalFailureException(inner) => Error::InternalFailureException(inner),
             crate::operation::batch_put_message::BatchPutMessageError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::batch_put_message::BatchPutMessageError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::batch_put_message::BatchPutMessageError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::batch_put_message::BatchPutMessageError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::batch_put_message::BatchPutMessageError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_reset_alarm::BatchResetAlarmError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_reset_alarm::BatchResetAlarmError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_reset_alarm::BatchResetAlarmError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -209,27 +193,22 @@ impl From<crate::operation::batch_reset_alarm::BatchResetAlarmError> for Error {
         match err {
             crate::operation::batch_reset_alarm::BatchResetAlarmError::InternalFailureException(inner) => Error::InternalFailureException(inner),
             crate::operation::batch_reset_alarm::BatchResetAlarmError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::batch_reset_alarm::BatchResetAlarmError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::batch_reset_alarm::BatchResetAlarmError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::batch_reset_alarm::BatchResetAlarmError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::batch_reset_alarm::BatchResetAlarmError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -238,60 +217,46 @@ impl From<crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError> for Error
         match err {
             crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError::InternalFailureException(inner) => Error::InternalFailureException(inner),
             crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::batch_snooze_alarm::BatchSnoozeAlarmError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_update_detector::BatchUpdateDetectorError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_update_detector::BatchUpdateDetectorError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_update_detector::BatchUpdateDetectorError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::batch_update_detector::BatchUpdateDetectorError> for Error {
     fn from(err: crate::operation::batch_update_detector::BatchUpdateDetectorError) -> Self {
         match err {
-            crate::operation::batch_update_detector::BatchUpdateDetectorError::InternalFailureException(inner) => {
-                Error::InternalFailureException(inner)
-            }
-            crate::operation::batch_update_detector::BatchUpdateDetectorError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::batch_update_detector::BatchUpdateDetectorError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::batch_update_detector::BatchUpdateDetectorError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::batch_update_detector::BatchUpdateDetectorError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::batch_update_detector::BatchUpdateDetectorError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::batch_update_detector::BatchUpdateDetectorError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::batch_update_detector::BatchUpdateDetectorError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_alarm::DescribeAlarmError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_alarm::DescribeAlarmError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_alarm::DescribeAlarmError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -307,19 +272,16 @@ impl From<crate::operation::describe_alarm::DescribeAlarmError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_detector::DescribeDetectorError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_detector::DescribeDetectorError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_detector::DescribeDetectorError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -329,27 +291,22 @@ impl From<crate::operation::describe_detector::DescribeDetectorError> for Error 
             crate::operation::describe_detector::DescribeDetectorError::InternalFailureException(inner) => Error::InternalFailureException(inner),
             crate::operation::describe_detector::DescribeDetectorError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
             crate::operation::describe_detector::DescribeDetectorError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::describe_detector::DescribeDetectorError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_detector::DescribeDetectorError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_detector::DescribeDetectorError::ThrottlingException(inner) => Error::ThrottlingException(inner),
             crate::operation::describe_detector::DescribeDetectorError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_alarms::ListAlarmsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_alarms::ListAlarmsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_alarms::ListAlarmsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -365,19 +322,16 @@ impl From<crate::operation::list_alarms::ListAlarmsError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_detectors::ListDetectorsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_detectors::ListDetectorsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_detectors::ListDetectorsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -401,11 +355,11 @@ impl ::std::error::Error for Error {
             Error::ResourceNotFoundException(inner) => inner.source(),
             Error::ServiceUnavailableException(inner) => inner.source(),
             Error::ThrottlingException(inner) => inner.source(),
-            Error::Unhandled(inner) => inner.source(),
+            Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source)
         }
     }
 }
-impl ::aws_http::request_id::RequestId for Error {
+impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             Self::InternalFailureException(e) => e.request_id(),
@@ -413,7 +367,8 @@ impl ::aws_http::request_id::RequestId for Error {
             Self::ResourceNotFoundException(e) => e.request_id(),
             Self::ServiceUnavailableException(e) => e.request_id(),
             Self::ThrottlingException(e) => e.request_id(),
-            Self::Unhandled(e) => e.request_id(),
+            Self::Unhandled(e) => e.meta.request_id(),
         }
     }
 }
+

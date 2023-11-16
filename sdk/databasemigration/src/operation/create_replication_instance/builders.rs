@@ -5,57 +5,53 @@ pub use crate::operation::create_replication_instance::_create_replication_insta
 
 impl CreateReplicationInstanceInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_replication_instance::CreateReplicationInstanceOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_replication_instance::CreateReplicationInstanceError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_replication_instance();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_replication_instance::CreateReplicationInstanceOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_replication_instance::CreateReplicationInstanceError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_replication_instance();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateReplicationInstance`.
-///
-/// <p>Creates the replication instance using the specified parameters.</p>
-/// <p>DMS requires that your account have certain roles with appropriate permissions before you can create a replication instance. For information on the required roles, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating the IAM Roles to Use With the CLI and DMS API</a>. For information on the required permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM Permissions Needed to Use DMS</a>.</p> <note>
-/// <p>If you don't specify a version when creating a replication instance, DMS will create the instance using the default engine version. For information about the default engine version, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html">Release Notes</a>.</p>
+/// 
+/// <p>Creates the replication instance using the specified parameters.</p> 
+/// <p>DMS requires that your account have certain roles with appropriate permissions before you can create a replication instance. For information on the required roles, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating the IAM Roles to Use With the CLI and DMS API</a>. For information on the required permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM Permissions Needed to Use DMS</a>.</p> <note> 
+/// <p>If you don't specify a version when creating a replication instance, DMS will create the instance using the default engine version. For information about the default engine version, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html">Release Notes</a>.</p> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateReplicationInstanceFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_replication_instance::builders::CreateReplicationInstanceInputBuilder,
+                    inner: crate::operation::create_replication_instance::builders::CreateReplicationInstanceInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_replication_instance::CreateReplicationInstanceOutput,
-        crate::operation::create_replication_instance::CreateReplicationInstanceError,
-    > for CreateReplicationInstanceFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_replication_instance::CreateReplicationInstanceOutput,
-            crate::operation::create_replication_instance::CreateReplicationInstanceError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_replication_instance::CreateReplicationInstanceOutput,
+                    crate::operation::create_replication_instance::CreateReplicationInstanceError,
+                > for CreateReplicationInstanceFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_replication_instance::CreateReplicationInstanceOutput,
+                        crate::operation::create_replication_instance::CreateReplicationInstanceError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateReplicationInstanceFluentBuilder {
     /// Creates a new `CreateReplicationInstance`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -64,84 +60,75 @@ impl CreateReplicationInstanceFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_replication_instance::CreateReplicationInstanceOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_replication_instance::CreateReplicationInstanceError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_replication_instance::CreateReplicationInstance::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_replication_instance::CreateReplicationInstance::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_replication_instance::CreateReplicationInstanceOutput,
-        crate::operation::create_replication_instance::CreateReplicationInstanceError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must contain 1-63 alphanumeric characters or hyphens.</p> </li>
-    /// <li> <p>First character must be a letter.</p> </li>
-    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li>
-    /// </ul>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_replication_instance::CreateReplicationInstanceOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_replication_instance::CreateReplicationInstanceError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_replication_instance::CreateReplicationInstance::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_replication_instance::CreateReplicationInstance::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_replication_instance::CreateReplicationInstanceOutput, crate::operation::create_replication_instance::CreateReplicationInstanceError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain 1-63 alphanumeric characters or hyphens.</p> </li> 
+    /// <li> <p>First character must be a letter.</p> </li> 
+    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> 
+    /// </ul> 
     /// <p>Example: <code>myrepinstance</code> </p>
     pub fn replication_instance_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.replication_instance_identifier(input.into());
         self
     }
-    /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must contain 1-63 alphanumeric characters or hyphens.</p> </li>
-    /// <li> <p>First character must be a letter.</p> </li>
-    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li>
-    /// </ul>
+    /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain 1-63 alphanumeric characters or hyphens.</p> </li> 
+    /// <li> <p>First character must be a letter.</p> </li> 
+    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> 
+    /// </ul> 
     /// <p>Example: <code>myrepinstance</code> </p>
     pub fn set_replication_instance_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_replication_instance_identifier(input);
         self
     }
-    /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must contain 1-63 alphanumeric characters or hyphens.</p> </li>
-    /// <li> <p>First character must be a letter.</p> </li>
-    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li>
-    /// </ul>
+    /// <p>The replication instance identifier. This parameter is stored as a lowercase string.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain 1-63 alphanumeric characters or hyphens.</p> </li> 
+    /// <li> <p>First character must be a letter.</p> </li> 
+    /// <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> 
+    /// </ul> 
     /// <p>Example: <code>myrepinstance</code> </p>
     pub fn get_replication_instance_identifier(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_replication_instance_identifier()
@@ -160,19 +147,19 @@ impl CreateReplicationInstanceFluentBuilder {
     pub fn get_allocated_storage(&self) -> &::std::option::Option<i32> {
         self.inner.get_allocated_storage()
     }
-    /// <p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p>
+    /// <p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p> 
     /// <p>For more information on the settings and capacities for the available replication instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html "> Choosing the right DMS replication instance</a>; and, <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.html">Selecting the best size for a replication instance</a>. </p>
     pub fn replication_instance_class(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.replication_instance_class(input.into());
         self
     }
-    /// <p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p>
+    /// <p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p> 
     /// <p>For more information on the settings and capacities for the available replication instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html "> Choosing the right DMS replication instance</a>; and, <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.html">Selecting the best size for a replication instance</a>. </p>
     pub fn set_replication_instance_class(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_replication_instance_class(input);
         self
     }
-    /// <p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p>
+    /// <p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p> 
     /// <p>For more information on the settings and capacities for the available replication instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html "> Choosing the right DMS replication instance</a>; and, <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.html">Selecting the best size for a replication instance</a>. </p>
     pub fn get_replication_instance_class(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_replication_instance_class()
@@ -187,12 +174,12 @@ impl CreateReplicationInstanceFluentBuilder {
         self
     }
     /// <p> Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance. </p>
-    pub fn set_vpc_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_vpc_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_vpc_security_group_ids(input);
         self
     }
     /// <p> Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance. </p>
-    pub fn get_vpc_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_vpc_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_vpc_security_group_ids()
     }
     /// <p>The Availability Zone where the replication instance will be created. The default value is a random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region, for example: <code>us-east-1d</code>.</p>
@@ -223,28 +210,28 @@ impl CreateReplicationInstanceFluentBuilder {
     pub fn get_replication_subnet_group_identifier(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_replication_subnet_group_identifier()
     }
-    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
-    /// <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p>
-    /// <p>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon Web Services Region, occurring on a random day of the week.</p>
-    /// <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
+    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p> 
+    /// <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> 
+    /// <p>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon Web Services Region, occurring on a random day of the week.</p> 
+    /// <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p> 
     /// <p>Constraints: Minimum 30-minute window.</p>
     pub fn preferred_maintenance_window(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.preferred_maintenance_window(input.into());
         self
     }
-    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
-    /// <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p>
-    /// <p>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon Web Services Region, occurring on a random day of the week.</p>
-    /// <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
+    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p> 
+    /// <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> 
+    /// <p>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon Web Services Region, occurring on a random day of the week.</p> 
+    /// <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p> 
     /// <p>Constraints: Minimum 30-minute window.</p>
     pub fn set_preferred_maintenance_window(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_preferred_maintenance_window(input);
         self
     }
-    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
-    /// <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p>
-    /// <p>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon Web Services Region, occurring on a random day of the week.</p>
-    /// <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
+    /// <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p> 
+    /// <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> 
+    /// <p>Default: A 30-minute window selected at random from an 8-hour block of time per Amazon Web Services Region, occurring on a random day of the week.</p> 
+    /// <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p> 
     /// <p>Constraints: Minimum 30-minute window.</p>
     pub fn get_preferred_maintenance_window(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_preferred_maintenance_window()
@@ -263,36 +250,36 @@ impl CreateReplicationInstanceFluentBuilder {
     pub fn get_multi_az(&self) -> &::std::option::Option<bool> {
         self.inner.get_multi_az()
     }
-    /// <p>The engine version number of the replication instance.</p>
+    /// <p>The engine version number of the replication instance.</p> 
     /// <p>If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.</p>
     pub fn engine_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.engine_version(input.into());
         self
     }
-    /// <p>The engine version number of the replication instance.</p>
+    /// <p>The engine version number of the replication instance.</p> 
     /// <p>If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.</p>
     pub fn set_engine_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_engine_version(input);
         self
     }
-    /// <p>The engine version number of the replication instance.</p>
+    /// <p>The engine version number of the replication instance.</p> 
     /// <p>If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.</p>
     pub fn get_engine_version(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_engine_version()
     }
-    /// <p>A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to <code>true</code>.</p>
+    /// <p>A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to <code>true</code>.</p> 
     /// <p>Default: <code>true</code> </p>
     pub fn auto_minor_version_upgrade(mut self, input: bool) -> Self {
         self.inner = self.inner.auto_minor_version_upgrade(input);
         self
     }
-    /// <p>A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to <code>true</code>.</p>
+    /// <p>A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to <code>true</code>.</p> 
     /// <p>Default: <code>true</code> </p>
     pub fn set_auto_minor_version_upgrade(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_auto_minor_version_upgrade(input);
         self
     }
-    /// <p>A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to <code>true</code>.</p>
+    /// <p>A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to <code>true</code>.</p> 
     /// <p>Default: <code>true</code> </p>
     pub fn get_auto_minor_version_upgrade(&self) -> &::std::option::Option<bool> {
         self.inner.get_auto_minor_version_upgrade()
@@ -307,30 +294,30 @@ impl CreateReplicationInstanceFluentBuilder {
         self
     }
     /// <p>One or more tags to be assigned to the replication instance.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>One or more tags to be assigned to the replication instance.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
-    /// <p>An KMS key identifier that is used to encrypt the data on the replication instance.</p>
-    /// <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default encryption key.</p>
+    /// <p>An KMS key identifier that is used to encrypt the data on the replication instance.</p> 
+    /// <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default encryption key.</p> 
     /// <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
     pub fn kms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.kms_key_id(input.into());
         self
     }
-    /// <p>An KMS key identifier that is used to encrypt the data on the replication instance.</p>
-    /// <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default encryption key.</p>
+    /// <p>An KMS key identifier that is used to encrypt the data on the replication instance.</p> 
+    /// <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default encryption key.</p> 
     /// <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
     pub fn set_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_kms_key_id(input);
         self
     }
-    /// <p>An KMS key identifier that is used to encrypt the data on the replication instance.</p>
-    /// <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default encryption key.</p>
+    /// <p>An KMS key identifier that is used to encrypt the data on the replication instance.</p> 
+    /// <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default encryption key.</p> 
     /// <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
     pub fn get_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_kms_key_id()
@@ -392,3 +379,4 @@ impl CreateReplicationInstanceFluentBuilder {
         self.inner.get_network_type()
     }
 }
+

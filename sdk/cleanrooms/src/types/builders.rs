@@ -90,3 +90,4 @@ pub use crate::types::_member_specification::MemberSpecificationBuilder;
 pub use crate::types::_analysis_template_summary::AnalysisTemplateSummaryBuilder;
 
 pub use crate::types::_analysis_template::AnalysisTemplateBuilder;
+

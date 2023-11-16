@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateReplicationJobInput {
+pub struct UpdateReplicationJobInput  {
     /// <p>The ID of the replication job.</p>
     pub replication_job_id: ::std::option::Option<::std::string::String>,
     /// <p>The time between consecutive replication runs, in hours.</p>
@@ -19,19 +19,19 @@ pub struct UpdateReplicationJobInput {
     pub number_of_recent_amis_to_keep: ::std::option::Option<i32>,
     /// <p>When true, the replication job produces encrypted AMIs. For more information, <code>KmsKeyId</code>.</p>
     pub encrypted: ::std::option::Option<bool>,
-    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p>
-    /// <ul>
-    /// <li> <p>KMS key ID</p> </li>
-    /// <li> <p>KMS key alias</p> </li>
-    /// <li> <p>ARN referring to the KMS key ID</p> </li>
-    /// <li> <p>ARN referring to the KMS key alias</p> </li>
-    /// </ul>
+    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p> 
+    /// <ul> 
+    /// <li> <p>KMS key ID</p> </li> 
+    /// <li> <p>KMS key alias</p> </li> 
+    /// <li> <p>ARN referring to the KMS key ID</p> </li> 
+    /// <li> <p>ARN referring to the KMS key alias</p> </li> 
+    /// </ul> 
     /// <p>If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.</p>
     pub kms_key_id: ::std::option::Option<::std::string::String>,
 }
-impl UpdateReplicationJobInput {
+impl  UpdateReplicationJobInput  {
     /// <p>The ID of the replication job.</p>
-    pub fn replication_job_id(&self) -> ::std::option::Option<&str> {
+    pub fn replication_job_id(&self) -> ::std::option::Option<& str> {
         self.replication_job_id.as_deref()
     }
     /// <p>The time between consecutive replication runs, in hours.</p>
@@ -39,19 +39,19 @@ impl UpdateReplicationJobInput {
         self.frequency
     }
     /// <p>The start time of the next replication run.</p>
-    pub fn next_replication_run_start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn next_replication_run_start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.next_replication_run_start_time.as_ref()
     }
     /// <p>The license type to be used for the AMI created by a successful replication run.</p>
-    pub fn license_type(&self) -> ::std::option::Option<&crate::types::LicenseType> {
+    pub fn license_type(&self) -> ::std::option::Option<& crate::types::LicenseType> {
         self.license_type.as_ref()
     }
     /// <p>The name of the IAM role to be used by Server Migration Service.</p>
-    pub fn role_name(&self) -> ::std::option::Option<&str> {
+    pub fn role_name(&self) -> ::std::option::Option<& str> {
         self.role_name.as_deref()
     }
     /// <p>The description of the replication job.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the maximum number is reached and a new AMI is created.</p>
@@ -62,15 +62,15 @@ impl UpdateReplicationJobInput {
     pub fn encrypted(&self) -> ::std::option::Option<bool> {
         self.encrypted
     }
-    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p>
-    /// <ul>
-    /// <li> <p>KMS key ID</p> </li>
-    /// <li> <p>KMS key alias</p> </li>
-    /// <li> <p>ARN referring to the KMS key ID</p> </li>
-    /// <li> <p>ARN referring to the KMS key alias</p> </li>
-    /// </ul>
+    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p> 
+    /// <ul> 
+    /// <li> <p>KMS key ID</p> </li> 
+    /// <li> <p>KMS key alias</p> </li> 
+    /// <li> <p>ARN referring to the KMS key ID</p> </li> 
+    /// <li> <p>ARN referring to the KMS key alias</p> </li> 
+    /// </ul> 
     /// <p>If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.</p>
-    pub fn kms_key_id(&self) -> ::std::option::Option<&str> {
+    pub fn kms_key_id(&self) -> ::std::option::Option<& str> {
         self.kms_key_id.as_deref()
     }
 }
@@ -104,8 +104,7 @@ impl UpdateReplicationJobInputBuilder {
     }
     /// <p>The ID of the replication job.</p>
     pub fn set_replication_job_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.replication_job_id = input;
-        self
+        self.replication_job_id = input; self
     }
     /// <p>The ID of the replication job.</p>
     pub fn get_replication_job_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -118,8 +117,7 @@ impl UpdateReplicationJobInputBuilder {
     }
     /// <p>The time between consecutive replication runs, in hours.</p>
     pub fn set_frequency(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.frequency = input;
-        self
+        self.frequency = input; self
     }
     /// <p>The time between consecutive replication runs, in hours.</p>
     pub fn get_frequency(&self) -> &::std::option::Option<i32> {
@@ -132,8 +130,7 @@ impl UpdateReplicationJobInputBuilder {
     }
     /// <p>The start time of the next replication run.</p>
     pub fn set_next_replication_run_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.next_replication_run_start_time = input;
-        self
+        self.next_replication_run_start_time = input; self
     }
     /// <p>The start time of the next replication run.</p>
     pub fn get_next_replication_run_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -146,8 +143,7 @@ impl UpdateReplicationJobInputBuilder {
     }
     /// <p>The license type to be used for the AMI created by a successful replication run.</p>
     pub fn set_license_type(mut self, input: ::std::option::Option<crate::types::LicenseType>) -> Self {
-        self.license_type = input;
-        self
+        self.license_type = input; self
     }
     /// <p>The license type to be used for the AMI created by a successful replication run.</p>
     pub fn get_license_type(&self) -> &::std::option::Option<crate::types::LicenseType> {
@@ -160,8 +156,7 @@ impl UpdateReplicationJobInputBuilder {
     }
     /// <p>The name of the IAM role to be used by Server Migration Service.</p>
     pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.role_name = input;
-        self
+        self.role_name = input; self
     }
     /// <p>The name of the IAM role to be used by Server Migration Service.</p>
     pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -174,8 +169,7 @@ impl UpdateReplicationJobInputBuilder {
     }
     /// <p>The description of the replication job.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The description of the replication job.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -188,8 +182,7 @@ impl UpdateReplicationJobInputBuilder {
     }
     /// <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the maximum number is reached and a new AMI is created.</p>
     pub fn set_number_of_recent_amis_to_keep(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.number_of_recent_amis_to_keep = input;
-        self
+        self.number_of_recent_amis_to_keep = input; self
     }
     /// <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the maximum number is reached and a new AMI is created.</p>
     pub fn get_number_of_recent_amis_to_keep(&self) -> &::std::option::Option<i32> {
@@ -202,63 +195,70 @@ impl UpdateReplicationJobInputBuilder {
     }
     /// <p>When true, the replication job produces encrypted AMIs. For more information, <code>KmsKeyId</code>.</p>
     pub fn set_encrypted(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.encrypted = input;
-        self
+        self.encrypted = input; self
     }
     /// <p>When true, the replication job produces encrypted AMIs. For more information, <code>KmsKeyId</code>.</p>
     pub fn get_encrypted(&self) -> &::std::option::Option<bool> {
         &self.encrypted
     }
-    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p>
-    /// <ul>
-    /// <li> <p>KMS key ID</p> </li>
-    /// <li> <p>KMS key alias</p> </li>
-    /// <li> <p>ARN referring to the KMS key ID</p> </li>
-    /// <li> <p>ARN referring to the KMS key alias</p> </li>
-    /// </ul>
+    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p> 
+    /// <ul> 
+    /// <li> <p>KMS key ID</p> </li> 
+    /// <li> <p>KMS key alias</p> </li> 
+    /// <li> <p>ARN referring to the KMS key ID</p> </li> 
+    /// <li> <p>ARN referring to the KMS key alias</p> </li> 
+    /// </ul> 
     /// <p>If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.</p>
     pub fn kms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p>
-    /// <ul>
-    /// <li> <p>KMS key ID</p> </li>
-    /// <li> <p>KMS key alias</p> </li>
-    /// <li> <p>ARN referring to the KMS key ID</p> </li>
-    /// <li> <p>ARN referring to the KMS key alias</p> </li>
-    /// </ul>
+    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p> 
+    /// <ul> 
+    /// <li> <p>KMS key ID</p> </li> 
+    /// <li> <p>KMS key alias</p> </li> 
+    /// <li> <p>ARN referring to the KMS key ID</p> </li> 
+    /// <li> <p>ARN referring to the KMS key alias</p> </li> 
+    /// </ul> 
     /// <p>If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.</p>
     pub fn set_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.kms_key_id = input;
-        self
+        self.kms_key_id = input; self
     }
-    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p>
-    /// <ul>
-    /// <li> <p>KMS key ID</p> </li>
-    /// <li> <p>KMS key alias</p> </li>
-    /// <li> <p>ARN referring to the KMS key ID</p> </li>
-    /// <li> <p>ARN referring to the KMS key alias</p> </li>
-    /// </ul>
+    /// <p>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:</p> 
+    /// <ul> 
+    /// <li> <p>KMS key ID</p> </li> 
+    /// <li> <p>KMS key alias</p> </li> 
+    /// <li> <p>ARN referring to the KMS key ID</p> </li> 
+    /// <li> <p>ARN referring to the KMS key alias</p> </li> 
+    /// </ul> 
     /// <p>If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.</p>
     pub fn get_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.kms_key_id
     }
     /// Consumes the builder and constructs a [`UpdateReplicationJobInput`](crate::operation::update_replication_job::UpdateReplicationJobInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_replication_job::UpdateReplicationJobInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::update_replication_job::UpdateReplicationJobInput {
-            replication_job_id: self.replication_job_id,
-            frequency: self.frequency,
-            next_replication_run_start_time: self.next_replication_run_start_time,
-            license_type: self.license_type,
-            role_name: self.role_name,
-            description: self.description,
-            number_of_recent_amis_to_keep: self.number_of_recent_amis_to_keep,
-            encrypted: self.encrypted,
-            kms_key_id: self.kms_key_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_replication_job::UpdateReplicationJobInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_replication_job::UpdateReplicationJobInput {
+                replication_job_id: self.replication_job_id
+                ,
+                frequency: self.frequency
+                ,
+                next_replication_run_start_time: self.next_replication_run_start_time
+                ,
+                license_type: self.license_type
+                ,
+                role_name: self.role_name
+                ,
+                description: self.description
+                ,
+                number_of_recent_amis_to_keep: self.number_of_recent_amis_to_keep
+                ,
+                encrypted: self.encrypted
+                ,
+                kms_key_id: self.kms_key_id
+                ,
+            }
+        )
     }
 }
+

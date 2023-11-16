@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListTagsForResourceInput {
-    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p>
+pub struct ListTagsForResourceInput  {
+    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p> 
     /// <p> <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code> </p>
     pub resource_arn: ::std::option::Option<::std::string::String>,
 }
-impl ListTagsForResourceInput {
-    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p>
+impl  ListTagsForResourceInput  {
+    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p> 
     /// <p> <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code> </p>
-    pub fn resource_arn(&self) -> ::std::option::Option<&str> {
+    pub fn resource_arn(&self) -> ::std::option::Option<& str> {
         self.resource_arn.as_deref()
     }
 }
@@ -28,31 +28,31 @@ pub struct ListTagsForResourceInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
 }
 impl ListTagsForResourceInputBuilder {
-    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p>
+    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p> 
     /// <p> <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code> </p>
     /// This field is required.
     pub fn resource_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p>
+    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p> 
     /// <p> <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code> </p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_arn = input;
-        self
+        self.resource_arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p>
+    /// <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p> 
     /// <p> <code>arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger</code> </p>
     pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.resource_arn
     }
     /// Consumes the builder and constructs a [`ListTagsForResourceInput`](crate::operation::list_tags_for_resource::ListTagsForResourceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::list_tags_for_resource::ListTagsForResourceInput {
-            resource_arn: self.resource_arn,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_tags_for_resource::ListTagsForResourceInput {
+                resource_arn: self.resource_arn
+                ,
+            }
+        )
     }
 }
+

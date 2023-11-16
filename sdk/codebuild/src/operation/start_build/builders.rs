@@ -5,54 +5,50 @@ pub use crate::operation::start_build::_start_build_input::StartBuildInputBuilde
 
 impl StartBuildInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::start_build::StartBuildOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_build::StartBuildError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.start_build();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::start_build::StartBuildOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::start_build::StartBuildError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.start_build();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `StartBuild`.
-///
+/// 
 /// <p>Starts running a build.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct StartBuildFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::start_build::builders::StartBuildInputBuilder,
+                    inner: crate::operation::start_build::builders::StartBuildInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::start_build::StartBuildOutput,
-        crate::operation::start_build::StartBuildError,
-    > for StartBuildFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::start_build::StartBuildOutput,
-            crate::operation::start_build::StartBuildError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::start_build::StartBuildOutput,
+                    crate::operation::start_build::StartBuildError,
+                > for StartBuildFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::start_build::StartBuildOutput,
+                        crate::operation::start_build::StartBuildError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl StartBuildFluentBuilder {
     /// Creates a new `StartBuild`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl StartBuildFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::start_build::StartBuildOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_build::StartBuildError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::start_build::StartBuild::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::start_build::StartBuild::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::start_build::StartBuildOutput,
-        crate::operation::start_build::StartBuildError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::start_build::StartBuildOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_build::StartBuildError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::start_build::StartBuild::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::start_build::StartBuild::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::start_build::StartBuildOutput, crate::operation::start_build::StartBuildError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name of the CodeBuild build project to start running a build.</p>
     pub fn project_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.project_name(input.into());
@@ -132,12 +119,12 @@ impl StartBuildFluentBuilder {
         self
     }
     /// <p> An array of <code>ProjectSource</code> objects. </p>
-    pub fn set_secondary_sources_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ProjectSource>>) -> Self {
+    pub fn set_secondary_sources_override(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ProjectSource>>) -> Self {
         self.inner = self.inner.set_secondary_sources_override(input);
         self
     }
     /// <p> An array of <code>ProjectSource</code> objects. </p>
-    pub fn get_secondary_sources_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProjectSource>> {
+    pub fn get_secondary_sources_override(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ProjectSource>> {
         self.inner.get_secondary_sources_override()
     }
     /// Appends an item to `secondarySourcesVersionOverride`.
@@ -150,111 +137,108 @@ impl StartBuildFluentBuilder {
         self
     }
     /// <p> An array of <code>ProjectSourceVersion</code> objects that specify one or more versions of the project's secondary sources to be used for this build only. </p>
-    pub fn set_secondary_sources_version_override(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ProjectSourceVersion>>,
-    ) -> Self {
+    pub fn set_secondary_sources_version_override(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ProjectSourceVersion>>) -> Self {
         self.inner = self.inner.set_secondary_sources_version_override(input);
         self
     }
     /// <p> An array of <code>ProjectSourceVersion</code> objects that specify one or more versions of the project's secondary sources to be used for this build only. </p>
-    pub fn get_secondary_sources_version_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProjectSourceVersion>> {
+    pub fn get_secondary_sources_version_override(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ProjectSourceVersion>> {
         self.inner.get_secondary_sources_version_override()
     }
-    /// <p>The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:</p>
-    /// <dl>
+    /// <p>The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:</p> 
+    /// <dl> 
     /// <dt>
     /// CodeCommit
-    /// </dt>
-    /// <dd>
-    /// <p>The commit ID, branch, or Git tag to use.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The commit ID, branch, or Git tag to use.</p> 
+    /// </dd> 
     /// <dt>
     /// GitHub
-    /// </dt>
-    /// <dd>
-    /// <p>The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> 
+    /// </dd> 
     /// <dt>
     /// Bitbucket
-    /// </dt>
-    /// <dd>
-    /// <p>The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> 
+    /// </dd> 
     /// <dt>
     /// Amazon S3
-    /// </dt>
-    /// <dd>
-    /// <p>The version ID of the object that represents the build input ZIP file to use.</p>
-    /// </dd>
-    /// </dl>
-    /// <p>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code> (at the build level) takes precedence. </p>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The version ID of the object that represents the build input ZIP file to use.</p> 
+    /// </dd> 
+    /// </dl> 
+    /// <p>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code> (at the build level) takes precedence. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
     pub fn source_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.source_version(input.into());
         self
     }
-    /// <p>The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:</p>
-    /// <dl>
+    /// <p>The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:</p> 
+    /// <dl> 
     /// <dt>
     /// CodeCommit
-    /// </dt>
-    /// <dd>
-    /// <p>The commit ID, branch, or Git tag to use.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The commit ID, branch, or Git tag to use.</p> 
+    /// </dd> 
     /// <dt>
     /// GitHub
-    /// </dt>
-    /// <dd>
-    /// <p>The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> 
+    /// </dd> 
     /// <dt>
     /// Bitbucket
-    /// </dt>
-    /// <dd>
-    /// <p>The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> 
+    /// </dd> 
     /// <dt>
     /// Amazon S3
-    /// </dt>
-    /// <dd>
-    /// <p>The version ID of the object that represents the build input ZIP file to use.</p>
-    /// </dd>
-    /// </dl>
-    /// <p>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code> (at the build level) takes precedence. </p>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The version ID of the object that represents the build input ZIP file to use.</p> 
+    /// </dd> 
+    /// </dl> 
+    /// <p>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code> (at the build level) takes precedence. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
     pub fn set_source_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_source_version(input);
         self
     }
-    /// <p>The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:</p>
-    /// <dl>
+    /// <p>The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:</p> 
+    /// <dl> 
     /// <dt>
     /// CodeCommit
-    /// </dt>
-    /// <dd>
-    /// <p>The commit ID, branch, or Git tag to use.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The commit ID, branch, or Git tag to use.</p> 
+    /// </dd> 
     /// <dt>
     /// GitHub
-    /// </dt>
-    /// <dd>
-    /// <p>The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> 
+    /// </dd> 
     /// <dt>
     /// Bitbucket
-    /// </dt>
-    /// <dd>
-    /// <p>The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> 
+    /// </dd> 
     /// <dt>
     /// Amazon S3
-    /// </dt>
-    /// <dd>
-    /// <p>The version ID of the object that represents the build input ZIP file to use.</p>
-    /// </dd>
-    /// </dl>
-    /// <p>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code> (at the build level) takes precedence. </p>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The version ID of the object that represents the build input ZIP file to use.</p> 
+    /// </dd> 
+    /// </dl> 
+    /// <p>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code> (at the build level) takes precedence. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
     pub fn get_source_version(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_source_version()
@@ -283,12 +267,12 @@ impl StartBuildFluentBuilder {
         self
     }
     /// <p> An array of <code>ProjectArtifacts</code> objects. </p>
-    pub fn set_secondary_artifacts_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ProjectArtifacts>>) -> Self {
+    pub fn set_secondary_artifacts_override(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ProjectArtifacts>>) -> Self {
         self.inner = self.inner.set_secondary_artifacts_override(input);
         self
     }
     /// <p> An array of <code>ProjectArtifacts</code> objects. </p>
-    pub fn get_secondary_artifacts_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProjectArtifacts>> {
+    pub fn get_secondary_artifacts_override(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ProjectArtifacts>> {
         self.inner.get_secondary_artifacts_override()
     }
     /// Appends an item to `environmentVariablesOverride`.
@@ -301,12 +285,12 @@ impl StartBuildFluentBuilder {
         self
     }
     /// <p>A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.</p>
-    pub fn set_environment_variables_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EnvironmentVariable>>) -> Self {
+    pub fn set_environment_variables_override(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::EnvironmentVariable>>) -> Self {
         self.inner = self.inner.set_environment_variables_override(input);
         self
     }
     /// <p>A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.</p>
-    pub fn get_environment_variables_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EnvironmentVariable>> {
+    pub fn get_environment_variables_override(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::EnvironmentVariable>> {
         self.inner.get_environment_variables_override()
     }
     /// <p>A source input type, for this build, that overrides the source input defined in the build project.</p>
@@ -379,19 +363,19 @@ impl StartBuildFluentBuilder {
     pub fn get_git_submodules_config_override(&self) -> &::std::option::Option<crate::types::GitSubmodulesConfig> {
         self.inner.get_git_submodules_config_override()
     }
-    /// <p>A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.</p>
+    /// <p>A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.</p> 
     /// <p> If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket. The bucket must be in the same Amazon Web Services Region as the build project. Specify the buildspec file using its ARN (for example, <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
     pub fn buildspec_override(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.buildspec_override(input.into());
         self
     }
-    /// <p>A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.</p>
+    /// <p>A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.</p> 
     /// <p> If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket. The bucket must be in the same Amazon Web Services Region as the build project. Specify the buildspec file using its ARN (for example, <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
     pub fn set_buildspec_override(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_buildspec_override(input);
         self
     }
-    /// <p>A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.</p>
+    /// <p>A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.</p> 
     /// <p> If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket. The bucket must be in the same Amazon Web Services Region as the build project. Specify the buildspec file using its ARN (for example, <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
     pub fn get_buildspec_override(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_buildspec_override()
@@ -410,25 +394,25 @@ impl StartBuildFluentBuilder {
     pub fn get_insecure_ssl_override(&self) -> &::std::option::Option<bool> {
         self.inner.get_insecure_ssl_override()
     }
-    /// <p> Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>
-    /// <p>To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p> <note>
-    /// <p> The status of a build triggered by a webhook is always reported to your source provider. </p>
+    /// <p> Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p> 
+    /// <p>To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p> <note> 
+    /// <p> The status of a build triggered by a webhook is always reported to your source provider. </p> 
     /// </note>
     pub fn report_build_status_override(mut self, input: bool) -> Self {
         self.inner = self.inner.report_build_status_override(input);
         self
     }
-    /// <p> Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>
-    /// <p>To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p> <note>
-    /// <p> The status of a build triggered by a webhook is always reported to your source provider. </p>
+    /// <p> Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p> 
+    /// <p>To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p> <note> 
+    /// <p> The status of a build triggered by a webhook is always reported to your source provider. </p> 
     /// </note>
     pub fn set_report_build_status_override(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_report_build_status_override(input);
         self
     }
-    /// <p> Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>
-    /// <p>To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p> <note>
-    /// <p> The status of a build triggered by a webhook is always reported to your source provider. </p>
+    /// <p> Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p> 
+    /// <p>To be able to report the build status to the source provider, the user associated with the source provider must have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p> <note> 
+    /// <p> The status of a build triggered by a webhook is always reported to your source provider. </p> 
     /// </note>
     pub fn get_report_build_status_override(&self) -> &::std::option::Option<bool> {
         self.inner.get_report_build_status_override()
@@ -573,27 +557,27 @@ impl StartBuildFluentBuilder {
     pub fn get_queued_timeout_in_minutes_override(&self) -> &::std::option::Option<i32> {
         self.inner.get_queued_timeout_in_minutes_override()
     }
-    /// <p>The Key Management Service customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.</p> <note>
-    /// <p> You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. </p>
-    /// </note>
+    /// <p>The Key Management Service customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.</p> <note> 
+    /// <p> You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. </p> 
+    /// </note> 
     /// <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format <code>alias/
     /// <alias-name></alias-name></code>).</p>
     pub fn encryption_key_override(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.encryption_key_override(input.into());
         self
     }
-    /// <p>The Key Management Service customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.</p> <note>
-    /// <p> You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. </p>
-    /// </note>
+    /// <p>The Key Management Service customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.</p> <note> 
+    /// <p> You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. </p> 
+    /// </note> 
     /// <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format <code>alias/
     /// <alias-name></alias-name></code>).</p>
     pub fn set_encryption_key_override(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_encryption_key_override(input);
         self
     }
-    /// <p>The Key Management Service customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.</p> <note>
-    /// <p> You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. </p>
-    /// </note>
+    /// <p>The Key Management Service customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.</p> <note> 
+    /// <p> You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. </p> 
+    /// </note> 
     /// <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format <code>alias/
     /// <alias-name></alias-name></code>).</p>
     pub fn get_encryption_key_override(&self) -> &::std::option::Option<::std::string::String> {
@@ -641,61 +625,61 @@ impl StartBuildFluentBuilder {
     pub fn get_registry_credential_override(&self) -> &::std::option::Option<crate::types::RegistryCredential> {
         self.inner.get_registry_credential_override()
     }
-    /// <p>The type of credentials CodeBuild uses to pull images in your build. There are two valid values: </p>
-    /// <dl>
+    /// <p>The type of credentials CodeBuild uses to pull images in your build. There are two valid values: </p> 
+    /// <dl> 
     /// <dt>
     /// CODEBUILD
-    /// </dt>
-    /// <dd>
-    /// <p>Specifies that CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust CodeBuild's service principal.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specifies that CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust CodeBuild's service principal.</p> 
+    /// </dd> 
     /// <dt>
     /// SERVICE_ROLE
-    /// </dt>
-    /// <dd>
-    /// <p>Specifies that CodeBuild uses your build project's service role. </p>
-    /// </dd>
-    /// </dl>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specifies that CodeBuild uses your build project's service role. </p> 
+    /// </dd> 
+    /// </dl> 
     /// <p>When using a cross-account or private registry image, you must use <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image, you must use <code>CODEBUILD</code> credentials. </p>
     pub fn image_pull_credentials_type_override(mut self, input: crate::types::ImagePullCredentialsType) -> Self {
         self.inner = self.inner.image_pull_credentials_type_override(input);
         self
     }
-    /// <p>The type of credentials CodeBuild uses to pull images in your build. There are two valid values: </p>
-    /// <dl>
+    /// <p>The type of credentials CodeBuild uses to pull images in your build. There are two valid values: </p> 
+    /// <dl> 
     /// <dt>
     /// CODEBUILD
-    /// </dt>
-    /// <dd>
-    /// <p>Specifies that CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust CodeBuild's service principal.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specifies that CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust CodeBuild's service principal.</p> 
+    /// </dd> 
     /// <dt>
     /// SERVICE_ROLE
-    /// </dt>
-    /// <dd>
-    /// <p>Specifies that CodeBuild uses your build project's service role. </p>
-    /// </dd>
-    /// </dl>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specifies that CodeBuild uses your build project's service role. </p> 
+    /// </dd> 
+    /// </dl> 
     /// <p>When using a cross-account or private registry image, you must use <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image, you must use <code>CODEBUILD</code> credentials. </p>
     pub fn set_image_pull_credentials_type_override(mut self, input: ::std::option::Option<crate::types::ImagePullCredentialsType>) -> Self {
         self.inner = self.inner.set_image_pull_credentials_type_override(input);
         self
     }
-    /// <p>The type of credentials CodeBuild uses to pull images in your build. There are two valid values: </p>
-    /// <dl>
+    /// <p>The type of credentials CodeBuild uses to pull images in your build. There are two valid values: </p> 
+    /// <dl> 
     /// <dt>
     /// CODEBUILD
-    /// </dt>
-    /// <dd>
-    /// <p>Specifies that CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust CodeBuild's service principal.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specifies that CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust CodeBuild's service principal.</p> 
+    /// </dd> 
     /// <dt>
     /// SERVICE_ROLE
-    /// </dt>
-    /// <dd>
-    /// <p>Specifies that CodeBuild uses your build project's service role. </p>
-    /// </dd>
-    /// </dl>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specifies that CodeBuild uses your build project's service role. </p> 
+    /// </dd> 
+    /// </dl> 
     /// <p>When using a cross-account or private registry image, you must use <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image, you must use <code>CODEBUILD</code> credentials. </p>
     pub fn get_image_pull_credentials_type_override(&self) -> &::std::option::Option<crate::types::ImagePullCredentialsType> {
         self.inner.get_image_pull_credentials_type_override()
@@ -715,3 +699,4 @@ impl StartBuildFluentBuilder {
         self.inner.get_debug_session_enabled()
     }
 }
+

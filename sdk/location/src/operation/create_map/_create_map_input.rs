@@ -2,13 +2,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateMapInput {
-    /// <p>The name for the map resource.</p>
-    /// <p>Requirements:</p>
-    /// <ul>
-    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li>
-    /// <li> <p>Must be a unique map resource name. </p> </li>
-    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li>
+pub struct CreateMapInput  {
+    /// <p>The name for the map resource.</p> 
+    /// <p>Requirements:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> 
+    /// <li> <p>Must be a unique map resource name. </p> </li> 
+    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li> 
     /// </ul>
     pub map_name: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the <code>MapConfiguration</code>, including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.</p>
@@ -18,55 +18,55 @@ pub struct CreateMapInput {
     pub pricing_plan: ::std::option::Option<crate::types::PricingPlan>,
     /// <p>An optional description for the map resource.</p>
     pub description: ::std::option::Option<::std::string::String>,
-    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p>
-    /// <p>Format: <code>"key" : "value"</code> </p>
-    /// <p>Restrictions:</p>
-    /// <ul>
-    /// <li> <p>Maximum 50 tags per resource</p> </li>
-    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li>
-    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li>
-    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li>
+    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> 
+    /// <p>Format: <code>"key" : "value"</code> </p> 
+    /// <p>Restrictions:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum 50 tags per resource</p> </li> 
+    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> 
+    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li> 
+    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li> 
     /// </ul>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
 }
-impl CreateMapInput {
-    /// <p>The name for the map resource.</p>
-    /// <p>Requirements:</p>
-    /// <ul>
-    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li>
-    /// <li> <p>Must be a unique map resource name. </p> </li>
-    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li>
+impl  CreateMapInput  {
+    /// <p>The name for the map resource.</p> 
+    /// <p>Requirements:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> 
+    /// <li> <p>Must be a unique map resource name. </p> </li> 
+    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li> 
     /// </ul>
-    pub fn map_name(&self) -> ::std::option::Option<&str> {
+    pub fn map_name(&self) -> ::std::option::Option<& str> {
         self.map_name.as_deref()
     }
     /// <p>Specifies the <code>MapConfiguration</code>, including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.</p>
-    pub fn configuration(&self) -> ::std::option::Option<&crate::types::MapConfiguration> {
+    pub fn configuration(&self) -> ::std::option::Option<& crate::types::MapConfiguration> {
         self.configuration.as_ref()
     }
     /// <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
     #[deprecated(note = "Deprecated. If included, the only allowed value is RequestBasedUsage.", since = "2022-02-01")]
-    pub fn pricing_plan(&self) -> ::std::option::Option<&crate::types::PricingPlan> {
+    pub fn pricing_plan(&self) -> ::std::option::Option<& crate::types::PricingPlan> {
         self.pricing_plan.as_ref()
     }
     /// <p>An optional description for the map resource.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
-    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p>
-    /// <p>Format: <code>"key" : "value"</code> </p>
-    /// <p>Restrictions:</p>
-    /// <ul>
-    /// <li> <p>Maximum 50 tags per resource</p> </li>
-    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li>
-    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li>
-    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li>
+    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> 
+    /// <p>Format: <code>"key" : "value"</code> </p> 
+    /// <p>Restrictions:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum 50 tags per resource</p> </li> 
+    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> 
+    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li> 
+    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li> 
     /// </ul>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -85,38 +85,37 @@ pub struct CreateMapInputBuilder {
     pub(crate) configuration: ::std::option::Option<crate::types::MapConfiguration>,
     pub(crate) pricing_plan: ::std::option::Option<crate::types::PricingPlan>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
 }
 impl CreateMapInputBuilder {
-    /// <p>The name for the map resource.</p>
-    /// <p>Requirements:</p>
-    /// <ul>
-    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li>
-    /// <li> <p>Must be a unique map resource name. </p> </li>
-    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li>
+    /// <p>The name for the map resource.</p> 
+    /// <p>Requirements:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> 
+    /// <li> <p>Must be a unique map resource name. </p> </li> 
+    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn map_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.map_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name for the map resource.</p>
-    /// <p>Requirements:</p>
-    /// <ul>
-    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li>
-    /// <li> <p>Must be a unique map resource name. </p> </li>
-    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li>
+    /// <p>The name for the map resource.</p> 
+    /// <p>Requirements:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> 
+    /// <li> <p>Must be a unique map resource name. </p> </li> 
+    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li> 
     /// </ul>
     pub fn set_map_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.map_name = input;
-        self
+        self.map_name = input; self
     }
-    /// <p>The name for the map resource.</p>
-    /// <p>Requirements:</p>
-    /// <ul>
-    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li>
-    /// <li> <p>Must be a unique map resource name. </p> </li>
-    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li>
+    /// <p>The name for the map resource.</p> 
+    /// <p>Requirements:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> 
+    /// <li> <p>Must be a unique map resource name. </p> </li> 
+    /// <li> <p>No spaces allowed. For example, <code>ExampleMap</code>.</p> </li> 
     /// </ul>
     pub fn get_map_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.map_name
@@ -129,8 +128,7 @@ impl CreateMapInputBuilder {
     }
     /// <p>Specifies the <code>MapConfiguration</code>, including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.</p>
     pub fn set_configuration(mut self, input: ::std::option::Option<crate::types::MapConfiguration>) -> Self {
-        self.configuration = input;
-        self
+        self.configuration = input; self
     }
     /// <p>Specifies the <code>MapConfiguration</code>, including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.</p>
     pub fn get_configuration(&self) -> &::std::option::Option<crate::types::MapConfiguration> {
@@ -145,8 +143,7 @@ impl CreateMapInputBuilder {
     /// <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
     #[deprecated(note = "Deprecated. If included, the only allowed value is RequestBasedUsage.", since = "2022-02-01")]
     pub fn set_pricing_plan(mut self, input: ::std::option::Option<crate::types::PricingPlan>) -> Self {
-        self.pricing_plan = input;
-        self
+        self.pricing_plan = input; self
     }
     /// <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
     #[deprecated(note = "Deprecated. If included, the only allowed value is RequestBasedUsage.", since = "2022-02-01")]
@@ -160,8 +157,7 @@ impl CreateMapInputBuilder {
     }
     /// <p>An optional description for the map resource.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>An optional description for the map resource.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -171,60 +167,67 @@ impl CreateMapInputBuilder {
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
-    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p>
-    /// <p>Format: <code>"key" : "value"</code> </p>
-    /// <p>Restrictions:</p>
-    /// <ul>
-    /// <li> <p>Maximum 50 tags per resource</p> </li>
-    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li>
-    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li>
-    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li>
+    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> 
+    /// <p>Format: <code>"key" : "value"</code> </p> 
+    /// <p>Restrictions:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum 50 tags per resource</p> </li> 
+    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> 
+    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li> 
+    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li> 
     /// </ul>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.tags = ::std::option::Option::Some(hash_map);
+                        self
     }
-    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p>
-    /// <p>Format: <code>"key" : "value"</code> </p>
-    /// <p>Restrictions:</p>
-    /// <ul>
-    /// <li> <p>Maximum 50 tags per resource</p> </li>
-    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li>
-    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li>
-    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li>
+    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> 
+    /// <p>Format: <code>"key" : "value"</code> </p> 
+    /// <p>Restrictions:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum 50 tags per resource</p> </li> 
+    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> 
+    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li> 
+    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li> 
     /// </ul>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input; self
     }
-    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p>
-    /// <p>Format: <code>"key" : "value"</code> </p>
-    /// <p>Restrictions:</p>
-    /// <ul>
-    /// <li> <p>Maximum 50 tags per resource</p> </li>
-    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li>
-    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li>
-    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li>
-    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li>
+    /// <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> 
+    /// <p>Format: <code>"key" : "value"</code> </p> 
+    /// <p>Restrictions:</p> 
+    /// <ul> 
+    /// <li> <p>Maximum 50 tags per resource</p> </li> 
+    /// <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> 
+    /// <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> 
+    /// <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li> 
+    /// <li> <p>Cannot use "aws:" as a prefix for a key.</p> </li> 
     /// </ul>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateMapInput`](crate::operation::create_map::CreateMapInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::create_map::CreateMapInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_map::CreateMapInput {
-            map_name: self.map_name,
-            configuration: self.configuration,
-            pricing_plan: self.pricing_plan,
-            description: self.description,
-            tags: self.tags,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::create_map::CreateMapInput {
+                map_name: self.map_name
+                ,
+                configuration: self.configuration
+                ,
+                pricing_plan: self.pricing_plan
+                ,
+                description: self.description
+                ,
+                tags: self.tags
+                ,
+            }
+        )
     }
 }
+

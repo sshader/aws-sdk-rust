@@ -3,24 +3,22 @@
 /// <p>Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct TimestreamTimestamp {
+pub struct TimestreamTimestamp  {
     /// <p>An expression that returns a long epoch time value.</p>
     pub value: ::std::string::String,
-    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p>
+    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p> 
     /// <p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>
     pub unit: ::std::string::String,
 }
-impl TimestreamTimestamp {
+impl  TimestreamTimestamp  {
     /// <p>An expression that returns a long epoch time value.</p>
-    pub fn value(&self) -> &str {
-        use std::ops::Deref;
-        self.value.deref()
+    pub fn value(&self) -> & str {
+        use std::ops::Deref; self.value.deref()
     }
-    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p>
+    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p> 
     /// <p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>
-    pub fn unit(&self) -> &str {
-        use std::ops::Deref;
-        self.unit.deref()
+    pub fn unit(&self) -> & str {
+        use std::ops::Deref; self.unit.deref()
     }
 }
 impl TimestreamTimestamp {
@@ -46,27 +44,25 @@ impl TimestreamTimestampBuilder {
     }
     /// <p>An expression that returns a long epoch time value.</p>
     pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.value = input;
-        self
+        self.value = input; self
     }
     /// <p>An expression that returns a long epoch time value.</p>
     pub fn get_value(&self) -> &::std::option::Option<::std::string::String> {
         &self.value
     }
-    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p>
+    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p> 
     /// <p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>
     /// This field is required.
     pub fn unit(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.unit = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p>
+    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p> 
     /// <p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>
     pub fn set_unit(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.unit = input;
-        self
+        self.unit = input; self
     }
-    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p>
+    /// <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p> 
     /// <p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>
     pub fn get_unit(&self) -> &::std::option::Option<::std::string::String> {
         &self.unit
@@ -76,19 +72,20 @@ impl TimestreamTimestampBuilder {
     /// - [`value`](crate::types::builders::TimestreamTimestampBuilder::value)
     /// - [`unit`](crate::types::builders::TimestreamTimestampBuilder::unit)
     pub fn build(self) -> ::std::result::Result<crate::types::TimestreamTimestamp, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::TimestreamTimestamp {
-            value: self.value.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "value",
-                    "value was not specified but it is required when building TimestreamTimestamp",
-                )
-            })?,
-            unit: self.unit.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "unit",
-                    "unit was not specified but it is required when building TimestreamTimestamp",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::TimestreamTimestamp {
+                value: self.value
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("value", "value was not specified but it is required when building TimestreamTimestamp")
+                    )?
+                ,
+                unit: self.unit
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("unit", "unit was not specified but it is required when building TimestreamTimestamp")
+                    )?
+                ,
+            }
+        )
     }
 }
+

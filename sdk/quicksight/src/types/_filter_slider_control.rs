@@ -3,7 +3,7 @@
 /// <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct FilterSliderControl {
+pub struct FilterSliderControl  {
     /// <p>The ID of the <code>FilterSliderControl</code>.</p>
     pub filter_control_id: ::std::string::String,
     /// <p>The title of the <code>FilterSliderControl</code>.</p>
@@ -12,10 +12,10 @@ pub struct FilterSliderControl {
     pub source_filter_id: ::std::string::String,
     /// <p>The display options of a control.</p>
     pub display_options: ::std::option::Option<crate::types::SliderControlDisplayOptions>,
-    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li>
-    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li>
+    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li> 
+    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li> 
     /// </ul>
     pub r#type: ::std::option::Option<crate::types::SheetControlSliderType>,
     /// <p>The smaller value that is displayed at the left of the slider.</p>
@@ -25,32 +25,29 @@ pub struct FilterSliderControl {
     /// <p>The number of increments that the slider bar is divided into.</p>
     pub step_size: f64,
 }
-impl FilterSliderControl {
+impl  FilterSliderControl  {
     /// <p>The ID of the <code>FilterSliderControl</code>.</p>
-    pub fn filter_control_id(&self) -> &str {
-        use std::ops::Deref;
-        self.filter_control_id.deref()
+    pub fn filter_control_id(&self) -> & str {
+        use std::ops::Deref; self.filter_control_id.deref()
     }
     /// <p>The title of the <code>FilterSliderControl</code>.</p>
-    pub fn title(&self) -> &str {
-        use std::ops::Deref;
-        self.title.deref()
+    pub fn title(&self) -> & str {
+        use std::ops::Deref; self.title.deref()
     }
     /// <p>The source filter ID of the <code>FilterSliderControl</code>.</p>
-    pub fn source_filter_id(&self) -> &str {
-        use std::ops::Deref;
-        self.source_filter_id.deref()
+    pub fn source_filter_id(&self) -> & str {
+        use std::ops::Deref; self.source_filter_id.deref()
     }
     /// <p>The display options of a control.</p>
-    pub fn display_options(&self) -> ::std::option::Option<&crate::types::SliderControlDisplayOptions> {
+    pub fn display_options(&self) -> ::std::option::Option<& crate::types::SliderControlDisplayOptions> {
         self.display_options.as_ref()
     }
-    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li>
-    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li>
+    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li> 
+    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::SheetControlSliderType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::SheetControlSliderType> {
         self.r#type.as_ref()
     }
     /// <p>The smaller value that is displayed at the left of the slider.</p>
@@ -95,8 +92,7 @@ impl FilterSliderControlBuilder {
     }
     /// <p>The ID of the <code>FilterSliderControl</code>.</p>
     pub fn set_filter_control_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.filter_control_id = input;
-        self
+        self.filter_control_id = input; self
     }
     /// <p>The ID of the <code>FilterSliderControl</code>.</p>
     pub fn get_filter_control_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -110,8 +106,7 @@ impl FilterSliderControlBuilder {
     }
     /// <p>The title of the <code>FilterSliderControl</code>.</p>
     pub fn set_title(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.title = input;
-        self
+        self.title = input; self
     }
     /// <p>The title of the <code>FilterSliderControl</code>.</p>
     pub fn get_title(&self) -> &::std::option::Option<::std::string::String> {
@@ -125,8 +120,7 @@ impl FilterSliderControlBuilder {
     }
     /// <p>The source filter ID of the <code>FilterSliderControl</code>.</p>
     pub fn set_source_filter_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.source_filter_id = input;
-        self
+        self.source_filter_id = input; self
     }
     /// <p>The source filter ID of the <code>FilterSliderControl</code>.</p>
     pub fn get_source_filter_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -139,35 +133,33 @@ impl FilterSliderControlBuilder {
     }
     /// <p>The display options of a control.</p>
     pub fn set_display_options(mut self, input: ::std::option::Option<crate::types::SliderControlDisplayOptions>) -> Self {
-        self.display_options = input;
-        self
+        self.display_options = input; self
     }
     /// <p>The display options of a control.</p>
     pub fn get_display_options(&self) -> &::std::option::Option<crate::types::SliderControlDisplayOptions> {
         &self.display_options
     }
-    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li>
-    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li>
+    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li> 
+    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: crate::types::SheetControlSliderType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li>
-    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li>
+    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li> 
+    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::SheetControlSliderType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li>
-    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li>
+    /// <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p> </li> 
+    /// <li> <p> <code>RANGE</code>: Filter data that is in a specified range.</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::SheetControlSliderType> {
         &self.r#type
@@ -180,8 +172,7 @@ impl FilterSliderControlBuilder {
     }
     /// <p>The smaller value that is displayed at the left of the slider.</p>
     pub fn set_maximum_value(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.maximum_value = input;
-        self
+        self.maximum_value = input; self
     }
     /// <p>The smaller value that is displayed at the left of the slider.</p>
     pub fn get_maximum_value(&self) -> &::std::option::Option<f64> {
@@ -195,8 +186,7 @@ impl FilterSliderControlBuilder {
     }
     /// <p>The larger value that is displayed at the right of the slider.</p>
     pub fn set_minimum_value(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.minimum_value = input;
-        self
+        self.minimum_value = input; self
     }
     /// <p>The larger value that is displayed at the right of the slider.</p>
     pub fn get_minimum_value(&self) -> &::std::option::Option<f64> {
@@ -210,8 +200,7 @@ impl FilterSliderControlBuilder {
     }
     /// <p>The number of increments that the slider bar is divided into.</p>
     pub fn set_step_size(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.step_size = input;
-        self
+        self.step_size = input; self
     }
     /// <p>The number of increments that the slider bar is divided into.</p>
     pub fn get_step_size(&self) -> &::std::option::Option<f64> {
@@ -223,30 +212,38 @@ impl FilterSliderControlBuilder {
     /// - [`title`](crate::types::builders::FilterSliderControlBuilder::title)
     /// - [`source_filter_id`](crate::types::builders::FilterSliderControlBuilder::source_filter_id)
     pub fn build(self) -> ::std::result::Result<crate::types::FilterSliderControl, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::FilterSliderControl {
-            filter_control_id: self.filter_control_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "filter_control_id",
-                    "filter_control_id was not specified but it is required when building FilterSliderControl",
-                )
-            })?,
-            title: self.title.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "title",
-                    "title was not specified but it is required when building FilterSliderControl",
-                )
-            })?,
-            source_filter_id: self.source_filter_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "source_filter_id",
-                    "source_filter_id was not specified but it is required when building FilterSliderControl",
-                )
-            })?,
-            display_options: self.display_options,
-            r#type: self.r#type,
-            maximum_value: self.maximum_value.unwrap_or_default(),
-            minimum_value: self.minimum_value.unwrap_or_default(),
-            step_size: self.step_size.unwrap_or_default(),
-        })
+        ::std::result::Result::Ok(
+            crate::types::FilterSliderControl {
+                filter_control_id: self.filter_control_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("filter_control_id", "filter_control_id was not specified but it is required when building FilterSliderControl")
+                    )?
+                ,
+                title: self.title
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("title", "title was not specified but it is required when building FilterSliderControl")
+                    )?
+                ,
+                source_filter_id: self.source_filter_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("source_filter_id", "source_filter_id was not specified but it is required when building FilterSliderControl")
+                    )?
+                ,
+                display_options: self.display_options
+                ,
+                r#type: self.r#type
+                ,
+                maximum_value: self.maximum_value
+                    .unwrap_or_default()
+                ,
+                minimum_value: self.minimum_value
+                    .unwrap_or_default()
+                ,
+                step_size: self.step_size
+                    .unwrap_or_default()
+                ,
+            }
+        )
     }
 }
+

@@ -3,7 +3,7 @@
 /// <p>The configuration of a word cloud visual.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct WordCloudChartConfiguration {
+pub struct WordCloudChartConfiguration  {
     /// <p>The field wells of the visual.</p>
     pub field_wells: ::std::option::Option<crate::types::WordCloudFieldWells>,
     /// <p>The sort configuration of a word cloud visual.</p>
@@ -13,21 +13,21 @@ pub struct WordCloudChartConfiguration {
     /// <p>The options for a word cloud visual.</p>
     pub word_cloud_options: ::std::option::Option<crate::types::WordCloudOptions>,
 }
-impl WordCloudChartConfiguration {
+impl  WordCloudChartConfiguration  {
     /// <p>The field wells of the visual.</p>
-    pub fn field_wells(&self) -> ::std::option::Option<&crate::types::WordCloudFieldWells> {
+    pub fn field_wells(&self) -> ::std::option::Option<& crate::types::WordCloudFieldWells> {
         self.field_wells.as_ref()
     }
     /// <p>The sort configuration of a word cloud visual.</p>
-    pub fn sort_configuration(&self) -> ::std::option::Option<&crate::types::WordCloudSortConfiguration> {
+    pub fn sort_configuration(&self) -> ::std::option::Option<& crate::types::WordCloudSortConfiguration> {
         self.sort_configuration.as_ref()
     }
     /// <p>The label options (label text, label visibility, and sort icon visibility) for the word cloud category.</p>
-    pub fn category_label_options(&self) -> ::std::option::Option<&crate::types::ChartAxisLabelOptions> {
+    pub fn category_label_options(&self) -> ::std::option::Option<& crate::types::ChartAxisLabelOptions> {
         self.category_label_options.as_ref()
     }
     /// <p>The options for a word cloud visual.</p>
-    pub fn word_cloud_options(&self) -> ::std::option::Option<&crate::types::WordCloudOptions> {
+    pub fn word_cloud_options(&self) -> ::std::option::Option<& crate::types::WordCloudOptions> {
         self.word_cloud_options.as_ref()
     }
 }
@@ -55,8 +55,7 @@ impl WordCloudChartConfigurationBuilder {
     }
     /// <p>The field wells of the visual.</p>
     pub fn set_field_wells(mut self, input: ::std::option::Option<crate::types::WordCloudFieldWells>) -> Self {
-        self.field_wells = input;
-        self
+        self.field_wells = input; self
     }
     /// <p>The field wells of the visual.</p>
     pub fn get_field_wells(&self) -> &::std::option::Option<crate::types::WordCloudFieldWells> {
@@ -69,8 +68,7 @@ impl WordCloudChartConfigurationBuilder {
     }
     /// <p>The sort configuration of a word cloud visual.</p>
     pub fn set_sort_configuration(mut self, input: ::std::option::Option<crate::types::WordCloudSortConfiguration>) -> Self {
-        self.sort_configuration = input;
-        self
+        self.sort_configuration = input; self
     }
     /// <p>The sort configuration of a word cloud visual.</p>
     pub fn get_sort_configuration(&self) -> &::std::option::Option<crate::types::WordCloudSortConfiguration> {
@@ -83,8 +81,7 @@ impl WordCloudChartConfigurationBuilder {
     }
     /// <p>The label options (label text, label visibility, and sort icon visibility) for the word cloud category.</p>
     pub fn set_category_label_options(mut self, input: ::std::option::Option<crate::types::ChartAxisLabelOptions>) -> Self {
-        self.category_label_options = input;
-        self
+        self.category_label_options = input; self
     }
     /// <p>The label options (label text, label visibility, and sort icon visibility) for the word cloud category.</p>
     pub fn get_category_label_options(&self) -> &::std::option::Option<crate::types::ChartAxisLabelOptions> {
@@ -97,8 +94,7 @@ impl WordCloudChartConfigurationBuilder {
     }
     /// <p>The options for a word cloud visual.</p>
     pub fn set_word_cloud_options(mut self, input: ::std::option::Option<crate::types::WordCloudOptions>) -> Self {
-        self.word_cloud_options = input;
-        self
+        self.word_cloud_options = input; self
     }
     /// <p>The options for a word cloud visual.</p>
     pub fn get_word_cloud_options(&self) -> &::std::option::Option<crate::types::WordCloudOptions> {
@@ -107,10 +103,15 @@ impl WordCloudChartConfigurationBuilder {
     /// Consumes the builder and constructs a [`WordCloudChartConfiguration`](crate::types::WordCloudChartConfiguration).
     pub fn build(self) -> crate::types::WordCloudChartConfiguration {
         crate::types::WordCloudChartConfiguration {
-            field_wells: self.field_wells,
-            sort_configuration: self.sort_configuration,
-            category_label_options: self.category_label_options,
-            word_cloud_options: self.word_cloud_options,
+            field_wells: self.field_wells
+            ,
+            sort_configuration: self.sort_configuration
+            ,
+            category_label_options: self.category_label_options
+            ,
+            word_cloud_options: self.word_cloud_options
+            ,
         }
     }
 }
+

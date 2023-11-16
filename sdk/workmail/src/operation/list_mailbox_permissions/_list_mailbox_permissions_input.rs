@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListMailboxPermissionsInput {
+pub struct ListMailboxPermissionsInput  {
     /// <p>The identifier of the organization under which the user, group, or resource exists.</p>
     pub organization_id: ::std::option::Option<::std::string::String>,
-    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p>
-    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p> 
+    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     pub entity_id: ::std::option::Option<::std::string::String>,
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
@@ -18,23 +18,23 @@ pub struct ListMailboxPermissionsInput {
     /// <p>The maximum number of results to return in a single call.</p>
     pub max_results: ::std::option::Option<i32>,
 }
-impl ListMailboxPermissionsInput {
+impl  ListMailboxPermissionsInput  {
     /// <p>The identifier of the organization under which the user, group, or resource exists.</p>
-    pub fn organization_id(&self) -> ::std::option::Option<&str> {
+    pub fn organization_id(&self) -> ::std::option::Option<& str> {
         self.organization_id.as_deref()
     }
-    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p>
-    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p> 
+    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
-    pub fn entity_id(&self) -> ::std::option::Option<&str> {
+    pub fn entity_id(&self) -> ::std::option::Option<& str> {
         self.entity_id.as_deref()
     }
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// <p>The maximum number of results to return in a single call.</p>
@@ -67,42 +67,40 @@ impl ListMailboxPermissionsInputBuilder {
     }
     /// <p>The identifier of the organization under which the user, group, or resource exists.</p>
     pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.organization_id = input;
-        self
+        self.organization_id = input; self
     }
     /// <p>The identifier of the organization under which the user, group, or resource exists.</p>
     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_id
     }
-    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p>
-    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p> 
+    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn entity_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.entity_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p>
-    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p> 
+    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     pub fn set_entity_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.entity_id = input;
-        self
+        self.entity_id = input; self
     }
-    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p>
-    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p>
-    /// <ul>
-    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li>
-    /// <li> <p>Email address: entity@domain.tld</p> </li>
-    /// <li> <p>Entity name: entity</p> </li>
+    /// <p>The identifier of the user, or resource for which to list mailbox permissions.</p> 
+    /// <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p> 
+    /// <ul> 
+    /// <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li> 
+    /// <li> <p>Email address: entity@domain.tld</p> </li> 
+    /// <li> <p>Entity name: entity</p> </li> 
     /// </ul>
     pub fn get_entity_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.entity_id
@@ -114,8 +112,7 @@ impl ListMailboxPermissionsInputBuilder {
     }
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -128,25 +125,26 @@ impl ListMailboxPermissionsInputBuilder {
     }
     /// <p>The maximum number of results to return in a single call.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of results to return in a single call.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
     }
     /// Consumes the builder and constructs a [`ListMailboxPermissionsInput`](crate::operation::list_mailbox_permissions::ListMailboxPermissionsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_mailbox_permissions::ListMailboxPermissionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::list_mailbox_permissions::ListMailboxPermissionsInput {
-            organization_id: self.organization_id,
-            entity_id: self.entity_id,
-            next_token: self.next_token,
-            max_results: self.max_results,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_mailbox_permissions::ListMailboxPermissionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_mailbox_permissions::ListMailboxPermissionsInput {
+                organization_id: self.organization_id
+                ,
+                entity_id: self.entity_id
+                ,
+                next_token: self.next_token
+                ,
+                max_results: self.max_results
+                ,
+            }
+        )
     }
 }
+

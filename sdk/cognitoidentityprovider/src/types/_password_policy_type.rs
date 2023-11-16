@@ -3,7 +3,7 @@
 /// <p>The password policy type.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PasswordPolicyType {
+pub struct PasswordPolicyType  {
     /// <p>The minimum length of the password in the policy that you have set. This value can't be less than 6.</p>
     pub minimum_length: ::std::option::Option<i32>,
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.</p>
@@ -14,12 +14,12 @@ pub struct PasswordPolicyType {
     pub require_numbers: bool,
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.</p>
     pub require_symbols: bool,
-    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note>
-    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p>
+    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note> 
+    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p> 
     /// </note>
     pub temporary_password_validity_days: i32,
 }
-impl PasswordPolicyType {
+impl  PasswordPolicyType  {
     /// <p>The minimum length of the password in the policy that you have set. This value can't be less than 6.</p>
     pub fn minimum_length(&self) -> ::std::option::Option<i32> {
         self.minimum_length
@@ -40,8 +40,8 @@ impl PasswordPolicyType {
     pub fn require_symbols(&self) -> bool {
         self.require_symbols
     }
-    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note>
-    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p>
+    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note> 
+    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p> 
     /// </note>
     pub fn temporary_password_validity_days(&self) -> i32 {
         self.temporary_password_validity_days
@@ -73,8 +73,7 @@ impl PasswordPolicyTypeBuilder {
     }
     /// <p>The minimum length of the password in the policy that you have set. This value can't be less than 6.</p>
     pub fn set_minimum_length(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.minimum_length = input;
-        self
+        self.minimum_length = input; self
     }
     /// <p>The minimum length of the password in the policy that you have set. This value can't be less than 6.</p>
     pub fn get_minimum_length(&self) -> &::std::option::Option<i32> {
@@ -87,8 +86,7 @@ impl PasswordPolicyTypeBuilder {
     }
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.</p>
     pub fn set_require_uppercase(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.require_uppercase = input;
-        self
+        self.require_uppercase = input; self
     }
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.</p>
     pub fn get_require_uppercase(&self) -> &::std::option::Option<bool> {
@@ -101,8 +99,7 @@ impl PasswordPolicyTypeBuilder {
     }
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.</p>
     pub fn set_require_lowercase(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.require_lowercase = input;
-        self
+        self.require_lowercase = input; self
     }
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.</p>
     pub fn get_require_lowercase(&self) -> &::std::option::Option<bool> {
@@ -115,8 +112,7 @@ impl PasswordPolicyTypeBuilder {
     }
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one number in their password.</p>
     pub fn set_require_numbers(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.require_numbers = input;
-        self
+        self.require_numbers = input; self
     }
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one number in their password.</p>
     pub fn get_require_numbers(&self) -> &::std::option::Option<bool> {
@@ -129,29 +125,27 @@ impl PasswordPolicyTypeBuilder {
     }
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.</p>
     pub fn set_require_symbols(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.require_symbols = input;
-        self
+        self.require_symbols = input; self
     }
     /// <p>In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.</p>
     pub fn get_require_symbols(&self) -> &::std::option::Option<bool> {
         &self.require_symbols
     }
-    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note>
-    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p>
+    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note> 
+    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p> 
     /// </note>
     pub fn temporary_password_validity_days(mut self, input: i32) -> Self {
         self.temporary_password_validity_days = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note>
-    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p>
+    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note> 
+    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p> 
     /// </note>
     pub fn set_temporary_password_validity_days(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.temporary_password_validity_days = input;
-        self
+        self.temporary_password_validity_days = input; self
     }
-    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note>
-    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p>
+    /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password.</p> <note> 
+    /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p> 
     /// </note>
     pub fn get_temporary_password_validity_days(&self) -> &::std::option::Option<i32> {
         &self.temporary_password_validity_days
@@ -159,12 +153,24 @@ impl PasswordPolicyTypeBuilder {
     /// Consumes the builder and constructs a [`PasswordPolicyType`](crate::types::PasswordPolicyType).
     pub fn build(self) -> crate::types::PasswordPolicyType {
         crate::types::PasswordPolicyType {
-            minimum_length: self.minimum_length,
-            require_uppercase: self.require_uppercase.unwrap_or_default(),
-            require_lowercase: self.require_lowercase.unwrap_or_default(),
-            require_numbers: self.require_numbers.unwrap_or_default(),
-            require_symbols: self.require_symbols.unwrap_or_default(),
-            temporary_password_validity_days: self.temporary_password_validity_days.unwrap_or_default(),
+            minimum_length: self.minimum_length
+            ,
+            require_uppercase: self.require_uppercase
+                .unwrap_or_default()
+            ,
+            require_lowercase: self.require_lowercase
+                .unwrap_or_default()
+            ,
+            require_numbers: self.require_numbers
+                .unwrap_or_default()
+            ,
+            require_symbols: self.require_symbols
+                .unwrap_or_default()
+            ,
+            temporary_password_validity_days: self.temporary_password_validity_days
+                .unwrap_or_default()
+            ,
         }
     }
 }
+

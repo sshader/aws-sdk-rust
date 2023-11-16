@@ -5,56 +5,52 @@ pub use crate::operation::create_maintenance_window::_create_maintenance_window_
 
 impl CreateMaintenanceWindowInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_maintenance_window::CreateMaintenanceWindowError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_maintenance_window();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_maintenance_window::CreateMaintenanceWindowError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_maintenance_window();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateMaintenanceWindow`.
-///
-/// <p>Creates a new maintenance window.</p> <note>
-/// <p>The value you specify for <code>Duration</code> determines the specific end time for the maintenance window based on the time it begins. No maintenance window tasks are permitted to start after the resulting endtime minus the number of hours you specify for <code>Cutoff</code>. For example, if the maintenance window starts at 3 PM, the duration is three hours, and the value you specify for <code>Cutoff</code> is one hour, no maintenance window tasks can start after 5 PM.</p>
+/// 
+/// <p>Creates a new maintenance window.</p> <note> 
+/// <p>The value you specify for <code>Duration</code> determines the specific end time for the maintenance window based on the time it begins. No maintenance window tasks are permitted to start after the resulting endtime minus the number of hours you specify for <code>Cutoff</code>. For example, if the maintenance window starts at 3 PM, the duration is three hours, and the value you specify for <code>Cutoff</code> is one hour, no maintenance window tasks can start after 5 PM.</p> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateMaintenanceWindowFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_maintenance_window::builders::CreateMaintenanceWindowInputBuilder,
+                    inner: crate::operation::create_maintenance_window::builders::CreateMaintenanceWindowInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput,
-        crate::operation::create_maintenance_window::CreateMaintenanceWindowError,
-    > for CreateMaintenanceWindowFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput,
-            crate::operation::create_maintenance_window::CreateMaintenanceWindowError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput,
+                    crate::operation::create_maintenance_window::CreateMaintenanceWindowError,
+                > for CreateMaintenanceWindowFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput,
+                        crate::operation::create_maintenance_window::CreateMaintenanceWindowError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateMaintenanceWindowFluentBuilder {
     /// Creates a new `CreateMaintenanceWindow`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -63,53 +59,44 @@ impl CreateMaintenanceWindowFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_maintenance_window::CreateMaintenanceWindowError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_maintenance_window::CreateMaintenanceWindow::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_maintenance_window::CreateMaintenanceWindow::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput,
-        crate::operation::create_maintenance_window::CreateMaintenanceWindowError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_maintenance_window::CreateMaintenanceWindowError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_maintenance_window::CreateMaintenanceWindow::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_maintenance_window::CreateMaintenanceWindow::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_maintenance_window::CreateMaintenanceWindowOutput, crate::operation::create_maintenance_window::CreateMaintenanceWindowError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name of the maintenance window.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.name(input.into());
@@ -194,25 +181,25 @@ impl CreateMaintenanceWindowFluentBuilder {
     pub fn get_schedule_timezone(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_schedule_timezone()
     }
-    /// <p>The number of days to wait after the date and time specified by a cron expression before running the maintenance window.</p>
-    /// <p>For example, the following cron expression schedules a maintenance window to run on the third Tuesday of every month at 11:30 PM.</p>
-    /// <p> <code>cron(30 23 ? * TUE#3 *)</code> </p>
+    /// <p>The number of days to wait after the date and time specified by a cron expression before running the maintenance window.</p> 
+    /// <p>For example, the following cron expression schedules a maintenance window to run on the third Tuesday of every month at 11:30 PM.</p> 
+    /// <p> <code>cron(30 23 ? * TUE#3 *)</code> </p> 
     /// <p>If the schedule offset is <code>2</code>, the maintenance window won't run until two days later.</p>
     pub fn schedule_offset(mut self, input: i32) -> Self {
         self.inner = self.inner.schedule_offset(input);
         self
     }
-    /// <p>The number of days to wait after the date and time specified by a cron expression before running the maintenance window.</p>
-    /// <p>For example, the following cron expression schedules a maintenance window to run on the third Tuesday of every month at 11:30 PM.</p>
-    /// <p> <code>cron(30 23 ? * TUE#3 *)</code> </p>
+    /// <p>The number of days to wait after the date and time specified by a cron expression before running the maintenance window.</p> 
+    /// <p>For example, the following cron expression schedules a maintenance window to run on the third Tuesday of every month at 11:30 PM.</p> 
+    /// <p> <code>cron(30 23 ? * TUE#3 *)</code> </p> 
     /// <p>If the schedule offset is <code>2</code>, the maintenance window won't run until two days later.</p>
     pub fn set_schedule_offset(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_schedule_offset(input);
         self
     }
-    /// <p>The number of days to wait after the date and time specified by a cron expression before running the maintenance window.</p>
-    /// <p>For example, the following cron expression schedules a maintenance window to run on the third Tuesday of every month at 11:30 PM.</p>
-    /// <p> <code>cron(30 23 ? * TUE#3 *)</code> </p>
+    /// <p>The number of days to wait after the date and time specified by a cron expression before running the maintenance window.</p> 
+    /// <p>For example, the following cron expression schedules a maintenance window to run on the third Tuesday of every month at 11:30 PM.</p> 
+    /// <p> <code>cron(30 23 ? * TUE#3 *)</code> </p> 
     /// <p>If the schedule offset is <code>2</code>, the maintenance window won't run until two days later.</p>
     pub fn get_schedule_offset(&self) -> &::std::option::Option<i32> {
         self.inner.get_schedule_offset()
@@ -245,19 +232,19 @@ impl CreateMaintenanceWindowFluentBuilder {
     pub fn get_cutoff(&self) -> &::std::option::Option<i32> {
         self.inner.get_cutoff()
     }
-    /// <p>Enables a maintenance window task to run on managed nodes, even if you haven't registered those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by node ID) when you register a task with the maintenance window.</p>
+    /// <p>Enables a maintenance window task to run on managed nodes, even if you haven't registered those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by node ID) when you register a task with the maintenance window.</p> 
     /// <p>If you don't enable this option, then you must specify previously-registered targets when you register a task with the maintenance window.</p>
     pub fn allow_unassociated_targets(mut self, input: bool) -> Self {
         self.inner = self.inner.allow_unassociated_targets(input);
         self
     }
-    /// <p>Enables a maintenance window task to run on managed nodes, even if you haven't registered those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by node ID) when you register a task with the maintenance window.</p>
+    /// <p>Enables a maintenance window task to run on managed nodes, even if you haven't registered those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by node ID) when you register a task with the maintenance window.</p> 
     /// <p>If you don't enable this option, then you must specify previously-registered targets when you register a task with the maintenance window.</p>
     pub fn set_allow_unassociated_targets(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_allow_unassociated_targets(input);
         self
     }
-    /// <p>Enables a maintenance window task to run on managed nodes, even if you haven't registered those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by node ID) when you register a task with the maintenance window.</p>
+    /// <p>Enables a maintenance window task to run on managed nodes, even if you haven't registered those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by node ID) when you register a task with the maintenance window.</p> 
     /// <p>If you don't enable this option, then you must specify previously-registered targets when you register a task with the maintenance window.</p>
     pub fn get_allow_unassociated_targets(&self) -> &::std::option::Option<bool> {
         self.inner.get_allow_unassociated_targets()
@@ -280,39 +267,40 @@ impl CreateMaintenanceWindowFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
-    /// <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key-value pairs:</p>
-    /// <ul>
-    /// <li> <p> <code>Key=TaskType,Value=AgentUpdate</code> </p> </li>
-    /// <li> <p> <code>Key=OS,Value=Windows</code> </p> </li>
-    /// <li> <p> <code>Key=Environment,Value=Production</code> </p> </li>
-    /// </ul> <note>
-    /// <p>To add tags to an existing maintenance window, use the <code>AddTagsToResource</code> operation.</p>
+    /// <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key-value pairs:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Key=TaskType,Value=AgentUpdate</code> </p> </li> 
+    /// <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> 
+    /// <li> <p> <code>Key=Environment,Value=Production</code> </p> </li> 
+    /// </ul> <note> 
+    /// <p>To add tags to an existing maintenance window, use the <code>AddTagsToResource</code> operation.</p> 
     /// </note>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         self.inner = self.inner.tags(input);
         self
     }
-    /// <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key-value pairs:</p>
-    /// <ul>
-    /// <li> <p> <code>Key=TaskType,Value=AgentUpdate</code> </p> </li>
-    /// <li> <p> <code>Key=OS,Value=Windows</code> </p> </li>
-    /// <li> <p> <code>Key=Environment,Value=Production</code> </p> </li>
-    /// </ul> <note>
-    /// <p>To add tags to an existing maintenance window, use the <code>AddTagsToResource</code> operation.</p>
+    /// <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key-value pairs:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Key=TaskType,Value=AgentUpdate</code> </p> </li> 
+    /// <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> 
+    /// <li> <p> <code>Key=Environment,Value=Production</code> </p> </li> 
+    /// </ul> <note> 
+    /// <p>To add tags to an existing maintenance window, use the <code>AddTagsToResource</code> operation.</p> 
     /// </note>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
-    /// <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key-value pairs:</p>
-    /// <ul>
-    /// <li> <p> <code>Key=TaskType,Value=AgentUpdate</code> </p> </li>
-    /// <li> <p> <code>Key=OS,Value=Windows</code> </p> </li>
-    /// <li> <p> <code>Key=Environment,Value=Production</code> </p> </li>
-    /// </ul> <note>
-    /// <p>To add tags to an existing maintenance window, use the <code>AddTagsToResource</code> operation.</p>
+    /// <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key-value pairs:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Key=TaskType,Value=AgentUpdate</code> </p> </li> 
+    /// <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> 
+    /// <li> <p> <code>Key=Environment,Value=Production</code> </p> </li> 
+    /// </ul> <note> 
+    /// <p>To add tags to an existing maintenance window, use the <code>AddTagsToResource</code> operation.</p> 
     /// </note>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
 }
+

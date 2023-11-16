@@ -3,7 +3,7 @@
 /// <p>Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AssetModelCompositeModelDefinition {
+pub struct AssetModelCompositeModelDefinition  {
     /// <p>The name of the composite model.</p>
     pub name: ::std::string::String,
     /// <p>The description of the composite model.</p>
@@ -11,28 +11,27 @@ pub struct AssetModelCompositeModelDefinition {
     /// <p>The type of the composite model. For alarm composite models, this type is <code>AWS/ALARM</code>.</p>
     pub r#type: ::std::string::String,
     /// <p>The asset property definitions for this composite model.</p>
-    pub properties: ::std::option::Option<::std::vec::Vec<crate::types::AssetModelPropertyDefinition>>,
+    pub properties: ::std::option::Option<::std::vec::Vec::<crate::types::AssetModelPropertyDefinition>>,
 }
-impl AssetModelCompositeModelDefinition {
+impl  AssetModelCompositeModelDefinition  {
     /// <p>The name of the composite model.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// <p>The description of the composite model.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The type of the composite model. For alarm composite models, this type is <code>AWS/ALARM</code>.</p>
-    pub fn r#type(&self) -> &str {
-        use std::ops::Deref;
-        self.r#type.deref()
+    pub fn r#type(&self) -> & str {
+        use std::ops::Deref; self.r#type.deref()
     }
     /// <p>The asset property definitions for this composite model.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.properties.is_none()`.
-    pub fn properties(&self) -> &[crate::types::AssetModelPropertyDefinition] {
-        self.properties.as_deref().unwrap_or_default()
+    pub fn properties(&self) -> & [crate::types::AssetModelPropertyDefinition] {
+        self.properties.as_deref()
+        .unwrap_or_default()
     }
 }
 impl AssetModelCompositeModelDefinition {
@@ -49,7 +48,7 @@ pub struct AssetModelCompositeModelDefinitionBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
-    pub(crate) properties: ::std::option::Option<::std::vec::Vec<crate::types::AssetModelPropertyDefinition>>,
+    pub(crate) properties: ::std::option::Option<::std::vec::Vec::<crate::types::AssetModelPropertyDefinition>>,
 }
 impl AssetModelCompositeModelDefinitionBuilder {
     /// <p>The name of the composite model.</p>
@@ -60,8 +59,7 @@ impl AssetModelCompositeModelDefinitionBuilder {
     }
     /// <p>The name of the composite model.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the composite model.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -74,8 +72,7 @@ impl AssetModelCompositeModelDefinitionBuilder {
     }
     /// <p>The description of the composite model.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The description of the composite model.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -89,8 +86,7 @@ impl AssetModelCompositeModelDefinitionBuilder {
     }
     /// <p>The type of the composite model. For alarm composite models, this type is <code>AWS/ALARM</code>.</p>
     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
     /// <p>The type of the composite model. For alarm composite models, this type is <code>AWS/ALARM</code>.</p>
     pub fn get_type(&self) -> &::std::option::Option<::std::string::String> {
@@ -103,17 +99,16 @@ impl AssetModelCompositeModelDefinitionBuilder {
     /// <p>The asset property definitions for this composite model.</p>
     pub fn properties(mut self, input: crate::types::AssetModelPropertyDefinition) -> Self {
         let mut v = self.properties.unwrap_or_default();
-        v.push(input);
-        self.properties = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.properties = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The asset property definitions for this composite model.</p>
-    pub fn set_properties(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssetModelPropertyDefinition>>) -> Self {
-        self.properties = input;
-        self
+    pub fn set_properties(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AssetModelPropertyDefinition>>) -> Self {
+        self.properties = input; self
     }
     /// <p>The asset property definitions for this composite model.</p>
-    pub fn get_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssetModelPropertyDefinition>> {
+    pub fn get_properties(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AssetModelPropertyDefinition>> {
         &self.properties
     }
     /// Consumes the builder and constructs a [`AssetModelCompositeModelDefinition`](crate::types::AssetModelCompositeModelDefinition).
@@ -121,21 +116,24 @@ impl AssetModelCompositeModelDefinitionBuilder {
     /// - [`name`](crate::types::builders::AssetModelCompositeModelDefinitionBuilder::name)
     /// - [`r#type`](crate::types::builders::AssetModelCompositeModelDefinitionBuilder::r#type)
     pub fn build(self) -> ::std::result::Result<crate::types::AssetModelCompositeModelDefinition, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AssetModelCompositeModelDefinition {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building AssetModelCompositeModelDefinition",
-                )
-            })?,
-            description: self.description,
-            r#type: self.r#type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "r#type",
-                    "r#type was not specified but it is required when building AssetModelCompositeModelDefinition",
-                )
-            })?,
-            properties: self.properties,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AssetModelCompositeModelDefinition {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building AssetModelCompositeModelDefinition")
+                    )?
+                ,
+                description: self.description
+                ,
+                r#type: self.r#type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("r#type", "r#type was not specified but it is required when building AssetModelCompositeModelDefinition")
+                    )?
+                ,
+                properties: self.properties
+                ,
+            }
+        )
     }
 }
+

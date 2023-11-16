@@ -2,17 +2,17 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct RegisterAppInstanceUserEndpointInput {
+pub struct RegisterAppInstanceUserEndpointInput  {
     /// <p>The ARN of the <code>AppInstanceUser</code>.</p>
     pub app_instance_user_arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
     pub name: ::std::option::Option<::std::string::String>,
-    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p>
-    /// <ul>
-    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li>
-    /// </ul>
+    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p> 
+    /// <ul> 
+    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li> 
+    /// </ul> 
     /// <p>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</p>
     pub r#type: ::std::option::Option<crate::types::AppInstanceUserEndpointType>,
     /// <p>The ARN of the resource to which the endpoint belongs.</p>
@@ -24,43 +24,43 @@ pub struct RegisterAppInstanceUserEndpointInput {
     /// <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages. <code>NONE</code> indicates the endpoint receives no messages.</p>
     pub allow_messages: ::std::option::Option<crate::types::AllowMessages>,
 }
-impl RegisterAppInstanceUserEndpointInput {
+impl  RegisterAppInstanceUserEndpointInput  {
     /// <p>The ARN of the <code>AppInstanceUser</code>.</p>
-    pub fn app_instance_user_arn(&self) -> ::std::option::Option<&str> {
+    pub fn app_instance_user_arn(&self) -> ::std::option::Option<& str> {
         self.app_instance_user_arn.as_deref()
     }
     /// <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
-    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p>
-    /// <ul>
-    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li>
-    /// </ul>
+    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p> 
+    /// <ul> 
+    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li> 
+    /// </ul> 
     /// <p>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</p>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::AppInstanceUserEndpointType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::AppInstanceUserEndpointType> {
         self.r#type.as_ref()
     }
     /// <p>The ARN of the resource to which the endpoint belongs.</p>
-    pub fn resource_arn(&self) -> ::std::option::Option<&str> {
+    pub fn resource_arn(&self) -> ::std::option::Option<& str> {
         self.resource_arn.as_deref()
     }
     /// <p>The attributes of an <code>Endpoint</code>.</p>
-    pub fn endpoint_attributes(&self) -> ::std::option::Option<&crate::types::EndpointAttributes> {
+    pub fn endpoint_attributes(&self) -> ::std::option::Option<& crate::types::EndpointAttributes> {
         self.endpoint_attributes.as_ref()
     }
     /// <p>The unique ID assigned to the request. Use different tokens to register other endpoints.</p>
-    pub fn client_request_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_request_token(&self) -> ::std::option::Option<& str> {
         self.client_request_token.as_deref()
     }
     /// <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages. <code>NONE</code> indicates the endpoint receives no messages.</p>
-    pub fn allow_messages(&self) -> ::std::option::Option<&crate::types::AllowMessages> {
+    pub fn allow_messages(&self) -> ::std::option::Option<& crate::types::AllowMessages> {
         self.allow_messages.as_ref()
     }
 }
-impl ::std::fmt::Debug for RegisterAppInstanceUserEndpointInput {
+impl  ::std::fmt::Debug for RegisterAppInstanceUserEndpointInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("RegisterAppInstanceUserEndpointInput");
         formatter.field("app_instance_user_arn", &"*** Sensitive Data Redacted ***");
@@ -101,8 +101,7 @@ impl RegisterAppInstanceUserEndpointInputBuilder {
     }
     /// <p>The ARN of the <code>AppInstanceUser</code>.</p>
     pub fn set_app_instance_user_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.app_instance_user_arn = input;
-        self
+        self.app_instance_user_arn = input; self
     }
     /// <p>The ARN of the <code>AppInstanceUser</code>.</p>
     pub fn get_app_instance_user_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -115,42 +114,40 @@ impl RegisterAppInstanceUserEndpointInputBuilder {
     }
     /// <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
-    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p>
-    /// <ul>
-    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li>
-    /// </ul>
+    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p> 
+    /// <ul> 
+    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li> 
+    /// </ul> 
     /// <p>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</p>
     /// This field is required.
     pub fn r#type(mut self, input: crate::types::AppInstanceUserEndpointType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p>
-    /// <ul>
-    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li>
-    /// </ul>
+    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p> 
+    /// <ul> 
+    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li> 
+    /// </ul> 
     /// <p>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::AppInstanceUserEndpointType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p>
-    /// <ul>
-    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li>
-    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li>
-    /// </ul>
+    /// <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p> 
+    /// <ul> 
+    /// <li> <p> <code>APNS</code>: The mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p> </li> 
+    /// <li> <p> <code>GCM</code>: The mobile notification service for an Android device.</p> </li> 
+    /// </ul> 
     /// <p>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</p>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::AppInstanceUserEndpointType> {
         &self.r#type
@@ -163,8 +160,7 @@ impl RegisterAppInstanceUserEndpointInputBuilder {
     }
     /// <p>The ARN of the resource to which the endpoint belongs.</p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_arn = input;
-        self
+        self.resource_arn = input; self
     }
     /// <p>The ARN of the resource to which the endpoint belongs.</p>
     pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -178,8 +174,7 @@ impl RegisterAppInstanceUserEndpointInputBuilder {
     }
     /// <p>The attributes of an <code>Endpoint</code>.</p>
     pub fn set_endpoint_attributes(mut self, input: ::std::option::Option<crate::types::EndpointAttributes>) -> Self {
-        self.endpoint_attributes = input;
-        self
+        self.endpoint_attributes = input; self
     }
     /// <p>The attributes of an <code>Endpoint</code>.</p>
     pub fn get_endpoint_attributes(&self) -> &::std::option::Option<crate::types::EndpointAttributes> {
@@ -193,8 +188,7 @@ impl RegisterAppInstanceUserEndpointInputBuilder {
     }
     /// <p>The unique ID assigned to the request. Use different tokens to register other endpoints.</p>
     pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_request_token = input;
-        self
+        self.client_request_token = input; self
     }
     /// <p>The unique ID assigned to the request. Use different tokens to register other endpoints.</p>
     pub fn get_client_request_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -207,30 +201,31 @@ impl RegisterAppInstanceUserEndpointInputBuilder {
     }
     /// <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages. <code>NONE</code> indicates the endpoint receives no messages.</p>
     pub fn set_allow_messages(mut self, input: ::std::option::Option<crate::types::AllowMessages>) -> Self {
-        self.allow_messages = input;
-        self
+        self.allow_messages = input; self
     }
     /// <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages. <code>NONE</code> indicates the endpoint receives no messages.</p>
     pub fn get_allow_messages(&self) -> &::std::option::Option<crate::types::AllowMessages> {
         &self.allow_messages
     }
     /// Consumes the builder and constructs a [`RegisterAppInstanceUserEndpointInput`](crate::operation::register_app_instance_user_endpoint::RegisterAppInstanceUserEndpointInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::register_app_instance_user_endpoint::RegisterAppInstanceUserEndpointInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::register_app_instance_user_endpoint::RegisterAppInstanceUserEndpointInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(
             crate::operation::register_app_instance_user_endpoint::RegisterAppInstanceUserEndpointInput {
-                app_instance_user_arn: self.app_instance_user_arn,
-                name: self.name,
-                r#type: self.r#type,
-                resource_arn: self.resource_arn,
-                endpoint_attributes: self.endpoint_attributes,
-                client_request_token: self.client_request_token,
-                allow_messages: self.allow_messages,
-            },
+                app_instance_user_arn: self.app_instance_user_arn
+                ,
+                name: self.name
+                ,
+                r#type: self.r#type
+                ,
+                resource_arn: self.resource_arn
+                ,
+                endpoint_attributes: self.endpoint_attributes
+                ,
+                client_request_token: self.client_request_token
+                ,
+                allow_messages: self.allow_messages
+                ,
+            }
         )
     }
 }
@@ -247,3 +242,4 @@ impl ::std::fmt::Debug for RegisterAppInstanceUserEndpointInputBuilder {
         formatter.finish()
     }
 }
+

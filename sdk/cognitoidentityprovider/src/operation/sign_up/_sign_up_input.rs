@@ -3,7 +3,7 @@
 /// <p>Represents the request to register a user.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct SignUpInput {
+pub struct SignUpInput  {
     /// <p>The ID of the client associated with the user pool.</p>
     pub client_id: ::std::option::Option<::std::string::String>,
     /// <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
@@ -12,80 +12,82 @@ pub struct SignUpInput {
     pub username: ::std::option::Option<::std::string::String>,
     /// <p>The password of the user you want to register.</p>
     pub password: ::std::option::Option<::std::string::String>,
-    /// <p>An array of name-value pairs representing user attributes.</p>
+    /// <p>An array of name-value pairs representing user attributes.</p> 
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    pub user_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
+    pub user_attributes: ::std::option::Option<::std::vec::Vec::<crate::types::AttributeType>>,
     /// <p>The validation data in the request to register a user.</p>
-    pub validation_data: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
+    pub validation_data: ::std::option::Option<::std::vec::Vec::<crate::types::AttributeType>>,
     /// <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for <code>SignUp</code> calls.</p>
     pub analytics_metadata: ::std::option::Option<crate::types::AnalyticsMetadataType>,
     /// <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     pub user_context_data: ::std::option::Option<crate::types::UserContextDataType>,
-    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note>
-    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
-    /// <ul>
-    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li>
-    /// <li> <p>Validate the ClientMetadata value.</p> </li>
-    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li>
-    /// </ul>
+    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p> 
+    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> 
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> 
+    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p> 
+    /// <ul> 
+    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li> 
+    /// <li> <p>Validate the ClientMetadata value.</p> </li> 
+    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li> 
+    /// </ul> 
     /// </note>
-    pub client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub client_metadata: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
 }
-impl SignUpInput {
+impl  SignUpInput  {
     /// <p>The ID of the client associated with the user pool.</p>
-    pub fn client_id(&self) -> ::std::option::Option<&str> {
+    pub fn client_id(&self) -> ::std::option::Option<& str> {
         self.client_id.as_deref()
     }
     /// <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
-    pub fn secret_hash(&self) -> ::std::option::Option<&str> {
+    pub fn secret_hash(&self) -> ::std::option::Option<& str> {
         self.secret_hash.as_deref()
     }
     /// <p>The user name of the user you want to register.</p>
-    pub fn username(&self) -> ::std::option::Option<&str> {
+    pub fn username(&self) -> ::std::option::Option<& str> {
         self.username.as_deref()
     }
     /// <p>The password of the user you want to register.</p>
-    pub fn password(&self) -> ::std::option::Option<&str> {
+    pub fn password(&self) -> ::std::option::Option<& str> {
         self.password.as_deref()
     }
-    /// <p>An array of name-value pairs representing user attributes.</p>
+    /// <p>An array of name-value pairs representing user attributes.</p> 
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_attributes.is_none()`.
-    pub fn user_attributes(&self) -> &[crate::types::AttributeType] {
-        self.user_attributes.as_deref().unwrap_or_default()
+    pub fn user_attributes(&self) -> & [crate::types::AttributeType] {
+        self.user_attributes.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The validation data in the request to register a user.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.validation_data.is_none()`.
-    pub fn validation_data(&self) -> &[crate::types::AttributeType] {
-        self.validation_data.as_deref().unwrap_or_default()
+    pub fn validation_data(&self) -> & [crate::types::AttributeType] {
+        self.validation_data.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for <code>SignUp</code> calls.</p>
-    pub fn analytics_metadata(&self) -> ::std::option::Option<&crate::types::AnalyticsMetadataType> {
+    pub fn analytics_metadata(&self) -> ::std::option::Option<& crate::types::AnalyticsMetadataType> {
         self.analytics_metadata.as_ref()
     }
     /// <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
-    pub fn user_context_data(&self) -> ::std::option::Option<&crate::types::UserContextDataType> {
+    pub fn user_context_data(&self) -> ::std::option::Option<& crate::types::UserContextDataType> {
         self.user_context_data.as_ref()
     }
-    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note>
-    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
-    /// <ul>
-    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li>
-    /// <li> <p>Validate the ClientMetadata value.</p> </li>
-    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li>
-    /// </ul>
+    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p> 
+    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> 
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> 
+    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p> 
+    /// <ul> 
+    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li> 
+    /// <li> <p>Validate the ClientMetadata value.</p> </li> 
+    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li> 
+    /// </ul> 
     /// </note>
-    pub fn client_metadata(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn client_metadata(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.client_metadata.as_ref()
     }
 }
-impl ::std::fmt::Debug for SignUpInput {
+impl  ::std::fmt::Debug for SignUpInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("SignUpInput");
         formatter.field("client_id", &"*** Sensitive Data Redacted ***");
@@ -115,11 +117,11 @@ pub struct SignUpInputBuilder {
     pub(crate) secret_hash: ::std::option::Option<::std::string::String>,
     pub(crate) username: ::std::option::Option<::std::string::String>,
     pub(crate) password: ::std::option::Option<::std::string::String>,
-    pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
-    pub(crate) validation_data: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
+    pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec::<crate::types::AttributeType>>,
+    pub(crate) validation_data: ::std::option::Option<::std::vec::Vec::<crate::types::AttributeType>>,
     pub(crate) analytics_metadata: ::std::option::Option<crate::types::AnalyticsMetadataType>,
     pub(crate) user_context_data: ::std::option::Option<crate::types::UserContextDataType>,
-    pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
 }
 impl SignUpInputBuilder {
     /// <p>The ID of the client associated with the user pool.</p>
@@ -130,8 +132,7 @@ impl SignUpInputBuilder {
     }
     /// <p>The ID of the client associated with the user pool.</p>
     pub fn set_client_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_id = input;
-        self
+        self.client_id = input; self
     }
     /// <p>The ID of the client associated with the user pool.</p>
     pub fn get_client_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -144,8 +145,7 @@ impl SignUpInputBuilder {
     }
     /// <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
     pub fn set_secret_hash(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.secret_hash = input;
-        self
+        self.secret_hash = input; self
     }
     /// <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
     pub fn get_secret_hash(&self) -> &::std::option::Option<::std::string::String> {
@@ -159,8 +159,7 @@ impl SignUpInputBuilder {
     }
     /// <p>The user name of the user you want to register.</p>
     pub fn set_username(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.username = input;
-        self
+        self.username = input; self
     }
     /// <p>The user name of the user you want to register.</p>
     pub fn get_username(&self) -> &::std::option::Option<::std::string::String> {
@@ -174,8 +173,7 @@ impl SignUpInputBuilder {
     }
     /// <p>The password of the user you want to register.</p>
     pub fn set_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.password = input;
-        self
+        self.password = input; self
     }
     /// <p>The password of the user you want to register.</p>
     pub fn get_password(&self) -> &::std::option::Option<::std::string::String> {
@@ -185,23 +183,22 @@ impl SignUpInputBuilder {
     ///
     /// To override the contents of this collection use [`set_user_attributes`](Self::set_user_attributes).
     ///
-    /// <p>An array of name-value pairs representing user attributes.</p>
+    /// <p>An array of name-value pairs representing user attributes.</p> 
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
     pub fn user_attributes(mut self, input: crate::types::AttributeType) -> Self {
         let mut v = self.user_attributes.unwrap_or_default();
-        v.push(input);
-        self.user_attributes = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.user_attributes = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>An array of name-value pairs representing user attributes.</p>
+    /// <p>An array of name-value pairs representing user attributes.</p> 
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
-        self.user_attributes = input;
-        self
+    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AttributeType>>) -> Self {
+        self.user_attributes = input; self
     }
-    /// <p>An array of name-value pairs representing user attributes.</p>
+    /// <p>An array of name-value pairs representing user attributes.</p> 
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AttributeType>> {
         &self.user_attributes
     }
     /// Appends an item to `validation_data`.
@@ -211,17 +208,16 @@ impl SignUpInputBuilder {
     /// <p>The validation data in the request to register a user.</p>
     pub fn validation_data(mut self, input: crate::types::AttributeType) -> Self {
         let mut v = self.validation_data.unwrap_or_default();
-        v.push(input);
-        self.validation_data = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.validation_data = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The validation data in the request to register a user.</p>
-    pub fn set_validation_data(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
-        self.validation_data = input;
-        self
+    pub fn set_validation_data(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AttributeType>>) -> Self {
+        self.validation_data = input; self
     }
     /// <p>The validation data in the request to register a user.</p>
-    pub fn get_validation_data(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_validation_data(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AttributeType>> {
         &self.validation_data
     }
     /// <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for <code>SignUp</code> calls.</p>
@@ -231,8 +227,7 @@ impl SignUpInputBuilder {
     }
     /// <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for <code>SignUp</code> calls.</p>
     pub fn set_analytics_metadata(mut self, input: ::std::option::Option<crate::types::AnalyticsMetadataType>) -> Self {
-        self.analytics_metadata = input;
-        self
+        self.analytics_metadata = input; self
     }
     /// <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for <code>SignUp</code> calls.</p>
     pub fn get_analytics_metadata(&self) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
@@ -245,8 +240,7 @@ impl SignUpInputBuilder {
     }
     /// <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     pub fn set_user_context_data(mut self, input: ::std::option::Option<crate::types::UserContextDataType>) -> Self {
-        self.user_context_data = input;
-        self
+        self.user_context_data = input; self
     }
     /// <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     pub fn get_user_context_data(&self) -> &::std::option::Option<crate::types::UserContextDataType> {
@@ -256,69 +250,72 @@ impl SignUpInputBuilder {
     ///
     /// To override the contents of this collection use [`set_client_metadata`](Self::set_client_metadata).
     ///
-    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note>
-    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
-    /// <ul>
-    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li>
-    /// <li> <p>Validate the ClientMetadata value.</p> </li>
-    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li>
-    /// </ul>
+    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p> 
+    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> 
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> 
+    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p> 
+    /// <ul> 
+    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li> 
+    /// <li> <p>Validate the ClientMetadata value.</p> </li> 
+    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li> 
+    /// </ul> 
     /// </note>
-    pub fn client_metadata(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_metadata(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.client_metadata.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.client_metadata = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.client_metadata = ::std::option::Option::Some(hash_map);
+                        self
     }
-    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note>
-    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
-    /// <ul>
-    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li>
-    /// <li> <p>Validate the ClientMetadata value.</p> </li>
-    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li>
-    /// </ul>
+    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p> 
+    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> 
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> 
+    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p> 
+    /// <ul> 
+    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li> 
+    /// <li> <p>Validate the ClientMetadata value.</p> </li> 
+    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li> 
+    /// </ul> 
     /// </note>
-    pub fn set_client_metadata(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    ) -> Self {
-        self.client_metadata = input;
-        self
+    pub fn set_client_metadata(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.client_metadata = input; self
     }
-    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note>
-    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
-    /// <ul>
-    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li>
-    /// <li> <p>Validate the ClientMetadata value.</p> </li>
-    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li>
-    /// </ul>
+    /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p> 
+    /// <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> 
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html"> Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> 
+    /// <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p> 
+    /// <ul> 
+    /// <li> <p>Store the ClientMetadata value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the ClientMetadata parameter serves no purpose.</p> </li> 
+    /// <li> <p>Validate the ClientMetadata value.</p> </li> 
+    /// <li> <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</p> </li> 
+    /// </ul> 
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.client_metadata
     }
     /// Consumes the builder and constructs a [`SignUpInput`](crate::operation::sign_up::SignUpInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::sign_up::SignUpInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::sign_up::SignUpInput {
-            client_id: self.client_id,
-            secret_hash: self.secret_hash,
-            username: self.username,
-            password: self.password,
-            user_attributes: self.user_attributes,
-            validation_data: self.validation_data,
-            analytics_metadata: self.analytics_metadata,
-            user_context_data: self.user_context_data,
-            client_metadata: self.client_metadata,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::sign_up::SignUpInput {
+                client_id: self.client_id
+                ,
+                secret_hash: self.secret_hash
+                ,
+                username: self.username
+                ,
+                password: self.password
+                ,
+                user_attributes: self.user_attributes
+                ,
+                validation_data: self.validation_data
+                ,
+                analytics_metadata: self.analytics_metadata
+                ,
+                user_context_data: self.user_context_data
+                ,
+                client_metadata: self.client_metadata
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for SignUpInputBuilder {
@@ -336,3 +333,4 @@ impl ::std::fmt::Debug for SignUpInputBuilder {
         formatter.finish()
     }
 }
+

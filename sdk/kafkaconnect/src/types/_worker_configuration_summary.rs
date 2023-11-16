@@ -3,7 +3,7 @@
 /// <p>The summary of a worker configuration.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct WorkerConfigurationSummary {
+pub struct WorkerConfigurationSummary  {
     /// <p>The time that a worker configuration was created.</p>
     pub creation_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The description of a worker configuration.</p>
@@ -15,25 +15,25 @@ pub struct WorkerConfigurationSummary {
     /// <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
     pub worker_configuration_arn: ::std::option::Option<::std::string::String>,
 }
-impl WorkerConfigurationSummary {
+impl  WorkerConfigurationSummary  {
     /// <p>The time that a worker configuration was created.</p>
-    pub fn creation_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_time.as_ref()
     }
     /// <p>The description of a worker configuration.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The latest revision of a worker configuration.</p>
-    pub fn latest_revision(&self) -> ::std::option::Option<&crate::types::WorkerConfigurationRevisionSummary> {
+    pub fn latest_revision(&self) -> ::std::option::Option<& crate::types::WorkerConfigurationRevisionSummary> {
         self.latest_revision.as_ref()
     }
     /// <p>The name of the worker configuration.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
-    pub fn worker_configuration_arn(&self) -> ::std::option::Option<&str> {
+    pub fn worker_configuration_arn(&self) -> ::std::option::Option<& str> {
         self.worker_configuration_arn.as_deref()
     }
 }
@@ -62,8 +62,7 @@ impl WorkerConfigurationSummaryBuilder {
     }
     /// <p>The time that a worker configuration was created.</p>
     pub fn set_creation_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_time = input;
-        self
+        self.creation_time = input; self
     }
     /// <p>The time that a worker configuration was created.</p>
     pub fn get_creation_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -76,8 +75,7 @@ impl WorkerConfigurationSummaryBuilder {
     }
     /// <p>The description of a worker configuration.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The description of a worker configuration.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -90,8 +88,7 @@ impl WorkerConfigurationSummaryBuilder {
     }
     /// <p>The latest revision of a worker configuration.</p>
     pub fn set_latest_revision(mut self, input: ::std::option::Option<crate::types::WorkerConfigurationRevisionSummary>) -> Self {
-        self.latest_revision = input;
-        self
+        self.latest_revision = input; self
     }
     /// <p>The latest revision of a worker configuration.</p>
     pub fn get_latest_revision(&self) -> &::std::option::Option<crate::types::WorkerConfigurationRevisionSummary> {
@@ -104,8 +101,7 @@ impl WorkerConfigurationSummaryBuilder {
     }
     /// <p>The name of the worker configuration.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the worker configuration.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -118,8 +114,7 @@ impl WorkerConfigurationSummaryBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
     pub fn set_worker_configuration_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.worker_configuration_arn = input;
-        self
+        self.worker_configuration_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
     pub fn get_worker_configuration_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -128,11 +123,17 @@ impl WorkerConfigurationSummaryBuilder {
     /// Consumes the builder and constructs a [`WorkerConfigurationSummary`](crate::types::WorkerConfigurationSummary).
     pub fn build(self) -> crate::types::WorkerConfigurationSummary {
         crate::types::WorkerConfigurationSummary {
-            creation_time: self.creation_time,
-            description: self.description,
-            latest_revision: self.latest_revision,
-            name: self.name,
-            worker_configuration_arn: self.worker_configuration_arn,
+            creation_time: self.creation_time
+            ,
+            description: self.description
+            ,
+            latest_revision: self.latest_revision
+            ,
+            name: self.name
+            ,
+            worker_configuration_arn: self.worker_configuration_arn
+            ,
         }
     }
 }
+

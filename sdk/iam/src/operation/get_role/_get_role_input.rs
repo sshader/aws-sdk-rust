@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetRoleInput {
-    /// <p>The name of the IAM role to get information about.</p>
+pub struct GetRoleInput  {
+    /// <p>The name of the IAM role to get information about.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub role_name: ::std::option::Option<::std::string::String>,
 }
-impl GetRoleInput {
-    /// <p>The name of the IAM role to get information about.</p>
+impl  GetRoleInput  {
+    /// <p>The name of the IAM role to get information about.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn role_name(&self) -> ::std::option::Option<&str> {
+    pub fn role_name(&self) -> ::std::option::Option<& str> {
         self.role_name.as_deref()
     }
 }
@@ -28,26 +28,31 @@ pub struct GetRoleInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
 }
 impl GetRoleInputBuilder {
-    /// <p>The name of the IAM role to get information about.</p>
+    /// <p>The name of the IAM role to get information about.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
     pub fn role_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the IAM role to get information about.</p>
+    /// <p>The name of the IAM role to get information about.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.role_name = input;
-        self
+        self.role_name = input; self
     }
-    /// <p>The name of the IAM role to get information about.</p>
+    /// <p>The name of the IAM role to get information about.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_name
     }
     /// Consumes the builder and constructs a [`GetRoleInput`](crate::operation::get_role::GetRoleInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::get_role::GetRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_role::GetRoleInput { role_name: self.role_name })
+        ::std::result::Result::Ok(
+            crate::operation::get_role::GetRoleInput {
+                role_name: self.role_name
+                ,
+            }
+        )
     }
 }
+

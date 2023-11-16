@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdatePipelineInput {
+pub struct UpdatePipelineInput  {
     /// <p>The name of the pipeline to update.</p>
     pub pipeline_name: ::std::option::Option<::std::string::String>,
     /// <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
@@ -14,9 +14,9 @@ pub struct UpdatePipelineInput {
     /// <p>Key-value pairs to configure log publishing.</p>
     pub log_publishing_options: ::std::option::Option<crate::types::LogPublishingOptions>,
 }
-impl UpdatePipelineInput {
+impl  UpdatePipelineInput  {
     /// <p>The name of the pipeline to update.</p>
-    pub fn pipeline_name(&self) -> ::std::option::Option<&str> {
+    pub fn pipeline_name(&self) -> ::std::option::Option<& str> {
         self.pipeline_name.as_deref()
     }
     /// <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
@@ -28,11 +28,11 @@ impl UpdatePipelineInput {
         self.max_units
     }
     /// <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with <code>\n</code>.</p>
-    pub fn pipeline_configuration_body(&self) -> ::std::option::Option<&str> {
+    pub fn pipeline_configuration_body(&self) -> ::std::option::Option<& str> {
         self.pipeline_configuration_body.as_deref()
     }
     /// <p>Key-value pairs to configure log publishing.</p>
-    pub fn log_publishing_options(&self) -> ::std::option::Option<&crate::types::LogPublishingOptions> {
+    pub fn log_publishing_options(&self) -> ::std::option::Option<& crate::types::LogPublishingOptions> {
         self.log_publishing_options.as_ref()
     }
 }
@@ -62,8 +62,7 @@ impl UpdatePipelineInputBuilder {
     }
     /// <p>The name of the pipeline to update.</p>
     pub fn set_pipeline_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.pipeline_name = input;
-        self
+        self.pipeline_name = input; self
     }
     /// <p>The name of the pipeline to update.</p>
     pub fn get_pipeline_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -76,8 +75,7 @@ impl UpdatePipelineInputBuilder {
     }
     /// <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
     pub fn set_min_units(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.min_units = input;
-        self
+        self.min_units = input; self
     }
     /// <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
     pub fn get_min_units(&self) -> &::std::option::Option<i32> {
@@ -90,8 +88,7 @@ impl UpdatePipelineInputBuilder {
     }
     /// <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs)</p>
     pub fn set_max_units(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_units = input;
-        self
+        self.max_units = input; self
     }
     /// <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs)</p>
     pub fn get_max_units(&self) -> &::std::option::Option<i32> {
@@ -104,8 +101,7 @@ impl UpdatePipelineInputBuilder {
     }
     /// <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with <code>\n</code>.</p>
     pub fn set_pipeline_configuration_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.pipeline_configuration_body = input;
-        self
+        self.pipeline_configuration_body = input; self
     }
     /// <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with <code>\n</code>.</p>
     pub fn get_pipeline_configuration_body(&self) -> &::std::option::Option<::std::string::String> {
@@ -118,23 +114,28 @@ impl UpdatePipelineInputBuilder {
     }
     /// <p>Key-value pairs to configure log publishing.</p>
     pub fn set_log_publishing_options(mut self, input: ::std::option::Option<crate::types::LogPublishingOptions>) -> Self {
-        self.log_publishing_options = input;
-        self
+        self.log_publishing_options = input; self
     }
     /// <p>Key-value pairs to configure log publishing.</p>
     pub fn get_log_publishing_options(&self) -> &::std::option::Option<crate::types::LogPublishingOptions> {
         &self.log_publishing_options
     }
     /// Consumes the builder and constructs a [`UpdatePipelineInput`](crate::operation::update_pipeline::UpdatePipelineInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_pipeline::UpdatePipelineInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_pipeline::UpdatePipelineInput {
-            pipeline_name: self.pipeline_name,
-            min_units: self.min_units,
-            max_units: self.max_units,
-            pipeline_configuration_body: self.pipeline_configuration_body,
-            log_publishing_options: self.log_publishing_options,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_pipeline::UpdatePipelineInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_pipeline::UpdatePipelineInput {
+                pipeline_name: self.pipeline_name
+                ,
+                min_units: self.min_units
+                ,
+                max_units: self.max_units
+                ,
+                pipeline_configuration_body: self.pipeline_configuration_body
+                ,
+                log_publishing_options: self.log_publishing_options
+                ,
+            }
+        )
     }
 }
+

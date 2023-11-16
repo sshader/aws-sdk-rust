@@ -3,47 +3,47 @@
 /// <p>Identifies a document for which to retrieve status information</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DocumentInfo {
+pub struct DocumentInfo  {
     /// <p>The identifier of the document.</p>
     pub document_id: ::std::string::String,
-    /// <p>Attributes that identify a specific version of a document to check.</p>
-    /// <p>The only valid attributes are:</p>
-    /// <ul>
-    /// <li> <p>version</p> </li>
-    /// <li> <p>datasourceId</p> </li>
-    /// <li> <p>jobExecutionId</p> </li>
+    /// <p>Attributes that identify a specific version of a document to check.</p> 
+    /// <p>The only valid attributes are:</p> 
+    /// <ul> 
+    /// <li> <p>version</p> </li> 
+    /// <li> <p>datasourceId</p> </li> 
+    /// <li> <p>jobExecutionId</p> </li> 
+    /// </ul> 
+    /// <p>The attributes follow these rules:</p> 
+    /// <ul> 
+    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li> 
+    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li> 
+    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li> 
     /// </ul>
-    /// <p>The attributes follow these rules:</p>
-    /// <ul>
-    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li>
-    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li>
-    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li>
-    /// </ul>
-    pub attributes: ::std::option::Option<::std::vec::Vec<crate::types::DocumentAttribute>>,
+    pub attributes: ::std::option::Option<::std::vec::Vec::<crate::types::DocumentAttribute>>,
 }
-impl DocumentInfo {
+impl  DocumentInfo  {
     /// <p>The identifier of the document.</p>
-    pub fn document_id(&self) -> &str {
-        use std::ops::Deref;
-        self.document_id.deref()
+    pub fn document_id(&self) -> & str {
+        use std::ops::Deref; self.document_id.deref()
     }
-    /// <p>Attributes that identify a specific version of a document to check.</p>
-    /// <p>The only valid attributes are:</p>
-    /// <ul>
-    /// <li> <p>version</p> </li>
-    /// <li> <p>datasourceId</p> </li>
-    /// <li> <p>jobExecutionId</p> </li>
+    /// <p>Attributes that identify a specific version of a document to check.</p> 
+    /// <p>The only valid attributes are:</p> 
+    /// <ul> 
+    /// <li> <p>version</p> </li> 
+    /// <li> <p>datasourceId</p> </li> 
+    /// <li> <p>jobExecutionId</p> </li> 
+    /// </ul> 
+    /// <p>The attributes follow these rules:</p> 
+    /// <ul> 
+    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li> 
+    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li> 
+    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li> 
     /// </ul>
-    /// <p>The attributes follow these rules:</p>
-    /// <ul>
-    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li>
-    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li>
-    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li>
-    /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attributes.is_none()`.
-    pub fn attributes(&self) -> &[crate::types::DocumentAttribute] {
-        self.attributes.as_deref().unwrap_or_default()
+    pub fn attributes(&self) -> & [crate::types::DocumentAttribute] {
+        self.attributes.as_deref()
+        .unwrap_or_default()
     }
 }
 impl DocumentInfo {
@@ -58,7 +58,7 @@ impl DocumentInfo {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct DocumentInfoBuilder {
     pub(crate) document_id: ::std::option::Option<::std::string::String>,
-    pub(crate) attributes: ::std::option::Option<::std::vec::Vec<crate::types::DocumentAttribute>>,
+    pub(crate) attributes: ::std::option::Option<::std::vec::Vec::<crate::types::DocumentAttribute>>,
 }
 impl DocumentInfoBuilder {
     /// <p>The identifier of the document.</p>
@@ -69,8 +69,7 @@ impl DocumentInfoBuilder {
     }
     /// <p>The identifier of the document.</p>
     pub fn set_document_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.document_id = input;
-        self
+        self.document_id = input; self
     }
     /// <p>The identifier of the document.</p>
     pub fn get_document_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -80,70 +79,72 @@ impl DocumentInfoBuilder {
     ///
     /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
     ///
-    /// <p>Attributes that identify a specific version of a document to check.</p>
-    /// <p>The only valid attributes are:</p>
-    /// <ul>
-    /// <li> <p>version</p> </li>
-    /// <li> <p>datasourceId</p> </li>
-    /// <li> <p>jobExecutionId</p> </li>
-    /// </ul>
-    /// <p>The attributes follow these rules:</p>
-    /// <ul>
-    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li>
-    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li>
-    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li>
+    /// <p>Attributes that identify a specific version of a document to check.</p> 
+    /// <p>The only valid attributes are:</p> 
+    /// <ul> 
+    /// <li> <p>version</p> </li> 
+    /// <li> <p>datasourceId</p> </li> 
+    /// <li> <p>jobExecutionId</p> </li> 
+    /// </ul> 
+    /// <p>The attributes follow these rules:</p> 
+    /// <ul> 
+    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li> 
+    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li> 
+    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li> 
     /// </ul>
     pub fn attributes(mut self, input: crate::types::DocumentAttribute) -> Self {
         let mut v = self.attributes.unwrap_or_default();
-        v.push(input);
-        self.attributes = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.attributes = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>Attributes that identify a specific version of a document to check.</p>
-    /// <p>The only valid attributes are:</p>
-    /// <ul>
-    /// <li> <p>version</p> </li>
-    /// <li> <p>datasourceId</p> </li>
-    /// <li> <p>jobExecutionId</p> </li>
+    /// <p>Attributes that identify a specific version of a document to check.</p> 
+    /// <p>The only valid attributes are:</p> 
+    /// <ul> 
+    /// <li> <p>version</p> </li> 
+    /// <li> <p>datasourceId</p> </li> 
+    /// <li> <p>jobExecutionId</p> </li> 
+    /// </ul> 
+    /// <p>The attributes follow these rules:</p> 
+    /// <ul> 
+    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li> 
+    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li> 
+    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li> 
     /// </ul>
-    /// <p>The attributes follow these rules:</p>
-    /// <ul>
-    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li>
-    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li>
-    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li>
-    /// </ul>
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DocumentAttribute>>) -> Self {
-        self.attributes = input;
-        self
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::DocumentAttribute>>) -> Self {
+        self.attributes = input; self
     }
-    /// <p>Attributes that identify a specific version of a document to check.</p>
-    /// <p>The only valid attributes are:</p>
-    /// <ul>
-    /// <li> <p>version</p> </li>
-    /// <li> <p>datasourceId</p> </li>
-    /// <li> <p>jobExecutionId</p> </li>
+    /// <p>Attributes that identify a specific version of a document to check.</p> 
+    /// <p>The only valid attributes are:</p> 
+    /// <ul> 
+    /// <li> <p>version</p> </li> 
+    /// <li> <p>datasourceId</p> </li> 
+    /// <li> <p>jobExecutionId</p> </li> 
+    /// </ul> 
+    /// <p>The attributes follow these rules:</p> 
+    /// <ul> 
+    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li> 
+    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li> 
+    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li> 
     /// </ul>
-    /// <p>The attributes follow these rules:</p>
-    /// <ul>
-    /// <li> <p> <code>dataSourceId</code> and <code>jobExecutionId</code> must be used together.</p> </li>
-    /// <li> <p> <code>version</code> is ignored if <code>dataSourceId</code> and <code>jobExecutionId</code> are not provided.</p> </li>
-    /// <li> <p>If <code>dataSourceId</code> and <code>jobExecutionId</code> are provided, but <code>version</code> is not, the version defaults to "0".</p> </li>
-    /// </ul>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DocumentAttribute>> {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::DocumentAttribute>> {
         &self.attributes
     }
     /// Consumes the builder and constructs a [`DocumentInfo`](crate::types::DocumentInfo).
     /// This method will fail if any of the following fields are not set:
     /// - [`document_id`](crate::types::builders::DocumentInfoBuilder::document_id)
     pub fn build(self) -> ::std::result::Result<crate::types::DocumentInfo, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::DocumentInfo {
-            document_id: self.document_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "document_id",
-                    "document_id was not specified but it is required when building DocumentInfo",
-                )
-            })?,
-            attributes: self.attributes,
-        })
+        ::std::result::Result::Ok(
+            crate::types::DocumentInfo {
+                document_id: self.document_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("document_id", "document_id was not specified but it is required when building DocumentInfo")
+                    )?
+                ,
+                attributes: self.attributes
+                ,
+            }
+        )
     }
 }
+

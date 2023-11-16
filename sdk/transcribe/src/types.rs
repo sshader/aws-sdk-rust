@@ -228,3 +228,4 @@ pub mod builders;
 
 /// Error types that Amazon Transcribe Service can respond with.
 pub mod error;
+

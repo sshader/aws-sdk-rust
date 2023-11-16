@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeletePermissionPolicyInput {
-    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p>
+pub struct DeletePermissionPolicyInput  {
+    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p> 
     /// <p>You must be the owner of the rule group to perform this operation.</p>
     pub resource_arn: ::std::option::Option<::std::string::String>,
 }
-impl DeletePermissionPolicyInput {
-    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p>
+impl  DeletePermissionPolicyInput  {
+    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p> 
     /// <p>You must be the owner of the rule group to perform this operation.</p>
-    pub fn resource_arn(&self) -> ::std::option::Option<&str> {
+    pub fn resource_arn(&self) -> ::std::option::Option<& str> {
         self.resource_arn.as_deref()
     }
 }
@@ -28,33 +28,31 @@ pub struct DeletePermissionPolicyInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
 }
 impl DeletePermissionPolicyInputBuilder {
-    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p>
+    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p> 
     /// <p>You must be the owner of the rule group to perform this operation.</p>
     /// This field is required.
     pub fn resource_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p>
+    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p> 
     /// <p>You must be the owner of the rule group to perform this operation.</p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_arn = input;
-        self
+        self.resource_arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p>
+    /// <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p> 
     /// <p>You must be the owner of the rule group to perform this operation.</p>
     pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.resource_arn
     }
     /// Consumes the builder and constructs a [`DeletePermissionPolicyInput`](crate::operation::delete_permission_policy::DeletePermissionPolicyInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_permission_policy::DeletePermissionPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_permission_policy::DeletePermissionPolicyInput {
-            resource_arn: self.resource_arn,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_permission_policy::DeletePermissionPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_permission_policy::DeletePermissionPolicyInput {
+                resource_arn: self.resource_arn
+                ,
+            }
+        )
     }
 }
+

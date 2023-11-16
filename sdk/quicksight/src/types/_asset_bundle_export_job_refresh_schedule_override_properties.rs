@@ -3,21 +3,20 @@
 /// <p>Controls how a specific <code>RefreshSchedule</code> resource is parameterized in the returned CloudFormation template.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AssetBundleExportJobRefreshScheduleOverrideProperties {
+pub struct AssetBundleExportJobRefreshScheduleOverrideProperties  {
     /// <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub properties: ::std::vec::Vec<crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride>,
+    pub properties: ::std::vec::Vec::<crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride>,
 }
-impl AssetBundleExportJobRefreshScheduleOverrideProperties {
+impl  AssetBundleExportJobRefreshScheduleOverrideProperties  {
     /// <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
     /// <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub fn properties(&self) -> &[crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride] {
-        use std::ops::Deref;
-        self.properties.deref()
+    pub fn properties(&self) -> & [crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride] {
+        use std::ops::Deref; self.properties.deref()
     }
 }
 impl AssetBundleExportJobRefreshScheduleOverrideProperties {
@@ -32,7 +31,7 @@ impl AssetBundleExportJobRefreshScheduleOverrideProperties {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct AssetBundleExportJobRefreshScheduleOverridePropertiesBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
-    pub(crate) properties: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride>>,
+    pub(crate) properties: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride>>,
 }
 impl AssetBundleExportJobRefreshScheduleOverridePropertiesBuilder {
     /// <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
@@ -42,8 +41,7 @@ impl AssetBundleExportJobRefreshScheduleOverridePropertiesBuilder {
     }
     /// <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -56,37 +54,33 @@ impl AssetBundleExportJobRefreshScheduleOverridePropertiesBuilder {
     /// <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
     pub fn properties(mut self, input: crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride) -> Self {
         let mut v = self.properties.unwrap_or_default();
-        v.push(input);
-        self.properties = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.properties = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub fn set_properties(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride>>,
-    ) -> Self {
-        self.properties = input;
-        self
+    pub fn set_properties(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride>>) -> Self {
+        self.properties = input; self
     }
     /// <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub fn get_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride>> {
+    pub fn get_properties(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleExportJobRefreshSchedulePropertyToOverride>> {
         &self.properties
     }
     /// Consumes the builder and constructs a [`AssetBundleExportJobRefreshScheduleOverrideProperties`](crate::types::AssetBundleExportJobRefreshScheduleOverrideProperties).
     /// This method will fail if any of the following fields are not set:
     /// - [`properties`](crate::types::builders::AssetBundleExportJobRefreshScheduleOverridePropertiesBuilder::properties)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::types::AssetBundleExportJobRefreshScheduleOverrideProperties, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::types::AssetBundleExportJobRefreshScheduleOverrideProperties {
-            arn: self.arn,
-            properties: self.properties.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "properties",
-                    "properties was not specified but it is required when building AssetBundleExportJobRefreshScheduleOverrideProperties",
-                )
-            })?,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::types::AssetBundleExportJobRefreshScheduleOverrideProperties, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::types::AssetBundleExportJobRefreshScheduleOverrideProperties {
+                arn: self.arn
+                ,
+                properties: self.properties
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("properties", "properties was not specified but it is required when building AssetBundleExportJobRefreshScheduleOverrideProperties")
+                    )?
+                ,
+            }
+        )
     }
 }
+

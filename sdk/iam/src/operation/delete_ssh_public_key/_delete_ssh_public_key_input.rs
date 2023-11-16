@@ -2,23 +2,23 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteSshPublicKeyInput {
-    /// <p>The name of the IAM user associated with the SSH public key.</p>
+pub struct DeleteSshPublicKeyInput  {
+    /// <p>The name of the IAM user associated with the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub user_name: ::std::option::Option<::std::string::String>,
-    /// <p>The unique identifier for the SSH public key.</p>
+    /// <p>The unique identifier for the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     pub ssh_public_key_id: ::std::option::Option<::std::string::String>,
 }
-impl DeleteSshPublicKeyInput {
-    /// <p>The name of the IAM user associated with the SSH public key.</p>
+impl  DeleteSshPublicKeyInput  {
+    /// <p>The name of the IAM user associated with the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn user_name(&self) -> ::std::option::Option<&str> {
+    pub fn user_name(&self) -> ::std::option::Option<& str> {
         self.user_name.as_deref()
     }
-    /// <p>The unique identifier for the SSH public key.</p>
+    /// <p>The unique identifier for the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn ssh_public_key_id(&self) -> ::std::option::Option<&str> {
+    pub fn ssh_public_key_id(&self) -> ::std::option::Option<& str> {
         self.ssh_public_key_id.as_deref()
     }
 }
@@ -37,50 +37,50 @@ pub struct DeleteSshPublicKeyInputBuilder {
     pub(crate) ssh_public_key_id: ::std::option::Option<::std::string::String>,
 }
 impl DeleteSshPublicKeyInputBuilder {
-    /// <p>The name of the IAM user associated with the SSH public key.</p>
+    /// <p>The name of the IAM user associated with the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
     pub fn user_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the IAM user associated with the SSH public key.</p>
+    /// <p>The name of the IAM user associated with the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.user_name = input;
-        self
+        self.user_name = input; self
     }
-    /// <p>The name of the IAM user associated with the SSH public key.</p>
+    /// <p>The name of the IAM user associated with the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.user_name
     }
-    /// <p>The unique identifier for the SSH public key.</p>
+    /// <p>The unique identifier for the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     /// This field is required.
     pub fn ssh_public_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ssh_public_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The unique identifier for the SSH public key.</p>
+    /// <p>The unique identifier for the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     pub fn set_ssh_public_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.ssh_public_key_id = input;
-        self
+        self.ssh_public_key_id = input; self
     }
-    /// <p>The unique identifier for the SSH public key.</p>
+    /// <p>The unique identifier for the SSH public key.</p> 
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     pub fn get_ssh_public_key_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.ssh_public_key_id
     }
     /// Consumes the builder and constructs a [`DeleteSshPublicKeyInput`](crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput {
-            user_name: self.user_name,
-            ssh_public_key_id: self.ssh_public_key_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput {
+                user_name: self.user_name
+                ,
+                ssh_public_key_id: self.ssh_public_key_id
+                ,
+            }
+        )
     }
 }
+

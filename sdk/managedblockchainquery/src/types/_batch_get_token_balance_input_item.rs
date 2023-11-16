@@ -3,9 +3,9 @@
 /// <p>The container for the input for getting a token balance.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct BatchGetTokenBalanceInputItem {
-    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note>
-    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p>
+pub struct BatchGetTokenBalanceInputItem  {
+    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note> 
+    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p> 
     /// </note>
     pub token_identifier: ::std::option::Option<crate::types::TokenIdentifier>,
     /// <p>The container for the identifier of the owner.</p>
@@ -13,19 +13,19 @@ pub struct BatchGetTokenBalanceInputItem {
     /// <p>The container for time.</p>
     pub at_blockchain_instant: ::std::option::Option<crate::types::BlockchainInstant>,
 }
-impl BatchGetTokenBalanceInputItem {
-    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note>
-    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p>
+impl  BatchGetTokenBalanceInputItem  {
+    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note> 
+    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p> 
     /// </note>
-    pub fn token_identifier(&self) -> ::std::option::Option<&crate::types::TokenIdentifier> {
+    pub fn token_identifier(&self) -> ::std::option::Option<& crate::types::TokenIdentifier> {
         self.token_identifier.as_ref()
     }
     /// <p>The container for the identifier of the owner.</p>
-    pub fn owner_identifier(&self) -> ::std::option::Option<&crate::types::OwnerIdentifier> {
+    pub fn owner_identifier(&self) -> ::std::option::Option<& crate::types::OwnerIdentifier> {
         self.owner_identifier.as_ref()
     }
     /// <p>The container for time.</p>
-    pub fn at_blockchain_instant(&self) -> ::std::option::Option<&crate::types::BlockchainInstant> {
+    pub fn at_blockchain_instant(&self) -> ::std::option::Option<& crate::types::BlockchainInstant> {
         self.at_blockchain_instant.as_ref()
     }
 }
@@ -45,23 +45,22 @@ pub struct BatchGetTokenBalanceInputItemBuilder {
     pub(crate) at_blockchain_instant: ::std::option::Option<crate::types::BlockchainInstant>,
 }
 impl BatchGetTokenBalanceInputItemBuilder {
-    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note>
-    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p>
+    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note> 
+    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p> 
     /// </note>
     /// This field is required.
     pub fn token_identifier(mut self, input: crate::types::TokenIdentifier) -> Self {
         self.token_identifier = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note>
-    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p>
+    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note> 
+    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p> 
     /// </note>
     pub fn set_token_identifier(mut self, input: ::std::option::Option<crate::types::TokenIdentifier>) -> Self {
-        self.token_identifier = input;
-        self
+        self.token_identifier = input; self
     }
-    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note>
-    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p>
+    /// <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p> <note> 
+    /// <p>Only the native tokens BTC,ETH, and the ERC-20, ERC-721, and ERC 1155 token standards are supported.</p> 
     /// </note>
     pub fn get_token_identifier(&self) -> &::std::option::Option<crate::types::TokenIdentifier> {
         &self.token_identifier
@@ -74,8 +73,7 @@ impl BatchGetTokenBalanceInputItemBuilder {
     }
     /// <p>The container for the identifier of the owner.</p>
     pub fn set_owner_identifier(mut self, input: ::std::option::Option<crate::types::OwnerIdentifier>) -> Self {
-        self.owner_identifier = input;
-        self
+        self.owner_identifier = input; self
     }
     /// <p>The container for the identifier of the owner.</p>
     pub fn get_owner_identifier(&self) -> &::std::option::Option<crate::types::OwnerIdentifier> {
@@ -88,8 +86,7 @@ impl BatchGetTokenBalanceInputItemBuilder {
     }
     /// <p>The container for time.</p>
     pub fn set_at_blockchain_instant(mut self, input: ::std::option::Option<crate::types::BlockchainInstant>) -> Self {
-        self.at_blockchain_instant = input;
-        self
+        self.at_blockchain_instant = input; self
     }
     /// <p>The container for time.</p>
     pub fn get_at_blockchain_instant(&self) -> &::std::option::Option<crate::types::BlockchainInstant> {
@@ -98,9 +95,13 @@ impl BatchGetTokenBalanceInputItemBuilder {
     /// Consumes the builder and constructs a [`BatchGetTokenBalanceInputItem`](crate::types::BatchGetTokenBalanceInputItem).
     pub fn build(self) -> crate::types::BatchGetTokenBalanceInputItem {
         crate::types::BatchGetTokenBalanceInputItem {
-            token_identifier: self.token_identifier,
-            owner_identifier: self.owner_identifier,
-            at_blockchain_instant: self.at_blockchain_instant,
+            token_identifier: self.token_identifier
+            ,
+            owner_identifier: self.owner_identifier
+            ,
+            at_blockchain_instant: self.at_blockchain_instant
+            ,
         }
     }
 }
+

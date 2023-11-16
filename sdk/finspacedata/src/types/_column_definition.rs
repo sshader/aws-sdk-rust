@@ -3,10 +3,10 @@
 /// <p>The definition of a column in a tabular Dataset.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ColumnDefinition {
-    /// <p>Data type of a column.</p>
-    /// <ul>
-    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li>
+pub struct ColumnDefinition  {
+    /// <p>Data type of a column.</p> 
+    /// <ul> 
+    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li> 
     /// </ul>
     pub data_type: ::std::option::Option<crate::types::ColumnDataType>,
     /// <p>The name of a column.</p>
@@ -14,20 +14,20 @@ pub struct ColumnDefinition {
     /// <p>Description for a column.</p>
     pub column_description: ::std::option::Option<::std::string::String>,
 }
-impl ColumnDefinition {
-    /// <p>Data type of a column.</p>
-    /// <ul>
-    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li>
+impl  ColumnDefinition  {
+    /// <p>Data type of a column.</p> 
+    /// <ul> 
+    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li> 
     /// </ul>
-    pub fn data_type(&self) -> ::std::option::Option<&crate::types::ColumnDataType> {
+    pub fn data_type(&self) -> ::std::option::Option<& crate::types::ColumnDataType> {
         self.data_type.as_ref()
     }
     /// <p>The name of a column.</p>
-    pub fn column_name(&self) -> ::std::option::Option<&str> {
+    pub fn column_name(&self) -> ::std::option::Option<& str> {
         self.column_name.as_deref()
     }
     /// <p>Description for a column.</p>
-    pub fn column_description(&self) -> ::std::option::Option<&str> {
+    pub fn column_description(&self) -> ::std::option::Option<& str> {
         self.column_description.as_deref()
     }
 }
@@ -47,25 +47,24 @@ pub struct ColumnDefinitionBuilder {
     pub(crate) column_description: ::std::option::Option<::std::string::String>,
 }
 impl ColumnDefinitionBuilder {
-    /// <p>Data type of a column.</p>
-    /// <ul>
-    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li>
+    /// <p>Data type of a column.</p> 
+    /// <ul> 
+    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li> 
     /// </ul>
     pub fn data_type(mut self, input: crate::types::ColumnDataType) -> Self {
         self.data_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Data type of a column.</p>
-    /// <ul>
-    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li>
+    /// <p>Data type of a column.</p> 
+    /// <ul> 
+    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li> 
     /// </ul>
     pub fn set_data_type(mut self, input: ::std::option::Option<crate::types::ColumnDataType>) -> Self {
-        self.data_type = input;
-        self
+        self.data_type = input; self
     }
-    /// <p>Data type of a column.</p>
-    /// <ul>
-    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li>
+    /// <p>Data type of a column.</p> 
+    /// <ul> 
+    /// <li> <p> <code>STRING</code> – A String data type.</p> <p> <code>CHAR</code> – A char data type.</p> <p> <code>INTEGER</code> – An integer data type.</p> <p> <code>TINYINT</code> – A tinyint data type.</p> <p> <code>SMALLINT</code> – A smallint data type.</p> <p> <code>BIGINT</code> – A bigint data type.</p> <p> <code>FLOAT</code> – A float data type.</p> <p> <code>DOUBLE</code> – A double data type.</p> <p> <code>DATE</code> – A date data type.</p> <p> <code>DATETIME</code> – A datetime data type.</p> <p> <code>BOOLEAN</code> – A boolean data type.</p> <p> <code>BINARY</code> – A binary data type.</p> </li> 
     /// </ul>
     pub fn get_data_type(&self) -> &::std::option::Option<crate::types::ColumnDataType> {
         &self.data_type
@@ -77,8 +76,7 @@ impl ColumnDefinitionBuilder {
     }
     /// <p>The name of a column.</p>
     pub fn set_column_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.column_name = input;
-        self
+        self.column_name = input; self
     }
     /// <p>The name of a column.</p>
     pub fn get_column_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -91,8 +89,7 @@ impl ColumnDefinitionBuilder {
     }
     /// <p>Description for a column.</p>
     pub fn set_column_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.column_description = input;
-        self
+        self.column_description = input; self
     }
     /// <p>Description for a column.</p>
     pub fn get_column_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -101,9 +98,13 @@ impl ColumnDefinitionBuilder {
     /// Consumes the builder and constructs a [`ColumnDefinition`](crate::types::ColumnDefinition).
     pub fn build(self) -> crate::types::ColumnDefinition {
         crate::types::ColumnDefinition {
-            data_type: self.data_type,
-            column_name: self.column_name,
-            column_description: self.column_description,
+            data_type: self.data_type
+            ,
+            column_name: self.column_name
+            ,
+            column_description: self.column_description
+            ,
         }
     }
 }
+

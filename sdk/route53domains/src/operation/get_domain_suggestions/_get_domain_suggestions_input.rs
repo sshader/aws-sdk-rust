@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetDomainSuggestionsInput {
-    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
-    /// <p>The domain name can contain only the following characters:</p>
-    /// <ul>
-    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li>
-    /// <li> <p>Numbers 0 through 9.</p> </li>
-    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li>
-    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li>
-    /// </ul>
+pub struct GetDomainSuggestionsInput  {
+    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> 
+    /// <p>The domain name can contain only the following characters:</p> 
+    /// <ul> 
+    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li> 
+    /// <li> <p>Numbers 0 through 9.</p> </li> 
+    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li> 
+    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li> 
+    /// </ul> 
     /// <p>Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a>. </p>
     pub domain_name: ::std::option::Option<::std::string::String>,
     /// <p>The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.</p>
@@ -18,17 +18,17 @@ pub struct GetDomainSuggestionsInput {
     /// <p>If <code>OnlyAvailable</code> is <code>true</code>, Route 53 returns only domain names that are available. If <code>OnlyAvailable</code> is <code>false</code>, Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call <code>checkDomainAvailability</code> for each suggestion.</p>
     pub only_available: ::std::option::Option<bool>,
 }
-impl GetDomainSuggestionsInput {
-    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
-    /// <p>The domain name can contain only the following characters:</p>
-    /// <ul>
-    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li>
-    /// <li> <p>Numbers 0 through 9.</p> </li>
-    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li>
-    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li>
-    /// </ul>
+impl  GetDomainSuggestionsInput  {
+    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> 
+    /// <p>The domain name can contain only the following characters:</p> 
+    /// <ul> 
+    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li> 
+    /// <li> <p>Numbers 0 through 9.</p> </li> 
+    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li> 
+    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li> 
+    /// </ul> 
     /// <p>Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a>. </p>
-    pub fn domain_name(&self) -> ::std::option::Option<&str> {
+    pub fn domain_name(&self) -> ::std::option::Option<& str> {
         self.domain_name.as_deref()
     }
     /// <p>The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.</p>
@@ -56,41 +56,40 @@ pub struct GetDomainSuggestionsInputBuilder {
     pub(crate) only_available: ::std::option::Option<bool>,
 }
 impl GetDomainSuggestionsInputBuilder {
-    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
-    /// <p>The domain name can contain only the following characters:</p>
-    /// <ul>
-    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li>
-    /// <li> <p>Numbers 0 through 9.</p> </li>
-    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li>
-    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li>
-    /// </ul>
+    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> 
+    /// <p>The domain name can contain only the following characters:</p> 
+    /// <ul> 
+    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li> 
+    /// <li> <p>Numbers 0 through 9.</p> </li> 
+    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li> 
+    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li> 
+    /// </ul> 
     /// <p>Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a>. </p>
     /// This field is required.
     pub fn domain_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.domain_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
-    /// <p>The domain name can contain only the following characters:</p>
-    /// <ul>
-    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li>
-    /// <li> <p>Numbers 0 through 9.</p> </li>
-    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li>
-    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li>
-    /// </ul>
+    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> 
+    /// <p>The domain name can contain only the following characters:</p> 
+    /// <ul> 
+    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li> 
+    /// <li> <p>Numbers 0 through 9.</p> </li> 
+    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li> 
+    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li> 
+    /// </ul> 
     /// <p>Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a>. </p>
     pub fn set_domain_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.domain_name = input;
-        self
+        self.domain_name = input; self
     }
-    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
-    /// <p>The domain name can contain only the following characters:</p>
-    /// <ul>
-    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li>
-    /// <li> <p>Numbers 0 through 9.</p> </li>
-    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li>
-    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li>
-    /// </ul>
+    /// <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> 
+    /// <p>The domain name can contain only the following characters:</p> 
+    /// <ul> 
+    /// <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li> 
+    /// <li> <p>Numbers 0 through 9.</p> </li> 
+    /// <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li> 
+    /// <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li> 
+    /// </ul> 
     /// <p>Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a>. </p>
     pub fn get_domain_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.domain_name
@@ -103,8 +102,7 @@ impl GetDomainSuggestionsInputBuilder {
     }
     /// <p>The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.</p>
     pub fn set_suggestion_count(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.suggestion_count = input;
-        self
+        self.suggestion_count = input; self
     }
     /// <p>The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.</p>
     pub fn get_suggestion_count(&self) -> &::std::option::Option<i32> {
@@ -118,22 +116,24 @@ impl GetDomainSuggestionsInputBuilder {
     }
     /// <p>If <code>OnlyAvailable</code> is <code>true</code>, Route 53 returns only domain names that are available. If <code>OnlyAvailable</code> is <code>false</code>, Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call <code>checkDomainAvailability</code> for each suggestion.</p>
     pub fn set_only_available(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.only_available = input;
-        self
+        self.only_available = input; self
     }
     /// <p>If <code>OnlyAvailable</code> is <code>true</code>, Route 53 returns only domain names that are available. If <code>OnlyAvailable</code> is <code>false</code>, Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call <code>checkDomainAvailability</code> for each suggestion.</p>
     pub fn get_only_available(&self) -> &::std::option::Option<bool> {
         &self.only_available
     }
     /// Consumes the builder and constructs a [`GetDomainSuggestionsInput`](crate::operation::get_domain_suggestions::GetDomainSuggestionsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::get_domain_suggestions::GetDomainSuggestionsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_domain_suggestions::GetDomainSuggestionsInput {
-            domain_name: self.domain_name,
-            suggestion_count: self.suggestion_count,
-            only_available: self.only_available,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_domain_suggestions::GetDomainSuggestionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_domain_suggestions::GetDomainSuggestionsInput {
+                domain_name: self.domain_name
+                ,
+                suggestion_count: self.suggestion_count
+                ,
+                only_available: self.only_available
+                ,
+            }
+        )
     }
 }
+

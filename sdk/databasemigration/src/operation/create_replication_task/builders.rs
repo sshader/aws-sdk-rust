@@ -5,54 +5,50 @@ pub use crate::operation::create_replication_task::_create_replication_task_inpu
 
 impl CreateReplicationTaskInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_replication_task::CreateReplicationTaskOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_replication_task::CreateReplicationTaskError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_replication_task();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_replication_task::CreateReplicationTaskOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_replication_task::CreateReplicationTaskError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_replication_task();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateReplicationTask`.
-///
+/// 
 /// <p>Creates a replication task using the specified parameters.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateReplicationTaskFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_replication_task::builders::CreateReplicationTaskInputBuilder,
+                    inner: crate::operation::create_replication_task::builders::CreateReplicationTaskInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_replication_task::CreateReplicationTaskOutput,
-        crate::operation::create_replication_task::CreateReplicationTaskError,
-    > for CreateReplicationTaskFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_replication_task::CreateReplicationTaskOutput,
-            crate::operation::create_replication_task::CreateReplicationTaskError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_replication_task::CreateReplicationTaskOutput,
+                    crate::operation::create_replication_task::CreateReplicationTaskError,
+                > for CreateReplicationTaskFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_replication_task::CreateReplicationTaskOutput,
+                        crate::operation::create_replication_task::CreateReplicationTaskError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateReplicationTaskFluentBuilder {
     /// Creates a new `CreateReplicationTask`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,81 +57,72 @@ impl CreateReplicationTaskFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_replication_task::CreateReplicationTaskOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_replication_task::CreateReplicationTaskError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_replication_task::CreateReplicationTask::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_replication_task::CreateReplicationTask::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_replication_task::CreateReplicationTaskOutput,
-        crate::operation::create_replication_task::CreateReplicationTaskError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>An identifier for the replication task.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must contain 1-255 alphanumeric characters or hyphens.</p> </li>
-    /// <li> <p>First character must be a letter.</p> </li>
-    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_replication_task::CreateReplicationTaskOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_replication_task::CreateReplicationTaskError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_replication_task::CreateReplicationTask::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_replication_task::CreateReplicationTask::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_replication_task::CreateReplicationTaskOutput, crate::operation::create_replication_task::CreateReplicationTaskError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>An identifier for the replication task.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain 1-255 alphanumeric characters or hyphens.</p> </li> 
+    /// <li> <p>First character must be a letter.</p> </li> 
+    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> 
     /// </ul>
     pub fn replication_task_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.replication_task_identifier(input.into());
         self
     }
-    /// <p>An identifier for the replication task.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must contain 1-255 alphanumeric characters or hyphens.</p> </li>
-    /// <li> <p>First character must be a letter.</p> </li>
-    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li>
+    /// <p>An identifier for the replication task.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain 1-255 alphanumeric characters or hyphens.</p> </li> 
+    /// <li> <p>First character must be a letter.</p> </li> 
+    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> 
     /// </ul>
     pub fn set_replication_task_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_replication_task_identifier(input);
         self
     }
-    /// <p>An identifier for the replication task.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must contain 1-255 alphanumeric characters or hyphens.</p> </li>
-    /// <li> <p>First character must be a letter.</p> </li>
-    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li>
+    /// <p>An identifier for the replication task.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must contain 1-255 alphanumeric characters or hyphens.</p> </li> 
+    /// <li> <p>First character must be a letter.</p> </li> 
+    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> 
     /// </ul>
     pub fn get_replication_task_identifier(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_replication_task_identifier()
@@ -224,71 +211,71 @@ impl CreateReplicationTaskFluentBuilder {
     pub fn get_replication_task_settings(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_replication_task_settings()
     }
-    /// <p>Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.</p>
+    /// <p>Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.</p> 
     /// <p>Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”</p>
     pub fn cdc_start_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.inner = self.inner.cdc_start_time(input);
         self
     }
-    /// <p>Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.</p>
+    /// <p>Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.</p> 
     /// <p>Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”</p>
     pub fn set_cdc_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_cdc_start_time(input);
         self
     }
-    /// <p>Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.</p>
+    /// <p>Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.</p> 
     /// <p>Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”</p>
     pub fn get_cdc_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_cdc_start_time()
     }
-    /// <p>Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.</p>
-    /// <p> The value can be in date, checkpoint, or LSN/SCN format.</p>
-    /// <p>Date Example: --cdc-start-position “2018-03-08T12:12:12”</p>
-    /// <p>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</p>
-    /// <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p> <note>
-    /// <p>When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the <code>slotName</code> extra connection attribute to the name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</p>
+    /// <p>Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.</p> 
+    /// <p> The value can be in date, checkpoint, or LSN/SCN format.</p> 
+    /// <p>Date Example: --cdc-start-position “2018-03-08T12:12:12”</p> 
+    /// <p>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</p> 
+    /// <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p> <note> 
+    /// <p>When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the <code>slotName</code> extra connection attribute to the name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</p> 
     /// </note>
     pub fn cdc_start_position(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.cdc_start_position(input.into());
         self
     }
-    /// <p>Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.</p>
-    /// <p> The value can be in date, checkpoint, or LSN/SCN format.</p>
-    /// <p>Date Example: --cdc-start-position “2018-03-08T12:12:12”</p>
-    /// <p>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</p>
-    /// <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p> <note>
-    /// <p>When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the <code>slotName</code> extra connection attribute to the name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</p>
+    /// <p>Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.</p> 
+    /// <p> The value can be in date, checkpoint, or LSN/SCN format.</p> 
+    /// <p>Date Example: --cdc-start-position “2018-03-08T12:12:12”</p> 
+    /// <p>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</p> 
+    /// <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p> <note> 
+    /// <p>When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the <code>slotName</code> extra connection attribute to the name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</p> 
     /// </note>
     pub fn set_cdc_start_position(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_cdc_start_position(input);
         self
     }
-    /// <p>Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.</p>
-    /// <p> The value can be in date, checkpoint, or LSN/SCN format.</p>
-    /// <p>Date Example: --cdc-start-position “2018-03-08T12:12:12”</p>
-    /// <p>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</p>
-    /// <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p> <note>
-    /// <p>When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the <code>slotName</code> extra connection attribute to the name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</p>
+    /// <p>Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.</p> 
+    /// <p> The value can be in date, checkpoint, or LSN/SCN format.</p> 
+    /// <p>Date Example: --cdc-start-position “2018-03-08T12:12:12”</p> 
+    /// <p>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</p> 
+    /// <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p> <note> 
+    /// <p>When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the <code>slotName</code> extra connection attribute to the name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</p> 
     /// </note>
     pub fn get_cdc_start_position(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_cdc_start_position()
     }
-    /// <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p>
-    /// <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
+    /// <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> 
+    /// <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> 
     /// <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
     pub fn cdc_stop_position(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.cdc_stop_position(input.into());
         self
     }
-    /// <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p>
-    /// <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
+    /// <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> 
+    /// <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> 
     /// <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
     pub fn set_cdc_stop_position(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_cdc_stop_position(input);
         self
     }
-    /// <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p>
-    /// <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
+    /// <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> 
+    /// <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> 
     /// <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
     pub fn get_cdc_stop_position(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_cdc_stop_position()
@@ -303,12 +290,12 @@ impl CreateReplicationTaskFluentBuilder {
         self
     }
     /// <p>One or more tags to be assigned to the replication task.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>One or more tags to be assigned to the replication task.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
     /// <p>Supplemental information that the task requires to migrate the data for certain source and target endpoints. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying Supplemental Data for Task Settings</a> in the <i>Database Migration Service User Guide.</i> </p>
@@ -340,3 +327,4 @@ impl CreateReplicationTaskFluentBuilder {
         self.inner.get_resource_identifier()
     }
 }
+

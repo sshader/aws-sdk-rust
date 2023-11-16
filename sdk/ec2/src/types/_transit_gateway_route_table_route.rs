@@ -3,15 +3,15 @@
 /// <p>Describes a route in a transit gateway route table.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct TransitGatewayRouteTableRoute {
+pub struct TransitGatewayRouteTableRoute  {
     /// <p>The CIDR block used for destination matches.</p>
     pub destination_cidr: ::std::option::Option<::std::string::String>,
     /// <p>The state of the route.</p>
     pub state: ::std::option::Option<::std::string::String>,
-    /// <p>The route origin. The following are the possible values:</p>
-    /// <ul>
-    /// <li> <p>static</p> </li>
-    /// <li> <p>propagated</p> </li>
+    /// <p>The route origin. The following are the possible values:</p> 
+    /// <ul> 
+    /// <li> <p>static</p> </li> 
+    /// <li> <p>propagated</p> </li> 
     /// </ul>
     pub route_origin: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the prefix list.</p>
@@ -23,37 +23,37 @@ pub struct TransitGatewayRouteTableRoute {
     /// <p>The resource type for the route attachment.</p>
     pub resource_type: ::std::option::Option<::std::string::String>,
 }
-impl TransitGatewayRouteTableRoute {
+impl  TransitGatewayRouteTableRoute  {
     /// <p>The CIDR block used for destination matches.</p>
-    pub fn destination_cidr(&self) -> ::std::option::Option<&str> {
+    pub fn destination_cidr(&self) -> ::std::option::Option<& str> {
         self.destination_cidr.as_deref()
     }
     /// <p>The state of the route.</p>
-    pub fn state(&self) -> ::std::option::Option<&str> {
+    pub fn state(&self) -> ::std::option::Option<& str> {
         self.state.as_deref()
     }
-    /// <p>The route origin. The following are the possible values:</p>
-    /// <ul>
-    /// <li> <p>static</p> </li>
-    /// <li> <p>propagated</p> </li>
+    /// <p>The route origin. The following are the possible values:</p> 
+    /// <ul> 
+    /// <li> <p>static</p> </li> 
+    /// <li> <p>propagated</p> </li> 
     /// </ul>
-    pub fn route_origin(&self) -> ::std::option::Option<&str> {
+    pub fn route_origin(&self) -> ::std::option::Option<& str> {
         self.route_origin.as_deref()
     }
     /// <p>The ID of the prefix list.</p>
-    pub fn prefix_list_id(&self) -> ::std::option::Option<&str> {
+    pub fn prefix_list_id(&self) -> ::std::option::Option<& str> {
         self.prefix_list_id.as_deref()
     }
     /// <p>The ID of the route attachment.</p>
-    pub fn attachment_id(&self) -> ::std::option::Option<&str> {
+    pub fn attachment_id(&self) -> ::std::option::Option<& str> {
         self.attachment_id.as_deref()
     }
     /// <p>The ID of the resource for the route attachment.</p>
-    pub fn resource_id(&self) -> ::std::option::Option<&str> {
+    pub fn resource_id(&self) -> ::std::option::Option<& str> {
         self.resource_id.as_deref()
     }
     /// <p>The resource type for the route attachment.</p>
-    pub fn resource_type(&self) -> ::std::option::Option<&str> {
+    pub fn resource_type(&self) -> ::std::option::Option<& str> {
         self.resource_type.as_deref()
     }
 }
@@ -84,8 +84,7 @@ impl TransitGatewayRouteTableRouteBuilder {
     }
     /// <p>The CIDR block used for destination matches.</p>
     pub fn set_destination_cidr(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.destination_cidr = input;
-        self
+        self.destination_cidr = input; self
     }
     /// <p>The CIDR block used for destination matches.</p>
     pub fn get_destination_cidr(&self) -> &::std::option::Option<::std::string::String> {
@@ -98,35 +97,33 @@ impl TransitGatewayRouteTableRouteBuilder {
     }
     /// <p>The state of the route.</p>
     pub fn set_state(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
     /// <p>The state of the route.</p>
     pub fn get_state(&self) -> &::std::option::Option<::std::string::String> {
         &self.state
     }
-    /// <p>The route origin. The following are the possible values:</p>
-    /// <ul>
-    /// <li> <p>static</p> </li>
-    /// <li> <p>propagated</p> </li>
+    /// <p>The route origin. The following are the possible values:</p> 
+    /// <ul> 
+    /// <li> <p>static</p> </li> 
+    /// <li> <p>propagated</p> </li> 
     /// </ul>
     pub fn route_origin(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.route_origin = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The route origin. The following are the possible values:</p>
-    /// <ul>
-    /// <li> <p>static</p> </li>
-    /// <li> <p>propagated</p> </li>
+    /// <p>The route origin. The following are the possible values:</p> 
+    /// <ul> 
+    /// <li> <p>static</p> </li> 
+    /// <li> <p>propagated</p> </li> 
     /// </ul>
     pub fn set_route_origin(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.route_origin = input;
-        self
+        self.route_origin = input; self
     }
-    /// <p>The route origin. The following are the possible values:</p>
-    /// <ul>
-    /// <li> <p>static</p> </li>
-    /// <li> <p>propagated</p> </li>
+    /// <p>The route origin. The following are the possible values:</p> 
+    /// <ul> 
+    /// <li> <p>static</p> </li> 
+    /// <li> <p>propagated</p> </li> 
     /// </ul>
     pub fn get_route_origin(&self) -> &::std::option::Option<::std::string::String> {
         &self.route_origin
@@ -138,8 +135,7 @@ impl TransitGatewayRouteTableRouteBuilder {
     }
     /// <p>The ID of the prefix list.</p>
     pub fn set_prefix_list_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.prefix_list_id = input;
-        self
+        self.prefix_list_id = input; self
     }
     /// <p>The ID of the prefix list.</p>
     pub fn get_prefix_list_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -152,8 +148,7 @@ impl TransitGatewayRouteTableRouteBuilder {
     }
     /// <p>The ID of the route attachment.</p>
     pub fn set_attachment_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.attachment_id = input;
-        self
+        self.attachment_id = input; self
     }
     /// <p>The ID of the route attachment.</p>
     pub fn get_attachment_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -166,8 +161,7 @@ impl TransitGatewayRouteTableRouteBuilder {
     }
     /// <p>The ID of the resource for the route attachment.</p>
     pub fn set_resource_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_id = input;
-        self
+        self.resource_id = input; self
     }
     /// <p>The ID of the resource for the route attachment.</p>
     pub fn get_resource_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -180,8 +174,7 @@ impl TransitGatewayRouteTableRouteBuilder {
     }
     /// <p>The resource type for the route attachment.</p>
     pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_type = input;
-        self
+        self.resource_type = input; self
     }
     /// <p>The resource type for the route attachment.</p>
     pub fn get_resource_type(&self) -> &::std::option::Option<::std::string::String> {
@@ -190,13 +183,21 @@ impl TransitGatewayRouteTableRouteBuilder {
     /// Consumes the builder and constructs a [`TransitGatewayRouteTableRoute`](crate::types::TransitGatewayRouteTableRoute).
     pub fn build(self) -> crate::types::TransitGatewayRouteTableRoute {
         crate::types::TransitGatewayRouteTableRoute {
-            destination_cidr: self.destination_cidr,
-            state: self.state,
-            route_origin: self.route_origin,
-            prefix_list_id: self.prefix_list_id,
-            attachment_id: self.attachment_id,
-            resource_id: self.resource_id,
-            resource_type: self.resource_type,
+            destination_cidr: self.destination_cidr
+            ,
+            state: self.state
+            ,
+            route_origin: self.route_origin
+            ,
+            prefix_list_id: self.prefix_list_id
+            ,
+            attachment_id: self.attachment_id
+            ,
+            resource_id: self.resource_id
+            ,
+            resource_type: self.resource_type
+            ,
         }
     }
 }
+

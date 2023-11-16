@@ -22,11 +22,7 @@ impl ExportKeyMaterial {
     /// Tries to convert the enum instance into [`Tr31KeyBlock`](crate::types::ExportKeyMaterial::Tr31KeyBlock), extracting the inner [`ExportTr31KeyBlock`](crate::types::ExportTr31KeyBlock).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_tr31_key_block(&self) -> ::std::result::Result<&crate::types::ExportTr31KeyBlock, &Self> {
-        if let ExportKeyMaterial::Tr31KeyBlock(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
+        if let ExportKeyMaterial::Tr31KeyBlock(val) = &self { ::std::result::Result::Ok(val) } else { ::std::result::Result::Err(self) }
     }
     /// Returns true if this is a [`Tr31KeyBlock`](crate::types::ExportKeyMaterial::Tr31KeyBlock).
     pub fn is_tr31_key_block(&self) -> bool {
@@ -35,11 +31,7 @@ impl ExportKeyMaterial {
     /// Tries to convert the enum instance into [`Tr34KeyBlock`](crate::types::ExportKeyMaterial::Tr34KeyBlock), extracting the inner [`ExportTr34KeyBlock`](crate::types::ExportTr34KeyBlock).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_tr34_key_block(&self) -> ::std::result::Result<&crate::types::ExportTr34KeyBlock, &Self> {
-        if let ExportKeyMaterial::Tr34KeyBlock(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
+        if let ExportKeyMaterial::Tr34KeyBlock(val) = &self { ::std::result::Result::Ok(val) } else { ::std::result::Result::Err(self) }
     }
     /// Returns true if this is a [`Tr34KeyBlock`](crate::types::ExportKeyMaterial::Tr34KeyBlock).
     pub fn is_tr34_key_block(&self) -> bool {
@@ -50,3 +42,4 @@ impl ExportKeyMaterial {
         matches!(self, Self::Unknown)
     }
 }
+

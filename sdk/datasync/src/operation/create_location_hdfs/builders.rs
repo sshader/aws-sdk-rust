@@ -5,54 +5,50 @@ pub use crate::operation::create_location_hdfs::_create_location_hdfs_input::Cre
 
 impl CreateLocationHdfsInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_location_hdfs::CreateLocationHdfsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_location_hdfs::CreateLocationHdfsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_location_hdfs();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_location_hdfs::CreateLocationHdfsOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_location_hdfs::CreateLocationHdfsError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_location_hdfs();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateLocationHdfs`.
-///
+/// 
 /// <p>Creates an endpoint for a Hadoop Distributed File System (HDFS). </p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateLocationHdfsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_location_hdfs::builders::CreateLocationHdfsInputBuilder,
+                    inner: crate::operation::create_location_hdfs::builders::CreateLocationHdfsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_location_hdfs::CreateLocationHdfsOutput,
-        crate::operation::create_location_hdfs::CreateLocationHdfsError,
-    > for CreateLocationHdfsFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_location_hdfs::CreateLocationHdfsOutput,
-            crate::operation::create_location_hdfs::CreateLocationHdfsError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_location_hdfs::CreateLocationHdfsOutput,
+                    crate::operation::create_location_hdfs::CreateLocationHdfsError,
+                > for CreateLocationHdfsFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_location_hdfs::CreateLocationHdfsOutput,
+                        crate::operation::create_location_hdfs::CreateLocationHdfsError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateLocationHdfsFluentBuilder {
     /// Creates a new `CreateLocationHdfs`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl CreateLocationHdfsFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_location_hdfs::CreateLocationHdfsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_location_hdfs::CreateLocationHdfsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_location_hdfs::CreateLocationHdfs::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_location_hdfs::CreateLocationHdfs::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_location_hdfs::CreateLocationHdfsOutput,
-        crate::operation::create_location_hdfs::CreateLocationHdfsError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_location_hdfs::CreateLocationHdfsOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_location_hdfs::CreateLocationHdfsError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_location_hdfs::CreateLocationHdfs::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_location_hdfs::CreateLocationHdfs::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_location_hdfs::CreateLocationHdfsOutput, crate::operation::create_location_hdfs::CreateLocationHdfsError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to <code>/</code>.</p>
     pub fn subdirectory(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.subdirectory(input.into());
@@ -132,12 +119,12 @@ impl CreateLocationHdfsFluentBuilder {
         self
     }
     /// <p>The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode.</p>
-    pub fn set_name_nodes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::HdfsNameNode>>) -> Self {
+    pub fn set_name_nodes(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::HdfsNameNode>>) -> Self {
         self.inner = self.inner.set_name_nodes(input);
         self
     }
     /// <p>The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode.</p>
-    pub fn get_name_nodes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::HdfsNameNode>> {
+    pub fn get_name_nodes(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::HdfsNameNode>> {
         self.inner.get_name_nodes()
     }
     /// <p>The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).</p>
@@ -210,82 +197,82 @@ impl CreateLocationHdfsFluentBuilder {
     pub fn get_authentication_type(&self) -> &::std::option::Option<crate::types::HdfsAuthenticationType> {
         self.inner.get_authentication_type()
     }
-    /// <p>The user name used to identify the client on the host operating system. </p> <note>
-    /// <p>If <code>SIMPLE</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p>
+    /// <p>The user name used to identify the client on the host operating system. </p> <note> 
+    /// <p>If <code>SIMPLE</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p> 
     /// </note>
     pub fn simple_user(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.simple_user(input.into());
         self
     }
-    /// <p>The user name used to identify the client on the host operating system. </p> <note>
-    /// <p>If <code>SIMPLE</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p>
+    /// <p>The user name used to identify the client on the host operating system. </p> <note> 
+    /// <p>If <code>SIMPLE</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p> 
     /// </note>
     pub fn set_simple_user(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_simple_user(input);
         self
     }
-    /// <p>The user name used to identify the client on the host operating system. </p> <note>
-    /// <p>If <code>SIMPLE</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p>
+    /// <p>The user name used to identify the client on the host operating system. </p> <note> 
+    /// <p>If <code>SIMPLE</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p> 
     /// </note>
     pub fn get_simple_user(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_simple_user()
     }
-    /// <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p> <note>
-    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p>
+    /// <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p> <note> 
+    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p> 
     /// </note>
     pub fn kerberos_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.kerberos_principal(input.into());
         self
     }
-    /// <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p> <note>
-    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p>
+    /// <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p> <note> 
+    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p> 
     /// </note>
     pub fn set_kerberos_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_kerberos_principal(input);
         self
     }
-    /// <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p> <note>
-    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p>
+    /// <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p> <note> 
+    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p> 
     /// </note>
     pub fn get_kerberos_principal(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_kerberos_principal()
     }
-    /// <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. You can load the keytab from a file by providing the file's address. If you're using the CLI, it performs base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note>
-    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p>
+    /// <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. You can load the keytab from a file by providing the file's address. If you're using the CLI, it performs base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note> 
+    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p> 
     /// </note>
     pub fn kerberos_keytab(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.kerberos_keytab(input);
         self
     }
-    /// <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. You can load the keytab from a file by providing the file's address. If you're using the CLI, it performs base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note>
-    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p>
+    /// <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. You can load the keytab from a file by providing the file's address. If you're using the CLI, it performs base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note> 
+    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p> 
     /// </note>
     pub fn set_kerberos_keytab(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_kerberos_keytab(input);
         self
     }
-    /// <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. You can load the keytab from a file by providing the file's address. If you're using the CLI, it performs base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note>
-    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p>
+    /// <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. You can load the keytab from a file by providing the file's address. If you're using the CLI, it performs base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note> 
+    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required. </p> 
     /// </note>
     pub fn get_kerberos_keytab(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_kerberos_keytab()
     }
-    /// <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You can load the <code>krb5.conf</code> file by providing the file's address. If you're using the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note>
-    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p>
+    /// <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You can load the <code>krb5.conf</code> file by providing the file's address. If you're using the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note> 
+    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p> 
     /// </note>
     pub fn kerberos_krb5_conf(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.kerberos_krb5_conf(input);
         self
     }
-    /// <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You can load the <code>krb5.conf</code> file by providing the file's address. If you're using the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note>
-    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p>
+    /// <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You can load the <code>krb5.conf</code> file by providing the file's address. If you're using the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note> 
+    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p> 
     /// </note>
     pub fn set_kerberos_krb5_conf(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_kerberos_krb5_conf(input);
         self
     }
-    /// <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You can load the <code>krb5.conf</code> file by providing the file's address. If you're using the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note>
-    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p>
+    /// <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You can load the <code>krb5.conf</code> file by providing the file's address. If you're using the CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded text. </p> <note> 
+    /// <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this parameter is required.</p> 
     /// </note>
     pub fn get_kerberos_krb5_conf(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_kerberos_krb5_conf()
@@ -300,12 +287,12 @@ impl CreateLocationHdfsFluentBuilder {
         self
     }
     /// <p>The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS cluster.</p>
-    pub fn set_agent_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_agent_arns(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_agent_arns(input);
         self
     }
     /// <p>The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS cluster.</p>
-    pub fn get_agent_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_agent_arns(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_agent_arns()
     }
     /// Appends an item to `Tags`.
@@ -318,12 +305,13 @@ impl CreateLocationHdfsFluentBuilder {
         self
     }
     /// <p>The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources. </p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TagListEntry>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::TagListEntry>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources. </p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TagListEntry>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::TagListEntry>> {
         self.inner.get_tags()
     }
 }
+

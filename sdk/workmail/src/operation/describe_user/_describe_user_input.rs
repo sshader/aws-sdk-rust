@@ -2,33 +2,33 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeUserInput {
+pub struct DescribeUserInput  {
     /// <p>The identifier for the organization under which the user exists.</p>
     pub organization_id: ::std::option::Option<::std::string::String>,
-    /// <p>The identifier for the user to be described.</p>
-    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: user@domain.tld</p> </li>
-    /// <li> <p>User name: user</p> </li>
-    /// </ul>
+    /// <p>The identifier for the user to be described.</p> 
+    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: user@domain.tld</p> </li> 
+    /// <li> <p>User name: user</p> </li> 
+    /// </ul> 
     /// <p></p>
     pub user_id: ::std::option::Option<::std::string::String>,
 }
-impl DescribeUserInput {
+impl  DescribeUserInput  {
     /// <p>The identifier for the organization under which the user exists.</p>
-    pub fn organization_id(&self) -> ::std::option::Option<&str> {
+    pub fn organization_id(&self) -> ::std::option::Option<& str> {
         self.organization_id.as_deref()
     }
-    /// <p>The identifier for the user to be described.</p>
-    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: user@domain.tld</p> </li>
-    /// <li> <p>User name: user</p> </li>
-    /// </ul>
+    /// <p>The identifier for the user to be described.</p> 
+    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: user@domain.tld</p> </li> 
+    /// <li> <p>User name: user</p> </li> 
+    /// </ul> 
     /// <p></p>
-    pub fn user_id(&self) -> ::std::option::Option<&str> {
+    pub fn user_id(&self) -> ::std::option::Option<& str> {
         self.user_id.as_deref()
     }
 }
@@ -55,56 +55,57 @@ impl DescribeUserInputBuilder {
     }
     /// <p>The identifier for the organization under which the user exists.</p>
     pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.organization_id = input;
-        self
+        self.organization_id = input; self
     }
     /// <p>The identifier for the organization under which the user exists.</p>
     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_id
     }
-    /// <p>The identifier for the user to be described.</p>
-    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: user@domain.tld</p> </li>
-    /// <li> <p>User name: user</p> </li>
-    /// </ul>
+    /// <p>The identifier for the user to be described.</p> 
+    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: user@domain.tld</p> </li> 
+    /// <li> <p>User name: user</p> </li> 
+    /// </ul> 
     /// <p></p>
     /// This field is required.
     pub fn user_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.user_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The identifier for the user to be described.</p>
-    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: user@domain.tld</p> </li>
-    /// <li> <p>User name: user</p> </li>
-    /// </ul>
+    /// <p>The identifier for the user to be described.</p> 
+    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: user@domain.tld</p> </li> 
+    /// <li> <p>User name: user</p> </li> 
+    /// </ul> 
     /// <p></p>
     pub fn set_user_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.user_id = input;
-        self
+        self.user_id = input; self
     }
-    /// <p>The identifier for the user to be described.</p>
-    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
-    /// <ul>
-    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li>
-    /// <li> <p>Email address: user@domain.tld</p> </li>
-    /// <li> <p>User name: user</p> </li>
-    /// </ul>
+    /// <p>The identifier for the user to be described.</p> 
+    /// <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p> 
+    /// <ul> 
+    /// <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> 
+    /// <li> <p>Email address: user@domain.tld</p> </li> 
+    /// <li> <p>User name: user</p> </li> 
+    /// </ul> 
     /// <p></p>
     pub fn get_user_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.user_id
     }
     /// Consumes the builder and constructs a [`DescribeUserInput`](crate::operation::describe_user::DescribeUserInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::describe_user::DescribeUserInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::describe_user::DescribeUserInput {
-            organization_id: self.organization_id,
-            user_id: self.user_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_user::DescribeUserInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_user::DescribeUserInput {
+                organization_id: self.organization_id
+                ,
+                user_id: self.user_id
+                ,
+            }
+        )
     }
 }
+

@@ -3,19 +3,19 @@
 /// <p>Information about an Auto Scaling group.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AutoScalingGroup {
+pub struct AutoScalingGroup  {
     /// <p>The Auto Scaling group name.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>An Auto Scaling lifecycle event hook name.</p>
     pub hook: ::std::option::Option<::std::string::String>,
 }
-impl AutoScalingGroup {
+impl  AutoScalingGroup  {
     /// <p>The Auto Scaling group name.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>An Auto Scaling lifecycle event hook name.</p>
-    pub fn hook(&self) -> ::std::option::Option<&str> {
+    pub fn hook(&self) -> ::std::option::Option<& str> {
         self.hook.as_deref()
     }
 }
@@ -41,8 +41,7 @@ impl AutoScalingGroupBuilder {
     }
     /// <p>The Auto Scaling group name.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The Auto Scaling group name.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -55,8 +54,7 @@ impl AutoScalingGroupBuilder {
     }
     /// <p>An Auto Scaling lifecycle event hook name.</p>
     pub fn set_hook(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.hook = input;
-        self
+        self.hook = input; self
     }
     /// <p>An Auto Scaling lifecycle event hook name.</p>
     pub fn get_hook(&self) -> &::std::option::Option<::std::string::String> {
@@ -65,8 +63,11 @@ impl AutoScalingGroupBuilder {
     /// Consumes the builder and constructs a [`AutoScalingGroup`](crate::types::AutoScalingGroup).
     pub fn build(self) -> crate::types::AutoScalingGroup {
         crate::types::AutoScalingGroup {
-            name: self.name,
-            hook: self.hook,
+            name: self.name
+            ,
+            hook: self.hook
+            ,
         }
     }
 }
+

@@ -5,55 +5,51 @@ pub use crate::operation::update_canary::_update_canary_input::UpdateCanaryInput
 
 impl UpdateCanaryInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::update_canary::UpdateCanaryOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_canary::UpdateCanaryError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.update_canary();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::update_canary::UpdateCanaryOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::update_canary::UpdateCanaryError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.update_canary();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `UpdateCanary`.
-///
-/// <p>Updates the configuration of a canary that has already been created.</p>
+/// 
+/// <p>Updates the configuration of a canary that has already been created.</p> 
 /// <p>You can't use this operation to update the tags of an existing canary. To change the tags of an existing canary, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateCanaryFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_canary::builders::UpdateCanaryInputBuilder,
+                    inner: crate::operation::update_canary::builders::UpdateCanaryInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::update_canary::UpdateCanaryOutput,
-        crate::operation::update_canary::UpdateCanaryError,
-    > for UpdateCanaryFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::update_canary::UpdateCanaryOutput,
-            crate::operation::update_canary::UpdateCanaryError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::update_canary::UpdateCanaryOutput,
+                    crate::operation::update_canary::UpdateCanaryError,
+                > for UpdateCanaryFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::update_canary::UpdateCanaryOutput,
+                        crate::operation::update_canary::UpdateCanaryError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl UpdateCanaryFluentBuilder {
     /// Creates a new `UpdateCanary`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -62,66 +58,57 @@ impl UpdateCanaryFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_canary::UpdateCanaryOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_canary::UpdateCanaryError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_canary::UpdateCanary::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_canary::UpdateCanary::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::update_canary::UpdateCanaryOutput,
-        crate::operation::update_canary::UpdateCanaryError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The name of the canary that you want to update. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::update_canary::UpdateCanaryOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_canary::UpdateCanaryError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::update_canary::UpdateCanary::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::update_canary::UpdateCanary::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::update_canary::UpdateCanaryOutput, crate::operation::update_canary::UpdateCanaryError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The name of the canary that you want to update. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p> 
     /// <p>You cannot change the name of a canary that has already been created.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.name(input.into());
         self
     }
-    /// <p>The name of the canary that you want to update. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
+    /// <p>The name of the canary that you want to update. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p> 
     /// <p>You cannot change the name of a canary that has already been created.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_name(input);
         self
     }
-    /// <p>The name of the canary that you want to update. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
+    /// <p>The name of the canary that you want to update. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p> 
     /// <p>You cannot change the name of a canary that has already been created.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_name()
@@ -140,43 +127,43 @@ impl UpdateCanaryFluentBuilder {
     pub fn get_code(&self) -> &::std::option::Option<crate::types::CanaryCodeInput> {
         self.inner.get_code()
     }
-    /// <p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p>
-    /// <ul>
-    /// <li> <p> <code>s3:PutObject</code> </p> </li>
-    /// <li> <p> <code>s3:GetBucketLocation</code> </p> </li>
-    /// <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li>
-    /// <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li>
-    /// <li> <p> <code>logs:CreateLogGroup</code> </p> </li>
-    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li>
-    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li>
+    /// <p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p> 
+    /// <ul> 
+    /// <li> <p> <code>s3:PutObject</code> </p> </li> 
+    /// <li> <p> <code>s3:GetBucketLocation</code> </p> </li> 
+    /// <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li> 
+    /// <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li> 
+    /// <li> <p> <code>logs:CreateLogGroup</code> </p> </li> 
+    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li> 
+    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li> 
     /// </ul>
     pub fn execution_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.execution_role_arn(input.into());
         self
     }
-    /// <p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p>
-    /// <ul>
-    /// <li> <p> <code>s3:PutObject</code> </p> </li>
-    /// <li> <p> <code>s3:GetBucketLocation</code> </p> </li>
-    /// <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li>
-    /// <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li>
-    /// <li> <p> <code>logs:CreateLogGroup</code> </p> </li>
-    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li>
-    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li>
+    /// <p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p> 
+    /// <ul> 
+    /// <li> <p> <code>s3:PutObject</code> </p> </li> 
+    /// <li> <p> <code>s3:GetBucketLocation</code> </p> </li> 
+    /// <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li> 
+    /// <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li> 
+    /// <li> <p> <code>logs:CreateLogGroup</code> </p> </li> 
+    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li> 
+    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li> 
     /// </ul>
     pub fn set_execution_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_execution_role_arn(input);
         self
     }
-    /// <p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p>
-    /// <ul>
-    /// <li> <p> <code>s3:PutObject</code> </p> </li>
-    /// <li> <p> <code>s3:GetBucketLocation</code> </p> </li>
-    /// <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li>
-    /// <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li>
-    /// <li> <p> <code>logs:CreateLogGroup</code> </p> </li>
-    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li>
-    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li>
+    /// <p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p> 
+    /// <ul> 
+    /// <li> <p> <code>s3:PutObject</code> </p> </li> 
+    /// <li> <p> <code>s3:GetBucketLocation</code> </p> </li> 
+    /// <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li> 
+    /// <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li> 
+    /// <li> <p> <code>logs:CreateLogGroup</code> </p> </li> 
+    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li> 
+    /// <li> <p> <code>logs:CreateLogStream</code> </p> </li> 
     /// </ul>
     pub fn get_execution_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_execution_role_arn()
@@ -209,22 +196,22 @@ impl UpdateCanaryFluentBuilder {
     pub fn get_schedule(&self) -> &::std::option::Option<crate::types::CanaryScheduleInput> {
         self.inner.get_schedule()
     }
-    /// <p>A structure that contains the timeout value that is used for each individual run of the canary.</p> <important>
-    /// <p>The environment variables keys and values are not encrypted. Do not store sensitive information in this field.</p>
+    /// <p>A structure that contains the timeout value that is used for each individual run of the canary.</p> <important> 
+    /// <p>The environment variables keys and values are not encrypted. Do not store sensitive information in this field.</p> 
     /// </important>
     pub fn run_config(mut self, input: crate::types::CanaryRunConfigInput) -> Self {
         self.inner = self.inner.run_config(input);
         self
     }
-    /// <p>A structure that contains the timeout value that is used for each individual run of the canary.</p> <important>
-    /// <p>The environment variables keys and values are not encrypted. Do not store sensitive information in this field.</p>
+    /// <p>A structure that contains the timeout value that is used for each individual run of the canary.</p> <important> 
+    /// <p>The environment variables keys and values are not encrypted. Do not store sensitive information in this field.</p> 
     /// </important>
     pub fn set_run_config(mut self, input: ::std::option::Option<crate::types::CanaryRunConfigInput>) -> Self {
         self.inner = self.inner.set_run_config(input);
         self
     }
-    /// <p>A structure that contains the timeout value that is used for each individual run of the canary.</p> <important>
-    /// <p>The environment variables keys and values are not encrypted. Do not store sensitive information in this field.</p>
+    /// <p>A structure that contains the timeout value that is used for each individual run of the canary.</p> <important> 
+    /// <p>The environment variables keys and values are not encrypted. Do not store sensitive information in this field.</p> 
     /// </important>
     pub fn get_run_config(&self) -> &::std::option::Option<crate::types::CanaryRunConfigInput> {
         self.inner.get_run_config()
@@ -271,19 +258,19 @@ impl UpdateCanaryFluentBuilder {
     pub fn get_vpc_config(&self) -> &::std::option::Option<crate::types::VpcConfigInput> {
         self.inner.get_vpc_config()
     }
-    /// <p>Defines the screenshots to use as the baseline for comparisons during visual monitoring comparisons during future runs of this canary. If you omit this parameter, no changes are made to any baseline screenshots that the canary might be using already.</p>
+    /// <p>Defines the screenshots to use as the baseline for comparisons during visual monitoring comparisons during future runs of this canary. If you omit this parameter, no changes are made to any baseline screenshots that the canary might be using already.</p> 
     /// <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b> runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html"> Visual monitoring</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html"> Visual monitoring blueprint</a> </p>
     pub fn visual_reference(mut self, input: crate::types::VisualReferenceInput) -> Self {
         self.inner = self.inner.visual_reference(input);
         self
     }
-    /// <p>Defines the screenshots to use as the baseline for comparisons during visual monitoring comparisons during future runs of this canary. If you omit this parameter, no changes are made to any baseline screenshots that the canary might be using already.</p>
+    /// <p>Defines the screenshots to use as the baseline for comparisons during visual monitoring comparisons during future runs of this canary. If you omit this parameter, no changes are made to any baseline screenshots that the canary might be using already.</p> 
     /// <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b> runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html"> Visual monitoring</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html"> Visual monitoring blueprint</a> </p>
     pub fn set_visual_reference(mut self, input: ::std::option::Option<crate::types::VisualReferenceInput>) -> Self {
         self.inner = self.inner.set_visual_reference(input);
         self
     }
-    /// <p>Defines the screenshots to use as the baseline for comparisons during visual monitoring comparisons during future runs of this canary. If you omit this parameter, no changes are made to any baseline screenshots that the canary might be using already.</p>
+    /// <p>Defines the screenshots to use as the baseline for comparisons during visual monitoring comparisons during future runs of this canary. If you omit this parameter, no changes are made to any baseline screenshots that the canary might be using already.</p> 
     /// <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b> runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html"> Visual monitoring</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html"> Visual monitoring blueprint</a> </p>
     pub fn get_visual_reference(&self) -> &::std::option::Option<crate::types::VisualReferenceInput> {
         self.inner.get_visual_reference()
@@ -317,3 +304,4 @@ impl UpdateCanaryFluentBuilder {
         self.inner.get_artifact_config()
     }
 }
+

@@ -3,21 +3,21 @@
 /// <p>Filters to be applied to search results.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct QueueSearchFilter {
-    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-    /// <ul>
-    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li>
-    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li>
+pub struct QueueSearchFilter  {
+    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p> 
+    /// <ul> 
+    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li> 
+    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li> 
     /// </ul>
     pub tag_filter: ::std::option::Option<crate::types::ControlPlaneTagFilter>,
 }
-impl QueueSearchFilter {
-    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-    /// <ul>
-    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li>
-    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li>
+impl  QueueSearchFilter  {
+    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p> 
+    /// <ul> 
+    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li> 
+    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li> 
     /// </ul>
-    pub fn tag_filter(&self) -> ::std::option::Option<&crate::types::ControlPlaneTagFilter> {
+    pub fn tag_filter(&self) -> ::std::option::Option<& crate::types::ControlPlaneTagFilter> {
         self.tag_filter.as_ref()
     }
 }
@@ -35,34 +35,37 @@ pub struct QueueSearchFilterBuilder {
     pub(crate) tag_filter: ::std::option::Option<crate::types::ControlPlaneTagFilter>,
 }
 impl QueueSearchFilterBuilder {
-    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-    /// <ul>
-    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li>
-    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li>
+    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p> 
+    /// <ul> 
+    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li> 
+    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li> 
     /// </ul>
     pub fn tag_filter(mut self, input: crate::types::ControlPlaneTagFilter) -> Self {
         self.tag_filter = ::std::option::Option::Some(input);
         self
     }
-    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-    /// <ul>
-    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li>
-    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li>
+    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p> 
+    /// <ul> 
+    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li> 
+    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li> 
     /// </ul>
     pub fn set_tag_filter(mut self, input: ::std::option::Option<crate::types::ControlPlaneTagFilter>) -> Self {
-        self.tag_filter = input;
-        self
+        self.tag_filter = input; self
     }
-    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-    /// <ul>
-    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li>
-    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li>
+    /// <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p> 
+    /// <ul> 
+    /// <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li> 
+    /// <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li> 
     /// </ul>
     pub fn get_tag_filter(&self) -> &::std::option::Option<crate::types::ControlPlaneTagFilter> {
         &self.tag_filter
     }
     /// Consumes the builder and constructs a [`QueueSearchFilter`](crate::types::QueueSearchFilter).
     pub fn build(self) -> crate::types::QueueSearchFilter {
-        crate::types::QueueSearchFilter { tag_filter: self.tag_filter }
+        crate::types::QueueSearchFilter {
+            tag_filter: self.tag_filter
+            ,
+        }
     }
 }
+

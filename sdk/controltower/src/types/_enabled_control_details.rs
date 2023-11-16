@@ -3,7 +3,7 @@
 /// <p>Information about the enabled control.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct EnabledControlDetails {
+pub struct EnabledControlDetails  {
     /// <p>The ARN of the enabled control.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>The control identifier of the enabled control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
@@ -11,37 +11,38 @@ pub struct EnabledControlDetails {
     /// <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
     pub target_identifier: ::std::option::Option<::std::string::String>,
     /// <p>Target AWS Regions for the enabled control.</p>
-    pub target_regions: ::std::option::Option<::std::vec::Vec<crate::types::Region>>,
+    pub target_regions: ::std::option::Option<::std::vec::Vec::<crate::types::Region>>,
     /// <p>The deployment summary of the enabled control.</p>
     pub status_summary: ::std::option::Option<crate::types::EnablementStatusSummary>,
     /// <p>The drift status of the enabled control.</p>
     pub drift_status_summary: ::std::option::Option<crate::types::DriftStatusSummary>,
 }
-impl EnabledControlDetails {
+impl  EnabledControlDetails  {
     /// <p>The ARN of the enabled control.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
     /// <p>The control identifier of the enabled control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
-    pub fn control_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn control_identifier(&self) -> ::std::option::Option<& str> {
         self.control_identifier.as_deref()
     }
     /// <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
-    pub fn target_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn target_identifier(&self) -> ::std::option::Option<& str> {
         self.target_identifier.as_deref()
     }
     /// <p>Target AWS Regions for the enabled control.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.target_regions.is_none()`.
-    pub fn target_regions(&self) -> &[crate::types::Region] {
-        self.target_regions.as_deref().unwrap_or_default()
+    pub fn target_regions(&self) -> & [crate::types::Region] {
+        self.target_regions.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The deployment summary of the enabled control.</p>
-    pub fn status_summary(&self) -> ::std::option::Option<&crate::types::EnablementStatusSummary> {
+    pub fn status_summary(&self) -> ::std::option::Option<& crate::types::EnablementStatusSummary> {
         self.status_summary.as_ref()
     }
     /// <p>The drift status of the enabled control.</p>
-    pub fn drift_status_summary(&self) -> ::std::option::Option<&crate::types::DriftStatusSummary> {
+    pub fn drift_status_summary(&self) -> ::std::option::Option<& crate::types::DriftStatusSummary> {
         self.drift_status_summary.as_ref()
     }
 }
@@ -59,7 +60,7 @@ pub struct EnabledControlDetailsBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) control_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) target_identifier: ::std::option::Option<::std::string::String>,
-    pub(crate) target_regions: ::std::option::Option<::std::vec::Vec<crate::types::Region>>,
+    pub(crate) target_regions: ::std::option::Option<::std::vec::Vec::<crate::types::Region>>,
     pub(crate) status_summary: ::std::option::Option<crate::types::EnablementStatusSummary>,
     pub(crate) drift_status_summary: ::std::option::Option<crate::types::DriftStatusSummary>,
 }
@@ -71,8 +72,7 @@ impl EnabledControlDetailsBuilder {
     }
     /// <p>The ARN of the enabled control.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The ARN of the enabled control.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -85,8 +85,7 @@ impl EnabledControlDetailsBuilder {
     }
     /// <p>The control identifier of the enabled control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
     pub fn set_control_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.control_identifier = input;
-        self
+        self.control_identifier = input; self
     }
     /// <p>The control identifier of the enabled control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
     pub fn get_control_identifier(&self) -> &::std::option::Option<::std::string::String> {
@@ -99,8 +98,7 @@ impl EnabledControlDetailsBuilder {
     }
     /// <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
     pub fn set_target_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.target_identifier = input;
-        self
+        self.target_identifier = input; self
     }
     /// <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
     pub fn get_target_identifier(&self) -> &::std::option::Option<::std::string::String> {
@@ -113,17 +111,16 @@ impl EnabledControlDetailsBuilder {
     /// <p>Target AWS Regions for the enabled control.</p>
     pub fn target_regions(mut self, input: crate::types::Region) -> Self {
         let mut v = self.target_regions.unwrap_or_default();
-        v.push(input);
-        self.target_regions = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.target_regions = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>Target AWS Regions for the enabled control.</p>
-    pub fn set_target_regions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Region>>) -> Self {
-        self.target_regions = input;
-        self
+    pub fn set_target_regions(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Region>>) -> Self {
+        self.target_regions = input; self
     }
     /// <p>Target AWS Regions for the enabled control.</p>
-    pub fn get_target_regions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Region>> {
+    pub fn get_target_regions(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Region>> {
         &self.target_regions
     }
     /// <p>The deployment summary of the enabled control.</p>
@@ -133,8 +130,7 @@ impl EnabledControlDetailsBuilder {
     }
     /// <p>The deployment summary of the enabled control.</p>
     pub fn set_status_summary(mut self, input: ::std::option::Option<crate::types::EnablementStatusSummary>) -> Self {
-        self.status_summary = input;
-        self
+        self.status_summary = input; self
     }
     /// <p>The deployment summary of the enabled control.</p>
     pub fn get_status_summary(&self) -> &::std::option::Option<crate::types::EnablementStatusSummary> {
@@ -147,8 +143,7 @@ impl EnabledControlDetailsBuilder {
     }
     /// <p>The drift status of the enabled control.</p>
     pub fn set_drift_status_summary(mut self, input: ::std::option::Option<crate::types::DriftStatusSummary>) -> Self {
-        self.drift_status_summary = input;
-        self
+        self.drift_status_summary = input; self
     }
     /// <p>The drift status of the enabled control.</p>
     pub fn get_drift_status_summary(&self) -> &::std::option::Option<crate::types::DriftStatusSummary> {
@@ -157,12 +152,19 @@ impl EnabledControlDetailsBuilder {
     /// Consumes the builder and constructs a [`EnabledControlDetails`](crate::types::EnabledControlDetails).
     pub fn build(self) -> crate::types::EnabledControlDetails {
         crate::types::EnabledControlDetails {
-            arn: self.arn,
-            control_identifier: self.control_identifier,
-            target_identifier: self.target_identifier,
-            target_regions: self.target_regions,
-            status_summary: self.status_summary,
-            drift_status_summary: self.drift_status_summary,
+            arn: self.arn
+            ,
+            control_identifier: self.control_identifier
+            ,
+            target_identifier: self.target_identifier
+            ,
+            target_regions: self.target_regions
+            ,
+            status_summary: self.status_summary
+            ,
+            drift_status_summary: self.drift_status_summary
+            ,
         }
     }
 }
+

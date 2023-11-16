@@ -5,57 +5,53 @@ pub use crate::operation::list_channel_messages::_list_channel_messages_input::L
 
 impl ListChannelMessagesInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::list_channel_messages::ListChannelMessagesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_channel_messages::ListChannelMessagesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.list_channel_messages();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::list_channel_messages::ListChannelMessagesOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::list_channel_messages::ListChannelMessagesError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.list_channel_messages();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ListChannelMessages`.
-///
-/// <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p> <note>
-/// <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted. Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p>
-/// <p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p>
+/// 
+/// <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p> <note> 
+/// <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted. Deleted messages do not appear in the results. This action always returns the latest version of an edited message.</p> 
+/// <p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the header.</p> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListChannelMessagesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::list_channel_messages::builders::ListChannelMessagesInputBuilder,
+                    inner: crate::operation::list_channel_messages::builders::ListChannelMessagesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::list_channel_messages::ListChannelMessagesOutput,
-        crate::operation::list_channel_messages::ListChannelMessagesError,
-    > for ListChannelMessagesFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::list_channel_messages::ListChannelMessagesOutput,
-            crate::operation::list_channel_messages::ListChannelMessagesError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::list_channel_messages::ListChannelMessagesOutput,
+                    crate::operation::list_channel_messages::ListChannelMessagesError,
+                > for ListChannelMessagesFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::list_channel_messages::ListChannelMessagesOutput,
+                        crate::operation::list_channel_messages::ListChannelMessagesError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ListChannelMessagesFluentBuilder {
     /// Creates a new `ListChannelMessages`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -64,59 +60,50 @@ impl ListChannelMessagesFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_channel_messages::ListChannelMessagesOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_channel_messages::ListChannelMessagesError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_channel_messages::ListChannelMessages::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_channel_messages::ListChannelMessages::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::list_channel_messages::ListChannelMessagesOutput,
-        crate::operation::list_channel_messages::ListChannelMessagesError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::list_channel_messages::ListChannelMessagesOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_channel_messages::ListChannelMessagesError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::list_channel_messages::ListChannelMessages::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::list_channel_messages::ListChannelMessages::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::list_channel_messages::ListChannelMessagesOutput, crate::operation::list_channel_messages::ListChannelMessagesError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// Create a paginator for this request
-    ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_channel_messages::paginator::ListChannelMessagesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_channel_messages::paginator::ListChannelMessagesPaginator {
-        crate::operation::list_channel_messages::paginator::ListChannelMessagesPaginator::new(self.handle, self.inner)
-    }
+                            ///
+                            /// Paginators are used by calling [`send().await`](crate::operation::list_channel_messages::paginator::ListChannelMessagesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+                            pub fn into_paginator(self) -> crate::operation::list_channel_messages::paginator::ListChannelMessagesPaginator {
+                                crate::operation::list_channel_messages::paginator::ListChannelMessagesPaginator::new(self.handle, self.inner)
+                            }
     /// <p>The ARN of the channel.</p>
     pub fn channel_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.channel_arn(input.into());
@@ -215,24 +202,25 @@ impl ListChannelMessagesFluentBuilder {
     pub fn get_chime_bearer(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_chime_bearer()
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only required when listing the messages in a SubChannel that the user belongs to.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only required when listing the messages in a SubChannel that the user belongs to.</p> 
     /// </note>
     pub fn sub_channel_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sub_channel_id(input.into());
         self
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only required when listing the messages in a SubChannel that the user belongs to.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only required when listing the messages in a SubChannel that the user belongs to.</p> 
     /// </note>
     pub fn set_sub_channel_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sub_channel_id(input);
         self
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only required when listing the messages in a SubChannel that the user belongs to.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only required when listing the messages in a SubChannel that the user belongs to.</p> 
     /// </note>
     pub fn get_sub_channel_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_sub_channel_id()
     }
 }
+

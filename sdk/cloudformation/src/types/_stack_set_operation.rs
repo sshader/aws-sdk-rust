@@ -3,31 +3,31 @@
 /// <p>The structure that contains information about a stack set operation.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct StackSetOperation {
+pub struct StackSetOperation  {
     /// <p>The unique ID of a stack set operation.</p>
     pub operation_id: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the stack set.</p>
     pub stack_set_id: ::std::option::Option<::std::string::String>,
     /// <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>. Create and delete operations affect only the specified stack set instances that are associated with the specified stack set. Update operations affect both the stack set itself, in addition to <i>all</i> associated stack set instances.</p>
     pub action: ::std::option::Option<crate::types::StackSetOperationAction>,
-    /// <p>The status of the operation.</p>
-    /// <ul>
-    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li>
-    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li>
-    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li>
-    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li>
-    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li>
-    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li>
+    /// <p>The status of the operation.</p> 
+    /// <ul> 
+    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li> 
+    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li> 
+    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li> 
+    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li> 
+    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li> 
+    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li> 
     /// </ul>
     pub status: ::std::option::Option<crate::types::StackSetOperationStatus>,
     /// <p>The preferences for how CloudFormation performs this stack set operation.</p>
     pub operation_preferences: ::std::option::Option<crate::types::StackSetOperationPreferences>,
     /// <p>For stack set operations of action type <code>DELETE</code>, specifies whether to remove the stack instances from the specified stack set, but doesn't delete the stacks. You can't re-associate a retained stack, or add an existing, saved stack to a new stack set.</p>
     pub retain_stacks: ::std::option::Option<bool>,
-    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
+    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p> 
     /// <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
     pub administration_role_arn: ::std::option::Option<::std::string::String>,
-    /// <p>The name of the IAM execution role used to create or update the stack set.</p>
+    /// <p>The name of the IAM execution role used to create or update the stack set.</p> 
     /// <p>Use customized execution roles to control which stack resources users and groups can include in their stack sets.</p>
     pub execution_role_name: ::std::option::Option<::std::string::String>,
     /// <p>The time at which the operation was initiated. Note that the creation times for the stack set operation might differ from the creation time of the individual stacks themselves. This is because CloudFormation needs to perform preparatory work for the operation, such as dispatching the work to the requested Regions, before actually creating the first stacks.</p>
@@ -36,8 +36,8 @@ pub struct StackSetOperation {
     pub end_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>[Service-managed permissions] The Organizations accounts affected by the stack operation.</p>
     pub deployment_targets: ::std::option::Option<crate::types::DeploymentTargets>,
-    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p>
-    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p>
+    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p> 
+    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged Changes in Stack Sets</a> in the CloudFormation User Guide.</p>
     pub stack_set_drift_detection_details: ::std::option::Option<crate::types::StackSetDriftDetectionDetails>,
     /// <p>The status of the operation in details.</p>
@@ -45,73 +45,73 @@ pub struct StackSetOperation {
     /// <p>Detailed information about the StackSet operation.</p>
     pub status_details: ::std::option::Option<crate::types::StackSetOperationStatusDetails>,
 }
-impl StackSetOperation {
+impl  StackSetOperation  {
     /// <p>The unique ID of a stack set operation.</p>
-    pub fn operation_id(&self) -> ::std::option::Option<&str> {
+    pub fn operation_id(&self) -> ::std::option::Option<& str> {
         self.operation_id.as_deref()
     }
     /// <p>The ID of the stack set.</p>
-    pub fn stack_set_id(&self) -> ::std::option::Option<&str> {
+    pub fn stack_set_id(&self) -> ::std::option::Option<& str> {
         self.stack_set_id.as_deref()
     }
     /// <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>. Create and delete operations affect only the specified stack set instances that are associated with the specified stack set. Update operations affect both the stack set itself, in addition to <i>all</i> associated stack set instances.</p>
-    pub fn action(&self) -> ::std::option::Option<&crate::types::StackSetOperationAction> {
+    pub fn action(&self) -> ::std::option::Option<& crate::types::StackSetOperationAction> {
         self.action.as_ref()
     }
-    /// <p>The status of the operation.</p>
-    /// <ul>
-    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li>
-    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li>
-    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li>
-    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li>
-    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li>
-    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li>
+    /// <p>The status of the operation.</p> 
+    /// <ul> 
+    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li> 
+    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li> 
+    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li> 
+    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li> 
+    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li> 
+    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::StackSetOperationStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::StackSetOperationStatus> {
         self.status.as_ref()
     }
     /// <p>The preferences for how CloudFormation performs this stack set operation.</p>
-    pub fn operation_preferences(&self) -> ::std::option::Option<&crate::types::StackSetOperationPreferences> {
+    pub fn operation_preferences(&self) -> ::std::option::Option<& crate::types::StackSetOperationPreferences> {
         self.operation_preferences.as_ref()
     }
     /// <p>For stack set operations of action type <code>DELETE</code>, specifies whether to remove the stack instances from the specified stack set, but doesn't delete the stacks. You can't re-associate a retained stack, or add an existing, saved stack to a new stack set.</p>
     pub fn retain_stacks(&self) -> ::std::option::Option<bool> {
         self.retain_stacks
     }
-    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
+    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p> 
     /// <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
-    pub fn administration_role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn administration_role_arn(&self) -> ::std::option::Option<& str> {
         self.administration_role_arn.as_deref()
     }
-    /// <p>The name of the IAM execution role used to create or update the stack set.</p>
+    /// <p>The name of the IAM execution role used to create or update the stack set.</p> 
     /// <p>Use customized execution roles to control which stack resources users and groups can include in their stack sets.</p>
-    pub fn execution_role_name(&self) -> ::std::option::Option<&str> {
+    pub fn execution_role_name(&self) -> ::std::option::Option<& str> {
         self.execution_role_name.as_deref()
     }
     /// <p>The time at which the operation was initiated. Note that the creation times for the stack set operation might differ from the creation time of the individual stacks themselves. This is because CloudFormation needs to perform preparatory work for the operation, such as dispatching the work to the requested Regions, before actually creating the first stacks.</p>
-    pub fn creation_timestamp(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_timestamp(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_timestamp.as_ref()
     }
     /// <p>The time at which the stack set operation ended, across all accounts and Regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or Region.</p>
-    pub fn end_timestamp(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn end_timestamp(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.end_timestamp.as_ref()
     }
     /// <p>[Service-managed permissions] The Organizations accounts affected by the stack operation.</p>
-    pub fn deployment_targets(&self) -> ::std::option::Option<&crate::types::DeploymentTargets> {
+    pub fn deployment_targets(&self) -> ::std::option::Option<& crate::types::DeploymentTargets> {
         self.deployment_targets.as_ref()
     }
-    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p>
-    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p>
+    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p> 
+    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged Changes in Stack Sets</a> in the CloudFormation User Guide.</p>
-    pub fn stack_set_drift_detection_details(&self) -> ::std::option::Option<&crate::types::StackSetDriftDetectionDetails> {
+    pub fn stack_set_drift_detection_details(&self) -> ::std::option::Option<& crate::types::StackSetDriftDetectionDetails> {
         self.stack_set_drift_detection_details.as_ref()
     }
     /// <p>The status of the operation in details.</p>
-    pub fn status_reason(&self) -> ::std::option::Option<&str> {
+    pub fn status_reason(&self) -> ::std::option::Option<& str> {
         self.status_reason.as_deref()
     }
     /// <p>Detailed information about the StackSet operation.</p>
-    pub fn status_details(&self) -> ::std::option::Option<&crate::types::StackSetOperationStatusDetails> {
+    pub fn status_details(&self) -> ::std::option::Option<& crate::types::StackSetOperationStatusDetails> {
         self.status_details.as_ref()
     }
 }
@@ -149,8 +149,7 @@ impl StackSetOperationBuilder {
     }
     /// <p>The unique ID of a stack set operation.</p>
     pub fn set_operation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.operation_id = input;
-        self
+        self.operation_id = input; self
     }
     /// <p>The unique ID of a stack set operation.</p>
     pub fn get_operation_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -163,8 +162,7 @@ impl StackSetOperationBuilder {
     }
     /// <p>The ID of the stack set.</p>
     pub fn set_stack_set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.stack_set_id = input;
-        self
+        self.stack_set_id = input; self
     }
     /// <p>The ID of the stack set.</p>
     pub fn get_stack_set_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -177,47 +175,45 @@ impl StackSetOperationBuilder {
     }
     /// <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>. Create and delete operations affect only the specified stack set instances that are associated with the specified stack set. Update operations affect both the stack set itself, in addition to <i>all</i> associated stack set instances.</p>
     pub fn set_action(mut self, input: ::std::option::Option<crate::types::StackSetOperationAction>) -> Self {
-        self.action = input;
-        self
+        self.action = input; self
     }
     /// <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>. Create and delete operations affect only the specified stack set instances that are associated with the specified stack set. Update operations affect both the stack set itself, in addition to <i>all</i> associated stack set instances.</p>
     pub fn get_action(&self) -> &::std::option::Option<crate::types::StackSetOperationAction> {
         &self.action
     }
-    /// <p>The status of the operation.</p>
-    /// <ul>
-    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li>
-    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li>
-    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li>
-    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li>
-    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li>
-    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li>
+    /// <p>The status of the operation.</p> 
+    /// <ul> 
+    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li> 
+    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li> 
+    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li> 
+    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li> 
+    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li> 
+    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li> 
     /// </ul>
     pub fn status(mut self, input: crate::types::StackSetOperationStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The status of the operation.</p>
-    /// <ul>
-    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li>
-    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li>
-    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li>
-    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li>
-    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li>
-    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li>
+    /// <p>The status of the operation.</p> 
+    /// <ul> 
+    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li> 
+    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li> 
+    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li> 
+    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li> 
+    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li> 
+    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::StackSetOperationStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the operation.</p>
-    /// <ul>
-    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li>
-    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li>
-    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li>
-    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li>
-    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li>
-    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li>
+    /// <p>The status of the operation.</p> 
+    /// <ul> 
+    /// <li> <p> <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each Region during stack create and update operations. If the number of failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p> </li> 
+    /// <li> <p> <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status codes</a> in the CloudFormation User Guide.</p> </li> 
+    /// <li> <p> <code>RUNNING</code>: The operation is currently being performed.</p> </li> 
+    /// <li> <p> <code>STOPPED</code>: The user has canceled the operation.</p> </li> 
+    /// <li> <p> <code>STOPPING</code>: The operation is in the process of stopping, at user request.</p> </li> 
+    /// <li> <p> <code>SUCCEEDED</code>: The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::StackSetOperationStatus> {
         &self.status
@@ -229,8 +225,7 @@ impl StackSetOperationBuilder {
     }
     /// <p>The preferences for how CloudFormation performs this stack set operation.</p>
     pub fn set_operation_preferences(mut self, input: ::std::option::Option<crate::types::StackSetOperationPreferences>) -> Self {
-        self.operation_preferences = input;
-        self
+        self.operation_preferences = input; self
     }
     /// <p>The preferences for how CloudFormation performs this stack set operation.</p>
     pub fn get_operation_preferences(&self) -> &::std::option::Option<crate::types::StackSetOperationPreferences> {
@@ -243,43 +238,40 @@ impl StackSetOperationBuilder {
     }
     /// <p>For stack set operations of action type <code>DELETE</code>, specifies whether to remove the stack instances from the specified stack set, but doesn't delete the stacks. You can't re-associate a retained stack, or add an existing, saved stack to a new stack set.</p>
     pub fn set_retain_stacks(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.retain_stacks = input;
-        self
+        self.retain_stacks = input; self
     }
     /// <p>For stack set operations of action type <code>DELETE</code>, specifies whether to remove the stack instances from the specified stack set, but doesn't delete the stacks. You can't re-associate a retained stack, or add an existing, saved stack to a new stack set.</p>
     pub fn get_retain_stacks(&self) -> &::std::option::Option<bool> {
         &self.retain_stacks
     }
-    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
+    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p> 
     /// <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
     pub fn administration_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.administration_role_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
+    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p> 
     /// <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
     pub fn set_administration_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.administration_role_arn = input;
-        self
+        self.administration_role_arn = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
+    /// <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p> 
     /// <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
     pub fn get_administration_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.administration_role_arn
     }
-    /// <p>The name of the IAM execution role used to create or update the stack set.</p>
+    /// <p>The name of the IAM execution role used to create or update the stack set.</p> 
     /// <p>Use customized execution roles to control which stack resources users and groups can include in their stack sets.</p>
     pub fn execution_role_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.execution_role_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the IAM execution role used to create or update the stack set.</p>
+    /// <p>The name of the IAM execution role used to create or update the stack set.</p> 
     /// <p>Use customized execution roles to control which stack resources users and groups can include in their stack sets.</p>
     pub fn set_execution_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.execution_role_name = input;
-        self
+        self.execution_role_name = input; self
     }
-    /// <p>The name of the IAM execution role used to create or update the stack set.</p>
+    /// <p>The name of the IAM execution role used to create or update the stack set.</p> 
     /// <p>Use customized execution roles to control which stack resources users and groups can include in their stack sets.</p>
     pub fn get_execution_role_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.execution_role_name
@@ -291,8 +283,7 @@ impl StackSetOperationBuilder {
     }
     /// <p>The time at which the operation was initiated. Note that the creation times for the stack set operation might differ from the creation time of the individual stacks themselves. This is because CloudFormation needs to perform preparatory work for the operation, such as dispatching the work to the requested Regions, before actually creating the first stacks.</p>
     pub fn set_creation_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_timestamp = input;
-        self
+        self.creation_timestamp = input; self
     }
     /// <p>The time at which the operation was initiated. Note that the creation times for the stack set operation might differ from the creation time of the individual stacks themselves. This is because CloudFormation needs to perform preparatory work for the operation, such as dispatching the work to the requested Regions, before actually creating the first stacks.</p>
     pub fn get_creation_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -305,8 +296,7 @@ impl StackSetOperationBuilder {
     }
     /// <p>The time at which the stack set operation ended, across all accounts and Regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or Region.</p>
     pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.end_timestamp = input;
-        self
+        self.end_timestamp = input; self
     }
     /// <p>The time at which the stack set operation ended, across all accounts and Regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or Region.</p>
     pub fn get_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -319,29 +309,27 @@ impl StackSetOperationBuilder {
     }
     /// <p>[Service-managed permissions] The Organizations accounts affected by the stack operation.</p>
     pub fn set_deployment_targets(mut self, input: ::std::option::Option<crate::types::DeploymentTargets>) -> Self {
-        self.deployment_targets = input;
-        self
+        self.deployment_targets = input; self
     }
     /// <p>[Service-managed permissions] The Organizations accounts affected by the stack operation.</p>
     pub fn get_deployment_targets(&self) -> &::std::option::Option<crate::types::DeploymentTargets> {
         &self.deployment_targets
     }
-    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p>
-    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p>
+    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p> 
+    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged Changes in Stack Sets</a> in the CloudFormation User Guide.</p>
     pub fn stack_set_drift_detection_details(mut self, input: crate::types::StackSetDriftDetectionDetails) -> Self {
         self.stack_set_drift_detection_details = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p>
-    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p>
+    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p> 
+    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged Changes in Stack Sets</a> in the CloudFormation User Guide.</p>
     pub fn set_stack_set_drift_detection_details(mut self, input: ::std::option::Option<crate::types::StackSetDriftDetectionDetails>) -> Self {
-        self.stack_set_drift_detection_details = input;
-        self
+        self.stack_set_drift_detection_details = input; self
     }
-    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p>
-    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p>
+    /// <p>Detailed information about the drift status of the stack set. This includes information about drift operations currently being performed on the stack set.</p> 
+    /// <p>This information will only be present for stack set operations whose <code>Action</code> type is <code>DETECT_DRIFT</code>.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged Changes in Stack Sets</a> in the CloudFormation User Guide.</p>
     pub fn get_stack_set_drift_detection_details(&self) -> &::std::option::Option<crate::types::StackSetDriftDetectionDetails> {
         &self.stack_set_drift_detection_details
@@ -353,8 +341,7 @@ impl StackSetOperationBuilder {
     }
     /// <p>The status of the operation in details.</p>
     pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.status_reason = input;
-        self
+        self.status_reason = input; self
     }
     /// <p>The status of the operation in details.</p>
     pub fn get_status_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -367,8 +354,7 @@ impl StackSetOperationBuilder {
     }
     /// <p>Detailed information about the StackSet operation.</p>
     pub fn set_status_details(mut self, input: ::std::option::Option<crate::types::StackSetOperationStatusDetails>) -> Self {
-        self.status_details = input;
-        self
+        self.status_details = input; self
     }
     /// <p>Detailed information about the StackSet operation.</p>
     pub fn get_status_details(&self) -> &::std::option::Option<crate::types::StackSetOperationStatusDetails> {
@@ -377,20 +363,35 @@ impl StackSetOperationBuilder {
     /// Consumes the builder and constructs a [`StackSetOperation`](crate::types::StackSetOperation).
     pub fn build(self) -> crate::types::StackSetOperation {
         crate::types::StackSetOperation {
-            operation_id: self.operation_id,
-            stack_set_id: self.stack_set_id,
-            action: self.action,
-            status: self.status,
-            operation_preferences: self.operation_preferences,
-            retain_stacks: self.retain_stacks,
-            administration_role_arn: self.administration_role_arn,
-            execution_role_name: self.execution_role_name,
-            creation_timestamp: self.creation_timestamp,
-            end_timestamp: self.end_timestamp,
-            deployment_targets: self.deployment_targets,
-            stack_set_drift_detection_details: self.stack_set_drift_detection_details,
-            status_reason: self.status_reason,
-            status_details: self.status_details,
+            operation_id: self.operation_id
+            ,
+            stack_set_id: self.stack_set_id
+            ,
+            action: self.action
+            ,
+            status: self.status
+            ,
+            operation_preferences: self.operation_preferences
+            ,
+            retain_stacks: self.retain_stacks
+            ,
+            administration_role_arn: self.administration_role_arn
+            ,
+            execution_role_name: self.execution_role_name
+            ,
+            creation_timestamp: self.creation_timestamp
+            ,
+            end_timestamp: self.end_timestamp
+            ,
+            deployment_targets: self.deployment_targets
+            ,
+            stack_set_drift_detection_details: self.stack_set_drift_detection_details
+            ,
+            status_reason: self.status_reason
+            ,
+            status_details: self.status_details
+            ,
         }
     }
 }
+

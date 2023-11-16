@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-pub struct IsAuthorizedWithTokenInput {
+pub struct IsAuthorizedWithTokenInput  {
     /// <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p>
     pub policy_store_id: ::std::option::Option<::std::string::String>,
     /// <p>Specifies an identity token for the principal to be authorized. This token is provided to you by the identity provider (IdP) associated with the specified identity source. You must specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, or both.</p>
@@ -15,52 +15,52 @@ pub struct IsAuthorizedWithTokenInput {
     pub resource: ::std::option::Option<crate::types::EntityIdentifier>,
     /// <p>Specifies additional context that can be used to make more granular authorization decisions.</p>
     pub context: ::std::option::Option<crate::types::ContextDefinition>,
-    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note>
-    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p>
-    /// <ul>
-    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li>
-    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li>
-    /// </ul>
+    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note> 
+    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p> 
+    /// <ul> 
+    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li> 
+    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li> 
+    /// </ul> 
     /// </note>
     pub entities: ::std::option::Option<crate::types::EntitiesDefinition>,
 }
-impl IsAuthorizedWithTokenInput {
+impl  IsAuthorizedWithTokenInput  {
     /// <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p>
-    pub fn policy_store_id(&self) -> ::std::option::Option<&str> {
+    pub fn policy_store_id(&self) -> ::std::option::Option<& str> {
         self.policy_store_id.as_deref()
     }
     /// <p>Specifies an identity token for the principal to be authorized. This token is provided to you by the identity provider (IdP) associated with the specified identity source. You must specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, or both.</p>
-    pub fn identity_token(&self) -> ::std::option::Option<&str> {
+    pub fn identity_token(&self) -> ::std::option::Option<& str> {
         self.identity_token.as_deref()
     }
     /// <p>Specifies an access token for the principal to be authorized. This token is provided to you by the identity provider (IdP) associated with the specified identity source. You must specify either an <code>AccessToken</code>, or an <code>IdentityToken</code>, or both.</p>
-    pub fn access_token(&self) -> ::std::option::Option<&str> {
+    pub fn access_token(&self) -> ::std::option::Option<& str> {
         self.access_token.as_deref()
     }
     /// <p>Specifies the requested action to be authorized. Is the specified principal authorized to perform this action on the specified resource.</p>
-    pub fn action(&self) -> ::std::option::Option<&crate::types::ActionIdentifier> {
+    pub fn action(&self) -> ::std::option::Option<& crate::types::ActionIdentifier> {
         self.action.as_ref()
     }
     /// <p>Specifies the resource for which the authorization decision is made. For example, is the principal allowed to perform the action on the resource?</p>
-    pub fn resource(&self) -> ::std::option::Option<&crate::types::EntityIdentifier> {
+    pub fn resource(&self) -> ::std::option::Option<& crate::types::EntityIdentifier> {
         self.resource.as_ref()
     }
     /// <p>Specifies additional context that can be used to make more granular authorization decisions.</p>
-    pub fn context(&self) -> ::std::option::Option<&crate::types::ContextDefinition> {
+    pub fn context(&self) -> ::std::option::Option<& crate::types::ContextDefinition> {
         self.context.as_ref()
     }
-    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note>
-    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p>
-    /// <ul>
-    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li>
-    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li>
-    /// </ul>
+    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note> 
+    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p> 
+    /// <ul> 
+    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li> 
+    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li> 
+    /// </ul> 
     /// </note>
-    pub fn entities(&self) -> ::std::option::Option<&crate::types::EntitiesDefinition> {
+    pub fn entities(&self) -> ::std::option::Option<& crate::types::EntitiesDefinition> {
         self.entities.as_ref()
     }
 }
-impl ::std::fmt::Debug for IsAuthorizedWithTokenInput {
+impl  ::std::fmt::Debug for IsAuthorizedWithTokenInput  {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("IsAuthorizedWithTokenInput");
         formatter.field("policy_store_id", &self.policy_store_id);
@@ -101,8 +101,7 @@ impl IsAuthorizedWithTokenInputBuilder {
     }
     /// <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p>
     pub fn set_policy_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.policy_store_id = input;
-        self
+        self.policy_store_id = input; self
     }
     /// <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an authorization decision for the input.</p>
     pub fn get_policy_store_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -115,8 +114,7 @@ impl IsAuthorizedWithTokenInputBuilder {
     }
     /// <p>Specifies an identity token for the principal to be authorized. This token is provided to you by the identity provider (IdP) associated with the specified identity source. You must specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, or both.</p>
     pub fn set_identity_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.identity_token = input;
-        self
+        self.identity_token = input; self
     }
     /// <p>Specifies an identity token for the principal to be authorized. This token is provided to you by the identity provider (IdP) associated with the specified identity source. You must specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, or both.</p>
     pub fn get_identity_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -129,8 +127,7 @@ impl IsAuthorizedWithTokenInputBuilder {
     }
     /// <p>Specifies an access token for the principal to be authorized. This token is provided to you by the identity provider (IdP) associated with the specified identity source. You must specify either an <code>AccessToken</code>, or an <code>IdentityToken</code>, or both.</p>
     pub fn set_access_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.access_token = input;
-        self
+        self.access_token = input; self
     }
     /// <p>Specifies an access token for the principal to be authorized. This token is provided to you by the identity provider (IdP) associated with the specified identity source. You must specify either an <code>AccessToken</code>, or an <code>IdentityToken</code>, or both.</p>
     pub fn get_access_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -143,8 +140,7 @@ impl IsAuthorizedWithTokenInputBuilder {
     }
     /// <p>Specifies the requested action to be authorized. Is the specified principal authorized to perform this action on the specified resource.</p>
     pub fn set_action(mut self, input: ::std::option::Option<crate::types::ActionIdentifier>) -> Self {
-        self.action = input;
-        self
+        self.action = input; self
     }
     /// <p>Specifies the requested action to be authorized. Is the specified principal authorized to perform this action on the specified resource.</p>
     pub fn get_action(&self) -> &::std::option::Option<crate::types::ActionIdentifier> {
@@ -157,8 +153,7 @@ impl IsAuthorizedWithTokenInputBuilder {
     }
     /// <p>Specifies the resource for which the authorization decision is made. For example, is the principal allowed to perform the action on the resource?</p>
     pub fn set_resource(mut self, input: ::std::option::Option<crate::types::EntityIdentifier>) -> Self {
-        self.resource = input;
-        self
+        self.resource = input; self
     }
     /// <p>Specifies the resource for which the authorization decision is made. For example, is the principal allowed to perform the action on the resource?</p>
     pub fn get_resource(&self) -> &::std::option::Option<crate::types::EntityIdentifier> {
@@ -171,59 +166,63 @@ impl IsAuthorizedWithTokenInputBuilder {
     }
     /// <p>Specifies additional context that can be used to make more granular authorization decisions.</p>
     pub fn set_context(mut self, input: ::std::option::Option<crate::types::ContextDefinition>) -> Self {
-        self.context = input;
-        self
+        self.context = input; self
     }
     /// <p>Specifies additional context that can be used to make more granular authorization decisions.</p>
     pub fn get_context(&self) -> &::std::option::Option<crate::types::ContextDefinition> {
         &self.context
     }
-    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note>
-    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p>
-    /// <ul>
-    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li>
-    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li>
-    /// </ul>
+    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note> 
+    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p> 
+    /// <ul> 
+    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li> 
+    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li> 
+    /// </ul> 
     /// </note>
     pub fn entities(mut self, input: crate::types::EntitiesDefinition) -> Self {
         self.entities = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note>
-    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p>
-    /// <ul>
-    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li>
-    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li>
-    /// </ul>
+    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note> 
+    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p> 
+    /// <ul> 
+    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li> 
+    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li> 
+    /// </ul> 
     /// </note>
     pub fn set_entities(mut self, input: ::std::option::Option<crate::types::EntitiesDefinition>) -> Self {
-        self.entities = input;
-        self
+        self.entities = input; self
     }
-    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note>
-    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p>
-    /// <ul>
-    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li>
-    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li>
-    /// </ul>
+    /// <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine when evaluating the policies. </p> <note> 
+    /// <p>You can include only resource and action entities in this parameter; you can't include principals.</p> 
+    /// <ul> 
+    /// <li> <p>The <code>IsAuthorizedWithToken</code> operation takes principal attributes from <b> <i>only</i> </b> the <code>identityToken</code> or <code>accessToken</code> passed to the operation.</p> </li> 
+    /// <li> <p>For action entities, you can include only their <code>Identifier</code> and <code>EntityType</code>. </p> </li> 
+    /// </ul> 
     /// </note>
     pub fn get_entities(&self) -> &::std::option::Option<crate::types::EntitiesDefinition> {
         &self.entities
     }
     /// Consumes the builder and constructs a [`IsAuthorizedWithTokenInput`](crate::operation::is_authorized_with_token::IsAuthorizedWithTokenInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::is_authorized_with_token::IsAuthorizedWithTokenInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::is_authorized_with_token::IsAuthorizedWithTokenInput {
-            policy_store_id: self.policy_store_id,
-            identity_token: self.identity_token,
-            access_token: self.access_token,
-            action: self.action,
-            resource: self.resource,
-            context: self.context,
-            entities: self.entities,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::is_authorized_with_token::IsAuthorizedWithTokenInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::is_authorized_with_token::IsAuthorizedWithTokenInput {
+                policy_store_id: self.policy_store_id
+                ,
+                identity_token: self.identity_token
+                ,
+                access_token: self.access_token
+                ,
+                action: self.action
+                ,
+                resource: self.resource
+                ,
+                context: self.context
+                ,
+                entities: self.entities
+                ,
+            }
+        )
     }
 }
 impl ::std::fmt::Debug for IsAuthorizedWithTokenInputBuilder {
@@ -239,3 +238,4 @@ impl ::std::fmt::Debug for IsAuthorizedWithTokenInputBuilder {
         formatter.finish()
     }
 }
+

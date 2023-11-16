@@ -3,7 +3,7 @@
 /// <p>The information for a pool in an Amazon Web Services account.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PoolInformation {
+pub struct PoolInformation  {
     /// <p>The Amazon Resource Name (ARN) for the pool.</p>
     pub pool_arn: ::std::string::String,
     /// <p>The unique identifier for the pool.</p>
@@ -20,7 +20,7 @@ pub struct PoolInformation {
     pub self_managed_opt_outs_enabled: bool,
     /// <p>The name of the OptOutList associated with the pool.</p>
     pub opt_out_list_name: ::std::string::String,
-    /// <p>Allows you to enable shared routes on your pool.</p>
+    /// <p>Allows you to enable shared routes on your pool.</p> 
     /// <p>By default, this is set to <code>False</code>. If you set this value to <code>True</code>, your messages are sent using phone numbers or sender IDs (depending on the country) that are shared with other Amazon Pinpoint users. In some countries, such as the United States, senders aren't allowed to use shared routes and must use a dedicated phone number or short code.</p>
     pub shared_routes_enabled: bool,
     /// <p>When set to true the pool can't be deleted.</p>
@@ -28,23 +28,21 @@ pub struct PoolInformation {
     /// <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
     pub created_timestamp: ::aws_smithy_types::DateTime,
 }
-impl PoolInformation {
+impl  PoolInformation  {
     /// <p>The Amazon Resource Name (ARN) for the pool.</p>
-    pub fn pool_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.pool_arn.deref()
+    pub fn pool_arn(&self) -> & str {
+        use std::ops::Deref; self.pool_arn.deref()
     }
     /// <p>The unique identifier for the pool.</p>
-    pub fn pool_id(&self) -> &str {
-        use std::ops::Deref;
-        self.pool_id.deref()
+    pub fn pool_id(&self) -> & str {
+        use std::ops::Deref; self.pool_id.deref()
     }
     /// <p>The current status of the pool.</p>
-    pub fn status(&self) -> &crate::types::PoolStatus {
+    pub fn status(&self) -> & crate::types::PoolStatus {
         &self.status
     }
     /// <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
-    pub fn message_type(&self) -> &crate::types::MessageType {
+    pub fn message_type(&self) -> & crate::types::MessageType {
         &self.message_type
     }
     /// <p>When set to true you can receive incoming text messages from your end recipients using the TwoWayChannelArn.</p>
@@ -52,7 +50,7 @@ impl PoolInformation {
         self.two_way_enabled
     }
     /// <p>The Amazon Resource Name (ARN) of the two way channel.</p>
-    pub fn two_way_channel_arn(&self) -> ::std::option::Option<&str> {
+    pub fn two_way_channel_arn(&self) -> ::std::option::Option<& str> {
         self.two_way_channel_arn.as_deref()
     }
     /// <p>When set to false, an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a> </p>
@@ -60,11 +58,10 @@ impl PoolInformation {
         self.self_managed_opt_outs_enabled
     }
     /// <p>The name of the OptOutList associated with the pool.</p>
-    pub fn opt_out_list_name(&self) -> &str {
-        use std::ops::Deref;
-        self.opt_out_list_name.deref()
+    pub fn opt_out_list_name(&self) -> & str {
+        use std::ops::Deref; self.opt_out_list_name.deref()
     }
-    /// <p>Allows you to enable shared routes on your pool.</p>
+    /// <p>Allows you to enable shared routes on your pool.</p> 
     /// <p>By default, this is set to <code>False</code>. If you set this value to <code>True</code>, your messages are sent using phone numbers or sender IDs (depending on the country) that are shared with other Amazon Pinpoint users. In some countries, such as the United States, senders aren't allowed to use shared routes and must use a dedicated phone number or short code.</p>
     pub fn shared_routes_enabled(&self) -> bool {
         self.shared_routes_enabled
@@ -74,7 +71,7 @@ impl PoolInformation {
         self.deletion_protection_enabled
     }
     /// <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
-    pub fn created_timestamp(&self) -> &::aws_smithy_types::DateTime {
+    pub fn created_timestamp(&self) -> & ::aws_smithy_types::DateTime {
         &self.created_timestamp
     }
 }
@@ -110,8 +107,7 @@ impl PoolInformationBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) for the pool.</p>
     pub fn set_pool_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.pool_arn = input;
-        self
+        self.pool_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) for the pool.</p>
     pub fn get_pool_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -125,8 +121,7 @@ impl PoolInformationBuilder {
     }
     /// <p>The unique identifier for the pool.</p>
     pub fn set_pool_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.pool_id = input;
-        self
+        self.pool_id = input; self
     }
     /// <p>The unique identifier for the pool.</p>
     pub fn get_pool_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -140,8 +135,7 @@ impl PoolInformationBuilder {
     }
     /// <p>The current status of the pool.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::PoolStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>The current status of the pool.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::PoolStatus> {
@@ -155,8 +149,7 @@ impl PoolInformationBuilder {
     }
     /// <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
     pub fn set_message_type(mut self, input: ::std::option::Option<crate::types::MessageType>) -> Self {
-        self.message_type = input;
-        self
+        self.message_type = input; self
     }
     /// <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
     pub fn get_message_type(&self) -> &::std::option::Option<crate::types::MessageType> {
@@ -170,8 +163,7 @@ impl PoolInformationBuilder {
     }
     /// <p>When set to true you can receive incoming text messages from your end recipients using the TwoWayChannelArn.</p>
     pub fn set_two_way_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.two_way_enabled = input;
-        self
+        self.two_way_enabled = input; self
     }
     /// <p>When set to true you can receive incoming text messages from your end recipients using the TwoWayChannelArn.</p>
     pub fn get_two_way_enabled(&self) -> &::std::option::Option<bool> {
@@ -184,8 +176,7 @@ impl PoolInformationBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the two way channel.</p>
     pub fn set_two_way_channel_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.two_way_channel_arn = input;
-        self
+        self.two_way_channel_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the two way channel.</p>
     pub fn get_two_way_channel_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -199,8 +190,7 @@ impl PoolInformationBuilder {
     }
     /// <p>When set to false, an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a> </p>
     pub fn set_self_managed_opt_outs_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.self_managed_opt_outs_enabled = input;
-        self
+        self.self_managed_opt_outs_enabled = input; self
     }
     /// <p>When set to false, an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a> </p>
     pub fn get_self_managed_opt_outs_enabled(&self) -> &::std::option::Option<bool> {
@@ -214,27 +204,25 @@ impl PoolInformationBuilder {
     }
     /// <p>The name of the OptOutList associated with the pool.</p>
     pub fn set_opt_out_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.opt_out_list_name = input;
-        self
+        self.opt_out_list_name = input; self
     }
     /// <p>The name of the OptOutList associated with the pool.</p>
     pub fn get_opt_out_list_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.opt_out_list_name
     }
-    /// <p>Allows you to enable shared routes on your pool.</p>
+    /// <p>Allows you to enable shared routes on your pool.</p> 
     /// <p>By default, this is set to <code>False</code>. If you set this value to <code>True</code>, your messages are sent using phone numbers or sender IDs (depending on the country) that are shared with other Amazon Pinpoint users. In some countries, such as the United States, senders aren't allowed to use shared routes and must use a dedicated phone number or short code.</p>
     /// This field is required.
     pub fn shared_routes_enabled(mut self, input: bool) -> Self {
         self.shared_routes_enabled = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Allows you to enable shared routes on your pool.</p>
+    /// <p>Allows you to enable shared routes on your pool.</p> 
     /// <p>By default, this is set to <code>False</code>. If you set this value to <code>True</code>, your messages are sent using phone numbers or sender IDs (depending on the country) that are shared with other Amazon Pinpoint users. In some countries, such as the United States, senders aren't allowed to use shared routes and must use a dedicated phone number or short code.</p>
     pub fn set_shared_routes_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.shared_routes_enabled = input;
-        self
+        self.shared_routes_enabled = input; self
     }
-    /// <p>Allows you to enable shared routes on your pool.</p>
+    /// <p>Allows you to enable shared routes on your pool.</p> 
     /// <p>By default, this is set to <code>False</code>. If you set this value to <code>True</code>, your messages are sent using phone numbers or sender IDs (depending on the country) that are shared with other Amazon Pinpoint users. In some countries, such as the United States, senders aren't allowed to use shared routes and must use a dedicated phone number or short code.</p>
     pub fn get_shared_routes_enabled(&self) -> &::std::option::Option<bool> {
         &self.shared_routes_enabled
@@ -247,8 +235,7 @@ impl PoolInformationBuilder {
     }
     /// <p>When set to true the pool can't be deleted.</p>
     pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.deletion_protection_enabled = input;
-        self
+        self.deletion_protection_enabled = input; self
     }
     /// <p>When set to true the pool can't be deleted.</p>
     pub fn get_deletion_protection_enabled(&self) -> &::std::option::Option<bool> {
@@ -262,8 +249,7 @@ impl PoolInformationBuilder {
     }
     /// <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
     pub fn set_created_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_timestamp = input;
-        self
+        self.created_timestamp = input; self
     }
     /// <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
     pub fn get_created_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -278,48 +264,54 @@ impl PoolInformationBuilder {
     /// - [`opt_out_list_name`](crate::types::builders::PoolInformationBuilder::opt_out_list_name)
     /// - [`created_timestamp`](crate::types::builders::PoolInformationBuilder::created_timestamp)
     pub fn build(self) -> ::std::result::Result<crate::types::PoolInformation, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::PoolInformation {
-            pool_arn: self.pool_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "pool_arn",
-                    "pool_arn was not specified but it is required when building PoolInformation",
-                )
-            })?,
-            pool_id: self.pool_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "pool_id",
-                    "pool_id was not specified but it is required when building PoolInformation",
-                )
-            })?,
-            status: self.status.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "status",
-                    "status was not specified but it is required when building PoolInformation",
-                )
-            })?,
-            message_type: self.message_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "message_type",
-                    "message_type was not specified but it is required when building PoolInformation",
-                )
-            })?,
-            two_way_enabled: self.two_way_enabled.unwrap_or_default(),
-            two_way_channel_arn: self.two_way_channel_arn,
-            self_managed_opt_outs_enabled: self.self_managed_opt_outs_enabled.unwrap_or_default(),
-            opt_out_list_name: self.opt_out_list_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "opt_out_list_name",
-                    "opt_out_list_name was not specified but it is required when building PoolInformation",
-                )
-            })?,
-            shared_routes_enabled: self.shared_routes_enabled.unwrap_or_default(),
-            deletion_protection_enabled: self.deletion_protection_enabled.unwrap_or_default(),
-            created_timestamp: self.created_timestamp.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "created_timestamp",
-                    "created_timestamp was not specified but it is required when building PoolInformation",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::PoolInformation {
+                pool_arn: self.pool_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("pool_arn", "pool_arn was not specified but it is required when building PoolInformation")
+                    )?
+                ,
+                pool_id: self.pool_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("pool_id", "pool_id was not specified but it is required when building PoolInformation")
+                    )?
+                ,
+                status: self.status
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building PoolInformation")
+                    )?
+                ,
+                message_type: self.message_type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("message_type", "message_type was not specified but it is required when building PoolInformation")
+                    )?
+                ,
+                two_way_enabled: self.two_way_enabled
+                    .unwrap_or_default()
+                ,
+                two_way_channel_arn: self.two_way_channel_arn
+                ,
+                self_managed_opt_outs_enabled: self.self_managed_opt_outs_enabled
+                    .unwrap_or_default()
+                ,
+                opt_out_list_name: self.opt_out_list_name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("opt_out_list_name", "opt_out_list_name was not specified but it is required when building PoolInformation")
+                    )?
+                ,
+                shared_routes_enabled: self.shared_routes_enabled
+                    .unwrap_or_default()
+                ,
+                deletion_protection_enabled: self.deletion_protection_enabled
+                    .unwrap_or_default()
+                ,
+                created_timestamp: self.created_timestamp
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("created_timestamp", "created_timestamp was not specified but it is required when building PoolInformation")
+                    )?
+                ,
+            }
+        )
     }
 }
+

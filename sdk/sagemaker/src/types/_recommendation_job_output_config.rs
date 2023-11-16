@@ -3,11 +3,11 @@
 /// <p>Provides information about the output configuration for the compiled model.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RecommendationJobOutputConfig {
-    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p>
-    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
-    /// <ul>
-    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li>
+pub struct RecommendationJobOutputConfig  {
+    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p> 
+    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p> 
+    /// <ul> 
+    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -17,8 +17,8 @@ pub struct RecommendationJobOutputConfig {
     /// "
     /// </key-id-12ab-34cd-56ef-1234567890ab>
     /// </account>
-    /// </region></code> </p> </li>
-    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li>
+    /// </region></code> </p> </li> 
+    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -28,18 +28,18 @@ pub struct RecommendationJobOutputConfig {
     /// "
     /// </examplealias>
     /// </account>
-    /// </region></code> </p> </li>
-    /// </ul>
+    /// </region></code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon Web Services KMS) documentation.</p>
     pub kms_key_id: ::std::option::Option<::std::string::String>,
     /// <p>Provides information about the output configuration for the compiled model.</p>
     pub compiled_output_config: ::std::option::Option<crate::types::RecommendationJobCompiledOutputConfig>,
 }
-impl RecommendationJobOutputConfig {
-    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p>
-    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
-    /// <ul>
-    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li>
+impl  RecommendationJobOutputConfig  {
+    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p> 
+    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p> 
+    /// <ul> 
+    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -49,8 +49,8 @@ impl RecommendationJobOutputConfig {
     /// "
     /// </key-id-12ab-34cd-56ef-1234567890ab>
     /// </account>
-    /// </region></code> </p> </li>
-    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li>
+    /// </region></code> </p> </li> 
+    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -60,14 +60,14 @@ impl RecommendationJobOutputConfig {
     /// "
     /// </examplealias>
     /// </account>
-    /// </region></code> </p> </li>
-    /// </ul>
+    /// </region></code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon Web Services KMS) documentation.</p>
-    pub fn kms_key_id(&self) -> ::std::option::Option<&str> {
+    pub fn kms_key_id(&self) -> ::std::option::Option<& str> {
         self.kms_key_id.as_deref()
     }
     /// <p>Provides information about the output configuration for the compiled model.</p>
-    pub fn compiled_output_config(&self) -> ::std::option::Option<&crate::types::RecommendationJobCompiledOutputConfig> {
+    pub fn compiled_output_config(&self) -> ::std::option::Option<& crate::types::RecommendationJobCompiledOutputConfig> {
         self.compiled_output_config.as_ref()
     }
 }
@@ -86,10 +86,10 @@ pub struct RecommendationJobOutputConfigBuilder {
     pub(crate) compiled_output_config: ::std::option::Option<crate::types::RecommendationJobCompiledOutputConfig>,
 }
 impl RecommendationJobOutputConfigBuilder {
-    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p>
-    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
-    /// <ul>
-    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li>
+    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p> 
+    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p> 
+    /// <ul> 
+    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -99,8 +99,8 @@ impl RecommendationJobOutputConfigBuilder {
     /// "
     /// </key-id-12ab-34cd-56ef-1234567890ab>
     /// </account>
-    /// </region></code> </p> </li>
-    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li>
+    /// </region></code> </p> </li> 
+    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -110,17 +110,17 @@ impl RecommendationJobOutputConfigBuilder {
     /// "
     /// </examplealias>
     /// </account>
-    /// </region></code> </p> </li>
-    /// </ul>
+    /// </region></code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon Web Services KMS) documentation.</p>
     pub fn kms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p>
-    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
-    /// <ul>
-    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li>
+    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p> 
+    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p> 
+    /// <ul> 
+    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -130,8 +130,8 @@ impl RecommendationJobOutputConfigBuilder {
     /// "
     /// </key-id-12ab-34cd-56ef-1234567890ab>
     /// </account>
-    /// </region></code> </p> </li>
-    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li>
+    /// </region></code> </p> </li> 
+    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -141,17 +141,16 @@ impl RecommendationJobOutputConfigBuilder {
     /// "
     /// </examplealias>
     /// </account>
-    /// </region></code> </p> </li>
-    /// </ul>
+    /// </region></code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon Web Services KMS) documentation.</p>
     pub fn set_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.kms_key_id = input;
-        self
+        self.kms_key_id = input; self
     }
-    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p>
-    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
-    /// <ul>
-    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li>
+    /// <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p> 
+    /// <p>The <code>KmsKeyId</code> can be any of the following formats:</p> 
+    /// <ul> 
+    /// <li> <p>// KMS Key ID</p> <p> <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -161,8 +160,8 @@ impl RecommendationJobOutputConfigBuilder {
     /// "
     /// </key-id-12ab-34cd-56ef-1234567890ab>
     /// </account>
-    /// </region></code> </p> </li>
-    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li>
+    /// </region></code> </p> </li> 
+    /// <li> <p>// KMS Key Alias</p> <p> <code>"alias/ExampleAlias"</code> </p> </li> 
     /// <li> <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p> <p> <code>"arn:aws:kms:
     /// <region>
     /// :
@@ -172,8 +171,8 @@ impl RecommendationJobOutputConfigBuilder {
     /// "
     /// </examplealias>
     /// </account>
-    /// </region></code> </p> </li>
-    /// </ul>
+    /// </region></code> </p> </li> 
+    /// </ul> 
     /// <p>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon Web Services KMS) documentation.</p>
     pub fn get_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.kms_key_id
@@ -185,8 +184,7 @@ impl RecommendationJobOutputConfigBuilder {
     }
     /// <p>Provides information about the output configuration for the compiled model.</p>
     pub fn set_compiled_output_config(mut self, input: ::std::option::Option<crate::types::RecommendationJobCompiledOutputConfig>) -> Self {
-        self.compiled_output_config = input;
-        self
+        self.compiled_output_config = input; self
     }
     /// <p>Provides information about the output configuration for the compiled model.</p>
     pub fn get_compiled_output_config(&self) -> &::std::option::Option<crate::types::RecommendationJobCompiledOutputConfig> {
@@ -195,8 +193,11 @@ impl RecommendationJobOutputConfigBuilder {
     /// Consumes the builder and constructs a [`RecommendationJobOutputConfig`](crate::types::RecommendationJobOutputConfig).
     pub fn build(self) -> crate::types::RecommendationJobOutputConfig {
         crate::types::RecommendationJobOutputConfig {
-            kms_key_id: self.kms_key_id,
-            compiled_output_config: self.compiled_output_config,
+            kms_key_id: self.kms_key_id
+            ,
+            compiled_output_config: self.compiled_output_config
+            ,
         }
     }
 }
+

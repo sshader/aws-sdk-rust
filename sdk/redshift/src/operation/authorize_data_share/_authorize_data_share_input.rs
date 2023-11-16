@@ -2,19 +2,19 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AuthorizeDataShareInput {
+pub struct AuthorizeDataShareInput  {
     /// <p>The Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.</p>
     pub data_share_arn: ::std::option::Option<::std::string::String>,
     /// <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
     pub consumer_identifier: ::std::option::Option<::std::string::String>,
 }
-impl AuthorizeDataShareInput {
+impl  AuthorizeDataShareInput  {
     /// <p>The Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.</p>
-    pub fn data_share_arn(&self) -> ::std::option::Option<&str> {
+    pub fn data_share_arn(&self) -> ::std::option::Option<& str> {
         self.data_share_arn.as_deref()
     }
     /// <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
-    pub fn consumer_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn consumer_identifier(&self) -> ::std::option::Option<& str> {
         self.consumer_identifier.as_deref()
     }
 }
@@ -41,8 +41,7 @@ impl AuthorizeDataShareInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.</p>
     pub fn set_data_share_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.data_share_arn = input;
-        self
+        self.data_share_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.</p>
     pub fn get_data_share_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -56,21 +55,22 @@ impl AuthorizeDataShareInputBuilder {
     }
     /// <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
     pub fn set_consumer_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.consumer_identifier = input;
-        self
+        self.consumer_identifier = input; self
     }
     /// <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
     pub fn get_consumer_identifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.consumer_identifier
     }
     /// Consumes the builder and constructs a [`AuthorizeDataShareInput`](crate::operation::authorize_data_share::AuthorizeDataShareInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::authorize_data_share::AuthorizeDataShareInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::authorize_data_share::AuthorizeDataShareInput {
-            data_share_arn: self.data_share_arn,
-            consumer_identifier: self.consumer_identifier,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::authorize_data_share::AuthorizeDataShareInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::authorize_data_share::AuthorizeDataShareInput {
+                data_share_arn: self.data_share_arn
+                ,
+                consumer_identifier: self.consumer_identifier
+                ,
+            }
+        )
     }
 }
+

@@ -1,12 +1,7 @@
 [workspace]
 exclude = [
-    "examples/examples",
-    "examples/cross_service",
-    "examples/test-utils",
-    "examples/lambda",
-    "examples/webassembly",
-    "tests/no-default-features",
-    "tests/webassembly"
+    "tests/webassembly",
+    "tests/no-default-features"
 ]
 members = [
     "sdk/accessanalyzer",

@@ -3,7 +3,7 @@
 /// <p>Information about one customization job</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ModelCustomizationJobSummary {
+pub struct ModelCustomizationJobSummary  {
     /// <p>ARN of the customization job.</p>
     pub job_arn: ::std::string::String,
     /// <p>ARN of the base model.</p>
@@ -23,44 +23,41 @@ pub struct ModelCustomizationJobSummary {
     /// <p>Name of the custom model.</p>
     pub custom_model_name: ::std::option::Option<::std::string::String>,
 }
-impl ModelCustomizationJobSummary {
+impl  ModelCustomizationJobSummary  {
     /// <p>ARN of the customization job.</p>
-    pub fn job_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.job_arn.deref()
+    pub fn job_arn(&self) -> & str {
+        use std::ops::Deref; self.job_arn.deref()
     }
     /// <p>ARN of the base model.</p>
-    pub fn base_model_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.base_model_arn.deref()
+    pub fn base_model_arn(&self) -> & str {
+        use std::ops::Deref; self.base_model_arn.deref()
     }
     /// <p>Name of the customization job.</p>
-    pub fn job_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_name.deref()
+    pub fn job_name(&self) -> & str {
+        use std::ops::Deref; self.job_name.deref()
     }
     /// <p>Status of the customization job. </p>
-    pub fn status(&self) -> &crate::types::ModelCustomizationJobStatus {
+    pub fn status(&self) -> & crate::types::ModelCustomizationJobStatus {
         &self.status
     }
     /// <p>Time that the customization job was last modified.</p>
-    pub fn last_modified_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_modified_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_modified_time.as_ref()
     }
     /// <p>Creation time of the custom model. </p>
-    pub fn creation_time(&self) -> &::aws_smithy_types::DateTime {
+    pub fn creation_time(&self) -> & ::aws_smithy_types::DateTime {
         &self.creation_time
     }
     /// <p>Time that the customization job ended.</p>
-    pub fn end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.end_time.as_ref()
     }
     /// <p>ARN of the custom model.</p>
-    pub fn custom_model_arn(&self) -> ::std::option::Option<&str> {
+    pub fn custom_model_arn(&self) -> ::std::option::Option<& str> {
         self.custom_model_arn.as_deref()
     }
     /// <p>Name of the custom model.</p>
-    pub fn custom_model_name(&self) -> ::std::option::Option<&str> {
+    pub fn custom_model_name(&self) -> ::std::option::Option<& str> {
         self.custom_model_name.as_deref()
     }
 }
@@ -94,8 +91,7 @@ impl ModelCustomizationJobSummaryBuilder {
     }
     /// <p>ARN of the customization job.</p>
     pub fn set_job_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.job_arn = input;
-        self
+        self.job_arn = input; self
     }
     /// <p>ARN of the customization job.</p>
     pub fn get_job_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -109,8 +105,7 @@ impl ModelCustomizationJobSummaryBuilder {
     }
     /// <p>ARN of the base model.</p>
     pub fn set_base_model_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.base_model_arn = input;
-        self
+        self.base_model_arn = input; self
     }
     /// <p>ARN of the base model.</p>
     pub fn get_base_model_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -124,8 +119,7 @@ impl ModelCustomizationJobSummaryBuilder {
     }
     /// <p>Name of the customization job.</p>
     pub fn set_job_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.job_name = input;
-        self
+        self.job_name = input; self
     }
     /// <p>Name of the customization job.</p>
     pub fn get_job_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -139,8 +133,7 @@ impl ModelCustomizationJobSummaryBuilder {
     }
     /// <p>Status of the customization job. </p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ModelCustomizationJobStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>Status of the customization job. </p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::ModelCustomizationJobStatus> {
@@ -153,8 +146,7 @@ impl ModelCustomizationJobSummaryBuilder {
     }
     /// <p>Time that the customization job was last modified.</p>
     pub fn set_last_modified_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_modified_time = input;
-        self
+        self.last_modified_time = input; self
     }
     /// <p>Time that the customization job was last modified.</p>
     pub fn get_last_modified_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -168,8 +160,7 @@ impl ModelCustomizationJobSummaryBuilder {
     }
     /// <p>Creation time of the custom model. </p>
     pub fn set_creation_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_time = input;
-        self
+        self.creation_time = input; self
     }
     /// <p>Creation time of the custom model. </p>
     pub fn get_creation_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -182,8 +173,7 @@ impl ModelCustomizationJobSummaryBuilder {
     }
     /// <p>Time that the customization job ended.</p>
     pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.end_time = input;
-        self
+        self.end_time = input; self
     }
     /// <p>Time that the customization job ended.</p>
     pub fn get_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -196,8 +186,7 @@ impl ModelCustomizationJobSummaryBuilder {
     }
     /// <p>ARN of the custom model.</p>
     pub fn set_custom_model_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.custom_model_arn = input;
-        self
+        self.custom_model_arn = input; self
     }
     /// <p>ARN of the custom model.</p>
     pub fn get_custom_model_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -210,8 +199,7 @@ impl ModelCustomizationJobSummaryBuilder {
     }
     /// <p>Name of the custom model.</p>
     pub fn set_custom_model_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.custom_model_name = input;
-        self
+        self.custom_model_name = input; self
     }
     /// <p>Name of the custom model.</p>
     pub fn get_custom_model_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -225,41 +213,43 @@ impl ModelCustomizationJobSummaryBuilder {
     /// - [`status`](crate::types::builders::ModelCustomizationJobSummaryBuilder::status)
     /// - [`creation_time`](crate::types::builders::ModelCustomizationJobSummaryBuilder::creation_time)
     pub fn build(self) -> ::std::result::Result<crate::types::ModelCustomizationJobSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ModelCustomizationJobSummary {
-            job_arn: self.job_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_arn",
-                    "job_arn was not specified but it is required when building ModelCustomizationJobSummary",
-                )
-            })?,
-            base_model_arn: self.base_model_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "base_model_arn",
-                    "base_model_arn was not specified but it is required when building ModelCustomizationJobSummary",
-                )
-            })?,
-            job_name: self.job_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_name",
-                    "job_name was not specified but it is required when building ModelCustomizationJobSummary",
-                )
-            })?,
-            status: self.status.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "status",
-                    "status was not specified but it is required when building ModelCustomizationJobSummary",
-                )
-            })?,
-            last_modified_time: self.last_modified_time,
-            creation_time: self.creation_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "creation_time",
-                    "creation_time was not specified but it is required when building ModelCustomizationJobSummary",
-                )
-            })?,
-            end_time: self.end_time,
-            custom_model_arn: self.custom_model_arn,
-            custom_model_name: self.custom_model_name,
-        })
+        ::std::result::Result::Ok(
+            crate::types::ModelCustomizationJobSummary {
+                job_arn: self.job_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("job_arn", "job_arn was not specified but it is required when building ModelCustomizationJobSummary")
+                    )?
+                ,
+                base_model_arn: self.base_model_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("base_model_arn", "base_model_arn was not specified but it is required when building ModelCustomizationJobSummary")
+                    )?
+                ,
+                job_name: self.job_name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("job_name", "job_name was not specified but it is required when building ModelCustomizationJobSummary")
+                    )?
+                ,
+                status: self.status
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building ModelCustomizationJobSummary")
+                    )?
+                ,
+                last_modified_time: self.last_modified_time
+                ,
+                creation_time: self.creation_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("creation_time", "creation_time was not specified but it is required when building ModelCustomizationJobSummary")
+                    )?
+                ,
+                end_time: self.end_time
+                ,
+                custom_model_arn: self.custom_model_arn
+                ,
+                custom_model_name: self.custom_model_name
+                ,
+            }
+        )
     }
 }
+

@@ -38,7 +38,13 @@ pub enum Error {
     /// <p>You've exceeded the number of tags allowed for a resource. For more information, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/sq-tagging.html#sq-tagging-restrictions">Tag restrictions</a> in the <i>Service Quotas User Guide</i>.</p>
     TooManyTagsException(crate::types::error::TooManyTagsException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    Unhandled(crate::error::sealed_unhandled::Unhandled)
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -60,94 +66,81 @@ impl ::std::fmt::Display for Error {
             Error::TemplatesNotAvailableInRegionException(inner) => inner.fmt(f),
             Error::TooManyRequestsException(inner) => inner.fmt(f),
             Error::TooManyTagsException(inner) => inner.fmt(f),
-            Error::Unhandled(inner) => inner.fmt(f),
+            Error::Unhandled(_) => if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                        write!(f, "unhandled error ({code})")
+                                    } else {
+                                        f.write_str("unhandled error")
+                                    }
         }
     }
 }
 impl From<::aws_smithy_types::error::operation::BuildError> for Error {
-    fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
-        Error::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(value).build())
-    }
-}
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError, R>,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError,
-            R,
-        >,
-    ) -> Self {
+                fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
+                    Error::Unhandled(crate::error::sealed_unhandled::Unhandled { source: value.into(), meta: ::std::default::Default::default() })
+                }
+            }
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
+                fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
+                    match self {
+                        Self::AwsServiceAccessNotEnabledException(inner) => inner.meta(),
+Self::AccessDeniedException(inner) => inner.meta(),
+Self::DependencyAccessDeniedException(inner) => inner.meta(),
+Self::IllegalArgumentException(inner) => inner.meta(),
+Self::InvalidPaginationTokenException(inner) => inner.meta(),
+Self::InvalidResourceStateException(inner) => inner.meta(),
+Self::NoAvailableOrganizationException(inner) => inner.meta(),
+Self::NoSuchResourceException(inner) => inner.meta(),
+Self::OrganizationNotInAllFeaturesModeException(inner) => inner.meta(),
+Self::QuotaExceededException(inner) => inner.meta(),
+Self::ResourceAlreadyExistsException(inner) => inner.meta(),
+Self::ServiceException(inner) => inner.meta(),
+Self::ServiceQuotaTemplateNotInUseException(inner) => inner.meta(),
+Self::TagPolicyViolationException(inner) => inner.meta(),
+Self::TemplatesNotAvailableInRegionException(inner) => inner.meta(),
+Self::TooManyRequestsException(inner) => inner.meta(),
+Self::TooManyTagsException(inner) => inner.meta(),
+                        Self::Unhandled(inner) => &inner.meta,
+                    }
+                }
+            }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError> for Error {
     fn from(err: crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError) -> Self {
         match err {
-            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::AwsServiceAccessNotEnabledException(inner) => {
-                Error::AwsServiceAccessNotEnabledException(inner)
-            }
-            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::DependencyAccessDeniedException(inner) => {
-                Error::DependencyAccessDeniedException(inner)
-            }
-            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::NoAvailableOrganizationException(inner) => {
-                Error::NoAvailableOrganizationException(inner)
-            }
-            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::OrganizationNotInAllFeaturesModeException(
-                inner,
-            ) => Error::OrganizationNotInAllFeaturesModeException(inner),
-            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::TemplatesNotAvailableInRegionException(inner) => {
-                Error::TemplatesNotAvailableInRegionException(inner)
-            }
-            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::AwsServiceAccessNotEnabledException(inner) => Error::AwsServiceAccessNotEnabledException(inner),
+            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::DependencyAccessDeniedException(inner) => Error::DependencyAccessDeniedException(inner),
+            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::NoAvailableOrganizationException(inner) => Error::NoAvailableOrganizationException(inner),
+            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::OrganizationNotInAllFeaturesModeException(inner) => Error::OrganizationNotInAllFeaturesModeException(inner),
+            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::TemplatesNotAvailableInRegionException(inner) => Error::TemplatesNotAvailableInRegionException(inner),
+            crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::associate_service_quota_template::AssociateServiceQuotaTemplateError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_service_quota_increase_request_from_template::DeleteServiceQuotaIncreaseRequestFromTemplateError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_service_quota_increase_request_from_template::DeleteServiceQuotaIncreaseRequestFromTemplateError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_service_quota_increase_request_from_template::DeleteServiceQuotaIncreaseRequestFromTemplateError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_service_quota_increase_request_from_template::DeleteServiceQuotaIncreaseRequestFromTemplateError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -167,88 +160,44 @@ impl From<crate::operation::delete_service_quota_increase_request_from_template:
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError> for Error {
     fn from(err: crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError) -> Self {
         match err {
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::AwsServiceAccessNotEnabledException(
-                inner,
-            ) => Error::AwsServiceAccessNotEnabledException(inner),
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::DependencyAccessDeniedException(inner) => {
-                Error::DependencyAccessDeniedException(inner)
-            }
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::NoAvailableOrganizationException(inner) => {
-                Error::NoAvailableOrganizationException(inner)
-            }
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::ServiceQuotaTemplateNotInUseException(
-                inner,
-            ) => Error::ServiceQuotaTemplateNotInUseException(inner),
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::TemplatesNotAvailableInRegionException(
-                inner,
-            ) => Error::TemplatesNotAvailableInRegionException(inner),
-            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::AwsServiceAccessNotEnabledException(inner) => Error::AwsServiceAccessNotEnabledException(inner),
+            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::DependencyAccessDeniedException(inner) => Error::DependencyAccessDeniedException(inner),
+            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::NoAvailableOrganizationException(inner) => Error::NoAvailableOrganizationException(inner),
+            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::ServiceQuotaTemplateNotInUseException(inner) => Error::ServiceQuotaTemplateNotInUseException(inner),
+            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::TemplatesNotAvailableInRegionException(inner) => Error::TemplatesNotAvailableInRegionException(inner),
+            crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::disassociate_service_quota_template::DisassociateServiceQuotaTemplateError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_association_for_service_quota_template::GetAssociationForServiceQuotaTemplateError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_association_for_service_quota_template::GetAssociationForServiceQuotaTemplateError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_association_for_service_quota_template::GetAssociationForServiceQuotaTemplateError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_association_for_service_quota_template::GetAssociationForServiceQuotaTemplateError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -267,109 +216,66 @@ impl From<crate::operation::get_association_for_service_quota_template::GetAssoc
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError> for Error {
     fn from(err: crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError) -> Self {
         match err {
-            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::IllegalArgumentException(inner) => {
-                Error::IllegalArgumentException(inner)
-            }
-            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::NoSuchResourceException(inner) => {
-                Error::NoSuchResourceException(inner)
-            }
-            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::IllegalArgumentException(inner) => Error::IllegalArgumentException(inner),
+            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::NoSuchResourceException(inner) => Error::NoSuchResourceException(inner),
+            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::get_aws_default_service_quota::GetAWSDefaultServiceQuotaError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError> for Error {
     fn from(err: crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError) -> Self {
         match err {
-            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::IllegalArgumentException(inner) => {
-                Error::IllegalArgumentException(inner)
-            }
-            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::NoSuchResourceException(inner) => {
-                Error::NoSuchResourceException(inner)
-            }
-            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::IllegalArgumentException(inner) => Error::IllegalArgumentException(inner),
+            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::NoSuchResourceException(inner) => Error::NoSuchResourceException(inner),
+            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::get_requested_service_quota_change::GetRequestedServiceQuotaChangeError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_service_quota::GetServiceQuotaError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_service_quota::GetServiceQuotaError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_service_quota::GetServiceQuotaError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -385,30 +291,16 @@ impl From<crate::operation::get_service_quota::GetServiceQuotaError> for Error {
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_service_quota_increase_request_from_template::GetServiceQuotaIncreaseRequestFromTemplateError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_service_quota_increase_request_from_template::GetServiceQuotaIncreaseRequestFromTemplateError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_service_quota_increase_request_from_template::GetServiceQuotaIncreaseRequestFromTemplateError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_service_quota_increase_request_from_template::GetServiceQuotaIncreaseRequestFromTemplateError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -428,78 +320,42 @@ impl From<crate::operation::get_service_quota_increase_request_from_template::Ge
         }
     }
 }
-impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError> for Error {
     fn from(err: crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError) -> Self {
         match err {
-            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::IllegalArgumentException(inner) => {
-                Error::IllegalArgumentException(inner)
-            }
-            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::InvalidPaginationTokenException(inner) => {
-                Error::InvalidPaginationTokenException(inner)
-            }
-            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::NoSuchResourceException(inner) => {
-                Error::NoSuchResourceException(inner)
-            }
-            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::IllegalArgumentException(inner) => Error::IllegalArgumentException(inner),
+            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::InvalidPaginationTokenException(inner) => Error::InvalidPaginationTokenException(inner),
+            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::NoSuchResourceException(inner) => Error::NoSuchResourceException(inner),
+            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::list_aws_default_service_quotas::ListAWSDefaultServiceQuotasError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_requested_service_quota_change_history::ListRequestedServiceQuotaChangeHistoryError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_requested_service_quota_change_history::ListRequestedServiceQuotaChangeHistoryError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_requested_service_quota_change_history::ListRequestedServiceQuotaChangeHistoryError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_requested_service_quota_change_history::ListRequestedServiceQuotaChangeHistoryError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -516,30 +372,16 @@ impl From<crate::operation::list_requested_service_quota_change_history::ListReq
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_requested_service_quota_change_history_by_quota::ListRequestedServiceQuotaChangeHistoryByQuotaError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_requested_service_quota_change_history_by_quota::ListRequestedServiceQuotaChangeHistoryByQuotaError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_requested_service_quota_change_history_by_quota::ListRequestedServiceQuotaChangeHistoryByQuotaError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_requested_service_quota_change_history_by_quota::ListRequestedServiceQuotaChangeHistoryByQuotaError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -556,30 +398,16 @@ impl From<crate::operation::list_requested_service_quota_change_history_by_quota
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_service_quota_increase_requests_in_template::ListServiceQuotaIncreaseRequestsInTemplateError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_service_quota_increase_requests_in_template::ListServiceQuotaIncreaseRequestsInTemplateError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_service_quota_increase_requests_in_template::ListServiceQuotaIncreaseRequestsInTemplateError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_service_quota_increase_requests_in_template::ListServiceQuotaIncreaseRequestsInTemplateError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -598,19 +426,16 @@ impl From<crate::operation::list_service_quota_increase_requests_in_template::Li
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_service_quotas::ListServiceQuotasError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_service_quotas::ListServiceQuotasError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_service_quotas::ListServiceQuotasError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -619,9 +444,7 @@ impl From<crate::operation::list_service_quotas::ListServiceQuotasError> for Err
         match err {
             crate::operation::list_service_quotas::ListServiceQuotasError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
             crate::operation::list_service_quotas::ListServiceQuotasError::IllegalArgumentException(inner) => Error::IllegalArgumentException(inner),
-            crate::operation::list_service_quotas::ListServiceQuotasError::InvalidPaginationTokenException(inner) => {
-                Error::InvalidPaginationTokenException(inner)
-            }
+            crate::operation::list_service_quotas::ListServiceQuotasError::InvalidPaginationTokenException(inner) => Error::InvalidPaginationTokenException(inner),
             crate::operation::list_service_quotas::ListServiceQuotasError::NoSuchResourceException(inner) => Error::NoSuchResourceException(inner),
             crate::operation::list_service_quotas::ListServiceQuotasError::ServiceException(inner) => Error::ServiceException(inner),
             crate::operation::list_service_quotas::ListServiceQuotasError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
@@ -629,19 +452,16 @@ impl From<crate::operation::list_service_quotas::ListServiceQuotasError> for Err
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_services::ListServicesError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_services::ListServicesError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_services::ListServicesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -650,28 +470,23 @@ impl From<crate::operation::list_services::ListServicesError> for Error {
         match err {
             crate::operation::list_services::ListServicesError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
             crate::operation::list_services::ListServicesError::IllegalArgumentException(inner) => Error::IllegalArgumentException(inner),
-            crate::operation::list_services::ListServicesError::InvalidPaginationTokenException(inner) => {
-                Error::InvalidPaginationTokenException(inner)
-            }
+            crate::operation::list_services::ListServicesError::InvalidPaginationTokenException(inner) => Error::InvalidPaginationTokenException(inner),
             crate::operation::list_services::ListServicesError::ServiceException(inner) => Error::ServiceException(inner),
             crate::operation::list_services::ListServicesError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::list_services::ListServicesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -679,44 +494,24 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
     fn from(err: crate::operation::list_tags_for_resource::ListTagsForResourceError) -> Self {
         match err {
             crate::operation::list_tags_for_resource::ListTagsForResourceError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::IllegalArgumentException(inner) => {
-                Error::IllegalArgumentException(inner)
-            }
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::NoSuchResourceException(inner) => {
-                Error::NoSuchResourceException(inner)
-            }
+            crate::operation::list_tags_for_resource::ListTagsForResourceError::IllegalArgumentException(inner) => Error::IllegalArgumentException(inner),
+            crate::operation::list_tags_for_resource::ListTagsForResourceError::NoSuchResourceException(inner) => Error::NoSuchResourceException(inner),
             crate::operation::list_tags_for_resource::ListTagsForResourceError::ServiceException(inner) => Error::ServiceException(inner),
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::list_tags_for_resource::ListTagsForResourceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::list_tags_for_resource::ListTagsForResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_service_quota_increase_request_into_template::PutServiceQuotaIncreaseRequestIntoTemplateError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_service_quota_increase_request_into_template::PutServiceQuotaIncreaseRequestIntoTemplateError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_service_quota_increase_request_into_template::PutServiceQuotaIncreaseRequestIntoTemplateError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_service_quota_increase_request_into_template::PutServiceQuotaIncreaseRequestIntoTemplateError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -737,76 +532,45 @@ impl From<crate::operation::put_service_quota_increase_request_into_template::Pu
         }
     }
 }
-impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError> for Error {
     fn from(err: crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError) -> Self {
         match err {
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::DependencyAccessDeniedException(inner) => {
-                Error::DependencyAccessDeniedException(inner)
-            }
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::IllegalArgumentException(inner) => {
-                Error::IllegalArgumentException(inner)
-            }
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::InvalidResourceStateException(inner) => {
-                Error::InvalidResourceStateException(inner)
-            }
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::NoSuchResourceException(inner) => {
-                Error::NoSuchResourceException(inner)
-            }
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::QuotaExceededException(inner) => {
-                Error::QuotaExceededException(inner)
-            }
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::ResourceAlreadyExistsException(inner) => {
-                Error::ResourceAlreadyExistsException(inner)
-            }
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::DependencyAccessDeniedException(inner) => Error::DependencyAccessDeniedException(inner),
+            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::IllegalArgumentException(inner) => Error::IllegalArgumentException(inner),
+            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::InvalidResourceStateException(inner) => Error::InvalidResourceStateException(inner),
+            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::NoSuchResourceException(inner) => Error::NoSuchResourceException(inner),
+            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::QuotaExceededException(inner) => Error::QuotaExceededException(inner),
+            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::ResourceAlreadyExistsException(inner) => Error::ResourceAlreadyExistsException(inner),
+            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::request_service_quota_increase::RequestServiceQuotaIncreaseError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -824,19 +588,16 @@ impl From<crate::operation::tag_resource::TagResourceError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -872,11 +633,11 @@ impl ::std::error::Error for Error {
             Error::TemplatesNotAvailableInRegionException(inner) => inner.source(),
             Error::TooManyRequestsException(inner) => inner.source(),
             Error::TooManyTagsException(inner) => inner.source(),
-            Error::Unhandled(inner) => inner.source(),
+            Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source)
         }
     }
 }
-impl ::aws_http::request_id::RequestId for Error {
+impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             Self::AwsServiceAccessNotEnabledException(e) => e.request_id(),
@@ -896,7 +657,8 @@ impl ::aws_http::request_id::RequestId for Error {
             Self::TemplatesNotAvailableInRegionException(e) => e.request_id(),
             Self::TooManyRequestsException(e) => e.request_id(),
             Self::TooManyTagsException(e) => e.request_id(),
-            Self::Unhandled(e) => e.request_id(),
+            Self::Unhandled(e) => e.meta.request_id(),
         }
     }
 }
+

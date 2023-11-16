@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetTableMetadataInput {
+pub struct GetTableMetadataInput  {
     /// <p>The name of the data catalog that contains the database and table metadata to return.</p>
     pub catalog_name: ::std::option::Option<::std::string::String>,
     /// <p>The name of the database that contains the table metadata to return.</p>
@@ -10,17 +10,17 @@ pub struct GetTableMetadataInput {
     /// <p>The name of the table for which metadata is returned.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
 }
-impl GetTableMetadataInput {
+impl  GetTableMetadataInput  {
     /// <p>The name of the data catalog that contains the database and table metadata to return.</p>
-    pub fn catalog_name(&self) -> ::std::option::Option<&str> {
+    pub fn catalog_name(&self) -> ::std::option::Option<& str> {
         self.catalog_name.as_deref()
     }
     /// <p>The name of the database that contains the table metadata to return.</p>
-    pub fn database_name(&self) -> ::std::option::Option<&str> {
+    pub fn database_name(&self) -> ::std::option::Option<& str> {
         self.database_name.as_deref()
     }
     /// <p>The name of the table for which metadata is returned.</p>
-    pub fn table_name(&self) -> ::std::option::Option<&str> {
+    pub fn table_name(&self) -> ::std::option::Option<& str> {
         self.table_name.as_deref()
     }
 }
@@ -48,8 +48,7 @@ impl GetTableMetadataInputBuilder {
     }
     /// <p>The name of the data catalog that contains the database and table metadata to return.</p>
     pub fn set_catalog_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.catalog_name = input;
-        self
+        self.catalog_name = input; self
     }
     /// <p>The name of the data catalog that contains the database and table metadata to return.</p>
     pub fn get_catalog_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -63,8 +62,7 @@ impl GetTableMetadataInputBuilder {
     }
     /// <p>The name of the database that contains the table metadata to return.</p>
     pub fn set_database_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.database_name = input;
-        self
+        self.database_name = input; self
     }
     /// <p>The name of the database that contains the table metadata to return.</p>
     pub fn get_database_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -78,21 +76,24 @@ impl GetTableMetadataInputBuilder {
     }
     /// <p>The name of the table for which metadata is returned.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.table_name = input;
-        self
+        self.table_name = input; self
     }
     /// <p>The name of the table for which metadata is returned.</p>
     pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_name
     }
     /// Consumes the builder and constructs a [`GetTableMetadataInput`](crate::operation::get_table_metadata::GetTableMetadataInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::get_table_metadata::GetTableMetadataInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_table_metadata::GetTableMetadataInput {
-            catalog_name: self.catalog_name,
-            database_name: self.database_name,
-            table_name: self.table_name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_table_metadata::GetTableMetadataInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_table_metadata::GetTableMetadataInput {
+                catalog_name: self.catalog_name
+                ,
+                database_name: self.database_name
+                ,
+                table_name: self.table_name
+                ,
+            }
+        )
     }
 }
+

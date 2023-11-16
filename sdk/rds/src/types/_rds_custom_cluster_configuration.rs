@@ -3,19 +3,19 @@
 /// <p>Reserved for future use.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RdsCustomClusterConfiguration {
+pub struct RdsCustomClusterConfiguration  {
     /// <p>Reserved for future use.</p>
     pub interconnect_subnet_id: ::std::option::Option<::std::string::String>,
     /// <p>Reserved for future use.</p>
     pub transit_gateway_multicast_domain_id: ::std::option::Option<::std::string::String>,
 }
-impl RdsCustomClusterConfiguration {
+impl  RdsCustomClusterConfiguration  {
     /// <p>Reserved for future use.</p>
-    pub fn interconnect_subnet_id(&self) -> ::std::option::Option<&str> {
+    pub fn interconnect_subnet_id(&self) -> ::std::option::Option<& str> {
         self.interconnect_subnet_id.as_deref()
     }
     /// <p>Reserved for future use.</p>
-    pub fn transit_gateway_multicast_domain_id(&self) -> ::std::option::Option<&str> {
+    pub fn transit_gateway_multicast_domain_id(&self) -> ::std::option::Option<& str> {
         self.transit_gateway_multicast_domain_id.as_deref()
     }
 }
@@ -41,8 +41,7 @@ impl RdsCustomClusterConfigurationBuilder {
     }
     /// <p>Reserved for future use.</p>
     pub fn set_interconnect_subnet_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.interconnect_subnet_id = input;
-        self
+        self.interconnect_subnet_id = input; self
     }
     /// <p>Reserved for future use.</p>
     pub fn get_interconnect_subnet_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -55,8 +54,7 @@ impl RdsCustomClusterConfigurationBuilder {
     }
     /// <p>Reserved for future use.</p>
     pub fn set_transit_gateway_multicast_domain_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.transit_gateway_multicast_domain_id = input;
-        self
+        self.transit_gateway_multicast_domain_id = input; self
     }
     /// <p>Reserved for future use.</p>
     pub fn get_transit_gateway_multicast_domain_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -65,8 +63,11 @@ impl RdsCustomClusterConfigurationBuilder {
     /// Consumes the builder and constructs a [`RdsCustomClusterConfiguration`](crate::types::RdsCustomClusterConfiguration).
     pub fn build(self) -> crate::types::RdsCustomClusterConfiguration {
         crate::types::RdsCustomClusterConfiguration {
-            interconnect_subnet_id: self.interconnect_subnet_id,
-            transit_gateway_multicast_domain_id: self.transit_gateway_multicast_domain_id,
+            interconnect_subnet_id: self.interconnect_subnet_id
+            ,
+            transit_gateway_multicast_domain_id: self.transit_gateway_multicast_domain_id
+            ,
         }
     }
 }
+

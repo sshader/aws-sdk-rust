@@ -3,41 +3,41 @@
 /// <p>Updates the SnapLock configuration for an existing FSx for ONTAP volume. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateSnaplockConfiguration {
-    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p>
+pub struct UpdateSnaplockConfiguration  {
+    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume"> SnapLock audit log volumes</a>. </p>
     pub audit_log_volume: ::std::option::Option<bool>,
     /// <p>The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. </p>
     pub autocommit_period: ::std::option::Option<crate::types::AutocommitPeriod>,
-    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p>
+    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged delete</a>. </p>
     pub privileged_delete: ::std::option::Option<crate::types::PrivilegedDelete>,
     /// <p>Specifies the retention period of an FSx for ONTAP SnapLock volume. </p>
     pub retention_period: ::std::option::Option<crate::types::SnaplockRetentionPeriod>,
-    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p>
+    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append">Volume-append mode</a>. </p>
     pub volume_append_mode_enabled: ::std::option::Option<bool>,
 }
-impl UpdateSnaplockConfiguration {
-    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p>
+impl  UpdateSnaplockConfiguration  {
+    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume"> SnapLock audit log volumes</a>. </p>
     pub fn audit_log_volume(&self) -> ::std::option::Option<bool> {
         self.audit_log_volume
     }
     /// <p>The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. </p>
-    pub fn autocommit_period(&self) -> ::std::option::Option<&crate::types::AutocommitPeriod> {
+    pub fn autocommit_period(&self) -> ::std::option::Option<& crate::types::AutocommitPeriod> {
         self.autocommit_period.as_ref()
     }
-    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p>
+    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged delete</a>. </p>
-    pub fn privileged_delete(&self) -> ::std::option::Option<&crate::types::PrivilegedDelete> {
+    pub fn privileged_delete(&self) -> ::std::option::Option<& crate::types::PrivilegedDelete> {
         self.privileged_delete.as_ref()
     }
     /// <p>Specifies the retention period of an FSx for ONTAP SnapLock volume. </p>
-    pub fn retention_period(&self) -> ::std::option::Option<&crate::types::SnaplockRetentionPeriod> {
+    pub fn retention_period(&self) -> ::std::option::Option<& crate::types::SnaplockRetentionPeriod> {
         self.retention_period.as_ref()
     }
-    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p>
+    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append">Volume-append mode</a>. </p>
     pub fn volume_append_mode_enabled(&self) -> ::std::option::Option<bool> {
         self.volume_append_mode_enabled
@@ -61,19 +61,18 @@ pub struct UpdateSnaplockConfigurationBuilder {
     pub(crate) volume_append_mode_enabled: ::std::option::Option<bool>,
 }
 impl UpdateSnaplockConfigurationBuilder {
-    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p>
+    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume"> SnapLock audit log volumes</a>. </p>
     pub fn audit_log_volume(mut self, input: bool) -> Self {
         self.audit_log_volume = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p>
+    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume"> SnapLock audit log volumes</a>. </p>
     pub fn set_audit_log_volume(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.audit_log_volume = input;
-        self
+        self.audit_log_volume = input; self
     }
-    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p>
+    /// <p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume"> SnapLock audit log volumes</a>. </p>
     pub fn get_audit_log_volume(&self) -> &::std::option::Option<bool> {
         &self.audit_log_volume
@@ -85,26 +84,24 @@ impl UpdateSnaplockConfigurationBuilder {
     }
     /// <p>The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. </p>
     pub fn set_autocommit_period(mut self, input: ::std::option::Option<crate::types::AutocommitPeriod>) -> Self {
-        self.autocommit_period = input;
-        self
+        self.autocommit_period = input; self
     }
     /// <p>The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. </p>
     pub fn get_autocommit_period(&self) -> &::std::option::Option<crate::types::AutocommitPeriod> {
         &self.autocommit_period
     }
-    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p>
+    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged delete</a>. </p>
     pub fn privileged_delete(mut self, input: crate::types::PrivilegedDelete) -> Self {
         self.privileged_delete = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p>
+    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged delete</a>. </p>
     pub fn set_privileged_delete(mut self, input: ::std::option::Option<crate::types::PrivilegedDelete>) -> Self {
-        self.privileged_delete = input;
-        self
+        self.privileged_delete = input; self
     }
-    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p>
+    /// <p>Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. <code>PERMANENTLY_DISABLED</code> is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is <code>DISABLED</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged delete</a>. </p>
     pub fn get_privileged_delete(&self) -> &::std::option::Option<crate::types::PrivilegedDelete> {
         &self.privileged_delete
@@ -116,26 +113,24 @@ impl UpdateSnaplockConfigurationBuilder {
     }
     /// <p>Specifies the retention period of an FSx for ONTAP SnapLock volume. </p>
     pub fn set_retention_period(mut self, input: ::std::option::Option<crate::types::SnaplockRetentionPeriod>) -> Self {
-        self.retention_period = input;
-        self
+        self.retention_period = input; self
     }
     /// <p>Specifies the retention period of an FSx for ONTAP SnapLock volume. </p>
     pub fn get_retention_period(&self) -> &::std::option::Option<crate::types::SnaplockRetentionPeriod> {
         &self.retention_period
     }
-    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p>
+    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append">Volume-append mode</a>. </p>
     pub fn volume_append_mode_enabled(mut self, input: bool) -> Self {
         self.volume_append_mode_enabled = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p>
+    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append">Volume-append mode</a>. </p>
     pub fn set_volume_append_mode_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.volume_append_mode_enabled = input;
-        self
+        self.volume_append_mode_enabled = input; self
     }
-    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p>
+    /// <p>Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is <code>false</code>. </p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append">Volume-append mode</a>. </p>
     pub fn get_volume_append_mode_enabled(&self) -> &::std::option::Option<bool> {
         &self.volume_append_mode_enabled
@@ -143,11 +138,17 @@ impl UpdateSnaplockConfigurationBuilder {
     /// Consumes the builder and constructs a [`UpdateSnaplockConfiguration`](crate::types::UpdateSnaplockConfiguration).
     pub fn build(self) -> crate::types::UpdateSnaplockConfiguration {
         crate::types::UpdateSnaplockConfiguration {
-            audit_log_volume: self.audit_log_volume,
-            autocommit_period: self.autocommit_period,
-            privileged_delete: self.privileged_delete,
-            retention_period: self.retention_period,
-            volume_append_mode_enabled: self.volume_append_mode_enabled,
+            audit_log_volume: self.audit_log_volume
+            ,
+            autocommit_period: self.autocommit_period
+            ,
+            privileged_delete: self.privileged_delete
+            ,
+            retention_period: self.retention_period
+            ,
+            volume_append_mode_enabled: self.volume_append_mode_enabled
+            ,
         }
     }
 }
+

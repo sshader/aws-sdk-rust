@@ -5,55 +5,51 @@ pub use crate::operation::create_constraint::_create_constraint_input::CreateCon
 
 impl CreateConstraintInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_constraint::CreateConstraintOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_constraint::CreateConstraintError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_constraint();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_constraint::CreateConstraintOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_constraint::CreateConstraintError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_constraint();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateConstraint`.
-///
-/// <p>Creates a constraint.</p>
+/// 
+/// <p>Creates a constraint.</p> 
 /// <p>A delegated admin is authorized to invoke this command.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateConstraintFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_constraint::builders::CreateConstraintInputBuilder,
+                    inner: crate::operation::create_constraint::builders::CreateConstraintInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_constraint::CreateConstraintOutput,
-        crate::operation::create_constraint::CreateConstraintError,
-    > for CreateConstraintFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_constraint::CreateConstraintOutput,
-            crate::operation::create_constraint::CreateConstraintError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_constraint::CreateConstraintOutput,
+                    crate::operation::create_constraint::CreateConstraintError,
+                > for CreateConstraintFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_constraint::CreateConstraintOutput,
+                        crate::operation::create_constraint::CreateConstraintError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateConstraintFluentBuilder {
     /// Creates a new `CreateConstraint`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -62,75 +58,66 @@ impl CreateConstraintFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_constraint::CreateConstraintOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_constraint::CreateConstraintError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_constraint::CreateConstraint::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_constraint::CreateConstraint::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_constraint::CreateConstraintOutput,
-        crate::operation::create_constraint::CreateConstraintError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_constraint::CreateConstraintOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_constraint::CreateConstraintError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_constraint::CreateConstraint::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_constraint::CreateConstraint::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_constraint::CreateConstraintOutput, crate::operation::create_constraint::CreateConstraintError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.accept_language(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_accept_language(input);
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_accept_language()
@@ -163,195 +150,195 @@ impl CreateConstraintFluentBuilder {
     pub fn get_product_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_product_id()
     }
-    /// <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p>
-    /// <dl>
+    /// <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p> 
+    /// <dl> 
     /// <dt>
     /// LAUNCH
-    /// </dt>
-    /// <dd>
-    /// <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
-    /// <p>Specify the <code>RoleArn</code> property as follows:</p>
-    /// <p> <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code> </p>
-    /// <p>Specify the <code>LocalRoleName</code> property as follows:</p>
-    /// <p> <code>{"LocalRoleName": "SCBasicLaunchRole"}</code> </p>
-    /// <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.</p> <note>
-    /// <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p>
-    /// </note>
-    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-    /// <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p> 
+    /// <p>Specify the <code>RoleArn</code> property as follows:</p> 
+    /// <p> <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code> </p> 
+    /// <p>Specify the <code>LocalRoleName</code> property as follows:</p> 
+    /// <p> <code>{"LocalRoleName": "SCBasicLaunchRole"}</code> </p> 
+    /// <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.</p> <note> 
+    /// <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p> 
+    /// </note> 
+    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> 
+    /// <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p> 
+    /// </dd> 
     /// <dt>
     /// NOTIFICATION
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>NotificationArns</code> property as follows:</p>
-    /// <p> <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code> </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>NotificationArns</code> property as follows:</p> 
+    /// <p> <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code> </p> 
+    /// </dd> 
     /// <dt>
     /// RESOURCE_UPDATE
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
-    /// <p> <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code> </p>
-    /// <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p> 
+    /// <p> <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code> </p> 
+    /// <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// STACKSET
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>Parameters</code> property as follows:</p>
-    /// <p> <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code> </p>
-    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-    /// <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
-    /// <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>Parameters</code> property as follows:</p> 
+    /// <p> <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code> </p> 
+    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> 
+    /// <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p> 
+    /// <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p> 
+    /// </dd> 
     /// <dt>
     /// TEMPLATE
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p> 
+    /// </dd> 
     /// </dl>
     pub fn parameters(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.parameters(input.into());
         self
     }
-    /// <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p>
-    /// <dl>
+    /// <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p> 
+    /// <dl> 
     /// <dt>
     /// LAUNCH
-    /// </dt>
-    /// <dd>
-    /// <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
-    /// <p>Specify the <code>RoleArn</code> property as follows:</p>
-    /// <p> <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code> </p>
-    /// <p>Specify the <code>LocalRoleName</code> property as follows:</p>
-    /// <p> <code>{"LocalRoleName": "SCBasicLaunchRole"}</code> </p>
-    /// <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.</p> <note>
-    /// <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p>
-    /// </note>
-    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-    /// <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p> 
+    /// <p>Specify the <code>RoleArn</code> property as follows:</p> 
+    /// <p> <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code> </p> 
+    /// <p>Specify the <code>LocalRoleName</code> property as follows:</p> 
+    /// <p> <code>{"LocalRoleName": "SCBasicLaunchRole"}</code> </p> 
+    /// <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.</p> <note> 
+    /// <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p> 
+    /// </note> 
+    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> 
+    /// <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p> 
+    /// </dd> 
     /// <dt>
     /// NOTIFICATION
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>NotificationArns</code> property as follows:</p>
-    /// <p> <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code> </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>NotificationArns</code> property as follows:</p> 
+    /// <p> <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code> </p> 
+    /// </dd> 
     /// <dt>
     /// RESOURCE_UPDATE
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
-    /// <p> <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code> </p>
-    /// <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p> 
+    /// <p> <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code> </p> 
+    /// <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// STACKSET
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>Parameters</code> property as follows:</p>
-    /// <p> <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code> </p>
-    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-    /// <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
-    /// <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>Parameters</code> property as follows:</p> 
+    /// <p> <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code> </p> 
+    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> 
+    /// <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p> 
+    /// <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p> 
+    /// </dd> 
     /// <dt>
     /// TEMPLATE
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p> 
+    /// </dd> 
     /// </dl>
     pub fn set_parameters(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_parameters(input);
         self
     }
-    /// <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p>
-    /// <dl>
+    /// <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p> 
+    /// <dl> 
     /// <dt>
     /// LAUNCH
-    /// </dt>
-    /// <dd>
-    /// <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
-    /// <p>Specify the <code>RoleArn</code> property as follows:</p>
-    /// <p> <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code> </p>
-    /// <p>Specify the <code>LocalRoleName</code> property as follows:</p>
-    /// <p> <code>{"LocalRoleName": "SCBasicLaunchRole"}</code> </p>
-    /// <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.</p> <note>
-    /// <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p>
-    /// </note>
-    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-    /// <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p> 
+    /// <p>Specify the <code>RoleArn</code> property as follows:</p> 
+    /// <p> <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code> </p> 
+    /// <p>Specify the <code>LocalRoleName</code> property as follows:</p> 
+    /// <p> <code>{"LocalRoleName": "SCBasicLaunchRole"}</code> </p> 
+    /// <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.</p> <note> 
+    /// <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p> 
+    /// </note> 
+    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> 
+    /// <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p> 
+    /// </dd> 
     /// <dt>
     /// NOTIFICATION
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>NotificationArns</code> property as follows:</p>
-    /// <p> <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code> </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>NotificationArns</code> property as follows:</p> 
+    /// <p> <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code> </p> 
+    /// </dd> 
     /// <dt>
     /// RESOURCE_UPDATE
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
-    /// <p> <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code> </p>
-    /// <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p> 
+    /// <p> <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code> </p> 
+    /// <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// STACKSET
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>Parameters</code> property as follows:</p>
-    /// <p> <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code> </p>
-    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-    /// <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
-    /// <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>Parameters</code> property as follows:</p> 
+    /// <p> <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code> </p> 
+    /// <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> 
+    /// <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p> 
+    /// <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p> 
+    /// </dd> 
     /// <dt>
     /// TEMPLATE
-    /// </dt>
-    /// <dd>
-    /// <p>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p> 
+    /// </dd> 
     /// </dl>
     pub fn get_parameters(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_parameters()
     }
-    /// <p>The type of constraint.</p>
-    /// <ul>
-    /// <li> <p> <code>LAUNCH</code> </p> </li>
-    /// <li> <p> <code>NOTIFICATION</code> </p> </li>
-    /// <li> <p> <code>RESOURCE_UPDATE</code> </p> </li>
-    /// <li> <p> <code>STACKSET</code> </p> </li>
-    /// <li> <p> <code>TEMPLATE</code> </p> </li>
+    /// <p>The type of constraint.</p> 
+    /// <ul> 
+    /// <li> <p> <code>LAUNCH</code> </p> </li> 
+    /// <li> <p> <code>NOTIFICATION</code> </p> </li> 
+    /// <li> <p> <code>RESOURCE_UPDATE</code> </p> </li> 
+    /// <li> <p> <code>STACKSET</code> </p> </li> 
+    /// <li> <p> <code>TEMPLATE</code> </p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.r#type(input.into());
         self
     }
-    /// <p>The type of constraint.</p>
-    /// <ul>
-    /// <li> <p> <code>LAUNCH</code> </p> </li>
-    /// <li> <p> <code>NOTIFICATION</code> </p> </li>
-    /// <li> <p> <code>RESOURCE_UPDATE</code> </p> </li>
-    /// <li> <p> <code>STACKSET</code> </p> </li>
-    /// <li> <p> <code>TEMPLATE</code> </p> </li>
+    /// <p>The type of constraint.</p> 
+    /// <ul> 
+    /// <li> <p> <code>LAUNCH</code> </p> </li> 
+    /// <li> <p> <code>NOTIFICATION</code> </p> </li> 
+    /// <li> <p> <code>RESOURCE_UPDATE</code> </p> </li> 
+    /// <li> <p> <code>STACKSET</code> </p> </li> 
+    /// <li> <p> <code>TEMPLATE</code> </p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_type(input);
         self
     }
-    /// <p>The type of constraint.</p>
-    /// <ul>
-    /// <li> <p> <code>LAUNCH</code> </p> </li>
-    /// <li> <p> <code>NOTIFICATION</code> </p> </li>
-    /// <li> <p> <code>RESOURCE_UPDATE</code> </p> </li>
-    /// <li> <p> <code>STACKSET</code> </p> </li>
-    /// <li> <p> <code>TEMPLATE</code> </p> </li>
+    /// <p>The type of constraint.</p> 
+    /// <ul> 
+    /// <li> <p> <code>LAUNCH</code> </p> </li> 
+    /// <li> <p> <code>NOTIFICATION</code> </p> </li> 
+    /// <li> <p> <code>RESOURCE_UPDATE</code> </p> </li> 
+    /// <li> <p> <code>STACKSET</code> </p> </li> 
+    /// <li> <p> <code>TEMPLATE</code> </p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_type()
@@ -385,3 +372,4 @@ impl CreateConstraintFluentBuilder {
         self.inner.get_idempotency_token()
     }
 }
+

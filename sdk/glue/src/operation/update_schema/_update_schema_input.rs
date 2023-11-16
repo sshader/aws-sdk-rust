@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateSchemaInput {
-    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-    /// <ul>
-    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
-    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
+pub struct UpdateSchemaInput  {
+    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> 
+    /// <ul> 
+    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
+    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
     /// </ul>
     pub schema_id: ::std::option::Option<crate::types::SchemaId>,
     /// <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
@@ -16,25 +16,25 @@ pub struct UpdateSchemaInput {
     /// <p>The new description for the schema.</p>
     pub description: ::std::option::Option<::std::string::String>,
 }
-impl UpdateSchemaInput {
-    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-    /// <ul>
-    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
-    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
+impl  UpdateSchemaInput  {
+    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> 
+    /// <ul> 
+    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
+    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
     /// </ul>
-    pub fn schema_id(&self) -> ::std::option::Option<&crate::types::SchemaId> {
+    pub fn schema_id(&self) -> ::std::option::Option<& crate::types::SchemaId> {
         self.schema_id.as_ref()
     }
     /// <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
-    pub fn schema_version_number(&self) -> ::std::option::Option<&crate::types::SchemaVersionNumber> {
+    pub fn schema_version_number(&self) -> ::std::option::Option<& crate::types::SchemaVersionNumber> {
         self.schema_version_number.as_ref()
     }
     /// <p>The new compatibility setting for the schema.</p>
-    pub fn compatibility(&self) -> ::std::option::Option<&crate::types::Compatibility> {
+    pub fn compatibility(&self) -> ::std::option::Option<& crate::types::Compatibility> {
         self.compatibility.as_ref()
     }
     /// <p>The new description for the schema.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
 }
@@ -55,29 +55,28 @@ pub struct UpdateSchemaInputBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
 }
 impl UpdateSchemaInputBuilder {
-    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-    /// <ul>
-    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
-    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
+    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> 
+    /// <ul> 
+    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
+    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn schema_id(mut self, input: crate::types::SchemaId) -> Self {
         self.schema_id = ::std::option::Option::Some(input);
         self
     }
-    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-    /// <ul>
-    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
-    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
+    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> 
+    /// <ul> 
+    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
+    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
     /// </ul>
     pub fn set_schema_id(mut self, input: ::std::option::Option<crate::types::SchemaId>) -> Self {
-        self.schema_id = input;
-        self
+        self.schema_id = input; self
     }
-    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-    /// <ul>
-    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
-    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li>
+    /// <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> 
+    /// <ul> 
+    /// <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
+    /// <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> 
     /// </ul>
     pub fn get_schema_id(&self) -> &::std::option::Option<crate::types::SchemaId> {
         &self.schema_id
@@ -89,8 +88,7 @@ impl UpdateSchemaInputBuilder {
     }
     /// <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
     pub fn set_schema_version_number(mut self, input: ::std::option::Option<crate::types::SchemaVersionNumber>) -> Self {
-        self.schema_version_number = input;
-        self
+        self.schema_version_number = input; self
     }
     /// <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
     pub fn get_schema_version_number(&self) -> &::std::option::Option<crate::types::SchemaVersionNumber> {
@@ -103,8 +101,7 @@ impl UpdateSchemaInputBuilder {
     }
     /// <p>The new compatibility setting for the schema.</p>
     pub fn set_compatibility(mut self, input: ::std::option::Option<crate::types::Compatibility>) -> Self {
-        self.compatibility = input;
-        self
+        self.compatibility = input; self
     }
     /// <p>The new compatibility setting for the schema.</p>
     pub fn get_compatibility(&self) -> &::std::option::Option<crate::types::Compatibility> {
@@ -117,22 +114,26 @@ impl UpdateSchemaInputBuilder {
     }
     /// <p>The new description for the schema.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The new description for the schema.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
     /// Consumes the builder and constructs a [`UpdateSchemaInput`](crate::operation::update_schema::UpdateSchemaInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_schema::UpdateSchemaInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_schema::UpdateSchemaInput {
-            schema_id: self.schema_id,
-            schema_version_number: self.schema_version_number,
-            compatibility: self.compatibility,
-            description: self.description,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_schema::UpdateSchemaInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_schema::UpdateSchemaInput {
+                schema_id: self.schema_id
+                ,
+                schema_version_number: self.schema_version_number
+                ,
+                compatibility: self.compatibility
+                ,
+                description: self.description
+                ,
+            }
+        )
     }
 }
+

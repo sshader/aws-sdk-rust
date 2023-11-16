@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeclineHandshakeInput {
-    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p>
+pub struct DeclineHandshakeInput  {
+    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.</p>
     pub handshake_id: ::std::option::Option<::std::string::String>,
 }
-impl DeclineHandshakeInput {
-    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p>
+impl  DeclineHandshakeInput  {
+    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.</p>
-    pub fn handshake_id(&self) -> ::std::option::Option<&str> {
+    pub fn handshake_id(&self) -> ::std::option::Option<& str> {
         self.handshake_id.as_deref()
     }
 }
@@ -28,30 +28,31 @@ pub struct DeclineHandshakeInputBuilder {
     pub(crate) handshake_id: ::std::option::Option<::std::string::String>,
 }
 impl DeclineHandshakeInputBuilder {
-    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p>
+    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.</p>
     /// This field is required.
     pub fn handshake_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.handshake_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p>
+    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.</p>
     pub fn set_handshake_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.handshake_id = input;
-        self
+        self.handshake_id = input; self
     }
-    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p>
+    /// <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the <code>ListHandshakesForAccount</code> operation.</p> 
     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.</p>
     pub fn get_handshake_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.handshake_id
     }
     /// Consumes the builder and constructs a [`DeclineHandshakeInput`](crate::operation::decline_handshake::DeclineHandshakeInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::decline_handshake::DeclineHandshakeInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::decline_handshake::DeclineHandshakeInput {
-            handshake_id: self.handshake_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::decline_handshake::DeclineHandshakeInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::decline_handshake::DeclineHandshakeInput {
+                handshake_id: self.handshake_id
+                ,
+            }
+        )
     }
 }
+

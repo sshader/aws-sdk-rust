@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListWorkersInput {
+pub struct ListWorkersInput  {
     /// Site ARN.
     pub site: ::std::option::Option<::std::string::String>,
     /// Maximum number of results to retrieve in a single ListWorkers call.
@@ -12,9 +12,9 @@ pub struct ListWorkersInput {
     /// Full ARN of the worker fleet.
     pub fleet: ::std::option::Option<::std::string::String>,
 }
-impl ListWorkersInput {
+impl  ListWorkersInput  {
     /// Site ARN.
-    pub fn site(&self) -> ::std::option::Option<&str> {
+    pub fn site(&self) -> ::std::option::Option<& str> {
         self.site.as_deref()
     }
     /// Maximum number of results to retrieve in a single ListWorkers call.
@@ -22,11 +22,11 @@ impl ListWorkersInput {
         self.max_results
     }
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// Full ARN of the worker fleet.
-    pub fn fleet(&self) -> ::std::option::Option<&str> {
+    pub fn fleet(&self) -> ::std::option::Option<& str> {
         self.fleet.as_deref()
     }
 }
@@ -55,8 +55,7 @@ impl ListWorkersInputBuilder {
     }
     /// Site ARN.
     pub fn set_site(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.site = input;
-        self
+        self.site = input; self
     }
     /// Site ARN.
     pub fn get_site(&self) -> &::std::option::Option<::std::string::String> {
@@ -69,8 +68,7 @@ impl ListWorkersInputBuilder {
     }
     /// Maximum number of results to retrieve in a single ListWorkers call.
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// Maximum number of results to retrieve in a single ListWorkers call.
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
@@ -83,8 +81,7 @@ impl ListWorkersInputBuilder {
     }
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -97,8 +94,7 @@ impl ListWorkersInputBuilder {
     }
     /// Full ARN of the worker fleet.
     pub fn set_fleet(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.fleet = input;
-        self
+        self.fleet = input; self
     }
     /// Full ARN of the worker fleet.
     pub fn get_fleet(&self) -> &::std::option::Option<::std::string::String> {
@@ -106,11 +102,18 @@ impl ListWorkersInputBuilder {
     }
     /// Consumes the builder and constructs a [`ListWorkersInput`](crate::operation::list_workers::ListWorkersInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::list_workers::ListWorkersInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_workers::ListWorkersInput {
-            site: self.site,
-            max_results: self.max_results,
-            next_token: self.next_token,
-            fleet: self.fleet,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_workers::ListWorkersInput {
+                site: self.site
+                ,
+                max_results: self.max_results
+                ,
+                next_token: self.next_token
+                ,
+                fleet: self.fleet
+                ,
+            }
+        )
     }
 }
+

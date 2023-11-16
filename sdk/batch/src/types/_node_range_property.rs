@@ -3,19 +3,19 @@
 /// <p>An object that represents the properties of the node range for a multi-node parallel job.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct NodeRangeProperty {
+pub struct NodeRangeProperty  {
     /// <p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes (<code>0:n</code>). You can nest node ranges (for example, <code>0:10</code> and <code>4:5</code>). In this case, the <code>4:5</code> range properties override the <code>0:10</code> properties.</p>
     pub target_nodes: ::std::option::Option<::std::string::String>,
     /// <p>The container details for the node range.</p>
     pub container: ::std::option::Option<crate::types::ContainerProperties>,
 }
-impl NodeRangeProperty {
+impl  NodeRangeProperty  {
     /// <p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes (<code>0:n</code>). You can nest node ranges (for example, <code>0:10</code> and <code>4:5</code>). In this case, the <code>4:5</code> range properties override the <code>0:10</code> properties.</p>
-    pub fn target_nodes(&self) -> ::std::option::Option<&str> {
+    pub fn target_nodes(&self) -> ::std::option::Option<& str> {
         self.target_nodes.as_deref()
     }
     /// <p>The container details for the node range.</p>
-    pub fn container(&self) -> ::std::option::Option<&crate::types::ContainerProperties> {
+    pub fn container(&self) -> ::std::option::Option<& crate::types::ContainerProperties> {
         self.container.as_ref()
     }
 }
@@ -42,8 +42,7 @@ impl NodeRangePropertyBuilder {
     }
     /// <p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes (<code>0:n</code>). You can nest node ranges (for example, <code>0:10</code> and <code>4:5</code>). In this case, the <code>4:5</code> range properties override the <code>0:10</code> properties.</p>
     pub fn set_target_nodes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.target_nodes = input;
-        self
+        self.target_nodes = input; self
     }
     /// <p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes (<code>0:n</code>). You can nest node ranges (for example, <code>0:10</code> and <code>4:5</code>). In this case, the <code>4:5</code> range properties override the <code>0:10</code> properties.</p>
     pub fn get_target_nodes(&self) -> &::std::option::Option<::std::string::String> {
@@ -56,8 +55,7 @@ impl NodeRangePropertyBuilder {
     }
     /// <p>The container details for the node range.</p>
     pub fn set_container(mut self, input: ::std::option::Option<crate::types::ContainerProperties>) -> Self {
-        self.container = input;
-        self
+        self.container = input; self
     }
     /// <p>The container details for the node range.</p>
     pub fn get_container(&self) -> &::std::option::Option<crate::types::ContainerProperties> {
@@ -66,8 +64,11 @@ impl NodeRangePropertyBuilder {
     /// Consumes the builder and constructs a [`NodeRangeProperty`](crate::types::NodeRangeProperty).
     pub fn build(self) -> crate::types::NodeRangeProperty {
         crate::types::NodeRangeProperty {
-            target_nodes: self.target_nodes,
-            container: self.container,
+            target_nodes: self.target_nodes
+            ,
+            container: self.container
+            ,
         }
     }
 }
+

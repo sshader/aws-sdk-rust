@@ -5,60 +5,56 @@ pub use crate::operation::create_additional_assignments_for_hit::_create_additio
 
 impl CreateAdditionalAssignmentsForHitInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_additional_assignments_for_hit();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_additional_assignments_for_hit();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateAdditionalAssignmentsForHIT`.
-///
-/// <p> The <code>CreateAdditionalAssignmentsForHIT</code> operation increases the maximum number of assignments of an existing HIT. </p>
-/// <p> To extend the maximum number of assignments, specify the number of additional assignments.</p> <note>
-/// <ul>
-/// <li> <p>HITs created with fewer than 10 assignments cannot be extended to have 10 or more assignments. Attempting to add assignments in a way that brings the total number of assignments for a HIT from fewer than 10 assignments to 10 or more assignments will result in an <code>AWS.MechanicalTurk.InvalidMaximumAssignmentsIncrease</code> exception.</p> </li>
-/// <li> <p>HITs that were created before July 22, 2015 cannot be extended. Attempting to extend HITs that were created before July 22, 2015 will result in an <code>AWS.MechanicalTurk.HITTooOldForExtension</code> exception. </p> </li>
-/// </ul>
+/// 
+/// <p> The <code>CreateAdditionalAssignmentsForHIT</code> operation increases the maximum number of assignments of an existing HIT. </p> 
+/// <p> To extend the maximum number of assignments, specify the number of additional assignments.</p> <note> 
+/// <ul> 
+/// <li> <p>HITs created with fewer than 10 assignments cannot be extended to have 10 or more assignments. Attempting to add assignments in a way that brings the total number of assignments for a HIT from fewer than 10 assignments to 10 or more assignments will result in an <code>AWS.MechanicalTurk.InvalidMaximumAssignmentsIncrease</code> exception.</p> </li> 
+/// <li> <p>HITs that were created before July 22, 2015 cannot be extended. Attempting to extend HITs that were created before July 22, 2015 will result in an <code>AWS.MechanicalTurk.HITTooOldForExtension</code> exception. </p> </li> 
+/// </ul> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateAdditionalAssignmentsForHITFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_additional_assignments_for_hit::builders::CreateAdditionalAssignmentsForHitInputBuilder,
+                    inner: crate::operation::create_additional_assignments_for_hit::builders::CreateAdditionalAssignmentsForHitInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput,
-        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError,
-    > for CreateAdditionalAssignmentsForHITFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput,
-            crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput,
+                    crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError,
+                > for CreateAdditionalAssignmentsForHITFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput,
+                        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateAdditionalAssignmentsForHITFluentBuilder {
     /// Creates a new `CreateAdditionalAssignmentsForHIT`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -67,53 +63,44 @@ impl CreateAdditionalAssignmentsForHITFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHIT::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHIT::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput,
-        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHIT::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHIT::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHitOutput, crate::operation::create_additional_assignments_for_hit::CreateAdditionalAssignmentsForHITError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The ID of the HIT to extend.</p>
     pub fn hit_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.hit_id(input.into());
@@ -157,3 +144,4 @@ impl CreateAdditionalAssignmentsForHITFluentBuilder {
         self.inner.get_unique_request_token()
     }
 }
+

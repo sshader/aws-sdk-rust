@@ -3,37 +3,35 @@
 /// <p>Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SnsConfiguration {
+pub struct SnsConfiguration  {
     /// <p>The ARN of the IAM role that has access to the target SNS topic.</p>
     pub role_arn: ::std::string::String,
     /// <p>The ARN of the target SNS topic.</p>
     pub sns_topic_arn: ::std::string::String,
-    /// <p>The format of the SNS topic.</p>
-    /// <ul>
-    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li>
-    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li>
-    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li>
+    /// <p>The format of the SNS topic.</p> 
+    /// <ul> 
+    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li> 
+    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li> 
+    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li> 
     /// </ul>
     pub sns_format: ::std::option::Option<crate::types::SnsFormat>,
 }
-impl SnsConfiguration {
+impl  SnsConfiguration  {
     /// <p>The ARN of the IAM role that has access to the target SNS topic.</p>
-    pub fn role_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.role_arn.deref()
+    pub fn role_arn(&self) -> & str {
+        use std::ops::Deref; self.role_arn.deref()
     }
     /// <p>The ARN of the target SNS topic.</p>
-    pub fn sns_topic_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.sns_topic_arn.deref()
+    pub fn sns_topic_arn(&self) -> & str {
+        use std::ops::Deref; self.sns_topic_arn.deref()
     }
-    /// <p>The format of the SNS topic.</p>
-    /// <ul>
-    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li>
-    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li>
-    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li>
+    /// <p>The format of the SNS topic.</p> 
+    /// <ul> 
+    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li> 
+    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li> 
+    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li> 
     /// </ul>
-    pub fn sns_format(&self) -> ::std::option::Option<&crate::types::SnsFormat> {
+    pub fn sns_format(&self) -> ::std::option::Option<& crate::types::SnsFormat> {
         self.sns_format.as_ref()
     }
 }
@@ -61,8 +59,7 @@ impl SnsConfigurationBuilder {
     }
     /// <p>The ARN of the IAM role that has access to the target SNS topic.</p>
     pub fn set_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.role_arn = input;
-        self
+        self.role_arn = input; self
     }
     /// <p>The ARN of the IAM role that has access to the target SNS topic.</p>
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -76,38 +73,36 @@ impl SnsConfigurationBuilder {
     }
     /// <p>The ARN of the target SNS topic.</p>
     pub fn set_sns_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.sns_topic_arn = input;
-        self
+        self.sns_topic_arn = input; self
     }
     /// <p>The ARN of the target SNS topic.</p>
     pub fn get_sns_topic_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.sns_topic_arn
     }
-    /// <p>The format of the SNS topic.</p>
-    /// <ul>
-    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li>
-    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li>
-    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li>
+    /// <p>The format of the SNS topic.</p> 
+    /// <ul> 
+    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li> 
+    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li> 
+    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li> 
     /// </ul>
     pub fn sns_format(mut self, input: crate::types::SnsFormat) -> Self {
         self.sns_format = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The format of the SNS topic.</p>
-    /// <ul>
-    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li>
-    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li>
-    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li>
+    /// <p>The format of the SNS topic.</p> 
+    /// <ul> 
+    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li> 
+    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li> 
+    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li> 
     /// </ul>
     pub fn set_sns_format(mut self, input: ::std::option::Option<crate::types::SnsFormat>) -> Self {
-        self.sns_format = input;
-        self
+        self.sns_format = input; self
     }
-    /// <p>The format of the SNS topic.</p>
-    /// <ul>
-    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li>
-    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li>
-    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li>
+    /// <p>The format of the SNS topic.</p> 
+    /// <ul> 
+    /// <li> <p> <code>JSON</code> – Send JSON alerts with an anomaly ID and a link to the anomaly detail page. This is the default.</p> </li> 
+    /// <li> <p> <code>LONG_TEXT</code> – Send human-readable alerts with information about the impacted timeseries and a link to the anomaly detail page. We recommend this for email.</p> </li> 
+    /// <li> <p> <code>SHORT_TEXT</code> – Send human-readable alerts with a link to the anomaly detail page. We recommend this for SMS.</p> </li> 
     /// </ul>
     pub fn get_sns_format(&self) -> &::std::option::Option<crate::types::SnsFormat> {
         &self.sns_format
@@ -117,20 +112,22 @@ impl SnsConfigurationBuilder {
     /// - [`role_arn`](crate::types::builders::SnsConfigurationBuilder::role_arn)
     /// - [`sns_topic_arn`](crate::types::builders::SnsConfigurationBuilder::sns_topic_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::SnsConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::SnsConfiguration {
-            role_arn: self.role_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "role_arn",
-                    "role_arn was not specified but it is required when building SnsConfiguration",
-                )
-            })?,
-            sns_topic_arn: self.sns_topic_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "sns_topic_arn",
-                    "sns_topic_arn was not specified but it is required when building SnsConfiguration",
-                )
-            })?,
-            sns_format: self.sns_format,
-        })
+        ::std::result::Result::Ok(
+            crate::types::SnsConfiguration {
+                role_arn: self.role_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("role_arn", "role_arn was not specified but it is required when building SnsConfiguration")
+                    )?
+                ,
+                sns_topic_arn: self.sns_topic_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("sns_topic_arn", "sns_topic_arn was not specified but it is required when building SnsConfiguration")
+                    )?
+                ,
+                sns_format: self.sns_format
+                ,
+            }
+        )
     }
 }
+

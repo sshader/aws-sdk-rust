@@ -5,60 +5,56 @@ pub use crate::operation::run_job_flow::_run_job_flow_input::RunJobFlowInputBuil
 
 impl RunJobFlowInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::run_job_flow::RunJobFlowOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::run_job_flow::RunJobFlowError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.run_job_flow();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::run_job_flow::RunJobFlowOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::run_job_flow::RunJobFlowError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.run_job_flow();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `RunJobFlow`.
-///
-/// <p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the steps specified. After the steps complete, the cluster stops and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the <code>JobFlowInstancesConfig</code> <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to <code>TRUE</code>, the cluster transitions to the WAITING state rather than shutting down after the steps have completed. </p>
-/// <p>For additional protection, you can set the <code>JobFlowInstancesConfig</code> <code>TerminationProtected</code> parameter to <code>TRUE</code> to lock the cluster and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.</p>
-/// <p>A maximum of 256 steps are allowed in each job flow.</p>
-/// <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop.</p>
-/// <p>For long-running clusters, we recommend that you periodically store your results.</p> <note>
-/// <p>The instance fleets configuration is available only in Amazon EMR releases 4.8.0 and higher, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets parameters or InstanceGroups parameters, but not both.</p>
+/// 
+/// <p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the steps specified. After the steps complete, the cluster stops and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the <code>JobFlowInstancesConfig</code> <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to <code>TRUE</code>, the cluster transitions to the WAITING state rather than shutting down after the steps have completed. </p> 
+/// <p>For additional protection, you can set the <code>JobFlowInstancesConfig</code> <code>TerminationProtected</code> parameter to <code>TRUE</code> to lock the cluster and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.</p> 
+/// <p>A maximum of 256 steps are allowed in each job flow.</p> 
+/// <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop.</p> 
+/// <p>For long-running clusters, we recommend that you periodically store your results.</p> <note> 
+/// <p>The instance fleets configuration is available only in Amazon EMR releases 4.8.0 and higher, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets parameters or InstanceGroups parameters, but not both.</p> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct RunJobFlowFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::run_job_flow::builders::RunJobFlowInputBuilder,
+                    inner: crate::operation::run_job_flow::builders::RunJobFlowInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::run_job_flow::RunJobFlowOutput,
-        crate::operation::run_job_flow::RunJobFlowError,
-    > for RunJobFlowFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::run_job_flow::RunJobFlowOutput,
-            crate::operation::run_job_flow::RunJobFlowError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::run_job_flow::RunJobFlowOutput,
+                    crate::operation::run_job_flow::RunJobFlowError,
+                > for RunJobFlowFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::run_job_flow::RunJobFlowOutput,
+                        crate::operation::run_job_flow::RunJobFlowError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl RunJobFlowFluentBuilder {
     /// Creates a new `RunJobFlow`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -67,53 +63,44 @@ impl RunJobFlowFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::run_job_flow::RunJobFlowOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::run_job_flow::RunJobFlowError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::run_job_flow::RunJobFlow::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::run_job_flow::RunJobFlow::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::run_job_flow::RunJobFlowOutput,
-        crate::operation::run_job_flow::RunJobFlowError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::run_job_flow::RunJobFlowOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::run_job_flow::RunJobFlowError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::run_job_flow::RunJobFlow::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::run_job_flow::RunJobFlow::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::run_job_flow::RunJobFlowOutput, crate::operation::run_job_flow::RunJobFlowError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name of the job flow.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.name(input.into());
@@ -222,12 +209,12 @@ impl RunJobFlowFluentBuilder {
         self
     }
     /// <p>A list of steps to run.</p>
-    pub fn set_steps(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::StepConfig>>) -> Self {
+    pub fn set_steps(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::StepConfig>>) -> Self {
         self.inner = self.inner.set_steps(input);
         self
     }
     /// <p>A list of steps to run.</p>
-    pub fn get_steps(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::StepConfig>> {
+    pub fn get_steps(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::StepConfig>> {
         self.inner.get_steps()
     }
     /// Appends an item to `BootstrapActions`.
@@ -240,108 +227,108 @@ impl RunJobFlowFluentBuilder {
         self
     }
     /// <p>A list of bootstrap actions to run before Hadoop starts on the cluster nodes.</p>
-    pub fn set_bootstrap_actions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BootstrapActionConfig>>) -> Self {
+    pub fn set_bootstrap_actions(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::BootstrapActionConfig>>) -> Self {
         self.inner = self.inner.set_bootstrap_actions(input);
         self
     }
     /// <p>A list of bootstrap actions to run before Hadoop starts on the cluster nodes.</p>
-    pub fn get_bootstrap_actions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BootstrapActionConfig>> {
+    pub fn get_bootstrap_actions(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::BootstrapActionConfig>> {
         self.inner.get_bootstrap_actions()
     }
     /// Appends an item to `SupportedProducts`.
     ///
     /// To override the contents of this collection use [`set_supported_products`](Self::set_supported_products).
     ///
-    /// <note>
-    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p>
-    /// </note>
-    /// <p>A list of strings that indicates third-party software to use. For more information, see the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Currently supported values are:</p>
-    /// <ul>
-    /// <li> <p>"mapr-m3" - launch the job flow using MapR M3 Edition.</p> </li>
-    /// <li> <p>"mapr-m5" - launch the job flow using MapR M5 Edition.</p> </li>
+    /// <note> 
+    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p> 
+    /// </note> 
+    /// <p>A list of strings that indicates third-party software to use. For more information, see the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Currently supported values are:</p> 
+    /// <ul> 
+    /// <li> <p>"mapr-m3" - launch the job flow using MapR M3 Edition.</p> </li> 
+    /// <li> <p>"mapr-m5" - launch the job flow using MapR M5 Edition.</p> </li> 
     /// </ul>
     pub fn supported_products(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.supported_products(input.into());
         self
     }
-    /// <note>
-    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p>
-    /// </note>
-    /// <p>A list of strings that indicates third-party software to use. For more information, see the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Currently supported values are:</p>
-    /// <ul>
-    /// <li> <p>"mapr-m3" - launch the job flow using MapR M3 Edition.</p> </li>
-    /// <li> <p>"mapr-m5" - launch the job flow using MapR M5 Edition.</p> </li>
+    /// <note> 
+    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p> 
+    /// </note> 
+    /// <p>A list of strings that indicates third-party software to use. For more information, see the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Currently supported values are:</p> 
+    /// <ul> 
+    /// <li> <p>"mapr-m3" - launch the job flow using MapR M3 Edition.</p> </li> 
+    /// <li> <p>"mapr-m5" - launch the job flow using MapR M5 Edition.</p> </li> 
     /// </ul>
-    pub fn set_supported_products(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_supported_products(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_supported_products(input);
         self
     }
-    /// <note>
-    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p>
-    /// </note>
-    /// <p>A list of strings that indicates third-party software to use. For more information, see the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Currently supported values are:</p>
-    /// <ul>
-    /// <li> <p>"mapr-m3" - launch the job flow using MapR M3 Edition.</p> </li>
-    /// <li> <p>"mapr-m5" - launch the job flow using MapR M5 Edition.</p> </li>
+    /// <note> 
+    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p> 
+    /// </note> 
+    /// <p>A list of strings that indicates third-party software to use. For more information, see the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Currently supported values are:</p> 
+    /// <ul> 
+    /// <li> <p>"mapr-m3" - launch the job flow using MapR M3 Edition.</p> </li> 
+    /// <li> <p>"mapr-m5" - launch the job flow using MapR M5 Edition.</p> </li> 
     /// </ul>
-    pub fn get_supported_products(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_supported_products(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_supported_products()
     }
     /// Appends an item to `NewSupportedProducts`.
     ///
     /// To override the contents of this collection use [`set_new_supported_products`](Self::set_new_supported_products).
     ///
-    /// <note>
-    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p>
-    /// </note>
-    /// <p>A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Supported values are:</p>
-    /// <ul>
-    /// <li> <p>"mapr-m3" - launch the cluster using MapR M3 Edition.</p> </li>
-    /// <li> <p>"mapr-m5" - launch the cluster using MapR M5 Edition.</p> </li>
-    /// <li> <p>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.</p> </li>
-    /// <li> <p>"mapr-m7" - launch the cluster using MapR M7 Edition.</p> </li>
-    /// <li> <p>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</p> </li>
-    /// <li> <p>"hue"- launch the cluster with Hue installed.</p> </li>
-    /// <li> <p>"spark" - launch the cluster with Apache Spark installed.</p> </li>
-    /// <li> <p>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</p> </li>
+    /// <note> 
+    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p> 
+    /// </note> 
+    /// <p>A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Supported values are:</p> 
+    /// <ul> 
+    /// <li> <p>"mapr-m3" - launch the cluster using MapR M3 Edition.</p> </li> 
+    /// <li> <p>"mapr-m5" - launch the cluster using MapR M5 Edition.</p> </li> 
+    /// <li> <p>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.</p> </li> 
+    /// <li> <p>"mapr-m7" - launch the cluster using MapR M7 Edition.</p> </li> 
+    /// <li> <p>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</p> </li> 
+    /// <li> <p>"hue"- launch the cluster with Hue installed.</p> </li> 
+    /// <li> <p>"spark" - launch the cluster with Apache Spark installed.</p> </li> 
+    /// <li> <p>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</p> </li> 
     /// </ul>
     pub fn new_supported_products(mut self, input: crate::types::SupportedProductConfig) -> Self {
         self.inner = self.inner.new_supported_products(input);
         self
     }
-    /// <note>
-    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p>
-    /// </note>
-    /// <p>A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Supported values are:</p>
-    /// <ul>
-    /// <li> <p>"mapr-m3" - launch the cluster using MapR M3 Edition.</p> </li>
-    /// <li> <p>"mapr-m5" - launch the cluster using MapR M5 Edition.</p> </li>
-    /// <li> <p>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.</p> </li>
-    /// <li> <p>"mapr-m7" - launch the cluster using MapR M7 Edition.</p> </li>
-    /// <li> <p>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</p> </li>
-    /// <li> <p>"hue"- launch the cluster with Hue installed.</p> </li>
-    /// <li> <p>"spark" - launch the cluster with Apache Spark installed.</p> </li>
-    /// <li> <p>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</p> </li>
+    /// <note> 
+    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p> 
+    /// </note> 
+    /// <p>A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Supported values are:</p> 
+    /// <ul> 
+    /// <li> <p>"mapr-m3" - launch the cluster using MapR M3 Edition.</p> </li> 
+    /// <li> <p>"mapr-m5" - launch the cluster using MapR M5 Edition.</p> </li> 
+    /// <li> <p>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.</p> </li> 
+    /// <li> <p>"mapr-m7" - launch the cluster using MapR M7 Edition.</p> </li> 
+    /// <li> <p>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</p> </li> 
+    /// <li> <p>"hue"- launch the cluster with Hue installed.</p> </li> 
+    /// <li> <p>"spark" - launch the cluster with Apache Spark installed.</p> </li> 
+    /// <li> <p>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</p> </li> 
     /// </ul>
-    pub fn set_new_supported_products(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SupportedProductConfig>>) -> Self {
+    pub fn set_new_supported_products(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::SupportedProductConfig>>) -> Self {
         self.inner = self.inner.set_new_supported_products(input);
         self
     }
-    /// <note>
-    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p>
-    /// </note>
-    /// <p>A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Supported values are:</p>
-    /// <ul>
-    /// <li> <p>"mapr-m3" - launch the cluster using MapR M3 Edition.</p> </li>
-    /// <li> <p>"mapr-m5" - launch the cluster using MapR M5 Edition.</p> </li>
-    /// <li> <p>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.</p> </li>
-    /// <li> <p>"mapr-m7" - launch the cluster using MapR M7 Edition.</p> </li>
-    /// <li> <p>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</p> </li>
-    /// <li> <p>"hue"- launch the cluster with Hue installed.</p> </li>
-    /// <li> <p>"spark" - launch the cluster with Apache Spark installed.</p> </li>
-    /// <li> <p>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</p> </li>
+    /// <note> 
+    /// <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and higher, use Applications.</p> 
+    /// </note> 
+    /// <p>A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR Developer Guide</a>. Supported values are:</p> 
+    /// <ul> 
+    /// <li> <p>"mapr-m3" - launch the cluster using MapR M3 Edition.</p> </li> 
+    /// <li> <p>"mapr-m5" - launch the cluster using MapR M5 Edition.</p> </li> 
+    /// <li> <p>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.</p> </li> 
+    /// <li> <p>"mapr-m7" - launch the cluster using MapR M7 Edition.</p> </li> 
+    /// <li> <p>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</p> </li> 
+    /// <li> <p>"hue"- launch the cluster with Hue installed.</p> </li> 
+    /// <li> <p>"spark" - launch the cluster with Apache Spark installed.</p> </li> 
+    /// <li> <p>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</p> </li> 
     /// </ul>
-    pub fn get_new_supported_products(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SupportedProductConfig>> {
+    pub fn get_new_supported_products(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::SupportedProductConfig>> {
         self.inner.get_new_supported_products()
     }
     /// Appends an item to `Applications`.
@@ -354,12 +341,12 @@ impl RunJobFlowFluentBuilder {
         self
     }
     /// <p>Applies to Amazon EMR releases 4.0 and higher. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMRRelease Guide</a>.</p>
-    pub fn set_applications(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Application>>) -> Self {
+    pub fn set_applications(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Application>>) -> Self {
         self.inner = self.inner.set_applications(input);
         self
     }
     /// <p>Applies to Amazon EMR releases 4.0 and higher. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMRRelease Guide</a>.</p>
-    pub fn get_applications(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Application>> {
+    pub fn get_applications(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Application>> {
         self.inner.get_applications()
     }
     /// Appends an item to `Configurations`.
@@ -372,36 +359,36 @@ impl RunJobFlowFluentBuilder {
         self
     }
     /// <p>For Amazon EMR releases 4.0 and higher. The list of configurations supplied for the Amazon EMR cluster that you are creating.</p>
-    pub fn set_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Configuration>>) -> Self {
+    pub fn set_configurations(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Configuration>>) -> Self {
         self.inner = self.inner.set_configurations(input);
         self
     }
     /// <p>For Amazon EMR releases 4.0 and higher. The list of configurations supplied for the Amazon EMR cluster that you are creating.</p>
-    pub fn get_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Configuration>> {
+    pub fn get_configurations(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Configuration>> {
         self.inner.get_configurations()
     }
-    /// <important>
-    /// <p>The VisibleToAllUsers parameter is no longer supported. By default, the value is set to <code>true</code>. Setting it to <code>false</code> now has no effect.</p>
-    /// </important>
-    /// <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform Amazon EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the Amazon EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
+    /// <important> 
+    /// <p>The VisibleToAllUsers parameter is no longer supported. By default, the value is set to <code>true</code>. Setting it to <code>false</code> now has no effect.</p> 
+    /// </important> 
+    /// <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform Amazon EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the Amazon EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p> 
     /// <p>When set to <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform Amazon EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users">Understanding the Amazon EMR cluster VisibleToAllUsers setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
     pub fn visible_to_all_users(mut self, input: bool) -> Self {
         self.inner = self.inner.visible_to_all_users(input);
         self
     }
-    /// <important>
-    /// <p>The VisibleToAllUsers parameter is no longer supported. By default, the value is set to <code>true</code>. Setting it to <code>false</code> now has no effect.</p>
-    /// </important>
-    /// <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform Amazon EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the Amazon EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
+    /// <important> 
+    /// <p>The VisibleToAllUsers parameter is no longer supported. By default, the value is set to <code>true</code>. Setting it to <code>false</code> now has no effect.</p> 
+    /// </important> 
+    /// <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform Amazon EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the Amazon EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p> 
     /// <p>When set to <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform Amazon EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users">Understanding the Amazon EMR cluster VisibleToAllUsers setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
     pub fn set_visible_to_all_users(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_visible_to_all_users(input);
         self
     }
-    /// <important>
-    /// <p>The VisibleToAllUsers parameter is no longer supported. By default, the value is set to <code>true</code>. Setting it to <code>false</code> now has no effect.</p>
-    /// </important>
-    /// <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform Amazon EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the Amazon EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
+    /// <important> 
+    /// <p>The VisibleToAllUsers parameter is no longer supported. By default, the value is set to <code>true</code>. Setting it to <code>false</code> now has no effect.</p> 
+    /// </important> 
+    /// <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform Amazon EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the Amazon EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p> 
     /// <p>When set to <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform Amazon EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users">Understanding the Amazon EMR cluster VisibleToAllUsers setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
     pub fn get_visible_to_all_users(&self) -> &::std::option::Option<bool> {
         self.inner.get_visible_to_all_users()
@@ -444,12 +431,12 @@ impl RunJobFlowFluentBuilder {
         self
     }
     /// <p>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
     /// <p>The name of a security configuration to apply to the cluster.</p>
@@ -494,19 +481,19 @@ impl RunJobFlowFluentBuilder {
     pub fn get_scale_down_behavior(&self) -> &::std::option::Option<crate::types::ScaleDownBehavior> {
         self.inner.get_scale_down_behavior()
     }
-    /// <p>Available only in Amazon EMR releases 5.7.0 and higher. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR releases 2.x and 3.x, use <code>AmiVersion</code> instead.</p>
+    /// <p>Available only in Amazon EMR releases 5.7.0 and higher. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR releases 2.x and 3.x, use <code>AmiVersion</code> instead.</p> 
     /// <p>For information about creating a custom AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating an Amazon EBS-Backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>. For information about finding an AMI ID, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Linux AMI</a>. </p>
     pub fn custom_ami_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.custom_ami_id(input.into());
         self
     }
-    /// <p>Available only in Amazon EMR releases 5.7.0 and higher. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR releases 2.x and 3.x, use <code>AmiVersion</code> instead.</p>
+    /// <p>Available only in Amazon EMR releases 5.7.0 and higher. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR releases 2.x and 3.x, use <code>AmiVersion</code> instead.</p> 
     /// <p>For information about creating a custom AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating an Amazon EBS-Backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>. For information about finding an AMI ID, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Linux AMI</a>. </p>
     pub fn set_custom_ami_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_custom_ami_id(input);
         self
     }
-    /// <p>Available only in Amazon EMR releases 5.7.0 and higher. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR releases 2.x and 3.x, use <code>AmiVersion</code> instead.</p>
+    /// <p>Available only in Amazon EMR releases 5.7.0 and higher. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster Amazon EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR releases 2.x and 3.x, use <code>AmiVersion</code> instead.</p> 
     /// <p>For information about creating a custom AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating an Amazon EBS-Backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>. For information about finding an AMI ID, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Linux AMI</a>. </p>
     pub fn get_custom_ami_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_custom_ami_id()
@@ -591,12 +578,12 @@ impl RunJobFlowFluentBuilder {
         self
     }
     /// <p>The specified placement group configuration for an Amazon EMR cluster.</p>
-    pub fn set_placement_group_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PlacementGroupConfig>>) -> Self {
+    pub fn set_placement_group_configs(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::PlacementGroupConfig>>) -> Self {
         self.inner = self.inner.set_placement_group_configs(input);
         self
     }
     /// <p>The specified placement group configuration for an Amazon EMR cluster.</p>
-    pub fn get_placement_group_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PlacementGroupConfig>> {
+    pub fn get_placement_group_configs(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::PlacementGroupConfig>> {
         self.inner.get_placement_group_configs()
     }
     /// <p>An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control cluster termination</a>.</p>
@@ -656,3 +643,4 @@ impl RunJobFlowFluentBuilder {
         self.inner.get_ebs_root_volume_throughput()
     }
 }
+

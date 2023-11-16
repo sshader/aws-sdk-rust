@@ -14,7 +14,13 @@ pub enum Error {
     /// <p>The service is currently unavailable. Try your request later.</p>
     ServiceUnavailableException(crate::types::error::ServiceUnavailableException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    Unhandled(crate::error::sealed_unhandled::Unhandled)
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -24,167 +30,116 @@ impl ::std::fmt::Display for Error {
             Error::InternalFailureException(inner) => inner.fmt(f),
             Error::LimitExceededException(inner) => inner.fmt(f),
             Error::ServiceUnavailableException(inner) => inner.fmt(f),
-            Error::Unhandled(inner) => inner.fmt(f),
+            Error::Unhandled(_) => if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                        write!(f, "unhandled error ({code})")
+                                    } else {
+                                        f.write_str("unhandled error")
+                                    }
         }
     }
 }
 impl From<::aws_smithy_types::error::operation::BuildError> for Error {
-    fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
-        Error::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(value).build())
-    }
-}
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError,
-            R,
-        >,
-    ) -> Self {
+                fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
+                    Error::Unhandled(crate::error::sealed_unhandled::Unhandled { source: value.into(), meta: ::std::default::Default::default() })
+                }
+            }
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
+                fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
+                    match self {
+                        Self::BadRequestException(inner) => inner.meta(),
+Self::ConflictException(inner) => inner.meta(),
+Self::InternalFailureException(inner) => inner.meta(),
+Self::LimitExceededException(inner) => inner.meta(),
+Self::ServiceUnavailableException(inner) => inner.meta(),
+                        Self::Unhandled(inner) => &inner.meta,
+                    }
+                }
+            }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError> for Error {
     fn from(err: crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError) -> Self {
         match err {
-            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::ServiceUnavailableException(
-                inner,
-            ) => Error::ServiceUnavailableException(inner),
-            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::InternalFailureException(
-                inner,
-            ) => Error::InternalFailureException(inner),
-            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::ConflictException(inner) => {
-                Error::ConflictException(inner)
-            }
-            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::start_call_analytics_stream_transcription::StartCallAnalyticsStreamTranscriptionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError> for Error {
     fn from(err: crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError) -> Self {
         match err {
-            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
-            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::InternalFailureException(inner) => {
-                Error::InternalFailureException(inner)
-            }
-            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::ConflictException(inner) => {
-                Error::ConflictException(inner)
-            }
-            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
+            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::InternalFailureException(inner) => Error::InternalFailureException(inner),
+            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::LimitExceededException(inner) => Error::LimitExceededException(inner),
             crate::operation::start_medical_stream_transcription::StartMedicalStreamTranscriptionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_stream_transcription::StartStreamTranscriptionError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_stream_transcription::StartStreamTranscriptionError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_stream_transcription::StartStreamTranscriptionError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_stream_transcription::StartStreamTranscriptionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::start_stream_transcription::StartStreamTranscriptionError> for Error {
     fn from(err: crate::operation::start_stream_transcription::StartStreamTranscriptionError) -> Self {
         match err {
-            crate::operation::start_stream_transcription::StartStreamTranscriptionError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
-            crate::operation::start_stream_transcription::StartStreamTranscriptionError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::start_stream_transcription::StartStreamTranscriptionError::InternalFailureException(inner) => {
-                Error::InternalFailureException(inner)
-            }
+            crate::operation::start_stream_transcription::StartStreamTranscriptionError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::start_stream_transcription::StartStreamTranscriptionError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::start_stream_transcription::StartStreamTranscriptionError::InternalFailureException(inner) => Error::InternalFailureException(inner),
             crate::operation::start_stream_transcription::StartStreamTranscriptionError::ConflictException(inner) => Error::ConflictException(inner),
-            crate::operation::start_stream_transcription::StartStreamTranscriptionError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
+            crate::operation::start_stream_transcription::StartStreamTranscriptionError::LimitExceededException(inner) => Error::LimitExceededException(inner),
             crate::operation::start_stream_transcription::StartStreamTranscriptionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::AudioStreamError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::AudioStreamError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::AudioStreamError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -195,19 +150,16 @@ impl From<crate::types::error::AudioStreamError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::CallAnalyticsTranscriptResultStreamError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::CallAnalyticsTranscriptResultStreamError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::CallAnalyticsTranscriptResultStreamError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -218,26 +170,21 @@ impl From<crate::types::error::CallAnalyticsTranscriptResultStreamError> for Err
             crate::types::error::CallAnalyticsTranscriptResultStreamError::LimitExceededException(inner) => Error::LimitExceededException(inner),
             crate::types::error::CallAnalyticsTranscriptResultStreamError::InternalFailureException(inner) => Error::InternalFailureException(inner),
             crate::types::error::CallAnalyticsTranscriptResultStreamError::ConflictException(inner) => Error::ConflictException(inner),
-            crate::types::error::CallAnalyticsTranscriptResultStreamError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::types::error::CallAnalyticsTranscriptResultStreamError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::types::error::CallAnalyticsTranscriptResultStreamError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::MedicalTranscriptResultStreamError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::MedicalTranscriptResultStreamError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::MedicalTranscriptResultStreamError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -253,19 +200,16 @@ impl From<crate::types::error::MedicalTranscriptResultStreamError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::TranscriptResultStreamError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::TranscriptResultStreamError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::TranscriptResultStreamError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -289,11 +233,11 @@ impl ::std::error::Error for Error {
             Error::InternalFailureException(inner) => inner.source(),
             Error::LimitExceededException(inner) => inner.source(),
             Error::ServiceUnavailableException(inner) => inner.source(),
-            Error::Unhandled(inner) => inner.source(),
+            Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source)
         }
     }
 }
-impl ::aws_http::request_id::RequestId for Error {
+impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             Self::BadRequestException(e) => e.request_id(),
@@ -301,7 +245,8 @@ impl ::aws_http::request_id::RequestId for Error {
             Self::InternalFailureException(e) => e.request_id(),
             Self::LimitExceededException(e) => e.request_id(),
             Self::ServiceUnavailableException(e) => e.request_id(),
-            Self::Unhandled(e) => e.request_id(),
+            Self::Unhandled(e) => e.meta.request_id(),
         }
     }
 }
+

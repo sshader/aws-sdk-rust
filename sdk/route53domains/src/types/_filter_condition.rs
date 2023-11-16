@@ -3,37 +3,36 @@
 /// <p>Information for the filtering of a list of domains returned by <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct FilterCondition {
+pub struct FilterCondition  {
     /// <p>Name of the field which should be used for filtering the list of domains.</p>
     pub name: crate::types::ListDomainsAttributeName,
-    /// <p>The operator values for filtering domain names. The values can be:</p>
-    /// <ul>
-    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li>
-    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li>
-    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li>
+    /// <p>The operator values for filtering domain names. The values can be:</p> 
+    /// <ul> 
+    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li> 
+    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li> 
+    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li> 
     /// </ul>
     pub operator: crate::types::Operator,
     /// <p> An array of strings presenting values to compare. Only 1 item in the list is currently supported.</p>
-    pub values: ::std::vec::Vec<::std::string::String>,
+    pub values: ::std::vec::Vec::<::std::string::String>,
 }
-impl FilterCondition {
+impl  FilterCondition  {
     /// <p>Name of the field which should be used for filtering the list of domains.</p>
-    pub fn name(&self) -> &crate::types::ListDomainsAttributeName {
+    pub fn name(&self) -> & crate::types::ListDomainsAttributeName {
         &self.name
     }
-    /// <p>The operator values for filtering domain names. The values can be:</p>
-    /// <ul>
-    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li>
-    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li>
-    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li>
+    /// <p>The operator values for filtering domain names. The values can be:</p> 
+    /// <ul> 
+    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li> 
+    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li> 
+    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li> 
     /// </ul>
-    pub fn operator(&self) -> &crate::types::Operator {
+    pub fn operator(&self) -> & crate::types::Operator {
         &self.operator
     }
     /// <p> An array of strings presenting values to compare. Only 1 item in the list is currently supported.</p>
-    pub fn values(&self) -> &[::std::string::String] {
-        use std::ops::Deref;
-        self.values.deref()
+    pub fn values(&self) -> & [::std::string::String] {
+        use std::ops::Deref; self.values.deref()
     }
 }
 impl FilterCondition {
@@ -49,7 +48,7 @@ impl FilterCondition {
 pub struct FilterConditionBuilder {
     pub(crate) name: ::std::option::Option<crate::types::ListDomainsAttributeName>,
     pub(crate) operator: ::std::option::Option<crate::types::Operator>,
-    pub(crate) values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) values: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
 impl FilterConditionBuilder {
     /// <p>Name of the field which should be used for filtering the list of domains.</p>
@@ -60,39 +59,37 @@ impl FilterConditionBuilder {
     }
     /// <p>Name of the field which should be used for filtering the list of domains.</p>
     pub fn set_name(mut self, input: ::std::option::Option<crate::types::ListDomainsAttributeName>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>Name of the field which should be used for filtering the list of domains.</p>
     pub fn get_name(&self) -> &::std::option::Option<crate::types::ListDomainsAttributeName> {
         &self.name
     }
-    /// <p>The operator values for filtering domain names. The values can be:</p>
-    /// <ul>
-    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li>
-    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li>
-    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li>
+    /// <p>The operator values for filtering domain names. The values can be:</p> 
+    /// <ul> 
+    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li> 
+    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li> 
+    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn operator(mut self, input: crate::types::Operator) -> Self {
         self.operator = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The operator values for filtering domain names. The values can be:</p>
-    /// <ul>
-    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li>
-    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li>
-    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li>
+    /// <p>The operator values for filtering domain names. The values can be:</p> 
+    /// <ul> 
+    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li> 
+    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li> 
+    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li> 
     /// </ul>
     pub fn set_operator(mut self, input: ::std::option::Option<crate::types::Operator>) -> Self {
-        self.operator = input;
-        self
+        self.operator = input; self
     }
-    /// <p>The operator values for filtering domain names. The values can be:</p>
-    /// <ul>
-    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li>
-    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li>
-    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li>
+    /// <p>The operator values for filtering domain names. The values can be:</p> 
+    /// <ul> 
+    /// <li> <p> <code>LE</code>: Less than, or equal to</p> </li> 
+    /// <li> <p> <code>GE</code>: Greater than, or equal to</p> </li> 
+    /// <li> <p> <code>BEGINS_WITH</code>: Begins with</p> </li> 
     /// </ul>
     pub fn get_operator(&self) -> &::std::option::Option<crate::types::Operator> {
         &self.operator
@@ -104,17 +101,16 @@ impl FilterConditionBuilder {
     /// <p> An array of strings presenting values to compare. Only 1 item in the list is currently supported.</p>
     pub fn values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.values.unwrap_or_default();
-        v.push(input.into());
-        self.values = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.values = ::std::option::Option::Some(v);
+                        self
     }
     /// <p> An array of strings presenting values to compare. Only 1 item in the list is currently supported.</p>
-    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.values = input;
-        self
+    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.values = input; self
     }
     /// <p> An array of strings presenting values to compare. Only 1 item in the list is currently supported.</p>
-    pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.values
     }
     /// Consumes the builder and constructs a [`FilterCondition`](crate::types::FilterCondition).
@@ -123,25 +119,25 @@ impl FilterConditionBuilder {
     /// - [`operator`](crate::types::builders::FilterConditionBuilder::operator)
     /// - [`values`](crate::types::builders::FilterConditionBuilder::values)
     pub fn build(self) -> ::std::result::Result<crate::types::FilterCondition, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::FilterCondition {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building FilterCondition",
-                )
-            })?,
-            operator: self.operator.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "operator",
-                    "operator was not specified but it is required when building FilterCondition",
-                )
-            })?,
-            values: self.values.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "values",
-                    "values was not specified but it is required when building FilterCondition",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::FilterCondition {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building FilterCondition")
+                    )?
+                ,
+                operator: self.operator
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("operator", "operator was not specified but it is required when building FilterCondition")
+                    )?
+                ,
+                values: self.values
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("values", "values was not specified but it is required when building FilterCondition")
+                    )?
+                ,
+            }
+        )
     }
 }
+

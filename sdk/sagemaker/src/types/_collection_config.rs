@@ -4,9 +4,9 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub enum CollectionConfig {
-    /// <p>Configuration for your vector collection type.</p>
-    /// <ul>
-    /// <li> <p> <code>Dimension</code>: The number of elements in your vector.</p> </li>
+    /// <p>Configuration for your vector collection type.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Dimension</code>: The number of elements in your vector.</p> </li> 
     /// </ul>
     VectorConfig(crate::types::VectorConfig),
     /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
@@ -24,11 +24,7 @@ impl CollectionConfig {
     /// Tries to convert the enum instance into [`VectorConfig`](crate::types::CollectionConfig::VectorConfig), extracting the inner [`VectorConfig`](crate::types::VectorConfig).
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_vector_config(&self) -> ::std::result::Result<&crate::types::VectorConfig, &Self> {
-        if let CollectionConfig::VectorConfig(val) = &self {
-            ::std::result::Result::Ok(val)
-        } else {
-            ::std::result::Result::Err(self)
-        }
+        if let CollectionConfig::VectorConfig(val) = &self { ::std::result::Result::Ok(val) } else { ::std::result::Result::Err(self) }
     }
     /// Returns true if this is a [`VectorConfig`](crate::types::CollectionConfig::VectorConfig).
     pub fn is_vector_config(&self) -> bool {
@@ -39,3 +35,4 @@ impl CollectionConfig {
         matches!(self, Self::Unknown)
     }
 }
+

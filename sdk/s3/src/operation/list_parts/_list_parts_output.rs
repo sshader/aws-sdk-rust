@@ -2,8 +2,8 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListPartsOutput {
-    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p>
+pub struct ListPartsOutput  {
+    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p> 
     /// <p>The response will also include the <code>x-amz-abort-rule-id</code> header that will provide the ID of the lifecycle configuration rule that defines this action.</p>
     pub abort_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>This header is returned along with the <code>x-amz-abort-date</code> header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.</p>
@@ -19,11 +19,11 @@ pub struct ListPartsOutput {
     /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the <code>part-number-marker</code> request parameter in a subsequent request.</p>
     pub next_part_number_marker: ::std::option::Option<::std::string::String>,
     /// <p>Maximum number of parts that were allowed in the response.</p>
-    pub max_parts: i32,
+    pub max_parts: ::std::option::Option<i32>,
     /// <p> Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.</p>
-    pub is_truncated: bool,
+    pub is_truncated: ::std::option::Option<bool>,
     /// <p> Container for elements related to a particular part. A response can contain zero or more <code>Part</code> elements.</p>
-    pub parts: ::std::option::Option<::std::vec::Vec<crate::types::Part>>,
+    pub parts: ::std::option::Option<::std::vec::Vec::<crate::types::Part>>,
     /// <p>Container element that identifies who initiated the multipart upload. If the initiator is an Amazon Web Services account, this element provides the same information as the <code>Owner</code> element. If the initiator is an IAM User, this element provides the user ARN and display name.</p>
     pub initiator: ::std::option::Option<crate::types::Initiator>,
     /// <p> Container element that identifies the object owner, after the object is created. If multipart upload is initiated by an IAM user, this element provides the parent account ID and display name.</p>
@@ -37,81 +37,82 @@ pub struct ListPartsOutput {
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
-impl ListPartsOutput {
-    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p>
+impl  ListPartsOutput  {
+    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p> 
     /// <p>The response will also include the <code>x-amz-abort-rule-id</code> header that will provide the ID of the lifecycle configuration rule that defines this action.</p>
-    pub fn abort_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn abort_date(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.abort_date.as_ref()
     }
     /// <p>This header is returned along with the <code>x-amz-abort-date</code> header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.</p>
-    pub fn abort_rule_id(&self) -> ::std::option::Option<&str> {
+    pub fn abort_rule_id(&self) -> ::std::option::Option<& str> {
         self.abort_rule_id.as_deref()
     }
     /// <p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
-    pub fn bucket(&self) -> ::std::option::Option<&str> {
+    pub fn bucket(&self) -> ::std::option::Option<& str> {
         self.bucket.as_deref()
     }
     /// <p>Object key for which the multipart upload was initiated.</p>
-    pub fn key(&self) -> ::std::option::Option<&str> {
+    pub fn key(&self) -> ::std::option::Option<& str> {
         self.key.as_deref()
     }
     /// <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
-    pub fn upload_id(&self) -> ::std::option::Option<&str> {
+    pub fn upload_id(&self) -> ::std::option::Option<& str> {
         self.upload_id.as_deref()
     }
     /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.</p>
-    pub fn part_number_marker(&self) -> ::std::option::Option<&str> {
+    pub fn part_number_marker(&self) -> ::std::option::Option<& str> {
         self.part_number_marker.as_deref()
     }
     /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the <code>part-number-marker</code> request parameter in a subsequent request.</p>
-    pub fn next_part_number_marker(&self) -> ::std::option::Option<&str> {
+    pub fn next_part_number_marker(&self) -> ::std::option::Option<& str> {
         self.next_part_number_marker.as_deref()
     }
     /// <p>Maximum number of parts that were allowed in the response.</p>
-    pub fn max_parts(&self) -> i32 {
+    pub fn max_parts(&self) -> ::std::option::Option<i32> {
         self.max_parts
     }
     /// <p> Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.</p>
-    pub fn is_truncated(&self) -> bool {
+    pub fn is_truncated(&self) -> ::std::option::Option<bool> {
         self.is_truncated
     }
     /// <p> Container for elements related to a particular part. A response can contain zero or more <code>Part</code> elements.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parts.is_none()`.
-    pub fn parts(&self) -> &[crate::types::Part] {
-        self.parts.as_deref().unwrap_or_default()
+    pub fn parts(&self) -> & [crate::types::Part] {
+        self.parts.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Container element that identifies who initiated the multipart upload. If the initiator is an Amazon Web Services account, this element provides the same information as the <code>Owner</code> element. If the initiator is an IAM User, this element provides the user ARN and display name.</p>
-    pub fn initiator(&self) -> ::std::option::Option<&crate::types::Initiator> {
+    pub fn initiator(&self) -> ::std::option::Option<& crate::types::Initiator> {
         self.initiator.as_ref()
     }
     /// <p> Container element that identifies the object owner, after the object is created. If multipart upload is initiated by an IAM user, this element provides the parent account ID and display name.</p>
-    pub fn owner(&self) -> ::std::option::Option<&crate::types::Owner> {
+    pub fn owner(&self) -> ::std::option::Option<& crate::types::Owner> {
         self.owner.as_ref()
     }
     /// <p>Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded object.</p>
-    pub fn storage_class(&self) -> ::std::option::Option<&crate::types::StorageClass> {
+    pub fn storage_class(&self) -> ::std::option::Option<& crate::types::StorageClass> {
         self.storage_class.as_ref()
     }
     /// <p>If present, indicates that the requester was successfully charged for the request.</p>
-    pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
+    pub fn request_charged(&self) -> ::std::option::Option<& crate::types::RequestCharged> {
         self.request_charged.as_ref()
     }
     /// <p>The algorithm that was used to create a checksum of the object.</p>
-    pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
+    pub fn checksum_algorithm(&self) -> ::std::option::Option<& crate::types::ChecksumAlgorithm> {
         self.checksum_algorithm.as_ref()
     }
 }
 impl crate::s3_request_id::RequestIdExt for ListPartsOutput {
-    fn extended_request_id(&self) -> Option<&str> {
-        self._extended_request_id.as_deref()
-    }
-}
-impl ::aws_http::request_id::RequestId for ListPartsOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+                                fn extended_request_id(&self) -> Option<&str> {
+                                    self._extended_request_id.as_deref()
+                                }
+                            }
+impl ::aws_types::request_id::RequestId for ListPartsOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl ListPartsOutput {
     /// Creates a new builder-style object to manufacture [`ListPartsOutput`](crate::operation::list_parts::ListPartsOutput).
     pub fn builder() -> crate::operation::list_parts::builders::ListPartsOutputBuilder {
@@ -132,7 +133,7 @@ pub struct ListPartsOutputBuilder {
     pub(crate) next_part_number_marker: ::std::option::Option<::std::string::String>,
     pub(crate) max_parts: ::std::option::Option<i32>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
-    pub(crate) parts: ::std::option::Option<::std::vec::Vec<crate::types::Part>>,
+    pub(crate) parts: ::std::option::Option<::std::vec::Vec::<crate::types::Part>>,
     pub(crate) initiator: ::std::option::Option<crate::types::Initiator>,
     pub(crate) owner: ::std::option::Option<crate::types::Owner>,
     pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
@@ -142,19 +143,18 @@ pub struct ListPartsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListPartsOutputBuilder {
-    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p>
+    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p> 
     /// <p>The response will also include the <code>x-amz-abort-rule-id</code> header that will provide the ID of the lifecycle configuration rule that defines this action.</p>
     pub fn abort_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.abort_date = ::std::option::Option::Some(input);
         self
     }
-    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p>
+    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p> 
     /// <p>The response will also include the <code>x-amz-abort-rule-id</code> header that will provide the ID of the lifecycle configuration rule that defines this action.</p>
     pub fn set_abort_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.abort_date = input;
-        self
+        self.abort_date = input; self
     }
-    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p>
+    /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p> 
     /// <p>The response will also include the <code>x-amz-abort-rule-id</code> header that will provide the ID of the lifecycle configuration rule that defines this action.</p>
     pub fn get_abort_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.abort_date
@@ -166,8 +166,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>This header is returned along with the <code>x-amz-abort-date</code> header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.</p>
     pub fn set_abort_rule_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.abort_rule_id = input;
-        self
+        self.abort_rule_id = input; self
     }
     /// <p>This header is returned along with the <code>x-amz-abort-date</code> header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.</p>
     pub fn get_abort_rule_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -180,8 +179,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.bucket = input;
-        self
+        self.bucket = input; self
     }
     /// <p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
     pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
@@ -194,8 +192,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>Object key for which the multipart upload was initiated.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.key = input;
-        self
+        self.key = input; self
     }
     /// <p>Object key for which the multipart upload was initiated.</p>
     pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
@@ -208,8 +205,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
     pub fn set_upload_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.upload_id = input;
-        self
+        self.upload_id = input; self
     }
     /// <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
     pub fn get_upload_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -222,8 +218,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.</p>
     pub fn set_part_number_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.part_number_marker = input;
-        self
+        self.part_number_marker = input; self
     }
     /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.</p>
     pub fn get_part_number_marker(&self) -> &::std::option::Option<::std::string::String> {
@@ -236,8 +231,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the <code>part-number-marker</code> request parameter in a subsequent request.</p>
     pub fn set_next_part_number_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_part_number_marker = input;
-        self
+        self.next_part_number_marker = input; self
     }
     /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the <code>part-number-marker</code> request parameter in a subsequent request.</p>
     pub fn get_next_part_number_marker(&self) -> &::std::option::Option<::std::string::String> {
@@ -250,8 +244,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>Maximum number of parts that were allowed in the response.</p>
     pub fn set_max_parts(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_parts = input;
-        self
+        self.max_parts = input; self
     }
     /// <p>Maximum number of parts that were allowed in the response.</p>
     pub fn get_max_parts(&self) -> &::std::option::Option<i32> {
@@ -264,8 +257,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p> Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.is_truncated = input;
-        self
+        self.is_truncated = input; self
     }
     /// <p> Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.</p>
     pub fn get_is_truncated(&self) -> &::std::option::Option<bool> {
@@ -278,17 +270,16 @@ impl ListPartsOutputBuilder {
     /// <p> Container for elements related to a particular part. A response can contain zero or more <code>Part</code> elements.</p>
     pub fn parts(mut self, input: crate::types::Part) -> Self {
         let mut v = self.parts.unwrap_or_default();
-        v.push(input);
-        self.parts = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.parts = ::std::option::Option::Some(v);
+                        self
     }
     /// <p> Container for elements related to a particular part. A response can contain zero or more <code>Part</code> elements.</p>
-    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Part>>) -> Self {
-        self.parts = input;
-        self
+    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Part>>) -> Self {
+        self.parts = input; self
     }
     /// <p> Container for elements related to a particular part. A response can contain zero or more <code>Part</code> elements.</p>
-    pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Part>> {
+    pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Part>> {
         &self.parts
     }
     /// <p>Container element that identifies who initiated the multipart upload. If the initiator is an Amazon Web Services account, this element provides the same information as the <code>Owner</code> element. If the initiator is an IAM User, this element provides the user ARN and display name.</p>
@@ -298,8 +289,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>Container element that identifies who initiated the multipart upload. If the initiator is an Amazon Web Services account, this element provides the same information as the <code>Owner</code> element. If the initiator is an IAM User, this element provides the user ARN and display name.</p>
     pub fn set_initiator(mut self, input: ::std::option::Option<crate::types::Initiator>) -> Self {
-        self.initiator = input;
-        self
+        self.initiator = input; self
     }
     /// <p>Container element that identifies who initiated the multipart upload. If the initiator is an Amazon Web Services account, this element provides the same information as the <code>Owner</code> element. If the initiator is an IAM User, this element provides the user ARN and display name.</p>
     pub fn get_initiator(&self) -> &::std::option::Option<crate::types::Initiator> {
@@ -312,8 +302,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p> Container element that identifies the object owner, after the object is created. If multipart upload is initiated by an IAM user, this element provides the parent account ID and display name.</p>
     pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self {
-        self.owner = input;
-        self
+        self.owner = input; self
     }
     /// <p> Container element that identifies the object owner, after the object is created. If multipart upload is initiated by an IAM user, this element provides the parent account ID and display name.</p>
     pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> {
@@ -326,8 +315,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded object.</p>
     pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
-        self.storage_class = input;
-        self
+        self.storage_class = input; self
     }
     /// <p>Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded object.</p>
     pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
@@ -340,8 +328,7 @@ impl ListPartsOutputBuilder {
     }
     /// <p>If present, indicates that the requester was successfully charged for the request.</p>
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
-        self.request_charged = input;
-        self
+        self.request_charged = input; self
     }
     /// <p>If present, indicates that the requester was successfully charged for the request.</p>
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
@@ -354,51 +341,66 @@ impl ListPartsOutputBuilder {
     }
     /// <p>The algorithm that was used to create a checksum of the object.</p>
     pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
-        self.checksum_algorithm = input;
-        self
+        self.checksum_algorithm = input; self
     }
     /// <p>The algorithm that was used to create a checksum of the object.</p>
     pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
-        self._extended_request_id = Some(extended_request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
-        self._extended_request_id = extended_request_id;
-        self
-    }
+                                    self._extended_request_id = Some(extended_request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+                                    self._extended_request_id = extended_request_id;
+                                    self
+                                }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`ListPartsOutput`](crate::operation::list_parts::ListPartsOutput).
     pub fn build(self) -> crate::operation::list_parts::ListPartsOutput {
         crate::operation::list_parts::ListPartsOutput {
-            abort_date: self.abort_date,
-            abort_rule_id: self.abort_rule_id,
-            bucket: self.bucket,
-            key: self.key,
-            upload_id: self.upload_id,
-            part_number_marker: self.part_number_marker,
-            next_part_number_marker: self.next_part_number_marker,
-            max_parts: self.max_parts.unwrap_or_default(),
-            is_truncated: self.is_truncated.unwrap_or_default(),
-            parts: self.parts,
-            initiator: self.initiator,
-            owner: self.owner,
-            storage_class: self.storage_class,
-            request_charged: self.request_charged,
-            checksum_algorithm: self.checksum_algorithm,
+            abort_date: self.abort_date
+            ,
+            abort_rule_id: self.abort_rule_id
+            ,
+            bucket: self.bucket
+            ,
+            key: self.key
+            ,
+            upload_id: self.upload_id
+            ,
+            part_number_marker: self.part_number_marker
+            ,
+            next_part_number_marker: self.next_part_number_marker
+            ,
+            max_parts: self.max_parts
+            ,
+            is_truncated: self.is_truncated
+            ,
+            parts: self.parts
+            ,
+            initiator: self.initiator
+            ,
+            owner: self.owner
+            ,
+            storage_class: self.storage_class
+            ,
+            request_charged: self.request_charged
+            ,
+            checksum_algorithm: self.checksum_algorithm
+            ,
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         }
     }
 }
+

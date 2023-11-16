@@ -3,31 +3,31 @@
 /// <p> The details of the event variable's impact on the prediction score. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct VariableImpactExplanation {
+pub struct VariableImpactExplanation  {
     /// <p> The event variable name. </p>
     pub event_variable_name: ::std::option::Option<::std::string::String>,
     /// <p> The event variable's relative impact in terms of magnitude on the prediction scores. The relative impact values consist of a numerical rating (0-5, 5 being the highest) and direction (increased/decreased) impact of the fraud risk. </p>
     pub relative_impact: ::std::option::Option<::std::string::String>,
-    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p>
-    /// <ul>
-    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li>
-    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li>
+    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p> 
+    /// <ul> 
+    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li> 
+    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li> 
     /// </ul>
     pub log_odds_impact: ::std::option::Option<f32>,
 }
-impl VariableImpactExplanation {
+impl  VariableImpactExplanation  {
     /// <p> The event variable name. </p>
-    pub fn event_variable_name(&self) -> ::std::option::Option<&str> {
+    pub fn event_variable_name(&self) -> ::std::option::Option<& str> {
         self.event_variable_name.as_deref()
     }
     /// <p> The event variable's relative impact in terms of magnitude on the prediction scores. The relative impact values consist of a numerical rating (0-5, 5 being the highest) and direction (increased/decreased) impact of the fraud risk. </p>
-    pub fn relative_impact(&self) -> ::std::option::Option<&str> {
+    pub fn relative_impact(&self) -> ::std::option::Option<& str> {
         self.relative_impact.as_deref()
     }
-    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p>
-    /// <ul>
-    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li>
-    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li>
+    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p> 
+    /// <ul> 
+    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li> 
+    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li> 
     /// </ul>
     pub fn log_odds_impact(&self) -> ::std::option::Option<f32> {
         self.log_odds_impact
@@ -56,8 +56,7 @@ impl VariableImpactExplanationBuilder {
     }
     /// <p> The event variable name. </p>
     pub fn set_event_variable_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.event_variable_name = input;
-        self
+        self.event_variable_name = input; self
     }
     /// <p> The event variable name. </p>
     pub fn get_event_variable_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -70,35 +69,33 @@ impl VariableImpactExplanationBuilder {
     }
     /// <p> The event variable's relative impact in terms of magnitude on the prediction scores. The relative impact values consist of a numerical rating (0-5, 5 being the highest) and direction (increased/decreased) impact of the fraud risk. </p>
     pub fn set_relative_impact(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.relative_impact = input;
-        self
+        self.relative_impact = input; self
     }
     /// <p> The event variable's relative impact in terms of magnitude on the prediction scores. The relative impact values consist of a numerical rating (0-5, 5 being the highest) and direction (increased/decreased) impact of the fraud risk. </p>
     pub fn get_relative_impact(&self) -> &::std::option::Option<::std::string::String> {
         &self.relative_impact
     }
-    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p>
-    /// <ul>
-    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li>
-    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li>
+    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p> 
+    /// <ul> 
+    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li> 
+    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li> 
     /// </ul>
     pub fn log_odds_impact(mut self, input: f32) -> Self {
         self.log_odds_impact = ::std::option::Option::Some(input);
         self
     }
-    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p>
-    /// <ul>
-    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li>
-    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li>
+    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p> 
+    /// <ul> 
+    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li> 
+    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li> 
     /// </ul>
     pub fn set_log_odds_impact(mut self, input: ::std::option::Option<f32>) -> Self {
-        self.log_odds_impact = input;
-        self
+        self.log_odds_impact = input; self
     }
-    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p>
-    /// <ul>
-    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li>
-    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li>
+    /// <p> The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p> 
+    /// <ul> 
+    /// <li> <p>A positive value indicates that the variable drove the risk score up.</p> </li> 
+    /// <li> <p>A negative value indicates that the variable drove the risk score down.</p> </li> 
     /// </ul>
     pub fn get_log_odds_impact(&self) -> &::std::option::Option<f32> {
         &self.log_odds_impact
@@ -106,9 +103,13 @@ impl VariableImpactExplanationBuilder {
     /// Consumes the builder and constructs a [`VariableImpactExplanation`](crate::types::VariableImpactExplanation).
     pub fn build(self) -> crate::types::VariableImpactExplanation {
         crate::types::VariableImpactExplanation {
-            event_variable_name: self.event_variable_name,
-            relative_impact: self.relative_impact,
-            log_odds_impact: self.log_odds_impact,
+            event_variable_name: self.event_variable_name
+            ,
+            relative_impact: self.relative_impact
+            ,
+            log_odds_impact: self.log_odds_impact
+            ,
         }
     }
 }
+

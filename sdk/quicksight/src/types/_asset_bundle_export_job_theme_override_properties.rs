@@ -3,21 +3,20 @@
 /// <p>Controls how a specific <code>Theme</code> resource is parameterized in the returned CloudFormation template.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AssetBundleExportJobThemeOverrideProperties {
+pub struct AssetBundleExportJobThemeOverrideProperties  {
     /// <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub properties: ::std::vec::Vec<crate::types::AssetBundleExportJobThemePropertyToOverride>,
+    pub properties: ::std::vec::Vec::<crate::types::AssetBundleExportJobThemePropertyToOverride>,
 }
-impl AssetBundleExportJobThemeOverrideProperties {
+impl  AssetBundleExportJobThemeOverrideProperties  {
     /// <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
     /// <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub fn properties(&self) -> &[crate::types::AssetBundleExportJobThemePropertyToOverride] {
-        use std::ops::Deref;
-        self.properties.deref()
+    pub fn properties(&self) -> & [crate::types::AssetBundleExportJobThemePropertyToOverride] {
+        use std::ops::Deref; self.properties.deref()
     }
 }
 impl AssetBundleExportJobThemeOverrideProperties {
@@ -32,7 +31,7 @@ impl AssetBundleExportJobThemeOverrideProperties {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct AssetBundleExportJobThemeOverridePropertiesBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
-    pub(crate) properties: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleExportJobThemePropertyToOverride>>,
+    pub(crate) properties: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleExportJobThemePropertyToOverride>>,
 }
 impl AssetBundleExportJobThemeOverridePropertiesBuilder {
     /// <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
@@ -42,8 +41,7 @@ impl AssetBundleExportJobThemeOverridePropertiesBuilder {
     }
     /// <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -56,36 +54,33 @@ impl AssetBundleExportJobThemeOverridePropertiesBuilder {
     /// <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
     pub fn properties(mut self, input: crate::types::AssetBundleExportJobThemePropertyToOverride) -> Self {
         let mut v = self.properties.unwrap_or_default();
-        v.push(input);
-        self.properties = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.properties = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub fn set_properties(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleExportJobThemePropertyToOverride>>,
-    ) -> Self {
-        self.properties = input;
-        self
+    pub fn set_properties(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleExportJobThemePropertyToOverride>>) -> Self {
+        self.properties = input; self
     }
     /// <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub fn get_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssetBundleExportJobThemePropertyToOverride>> {
+    pub fn get_properties(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleExportJobThemePropertyToOverride>> {
         &self.properties
     }
     /// Consumes the builder and constructs a [`AssetBundleExportJobThemeOverrideProperties`](crate::types::AssetBundleExportJobThemeOverrideProperties).
     /// This method will fail if any of the following fields are not set:
     /// - [`properties`](crate::types::builders::AssetBundleExportJobThemeOverridePropertiesBuilder::properties)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::types::AssetBundleExportJobThemeOverrideProperties, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AssetBundleExportJobThemeOverrideProperties {
-            arn: self.arn,
-            properties: self.properties.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "properties",
-                    "properties was not specified but it is required when building AssetBundleExportJobThemeOverrideProperties",
-                )
-            })?,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::types::AssetBundleExportJobThemeOverrideProperties, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::types::AssetBundleExportJobThemeOverrideProperties {
+                arn: self.arn
+                ,
+                properties: self.properties
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("properties", "properties was not specified but it is required when building AssetBundleExportJobThemeOverrideProperties")
+                    )?
+                ,
+            }
+        )
     }
 }
+

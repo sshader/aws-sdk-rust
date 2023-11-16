@@ -2,49 +2,50 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateKxChangesetInput {
+pub struct CreateKxChangesetInput  {
     /// <p>A unique identifier of the kdb environment.</p>
     pub environment_id: ::std::option::Option<::std::string::String>,
     /// <p>The name of the kdb database.</p>
     pub database_name: ::std::option::Option<::std::string::String>,
-    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p>
-    /// <ul>
-    /// <li> <p>PUT – Adds or updates files in a database.</p> </li>
-    /// <li> <p>DELETE – Deletes files in a database.</p> </li>
-    /// </ul>
-    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p>
-    /// <p>Here is an example of how you can use the change request object:</p>
-    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p>
+    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p> 
+    /// <ul> 
+    /// <li> <p>PUT – Adds or updates files in a database.</p> </li> 
+    /// <li> <p>DELETE – Deletes files in a database.</p> </li> 
+    /// </ul> 
+    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p> 
+    /// <p>Here is an example of how you can use the change request object:</p> 
+    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p> 
     /// <p>In this example, the first request with <i>PUT</i> change type allows you to add files in the given s3Path under the <i>2020.01.02</i> partition of the database. The second request with <i>PUT</i> change type allows you to add a single sym file at database root location. The last request with <i>DELETE</i> change type allows you to delete the files under the <i>2020.01.01</i> partition of the database. </p>
-    pub change_requests: ::std::option::Option<::std::vec::Vec<crate::types::ChangeRequest>>,
+    pub change_requests: ::std::option::Option<::std::vec::Vec::<crate::types::ChangeRequest>>,
     /// <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
 }
-impl CreateKxChangesetInput {
+impl  CreateKxChangesetInput  {
     /// <p>A unique identifier of the kdb environment.</p>
-    pub fn environment_id(&self) -> ::std::option::Option<&str> {
+    pub fn environment_id(&self) -> ::std::option::Option<& str> {
         self.environment_id.as_deref()
     }
     /// <p>The name of the kdb database.</p>
-    pub fn database_name(&self) -> ::std::option::Option<&str> {
+    pub fn database_name(&self) -> ::std::option::Option<& str> {
         self.database_name.as_deref()
     }
-    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p>
-    /// <ul>
-    /// <li> <p>PUT – Adds or updates files in a database.</p> </li>
-    /// <li> <p>DELETE – Deletes files in a database.</p> </li>
-    /// </ul>
-    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p>
-    /// <p>Here is an example of how you can use the change request object:</p>
-    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p>
+    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p> 
+    /// <ul> 
+    /// <li> <p>PUT – Adds or updates files in a database.</p> </li> 
+    /// <li> <p>DELETE – Deletes files in a database.</p> </li> 
+    /// </ul> 
+    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p> 
+    /// <p>Here is an example of how you can use the change request object:</p> 
+    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p> 
     /// <p>In this example, the first request with <i>PUT</i> change type allows you to add files in the given s3Path under the <i>2020.01.02</i> partition of the database. The second request with <i>PUT</i> change type allows you to add a single sym file at database root location. The last request with <i>DELETE</i> change type allows you to delete the files under the <i>2020.01.01</i> partition of the database. </p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.change_requests.is_none()`.
-    pub fn change_requests(&self) -> &[crate::types::ChangeRequest] {
-        self.change_requests.as_deref().unwrap_or_default()
+    pub fn change_requests(&self) -> & [crate::types::ChangeRequest] {
+        self.change_requests.as_deref()
+        .unwrap_or_default()
     }
     /// <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
 }
@@ -61,7 +62,7 @@ impl CreateKxChangesetInput {
 pub struct CreateKxChangesetInputBuilder {
     pub(crate) environment_id: ::std::option::Option<::std::string::String>,
     pub(crate) database_name: ::std::option::Option<::std::string::String>,
-    pub(crate) change_requests: ::std::option::Option<::std::vec::Vec<crate::types::ChangeRequest>>,
+    pub(crate) change_requests: ::std::option::Option<::std::vec::Vec::<crate::types::ChangeRequest>>,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
 }
 impl CreateKxChangesetInputBuilder {
@@ -73,8 +74,7 @@ impl CreateKxChangesetInputBuilder {
     }
     /// <p>A unique identifier of the kdb environment.</p>
     pub fn set_environment_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.environment_id = input;
-        self
+        self.environment_id = input; self
     }
     /// <p>A unique identifier of the kdb environment.</p>
     pub fn get_environment_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -88,8 +88,7 @@ impl CreateKxChangesetInputBuilder {
     }
     /// <p>The name of the kdb database.</p>
     pub fn set_database_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.database_name = input;
-        self
+        self.database_name = input; self
     }
     /// <p>The name of the kdb database.</p>
     pub fn get_database_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -99,44 +98,43 @@ impl CreateKxChangesetInputBuilder {
     ///
     /// To override the contents of this collection use [`set_change_requests`](Self::set_change_requests).
     ///
-    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p>
-    /// <ul>
-    /// <li> <p>PUT – Adds or updates files in a database.</p> </li>
-    /// <li> <p>DELETE – Deletes files in a database.</p> </li>
-    /// </ul>
-    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p>
-    /// <p>Here is an example of how you can use the change request object:</p>
-    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p>
+    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p> 
+    /// <ul> 
+    /// <li> <p>PUT – Adds or updates files in a database.</p> </li> 
+    /// <li> <p>DELETE – Deletes files in a database.</p> </li> 
+    /// </ul> 
+    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p> 
+    /// <p>Here is an example of how you can use the change request object:</p> 
+    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p> 
     /// <p>In this example, the first request with <i>PUT</i> change type allows you to add files in the given s3Path under the <i>2020.01.02</i> partition of the database. The second request with <i>PUT</i> change type allows you to add a single sym file at database root location. The last request with <i>DELETE</i> change type allows you to delete the files under the <i>2020.01.01</i> partition of the database. </p>
     pub fn change_requests(mut self, input: crate::types::ChangeRequest) -> Self {
         let mut v = self.change_requests.unwrap_or_default();
-        v.push(input);
-        self.change_requests = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.change_requests = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p>
-    /// <ul>
-    /// <li> <p>PUT – Adds or updates files in a database.</p> </li>
-    /// <li> <p>DELETE – Deletes files in a database.</p> </li>
-    /// </ul>
-    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p>
-    /// <p>Here is an example of how you can use the change request object:</p>
-    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p>
+    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p> 
+    /// <ul> 
+    /// <li> <p>PUT – Adds or updates files in a database.</p> </li> 
+    /// <li> <p>DELETE – Deletes files in a database.</p> </li> 
+    /// </ul> 
+    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p> 
+    /// <p>Here is an example of how you can use the change request object:</p> 
+    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p> 
     /// <p>In this example, the first request with <i>PUT</i> change type allows you to add files in the given s3Path under the <i>2020.01.02</i> partition of the database. The second request with <i>PUT</i> change type allows you to add a single sym file at database root location. The last request with <i>DELETE</i> change type allows you to delete the files under the <i>2020.01.01</i> partition of the database. </p>
-    pub fn set_change_requests(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeRequest>>) -> Self {
-        self.change_requests = input;
-        self
+    pub fn set_change_requests(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ChangeRequest>>) -> Self {
+        self.change_requests = input; self
     }
-    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p>
-    /// <ul>
-    /// <li> <p>PUT – Adds or updates files in a database.</p> </li>
-    /// <li> <p>DELETE – Deletes files in a database.</p> </li>
-    /// </ul>
-    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p>
-    /// <p>Here is an example of how you can use the change request object:</p>
-    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p>
+    /// <p>A list of change request objects that are run in order. A change request object consists of changeType , s3Path, and a dbPath. A changeType can has the following values: </p> 
+    /// <ul> 
+    /// <li> <p>PUT – Adds or updates files in a database.</p> </li> 
+    /// <li> <p>DELETE – Deletes files in a database.</p> </li> 
+    /// </ul> 
+    /// <p>All the change requests require a mandatory <i>dbPath</i> attribute that defines the path within the database directory. The <i>s3Path</i> attribute defines the s3 source file path and is required for a PUT change type.</p> 
+    /// <p>Here is an example of how you can use the change request object:</p> 
+    /// <p> <code>[ { "changeType": "PUT", "s3Path":"s3://bucket/db/2020.01.02/", "dbPath":"/2020.01.02/"}, { "changeType": "PUT", "s3Path":"s3://bucket/db/sym", "dbPath":"/"}, { "changeType": "DELETE", "dbPath": "/2020.01.01/"} ]</code> </p> 
     /// <p>In this example, the first request with <i>PUT</i> change type allows you to add files in the given s3Path under the <i>2020.01.02</i> partition of the database. The second request with <i>PUT</i> change type allows you to add a single sym file at database root location. The last request with <i>DELETE</i> change type allows you to delete the files under the <i>2020.01.01</i> partition of the database. </p>
-    pub fn get_change_requests(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChangeRequest>> {
+    pub fn get_change_requests(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ChangeRequest>> {
         &self.change_requests
     }
     /// <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
@@ -147,22 +145,26 @@ impl CreateKxChangesetInputBuilder {
     }
     /// <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
     /// Consumes the builder and constructs a [`CreateKxChangesetInput`](crate::operation::create_kx_changeset::CreateKxChangesetInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_kx_changeset::CreateKxChangesetInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_kx_changeset::CreateKxChangesetInput {
-            environment_id: self.environment_id,
-            database_name: self.database_name,
-            change_requests: self.change_requests,
-            client_token: self.client_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_kx_changeset::CreateKxChangesetInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_kx_changeset::CreateKxChangesetInput {
+                environment_id: self.environment_id
+                ,
+                database_name: self.database_name
+                ,
+                change_requests: self.change_requests
+                ,
+                client_token: self.client_token
+                ,
+            }
+        )
     }
 }
+

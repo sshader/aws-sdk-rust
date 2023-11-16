@@ -2,13 +2,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateRevealConfigurationInput {
+pub struct UpdateRevealConfigurationInput  {
     /// <p>The new configuration settings and the status of the configuration for the account.</p>
     pub configuration: ::std::option::Option<crate::types::RevealConfiguration>,
 }
-impl UpdateRevealConfigurationInput {
+impl  UpdateRevealConfigurationInput  {
     /// <p>The new configuration settings and the status of the configuration for the account.</p>
-    pub fn configuration(&self) -> ::std::option::Option<&crate::types::RevealConfiguration> {
+    pub fn configuration(&self) -> ::std::option::Option<& crate::types::RevealConfiguration> {
         self.configuration.as_ref()
     }
 }
@@ -34,22 +34,20 @@ impl UpdateRevealConfigurationInputBuilder {
     }
     /// <p>The new configuration settings and the status of the configuration for the account.</p>
     pub fn set_configuration(mut self, input: ::std::option::Option<crate::types::RevealConfiguration>) -> Self {
-        self.configuration = input;
-        self
+        self.configuration = input; self
     }
     /// <p>The new configuration settings and the status of the configuration for the account.</p>
     pub fn get_configuration(&self) -> &::std::option::Option<crate::types::RevealConfiguration> {
         &self.configuration
     }
     /// Consumes the builder and constructs a [`UpdateRevealConfigurationInput`](crate::operation::update_reveal_configuration::UpdateRevealConfigurationInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_reveal_configuration::UpdateRevealConfigurationInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::update_reveal_configuration::UpdateRevealConfigurationInput {
-            configuration: self.configuration,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_reveal_configuration::UpdateRevealConfigurationInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_reveal_configuration::UpdateRevealConfigurationInput {
+                configuration: self.configuration
+                ,
+            }
+        )
     }
 }
+

@@ -6,7 +6,7 @@ authors = ["Eduardo Rodrigues <16357187+eduardomourar@users.noreply.github.com>"
 description = "These tests ensure that things will fail (or not fail) as expected\nwhen target is set to wasm32-wasi for all SDK and runtime crates.\n"
 edition = "2021"
 license = "Apache-2.0"
-repository = "https://github.com/awslabs/smithy-rs"
+repository = "https://github.com/smithy-lang/smithy-rs"
 publish = false
 
 [lib]
@@ -19,40 +19,40 @@ tower = "0.4.13"
 [dependencies.aws-config]
 path = "../../sdk/aws-config"
 default-features = false
-features = ["rt-tokio"]
-version = "0.57.2"
+features = ["rt-tokio", "behavior-version-latest"]
+version = "0.100.0"
 
 [dependencies.aws-credential-types]
 path = "../../sdk/aws-credential-types"
 features = ["hardcoded-credentials"]
-version = "0.57.2"
+version = "0.58.0"
 
 [dependencies.aws-sdk-s3]
 path = "../../sdk/s3"
 default-features = false
-version = "0.36.0"
+version = "0.0.0-local"
 
 [dependencies.aws-smithy-http]
 path = "../../sdk/aws-smithy-http"
-version = "0.57.2"
+version = "0.58.0"
 
 [dependencies.aws-smithy-runtime]
 path = "../../sdk/aws-smithy-runtime"
 features = ["client"]
-version = "0.57.2"
+version = "0.58.0"
 
 [dependencies.aws-smithy-runtime-api]
 path = "../../sdk/aws-smithy-runtime-api"
 features = ["client"]
-version = "0.57.2"
+version = "0.100.0"
 
 [dependencies.aws-smithy-types]
 path = "../../sdk/aws-smithy-types"
-version = "0.57.2"
+version = "0.100.0"
 
 [dependencies.aws-types]
 path = "../../sdk/aws-types"
-version = "0.57.2"
+version = "0.100.0"
 
 [dependencies.tokio]
 version = "1.24.2"

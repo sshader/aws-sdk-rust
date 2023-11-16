@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeProvisioningArtifactInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+pub struct DescribeProvisioningArtifactInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub accept_language: ::std::option::Option<::std::string::String>,
     /// <p>The identifier of the provisioning artifact.</p>
@@ -22,29 +22,29 @@ pub struct DescribeProvisioningArtifactInput {
     /// <p>Indicates if the API call response does or does not include additional details about the provisioning parameters. </p>
     pub include_provisioning_artifact_parameters: ::std::option::Option<bool>,
 }
-impl DescribeProvisioningArtifactInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+impl  DescribeProvisioningArtifactInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
-    pub fn accept_language(&self) -> ::std::option::Option<&str> {
+    pub fn accept_language(&self) -> ::std::option::Option<& str> {
         self.accept_language.as_deref()
     }
     /// <p>The identifier of the provisioning artifact.</p>
-    pub fn provisioning_artifact_id(&self) -> ::std::option::Option<&str> {
+    pub fn provisioning_artifact_id(&self) -> ::std::option::Option<& str> {
         self.provisioning_artifact_id.as_deref()
     }
     /// <p>The product identifier.</p>
-    pub fn product_id(&self) -> ::std::option::Option<&str> {
+    pub fn product_id(&self) -> ::std::option::Option<& str> {
         self.product_id.as_deref()
     }
     /// <p>The provisioning artifact name.</p>
-    pub fn provisioning_artifact_name(&self) -> ::std::option::Option<&str> {
+    pub fn provisioning_artifact_name(&self) -> ::std::option::Option<& str> {
         self.provisioning_artifact_name.as_deref()
     }
     /// <p>The product name.</p>
-    pub fn product_name(&self) -> ::std::option::Option<&str> {
+    pub fn product_name(&self) -> ::std::option::Option<& str> {
         self.product_name.as_deref()
     }
     /// <p>Indicates whether a verbose level of detail is enabled.</p>
@@ -76,28 +76,27 @@ pub struct DescribeProvisioningArtifactInputBuilder {
     pub(crate) include_provisioning_artifact_parameters: ::std::option::Option<bool>,
 }
 impl DescribeProvisioningArtifactInputBuilder {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.accept_language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.accept_language = input;
-        self
+        self.accept_language = input; self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.accept_language
@@ -109,8 +108,7 @@ impl DescribeProvisioningArtifactInputBuilder {
     }
     /// <p>The identifier of the provisioning artifact.</p>
     pub fn set_provisioning_artifact_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.provisioning_artifact_id = input;
-        self
+        self.provisioning_artifact_id = input; self
     }
     /// <p>The identifier of the provisioning artifact.</p>
     pub fn get_provisioning_artifact_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -123,8 +121,7 @@ impl DescribeProvisioningArtifactInputBuilder {
     }
     /// <p>The product identifier.</p>
     pub fn set_product_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.product_id = input;
-        self
+        self.product_id = input; self
     }
     /// <p>The product identifier.</p>
     pub fn get_product_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -137,8 +134,7 @@ impl DescribeProvisioningArtifactInputBuilder {
     }
     /// <p>The provisioning artifact name.</p>
     pub fn set_provisioning_artifact_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.provisioning_artifact_name = input;
-        self
+        self.provisioning_artifact_name = input; self
     }
     /// <p>The provisioning artifact name.</p>
     pub fn get_provisioning_artifact_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -151,8 +147,7 @@ impl DescribeProvisioningArtifactInputBuilder {
     }
     /// <p>The product name.</p>
     pub fn set_product_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.product_name = input;
-        self
+        self.product_name = input; self
     }
     /// <p>The product name.</p>
     pub fn get_product_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -165,8 +160,7 @@ impl DescribeProvisioningArtifactInputBuilder {
     }
     /// <p>Indicates whether a verbose level of detail is enabled.</p>
     pub fn set_verbose(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.verbose = input;
-        self
+        self.verbose = input; self
     }
     /// <p>Indicates whether a verbose level of detail is enabled.</p>
     pub fn get_verbose(&self) -> &::std::option::Option<bool> {
@@ -179,28 +173,32 @@ impl DescribeProvisioningArtifactInputBuilder {
     }
     /// <p>Indicates if the API call response does or does not include additional details about the provisioning parameters. </p>
     pub fn set_include_provisioning_artifact_parameters(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.include_provisioning_artifact_parameters = input;
-        self
+        self.include_provisioning_artifact_parameters = input; self
     }
     /// <p>Indicates if the API call response does or does not include additional details about the provisioning parameters. </p>
     pub fn get_include_provisioning_artifact_parameters(&self) -> &::std::option::Option<bool> {
         &self.include_provisioning_artifact_parameters
     }
     /// Consumes the builder and constructs a [`DescribeProvisioningArtifactInput`](crate::operation::describe_provisioning_artifact::DescribeProvisioningArtifactInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_provisioning_artifact::DescribeProvisioningArtifactInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::describe_provisioning_artifact::DescribeProvisioningArtifactInput {
-            accept_language: self.accept_language,
-            provisioning_artifact_id: self.provisioning_artifact_id,
-            product_id: self.product_id,
-            provisioning_artifact_name: self.provisioning_artifact_name,
-            product_name: self.product_name,
-            verbose: self.verbose,
-            include_provisioning_artifact_parameters: self.include_provisioning_artifact_parameters,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_provisioning_artifact::DescribeProvisioningArtifactInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_provisioning_artifact::DescribeProvisioningArtifactInput {
+                accept_language: self.accept_language
+                ,
+                provisioning_artifact_id: self.provisioning_artifact_id
+                ,
+                product_id: self.product_id
+                ,
+                provisioning_artifact_name: self.provisioning_artifact_name
+                ,
+                product_name: self.product_name
+                ,
+                verbose: self.verbose
+                ,
+                include_provisioning_artifact_parameters: self.include_provisioning_artifact_parameters
+                ,
+            }
+        )
     }
 }
+

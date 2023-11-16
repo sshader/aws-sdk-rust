@@ -3,67 +3,69 @@
 /// <p>Request to describe one or more environments.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeEnvironmentsInput {
+pub struct DescribeEnvironmentsInput  {
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.</p>
     pub application_name: ::std::option::Option<::std::string::String>,
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.</p>
     pub version_label: ::std::option::Option<::std::string::String>,
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.</p>
-    pub environment_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub environment_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.</p>
-    pub environment_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    /// <p>Indicates whether to include deleted environments:</p>
-    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p>
+    pub environment_names: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    /// <p>Indicates whether to include deleted environments:</p> 
+    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> 
     /// <p> <code>false</code>: Do not include deleted environments.</p>
     pub include_deleted: ::std::option::Option<bool>,
     /// <p> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments deleted after this date are displayed. </p>
     pub included_deleted_back_to: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>
     pub max_records: ::std::option::Option<i32>,
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
-impl DescribeEnvironmentsInput {
+impl  DescribeEnvironmentsInput  {
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.</p>
-    pub fn application_name(&self) -> ::std::option::Option<&str> {
+    pub fn application_name(&self) -> ::std::option::Option<& str> {
         self.application_name.as_deref()
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.</p>
-    pub fn version_label(&self) -> ::std::option::Option<&str> {
+    pub fn version_label(&self) -> ::std::option::Option<& str> {
         self.version_label.as_deref()
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.environment_ids.is_none()`.
-    pub fn environment_ids(&self) -> &[::std::string::String] {
-        self.environment_ids.as_deref().unwrap_or_default()
+    pub fn environment_ids(&self) -> & [::std::string::String] {
+        self.environment_ids.as_deref()
+        .unwrap_or_default()
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.environment_names.is_none()`.
-    pub fn environment_names(&self) -> &[::std::string::String] {
-        self.environment_names.as_deref().unwrap_or_default()
+    pub fn environment_names(&self) -> & [::std::string::String] {
+        self.environment_names.as_deref()
+        .unwrap_or_default()
     }
-    /// <p>Indicates whether to include deleted environments:</p>
-    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p>
+    /// <p>Indicates whether to include deleted environments:</p> 
+    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> 
     /// <p> <code>false</code>: Do not include deleted environments.</p>
     pub fn include_deleted(&self) -> ::std::option::Option<bool> {
         self.include_deleted
     }
     /// <p> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments deleted after this date are displayed. </p>
-    pub fn included_deleted_back_to(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn included_deleted_back_to(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.included_deleted_back_to.as_ref()
     }
-    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>
     pub fn max_records(&self) -> ::std::option::Option<i32> {
         self.max_records
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
 }
@@ -80,8 +82,8 @@ impl DescribeEnvironmentsInput {
 pub struct DescribeEnvironmentsInputBuilder {
     pub(crate) application_name: ::std::option::Option<::std::string::String>,
     pub(crate) version_label: ::std::option::Option<::std::string::String>,
-    pub(crate) environment_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) environment_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) environment_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    pub(crate) environment_names: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) include_deleted: ::std::option::Option<bool>,
     pub(crate) included_deleted_back_to: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) max_records: ::std::option::Option<i32>,
@@ -95,8 +97,7 @@ impl DescribeEnvironmentsInputBuilder {
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.</p>
     pub fn set_application_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.application_name = input;
-        self
+        self.application_name = input; self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.</p>
     pub fn get_application_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -109,8 +110,7 @@ impl DescribeEnvironmentsInputBuilder {
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.</p>
     pub fn set_version_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.version_label = input;
-        self
+        self.version_label = input; self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.</p>
     pub fn get_version_label(&self) -> &::std::option::Option<::std::string::String> {
@@ -123,17 +123,16 @@ impl DescribeEnvironmentsInputBuilder {
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.</p>
     pub fn environment_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.environment_ids.unwrap_or_default();
-        v.push(input.into());
-        self.environment_ids = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.environment_ids = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.</p>
-    pub fn set_environment_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.environment_ids = input;
-        self
+    pub fn set_environment_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.environment_ids = input; self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.</p>
-    pub fn get_environment_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_environment_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.environment_ids
     }
     /// Appends an item to `environment_names`.
@@ -143,35 +142,33 @@ impl DescribeEnvironmentsInputBuilder {
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.</p>
     pub fn environment_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.environment_names.unwrap_or_default();
-        v.push(input.into());
-        self.environment_names = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.environment_names = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.</p>
-    pub fn set_environment_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.environment_names = input;
-        self
+    pub fn set_environment_names(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.environment_names = input; self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.</p>
-    pub fn get_environment_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_environment_names(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.environment_names
     }
-    /// <p>Indicates whether to include deleted environments:</p>
-    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p>
+    /// <p>Indicates whether to include deleted environments:</p> 
+    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> 
     /// <p> <code>false</code>: Do not include deleted environments.</p>
     pub fn include_deleted(mut self, input: bool) -> Self {
         self.include_deleted = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates whether to include deleted environments:</p>
-    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p>
+    /// <p>Indicates whether to include deleted environments:</p> 
+    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> 
     /// <p> <code>false</code>: Do not include deleted environments.</p>
     pub fn set_include_deleted(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.include_deleted = input;
-        self
+        self.include_deleted = input; self
     }
-    /// <p>Indicates whether to include deleted environments:</p>
-    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p>
+    /// <p>Indicates whether to include deleted environments:</p> 
+    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> 
     /// <p> <code>false</code>: Do not include deleted environments.</p>
     pub fn get_include_deleted(&self) -> &::std::option::Option<bool> {
         &self.include_deleted
@@ -183,61 +180,66 @@ impl DescribeEnvironmentsInputBuilder {
     }
     /// <p> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments deleted after this date are displayed. </p>
     pub fn set_included_deleted_back_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.included_deleted_back_to = input;
-        self
+        self.included_deleted_back_to = input; self
     }
     /// <p> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments deleted after this date are displayed. </p>
     pub fn get_included_deleted_back_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.included_deleted_back_to
     }
-    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>
     pub fn max_records(mut self, input: i32) -> Self {
         self.max_records = ::std::option::Option::Some(input);
         self
     }
-    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>
     pub fn set_max_records(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_records = input;
-        self
+        self.max_records = input; self
     }
-    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>
     pub fn get_max_records(&self) -> &::std::option::Option<i32> {
         &self.max_records
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`DescribeEnvironmentsInput`](crate::operation::describe_environments::DescribeEnvironmentsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::describe_environments::DescribeEnvironmentsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::describe_environments::DescribeEnvironmentsInput {
-            application_name: self.application_name,
-            version_label: self.version_label,
-            environment_ids: self.environment_ids,
-            environment_names: self.environment_names,
-            include_deleted: self.include_deleted,
-            included_deleted_back_to: self.included_deleted_back_to,
-            max_records: self.max_records,
-            next_token: self.next_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_environments::DescribeEnvironmentsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_environments::DescribeEnvironmentsInput {
+                application_name: self.application_name
+                ,
+                version_label: self.version_label
+                ,
+                environment_ids: self.environment_ids
+                ,
+                environment_names: self.environment_names
+                ,
+                include_deleted: self.include_deleted
+                ,
+                included_deleted_back_to: self.included_deleted_back_to
+                ,
+                max_records: self.max_records
+                ,
+                next_token: self.next_token
+                ,
+            }
+        )
     }
 }
+

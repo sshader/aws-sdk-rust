@@ -2,13 +2,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DisassociateMemberAccountInput {
+pub struct DisassociateMemberAccountInput  {
     /// <p>(Discontinued) The ID of the member account that you want to remove from Amazon Macie Classic.</p>
     pub member_account_id: ::std::option::Option<::std::string::String>,
 }
-impl DisassociateMemberAccountInput {
+impl  DisassociateMemberAccountInput  {
     /// <p>(Discontinued) The ID of the member account that you want to remove from Amazon Macie Classic.</p>
-    pub fn member_account_id(&self) -> ::std::option::Option<&str> {
+    pub fn member_account_id(&self) -> ::std::option::Option<& str> {
         self.member_account_id.as_deref()
     }
 }
@@ -34,22 +34,20 @@ impl DisassociateMemberAccountInputBuilder {
     }
     /// <p>(Discontinued) The ID of the member account that you want to remove from Amazon Macie Classic.</p>
     pub fn set_member_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.member_account_id = input;
-        self
+        self.member_account_id = input; self
     }
     /// <p>(Discontinued) The ID of the member account that you want to remove from Amazon Macie Classic.</p>
     pub fn get_member_account_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.member_account_id
     }
     /// Consumes the builder and constructs a [`DisassociateMemberAccountInput`](crate::operation::disassociate_member_account::DisassociateMemberAccountInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::disassociate_member_account::DisassociateMemberAccountInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::disassociate_member_account::DisassociateMemberAccountInput {
-            member_account_id: self.member_account_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::disassociate_member_account::DisassociateMemberAccountInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::disassociate_member_account::DisassociateMemberAccountInput {
+                member_account_id: self.member_account_id
+                ,
+            }
+        )
     }
 }
+

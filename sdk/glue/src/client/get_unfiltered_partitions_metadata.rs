@@ -2,8 +2,8 @@
 impl super::Client {
     /// Constructs a fluent builder for the [`GetUnfilteredPartitionsMetadata`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder) operation.
     /// This operation supports pagination; See [`into_paginator()`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::into_paginator).
-    ///
-    /// - The fluent builder is configurable:
+                            ///
+                            /// - The fluent builder is configurable:
     ///   - [`catalog_id(impl Into<String>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::catalog_id) / [`set_catalog_id(Option<String>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::set_catalog_id):<br>required: **true**<br><p>The ID of the Data Catalog where the partitions in question reside. If none is provided, the AWS account ID is used by default. </p><br>
     ///   - [`database_name(impl Into<String>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::database_name) / [`set_database_name(Option<String>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::set_database_name):<br>required: **true**<br><p>The name of the catalog database where the partitions reside.</p><br>
     ///   - [`table_name(impl Into<String>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::table_name) / [`set_table_name(Option<String>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::set_table_name):<br>required: **true**<br><p>The name of the table that contains the partition.</p><br>
@@ -13,13 +13,12 @@ impl super::Client {
     ///   - [`next_token(impl Into<String>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::next_token) / [`set_next_token(Option<String>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::set_next_token):<br>required: **false**<br><p>A continuation token, if this is not the first call to retrieve these partitions.</p><br>
     ///   - [`segment(Segment)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::segment) / [`set_segment(Option<Segment>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::set_segment):<br>required: **false**<br><p>The segment of the table's partitions to scan in this request.</p><br>
     ///   - [`max_results(i32)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::max_results) / [`set_max_results(Option<i32>)`](crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::set_max_results):<br>required: **false**<br><p>The maximum number of partitions to return in a single response.</p><br>
-    /// - On success, responds with [`GetUnfilteredPartitionsMetadataOutput`](crate::operation::get_unfiltered_partitions_metadata::GetUnfilteredPartitionsMetadataOutput) with field(s):
+                            /// - On success, responds with [`GetUnfilteredPartitionsMetadataOutput`](crate::operation::get_unfiltered_partitions_metadata::GetUnfilteredPartitionsMetadataOutput) with field(s):
     ///   - [`unfiltered_partitions(Option<Vec::<UnfilteredPartition>>)`](crate::operation::get_unfiltered_partitions_metadata::GetUnfilteredPartitionsMetadataOutput::unfiltered_partitions): <p>A list of requested partitions.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::get_unfiltered_partitions_metadata::GetUnfilteredPartitionsMetadataOutput::next_token): <p>A continuation token, if the returned list of partitions does not include the last one.</p>
-    /// - On failure, responds with [`SdkError<GetUnfilteredPartitionsMetadataError>`](crate::operation::get_unfiltered_partitions_metadata::GetUnfilteredPartitionsMetadataError)
-    pub fn get_unfiltered_partitions_metadata(
-        &self,
-    ) -> crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder {
-        crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::new(self.handle.clone())
-    }
+                            /// - On failure, responds with [`SdkError<GetUnfilteredPartitionsMetadataError>`](crate::operation::get_unfiltered_partitions_metadata::GetUnfilteredPartitionsMetadataError)
+    pub fn get_unfiltered_partitions_metadata(&self) -> crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder {
+                                crate::operation::get_unfiltered_partitions_metadata::builders::GetUnfilteredPartitionsMetadataFluentBuilder::new(self.handle.clone())
+                            }
 }
+

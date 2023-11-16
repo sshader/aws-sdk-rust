@@ -2,109 +2,109 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateServiceActionInput {
+pub struct CreateServiceActionInput  {
     /// <p>The self-service action name.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
     pub definition_type: ::std::option::Option<crate::types::ServiceActionDefinitionType>,
-    /// <p>The self-service action definition. Can be one of the following:</p>
-    /// <dl>
+    /// <p>The self-service action definition. Can be one of the following:</p> 
+    /// <dl> 
     /// <dt>
     /// Name
-    /// </dt>
-    /// <dd>
-    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
-    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p> 
+    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p> 
+    /// </dd> 
     /// <dt>
     /// Version
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p> 
+    /// </dd> 
     /// <dt>
     /// AssumeRole
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p>
-    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p> 
+    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// Parameters
-    /// </dt>
-    /// <dd>
-    /// <p>The list of parameters in JSON format.</p>
-    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The list of parameters in JSON format.</p> 
+    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p> 
+    /// </dd> 
     /// </dl>
-    pub definition: ::std::option::Option<::std::collections::HashMap<crate::types::ServiceActionDefinitionKey, ::std::string::String>>,
+    pub definition: ::std::option::Option<::std::collections::HashMap::<crate::types::ServiceActionDefinitionKey, ::std::string::String>>,
     /// <p>The self-service action description.</p>
     pub description: ::std::option::Option<::std::string::String>,
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub accept_language: ::std::option::Option<::std::string::String>,
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
     pub idempotency_token: ::std::option::Option<::std::string::String>,
 }
-impl CreateServiceActionInput {
+impl  CreateServiceActionInput  {
     /// <p>The self-service action name.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
-    pub fn definition_type(&self) -> ::std::option::Option<&crate::types::ServiceActionDefinitionType> {
+    pub fn definition_type(&self) -> ::std::option::Option<& crate::types::ServiceActionDefinitionType> {
         self.definition_type.as_ref()
     }
-    /// <p>The self-service action definition. Can be one of the following:</p>
-    /// <dl>
+    /// <p>The self-service action definition. Can be one of the following:</p> 
+    /// <dl> 
     /// <dt>
     /// Name
-    /// </dt>
-    /// <dd>
-    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
-    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p> 
+    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p> 
+    /// </dd> 
     /// <dt>
     /// Version
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p> 
+    /// </dd> 
     /// <dt>
     /// AssumeRole
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p>
-    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p> 
+    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// Parameters
-    /// </dt>
-    /// <dd>
-    /// <p>The list of parameters in JSON format.</p>
-    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The list of parameters in JSON format.</p> 
+    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p> 
+    /// </dd> 
     /// </dl>
-    pub fn definition(&self) -> ::std::option::Option<&::std::collections::HashMap<crate::types::ServiceActionDefinitionKey, ::std::string::String>> {
+    pub fn definition(&self) -> ::std::option::Option<& ::std::collections::HashMap::<crate::types::ServiceActionDefinitionKey, ::std::string::String>> {
         self.definition.as_ref()
     }
     /// <p>The self-service action description.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
-    pub fn accept_language(&self) -> ::std::option::Option<&str> {
+    pub fn accept_language(&self) -> ::std::option::Option<& str> {
         self.accept_language.as_deref()
     }
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    pub fn idempotency_token(&self) -> ::std::option::Option<&str> {
+    pub fn idempotency_token(&self) -> ::std::option::Option<& str> {
         self.idempotency_token.as_deref()
     }
 }
@@ -121,7 +121,7 @@ impl CreateServiceActionInput {
 pub struct CreateServiceActionInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) definition_type: ::std::option::Option<crate::types::ServiceActionDefinitionType>,
-    pub(crate) definition: ::std::option::Option<::std::collections::HashMap<crate::types::ServiceActionDefinitionKey, ::std::string::String>>,
+    pub(crate) definition: ::std::option::Option<::std::collections::HashMap::<crate::types::ServiceActionDefinitionKey, ::std::string::String>>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) accept_language: ::std::option::Option<::std::string::String>,
     pub(crate) idempotency_token: ::std::option::Option<::std::string::String>,
@@ -135,8 +135,7 @@ impl CreateServiceActionInputBuilder {
     }
     /// <p>The self-service action name.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The self-service action name.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -150,8 +149,7 @@ impl CreateServiceActionInputBuilder {
     }
     /// <p>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
     pub fn set_definition_type(mut self, input: ::std::option::Option<crate::types::ServiceActionDefinitionType>) -> Self {
-        self.definition_type = input;
-        self
+        self.definition_type = input; self
     }
     /// <p>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
     pub fn get_definition_type(&self) -> &::std::option::Option<crate::types::ServiceActionDefinitionType> {
@@ -161,112 +159,106 @@ impl CreateServiceActionInputBuilder {
     ///
     /// To override the contents of this collection use [`set_definition`](Self::set_definition).
     ///
-    /// <p>The self-service action definition. Can be one of the following:</p>
-    /// <dl>
+    /// <p>The self-service action definition. Can be one of the following:</p> 
+    /// <dl> 
     /// <dt>
     /// Name
-    /// </dt>
-    /// <dd>
-    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
-    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p> 
+    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p> 
+    /// </dd> 
     /// <dt>
     /// Version
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p> 
+    /// </dd> 
     /// <dt>
     /// AssumeRole
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p>
-    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p> 
+    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// Parameters
-    /// </dt>
-    /// <dd>
-    /// <p>The list of parameters in JSON format.</p>
-    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The list of parameters in JSON format.</p> 
+    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p> 
+    /// </dd> 
     /// </dl>
     pub fn definition(mut self, k: crate::types::ServiceActionDefinitionKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.definition.unwrap_or_default();
-        hash_map.insert(k, v.into());
-        self.definition = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k, v.into());
+                        self.definition = ::std::option::Option::Some(hash_map);
+                        self
     }
-    /// <p>The self-service action definition. Can be one of the following:</p>
-    /// <dl>
+    /// <p>The self-service action definition. Can be one of the following:</p> 
+    /// <dl> 
     /// <dt>
     /// Name
-    /// </dt>
-    /// <dd>
-    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
-    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p> 
+    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p> 
+    /// </dd> 
     /// <dt>
     /// Version
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p> 
+    /// </dd> 
     /// <dt>
     /// AssumeRole
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p>
-    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p> 
+    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// Parameters
-    /// </dt>
-    /// <dd>
-    /// <p>The list of parameters in JSON format.</p>
-    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The list of parameters in JSON format.</p> 
+    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p> 
+    /// </dd> 
     /// </dl>
-    pub fn set_definition(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<crate::types::ServiceActionDefinitionKey, ::std::string::String>>,
-    ) -> Self {
-        self.definition = input;
-        self
+    pub fn set_definition(mut self, input: ::std::option::Option<::std::collections::HashMap::<crate::types::ServiceActionDefinitionKey, ::std::string::String>>) -> Self {
+        self.definition = input; self
     }
-    /// <p>The self-service action definition. Can be one of the following:</p>
-    /// <dl>
+    /// <p>The self-service action definition. Can be one of the following:</p> 
+    /// <dl> 
     /// <dt>
     /// Name
-    /// </dt>
-    /// <dd>
-    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
-    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p> 
+    /// <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p> 
+    /// </dd> 
     /// <dt>
     /// Version
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code> </p> 
+    /// </dd> 
     /// <dt>
     /// AssumeRole
-    /// </dt>
-    /// <dd>
-    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p>
-    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p> 
+    /// <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// Parameters
-    /// </dt>
-    /// <dd>
-    /// <p>The list of parameters in JSON format.</p>
-    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The list of parameters in JSON format.</p> 
+    /// <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p> 
+    /// </dd> 
     /// </dl>
-    pub fn get_definition(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::ServiceActionDefinitionKey, ::std::string::String>> {
+    pub fn get_definition(&self) -> &::std::option::Option<::std::collections::HashMap::<crate::types::ServiceActionDefinitionKey, ::std::string::String>> {
         &self.definition
     }
     /// <p>The self-service action description.</p>
@@ -276,35 +268,33 @@ impl CreateServiceActionInputBuilder {
     }
     /// <p>The self-service action description.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The self-service action description.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         &self.description
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.accept_language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.accept_language = input;
-        self
+        self.accept_language = input; self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.accept_language
@@ -317,25 +307,30 @@ impl CreateServiceActionInputBuilder {
     }
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
     pub fn set_idempotency_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.idempotency_token = input;
-        self
+        self.idempotency_token = input; self
     }
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
     pub fn get_idempotency_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.idempotency_token
     }
     /// Consumes the builder and constructs a [`CreateServiceActionInput`](crate::operation::create_service_action::CreateServiceActionInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_service_action::CreateServiceActionInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::create_service_action::CreateServiceActionInput {
-            name: self.name,
-            definition_type: self.definition_type,
-            definition: self.definition,
-            description: self.description,
-            accept_language: self.accept_language,
-            idempotency_token: self.idempotency_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_service_action::CreateServiceActionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_service_action::CreateServiceActionInput {
+                name: self.name
+                ,
+                definition_type: self.definition_type
+                ,
+                definition: self.definition
+                ,
+                description: self.description
+                ,
+                accept_language: self.accept_language
+                ,
+                idempotency_token: self.idempotency_token
+                ,
+            }
+        )
     }
 }
+

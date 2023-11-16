@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListRecordHistoryInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+pub struct ListRecordHistoryInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub accept_language: ::std::option::Option<::std::string::String>,
     /// <p>The access level to use to obtain results. The default is <code>User</code>.</p>
@@ -18,21 +18,21 @@ pub struct ListRecordHistoryInput {
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
     pub page_token: ::std::option::Option<::std::string::String>,
 }
-impl ListRecordHistoryInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+impl  ListRecordHistoryInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
-    pub fn accept_language(&self) -> ::std::option::Option<&str> {
+    pub fn accept_language(&self) -> ::std::option::Option<& str> {
         self.accept_language.as_deref()
     }
     /// <p>The access level to use to obtain results. The default is <code>User</code>.</p>
-    pub fn access_level_filter(&self) -> ::std::option::Option<&crate::types::AccessLevelFilter> {
+    pub fn access_level_filter(&self) -> ::std::option::Option<& crate::types::AccessLevelFilter> {
         self.access_level_filter.as_ref()
     }
     /// <p>The search filter to scope the results.</p>
-    pub fn search_filter(&self) -> ::std::option::Option<&crate::types::ListRecordHistorySearchFilter> {
+    pub fn search_filter(&self) -> ::std::option::Option<& crate::types::ListRecordHistorySearchFilter> {
         self.search_filter.as_ref()
     }
     /// <p>The maximum number of items to return with this call.</p>
@@ -40,7 +40,7 @@ impl ListRecordHistoryInput {
         self.page_size
     }
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    pub fn page_token(&self) -> ::std::option::Option<&str> {
+    pub fn page_token(&self) -> ::std::option::Option<& str> {
         self.page_token.as_deref()
     }
 }
@@ -62,28 +62,27 @@ pub struct ListRecordHistoryInputBuilder {
     pub(crate) page_token: ::std::option::Option<::std::string::String>,
 }
 impl ListRecordHistoryInputBuilder {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.accept_language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.accept_language = input;
-        self
+        self.accept_language = input; self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.accept_language
@@ -95,8 +94,7 @@ impl ListRecordHistoryInputBuilder {
     }
     /// <p>The access level to use to obtain results. The default is <code>User</code>.</p>
     pub fn set_access_level_filter(mut self, input: ::std::option::Option<crate::types::AccessLevelFilter>) -> Self {
-        self.access_level_filter = input;
-        self
+        self.access_level_filter = input; self
     }
     /// <p>The access level to use to obtain results. The default is <code>User</code>.</p>
     pub fn get_access_level_filter(&self) -> &::std::option::Option<crate::types::AccessLevelFilter> {
@@ -109,8 +107,7 @@ impl ListRecordHistoryInputBuilder {
     }
     /// <p>The search filter to scope the results.</p>
     pub fn set_search_filter(mut self, input: ::std::option::Option<crate::types::ListRecordHistorySearchFilter>) -> Self {
-        self.search_filter = input;
-        self
+        self.search_filter = input; self
     }
     /// <p>The search filter to scope the results.</p>
     pub fn get_search_filter(&self) -> &::std::option::Option<crate::types::ListRecordHistorySearchFilter> {
@@ -123,8 +120,7 @@ impl ListRecordHistoryInputBuilder {
     }
     /// <p>The maximum number of items to return with this call.</p>
     pub fn set_page_size(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.page_size = input;
-        self
+        self.page_size = input; self
     }
     /// <p>The maximum number of items to return with this call.</p>
     pub fn get_page_size(&self) -> &::std::option::Option<i32> {
@@ -137,23 +133,28 @@ impl ListRecordHistoryInputBuilder {
     }
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
     pub fn set_page_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.page_token = input;
-        self
+        self.page_token = input; self
     }
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
     pub fn get_page_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.page_token
     }
     /// Consumes the builder and constructs a [`ListRecordHistoryInput`](crate::operation::list_record_history::ListRecordHistoryInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_record_history::ListRecordHistoryInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_record_history::ListRecordHistoryInput {
-            accept_language: self.accept_language,
-            access_level_filter: self.access_level_filter,
-            search_filter: self.search_filter,
-            page_size: self.page_size,
-            page_token: self.page_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_record_history::ListRecordHistoryInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_record_history::ListRecordHistoryInput {
+                accept_language: self.accept_language
+                ,
+                access_level_filter: self.access_level_filter
+                ,
+                search_filter: self.search_filter
+                ,
+                page_size: self.page_size
+                ,
+                page_token: self.page_token
+                ,
+            }
+        )
     }
 }
+

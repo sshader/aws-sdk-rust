@@ -2,30 +2,31 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListDestinationsOutput {
+pub struct ListDestinationsOutput  {
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
     pub next_token: ::std::option::Option<::std::string::String>,
     /// List of destinations.
-    pub destinations: ::std::option::Option<::std::vec::Vec<crate::types::Destination>>,
+    pub destinations: ::std::option::Option<::std::vec::Vec::<crate::types::Destination>>,
     _request_id: Option<String>,
 }
-impl ListDestinationsOutput {
+impl  ListDestinationsOutput  {
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// List of destinations.
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.destinations.is_none()`.
-    pub fn destinations(&self) -> &[crate::types::Destination] {
-        self.destinations.as_deref().unwrap_or_default()
+    pub fn destinations(&self) -> & [crate::types::Destination] {
+        self.destinations.as_deref()
+        .unwrap_or_default()
     }
 }
-impl ::aws_http::request_id::RequestId for ListDestinationsOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for ListDestinationsOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl ListDestinationsOutput {
     /// Creates a new builder-style object to manufacture [`ListDestinationsOutput`](crate::operation::list_destinations::ListDestinationsOutput).
     pub fn builder() -> crate::operation::list_destinations::builders::ListDestinationsOutputBuilder {
@@ -38,7 +39,7 @@ impl ListDestinationsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct ListDestinationsOutputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-    pub(crate) destinations: ::std::option::Option<::std::vec::Vec<crate::types::Destination>>,
+    pub(crate) destinations: ::std::option::Option<::std::vec::Vec::<crate::types::Destination>>,
     _request_id: Option<String>,
 }
 impl ListDestinationsOutputBuilder {
@@ -49,8 +50,7 @@ impl ListDestinationsOutputBuilder {
     }
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -63,34 +63,36 @@ impl ListDestinationsOutputBuilder {
     /// List of destinations.
     pub fn destinations(mut self, input: crate::types::Destination) -> Self {
         let mut v = self.destinations.unwrap_or_default();
-        v.push(input);
-        self.destinations = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.destinations = ::std::option::Option::Some(v);
+                        self
     }
     /// List of destinations.
-    pub fn set_destinations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Destination>>) -> Self {
-        self.destinations = input;
-        self
+    pub fn set_destinations(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Destination>>) -> Self {
+        self.destinations = input; self
     }
     /// List of destinations.
-    pub fn get_destinations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Destination>> {
+    pub fn get_destinations(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Destination>> {
         &self.destinations
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`ListDestinationsOutput`](crate::operation::list_destinations::ListDestinationsOutput).
     pub fn build(self) -> crate::operation::list_destinations::ListDestinationsOutput {
         crate::operation::list_destinations::ListDestinationsOutput {
-            next_token: self.next_token,
-            destinations: self.destinations,
+            next_token: self.next_token
+            ,
+            destinations: self.destinations
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

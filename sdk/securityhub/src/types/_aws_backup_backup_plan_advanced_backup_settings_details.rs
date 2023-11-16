@@ -3,29 +3,29 @@
 /// <p>Provides a list of backup options for each resource type. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AwsBackupBackupPlanAdvancedBackupSettingsDetails {
-    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li>
-    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li>
+pub struct AwsBackupBackupPlanAdvancedBackupSettingsDetails  {
+    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li> 
+    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li> 
     /// </ul>
-    pub backup_options: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p>
+    pub backup_options: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
+    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p> 
     /// <p>The only valid value is <code>EC2</code>.</p>
     pub resource_type: ::std::option::Option<::std::string::String>,
 }
-impl AwsBackupBackupPlanAdvancedBackupSettingsDetails {
-    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li>
-    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li>
+impl  AwsBackupBackupPlanAdvancedBackupSettingsDetails  {
+    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li> 
+    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li> 
     /// </ul>
-    pub fn backup_options(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn backup_options(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.backup_options.as_ref()
     }
-    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p>
+    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p> 
     /// <p>The only valid value is <code>EC2</code>.</p>
-    pub fn resource_type(&self) -> ::std::option::Option<&str> {
+    pub fn resource_type(&self) -> ::std::option::Option<& str> {
         self.resource_type.as_deref()
     }
 }
@@ -40,7 +40,7 @@ impl AwsBackupBackupPlanAdvancedBackupSettingsDetails {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct AwsBackupBackupPlanAdvancedBackupSettingsDetailsBuilder {
-    pub(crate) backup_options: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) backup_options: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     pub(crate) resource_type: ::std::option::Option<::std::string::String>,
 }
 impl AwsBackupBackupPlanAdvancedBackupSettingsDetailsBuilder {
@@ -48,54 +48,45 @@ impl AwsBackupBackupPlanAdvancedBackupSettingsDetailsBuilder {
     ///
     /// To override the contents of this collection use [`set_backup_options`](Self::set_backup_options).
     ///
-    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li>
-    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li>
+    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li> 
+    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li> 
     /// </ul>
-    pub fn backup_options(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn backup_options(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.backup_options.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.backup_options = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.backup_options = ::std::option::Option::Some(hash_map);
+                        self
     }
-    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li>
-    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li>
+    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li> 
+    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li> 
     /// </ul>
-    pub fn set_backup_options(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    ) -> Self {
-        self.backup_options = input;
-        self
+    pub fn set_backup_options(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.backup_options = input; self
     }
-    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p>
-    /// <ul>
-    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li>
-    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li>
+    /// <p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li> 
+    /// <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li> 
     /// </ul>
-    pub fn get_backup_options(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_backup_options(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.backup_options
     }
-    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p>
+    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p> 
     /// <p>The only valid value is <code>EC2</code>.</p>
     pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_type = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p>
+    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p> 
     /// <p>The only valid value is <code>EC2</code>.</p>
     pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_type = input;
-        self
+        self.resource_type = input; self
     }
-    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p>
+    /// <p>The name of a resource type. The only supported resource type is Amazon EC2 instances with Windows VSS.</p> 
     /// <p>The only valid value is <code>EC2</code>.</p>
     pub fn get_resource_type(&self) -> &::std::option::Option<::std::string::String> {
         &self.resource_type
@@ -103,8 +94,11 @@ impl AwsBackupBackupPlanAdvancedBackupSettingsDetailsBuilder {
     /// Consumes the builder and constructs a [`AwsBackupBackupPlanAdvancedBackupSettingsDetails`](crate::types::AwsBackupBackupPlanAdvancedBackupSettingsDetails).
     pub fn build(self) -> crate::types::AwsBackupBackupPlanAdvancedBackupSettingsDetails {
         crate::types::AwsBackupBackupPlanAdvancedBackupSettingsDetails {
-            backup_options: self.backup_options,
-            resource_type: self.resource_type,
+            backup_options: self.backup_options
+            ,
+            resource_type: self.resource_type
+            ,
         }
     }
 }
+

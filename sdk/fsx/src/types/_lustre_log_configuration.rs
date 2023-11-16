@@ -3,33 +3,33 @@
 /// <p>The configuration for Lustre logging used to write the enabled logging events for your Amazon FSx for Lustre file system or Amazon File Cache resource to Amazon CloudWatch Logs.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct LustreLogConfiguration {
-    /// <p>The data repository events that are logged by Amazon FSx.</p>
-    /// <ul>
-    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li>
-    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li>
-    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li>
-    /// </ul>
+pub struct LustreLogConfiguration  {
+    /// <p>The data repository events that are logged by Amazon FSx.</p> 
+    /// <ul> 
+    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li> 
+    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li> 
+    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li> 
+    /// </ul> 
     /// <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>, which can't be changed.</p>
     pub level: ::std::option::Option<crate::types::LustreAccessAuditLogLevel>,
     /// <p>The Amazon Resource Name (ARN) that specifies the destination of the logs. The destination can be any Amazon CloudWatch Logs log group ARN. The destination ARN must be in the same Amazon Web Services partition, Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
     pub destination: ::std::option::Option<::std::string::String>,
 }
-impl LustreLogConfiguration {
-    /// <p>The data repository events that are logged by Amazon FSx.</p>
-    /// <ul>
-    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li>
-    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li>
-    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li>
-    /// </ul>
+impl  LustreLogConfiguration  {
+    /// <p>The data repository events that are logged by Amazon FSx.</p> 
+    /// <ul> 
+    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li> 
+    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li> 
+    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li> 
+    /// </ul> 
     /// <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>, which can't be changed.</p>
-    pub fn level(&self) -> ::std::option::Option<&crate::types::LustreAccessAuditLogLevel> {
+    pub fn level(&self) -> ::std::option::Option<& crate::types::LustreAccessAuditLogLevel> {
         self.level.as_ref()
     }
     /// <p>The Amazon Resource Name (ARN) that specifies the destination of the logs. The destination can be any Amazon CloudWatch Logs log group ARN. The destination ARN must be in the same Amazon Web Services partition, Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
-    pub fn destination(&self) -> ::std::option::Option<&str> {
+    pub fn destination(&self) -> ::std::option::Option<& str> {
         self.destination.as_deref()
     }
 }
@@ -48,38 +48,37 @@ pub struct LustreLogConfigurationBuilder {
     pub(crate) destination: ::std::option::Option<::std::string::String>,
 }
 impl LustreLogConfigurationBuilder {
-    /// <p>The data repository events that are logged by Amazon FSx.</p>
-    /// <ul>
-    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li>
-    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li>
-    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li>
-    /// </ul>
+    /// <p>The data repository events that are logged by Amazon FSx.</p> 
+    /// <ul> 
+    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li> 
+    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li> 
+    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li> 
+    /// </ul> 
     /// <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>, which can't be changed.</p>
     /// This field is required.
     pub fn level(mut self, input: crate::types::LustreAccessAuditLogLevel) -> Self {
         self.level = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The data repository events that are logged by Amazon FSx.</p>
-    /// <ul>
-    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li>
-    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li>
-    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li>
-    /// </ul>
+    /// <p>The data repository events that are logged by Amazon FSx.</p> 
+    /// <ul> 
+    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li> 
+    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li> 
+    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li> 
+    /// </ul> 
     /// <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>, which can't be changed.</p>
     pub fn set_level(mut self, input: ::std::option::Option<crate::types::LustreAccessAuditLogLevel>) -> Self {
-        self.level = input;
-        self
+        self.level = input; self
     }
-    /// <p>The data repository events that are logged by Amazon FSx.</p>
-    /// <ul>
-    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li>
-    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li>
-    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li>
-    /// </ul>
+    /// <p>The data repository events that are logged by Amazon FSx.</p> 
+    /// <ul> 
+    /// <li> <p> <code>WARN_ONLY</code> - only warning events are logged.</p> </li> 
+    /// <li> <p> <code>ERROR_ONLY</code> - only error events are logged.</p> </li> 
+    /// <li> <p> <code>WARN_ERROR</code> - both warning events and error events are logged.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - logging of data repository events is turned off.</p> </li> 
+    /// </ul> 
     /// <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>, which can't be changed.</p>
     pub fn get_level(&self) -> &::std::option::Option<crate::types::LustreAccessAuditLogLevel> {
         &self.level
@@ -91,8 +90,7 @@ impl LustreLogConfigurationBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) that specifies the destination of the logs. The destination can be any Amazon CloudWatch Logs log group ARN. The destination ARN must be in the same Amazon Web Services partition, Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
     pub fn set_destination(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.destination = input;
-        self
+        self.destination = input; self
     }
     /// <p>The Amazon Resource Name (ARN) that specifies the destination of the logs. The destination can be any Amazon CloudWatch Logs log group ARN. The destination ARN must be in the same Amazon Web Services partition, Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
     pub fn get_destination(&self) -> &::std::option::Option<::std::string::String> {
@@ -101,8 +99,11 @@ impl LustreLogConfigurationBuilder {
     /// Consumes the builder and constructs a [`LustreLogConfiguration`](crate::types::LustreLogConfiguration).
     pub fn build(self) -> crate::types::LustreLogConfiguration {
         crate::types::LustreLogConfiguration {
-            level: self.level,
-            destination: self.destination,
+            level: self.level
+            ,
+            destination: self.destination
+            ,
         }
     }
 }
+

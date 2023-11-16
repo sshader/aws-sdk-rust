@@ -5,58 +5,60 @@ pub use crate::operation::query::_query_input::QueryInputBuilder;
 
 impl QueryInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::query::QueryOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::query::QueryError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.query();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::query::QueryOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::query::QueryError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.query();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `Query`.
-///
-/// <p>Searches an index given an input query.</p> <note>
-/// <p>If you are working with large language models (LLMs) or implementing retrieval augmented generation (RAG) systems, you can use Amazon Kendra's <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html">Retrieve</a> API, which can return longer semantically relevant passages. We recommend using the <code>Retrieve</code> API instead of filing a service limit increase to increase the <code>Query</code> API document excerpt length.</p>
-/// </note>
-/// <p>You can configure boosting or relevance tuning at the query level to override boosting at the index level, filter based on document fields/attributes and faceted search, and filter based on the user or their group access to documents. You can also include certain fields in the response that might provide useful additional information.</p>
-/// <p>A query response contains three types of results.</p>
-/// <ul>
-/// <li> <p>Relevant suggested answers. The answers can be either a text excerpt or table excerpt. The answer can be highlighted in the excerpt.</p> </li>
-/// <li> <p>Matching FAQs or questions-answer from your FAQ file.</p> </li>
-/// <li> <p>Relevant documents. This result type includes an excerpt of the document with the document title. The searched terms can be highlighted in the excerpt.</p> </li>
-/// </ul>
+/// 
+/// <p>Searches an index given an input query.</p> <note> 
+/// <p>If you are working with large language models (LLMs) or implementing retrieval augmented generation (RAG) systems, you can use Amazon Kendra's <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html">Retrieve</a> API, which can return longer semantically relevant passages. We recommend using the <code>Retrieve</code> API instead of filing a service limit increase to increase the <code>Query</code> API document excerpt length.</p> 
+/// </note> 
+/// <p>You can configure boosting or relevance tuning at the query level to override boosting at the index level, filter based on document fields/attributes and faceted search, and filter based on the user or their group access to documents. You can also include certain fields in the response that might provide useful additional information.</p> 
+/// <p>A query response contains three types of results.</p> 
+/// <ul> 
+/// <li> <p>Relevant suggested answers. The answers can be either a text excerpt or table excerpt. The answer can be highlighted in the excerpt.</p> </li> 
+/// <li> <p>Matching FAQs or questions-answer from your FAQ file.</p> </li> 
+/// <li> <p>Relevant documents. This result type includes an excerpt of the document with the document title. The searched terms can be highlighted in the excerpt.</p> </li> 
+/// </ul> 
 /// <p>You can specify that the query return only one type of result using the <code>QueryResultTypeFilter</code> parameter. Each query returns the 100 most relevant results. If you filter result type to only question-answers, a maximum of four results are returned. If you filter result type to only answers, a maximum of three results are returned.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct QueryFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::query::builders::QueryInputBuilder,
+                    inner: crate::operation::query::builders::QueryInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::query::QueryOutput, crate::operation::query::QueryError>
-    for QueryFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::query::QueryOutput, crate::operation::query::QueryError>,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+impl
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::query::QueryOutput,
+                    crate::operation::query::QueryError,
+                > for QueryFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::query::QueryOutput,
+                        crate::operation::query::QueryError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl QueryFluentBuilder {
     /// Creates a new `Query`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -65,46 +67,44 @@ impl QueryFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::query::QueryOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::query::QueryError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::query::Query::operation_runtime_plugins(self.handle.runtime_plugins.clone(), &self.handle.conf, self.config_override);
-        crate::operation::query::Query::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<crate::operation::query::QueryOutput, crate::operation::query::QueryError, Self> {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::query::QueryOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::query::QueryError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::query::Query::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::query::Query::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::query::QueryOutput, crate::operation::query::QueryError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The identifier of the index for the search.</p>
     pub fn index_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.index_id(input.into());
@@ -133,19 +133,19 @@ impl QueryFluentBuilder {
     pub fn get_query_text(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_query_text()
     }
-    /// <p>Filters search results by document fields/attributes. You can only provide one attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and <code>OrAllFilters</code> parameters contain a list of other filters.</p>
+    /// <p>Filters search results by document fields/attributes. You can only provide one attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and <code>OrAllFilters</code> parameters contain a list of other filters.</p> 
     /// <p>The <code>AttributeFilter</code> parameter means you can create a set of filtering rules that a document must satisfy to be included in the query results.</p>
     pub fn attribute_filter(mut self, input: crate::types::AttributeFilter) -> Self {
         self.inner = self.inner.attribute_filter(input);
         self
     }
-    /// <p>Filters search results by document fields/attributes. You can only provide one attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and <code>OrAllFilters</code> parameters contain a list of other filters.</p>
+    /// <p>Filters search results by document fields/attributes. You can only provide one attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and <code>OrAllFilters</code> parameters contain a list of other filters.</p> 
     /// <p>The <code>AttributeFilter</code> parameter means you can create a set of filtering rules that a document must satisfy to be included in the query results.</p>
     pub fn set_attribute_filter(mut self, input: ::std::option::Option<crate::types::AttributeFilter>) -> Self {
         self.inner = self.inner.set_attribute_filter(input);
         self
     }
-    /// <p>Filters search results by document fields/attributes. You can only provide one attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and <code>OrAllFilters</code> parameters contain a list of other filters.</p>
+    /// <p>Filters search results by document fields/attributes. You can only provide one attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and <code>OrAllFilters</code> parameters contain a list of other filters.</p> 
     /// <p>The <code>AttributeFilter</code> parameter means you can create a set of filtering rules that a document must satisfy to be included in the query results.</p>
     pub fn get_attribute_filter(&self) -> &::std::option::Option<crate::types::AttributeFilter> {
         self.inner.get_attribute_filter()
@@ -160,12 +160,12 @@ impl QueryFluentBuilder {
         self
     }
     /// <p>An array of documents fields/attributes for faceted search. Amazon Kendra returns a count for each field key specified. This helps your users narrow their search.</p>
-    pub fn set_facets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Facet>>) -> Self {
+    pub fn set_facets(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Facet>>) -> Self {
         self.inner = self.inner.set_facets(input);
         self
     }
     /// <p>An array of documents fields/attributes for faceted search. Amazon Kendra returns a count for each field key specified. This helps your users narrow their search.</p>
-    pub fn get_facets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Facet>> {
+    pub fn get_facets(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Facet>> {
         self.inner.get_facets()
     }
     /// Appends an item to `RequestedDocumentAttributes`.
@@ -178,12 +178,12 @@ impl QueryFluentBuilder {
         self
     }
     /// <p>An array of document fields/attributes to include in the response. You can limit the response to include certain document fields. By default, all document attributes are included in the response.</p>
-    pub fn set_requested_document_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_requested_document_attributes(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_requested_document_attributes(input);
         self
     }
     /// <p>An array of document fields/attributes to include in the response. You can limit the response to include certain document fields. By default, all document attributes are included in the response.</p>
-    pub fn get_requested_document_attributes(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_requested_document_attributes(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_requested_document_attributes()
     }
     /// <p>Sets the type of query result or response. Only results for the specified type are returned.</p>
@@ -204,29 +204,24 @@ impl QueryFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_document_relevance_override_configurations`](Self::set_document_relevance_override_configurations).
     ///
-    /// <p>Overrides relevance tuning configurations of fields/attributes set at the index level.</p>
-    /// <p>If you use this API to override the relevance tuning configured at the index level, but there is no relevance tuning configured at the index level, then Amazon Kendra does not apply any relevance tuning.</p>
+    /// <p>Overrides relevance tuning configurations of fields/attributes set at the index level.</p> 
+    /// <p>If you use this API to override the relevance tuning configured at the index level, but there is no relevance tuning configured at the index level, then Amazon Kendra does not apply any relevance tuning.</p> 
     /// <p>If there is relevance tuning configured for fields at the index level, and you use this API to override only some of these fields, then for the fields you did not override, the importance is set to 1.</p>
     pub fn document_relevance_override_configurations(mut self, input: crate::types::DocumentRelevanceConfiguration) -> Self {
         self.inner = self.inner.document_relevance_override_configurations(input);
         self
     }
-    /// <p>Overrides relevance tuning configurations of fields/attributes set at the index level.</p>
-    /// <p>If you use this API to override the relevance tuning configured at the index level, but there is no relevance tuning configured at the index level, then Amazon Kendra does not apply any relevance tuning.</p>
+    /// <p>Overrides relevance tuning configurations of fields/attributes set at the index level.</p> 
+    /// <p>If you use this API to override the relevance tuning configured at the index level, but there is no relevance tuning configured at the index level, then Amazon Kendra does not apply any relevance tuning.</p> 
     /// <p>If there is relevance tuning configured for fields at the index level, and you use this API to override only some of these fields, then for the fields you did not override, the importance is set to 1.</p>
-    pub fn set_document_relevance_override_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::DocumentRelevanceConfiguration>>,
-    ) -> Self {
+    pub fn set_document_relevance_override_configurations(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::DocumentRelevanceConfiguration>>) -> Self {
         self.inner = self.inner.set_document_relevance_override_configurations(input);
         self
     }
-    /// <p>Overrides relevance tuning configurations of fields/attributes set at the index level.</p>
-    /// <p>If you use this API to override the relevance tuning configured at the index level, but there is no relevance tuning configured at the index level, then Amazon Kendra does not apply any relevance tuning.</p>
+    /// <p>Overrides relevance tuning configurations of fields/attributes set at the index level.</p> 
+    /// <p>If you use this API to override the relevance tuning configured at the index level, but there is no relevance tuning configured at the index level, then Amazon Kendra does not apply any relevance tuning.</p> 
     /// <p>If there is relevance tuning configured for fields at the index level, and you use this API to override only some of these fields, then for the fields you did not override, the importance is set to 1.</p>
-    pub fn get_document_relevance_override_configurations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DocumentRelevanceConfiguration>> {
+    pub fn get_document_relevance_override_configurations(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::DocumentRelevanceConfiguration>> {
         self.inner.get_document_relevance_override_configurations()
     }
     /// <p>Query results are returned in pages the size of the <code>PageSize</code> parameter. By default, Amazon Kendra returns the first page of results. Use this parameter to get result pages after the first one.</p>
@@ -257,19 +252,19 @@ impl QueryFluentBuilder {
     pub fn get_page_size(&self) -> &::std::option::Option<i32> {
         self.inner.get_page_size()
     }
-    /// <p>Provides information that determines how the results of the query are sorted. You can set the field that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. In the case of ties in sorting the results, the results are sorted by relevance.</p>
+    /// <p>Provides information that determines how the results of the query are sorted. You can set the field that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. In the case of ties in sorting the results, the results are sorted by relevance.</p> 
     /// <p>If you don't provide sorting configuration, the results are sorted by the relevance that Amazon Kendra determines for the result.</p>
     pub fn sorting_configuration(mut self, input: crate::types::SortingConfiguration) -> Self {
         self.inner = self.inner.sorting_configuration(input);
         self
     }
-    /// <p>Provides information that determines how the results of the query are sorted. You can set the field that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. In the case of ties in sorting the results, the results are sorted by relevance.</p>
+    /// <p>Provides information that determines how the results of the query are sorted. You can set the field that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. In the case of ties in sorting the results, the results are sorted by relevance.</p> 
     /// <p>If you don't provide sorting configuration, the results are sorted by the relevance that Amazon Kendra determines for the result.</p>
     pub fn set_sorting_configuration(mut self, input: ::std::option::Option<crate::types::SortingConfiguration>) -> Self {
         self.inner = self.inner.set_sorting_configuration(input);
         self
     }
-    /// <p>Provides information that determines how the results of the query are sorted. You can set the field that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. In the case of ties in sorting the results, the results are sorted by relevance.</p>
+    /// <p>Provides information that determines how the results of the query are sorted. You can set the field that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. In the case of ties in sorting the results, the results are sorted by relevance.</p> 
     /// <p>If you don't provide sorting configuration, the results are sorted by the relevance that Amazon Kendra determines for the result.</p>
     pub fn get_sorting_configuration(&self) -> &::std::option::Option<crate::types::SortingConfiguration> {
         self.inner.get_sorting_configuration()
@@ -278,24 +273,24 @@ impl QueryFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_sorting_configurations`](Self::set_sorting_configurations).
     ///
-    /// <p>Provides configuration information to determine how the results of a query are sorted.</p>
-    /// <p>You can set upto 3 fields that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. The sort field quota can be increased.</p>
+    /// <p>Provides configuration information to determine how the results of a query are sorted.</p> 
+    /// <p>You can set upto 3 fields that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. The sort field quota can be increased.</p> 
     /// <p>If you don't provide a sorting configuration, the results are sorted by the relevance that Amazon Kendra determines for the result. In the case of ties in sorting the results, the results are sorted by relevance. </p>
     pub fn sorting_configurations(mut self, input: crate::types::SortingConfiguration) -> Self {
         self.inner = self.inner.sorting_configurations(input);
         self
     }
-    /// <p>Provides configuration information to determine how the results of a query are sorted.</p>
-    /// <p>You can set upto 3 fields that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. The sort field quota can be increased.</p>
+    /// <p>Provides configuration information to determine how the results of a query are sorted.</p> 
+    /// <p>You can set upto 3 fields that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. The sort field quota can be increased.</p> 
     /// <p>If you don't provide a sorting configuration, the results are sorted by the relevance that Amazon Kendra determines for the result. In the case of ties in sorting the results, the results are sorted by relevance. </p>
-    pub fn set_sorting_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SortingConfiguration>>) -> Self {
+    pub fn set_sorting_configurations(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::SortingConfiguration>>) -> Self {
         self.inner = self.inner.set_sorting_configurations(input);
         self
     }
-    /// <p>Provides configuration information to determine how the results of a query are sorted.</p>
-    /// <p>You can set upto 3 fields that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. The sort field quota can be increased.</p>
+    /// <p>Provides configuration information to determine how the results of a query are sorted.</p> 
+    /// <p>You can set upto 3 fields that Amazon Kendra should sort the results on, and specify whether the results should be sorted in ascending or descending order. The sort field quota can be increased.</p> 
     /// <p>If you don't provide a sorting configuration, the results are sorted by the relevance that Amazon Kendra determines for the result. In the case of ties in sorting the results, the results are sorted by relevance. </p>
-    pub fn get_sorting_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SortingConfiguration>> {
+    pub fn get_sorting_configurations(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::SortingConfiguration>> {
         self.inner.get_sorting_configurations()
     }
     /// <p>The user context token or user and group information.</p>
@@ -355,3 +350,4 @@ impl QueryFluentBuilder {
         self.inner.get_collapse_configuration()
     }
 }
+

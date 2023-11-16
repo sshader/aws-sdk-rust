@@ -3,14 +3,14 @@
 /// <p>Information about an Availability Zone on a domain.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AvailabilityZoneInfo {
+pub struct AvailabilityZoneInfo  {
     /// <p>The name of the Availability Zone.</p>
     pub availability_zone_name: ::std::option::Option<::std::string::String>,
-    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p>
-    /// <ul>
-    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li>
-    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li>
-    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li>
+    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li> 
+    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li> 
+    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li> 
     /// </ul>
     pub zone_status: ::std::option::Option<crate::types::ZoneStatus>,
     /// <p>The total number of data nodes configured in the Availability Zone.</p>
@@ -22,34 +22,34 @@ pub struct AvailabilityZoneInfo {
     /// <p>The total number of primary and replica shards that aren't allocated to any of the nodes in the Availability Zone.</p>
     pub total_un_assigned_shards: ::std::option::Option<::std::string::String>,
 }
-impl AvailabilityZoneInfo {
+impl  AvailabilityZoneInfo  {
     /// <p>The name of the Availability Zone.</p>
-    pub fn availability_zone_name(&self) -> ::std::option::Option<&str> {
+    pub fn availability_zone_name(&self) -> ::std::option::Option<& str> {
         self.availability_zone_name.as_deref()
     }
-    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p>
-    /// <ul>
-    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li>
-    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li>
-    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li>
+    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li> 
+    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li> 
+    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li> 
     /// </ul>
-    pub fn zone_status(&self) -> ::std::option::Option<&crate::types::ZoneStatus> {
+    pub fn zone_status(&self) -> ::std::option::Option<& crate::types::ZoneStatus> {
         self.zone_status.as_ref()
     }
     /// <p>The total number of data nodes configured in the Availability Zone.</p>
-    pub fn configured_data_node_count(&self) -> ::std::option::Option<&str> {
+    pub fn configured_data_node_count(&self) -> ::std::option::Option<& str> {
         self.configured_data_node_count.as_deref()
     }
     /// <p>The number of data nodes active in the Availability Zone.</p>
-    pub fn available_data_node_count(&self) -> ::std::option::Option<&str> {
+    pub fn available_data_node_count(&self) -> ::std::option::Option<& str> {
         self.available_data_node_count.as_deref()
     }
     /// <p>The total number of primary and replica shards in the Availability Zone.</p>
-    pub fn total_shards(&self) -> ::std::option::Option<&str> {
+    pub fn total_shards(&self) -> ::std::option::Option<& str> {
         self.total_shards.as_deref()
     }
     /// <p>The total number of primary and replica shards that aren't allocated to any of the nodes in the Availability Zone.</p>
-    pub fn total_un_assigned_shards(&self) -> ::std::option::Option<&str> {
+    pub fn total_un_assigned_shards(&self) -> ::std::option::Option<& str> {
         self.total_un_assigned_shards.as_deref()
     }
 }
@@ -79,38 +79,36 @@ impl AvailabilityZoneInfoBuilder {
     }
     /// <p>The name of the Availability Zone.</p>
     pub fn set_availability_zone_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.availability_zone_name = input;
-        self
+        self.availability_zone_name = input; self
     }
     /// <p>The name of the Availability Zone.</p>
     pub fn get_availability_zone_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.availability_zone_name
     }
-    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p>
-    /// <ul>
-    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li>
-    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li>
-    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li>
+    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li> 
+    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li> 
+    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li> 
     /// </ul>
     pub fn zone_status(mut self, input: crate::types::ZoneStatus) -> Self {
         self.zone_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p>
-    /// <ul>
-    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li>
-    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li>
-    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li>
+    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li> 
+    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li> 
+    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li> 
     /// </ul>
     pub fn set_zone_status(mut self, input: ::std::option::Option<crate::types::ZoneStatus>) -> Self {
-        self.zone_status = input;
-        self
+        self.zone_status = input; self
     }
-    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p>
-    /// <ul>
-    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li>
-    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li>
-    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li>
+    /// <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Active</code> - Data nodes in the Availability Zone are in use.</p> </li> 
+    /// <li> <p> <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p> </li> 
+    /// <li> <p> <code>NotAvailable</code> - Unable to retrieve information.</p> </li> 
     /// </ul>
     pub fn get_zone_status(&self) -> &::std::option::Option<crate::types::ZoneStatus> {
         &self.zone_status
@@ -122,8 +120,7 @@ impl AvailabilityZoneInfoBuilder {
     }
     /// <p>The total number of data nodes configured in the Availability Zone.</p>
     pub fn set_configured_data_node_count(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.configured_data_node_count = input;
-        self
+        self.configured_data_node_count = input; self
     }
     /// <p>The total number of data nodes configured in the Availability Zone.</p>
     pub fn get_configured_data_node_count(&self) -> &::std::option::Option<::std::string::String> {
@@ -136,8 +133,7 @@ impl AvailabilityZoneInfoBuilder {
     }
     /// <p>The number of data nodes active in the Availability Zone.</p>
     pub fn set_available_data_node_count(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.available_data_node_count = input;
-        self
+        self.available_data_node_count = input; self
     }
     /// <p>The number of data nodes active in the Availability Zone.</p>
     pub fn get_available_data_node_count(&self) -> &::std::option::Option<::std::string::String> {
@@ -150,8 +146,7 @@ impl AvailabilityZoneInfoBuilder {
     }
     /// <p>The total number of primary and replica shards in the Availability Zone.</p>
     pub fn set_total_shards(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.total_shards = input;
-        self
+        self.total_shards = input; self
     }
     /// <p>The total number of primary and replica shards in the Availability Zone.</p>
     pub fn get_total_shards(&self) -> &::std::option::Option<::std::string::String> {
@@ -164,8 +159,7 @@ impl AvailabilityZoneInfoBuilder {
     }
     /// <p>The total number of primary and replica shards that aren't allocated to any of the nodes in the Availability Zone.</p>
     pub fn set_total_un_assigned_shards(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.total_un_assigned_shards = input;
-        self
+        self.total_un_assigned_shards = input; self
     }
     /// <p>The total number of primary and replica shards that aren't allocated to any of the nodes in the Availability Zone.</p>
     pub fn get_total_un_assigned_shards(&self) -> &::std::option::Option<::std::string::String> {
@@ -174,12 +168,19 @@ impl AvailabilityZoneInfoBuilder {
     /// Consumes the builder and constructs a [`AvailabilityZoneInfo`](crate::types::AvailabilityZoneInfo).
     pub fn build(self) -> crate::types::AvailabilityZoneInfo {
         crate::types::AvailabilityZoneInfo {
-            availability_zone_name: self.availability_zone_name,
-            zone_status: self.zone_status,
-            configured_data_node_count: self.configured_data_node_count,
-            available_data_node_count: self.available_data_node_count,
-            total_shards: self.total_shards,
-            total_un_assigned_shards: self.total_un_assigned_shards,
+            availability_zone_name: self.availability_zone_name
+            ,
+            zone_status: self.zone_status
+            ,
+            configured_data_node_count: self.configured_data_node_count
+            ,
+            available_data_node_count: self.available_data_node_count
+            ,
+            total_shards: self.total_shards
+            ,
+            total_un_assigned_shards: self.total_un_assigned_shards
+            ,
         }
     }
 }
+

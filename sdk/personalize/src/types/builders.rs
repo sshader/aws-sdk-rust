@@ -130,3 +130,4 @@ pub use crate::types::_default_continuous_hyper_parameter_range::DefaultContinuo
 pub use crate::types::_default_integer_hyper_parameter_range::DefaultIntegerHyperParameterRangeBuilder;
 
 pub use crate::types::_algorithm_image::AlgorithmImageBuilder;
+

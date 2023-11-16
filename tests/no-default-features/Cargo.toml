@@ -6,35 +6,36 @@ authors = ["Zelda Hessler <zhessler@amazon.com>"]
 description = "These tests ensure that things will fail (or not fail) as expected\nwhen default features are disabled for all SDK and runtime crates.\n"
 edition = "2021"
 license = "Apache-2.0"
-repository = "https://github.com/awslabs/smithy-rs"
+repository = "https://github.com/smithy-lang/smithy-rs"
 publish = false
 
 [dev-dependencies]
 futures = "0.3.25"
+http = "0.2.9"
 
 [dev-dependencies.aws-config]
 path = "../../sdk/aws-config"
 default-features = false
-version = "0.57.2"
+version = "0.100.0"
 
 [dev-dependencies.aws-sdk-s3]
 path = "../../sdk/s3"
 default-features = false
-version = "0.36.0"
+version = "0.0.0-local"
 
 [dev-dependencies.aws-smithy-async]
 path = "../../sdk/aws-smithy-async"
-version = "0.57.2"
+version = "0.100.0"
 
 [dev-dependencies.aws-smithy-runtime]
 path = "../../sdk/aws-smithy-runtime"
 features = ["test-util"]
-version = "0.57.2"
+version = "0.58.0"
 
 [dev-dependencies.aws-credential-types]
 path = "../../sdk/aws-credential-types"
 features = ["test-util"]
-version = "0.57.2"
+version = "0.58.0"
 
 [dev-dependencies.tokio]
 version = "1.23.1"

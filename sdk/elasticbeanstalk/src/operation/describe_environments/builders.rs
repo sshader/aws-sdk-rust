@@ -5,54 +5,50 @@ pub use crate::operation::describe_environments::_describe_environments_input::D
 
 impl DescribeEnvironmentsInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::describe_environments::DescribeEnvironmentsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_environments::DescribeEnvironmentsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.describe_environments();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::describe_environments::DescribeEnvironmentsOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::describe_environments::DescribeEnvironmentsError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.describe_environments();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `DescribeEnvironments`.
-///
+/// 
 /// <p>Returns descriptions for existing environments.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeEnvironmentsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::describe_environments::builders::DescribeEnvironmentsInputBuilder,
+                    inner: crate::operation::describe_environments::builders::DescribeEnvironmentsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::describe_environments::DescribeEnvironmentsOutput,
-        crate::operation::describe_environments::DescribeEnvironmentsError,
-    > for DescribeEnvironmentsFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::describe_environments::DescribeEnvironmentsOutput,
-            crate::operation::describe_environments::DescribeEnvironmentsError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::describe_environments::DescribeEnvironmentsOutput,
+                    crate::operation::describe_environments::DescribeEnvironmentsError,
+                > for DescribeEnvironmentsFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::describe_environments::DescribeEnvironmentsOutput,
+                        crate::operation::describe_environments::DescribeEnvironmentsError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl DescribeEnvironmentsFluentBuilder {
     /// Creates a new `DescribeEnvironments`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl DescribeEnvironmentsFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_environments::DescribeEnvironmentsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_environments::DescribeEnvironmentsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_environments::DescribeEnvironments::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_environments::DescribeEnvironments::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::describe_environments::DescribeEnvironmentsOutput,
-        crate::operation::describe_environments::DescribeEnvironmentsError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::describe_environments::DescribeEnvironmentsOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_environments::DescribeEnvironmentsError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::describe_environments::DescribeEnvironments::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::describe_environments::DescribeEnvironments::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::describe_environments::DescribeEnvironmentsOutput, crate::operation::describe_environments::DescribeEnvironmentsError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.</p>
     pub fn application_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.application_name(input.into());
@@ -146,12 +133,12 @@ impl DescribeEnvironmentsFluentBuilder {
         self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.</p>
-    pub fn set_environment_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_environment_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_environment_ids(input);
         self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.</p>
-    pub fn get_environment_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_environment_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_environment_ids()
     }
     /// Appends an item to `EnvironmentNames`.
@@ -164,30 +151,30 @@ impl DescribeEnvironmentsFluentBuilder {
         self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.</p>
-    pub fn set_environment_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_environment_names(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_environment_names(input);
         self
     }
     /// <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.</p>
-    pub fn get_environment_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_environment_names(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_environment_names()
     }
-    /// <p>Indicates whether to include deleted environments:</p>
-    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p>
+    /// <p>Indicates whether to include deleted environments:</p> 
+    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> 
     /// <p> <code>false</code>: Do not include deleted environments.</p>
     pub fn include_deleted(mut self, input: bool) -> Self {
         self.inner = self.inner.include_deleted(input);
         self
     }
-    /// <p>Indicates whether to include deleted environments:</p>
-    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p>
+    /// <p>Indicates whether to include deleted environments:</p> 
+    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> 
     /// <p> <code>false</code>: Do not include deleted environments.</p>
     pub fn set_include_deleted(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_include_deleted(input);
         self
     }
-    /// <p>Indicates whether to include deleted environments:</p>
-    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p>
+    /// <p>Indicates whether to include deleted environments:</p> 
+    /// <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> 
     /// <p> <code>false</code>: Do not include deleted environments.</p>
     pub fn get_include_deleted(&self) -> &::std::option::Option<bool> {
         self.inner.get_include_deleted()
@@ -206,38 +193,39 @@ impl DescribeEnvironmentsFluentBuilder {
     pub fn get_included_deleted_back_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_included_deleted_back_to()
     }
-    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>
     pub fn max_records(mut self, input: i32) -> Self {
         self.inner = self.inner.max_records(input);
         self
     }
-    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>
     pub fn set_max_records(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_max_records(input);
         self
     }
-    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p>
+    /// <p>For a paginated request. Specify a maximum number of environments to include in each response.</p> 
     /// <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>
     pub fn get_max_records(&self) -> &::std::option::Option<i32> {
         self.inner.get_max_records()
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.next_token(input.into());
         self
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_next_token(input);
         self
     }
-    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p>
+    /// <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> 
     /// <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_next_token()
     }
 }
+

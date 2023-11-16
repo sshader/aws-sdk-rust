@@ -3,20 +3,20 @@
 /// <p>A registered user of Amazon QuickSight. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct User {
+pub struct User  {
     /// <p>The Amazon Resource Name (ARN) for the user.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>The user's user name. This value is required if you are registering a user that will be managed in Amazon QuickSight. In the output, the value for <code>UserName</code> is <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code> and the corresponding IAM user is deleted.</p>
     pub user_name: ::std::option::Option<::std::string::String>,
     /// <p>The user's email address.</p>
     pub email: ::std::option::Option<::std::string::String>,
-    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p>
-    /// <ul>
-    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li>
-    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li>
-    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li>
-    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li>
-    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li>
+    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p> 
+    /// <ul> 
+    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li> 
+    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li> 
+    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li> 
     /// </ul>
     pub role: ::std::option::Option<crate::types::UserRole>,
     /// <p>The type of identity authentication used by the user.</p>
@@ -27,10 +27,10 @@ pub struct User {
     pub principal_id: ::std::option::Option<::std::string::String>,
     /// <p>The custom permissions profile associated with this user.</p>
     pub custom_permissions_name: ::std::option::Option<::std::string::String>,
-    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
-    /// <ul>
-    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li>
-    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li>
+    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p> 
+    /// <ul> 
+    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li> 
+    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li> 
     /// </ul>
     pub external_login_federation_provider_type: ::std::option::Option<::std::string::String>,
     /// <p>The URL of the external login provider.</p>
@@ -38,32 +38,32 @@ pub struct User {
     /// <p>The identity ID for the user in the external login provider.</p>
     pub external_login_id: ::std::option::Option<::std::string::String>,
 }
-impl User {
+impl  User  {
     /// <p>The Amazon Resource Name (ARN) for the user.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
     /// <p>The user's user name. This value is required if you are registering a user that will be managed in Amazon QuickSight. In the output, the value for <code>UserName</code> is <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code> and the corresponding IAM user is deleted.</p>
-    pub fn user_name(&self) -> ::std::option::Option<&str> {
+    pub fn user_name(&self) -> ::std::option::Option<& str> {
         self.user_name.as_deref()
     }
     /// <p>The user's email address.</p>
-    pub fn email(&self) -> ::std::option::Option<&str> {
+    pub fn email(&self) -> ::std::option::Option<& str> {
         self.email.as_deref()
     }
-    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p>
-    /// <ul>
-    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li>
-    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li>
-    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li>
-    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li>
-    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li>
+    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p> 
+    /// <ul> 
+    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li> 
+    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li> 
+    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li> 
     /// </ul>
-    pub fn role(&self) -> ::std::option::Option<&crate::types::UserRole> {
+    pub fn role(&self) -> ::std::option::Option<& crate::types::UserRole> {
         self.role.as_ref()
     }
     /// <p>The type of identity authentication used by the user.</p>
-    pub fn identity_type(&self) -> ::std::option::Option<&crate::types::IdentityType> {
+    pub fn identity_type(&self) -> ::std::option::Option<& crate::types::IdentityType> {
         self.identity_type.as_ref()
     }
     /// <p>The active status of user. When you create an Amazon QuickSight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.</p>
@@ -71,27 +71,27 @@ impl User {
         self.active
     }
     /// <p>The principal ID of the user.</p>
-    pub fn principal_id(&self) -> ::std::option::Option<&str> {
+    pub fn principal_id(&self) -> ::std::option::Option<& str> {
         self.principal_id.as_deref()
     }
     /// <p>The custom permissions profile associated with this user.</p>
-    pub fn custom_permissions_name(&self) -> ::std::option::Option<&str> {
+    pub fn custom_permissions_name(&self) -> ::std::option::Option<& str> {
         self.custom_permissions_name.as_deref()
     }
-    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
-    /// <ul>
-    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li>
-    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li>
+    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p> 
+    /// <ul> 
+    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li> 
+    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li> 
     /// </ul>
-    pub fn external_login_federation_provider_type(&self) -> ::std::option::Option<&str> {
+    pub fn external_login_federation_provider_type(&self) -> ::std::option::Option<& str> {
         self.external_login_federation_provider_type.as_deref()
     }
     /// <p>The URL of the external login provider.</p>
-    pub fn external_login_federation_provider_url(&self) -> ::std::option::Option<&str> {
+    pub fn external_login_federation_provider_url(&self) -> ::std::option::Option<& str> {
         self.external_login_federation_provider_url.as_deref()
     }
     /// <p>The identity ID for the user in the external login provider.</p>
-    pub fn external_login_id(&self) -> ::std::option::Option<&str> {
+    pub fn external_login_id(&self) -> ::std::option::Option<& str> {
         self.external_login_id.as_deref()
     }
 }
@@ -126,8 +126,7 @@ impl UserBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) for the user.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) for the user.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -140,8 +139,7 @@ impl UserBuilder {
     }
     /// <p>The user's user name. This value is required if you are registering a user that will be managed in Amazon QuickSight. In the output, the value for <code>UserName</code> is <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code> and the corresponding IAM user is deleted.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.user_name = input;
-        self
+        self.user_name = input; self
     }
     /// <p>The user's user name. This value is required if you are registering a user that will be managed in Amazon QuickSight. In the output, the value for <code>UserName</code> is <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code> and the corresponding IAM user is deleted.</p>
     pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -154,44 +152,42 @@ impl UserBuilder {
     }
     /// <p>The user's email address.</p>
     pub fn set_email(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.email = input;
-        self
+        self.email = input; self
     }
     /// <p>The user's email address.</p>
     pub fn get_email(&self) -> &::std::option::Option<::std::string::String> {
         &self.email
     }
-    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p>
-    /// <ul>
-    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li>
-    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li>
-    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li>
-    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li>
-    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li>
+    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p> 
+    /// <ul> 
+    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li> 
+    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li> 
+    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li> 
     /// </ul>
     pub fn role(mut self, input: crate::types::UserRole) -> Self {
         self.role = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p>
-    /// <ul>
-    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li>
-    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li>
-    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li>
-    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li>
-    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li>
+    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p> 
+    /// <ul> 
+    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li> 
+    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li> 
+    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li> 
     /// </ul>
     pub fn set_role(mut self, input: ::std::option::Option<crate::types::UserRole>) -> Self {
-        self.role = input;
-        self
+        self.role = input; self
     }
-    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p>
-    /// <ul>
-    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li>
-    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li>
-    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li>
-    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li>
-    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li>
+    /// <p>The Amazon QuickSight role for the user. The user role can be one of the following:.</p> 
+    /// <ul> 
+    /// <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li> 
+    /// <li> <p> <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and dashboards.</p> </li> 
+    /// <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon Amazon QuickSight settings.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_READER</code>: This role isn't currently available for use.</p> </li> 
+    /// <li> <p> <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p> </li> 
     /// </ul>
     pub fn get_role(&self) -> &::std::option::Option<crate::types::UserRole> {
         &self.role
@@ -203,8 +199,7 @@ impl UserBuilder {
     }
     /// <p>The type of identity authentication used by the user.</p>
     pub fn set_identity_type(mut self, input: ::std::option::Option<crate::types::IdentityType>) -> Self {
-        self.identity_type = input;
-        self
+        self.identity_type = input; self
     }
     /// <p>The type of identity authentication used by the user.</p>
     pub fn get_identity_type(&self) -> &::std::option::Option<crate::types::IdentityType> {
@@ -217,8 +212,7 @@ impl UserBuilder {
     }
     /// <p>The active status of user. When you create an Amazon QuickSight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.</p>
     pub fn set_active(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.active = input;
-        self
+        self.active = input; self
     }
     /// <p>The active status of user. When you create an Amazon QuickSight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.</p>
     pub fn get_active(&self) -> &::std::option::Option<bool> {
@@ -231,8 +225,7 @@ impl UserBuilder {
     }
     /// <p>The principal ID of the user.</p>
     pub fn set_principal_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.principal_id = input;
-        self
+        self.principal_id = input; self
     }
     /// <p>The principal ID of the user.</p>
     pub fn get_principal_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -245,35 +238,33 @@ impl UserBuilder {
     }
     /// <p>The custom permissions profile associated with this user.</p>
     pub fn set_custom_permissions_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.custom_permissions_name = input;
-        self
+        self.custom_permissions_name = input; self
     }
     /// <p>The custom permissions profile associated with this user.</p>
     pub fn get_custom_permissions_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.custom_permissions_name
     }
-    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
-    /// <ul>
-    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li>
-    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li>
+    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p> 
+    /// <ul> 
+    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li> 
+    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li> 
     /// </ul>
     pub fn external_login_federation_provider_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.external_login_federation_provider_type = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
-    /// <ul>
-    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li>
-    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li>
+    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p> 
+    /// <ul> 
+    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li> 
+    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li> 
     /// </ul>
     pub fn set_external_login_federation_provider_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.external_login_federation_provider_type = input;
-        self
+        self.external_login_federation_provider_type = input; self
     }
-    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
-    /// <ul>
-    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li>
-    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li>
+    /// <p>The type of supported external login provider that provides identity to let the user federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p> 
+    /// <ul> 
+    /// <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p> </li> 
+    /// <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p> </li> 
     /// </ul>
     pub fn get_external_login_federation_provider_type(&self) -> &::std::option::Option<::std::string::String> {
         &self.external_login_federation_provider_type
@@ -285,8 +276,7 @@ impl UserBuilder {
     }
     /// <p>The URL of the external login provider.</p>
     pub fn set_external_login_federation_provider_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.external_login_federation_provider_url = input;
-        self
+        self.external_login_federation_provider_url = input; self
     }
     /// <p>The URL of the external login provider.</p>
     pub fn get_external_login_federation_provider_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -299,8 +289,7 @@ impl UserBuilder {
     }
     /// <p>The identity ID for the user in the external login provider.</p>
     pub fn set_external_login_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.external_login_id = input;
-        self
+        self.external_login_id = input; self
     }
     /// <p>The identity ID for the user in the external login provider.</p>
     pub fn get_external_login_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -309,17 +298,30 @@ impl UserBuilder {
     /// Consumes the builder and constructs a [`User`](crate::types::User).
     pub fn build(self) -> crate::types::User {
         crate::types::User {
-            arn: self.arn,
-            user_name: self.user_name,
-            email: self.email,
-            role: self.role,
-            identity_type: self.identity_type,
-            active: self.active.unwrap_or_default(),
-            principal_id: self.principal_id,
-            custom_permissions_name: self.custom_permissions_name,
-            external_login_federation_provider_type: self.external_login_federation_provider_type,
-            external_login_federation_provider_url: self.external_login_federation_provider_url,
-            external_login_id: self.external_login_id,
+            arn: self.arn
+            ,
+            user_name: self.user_name
+            ,
+            email: self.email
+            ,
+            role: self.role
+            ,
+            identity_type: self.identity_type
+            ,
+            active: self.active
+                .unwrap_or_default()
+            ,
+            principal_id: self.principal_id
+            ,
+            custom_permissions_name: self.custom_permissions_name
+            ,
+            external_login_federation_provider_type: self.external_login_federation_provider_type
+            ,
+            external_login_federation_provider_url: self.external_login_federation_provider_url
+            ,
+            external_login_id: self.external_login_id
+            ,
         }
     }
 }
+

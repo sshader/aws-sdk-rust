@@ -3,43 +3,43 @@
 /// <p>Information about the action to be performed when a rule is triggered.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RuleAction {
+pub struct RuleAction  {
     /// <p>The type of action that creates a rule.</p>
     pub action_type: crate::types::ActionType,
     /// <p>Information about the task action. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>
     pub task_action: ::std::option::Option<crate::types::TaskActionDefinition>,
-    /// <p>Information about the EventBridge action.</p>
+    /// <p>Information about the EventBridge action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
     pub event_bridge_action: ::std::option::Option<crate::types::EventBridgeActionDefinition>,
-    /// <p>Information about the contact category action.</p>
+    /// <p>Information about the contact category action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>
     pub assign_contact_category_action: ::std::option::Option<crate::types::AssignContactCategoryActionDefinition>,
-    /// <p>Information about the send notification action.</p>
+    /// <p>Information about the send notification action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
     pub send_notification_action: ::std::option::Option<crate::types::SendNotificationActionDefinition>,
 }
-impl RuleAction {
+impl  RuleAction  {
     /// <p>The type of action that creates a rule.</p>
-    pub fn action_type(&self) -> &crate::types::ActionType {
+    pub fn action_type(&self) -> & crate::types::ActionType {
         &self.action_type
     }
     /// <p>Information about the task action. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>
-    pub fn task_action(&self) -> ::std::option::Option<&crate::types::TaskActionDefinition> {
+    pub fn task_action(&self) -> ::std::option::Option<& crate::types::TaskActionDefinition> {
         self.task_action.as_ref()
     }
-    /// <p>Information about the EventBridge action.</p>
+    /// <p>Information about the EventBridge action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
-    pub fn event_bridge_action(&self) -> ::std::option::Option<&crate::types::EventBridgeActionDefinition> {
+    pub fn event_bridge_action(&self) -> ::std::option::Option<& crate::types::EventBridgeActionDefinition> {
         self.event_bridge_action.as_ref()
     }
-    /// <p>Information about the contact category action.</p>
+    /// <p>Information about the contact category action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>
-    pub fn assign_contact_category_action(&self) -> ::std::option::Option<&crate::types::AssignContactCategoryActionDefinition> {
+    pub fn assign_contact_category_action(&self) -> ::std::option::Option<& crate::types::AssignContactCategoryActionDefinition> {
         self.assign_contact_category_action.as_ref()
     }
-    /// <p>Information about the send notification action.</p>
+    /// <p>Information about the send notification action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
-    pub fn send_notification_action(&self) -> ::std::option::Option<&crate::types::SendNotificationActionDefinition> {
+    pub fn send_notification_action(&self) -> ::std::option::Option<& crate::types::SendNotificationActionDefinition> {
         self.send_notification_action.as_ref()
     }
 }
@@ -69,8 +69,7 @@ impl RuleActionBuilder {
     }
     /// <p>The type of action that creates a rule.</p>
     pub fn set_action_type(mut self, input: ::std::option::Option<crate::types::ActionType>) -> Self {
-        self.action_type = input;
-        self
+        self.action_type = input; self
     }
     /// <p>The type of action that creates a rule.</p>
     pub fn get_action_type(&self) -> &::std::option::Option<crate::types::ActionType> {
@@ -83,60 +82,56 @@ impl RuleActionBuilder {
     }
     /// <p>Information about the task action. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>
     pub fn set_task_action(mut self, input: ::std::option::Option<crate::types::TaskActionDefinition>) -> Self {
-        self.task_action = input;
-        self
+        self.task_action = input; self
     }
     /// <p>Information about the task action. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>
     pub fn get_task_action(&self) -> &::std::option::Option<crate::types::TaskActionDefinition> {
         &self.task_action
     }
-    /// <p>Information about the EventBridge action.</p>
+    /// <p>Information about the EventBridge action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
     pub fn event_bridge_action(mut self, input: crate::types::EventBridgeActionDefinition) -> Self {
         self.event_bridge_action = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Information about the EventBridge action.</p>
+    /// <p>Information about the EventBridge action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
     pub fn set_event_bridge_action(mut self, input: ::std::option::Option<crate::types::EventBridgeActionDefinition>) -> Self {
-        self.event_bridge_action = input;
-        self
+        self.event_bridge_action = input; self
     }
-    /// <p>Information about the EventBridge action.</p>
+    /// <p>Information about the EventBridge action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
     pub fn get_event_bridge_action(&self) -> &::std::option::Option<crate::types::EventBridgeActionDefinition> {
         &self.event_bridge_action
     }
-    /// <p>Information about the contact category action.</p>
+    /// <p>Information about the contact category action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>
     pub fn assign_contact_category_action(mut self, input: crate::types::AssignContactCategoryActionDefinition) -> Self {
         self.assign_contact_category_action = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Information about the contact category action.</p>
+    /// <p>Information about the contact category action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>
     pub fn set_assign_contact_category_action(mut self, input: ::std::option::Option<crate::types::AssignContactCategoryActionDefinition>) -> Self {
-        self.assign_contact_category_action = input;
-        self
+        self.assign_contact_category_action = input; self
     }
-    /// <p>Information about the contact category action.</p>
+    /// <p>Information about the contact category action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code> </p>
     pub fn get_assign_contact_category_action(&self) -> &::std::option::Option<crate::types::AssignContactCategoryActionDefinition> {
         &self.assign_contact_category_action
     }
-    /// <p>Information about the send notification action.</p>
+    /// <p>Information about the send notification action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
     pub fn send_notification_action(mut self, input: crate::types::SendNotificationActionDefinition) -> Self {
         self.send_notification_action = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Information about the send notification action.</p>
+    /// <p>Information about the send notification action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
     pub fn set_send_notification_action(mut self, input: ::std::option::Option<crate::types::SendNotificationActionDefinition>) -> Self {
-        self.send_notification_action = input;
-        self
+        self.send_notification_action = input; self
     }
-    /// <p>Information about the send notification action.</p>
+    /// <p>Information about the send notification action.</p> 
     /// <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code> | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code> </p>
     pub fn get_send_notification_action(&self) -> &::std::option::Option<crate::types::SendNotificationActionDefinition> {
         &self.send_notification_action
@@ -145,17 +140,23 @@ impl RuleActionBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`action_type`](crate::types::builders::RuleActionBuilder::action_type)
     pub fn build(self) -> ::std::result::Result<crate::types::RuleAction, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::RuleAction {
-            action_type: self.action_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "action_type",
-                    "action_type was not specified but it is required when building RuleAction",
-                )
-            })?,
-            task_action: self.task_action,
-            event_bridge_action: self.event_bridge_action,
-            assign_contact_category_action: self.assign_contact_category_action,
-            send_notification_action: self.send_notification_action,
-        })
+        ::std::result::Result::Ok(
+            crate::types::RuleAction {
+                action_type: self.action_type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("action_type", "action_type was not specified but it is required when building RuleAction")
+                    )?
+                ,
+                task_action: self.task_action
+                ,
+                event_bridge_action: self.event_bridge_action
+                ,
+                assign_contact_category_action: self.assign_contact_category_action
+                ,
+                send_notification_action: self.send_notification_action
+                ,
+            }
+        )
     }
 }
+

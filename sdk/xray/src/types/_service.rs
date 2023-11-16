@@ -3,23 +3,23 @@
 /// <p>Information about an application that processed requests, users that made requests, or downstream services, resources, and applications that an application used.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Service {
+pub struct Service  {
     /// <p>Identifier for the service. Unique within the service map.</p>
     pub reference_id: ::std::option::Option<i32>,
     /// <p>The canonical name of the service.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>A list of names for the service, including the canonical name.</p>
-    pub names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub names: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>Indicates that the service was the first service to process a request.</p>
     pub root: ::std::option::Option<bool>,
     /// <p>Identifier of the Amazon Web Services account in which the service runs.</p>
     pub account_id: ::std::option::Option<::std::string::String>,
-    /// <p>The type of service.</p>
-    /// <ul>
-    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li>
-    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li>
-    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li>
-    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li>
+    /// <p>The type of service.</p> 
+    /// <ul> 
+    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li> 
+    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li> 
+    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li> 
+    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li> 
     /// </ul>
     pub r#type: ::std::option::Option<::std::string::String>,
     /// <p>The service's state.</p>
@@ -29,80 +29,84 @@ pub struct Service {
     /// <p>The end time of the last segment that the service generated.</p>
     pub end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>Connections to downstream services.</p>
-    pub edges: ::std::option::Option<::std::vec::Vec<crate::types::Edge>>,
+    pub edges: ::std::option::Option<::std::vec::Vec::<crate::types::Edge>>,
     /// <p>Aggregated statistics for the service.</p>
     pub summary_statistics: ::std::option::Option<crate::types::ServiceStatistics>,
     /// <p>A histogram that maps the spread of service durations.</p>
-    pub duration_histogram: ::std::option::Option<::std::vec::Vec<crate::types::HistogramEntry>>,
+    pub duration_histogram: ::std::option::Option<::std::vec::Vec::<crate::types::HistogramEntry>>,
     /// <p>A histogram that maps the spread of service response times.</p>
-    pub response_time_histogram: ::std::option::Option<::std::vec::Vec<crate::types::HistogramEntry>>,
+    pub response_time_histogram: ::std::option::Option<::std::vec::Vec::<crate::types::HistogramEntry>>,
 }
-impl Service {
+impl  Service  {
     /// <p>Identifier for the service. Unique within the service map.</p>
     pub fn reference_id(&self) -> ::std::option::Option<i32> {
         self.reference_id
     }
     /// <p>The canonical name of the service.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>A list of names for the service, including the canonical name.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.names.is_none()`.
-    pub fn names(&self) -> &[::std::string::String] {
-        self.names.as_deref().unwrap_or_default()
+    pub fn names(&self) -> & [::std::string::String] {
+        self.names.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Indicates that the service was the first service to process a request.</p>
     pub fn root(&self) -> ::std::option::Option<bool> {
         self.root
     }
     /// <p>Identifier of the Amazon Web Services account in which the service runs.</p>
-    pub fn account_id(&self) -> ::std::option::Option<&str> {
+    pub fn account_id(&self) -> ::std::option::Option<& str> {
         self.account_id.as_deref()
     }
-    /// <p>The type of service.</p>
-    /// <ul>
-    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li>
-    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li>
-    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li>
-    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li>
+    /// <p>The type of service.</p> 
+    /// <ul> 
+    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li> 
+    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li> 
+    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li> 
+    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> ::std::option::Option<&str> {
+    pub fn r#type(&self) -> ::std::option::Option<& str> {
         self.r#type.as_deref()
     }
     /// <p>The service's state.</p>
-    pub fn state(&self) -> ::std::option::Option<&str> {
+    pub fn state(&self) -> ::std::option::Option<& str> {
         self.state.as_deref()
     }
     /// <p>The start time of the first segment that the service generated.</p>
-    pub fn start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.start_time.as_ref()
     }
     /// <p>The end time of the last segment that the service generated.</p>
-    pub fn end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.end_time.as_ref()
     }
     /// <p>Connections to downstream services.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.edges.is_none()`.
-    pub fn edges(&self) -> &[crate::types::Edge] {
-        self.edges.as_deref().unwrap_or_default()
+    pub fn edges(&self) -> & [crate::types::Edge] {
+        self.edges.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Aggregated statistics for the service.</p>
-    pub fn summary_statistics(&self) -> ::std::option::Option<&crate::types::ServiceStatistics> {
+    pub fn summary_statistics(&self) -> ::std::option::Option<& crate::types::ServiceStatistics> {
         self.summary_statistics.as_ref()
     }
     /// <p>A histogram that maps the spread of service durations.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.duration_histogram.is_none()`.
-    pub fn duration_histogram(&self) -> &[crate::types::HistogramEntry] {
-        self.duration_histogram.as_deref().unwrap_or_default()
+    pub fn duration_histogram(&self) -> & [crate::types::HistogramEntry] {
+        self.duration_histogram.as_deref()
+        .unwrap_or_default()
     }
     /// <p>A histogram that maps the spread of service response times.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.response_time_histogram.is_none()`.
-    pub fn response_time_histogram(&self) -> &[crate::types::HistogramEntry] {
-        self.response_time_histogram.as_deref().unwrap_or_default()
+    pub fn response_time_histogram(&self) -> & [crate::types::HistogramEntry] {
+        self.response_time_histogram.as_deref()
+        .unwrap_or_default()
     }
 }
 impl Service {
@@ -118,17 +122,17 @@ impl Service {
 pub struct ServiceBuilder {
     pub(crate) reference_id: ::std::option::Option<i32>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
-    pub(crate) names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) names: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) root: ::std::option::Option<bool>,
     pub(crate) account_id: ::std::option::Option<::std::string::String>,
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
     pub(crate) state: ::std::option::Option<::std::string::String>,
     pub(crate) start_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) edges: ::std::option::Option<::std::vec::Vec<crate::types::Edge>>,
+    pub(crate) edges: ::std::option::Option<::std::vec::Vec::<crate::types::Edge>>,
     pub(crate) summary_statistics: ::std::option::Option<crate::types::ServiceStatistics>,
-    pub(crate) duration_histogram: ::std::option::Option<::std::vec::Vec<crate::types::HistogramEntry>>,
-    pub(crate) response_time_histogram: ::std::option::Option<::std::vec::Vec<crate::types::HistogramEntry>>,
+    pub(crate) duration_histogram: ::std::option::Option<::std::vec::Vec::<crate::types::HistogramEntry>>,
+    pub(crate) response_time_histogram: ::std::option::Option<::std::vec::Vec::<crate::types::HistogramEntry>>,
 }
 impl ServiceBuilder {
     /// <p>Identifier for the service. Unique within the service map.</p>
@@ -138,8 +142,7 @@ impl ServiceBuilder {
     }
     /// <p>Identifier for the service. Unique within the service map.</p>
     pub fn set_reference_id(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.reference_id = input;
-        self
+        self.reference_id = input; self
     }
     /// <p>Identifier for the service. Unique within the service map.</p>
     pub fn get_reference_id(&self) -> &::std::option::Option<i32> {
@@ -152,8 +155,7 @@ impl ServiceBuilder {
     }
     /// <p>The canonical name of the service.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The canonical name of the service.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -166,17 +168,16 @@ impl ServiceBuilder {
     /// <p>A list of names for the service, including the canonical name.</p>
     pub fn names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.names.unwrap_or_default();
-        v.push(input.into());
-        self.names = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.names = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of names for the service, including the canonical name.</p>
-    pub fn set_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.names = input;
-        self
+    pub fn set_names(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.names = input; self
     }
     /// <p>A list of names for the service, including the canonical name.</p>
-    pub fn get_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_names(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.names
     }
     /// <p>Indicates that the service was the first service to process a request.</p>
@@ -186,8 +187,7 @@ impl ServiceBuilder {
     }
     /// <p>Indicates that the service was the first service to process a request.</p>
     pub fn set_root(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.root = input;
-        self
+        self.root = input; self
     }
     /// <p>Indicates that the service was the first service to process a request.</p>
     pub fn get_root(&self) -> &::std::option::Option<bool> {
@@ -200,41 +200,39 @@ impl ServiceBuilder {
     }
     /// <p>Identifier of the Amazon Web Services account in which the service runs.</p>
     pub fn set_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.account_id = input;
-        self
+        self.account_id = input; self
     }
     /// <p>Identifier of the Amazon Web Services account in which the service runs.</p>
     pub fn get_account_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.account_id
     }
-    /// <p>The type of service.</p>
-    /// <ul>
-    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li>
-    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li>
-    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li>
-    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li>
+    /// <p>The type of service.</p> 
+    /// <ul> 
+    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li> 
+    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li> 
+    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li> 
+    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.r#type = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The type of service.</p>
-    /// <ul>
-    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li>
-    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li>
-    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li>
-    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li>
+    /// <p>The type of service.</p> 
+    /// <ul> 
+    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li> 
+    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li> 
+    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li> 
+    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of service.</p>
-    /// <ul>
-    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li>
-    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li>
-    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li>
-    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li>
+    /// <p>The type of service.</p> 
+    /// <ul> 
+    /// <li> <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li> 
+    /// <li> <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li> 
+    /// <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li> 
+    /// <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<::std::string::String> {
         &self.r#type
@@ -246,8 +244,7 @@ impl ServiceBuilder {
     }
     /// <p>The service's state.</p>
     pub fn set_state(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
     /// <p>The service's state.</p>
     pub fn get_state(&self) -> &::std::option::Option<::std::string::String> {
@@ -260,8 +257,7 @@ impl ServiceBuilder {
     }
     /// <p>The start time of the first segment that the service generated.</p>
     pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.start_time = input;
-        self
+        self.start_time = input; self
     }
     /// <p>The start time of the first segment that the service generated.</p>
     pub fn get_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -274,8 +270,7 @@ impl ServiceBuilder {
     }
     /// <p>The end time of the last segment that the service generated.</p>
     pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.end_time = input;
-        self
+        self.end_time = input; self
     }
     /// <p>The end time of the last segment that the service generated.</p>
     pub fn get_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -288,17 +283,16 @@ impl ServiceBuilder {
     /// <p>Connections to downstream services.</p>
     pub fn edges(mut self, input: crate::types::Edge) -> Self {
         let mut v = self.edges.unwrap_or_default();
-        v.push(input);
-        self.edges = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.edges = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>Connections to downstream services.</p>
-    pub fn set_edges(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Edge>>) -> Self {
-        self.edges = input;
-        self
+    pub fn set_edges(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Edge>>) -> Self {
+        self.edges = input; self
     }
     /// <p>Connections to downstream services.</p>
-    pub fn get_edges(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Edge>> {
+    pub fn get_edges(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Edge>> {
         &self.edges
     }
     /// <p>Aggregated statistics for the service.</p>
@@ -308,8 +302,7 @@ impl ServiceBuilder {
     }
     /// <p>Aggregated statistics for the service.</p>
     pub fn set_summary_statistics(mut self, input: ::std::option::Option<crate::types::ServiceStatistics>) -> Self {
-        self.summary_statistics = input;
-        self
+        self.summary_statistics = input; self
     }
     /// <p>Aggregated statistics for the service.</p>
     pub fn get_summary_statistics(&self) -> &::std::option::Option<crate::types::ServiceStatistics> {
@@ -322,17 +315,16 @@ impl ServiceBuilder {
     /// <p>A histogram that maps the spread of service durations.</p>
     pub fn duration_histogram(mut self, input: crate::types::HistogramEntry) -> Self {
         let mut v = self.duration_histogram.unwrap_or_default();
-        v.push(input);
-        self.duration_histogram = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.duration_histogram = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A histogram that maps the spread of service durations.</p>
-    pub fn set_duration_histogram(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::HistogramEntry>>) -> Self {
-        self.duration_histogram = input;
-        self
+    pub fn set_duration_histogram(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::HistogramEntry>>) -> Self {
+        self.duration_histogram = input; self
     }
     /// <p>A histogram that maps the spread of service durations.</p>
-    pub fn get_duration_histogram(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::HistogramEntry>> {
+    pub fn get_duration_histogram(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::HistogramEntry>> {
         &self.duration_histogram
     }
     /// Appends an item to `response_time_histogram`.
@@ -342,35 +334,48 @@ impl ServiceBuilder {
     /// <p>A histogram that maps the spread of service response times.</p>
     pub fn response_time_histogram(mut self, input: crate::types::HistogramEntry) -> Self {
         let mut v = self.response_time_histogram.unwrap_or_default();
-        v.push(input);
-        self.response_time_histogram = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.response_time_histogram = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A histogram that maps the spread of service response times.</p>
-    pub fn set_response_time_histogram(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::HistogramEntry>>) -> Self {
-        self.response_time_histogram = input;
-        self
+    pub fn set_response_time_histogram(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::HistogramEntry>>) -> Self {
+        self.response_time_histogram = input; self
     }
     /// <p>A histogram that maps the spread of service response times.</p>
-    pub fn get_response_time_histogram(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::HistogramEntry>> {
+    pub fn get_response_time_histogram(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::HistogramEntry>> {
         &self.response_time_histogram
     }
     /// Consumes the builder and constructs a [`Service`](crate::types::Service).
     pub fn build(self) -> crate::types::Service {
         crate::types::Service {
-            reference_id: self.reference_id,
-            name: self.name,
-            names: self.names,
-            root: self.root,
-            account_id: self.account_id,
-            r#type: self.r#type,
-            state: self.state,
-            start_time: self.start_time,
-            end_time: self.end_time,
-            edges: self.edges,
-            summary_statistics: self.summary_statistics,
-            duration_histogram: self.duration_histogram,
-            response_time_histogram: self.response_time_histogram,
+            reference_id: self.reference_id
+            ,
+            name: self.name
+            ,
+            names: self.names
+            ,
+            root: self.root
+            ,
+            account_id: self.account_id
+            ,
+            r#type: self.r#type
+            ,
+            state: self.state
+            ,
+            start_time: self.start_time
+            ,
+            end_time: self.end_time
+            ,
+            edges: self.edges
+            ,
+            summary_statistics: self.summary_statistics
+            ,
+            duration_histogram: self.duration_histogram
+            ,
+            response_time_histogram: self.response_time_histogram
+            ,
         }
     }
 }
+

@@ -3,45 +3,43 @@
 /// <p>Contains details about an activity.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ActivityListItem {
+pub struct ActivityListItem  {
     /// <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
     pub activity_arn: ::std::string::String,
-    /// <p>The name of the activity.</p>
-    /// <p>A name must <i>not</i> contain:</p>
-    /// <ul>
-    /// <li> <p>white space</p> </li>
-    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li>
-    /// <li> <p>wildcard characters <code>? *</code> </p> </li>
-    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
-    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li>
-    /// </ul>
+    /// <p>The name of the activity.</p> 
+    /// <p>A name must <i>not</i> contain:</p> 
+    /// <ul> 
+    /// <li> <p>white space</p> </li> 
+    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li> 
+    /// <li> <p>wildcard characters <code>? *</code> </p> </li> 
+    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li> 
+    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li> 
+    /// </ul> 
     /// <p>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
     pub name: ::std::string::String,
     /// <p>The date the activity is created.</p>
     pub creation_date: ::aws_smithy_types::DateTime,
 }
-impl ActivityListItem {
+impl  ActivityListItem  {
     /// <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
-    pub fn activity_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.activity_arn.deref()
+    pub fn activity_arn(&self) -> & str {
+        use std::ops::Deref; self.activity_arn.deref()
     }
-    /// <p>The name of the activity.</p>
-    /// <p>A name must <i>not</i> contain:</p>
-    /// <ul>
-    /// <li> <p>white space</p> </li>
-    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li>
-    /// <li> <p>wildcard characters <code>? *</code> </p> </li>
-    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
-    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li>
-    /// </ul>
+    /// <p>The name of the activity.</p> 
+    /// <p>A name must <i>not</i> contain:</p> 
+    /// <ul> 
+    /// <li> <p>white space</p> </li> 
+    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li> 
+    /// <li> <p>wildcard characters <code>? *</code> </p> </li> 
+    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li> 
+    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li> 
+    /// </ul> 
     /// <p>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// <p>The date the activity is created.</p>
-    pub fn creation_date(&self) -> &::aws_smithy_types::DateTime {
+    pub fn creation_date(&self) -> & ::aws_smithy_types::DateTime {
         &self.creation_date
     }
 }
@@ -69,51 +67,49 @@ impl ActivityListItemBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
     pub fn set_activity_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.activity_arn = input;
-        self
+        self.activity_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
     pub fn get_activity_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.activity_arn
     }
-    /// <p>The name of the activity.</p>
-    /// <p>A name must <i>not</i> contain:</p>
-    /// <ul>
-    /// <li> <p>white space</p> </li>
-    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li>
-    /// <li> <p>wildcard characters <code>? *</code> </p> </li>
-    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
-    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li>
-    /// </ul>
+    /// <p>The name of the activity.</p> 
+    /// <p>A name must <i>not</i> contain:</p> 
+    /// <ul> 
+    /// <li> <p>white space</p> </li> 
+    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li> 
+    /// <li> <p>wildcard characters <code>? *</code> </p> </li> 
+    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li> 
+    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li> 
+    /// </ul> 
     /// <p>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
     /// This field is required.
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the activity.</p>
-    /// <p>A name must <i>not</i> contain:</p>
-    /// <ul>
-    /// <li> <p>white space</p> </li>
-    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li>
-    /// <li> <p>wildcard characters <code>? *</code> </p> </li>
-    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
-    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li>
-    /// </ul>
+    /// <p>The name of the activity.</p> 
+    /// <p>A name must <i>not</i> contain:</p> 
+    /// <ul> 
+    /// <li> <p>white space</p> </li> 
+    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li> 
+    /// <li> <p>wildcard characters <code>? *</code> </p> </li> 
+    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li> 
+    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li> 
+    /// </ul> 
     /// <p>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
-    /// <p>The name of the activity.</p>
-    /// <p>A name must <i>not</i> contain:</p>
-    /// <ul>
-    /// <li> <p>white space</p> </li>
-    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li>
-    /// <li> <p>wildcard characters <code>? *</code> </p> </li>
-    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
-    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li>
-    /// </ul>
+    /// <p>The name of the activity.</p> 
+    /// <p>A name must <i>not</i> contain:</p> 
+    /// <ul> 
+    /// <li> <p>white space</p> </li> 
+    /// <li> <p>brackets <code>&lt; &gt; { } [ ]</code> </p> </li> 
+    /// <li> <p>wildcard characters <code>? *</code> </p> </li> 
+    /// <li> <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li> 
+    /// <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</p> </li> 
+    /// </ul> 
     /// <p>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
@@ -126,8 +122,7 @@ impl ActivityListItemBuilder {
     }
     /// <p>The date the activity is created.</p>
     pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_date = input;
-        self
+        self.creation_date = input; self
     }
     /// <p>The date the activity is created.</p>
     pub fn get_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -139,25 +134,25 @@ impl ActivityListItemBuilder {
     /// - [`name`](crate::types::builders::ActivityListItemBuilder::name)
     /// - [`creation_date`](crate::types::builders::ActivityListItemBuilder::creation_date)
     pub fn build(self) -> ::std::result::Result<crate::types::ActivityListItem, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ActivityListItem {
-            activity_arn: self.activity_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "activity_arn",
-                    "activity_arn was not specified but it is required when building ActivityListItem",
-                )
-            })?,
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building ActivityListItem",
-                )
-            })?,
-            creation_date: self.creation_date.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "creation_date",
-                    "creation_date was not specified but it is required when building ActivityListItem",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::ActivityListItem {
+                activity_arn: self.activity_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("activity_arn", "activity_arn was not specified but it is required when building ActivityListItem")
+                    )?
+                ,
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building ActivityListItem")
+                    )?
+                ,
+                creation_date: self.creation_date
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("creation_date", "creation_date was not specified but it is required when building ActivityListItem")
+                    )?
+                ,
+            }
+        )
     }
 }
+

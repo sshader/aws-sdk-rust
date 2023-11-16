@@ -3,30 +3,30 @@
 /// <p>Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional, but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ScanRange {
+pub struct ScanRange  {
     /// <p>Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0. If only <code>start</code> is supplied, it means scan from that point to the end of the file. For example, <code>
     /// <scanrange>
     /// <start>
     /// 50
     /// </start>
     /// </scanrange></code> means scan from byte 50 until the end of the file.</p>
-    pub start: i64,
+    pub start: ::std::option::Option<i64>,
     /// <p>Specifies the end of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is one less than the size of the object being queried. If only the End parameter is supplied, it is interpreted to mean scan the last N bytes of the file. For example, <code>
     /// <scanrange>
     /// <end>
     /// 50
     /// </end>
     /// </scanrange></code> means scan the last 50 bytes.</p>
-    pub end: i64,
+    pub end: ::std::option::Option<i64>,
 }
-impl ScanRange {
+impl  ScanRange  {
     /// <p>Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0. If only <code>start</code> is supplied, it means scan from that point to the end of the file. For example, <code>
     /// <scanrange>
     /// <start>
     /// 50
     /// </start>
     /// </scanrange></code> means scan from byte 50 until the end of the file.</p>
-    pub fn start(&self) -> i64 {
+    pub fn start(&self) -> ::std::option::Option<i64> {
         self.start
     }
     /// <p>Specifies the end of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is one less than the size of the object being queried. If only the End parameter is supplied, it is interpreted to mean scan the last N bytes of the file. For example, <code>
@@ -35,7 +35,7 @@ impl ScanRange {
     /// 50
     /// </end>
     /// </scanrange></code> means scan the last 50 bytes.</p>
-    pub fn end(&self) -> i64 {
+    pub fn end(&self) -> ::std::option::Option<i64> {
         self.end
     }
 }
@@ -71,8 +71,7 @@ impl ScanRangeBuilder {
     /// </start>
     /// </scanrange></code> means scan from byte 50 until the end of the file.</p>
     pub fn set_start(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.start = input;
-        self
+        self.start = input; self
     }
     /// <p>Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0. If only <code>start</code> is supplied, it means scan from that point to the end of the file. For example, <code>
     /// <scanrange>
@@ -100,8 +99,7 @@ impl ScanRangeBuilder {
     /// </end>
     /// </scanrange></code> means scan the last 50 bytes.</p>
     pub fn set_end(mut self, input: ::std::option::Option<i64>) -> Self {
-        self.end = input;
-        self
+        self.end = input; self
     }
     /// <p>Specifies the end of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is one less than the size of the object being queried. If only the End parameter is supplied, it is interpreted to mean scan the last N bytes of the file. For example, <code>
     /// <scanrange>
@@ -115,8 +113,11 @@ impl ScanRangeBuilder {
     /// Consumes the builder and constructs a [`ScanRange`](crate::types::ScanRange).
     pub fn build(self) -> crate::types::ScanRange {
         crate::types::ScanRange {
-            start: self.start.unwrap_or_default(),
-            end: self.end.unwrap_or_default(),
+            start: self.start
+            ,
+            end: self.end
+            ,
         }
     }
 }
+

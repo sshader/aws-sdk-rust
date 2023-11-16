@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct StartAssetBundleImportJobInput {
+pub struct StartAssetBundleImportJobInput  {
     /// <p>The ID of the Amazon Web Services account to import assets into. </p>
     pub aws_account_id: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
@@ -11,32 +11,32 @@ pub struct StartAssetBundleImportJobInput {
     pub asset_bundle_import_source: ::std::option::Option<crate::types::AssetBundleImportSource>,
     /// <p>Optional overrides to be applied to the resource configuration before import.</p>
     pub override_parameters: ::std::option::Option<crate::types::AssetBundleImportJobOverrideParameters>,
-    /// <p>The failure action for the import job.</p>
-    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p>
+    /// <p>The failure action for the import job.</p> 
+    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p> 
     /// <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
     pub failure_action: ::std::option::Option<crate::types::AssetBundleImportFailureAction>,
 }
-impl StartAssetBundleImportJobInput {
+impl  StartAssetBundleImportJobInput  {
     /// <p>The ID of the Amazon Web Services account to import assets into. </p>
-    pub fn aws_account_id(&self) -> ::std::option::Option<&str> {
+    pub fn aws_account_id(&self) -> ::std::option::Option<& str> {
         self.aws_account_id.as_deref()
     }
     /// <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
-    pub fn asset_bundle_import_job_id(&self) -> ::std::option::Option<&str> {
+    pub fn asset_bundle_import_job_id(&self) -> ::std::option::Option<& str> {
         self.asset_bundle_import_job_id.as_deref()
     }
     /// <p>The source of the asset bundle zip file that contains the data that you want to import. The file must be in <code>QUICKSIGHT_JSON</code> format. </p>
-    pub fn asset_bundle_import_source(&self) -> ::std::option::Option<&crate::types::AssetBundleImportSource> {
+    pub fn asset_bundle_import_source(&self) -> ::std::option::Option<& crate::types::AssetBundleImportSource> {
         self.asset_bundle_import_source.as_ref()
     }
     /// <p>Optional overrides to be applied to the resource configuration before import.</p>
-    pub fn override_parameters(&self) -> ::std::option::Option<&crate::types::AssetBundleImportJobOverrideParameters> {
+    pub fn override_parameters(&self) -> ::std::option::Option<& crate::types::AssetBundleImportJobOverrideParameters> {
         self.override_parameters.as_ref()
     }
-    /// <p>The failure action for the import job.</p>
-    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p>
+    /// <p>The failure action for the import job.</p> 
+    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p> 
     /// <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
-    pub fn failure_action(&self) -> ::std::option::Option<&crate::types::AssetBundleImportFailureAction> {
+    pub fn failure_action(&self) -> ::std::option::Option<& crate::types::AssetBundleImportFailureAction> {
         self.failure_action.as_ref()
     }
 }
@@ -66,8 +66,7 @@ impl StartAssetBundleImportJobInputBuilder {
     }
     /// <p>The ID of the Amazon Web Services account to import assets into. </p>
     pub fn set_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.aws_account_id = input;
-        self
+        self.aws_account_id = input; self
     }
     /// <p>The ID of the Amazon Web Services account to import assets into. </p>
     pub fn get_aws_account_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -81,8 +80,7 @@ impl StartAssetBundleImportJobInputBuilder {
     }
     /// <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
     pub fn set_asset_bundle_import_job_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.asset_bundle_import_job_id = input;
-        self
+        self.asset_bundle_import_job_id = input; self
     }
     /// <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
     pub fn get_asset_bundle_import_job_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -96,8 +94,7 @@ impl StartAssetBundleImportJobInputBuilder {
     }
     /// <p>The source of the asset bundle zip file that contains the data that you want to import. The file must be in <code>QUICKSIGHT_JSON</code> format. </p>
     pub fn set_asset_bundle_import_source(mut self, input: ::std::option::Option<crate::types::AssetBundleImportSource>) -> Self {
-        self.asset_bundle_import_source = input;
-        self
+        self.asset_bundle_import_source = input; self
     }
     /// <p>The source of the asset bundle zip file that contains the data that you want to import. The file must be in <code>QUICKSIGHT_JSON</code> format. </p>
     pub fn get_asset_bundle_import_source(&self) -> &::std::option::Option<crate::types::AssetBundleImportSource> {
@@ -110,46 +107,47 @@ impl StartAssetBundleImportJobInputBuilder {
     }
     /// <p>Optional overrides to be applied to the resource configuration before import.</p>
     pub fn set_override_parameters(mut self, input: ::std::option::Option<crate::types::AssetBundleImportJobOverrideParameters>) -> Self {
-        self.override_parameters = input;
-        self
+        self.override_parameters = input; self
     }
     /// <p>Optional overrides to be applied to the resource configuration before import.</p>
     pub fn get_override_parameters(&self) -> &::std::option::Option<crate::types::AssetBundleImportJobOverrideParameters> {
         &self.override_parameters
     }
-    /// <p>The failure action for the import job.</p>
-    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p>
+    /// <p>The failure action for the import job.</p> 
+    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p> 
     /// <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
     pub fn failure_action(mut self, input: crate::types::AssetBundleImportFailureAction) -> Self {
         self.failure_action = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The failure action for the import job.</p>
-    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p>
+    /// <p>The failure action for the import job.</p> 
+    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p> 
     /// <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
     pub fn set_failure_action(mut self, input: ::std::option::Option<crate::types::AssetBundleImportFailureAction>) -> Self {
-        self.failure_action = input;
-        self
+        self.failure_action = input; self
     }
-    /// <p>The failure action for the import job.</p>
-    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p>
+    /// <p>The failure action for the import job.</p> 
+    /// <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset changes caused by the failed job.</p> 
     /// <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
     pub fn get_failure_action(&self) -> &::std::option::Option<crate::types::AssetBundleImportFailureAction> {
         &self.failure_action
     }
     /// Consumes the builder and constructs a [`StartAssetBundleImportJobInput`](crate::operation::start_asset_bundle_import_job::StartAssetBundleImportJobInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::start_asset_bundle_import_job::StartAssetBundleImportJobInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::start_asset_bundle_import_job::StartAssetBundleImportJobInput {
-            aws_account_id: self.aws_account_id,
-            asset_bundle_import_job_id: self.asset_bundle_import_job_id,
-            asset_bundle_import_source: self.asset_bundle_import_source,
-            override_parameters: self.override_parameters,
-            failure_action: self.failure_action,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::start_asset_bundle_import_job::StartAssetBundleImportJobInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::start_asset_bundle_import_job::StartAssetBundleImportJobInput {
+                aws_account_id: self.aws_account_id
+                ,
+                asset_bundle_import_job_id: self.asset_bundle_import_job_id
+                ,
+                asset_bundle_import_source: self.asset_bundle_import_source
+                ,
+                override_parameters: self.override_parameters
+                ,
+                failure_action: self.failure_action
+                ,
+            }
+        )
     }
 }
+

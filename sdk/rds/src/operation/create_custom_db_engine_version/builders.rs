@@ -5,54 +5,50 @@ pub use crate::operation::create_custom_db_engine_version::_create_custom_db_eng
 
 impl CreateCustomDbEngineVersionInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_custom_db_engine_version();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_custom_db_engine_version();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateCustomDBEngineVersion`.
-///
+/// 
 /// <p>Creates a custom DB engine version (CEV).</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateCustomDBEngineVersionFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_custom_db_engine_version::builders::CreateCustomDbEngineVersionInputBuilder,
+                    inner: crate::operation::create_custom_db_engine_version::builders::CreateCustomDbEngineVersionInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput,
-        crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError,
-    > for CreateCustomDBEngineVersionFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput,
-            crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput,
+                    crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError,
+                > for CreateCustomDBEngineVersionFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput,
+                        crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateCustomDBEngineVersionFluentBuilder {
     /// Creates a new `CreateCustomDBEngineVersion`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl CreateCustomDBEngineVersionFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersion::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersion::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput,
-        crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersion::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersion::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_custom_db_engine_version::CreateCustomDbEngineVersionOutput, crate::operation::create_custom_db_engine_version::CreateCustomDBEngineVersionError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The database engine to use for your custom engine version (CEV). The only supported value is <code>custom-oracle-ee</code>.</p>
     pub fn engine(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.engine(input.into());
@@ -178,22 +165,22 @@ impl CreateCustomDBEngineVersionFluentBuilder {
     pub fn get_image_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_image_id()
     }
-    /// <p>The Amazon Web Services KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.</p>
-    /// <p>If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk"> Creating a symmetric encryption KMS key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+    /// <p>The Amazon Web Services KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.</p> 
+    /// <p>If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk"> Creating a symmetric encryption KMS key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> 
     /// <p>You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.</p>
     pub fn kms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.kms_key_id(input.into());
         self
     }
-    /// <p>The Amazon Web Services KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.</p>
-    /// <p>If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk"> Creating a symmetric encryption KMS key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+    /// <p>The Amazon Web Services KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.</p> 
+    /// <p>If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk"> Creating a symmetric encryption KMS key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> 
     /// <p>You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.</p>
     pub fn set_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_kms_key_id(input);
         self
     }
-    /// <p>The Amazon Web Services KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.</p>
-    /// <p>If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk"> Creating a symmetric encryption KMS key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+    /// <p>The Amazon Web Services KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.</p> 
+    /// <p>If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk"> Creating a symmetric encryption KMS key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> 
     /// <p>You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.</p>
     pub fn get_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_kms_key_id()
@@ -212,118 +199,118 @@ impl CreateCustomDBEngineVersionFluentBuilder {
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_description()
     }
-    /// <p>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</p>
-    /// <p>The following JSON fields are valid:</p>
-    /// <dl>
+    /// <p>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</p> 
+    /// <p>The following JSON fields are valid:</p> 
+    /// <dl> 
     /// <dt>
     /// MediaImportTemplateVersion
-    /// </dt>
-    /// <dd>
-    /// <p>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// databaseInstallationFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>Ordered list of installation files for the CEV.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Ordered list of installation files for the CEV.</p> 
+    /// </dd> 
     /// <dt>
     /// opatchFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>Ordered list of OPatch installers used for the Oracle DB engine.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Ordered list of OPatch installers used for the Oracle DB engine.</p> 
+    /// </dd> 
     /// <dt>
     /// psuRuPatchFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>The PSU and RU patches for this CEV.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The PSU and RU patches for this CEV.</p> 
+    /// </dd> 
     /// <dt>
     /// OtherPatchFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.</p>
-    /// </dd>
-    /// </dl>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.</p> 
+    /// </dd> 
+    /// </dl> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest"> Creating the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.</p>
     pub fn manifest(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.manifest(input.into());
         self
     }
-    /// <p>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</p>
-    /// <p>The following JSON fields are valid:</p>
-    /// <dl>
+    /// <p>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</p> 
+    /// <p>The following JSON fields are valid:</p> 
+    /// <dl> 
     /// <dt>
     /// MediaImportTemplateVersion
-    /// </dt>
-    /// <dd>
-    /// <p>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// databaseInstallationFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>Ordered list of installation files for the CEV.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Ordered list of installation files for the CEV.</p> 
+    /// </dd> 
     /// <dt>
     /// opatchFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>Ordered list of OPatch installers used for the Oracle DB engine.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Ordered list of OPatch installers used for the Oracle DB engine.</p> 
+    /// </dd> 
     /// <dt>
     /// psuRuPatchFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>The PSU and RU patches for this CEV.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The PSU and RU patches for this CEV.</p> 
+    /// </dd> 
     /// <dt>
     /// OtherPatchFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.</p>
-    /// </dd>
-    /// </dl>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.</p> 
+    /// </dd> 
+    /// </dl> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest"> Creating the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.</p>
     pub fn set_manifest(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_manifest(input);
         self
     }
-    /// <p>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</p>
-    /// <p>The following JSON fields are valid:</p>
-    /// <dl>
+    /// <p>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</p> 
+    /// <p>The following JSON fields are valid:</p> 
+    /// <dl> 
     /// <dt>
     /// MediaImportTemplateVersion
-    /// </dt>
-    /// <dd>
-    /// <p>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</p> 
+    /// </dd> 
     /// <dt>
     /// databaseInstallationFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>Ordered list of installation files for the CEV.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Ordered list of installation files for the CEV.</p> 
+    /// </dd> 
     /// <dt>
     /// opatchFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>Ordered list of OPatch installers used for the Oracle DB engine.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>Ordered list of OPatch installers used for the Oracle DB engine.</p> 
+    /// </dd> 
     /// <dt>
     /// psuRuPatchFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>The PSU and RU patches for this CEV.</p>
-    /// </dd>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The PSU and RU patches for this CEV.</p> 
+    /// </dd> 
     /// <dt>
     /// OtherPatchFileNames
-    /// </dt>
-    /// <dd>
-    /// <p>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.</p>
-    /// </dd>
-    /// </dl>
+    /// </dt> 
+    /// <dd> 
+    /// <p>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.</p> 
+    /// </dd> 
+    /// </dl> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest"> Creating the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.</p>
     pub fn get_manifest(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_manifest()
@@ -338,12 +325,12 @@ impl CreateCustomDBEngineVersionFluentBuilder {
         self
     }
     /// <p>A list of tags. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i> </p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>A list of tags. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i> </p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
     /// <p>The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either <code>Source</code> or <code>UseAwsProvidedLatestImage</code>. You can't specify a different JSON manifest when you specify <code>SourceCustomDbEngineVersionIdentifier</code>.</p>
@@ -375,3 +362,4 @@ impl CreateCustomDBEngineVersionFluentBuilder {
         self.inner.get_use_aws_provided_latest_image()
     }
 }
+

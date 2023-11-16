@@ -2,56 +2,56 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateIamPolicyAssignmentOutput {
+pub struct CreateIamPolicyAssignmentOutput  {
     /// <p>The name of the assignment. The name must be unique within the Amazon Web Services account.</p>
     pub assignment_name: ::std::option::Option<::std::string::String>,
     /// <p>The ID for the assignment.</p>
     pub assignment_id: ::std::option::Option<::std::string::String>,
-    /// <p>The status of the assignment. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li>
-    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li>
+    /// <p>The status of the assignment. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li> 
     /// </ul>
     pub assignment_status: ::std::option::Option<crate::types::AssignmentStatus>,
     /// <p>The ARN for the IAM policy that is applied to the Amazon QuickSight users and groups specified in this assignment.</p>
     pub policy_arn: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
-    pub identities: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
+    pub identities: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::vec::Vec::<::std::string::String>>>,
     /// <p>The Amazon Web Services request ID for this operation.</p>
     pub request_id: ::std::option::Option<::std::string::String>,
     /// <p>The HTTP status of the request.</p>
     pub status: i32,
     _request_id: Option<String>,
 }
-impl CreateIamPolicyAssignmentOutput {
+impl  CreateIamPolicyAssignmentOutput  {
     /// <p>The name of the assignment. The name must be unique within the Amazon Web Services account.</p>
-    pub fn assignment_name(&self) -> ::std::option::Option<&str> {
+    pub fn assignment_name(&self) -> ::std::option::Option<& str> {
         self.assignment_name.as_deref()
     }
     /// <p>The ID for the assignment.</p>
-    pub fn assignment_id(&self) -> ::std::option::Option<&str> {
+    pub fn assignment_id(&self) -> ::std::option::Option<& str> {
         self.assignment_id.as_deref()
     }
-    /// <p>The status of the assignment. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li>
-    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li>
+    /// <p>The status of the assignment. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li> 
     /// </ul>
-    pub fn assignment_status(&self) -> ::std::option::Option<&crate::types::AssignmentStatus> {
+    pub fn assignment_status(&self) -> ::std::option::Option<& crate::types::AssignmentStatus> {
         self.assignment_status.as_ref()
     }
     /// <p>The ARN for the IAM policy that is applied to the Amazon QuickSight users and groups specified in this assignment.</p>
-    pub fn policy_arn(&self) -> ::std::option::Option<&str> {
+    pub fn policy_arn(&self) -> ::std::option::Option<& str> {
         self.policy_arn.as_deref()
     }
     /// <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
-    pub fn identities(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>> {
+    pub fn identities(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::vec::Vec::<::std::string::String>>> {
         self.identities.as_ref()
     }
     /// <p>The Amazon Web Services request ID for this operation.</p>
-    pub fn request_id(&self) -> ::std::option::Option<&str> {
+    pub fn request_id(&self) -> ::std::option::Option<& str> {
         self.request_id.as_deref()
     }
     /// <p>The HTTP status of the request.</p>
@@ -59,11 +59,11 @@ impl CreateIamPolicyAssignmentOutput {
         self.status
     }
 }
-impl ::aws_http::request_id::RequestId for CreateIamPolicyAssignmentOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for CreateIamPolicyAssignmentOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl CreateIamPolicyAssignmentOutput {
     /// Creates a new builder-style object to manufacture [`CreateIamPolicyAssignmentOutput`](crate::operation::create_iam_policy_assignment::CreateIamPolicyAssignmentOutput).
     pub fn builder() -> crate::operation::create_iam_policy_assignment::builders::CreateIamPolicyAssignmentOutputBuilder {
@@ -79,7 +79,7 @@ pub struct CreateIamPolicyAssignmentOutputBuilder {
     pub(crate) assignment_id: ::std::option::Option<::std::string::String>,
     pub(crate) assignment_status: ::std::option::Option<crate::types::AssignmentStatus>,
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) identities: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
+    pub(crate) identities: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::vec::Vec::<::std::string::String>>>,
     pub(crate) request_id: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<i32>,
     _request_id: Option<String>,
@@ -92,8 +92,7 @@ impl CreateIamPolicyAssignmentOutputBuilder {
     }
     /// <p>The name of the assignment. The name must be unique within the Amazon Web Services account.</p>
     pub fn set_assignment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.assignment_name = input;
-        self
+        self.assignment_name = input; self
     }
     /// <p>The name of the assignment. The name must be unique within the Amazon Web Services account.</p>
     pub fn get_assignment_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -106,38 +105,36 @@ impl CreateIamPolicyAssignmentOutputBuilder {
     }
     /// <p>The ID for the assignment.</p>
     pub fn set_assignment_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.assignment_id = input;
-        self
+        self.assignment_id = input; self
     }
     /// <p>The ID for the assignment.</p>
     pub fn get_assignment_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.assignment_id
     }
-    /// <p>The status of the assignment. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li>
-    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li>
+    /// <p>The status of the assignment. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li> 
     /// </ul>
     pub fn assignment_status(mut self, input: crate::types::AssignmentStatus) -> Self {
         self.assignment_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The status of the assignment. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li>
-    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li>
+    /// <p>The status of the assignment. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li> 
     /// </ul>
     pub fn set_assignment_status(mut self, input: ::std::option::Option<crate::types::AssignmentStatus>) -> Self {
-        self.assignment_status = input;
-        self
+        self.assignment_status = input; self
     }
-    /// <p>The status of the assignment. Possible values are as follows:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li>
-    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li>
-    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li>
+    /// <p>The status of the assignment. Possible values are as follows:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li> 
+    /// <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li> 
     /// </ul>
     pub fn get_assignment_status(&self) -> &::std::option::Option<crate::types::AssignmentStatus> {
         &self.assignment_status
@@ -149,8 +146,7 @@ impl CreateIamPolicyAssignmentOutputBuilder {
     }
     /// <p>The ARN for the IAM policy that is applied to the Amazon QuickSight users and groups specified in this assignment.</p>
     pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.policy_arn = input;
-        self
+        self.policy_arn = input; self
     }
     /// <p>The ARN for the IAM policy that is applied to the Amazon QuickSight users and groups specified in this assignment.</p>
     pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -161,24 +157,18 @@ impl CreateIamPolicyAssignmentOutputBuilder {
     /// To override the contents of this collection use [`set_identities`](Self::set_identities).
     ///
     /// <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
-    pub fn identities(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec<::std::string::String>) -> Self {
+    pub fn identities(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec::<::std::string::String>) -> Self {
         let mut hash_map = self.identities.unwrap_or_default();
-        hash_map.insert(k.into(), v);
-        self.identities = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v);
+                        self.identities = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
-    pub fn set_identities(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>>,
-    ) -> Self {
-        self.identities = input;
-        self
+    pub fn set_identities(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::vec::Vec::<::std::string::String>>>) -> Self {
+        self.identities = input; self
     }
     /// <p>The Amazon QuickSight users, groups, or both that the IAM policy is assigned to.</p>
-    pub fn get_identities(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>> {
+    pub fn get_identities(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::vec::Vec::<::std::string::String>>> {
         &self.identities
     }
     /// <p>The Amazon Web Services request ID for this operation.</p>
@@ -188,8 +178,7 @@ impl CreateIamPolicyAssignmentOutputBuilder {
     }
     /// <p>The Amazon Web Services request ID for this operation.</p>
     pub fn set_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.request_id = input;
-        self
+        self.request_id = input; self
     }
     /// <p>The Amazon Web Services request ID for this operation.</p>
     pub fn get_request_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -202,33 +191,41 @@ impl CreateIamPolicyAssignmentOutputBuilder {
     }
     /// <p>The HTTP status of the request.</p>
     pub fn set_status(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>The HTTP status of the request.</p>
     pub fn get_status(&self) -> &::std::option::Option<i32> {
         &self.status
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`CreateIamPolicyAssignmentOutput`](crate::operation::create_iam_policy_assignment::CreateIamPolicyAssignmentOutput).
     pub fn build(self) -> crate::operation::create_iam_policy_assignment::CreateIamPolicyAssignmentOutput {
         crate::operation::create_iam_policy_assignment::CreateIamPolicyAssignmentOutput {
-            assignment_name: self.assignment_name,
-            assignment_id: self.assignment_id,
-            assignment_status: self.assignment_status,
-            policy_arn: self.policy_arn,
-            identities: self.identities,
-            request_id: self.request_id,
-            status: self.status.unwrap_or_default(),
+            assignment_name: self.assignment_name
+            ,
+            assignment_id: self.assignment_id
+            ,
+            assignment_status: self.assignment_status
+            ,
+            policy_arn: self.policy_arn
+            ,
+            identities: self.identities
+            ,
+            request_id: self.request_id
+            ,
+            status: self.status
+                .unwrap_or_default()
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

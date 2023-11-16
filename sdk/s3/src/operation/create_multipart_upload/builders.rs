@@ -5,144 +5,140 @@ pub use crate::operation::create_multipart_upload::_create_multipart_upload_inpu
 
 impl CreateMultipartUploadInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_multipart_upload::CreateMultipartUploadError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_multipart_upload();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_multipart_upload::CreateMultipartUploadError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_multipart_upload();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateMultipartUpload`.
-///
-/// <p>This action initiates a multipart upload and returns an upload ID. This upload ID is used to associate all of the parts in the specific multipart upload. You specify this upload ID in each of your subsequent upload part requests (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>). You also include this upload ID in the final request to either complete or abort the multipart upload request.</p>
-/// <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart Upload Overview</a>.</p>
-/// <p>If you have configured a lifecycle rule to abort incomplete multipart uploads, the upload must complete within the number of days specified in the bucket lifecycle configuration. Otherwise, the incomplete multipart upload becomes eligible for an abort action and Amazon S3 aborts the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p>
-/// <p>For information about the permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and Permissions</a>.</p>
-/// <p>For request signing, multipart upload is just a series of regular requests. You initiate a multipart upload, send one or more requests to upload parts, and then complete the multipart upload process. You sign each request individually. There is nothing special about signing multipart upload requests. For more information about signing, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a>.</p> <note>
-/// <p>After you initiate a multipart upload and upload one or more parts, to stop being charged for storing the uploaded parts, you must either complete or abort the multipart upload. Amazon S3 frees up the space used to store the parts and stop charging you for storing them only after you either complete or abort a multipart upload. </p>
-/// </note>
-/// <p>Server-side encryption is for data encryption at rest. Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts it when you access it. Amazon S3 automatically encrypts all new objects that are uploaded to an S3 bucket. When doing a multipart upload, if you don't specify encryption information in your request, the encryption setting of the uploaded parts is set to the default encryption configuration of the destination bucket. By default, all buckets have a base level of encryption configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). If the destination bucket has a default encryption configuration that uses server-side encryption with an Key Management Service (KMS) key (SSE-KMS), or a customer-provided encryption key (SSE-C), Amazon S3 uses the corresponding KMS key, or a customer-provided key to encrypt the uploaded parts. When you perform a CreateMultipartUpload operation, if you want to use a different type of encryption setting for the uploaded parts, you can request that Amazon S3 encrypts the object with a KMS key, an Amazon S3 managed key, or a customer-provided key. If the encryption setting in your request is different from the default encryption configuration of the destination bucket, the encryption setting in your request takes precedence. If you choose to provide your own encryption key, the request headers you provide in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to initiate the upload by using <code>CreateMultipartUpload</code>. You can request that Amazon S3 save the uploaded parts encrypted with server-side encryption with an Amazon S3 managed key (SSE-S3), an Key Management Service (KMS) key (SSE-KMS), or a customer-provided encryption key (SSE-C). </p>
-/// <p>To perform a multipart upload with encryption by using an Amazon Web Services KMS key, the requester must have permission to the <code>kms:Decrypt</code> and <code>kms:GenerateDataKey*</code> actions on the key. These permissions are required because Amazon S3 must decrypt and read data from the encrypted file parts before it completes the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions">Multipart upload API and permissions</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">Protecting data using server-side encryption with Amazon Web Services KMS</a> in the <i>Amazon S3 User Guide</i>.</p>
-/// <p>If your Identity and Access Management (IAM) user or role is in the same Amazon Web Services account as the KMS key, then you must have these permissions on the key policy. If your IAM user or role belongs to a different account than the key, then you must have the permissions on both the key policy and your IAM user or role.</p>
-/// <p> For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using Server-Side Encryption</a>.</p>
-/// <dl>
+/// 
+/// <p>This action initiates a multipart upload and returns an upload ID. This upload ID is used to associate all of the parts in the specific multipart upload. You specify this upload ID in each of your subsequent upload part requests (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>). You also include this upload ID in the final request to either complete or abort the multipart upload request.</p> 
+/// <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart Upload Overview</a>.</p> 
+/// <p>If you have configured a lifecycle rule to abort incomplete multipart uploads, the upload must complete within the number of days specified in the bucket lifecycle configuration. Otherwise, the incomplete multipart upload becomes eligible for an abort action and Amazon S3 aborts the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p> 
+/// <p>For information about the permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and Permissions</a>.</p> 
+/// <p>For request signing, multipart upload is just a series of regular requests. You initiate a multipart upload, send one or more requests to upload parts, and then complete the multipart upload process. You sign each request individually. There is nothing special about signing multipart upload requests. For more information about signing, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a>.</p> <note> 
+/// <p>After you initiate a multipart upload and upload one or more parts, to stop being charged for storing the uploaded parts, you must either complete or abort the multipart upload. Amazon S3 frees up the space used to store the parts and stop charging you for storing them only after you either complete or abort a multipart upload. </p> 
+/// </note> 
+/// <p>Server-side encryption is for data encryption at rest. Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts it when you access it. Amazon S3 automatically encrypts all new objects that are uploaded to an S3 bucket. When doing a multipart upload, if you don't specify encryption information in your request, the encryption setting of the uploaded parts is set to the default encryption configuration of the destination bucket. By default, all buckets have a base level of encryption configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). If the destination bucket has a default encryption configuration that uses server-side encryption with an Key Management Service (KMS) key (SSE-KMS), or a customer-provided encryption key (SSE-C), Amazon S3 uses the corresponding KMS key, or a customer-provided key to encrypt the uploaded parts. When you perform a CreateMultipartUpload operation, if you want to use a different type of encryption setting for the uploaded parts, you can request that Amazon S3 encrypts the object with a KMS key, an Amazon S3 managed key, or a customer-provided key. If the encryption setting in your request is different from the default encryption configuration of the destination bucket, the encryption setting in your request takes precedence. If you choose to provide your own encryption key, the request headers you provide in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to initiate the upload by using <code>CreateMultipartUpload</code>. You can request that Amazon S3 save the uploaded parts encrypted with server-side encryption with an Amazon S3 managed key (SSE-S3), an Key Management Service (KMS) key (SSE-KMS), or a customer-provided encryption key (SSE-C). </p> 
+/// <p>To perform a multipart upload with encryption by using an Amazon Web Services KMS key, the requester must have permission to the <code>kms:Decrypt</code> and <code>kms:GenerateDataKey*</code> actions on the key. These permissions are required because Amazon S3 must decrypt and read data from the encrypted file parts before it completes the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions">Multipart upload API and permissions</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">Protecting data using server-side encryption with Amazon Web Services KMS</a> in the <i>Amazon S3 User Guide</i>.</p> 
+/// <p>If your Identity and Access Management (IAM) user or role is in the same Amazon Web Services account as the KMS key, then you must have these permissions on the key policy. If your IAM user or role belongs to a different account than the key, then you must have the permissions on both the key policy and your IAM user or role.</p> 
+/// <p> For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using Server-Side Encryption</a>.</p> 
+/// <dl> 
 /// <dt>
 /// Access Permissions
-/// </dt>
-/// <dd>
-/// <p>When copying an object, you can optionally specify the accounts or groups that should be granted specific permissions on the new object. There are two ways to grant the permissions using the request headers:</p>
-/// <ul>
-/// <li> <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p> </li>
-/// <li> <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>, <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code> headers. These parameters map to the set of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>.</p> </li>
-/// </ul>
-/// <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do both.</p>
-/// </dd>
+/// </dt> 
+/// <dd> 
+/// <p>When copying an object, you can optionally specify the accounts or groups that should be granted specific permissions on the new object. There are two ways to grant the permissions using the request headers:</p> 
+/// <ul> 
+/// <li> <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p> </li> 
+/// <li> <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>, <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code> headers. These parameters map to the set of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>.</p> </li> 
+/// </ul> 
+/// <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do both.</p> 
+/// </dd> 
 /// <dt>
 /// Server-Side- Encryption-Specific Request Headers
-/// </dt>
-/// <dd>
-/// <p>Amazon S3 encrypts data by using server-side encryption with an Amazon S3 managed key (SSE-S3) by default. Server-side encryption is for data encryption at rest. Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts it when you access it. You can request that Amazon S3 encrypts data at rest by using server-side encryption with other key options. The option you use depends on whether you want to use KMS keys (SSE-KMS) or provide your own encryption keys (SSE-C).</p>
-/// <ul>
-/// <li> <p>Use KMS keys (SSE-KMS) that include the Amazon Web Services managed key (<code>aws/s3</code>) and KMS customer managed keys stored in Key Management Service (KMS) – If you want Amazon Web Services to manage the keys used to encrypt data, specify the following headers in the request.</p>
-/// <ul>
-/// <li> <p> <code>x-amz-server-side-encryption</code> </p> </li>
-/// <li> <p> <code>x-amz-server-side-encryption-aws-kms-key-id</code> </p> </li>
-/// <li> <p> <code>x-amz-server-side-encryption-context</code> </p> </li>
-/// </ul> <note>
-/// <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the Amazon Web Services managed key (<code>aws/s3</code> key) in KMS to protect the data.</p>
-/// </note> <important>
-/// <p>All <code>GET</code> and <code>PUT</code> requests for an object protected by KMS fail if you don't make them by using Secure Sockets Layer (SSL), Transport Layer Security (TLS), or Signature Version 4.</p>
-/// </important> <p>For more information about server-side encryption with KMS keys (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with KMS keys</a>.</p> </li>
-/// <li> <p>Use customer-provided encryption keys (SSE-C) – If you want to manage your own encryption keys, provide all the following headers in the request.</p>
-/// <ul>
-/// <li> <p> <code>x-amz-server-side-encryption-customer-algorithm</code> </p> </li>
-/// <li> <p> <code>x-amz-server-side-encryption-customer-key</code> </p> </li>
-/// <li> <p> <code>x-amz-server-side-encryption-customer-key-MD5</code> </p> </li>
-/// </ul> <p>For more information about server-side encryption with customer-provided encryption keys (SSE-C), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html"> Protecting data using server-side encryption with customer-provided encryption keys (SSE-C)</a>.</p> </li>
-/// </ul>
-/// </dd>
+/// </dt> 
+/// <dd> 
+/// <p>Amazon S3 encrypts data by using server-side encryption with an Amazon S3 managed key (SSE-S3) by default. Server-side encryption is for data encryption at rest. Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts it when you access it. You can request that Amazon S3 encrypts data at rest by using server-side encryption with other key options. The option you use depends on whether you want to use KMS keys (SSE-KMS) or provide your own encryption keys (SSE-C).</p> 
+/// <ul> 
+/// <li> <p>Use KMS keys (SSE-KMS) that include the Amazon Web Services managed key (<code>aws/s3</code>) and KMS customer managed keys stored in Key Management Service (KMS) – If you want Amazon Web Services to manage the keys used to encrypt data, specify the following headers in the request.</p> 
+/// <ul> 
+/// <li> <p> <code>x-amz-server-side-encryption</code> </p> </li> 
+/// <li> <p> <code>x-amz-server-side-encryption-aws-kms-key-id</code> </p> </li> 
+/// <li> <p> <code>x-amz-server-side-encryption-context</code> </p> </li> 
+/// </ul> <note> 
+/// <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the Amazon Web Services managed key (<code>aws/s3</code> key) in KMS to protect the data.</p> 
+/// </note> <important> 
+/// <p>All <code>GET</code> and <code>PUT</code> requests for an object protected by KMS fail if you don't make them by using Secure Sockets Layer (SSL), Transport Layer Security (TLS), or Signature Version 4.</p> 
+/// </important> <p>For more information about server-side encryption with KMS keys (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with KMS keys</a>.</p> </li> 
+/// <li> <p>Use customer-provided encryption keys (SSE-C) – If you want to manage your own encryption keys, provide all the following headers in the request.</p> 
+/// <ul> 
+/// <li> <p> <code>x-amz-server-side-encryption-customer-algorithm</code> </p> </li> 
+/// <li> <p> <code>x-amz-server-side-encryption-customer-key</code> </p> </li> 
+/// <li> <p> <code>x-amz-server-side-encryption-customer-key-MD5</code> </p> </li> 
+/// </ul> <p>For more information about server-side encryption with customer-provided encryption keys (SSE-C), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html"> Protecting data using server-side encryption with customer-provided encryption keys (SSE-C)</a>.</p> </li> 
+/// </ul> 
+/// </dd> 
 /// <dt>
 /// Access-Control-List (ACL)-Specific Request Headers
-/// </dt>
-/// <dd>
-/// <p>You also can use the following access control–related headers with this operation. By default, all objects are private. Only the owner has full access control. When adding a new object, you can grant permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added to the access control list (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. With this operation, you can grant access permissions using one of the following two methods:</p>
-/// <ul>
-/// <li> <p>Specify a canned ACL (<code>x-amz-acl</code>) — Amazon S3 supports a set of predefined ACLs, known as <i>canned ACLs</i>. Each canned ACL has a predefined set of grantees and permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p> </li>
-/// <li> <p>Specify access permissions explicitly — To explicitly grant access permissions to specific Amazon Web Services accounts or groups, use the following headers. Each header maps to specific permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>. In the header, you specify a list of grantees who get the specific permission. To grant permissions explicitly, use:</p>
-/// <ul>
-/// <li> <p> <code>x-amz-grant-read</code> </p> </li>
-/// <li> <p> <code>x-amz-grant-write</code> </p> </li>
-/// <li> <p> <code>x-amz-grant-read-acp</code> </p> </li>
-/// <li> <p> <code>x-amz-grant-write-acp</code> </p> </li>
-/// <li> <p> <code>x-amz-grant-full-control</code> </p> </li>
-/// </ul> <p>You specify each grantee as a type=value pair, where the type is one of the following:</p>
-/// <ul>
-/// <li> <p> <code>id</code> – if the value specified is the canonical user ID of an Amazon Web Services account</p> </li>
-/// <li> <p> <code>uri</code> – if you are granting permissions to a predefined group</p> </li>
-/// <li> <p> <code>emailAddress</code> – if the value specified is the email address of an Amazon Web Services account</p> <note>
-/// <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
-/// <ul>
-/// <li> <p>US East (N. Virginia)</p> </li>
-/// <li> <p>US West (N. California)</p> </li>
-/// <li> <p> US West (Oregon)</p> </li>
-/// <li> <p> Asia Pacific (Singapore)</p> </li>
-/// <li> <p>Asia Pacific (Sydney)</p> </li>
-/// <li> <p>Asia Pacific (Tokyo)</p> </li>
-/// <li> <p>Europe (Ireland)</p> </li>
-/// <li> <p>South America (São Paulo)</p> </li>
-/// </ul>
-/// <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
-/// </note> </li>
-/// </ul> <p>For example, the following <code>x-amz-grant-read</code> header grants the Amazon Web Services accounts identified by account IDs permissions to read object data and its metadata:</p> <p> <code>x-amz-grant-read: id="11112222333", id="444455556666" </code> </p> </li>
-/// </ul>
-/// </dd>
-/// </dl>
-/// <p>The following operations are related to <code>CreateMultipartUpload</code>:</p>
-/// <ul>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> </p> </li>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html">CompleteMultipartUpload</a> </p> </li>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html">AbortMultipartUpload</a> </p> </li>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> </p> </li>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html">ListMultipartUploads</a> </p> </li>
+/// </dt> 
+/// <dd> 
+/// <p>You also can use the following access control–related headers with this operation. By default, all objects are private. Only the owner has full access control. When adding a new object, you can grant permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added to the access control list (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. With this operation, you can grant access permissions using one of the following two methods:</p> 
+/// <ul> 
+/// <li> <p>Specify a canned ACL (<code>x-amz-acl</code>) — Amazon S3 supports a set of predefined ACLs, known as <i>canned ACLs</i>. Each canned ACL has a predefined set of grantees and permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p> </li> 
+/// <li> <p>Specify access permissions explicitly — To explicitly grant access permissions to specific Amazon Web Services accounts or groups, use the following headers. Each header maps to specific permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>. In the header, you specify a list of grantees who get the specific permission. To grant permissions explicitly, use:</p> 
+/// <ul> 
+/// <li> <p> <code>x-amz-grant-read</code> </p> </li> 
+/// <li> <p> <code>x-amz-grant-write</code> </p> </li> 
+/// <li> <p> <code>x-amz-grant-read-acp</code> </p> </li> 
+/// <li> <p> <code>x-amz-grant-write-acp</code> </p> </li> 
+/// <li> <p> <code>x-amz-grant-full-control</code> </p> </li> 
+/// </ul> <p>You specify each grantee as a type=value pair, where the type is one of the following:</p> 
+/// <ul> 
+/// <li> <p> <code>id</code> – if the value specified is the canonical user ID of an Amazon Web Services account</p> </li> 
+/// <li> <p> <code>uri</code> – if you are granting permissions to a predefined group</p> </li> 
+/// <li> <p> <code>emailAddress</code> – if the value specified is the email address of an Amazon Web Services account</p> <note> 
+/// <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p> 
+/// <ul> 
+/// <li> <p>US East (N. Virginia)</p> </li> 
+/// <li> <p>US West (N. California)</p> </li> 
+/// <li> <p> US West (Oregon)</p> </li> 
+/// <li> <p> Asia Pacific (Singapore)</p> </li> 
+/// <li> <p>Asia Pacific (Sydney)</p> </li> 
+/// <li> <p>Asia Pacific (Tokyo)</p> </li> 
+/// <li> <p>Europe (Ireland)</p> </li> 
+/// <li> <p>South America (São Paulo)</p> </li> 
+/// </ul> 
+/// <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p> 
+/// </note> </li> 
+/// </ul> <p>For example, the following <code>x-amz-grant-read</code> header grants the Amazon Web Services accounts identified by account IDs permissions to read object data and its metadata:</p> <p> <code>x-amz-grant-read: id="11112222333", id="444455556666" </code> </p> </li> 
+/// </ul> 
+/// </dd> 
+/// </dl> 
+/// <p>The following operations are related to <code>CreateMultipartUpload</code>:</p> 
+/// <ul> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> </p> </li> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html">CompleteMultipartUpload</a> </p> </li> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html">AbortMultipartUpload</a> </p> </li> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> </p> </li> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html">ListMultipartUploads</a> </p> </li> 
 /// </ul>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateMultipartUploadFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_multipart_upload::builders::CreateMultipartUploadInputBuilder,
+                    inner: crate::operation::create_multipart_upload::builders::CreateMultipartUploadInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
-        crate::operation::create_multipart_upload::CreateMultipartUploadError,
-    > for CreateMultipartUploadFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
-            crate::operation::create_multipart_upload::CreateMultipartUploadError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
+                    crate::operation::create_multipart_upload::CreateMultipartUploadError,
+                > for CreateMultipartUploadFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
+                        crate::operation::create_multipart_upload::CreateMultipartUploadError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateMultipartUploadFluentBuilder {
     /// Creates a new `CreateMultipartUpload`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -151,86 +147,77 @@ impl CreateMultipartUploadFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_multipart_upload::CreateMultipartUploadError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_multipart_upload::CreateMultipartUpload::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_multipart_upload::CreateMultipartUpload::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_multipart_upload::CreateMultipartUploadOutput,
-        crate::operation::create_multipart_upload::CreateMultipartUploadError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The canned ACL to apply to the object.</p>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_multipart_upload::CreateMultipartUploadOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_multipart_upload::CreateMultipartUploadError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_multipart_upload::CreateMultipartUpload::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_multipart_upload::CreateMultipartUpload::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_multipart_upload::CreateMultipartUploadOutput, crate::operation::create_multipart_upload::CreateMultipartUploadError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The canned ACL to apply to the object.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn acl(mut self, input: crate::types::ObjectCannedAcl) -> Self {
         self.inner = self.inner.acl(input);
         self
     }
-    /// <p>The canned ACL to apply to the object.</p>
+    /// <p>The canned ACL to apply to the object.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn set_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self {
         self.inner = self.inner.set_acl(input);
         self
     }
-    /// <p>The canned ACL to apply to the object.</p>
+    /// <p>The canned ACL to apply to the object.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn get_acl(&self) -> &::std::option::Option<crate::types::ObjectCannedAcl> {
         self.inner.get_acl()
     }
-    /// <p>The name of the bucket to which to initiate the upload</p>
-    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>The name of the bucket to which to initiate the upload</p> 
+    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.bucket(input.into());
         self
     }
-    /// <p>The name of the bucket to which to initiate the upload</p>
-    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>The name of the bucket to which to initiate the upload</p> 
+    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_bucket(input);
         self
     }
-    /// <p>The name of the bucket to which to initiate the upload</p>
-    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>The name of the bucket to which to initiate the upload</p> 
+    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_bucket()
@@ -319,70 +306,70 @@ impl CreateMultipartUploadFluentBuilder {
     pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_expires()
     }
-    /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
+    /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn grant_full_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_full_control(input.into());
         self
     }
-    /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
+    /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn set_grant_full_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_full_control(input);
         self
     }
-    /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
+    /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn get_grant_full_control(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_grant_full_control()
     }
-    /// <p>Allows grantee to read the object data and its metadata.</p>
+    /// <p>Allows grantee to read the object data and its metadata.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn grant_read(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_read(input.into());
         self
     }
-    /// <p>Allows grantee to read the object data and its metadata.</p>
+    /// <p>Allows grantee to read the object data and its metadata.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn set_grant_read(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_read(input);
         self
     }
-    /// <p>Allows grantee to read the object data and its metadata.</p>
+    /// <p>Allows grantee to read the object data and its metadata.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn get_grant_read(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_grant_read()
     }
-    /// <p>Allows grantee to read the object ACL.</p>
+    /// <p>Allows grantee to read the object ACL.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn grant_read_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_read_acp(input.into());
         self
     }
-    /// <p>Allows grantee to read the object ACL.</p>
+    /// <p>Allows grantee to read the object ACL.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn set_grant_read_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_read_acp(input);
         self
     }
-    /// <p>Allows grantee to read the object ACL.</p>
+    /// <p>Allows grantee to read the object ACL.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn get_grant_read_acp(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_grant_read_acp()
     }
-    /// <p>Allows grantee to write the ACL for the applicable object.</p>
+    /// <p>Allows grantee to write the ACL for the applicable object.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn grant_write_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_write_acp(input.into());
         self
     }
-    /// <p>Allows grantee to write the ACL for the applicable object.</p>
+    /// <p>Allows grantee to write the ACL for the applicable object.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn set_grant_write_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_write_acp(input);
         self
     }
-    /// <p>Allows grantee to write the ACL for the applicable object.</p>
+    /// <p>Allows grantee to write the ACL for the applicable object.</p> 
     /// <p>This action is not supported by Amazon S3 on Outposts.</p>
     pub fn get_grant_write_acp(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_grant_write_acp()
@@ -411,12 +398,12 @@ impl CreateMultipartUploadFluentBuilder {
         self
     }
     /// <p>A map of metadata to store with the object in S3.</p>
-    pub fn set_metadata(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_metadata(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_metadata(input);
         self
     }
     /// <p>A map of metadata to store with the object in S3.</p>
-    pub fn get_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_metadata(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.inner.get_metadata()
     }
     /// <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example, <code>AES256</code>, <code>aws:kms</code>).</p>
@@ -531,19 +518,19 @@ impl CreateMultipartUploadFluentBuilder {
     pub fn get_ssekms_encryption_context(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_ssekms_encryption_context()
     }
-    /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
+    /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p> 
     /// <p>Specifying this header with an object action doesn’t affect bucket-level settings for S3 Bucket Key.</p>
     pub fn bucket_key_enabled(mut self, input: bool) -> Self {
         self.inner = self.inner.bucket_key_enabled(input);
         self
     }
-    /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
+    /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p> 
     /// <p>Specifying this header with an object action doesn’t affect bucket-level settings for S3 Bucket Key.</p>
     pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_bucket_key_enabled(input);
         self
     }
-    /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
+    /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p> 
     /// <p>Specifying this header with an object action doesn’t affect bucket-level settings for S3 Bucket Key.</p>
     pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> {
         self.inner.get_bucket_key_enabled()
@@ -647,3 +634,4 @@ impl CreateMultipartUploadFluentBuilder {
         self.inner.get_checksum_algorithm()
     }
 }
+

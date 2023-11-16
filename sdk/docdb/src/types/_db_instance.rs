@@ -3,7 +3,7 @@
 /// <p>Detailed information about an instance. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DbInstance {
+pub struct DbInstance  {
     /// <p>Contains a user-provided database identifier. This identifier is the unique key that identifies an instance.</p>
     pub db_instance_identifier: ::std::option::Option<::std::string::String>,
     /// <p>Contains the name of the compute and memory capacity class of the instance.</p>
@@ -21,7 +21,7 @@ pub struct DbInstance {
     /// <p>Specifies the number of days for which automatic snapshots are retained.</p>
     pub backup_retention_period: ::std::option::Option<i32>,
     /// <p>Provides a list of VPC security group elements that the instance belongs to.</p>
-    pub vpc_security_groups: ::std::option::Option<::std::vec::Vec<crate::types::VpcSecurityGroupMembership>>,
+    pub vpc_security_groups: ::std::option::Option<::std::vec::Vec::<crate::types::VpcSecurityGroupMembership>>,
     /// <p>Specifies the name of the Availability Zone that the instance is located in.</p>
     pub availability_zone: ::std::option::Option<::std::string::String>,
     /// <p>Specifies information on the subnet group that is associated with the instance, including the name, description, and subnets in the subnet group.</p>
@@ -39,7 +39,7 @@ pub struct DbInstance {
     /// <p>Not supported. Amazon DocumentDB does not currently support public endpoints. The value of <code>PubliclyAccessible</code> is always <code>false</code>.</p>
     pub publicly_accessible: ::std::option::Option<bool>,
     /// <p>The status of a read replica. If the instance is not a read replica, this is blank.</p>
-    pub status_infos: ::std::option::Option<::std::vec::Vec<crate::types::DbInstanceStatusInfo>>,
+    pub status_infos: ::std::option::Option<::std::vec::Vec::<crate::types::DbInstanceStatusInfo>>,
     /// <p>Contains the name of the cluster that the instance is a member of if the instance is a member of a cluster.</p>
     pub db_cluster_identifier: ::std::option::Option<::std::string::String>,
     /// <p>Specifies whether or not the instance is encrypted.</p>
@@ -57,37 +57,37 @@ pub struct DbInstance {
     /// <p>The Amazon Resource Name (ARN) for the instance.</p>
     pub db_instance_arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>
-    pub enabled_cloudwatch_logs_exports: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub enabled_cloudwatch_logs_exports: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>The details of the DB instance's server certificate.</p>
     pub certificate_details: ::std::option::Option<crate::types::CertificateDetails>,
 }
-impl DbInstance {
+impl  DbInstance  {
     /// <p>Contains a user-provided database identifier. This identifier is the unique key that identifies an instance.</p>
-    pub fn db_instance_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn db_instance_identifier(&self) -> ::std::option::Option<& str> {
         self.db_instance_identifier.as_deref()
     }
     /// <p>Contains the name of the compute and memory capacity class of the instance.</p>
-    pub fn db_instance_class(&self) -> ::std::option::Option<&str> {
+    pub fn db_instance_class(&self) -> ::std::option::Option<& str> {
         self.db_instance_class.as_deref()
     }
     /// <p>Provides the name of the database engine to be used for this instance.</p>
-    pub fn engine(&self) -> ::std::option::Option<&str> {
+    pub fn engine(&self) -> ::std::option::Option<& str> {
         self.engine.as_deref()
     }
     /// <p>Specifies the current state of this database.</p>
-    pub fn db_instance_status(&self) -> ::std::option::Option<&str> {
+    pub fn db_instance_status(&self) -> ::std::option::Option<& str> {
         self.db_instance_status.as_deref()
     }
     /// <p>Specifies the connection endpoint.</p>
-    pub fn endpoint(&self) -> ::std::option::Option<&crate::types::Endpoint> {
+    pub fn endpoint(&self) -> ::std::option::Option<& crate::types::Endpoint> {
         self.endpoint.as_ref()
     }
     /// <p>Provides the date and time that the instance was created.</p>
-    pub fn instance_create_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn instance_create_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.instance_create_time.as_ref()
     }
     /// <p> Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the <code>BackupRetentionPeriod</code>. </p>
-    pub fn preferred_backup_window(&self) -> ::std::option::Option<&str> {
+    pub fn preferred_backup_window(&self) -> ::std::option::Option<& str> {
         self.preferred_backup_window.as_deref()
     }
     /// <p>Specifies the number of days for which automatic snapshots are retained.</p>
@@ -95,33 +95,34 @@ impl DbInstance {
         self.backup_retention_period
     }
     /// <p>Provides a list of VPC security group elements that the instance belongs to.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.vpc_security_groups.is_none()`.
-    pub fn vpc_security_groups(&self) -> &[crate::types::VpcSecurityGroupMembership] {
-        self.vpc_security_groups.as_deref().unwrap_or_default()
+    pub fn vpc_security_groups(&self) -> & [crate::types::VpcSecurityGroupMembership] {
+        self.vpc_security_groups.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Specifies the name of the Availability Zone that the instance is located in.</p>
-    pub fn availability_zone(&self) -> ::std::option::Option<&str> {
+    pub fn availability_zone(&self) -> ::std::option::Option<& str> {
         self.availability_zone.as_deref()
     }
     /// <p>Specifies information on the subnet group that is associated with the instance, including the name, description, and subnets in the subnet group.</p>
-    pub fn db_subnet_group(&self) -> ::std::option::Option<&crate::types::DbSubnetGroup> {
+    pub fn db_subnet_group(&self) -> ::std::option::Option<& crate::types::DbSubnetGroup> {
         self.db_subnet_group.as_ref()
     }
     /// <p>Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
-    pub fn preferred_maintenance_window(&self) -> ::std::option::Option<&str> {
+    pub fn preferred_maintenance_window(&self) -> ::std::option::Option<& str> {
         self.preferred_maintenance_window.as_deref()
     }
     /// <p>Specifies that changes to the instance are pending. This element is included only when changes are pending. Specific changes are identified by subelements.</p>
-    pub fn pending_modified_values(&self) -> ::std::option::Option<&crate::types::PendingModifiedValues> {
+    pub fn pending_modified_values(&self) -> ::std::option::Option<& crate::types::PendingModifiedValues> {
         self.pending_modified_values.as_ref()
     }
     /// <p>Specifies the latest time to which a database can be restored with point-in-time restore.</p>
-    pub fn latest_restorable_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn latest_restorable_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.latest_restorable_time.as_ref()
     }
     /// <p>Indicates the database engine version.</p>
-    pub fn engine_version(&self) -> ::std::option::Option<&str> {
+    pub fn engine_version(&self) -> ::std::option::Option<& str> {
         self.engine_version.as_deref()
     }
     /// <p>Does not apply. This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
@@ -133,13 +134,14 @@ impl DbInstance {
         self.publicly_accessible
     }
     /// <p>The status of a read replica. If the instance is not a read replica, this is blank.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.status_infos.is_none()`.
-    pub fn status_infos(&self) -> &[crate::types::DbInstanceStatusInfo] {
-        self.status_infos.as_deref().unwrap_or_default()
+    pub fn status_infos(&self) -> & [crate::types::DbInstanceStatusInfo] {
+        self.status_infos.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Contains the name of the cluster that the instance is a member of if the instance is a member of a cluster.</p>
-    pub fn db_cluster_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn db_cluster_identifier(&self) -> ::std::option::Option<& str> {
         self.db_cluster_identifier.as_deref()
     }
     /// <p>Specifies whether or not the instance is encrypted.</p>
@@ -147,15 +149,15 @@ impl DbInstance {
         self.storage_encrypted
     }
     /// <p> If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for the encrypted instance. </p>
-    pub fn kms_key_id(&self) -> ::std::option::Option<&str> {
+    pub fn kms_key_id(&self) -> ::std::option::Option<& str> {
         self.kms_key_id.as_deref()
     }
     /// <p>The Amazon Web Services Region-unique, immutable identifier for the instance. This identifier is found in CloudTrail log entries whenever the KMS key for the instance is accessed.</p>
-    pub fn dbi_resource_id(&self) -> ::std::option::Option<&str> {
+    pub fn dbi_resource_id(&self) -> ::std::option::Option<& str> {
         self.dbi_resource_id.as_deref()
     }
     /// <p>The identifier of the CA certificate for this DB instance.</p>
-    pub fn ca_certificate_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn ca_certificate_identifier(&self) -> ::std::option::Option<& str> {
         self.ca_certificate_identifier.as_deref()
     }
     /// <p>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
@@ -167,17 +169,18 @@ impl DbInstance {
         self.promotion_tier
     }
     /// <p>The Amazon Resource Name (ARN) for the instance.</p>
-    pub fn db_instance_arn(&self) -> ::std::option::Option<&str> {
+    pub fn db_instance_arn(&self) -> ::std::option::Option<& str> {
         self.db_instance_arn.as_deref()
     }
     /// <p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_cloudwatch_logs_exports.is_none()`.
-    pub fn enabled_cloudwatch_logs_exports(&self) -> &[::std::string::String] {
-        self.enabled_cloudwatch_logs_exports.as_deref().unwrap_or_default()
+    pub fn enabled_cloudwatch_logs_exports(&self) -> & [::std::string::String] {
+        self.enabled_cloudwatch_logs_exports.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The details of the DB instance's server certificate.</p>
-    pub fn certificate_details(&self) -> ::std::option::Option<&crate::types::CertificateDetails> {
+    pub fn certificate_details(&self) -> ::std::option::Option<& crate::types::CertificateDetails> {
         self.certificate_details.as_ref()
     }
 }
@@ -200,7 +203,7 @@ pub struct DbInstanceBuilder {
     pub(crate) instance_create_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) preferred_backup_window: ::std::option::Option<::std::string::String>,
     pub(crate) backup_retention_period: ::std::option::Option<i32>,
-    pub(crate) vpc_security_groups: ::std::option::Option<::std::vec::Vec<crate::types::VpcSecurityGroupMembership>>,
+    pub(crate) vpc_security_groups: ::std::option::Option<::std::vec::Vec::<crate::types::VpcSecurityGroupMembership>>,
     pub(crate) availability_zone: ::std::option::Option<::std::string::String>,
     pub(crate) db_subnet_group: ::std::option::Option<crate::types::DbSubnetGroup>,
     pub(crate) preferred_maintenance_window: ::std::option::Option<::std::string::String>,
@@ -209,7 +212,7 @@ pub struct DbInstanceBuilder {
     pub(crate) engine_version: ::std::option::Option<::std::string::String>,
     pub(crate) auto_minor_version_upgrade: ::std::option::Option<bool>,
     pub(crate) publicly_accessible: ::std::option::Option<bool>,
-    pub(crate) status_infos: ::std::option::Option<::std::vec::Vec<crate::types::DbInstanceStatusInfo>>,
+    pub(crate) status_infos: ::std::option::Option<::std::vec::Vec::<crate::types::DbInstanceStatusInfo>>,
     pub(crate) db_cluster_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) storage_encrypted: ::std::option::Option<bool>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
@@ -218,7 +221,7 @@ pub struct DbInstanceBuilder {
     pub(crate) copy_tags_to_snapshot: ::std::option::Option<bool>,
     pub(crate) promotion_tier: ::std::option::Option<i32>,
     pub(crate) db_instance_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) enabled_cloudwatch_logs_exports: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) enabled_cloudwatch_logs_exports: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) certificate_details: ::std::option::Option<crate::types::CertificateDetails>,
 }
 impl DbInstanceBuilder {
@@ -229,8 +232,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Contains a user-provided database identifier. This identifier is the unique key that identifies an instance.</p>
     pub fn set_db_instance_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.db_instance_identifier = input;
-        self
+        self.db_instance_identifier = input; self
     }
     /// <p>Contains a user-provided database identifier. This identifier is the unique key that identifies an instance.</p>
     pub fn get_db_instance_identifier(&self) -> &::std::option::Option<::std::string::String> {
@@ -243,8 +245,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Contains the name of the compute and memory capacity class of the instance.</p>
     pub fn set_db_instance_class(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.db_instance_class = input;
-        self
+        self.db_instance_class = input; self
     }
     /// <p>Contains the name of the compute and memory capacity class of the instance.</p>
     pub fn get_db_instance_class(&self) -> &::std::option::Option<::std::string::String> {
@@ -257,8 +258,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Provides the name of the database engine to be used for this instance.</p>
     pub fn set_engine(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.engine = input;
-        self
+        self.engine = input; self
     }
     /// <p>Provides the name of the database engine to be used for this instance.</p>
     pub fn get_engine(&self) -> &::std::option::Option<::std::string::String> {
@@ -271,8 +271,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Specifies the current state of this database.</p>
     pub fn set_db_instance_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.db_instance_status = input;
-        self
+        self.db_instance_status = input; self
     }
     /// <p>Specifies the current state of this database.</p>
     pub fn get_db_instance_status(&self) -> &::std::option::Option<::std::string::String> {
@@ -285,8 +284,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Specifies the connection endpoint.</p>
     pub fn set_endpoint(mut self, input: ::std::option::Option<crate::types::Endpoint>) -> Self {
-        self.endpoint = input;
-        self
+        self.endpoint = input; self
     }
     /// <p>Specifies the connection endpoint.</p>
     pub fn get_endpoint(&self) -> &::std::option::Option<crate::types::Endpoint> {
@@ -299,8 +297,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Provides the date and time that the instance was created.</p>
     pub fn set_instance_create_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.instance_create_time = input;
-        self
+        self.instance_create_time = input; self
     }
     /// <p>Provides the date and time that the instance was created.</p>
     pub fn get_instance_create_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -313,8 +310,7 @@ impl DbInstanceBuilder {
     }
     /// <p> Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the <code>BackupRetentionPeriod</code>. </p>
     pub fn set_preferred_backup_window(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.preferred_backup_window = input;
-        self
+        self.preferred_backup_window = input; self
     }
     /// <p> Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the <code>BackupRetentionPeriod</code>. </p>
     pub fn get_preferred_backup_window(&self) -> &::std::option::Option<::std::string::String> {
@@ -327,8 +323,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Specifies the number of days for which automatic snapshots are retained.</p>
     pub fn set_backup_retention_period(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.backup_retention_period = input;
-        self
+        self.backup_retention_period = input; self
     }
     /// <p>Specifies the number of days for which automatic snapshots are retained.</p>
     pub fn get_backup_retention_period(&self) -> &::std::option::Option<i32> {
@@ -341,17 +336,16 @@ impl DbInstanceBuilder {
     /// <p>Provides a list of VPC security group elements that the instance belongs to.</p>
     pub fn vpc_security_groups(mut self, input: crate::types::VpcSecurityGroupMembership) -> Self {
         let mut v = self.vpc_security_groups.unwrap_or_default();
-        v.push(input);
-        self.vpc_security_groups = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.vpc_security_groups = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>Provides a list of VPC security group elements that the instance belongs to.</p>
-    pub fn set_vpc_security_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VpcSecurityGroupMembership>>) -> Self {
-        self.vpc_security_groups = input;
-        self
+    pub fn set_vpc_security_groups(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::VpcSecurityGroupMembership>>) -> Self {
+        self.vpc_security_groups = input; self
     }
     /// <p>Provides a list of VPC security group elements that the instance belongs to.</p>
-    pub fn get_vpc_security_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VpcSecurityGroupMembership>> {
+    pub fn get_vpc_security_groups(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::VpcSecurityGroupMembership>> {
         &self.vpc_security_groups
     }
     /// <p>Specifies the name of the Availability Zone that the instance is located in.</p>
@@ -361,8 +355,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Specifies the name of the Availability Zone that the instance is located in.</p>
     pub fn set_availability_zone(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.availability_zone = input;
-        self
+        self.availability_zone = input; self
     }
     /// <p>Specifies the name of the Availability Zone that the instance is located in.</p>
     pub fn get_availability_zone(&self) -> &::std::option::Option<::std::string::String> {
@@ -375,8 +368,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Specifies information on the subnet group that is associated with the instance, including the name, description, and subnets in the subnet group.</p>
     pub fn set_db_subnet_group(mut self, input: ::std::option::Option<crate::types::DbSubnetGroup>) -> Self {
-        self.db_subnet_group = input;
-        self
+        self.db_subnet_group = input; self
     }
     /// <p>Specifies information on the subnet group that is associated with the instance, including the name, description, and subnets in the subnet group.</p>
     pub fn get_db_subnet_group(&self) -> &::std::option::Option<crate::types::DbSubnetGroup> {
@@ -389,8 +381,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
     pub fn set_preferred_maintenance_window(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.preferred_maintenance_window = input;
-        self
+        self.preferred_maintenance_window = input; self
     }
     /// <p>Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
     pub fn get_preferred_maintenance_window(&self) -> &::std::option::Option<::std::string::String> {
@@ -403,8 +394,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Specifies that changes to the instance are pending. This element is included only when changes are pending. Specific changes are identified by subelements.</p>
     pub fn set_pending_modified_values(mut self, input: ::std::option::Option<crate::types::PendingModifiedValues>) -> Self {
-        self.pending_modified_values = input;
-        self
+        self.pending_modified_values = input; self
     }
     /// <p>Specifies that changes to the instance are pending. This element is included only when changes are pending. Specific changes are identified by subelements.</p>
     pub fn get_pending_modified_values(&self) -> &::std::option::Option<crate::types::PendingModifiedValues> {
@@ -417,8 +407,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Specifies the latest time to which a database can be restored with point-in-time restore.</p>
     pub fn set_latest_restorable_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.latest_restorable_time = input;
-        self
+        self.latest_restorable_time = input; self
     }
     /// <p>Specifies the latest time to which a database can be restored with point-in-time restore.</p>
     pub fn get_latest_restorable_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -431,8 +420,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Indicates the database engine version.</p>
     pub fn set_engine_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.engine_version = input;
-        self
+        self.engine_version = input; self
     }
     /// <p>Indicates the database engine version.</p>
     pub fn get_engine_version(&self) -> &::std::option::Option<::std::string::String> {
@@ -445,8 +433,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Does not apply. This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
     pub fn set_auto_minor_version_upgrade(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.auto_minor_version_upgrade = input;
-        self
+        self.auto_minor_version_upgrade = input; self
     }
     /// <p>Does not apply. This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
     pub fn get_auto_minor_version_upgrade(&self) -> &::std::option::Option<bool> {
@@ -459,8 +446,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Not supported. Amazon DocumentDB does not currently support public endpoints. The value of <code>PubliclyAccessible</code> is always <code>false</code>.</p>
     pub fn set_publicly_accessible(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.publicly_accessible = input;
-        self
+        self.publicly_accessible = input; self
     }
     /// <p>Not supported. Amazon DocumentDB does not currently support public endpoints. The value of <code>PubliclyAccessible</code> is always <code>false</code>.</p>
     pub fn get_publicly_accessible(&self) -> &::std::option::Option<bool> {
@@ -473,17 +459,16 @@ impl DbInstanceBuilder {
     /// <p>The status of a read replica. If the instance is not a read replica, this is blank.</p>
     pub fn status_infos(mut self, input: crate::types::DbInstanceStatusInfo) -> Self {
         let mut v = self.status_infos.unwrap_or_default();
-        v.push(input);
-        self.status_infos = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.status_infos = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The status of a read replica. If the instance is not a read replica, this is blank.</p>
-    pub fn set_status_infos(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DbInstanceStatusInfo>>) -> Self {
-        self.status_infos = input;
-        self
+    pub fn set_status_infos(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::DbInstanceStatusInfo>>) -> Self {
+        self.status_infos = input; self
     }
     /// <p>The status of a read replica. If the instance is not a read replica, this is blank.</p>
-    pub fn get_status_infos(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DbInstanceStatusInfo>> {
+    pub fn get_status_infos(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::DbInstanceStatusInfo>> {
         &self.status_infos
     }
     /// <p>Contains the name of the cluster that the instance is a member of if the instance is a member of a cluster.</p>
@@ -493,8 +478,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Contains the name of the cluster that the instance is a member of if the instance is a member of a cluster.</p>
     pub fn set_db_cluster_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.db_cluster_identifier = input;
-        self
+        self.db_cluster_identifier = input; self
     }
     /// <p>Contains the name of the cluster that the instance is a member of if the instance is a member of a cluster.</p>
     pub fn get_db_cluster_identifier(&self) -> &::std::option::Option<::std::string::String> {
@@ -507,8 +491,7 @@ impl DbInstanceBuilder {
     }
     /// <p>Specifies whether or not the instance is encrypted.</p>
     pub fn set_storage_encrypted(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.storage_encrypted = input;
-        self
+        self.storage_encrypted = input; self
     }
     /// <p>Specifies whether or not the instance is encrypted.</p>
     pub fn get_storage_encrypted(&self) -> &::std::option::Option<bool> {
@@ -521,8 +504,7 @@ impl DbInstanceBuilder {
     }
     /// <p> If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for the encrypted instance. </p>
     pub fn set_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.kms_key_id = input;
-        self
+        self.kms_key_id = input; self
     }
     /// <p> If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for the encrypted instance. </p>
     pub fn get_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -535,8 +517,7 @@ impl DbInstanceBuilder {
     }
     /// <p>The Amazon Web Services Region-unique, immutable identifier for the instance. This identifier is found in CloudTrail log entries whenever the KMS key for the instance is accessed.</p>
     pub fn set_dbi_resource_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.dbi_resource_id = input;
-        self
+        self.dbi_resource_id = input; self
     }
     /// <p>The Amazon Web Services Region-unique, immutable identifier for the instance. This identifier is found in CloudTrail log entries whenever the KMS key for the instance is accessed.</p>
     pub fn get_dbi_resource_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -549,8 +530,7 @@ impl DbInstanceBuilder {
     }
     /// <p>The identifier of the CA certificate for this DB instance.</p>
     pub fn set_ca_certificate_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.ca_certificate_identifier = input;
-        self
+        self.ca_certificate_identifier = input; self
     }
     /// <p>The identifier of the CA certificate for this DB instance.</p>
     pub fn get_ca_certificate_identifier(&self) -> &::std::option::Option<::std::string::String> {
@@ -563,8 +543,7 @@ impl DbInstanceBuilder {
     }
     /// <p>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
     pub fn set_copy_tags_to_snapshot(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.copy_tags_to_snapshot = input;
-        self
+        self.copy_tags_to_snapshot = input; self
     }
     /// <p>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
     pub fn get_copy_tags_to_snapshot(&self) -> &::std::option::Option<bool> {
@@ -577,8 +556,7 @@ impl DbInstanceBuilder {
     }
     /// <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the primary instance after a failure of the existing primary instance.</p>
     pub fn set_promotion_tier(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.promotion_tier = input;
-        self
+        self.promotion_tier = input; self
     }
     /// <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the primary instance after a failure of the existing primary instance.</p>
     pub fn get_promotion_tier(&self) -> &::std::option::Option<i32> {
@@ -591,8 +569,7 @@ impl DbInstanceBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) for the instance.</p>
     pub fn set_db_instance_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.db_instance_arn = input;
-        self
+        self.db_instance_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) for the instance.</p>
     pub fn get_db_instance_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -605,17 +582,16 @@ impl DbInstanceBuilder {
     /// <p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>
     pub fn enabled_cloudwatch_logs_exports(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.enabled_cloudwatch_logs_exports.unwrap_or_default();
-        v.push(input.into());
-        self.enabled_cloudwatch_logs_exports = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.enabled_cloudwatch_logs_exports = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>
-    pub fn set_enabled_cloudwatch_logs_exports(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.enabled_cloudwatch_logs_exports = input;
-        self
+    pub fn set_enabled_cloudwatch_logs_exports(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.enabled_cloudwatch_logs_exports = input; self
     }
     /// <p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>
-    pub fn get_enabled_cloudwatch_logs_exports(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_enabled_cloudwatch_logs_exports(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.enabled_cloudwatch_logs_exports
     }
     /// <p>The details of the DB instance's server certificate.</p>
@@ -625,8 +601,7 @@ impl DbInstanceBuilder {
     }
     /// <p>The details of the DB instance's server certificate.</p>
     pub fn set_certificate_details(mut self, input: ::std::option::Option<crate::types::CertificateDetails>) -> Self {
-        self.certificate_details = input;
-        self
+        self.certificate_details = input; self
     }
     /// <p>The details of the DB instance's server certificate.</p>
     pub fn get_certificate_details(&self) -> &::std::option::Option<crate::types::CertificateDetails> {
@@ -635,34 +610,63 @@ impl DbInstanceBuilder {
     /// Consumes the builder and constructs a [`DbInstance`](crate::types::DbInstance).
     pub fn build(self) -> crate::types::DbInstance {
         crate::types::DbInstance {
-            db_instance_identifier: self.db_instance_identifier,
-            db_instance_class: self.db_instance_class,
-            engine: self.engine,
-            db_instance_status: self.db_instance_status,
-            endpoint: self.endpoint,
-            instance_create_time: self.instance_create_time,
-            preferred_backup_window: self.preferred_backup_window,
-            backup_retention_period: self.backup_retention_period,
-            vpc_security_groups: self.vpc_security_groups,
-            availability_zone: self.availability_zone,
-            db_subnet_group: self.db_subnet_group,
-            preferred_maintenance_window: self.preferred_maintenance_window,
-            pending_modified_values: self.pending_modified_values,
-            latest_restorable_time: self.latest_restorable_time,
-            engine_version: self.engine_version,
-            auto_minor_version_upgrade: self.auto_minor_version_upgrade,
-            publicly_accessible: self.publicly_accessible,
-            status_infos: self.status_infos,
-            db_cluster_identifier: self.db_cluster_identifier,
-            storage_encrypted: self.storage_encrypted,
-            kms_key_id: self.kms_key_id,
-            dbi_resource_id: self.dbi_resource_id,
-            ca_certificate_identifier: self.ca_certificate_identifier,
-            copy_tags_to_snapshot: self.copy_tags_to_snapshot,
-            promotion_tier: self.promotion_tier,
-            db_instance_arn: self.db_instance_arn,
-            enabled_cloudwatch_logs_exports: self.enabled_cloudwatch_logs_exports,
-            certificate_details: self.certificate_details,
+            db_instance_identifier: self.db_instance_identifier
+            ,
+            db_instance_class: self.db_instance_class
+            ,
+            engine: self.engine
+            ,
+            db_instance_status: self.db_instance_status
+            ,
+            endpoint: self.endpoint
+            ,
+            instance_create_time: self.instance_create_time
+            ,
+            preferred_backup_window: self.preferred_backup_window
+            ,
+            backup_retention_period: self.backup_retention_period
+            ,
+            vpc_security_groups: self.vpc_security_groups
+            ,
+            availability_zone: self.availability_zone
+            ,
+            db_subnet_group: self.db_subnet_group
+            ,
+            preferred_maintenance_window: self.preferred_maintenance_window
+            ,
+            pending_modified_values: self.pending_modified_values
+            ,
+            latest_restorable_time: self.latest_restorable_time
+            ,
+            engine_version: self.engine_version
+            ,
+            auto_minor_version_upgrade: self.auto_minor_version_upgrade
+            ,
+            publicly_accessible: self.publicly_accessible
+            ,
+            status_infos: self.status_infos
+            ,
+            db_cluster_identifier: self.db_cluster_identifier
+            ,
+            storage_encrypted: self.storage_encrypted
+            ,
+            kms_key_id: self.kms_key_id
+            ,
+            dbi_resource_id: self.dbi_resource_id
+            ,
+            ca_certificate_identifier: self.ca_certificate_identifier
+            ,
+            copy_tags_to_snapshot: self.copy_tags_to_snapshot
+            ,
+            promotion_tier: self.promotion_tier
+            ,
+            db_instance_arn: self.db_instance_arn
+            ,
+            enabled_cloudwatch_logs_exports: self.enabled_cloudwatch_logs_exports
+            ,
+            certificate_details: self.certificate_details
+            ,
         }
     }
 }
+

@@ -3,17 +3,17 @@
 /// <p>Contains information about the health checks that are conducted on the load balancer.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AwsElbLoadBalancerHealthCheck {
+pub struct AwsElbLoadBalancerHealthCheck  {
     /// <p>The number of consecutive health check successes required before the instance is moved to the Healthy state.</p>
     pub healthy_threshold: ::std::option::Option<i32>,
     /// <p>The approximate interval, in seconds, between health checks of an individual instance.</p>
     pub interval: ::std::option::Option<i32>,
-    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p>
-    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p>
+    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p> 
+    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p> 
     /// <p>For the TCP protocol, the target is specified as <code>TCP: <i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the SSL protocol, the target is specified as <code>SSL.<i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the HTTP and HTTPS protocols, the target is specified as <code> <i>
     /// <protocol></protocol></i>:<i>
     /// <port></port></i>/<i>
@@ -24,7 +24,7 @@ pub struct AwsElbLoadBalancerHealthCheck {
     /// <p>The number of consecutive health check failures that must occur before the instance is moved to the Unhealthy state.</p>
     pub unhealthy_threshold: ::std::option::Option<i32>,
 }
-impl AwsElbLoadBalancerHealthCheck {
+impl  AwsElbLoadBalancerHealthCheck  {
     /// <p>The number of consecutive health check successes required before the instance is moved to the Healthy state.</p>
     pub fn healthy_threshold(&self) -> ::std::option::Option<i32> {
         self.healthy_threshold
@@ -33,17 +33,17 @@ impl AwsElbLoadBalancerHealthCheck {
     pub fn interval(&self) -> ::std::option::Option<i32> {
         self.interval
     }
-    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p>
-    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p>
+    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p> 
+    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p> 
     /// <p>For the TCP protocol, the target is specified as <code>TCP: <i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the SSL protocol, the target is specified as <code>SSL.<i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the HTTP and HTTPS protocols, the target is specified as <code> <i>
     /// <protocol></protocol></i>:<i>
     /// <port></port></i>/<i>
     /// <path to ping></path></i> </code>.</p>
-    pub fn target(&self) -> ::std::option::Option<&str> {
+    pub fn target(&self) -> ::std::option::Option<& str> {
         self.target.as_deref()
     }
     /// <p>The amount of time, in seconds, during which no response means a failed health check.</p>
@@ -80,8 +80,7 @@ impl AwsElbLoadBalancerHealthCheckBuilder {
     }
     /// <p>The number of consecutive health check successes required before the instance is moved to the Healthy state.</p>
     pub fn set_healthy_threshold(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.healthy_threshold = input;
-        self
+        self.healthy_threshold = input; self
     }
     /// <p>The number of consecutive health check successes required before the instance is moved to the Healthy state.</p>
     pub fn get_healthy_threshold(&self) -> &::std::option::Option<i32> {
@@ -94,19 +93,18 @@ impl AwsElbLoadBalancerHealthCheckBuilder {
     }
     /// <p>The approximate interval, in seconds, between health checks of an individual instance.</p>
     pub fn set_interval(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.interval = input;
-        self
+        self.interval = input; self
     }
     /// <p>The approximate interval, in seconds, between health checks of an individual instance.</p>
     pub fn get_interval(&self) -> &::std::option::Option<i32> {
         &self.interval
     }
-    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p>
-    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p>
+    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p> 
+    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p> 
     /// <p>For the TCP protocol, the target is specified as <code>TCP: <i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the SSL protocol, the target is specified as <code>SSL.<i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the HTTP and HTTPS protocols, the target is specified as <code> <i>
     /// <protocol></protocol></i>:<i>
     /// <port></port></i>/<i>
@@ -115,26 +113,25 @@ impl AwsElbLoadBalancerHealthCheckBuilder {
         self.target = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p>
-    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p>
+    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p> 
+    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p> 
     /// <p>For the TCP protocol, the target is specified as <code>TCP: <i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the SSL protocol, the target is specified as <code>SSL.<i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the HTTP and HTTPS protocols, the target is specified as <code> <i>
     /// <protocol></protocol></i>:<i>
     /// <port></port></i>/<i>
     /// <path to ping></path></i> </code>.</p>
     pub fn set_target(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.target = input;
-        self
+        self.target = input; self
     }
-    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p>
-    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p>
+    /// <p>The instance that is being checked. The target specifies the protocol and port. The available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through 65535.</p> 
+    /// <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p> 
     /// <p>For the TCP protocol, the target is specified as <code>TCP: <i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the SSL protocol, the target is specified as <code>SSL.<i>
-    /// <port></port></i> </code>.</p>
+    /// <port></port></i> </code>.</p> 
     /// <p>For the HTTP and HTTPS protocols, the target is specified as <code> <i>
     /// <protocol></protocol></i>:<i>
     /// <port></port></i>/<i>
@@ -149,8 +146,7 @@ impl AwsElbLoadBalancerHealthCheckBuilder {
     }
     /// <p>The amount of time, in seconds, during which no response means a failed health check.</p>
     pub fn set_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.timeout = input;
-        self
+        self.timeout = input; self
     }
     /// <p>The amount of time, in seconds, during which no response means a failed health check.</p>
     pub fn get_timeout(&self) -> &::std::option::Option<i32> {
@@ -163,8 +159,7 @@ impl AwsElbLoadBalancerHealthCheckBuilder {
     }
     /// <p>The number of consecutive health check failures that must occur before the instance is moved to the Unhealthy state.</p>
     pub fn set_unhealthy_threshold(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.unhealthy_threshold = input;
-        self
+        self.unhealthy_threshold = input; self
     }
     /// <p>The number of consecutive health check failures that must occur before the instance is moved to the Unhealthy state.</p>
     pub fn get_unhealthy_threshold(&self) -> &::std::option::Option<i32> {
@@ -173,11 +168,17 @@ impl AwsElbLoadBalancerHealthCheckBuilder {
     /// Consumes the builder and constructs a [`AwsElbLoadBalancerHealthCheck`](crate::types::AwsElbLoadBalancerHealthCheck).
     pub fn build(self) -> crate::types::AwsElbLoadBalancerHealthCheck {
         crate::types::AwsElbLoadBalancerHealthCheck {
-            healthy_threshold: self.healthy_threshold,
-            interval: self.interval,
-            target: self.target,
-            timeout: self.timeout,
-            unhealthy_threshold: self.unhealthy_threshold,
+            healthy_threshold: self.healthy_threshold
+            ,
+            interval: self.interval
+            ,
+            target: self.target
+            ,
+            timeout: self.timeout
+            ,
+            unhealthy_threshold: self.unhealthy_threshold
+            ,
         }
     }
 }
+

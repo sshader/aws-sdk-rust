@@ -3,18 +3,18 @@
 /// <p>A channel is a named input source that training algorithms can consume. This channel is used for AutoML jobs V2 (jobs created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>).</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AutoMlJobChannel {
-    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note>
-    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p>
+pub struct AutoMlJobChannel  {
+    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note> 
+    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p> 
     /// </note>
     pub channel_type: ::std::option::Option<crate::types::AutoMlChannelType>,
-    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p>
-    /// <ul>
-    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li>
-    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
+    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p> 
+    /// <ul> 
+    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li> 
+    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
     /// </ul>
     pub content_type: ::std::option::Option<::std::string::String>,
     /// <p>The allowed compression types depend on the input format and problem type. We allow the compression type <code>Gzip</code> for <code>S3Prefix</code> inputs on tabular data only. For all other inputs, the compression type should be <code>None</code>. If no compression type is provided, we default to <code>None</code>.</p>
@@ -22,30 +22,30 @@ pub struct AutoMlJobChannel {
     /// <p>The data source for an AutoML channel (Required).</p>
     pub data_source: ::std::option::Option<crate::types::AutoMlDataSource>,
 }
-impl AutoMlJobChannel {
-    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note>
-    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p>
+impl  AutoMlJobChannel  {
+    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note> 
+    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p> 
     /// </note>
-    pub fn channel_type(&self) -> ::std::option::Option<&crate::types::AutoMlChannelType> {
+    pub fn channel_type(&self) -> ::std::option::Option<& crate::types::AutoMlChannelType> {
         self.channel_type.as_ref()
     }
-    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p>
-    /// <ul>
-    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li>
-    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
+    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p> 
+    /// <ul> 
+    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li> 
+    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
     /// </ul>
-    pub fn content_type(&self) -> ::std::option::Option<&str> {
+    pub fn content_type(&self) -> ::std::option::Option<& str> {
         self.content_type.as_deref()
     }
     /// <p>The allowed compression types depend on the input format and problem type. We allow the compression type <code>Gzip</code> for <code>S3Prefix</code> inputs on tabular data only. For all other inputs, the compression type should be <code>None</code>. If no compression type is provided, we default to <code>None</code>.</p>
-    pub fn compression_type(&self) -> ::std::option::Option<&crate::types::CompressionType> {
+    pub fn compression_type(&self) -> ::std::option::Option<& crate::types::CompressionType> {
         self.compression_type.as_ref()
     }
     /// <p>The data source for an AutoML channel (Required).</p>
-    pub fn data_source(&self) -> ::std::option::Option<&crate::types::AutoMlDataSource> {
+    pub fn data_source(&self) -> ::std::option::Option<& crate::types::AutoMlDataSource> {
         self.data_source.as_ref()
     }
 }
@@ -66,57 +66,55 @@ pub struct AutoMlJobChannelBuilder {
     pub(crate) data_source: ::std::option::Option<crate::types::AutoMlDataSource>,
 }
 impl AutoMlJobChannelBuilder {
-    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note>
-    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p>
+    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note> 
+    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p> 
     /// </note>
     pub fn channel_type(mut self, input: crate::types::AutoMlChannelType) -> Self {
         self.channel_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note>
-    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p>
+    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note> 
+    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p> 
     /// </note>
     pub fn set_channel_type(mut self, input: ::std::option::Option<crate::types::AutoMlChannelType>) -> Self {
-        self.channel_type = input;
-        self
+        self.channel_type = input; self
     }
-    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note>
-    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p>
+    /// <p>The type of channel. Defines whether the data are used for training or validation. The default value is <code>training</code>. Channels for <code>training</code> and <code>validation</code> must share the same <code>ContentType</code> </p> <note> 
+    /// <p>The type of channel defaults to <code>training</code> for the time-series forecasting problem type.</p> 
     /// </note>
     pub fn get_channel_type(&self) -> &::std::option::Option<crate::types::AutoMlChannelType> {
         &self.channel_type
     }
-    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p>
-    /// <ul>
-    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li>
-    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
+    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p> 
+    /// <ul> 
+    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li> 
+    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
     /// </ul>
     pub fn content_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_type = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p>
-    /// <ul>
-    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li>
-    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
+    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p> 
+    /// <ul> 
+    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li> 
+    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
     /// </ul>
     pub fn set_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.content_type = input;
-        self
+        self.content_type = input; self
     }
-    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p>
-    /// <ul>
-    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li>
-    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
-    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li>
+    /// <p>The content type of the data from the input source. The following are the allowed content types for different problems:</p> 
+    /// <ul> 
+    /// <li> <p>For tabular problem types: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or <code>image/*</code>. The default value is <code>image/*</code>.</p> </li> 
+    /// <li> <p>For text classification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For time-series forecasting: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
+    /// <li> <p>For text generation (LLMs fine-tuning): <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>. The default value is <code>text/csv;header=present</code>.</p> </li> 
     /// </ul>
     pub fn get_content_type(&self) -> &::std::option::Option<::std::string::String> {
         &self.content_type
@@ -128,8 +126,7 @@ impl AutoMlJobChannelBuilder {
     }
     /// <p>The allowed compression types depend on the input format and problem type. We allow the compression type <code>Gzip</code> for <code>S3Prefix</code> inputs on tabular data only. For all other inputs, the compression type should be <code>None</code>. If no compression type is provided, we default to <code>None</code>.</p>
     pub fn set_compression_type(mut self, input: ::std::option::Option<crate::types::CompressionType>) -> Self {
-        self.compression_type = input;
-        self
+        self.compression_type = input; self
     }
     /// <p>The allowed compression types depend on the input format and problem type. We allow the compression type <code>Gzip</code> for <code>S3Prefix</code> inputs on tabular data only. For all other inputs, the compression type should be <code>None</code>. If no compression type is provided, we default to <code>None</code>.</p>
     pub fn get_compression_type(&self) -> &::std::option::Option<crate::types::CompressionType> {
@@ -142,8 +139,7 @@ impl AutoMlJobChannelBuilder {
     }
     /// <p>The data source for an AutoML channel (Required).</p>
     pub fn set_data_source(mut self, input: ::std::option::Option<crate::types::AutoMlDataSource>) -> Self {
-        self.data_source = input;
-        self
+        self.data_source = input; self
     }
     /// <p>The data source for an AutoML channel (Required).</p>
     pub fn get_data_source(&self) -> &::std::option::Option<crate::types::AutoMlDataSource> {
@@ -152,10 +148,15 @@ impl AutoMlJobChannelBuilder {
     /// Consumes the builder and constructs a [`AutoMlJobChannel`](crate::types::AutoMlJobChannel).
     pub fn build(self) -> crate::types::AutoMlJobChannel {
         crate::types::AutoMlJobChannel {
-            channel_type: self.channel_type,
-            content_type: self.content_type,
-            compression_type: self.compression_type,
-            data_source: self.data_source,
+            channel_type: self.channel_type
+            ,
+            content_type: self.content_type
+            ,
+            compression_type: self.compression_type
+            ,
+            data_source: self.data_source
+            ,
         }
     }
 }
+

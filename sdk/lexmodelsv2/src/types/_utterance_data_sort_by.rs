@@ -3,27 +3,27 @@
 /// <p>An object specifying the measure and method by which to sort the utterance data.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UtteranceDataSortBy {
-    /// <p>The measure by which to sort the utterance analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li>
-    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li>
+pub struct UtteranceDataSortBy  {
+    /// <p>The measure by which to sort the utterance analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li> 
+    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li> 
     /// </ul>
     pub name: crate::types::AnalyticsUtteranceSortByName,
     /// <p>Specifies whether to sort the results in ascending or descending order.</p>
     pub order: crate::types::AnalyticsSortOrder,
 }
-impl UtteranceDataSortBy {
-    /// <p>The measure by which to sort the utterance analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li>
-    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li>
+impl  UtteranceDataSortBy  {
+    /// <p>The measure by which to sort the utterance analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li> 
+    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li> 
     /// </ul>
-    pub fn name(&self) -> &crate::types::AnalyticsUtteranceSortByName {
+    pub fn name(&self) -> & crate::types::AnalyticsUtteranceSortByName {
         &self.name
     }
     /// <p>Specifies whether to sort the results in ascending or descending order.</p>
-    pub fn order(&self) -> &crate::types::AnalyticsSortOrder {
+    pub fn order(&self) -> & crate::types::AnalyticsSortOrder {
         &self.order
     }
 }
@@ -42,29 +42,28 @@ pub struct UtteranceDataSortByBuilder {
     pub(crate) order: ::std::option::Option<crate::types::AnalyticsSortOrder>,
 }
 impl UtteranceDataSortByBuilder {
-    /// <p>The measure by which to sort the utterance analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li>
-    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li>
+    /// <p>The measure by which to sort the utterance analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li> 
+    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn name(mut self, input: crate::types::AnalyticsUtteranceSortByName) -> Self {
         self.name = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The measure by which to sort the utterance analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li>
-    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li>
+    /// <p>The measure by which to sort the utterance analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li> 
+    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li> 
     /// </ul>
     pub fn set_name(mut self, input: ::std::option::Option<crate::types::AnalyticsUtteranceSortByName>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
-    /// <p>The measure by which to sort the utterance analytics data.</p>
-    /// <ul>
-    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li>
-    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li>
+    /// <p>The measure by which to sort the utterance analytics data.</p> 
+    /// <ul> 
+    /// <li> <p> <code>Count</code> – The number of utterances.</p> </li> 
+    /// <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li> 
     /// </ul>
     pub fn get_name(&self) -> &::std::option::Option<crate::types::AnalyticsUtteranceSortByName> {
         &self.name
@@ -77,8 +76,7 @@ impl UtteranceDataSortByBuilder {
     }
     /// <p>Specifies whether to sort the results in ascending or descending order.</p>
     pub fn set_order(mut self, input: ::std::option::Option<crate::types::AnalyticsSortOrder>) -> Self {
-        self.order = input;
-        self
+        self.order = input; self
     }
     /// <p>Specifies whether to sort the results in ascending or descending order.</p>
     pub fn get_order(&self) -> &::std::option::Option<crate::types::AnalyticsSortOrder> {
@@ -89,19 +87,20 @@ impl UtteranceDataSortByBuilder {
     /// - [`name`](crate::types::builders::UtteranceDataSortByBuilder::name)
     /// - [`order`](crate::types::builders::UtteranceDataSortByBuilder::order)
     pub fn build(self) -> ::std::result::Result<crate::types::UtteranceDataSortBy, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::UtteranceDataSortBy {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building UtteranceDataSortBy",
-                )
-            })?,
-            order: self.order.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "order",
-                    "order was not specified but it is required when building UtteranceDataSortBy",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::UtteranceDataSortBy {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building UtteranceDataSortBy")
+                    )?
+                ,
+                order: self.order
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("order", "order was not specified but it is required when building UtteranceDataSortBy")
+                    )?
+                ,
+            }
+        )
     }
 }
+

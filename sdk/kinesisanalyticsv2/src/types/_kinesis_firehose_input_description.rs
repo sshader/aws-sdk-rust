@@ -3,24 +3,23 @@
 /// <p>Describes the Amazon Kinesis Data Firehose delivery stream that is configured as the streaming source in the application input configuration. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct KinesisFirehoseInputDescription {
+pub struct KinesisFirehoseInputDescription  {
     /// <p>The Amazon Resource Name (ARN) of the delivery stream.</p>
     pub resource_arn: ::std::string::String,
-    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note>
-    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p>
+    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note> 
+    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p> 
     /// </note>
     pub role_arn: ::std::option::Option<::std::string::String>,
 }
-impl KinesisFirehoseInputDescription {
+impl  KinesisFirehoseInputDescription  {
     /// <p>The Amazon Resource Name (ARN) of the delivery stream.</p>
-    pub fn resource_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.resource_arn.deref()
+    pub fn resource_arn(&self) -> & str {
+        use std::ops::Deref; self.resource_arn.deref()
     }
-    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note>
-    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p>
+    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note> 
+    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p> 
     /// </note>
-    pub fn role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn role_arn(&self) -> ::std::option::Option<& str> {
         self.role_arn.as_deref()
     }
 }
@@ -47,29 +46,27 @@ impl KinesisFirehoseInputDescriptionBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the delivery stream.</p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_arn = input;
-        self
+        self.resource_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the delivery stream.</p>
     pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.resource_arn
     }
-    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note>
-    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p>
+    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note> 
+    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p> 
     /// </note>
     pub fn role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note>
-    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p>
+    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note> 
+    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p> 
     /// </note>
     pub fn set_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.role_arn = input;
-        self
+        self.role_arn = input; self
     }
-    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note>
-    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p>
+    /// <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p> <note> 
+    /// <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p> 
     /// </note>
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_arn
@@ -78,14 +75,17 @@ impl KinesisFirehoseInputDescriptionBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`resource_arn`](crate::types::builders::KinesisFirehoseInputDescriptionBuilder::resource_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::KinesisFirehoseInputDescription, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::KinesisFirehoseInputDescription {
-            resource_arn: self.resource_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "resource_arn",
-                    "resource_arn was not specified but it is required when building KinesisFirehoseInputDescription",
-                )
-            })?,
-            role_arn: self.role_arn,
-        })
+        ::std::result::Result::Ok(
+            crate::types::KinesisFirehoseInputDescription {
+                resource_arn: self.resource_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("resource_arn", "resource_arn was not specified but it is required when building KinesisFirehoseInputDescription")
+                    )?
+                ,
+                role_arn: self.role_arn
+                ,
+            }
+        )
     }
 }
+

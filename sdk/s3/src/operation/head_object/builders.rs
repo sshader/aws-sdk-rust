@@ -5,99 +5,95 @@ pub use crate::operation::head_object::_head_object_input::HeadObjectInputBuilde
 
 impl HeadObjectInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::head_object::HeadObjectOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::head_object::HeadObjectError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.head_object();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::head_object::HeadObjectOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::head_object::HeadObjectError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.head_object();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `HeadObject`.
-///
-/// <p>The <code>HEAD</code> action retrieves metadata from an object without returning the object itself. This action is useful if you're only interested in an object's metadata. To use <code>HEAD</code>, you must have READ access to the object.</p>
-/// <p>A <code>HEAD</code> request has the same options as a <code>GET</code> action on an object. The response is identical to the <code>GET</code> response except that there is no response body. Because of this, if the <code>HEAD</code> request generates an error, it returns a generic <code>400 Bad Request</code>, <code>403 Forbidden</code> or <code>404 Not Found</code> code. It is not possible to retrieve the exact exception beyond these error codes.</p>
-/// <p>If you encrypt an object by using server-side encryption with customer-provided encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata from the object, you must use the following headers:</p>
-/// <ul>
-/// <li> <p> <code>x-amz-server-side-encryption-customer-algorithm</code> </p> </li>
-/// <li> <p> <code>x-amz-server-side-encryption-customer-key</code> </p> </li>
-/// <li> <p> <code>x-amz-server-side-encryption-customer-key-MD5</code> </p> </li>
-/// </ul>
-/// <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a>.</p> <note>
-/// <ul>
-/// <li> <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not be sent for <code>GET</code> requests if your object uses server-side encryption with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side encryption with Amazon S3 managed encryption keys (SSE-S3). If your object does use these types of keys, you’ll get an HTTP 400 Bad Request error.</p> </li>
-/// <li> <p> The last modified property in this case is the creation date of the object.</p> </li>
-/// </ul>
-/// </note>
-/// <p>Request headers are limited to 8 KB in size. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html">Common Request Headers</a>.</p>
-/// <p>Consider the following when using request headers:</p>
-/// <ul>
-/// <li> <p> Consideration 1 – If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers are present in the request as follows:</p>
-/// <ul>
-/// <li> <p> <code>If-Match</code> condition evaluates to <code>true</code>, and;</p> </li>
-/// <li> <p> <code>If-Unmodified-Since</code> condition evaluates to <code>false</code>;</p> </li>
-/// </ul> <p>Then Amazon S3 returns <code>200 OK</code> and the data requested.</p> </li>
-/// <li> <p> Consideration 2 – If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers are present in the request as follows:</p>
-/// <ul>
-/// <li> <p> <code>If-None-Match</code> condition evaluates to <code>false</code>, and;</p> </li>
-/// <li> <p> <code>If-Modified-Since</code> condition evaluates to <code>true</code>;</p> </li>
-/// </ul> <p>Then Amazon S3 returns the <code>304 Not Modified</code> response code.</p> </li>
-/// </ul>
-/// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
-/// <dl>
+/// 
+/// <p>The <code>HEAD</code> action retrieves metadata from an object without returning the object itself. This action is useful if you're only interested in an object's metadata. To use <code>HEAD</code>, you must have READ access to the object.</p> 
+/// <p>A <code>HEAD</code> request has the same options as a <code>GET</code> action on an object. The response is identical to the <code>GET</code> response except that there is no response body. Because of this, if the <code>HEAD</code> request generates an error, it returns a generic <code>400 Bad Request</code>, <code>403 Forbidden</code> or <code>404 Not Found</code> code. It is not possible to retrieve the exact exception beyond these error codes.</p> 
+/// <p>If you encrypt an object by using server-side encryption with customer-provided encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata from the object, you must use the following headers:</p> 
+/// <ul> 
+/// <li> <p> <code>x-amz-server-side-encryption-customer-algorithm</code> </p> </li> 
+/// <li> <p> <code>x-amz-server-side-encryption-customer-key</code> </p> </li> 
+/// <li> <p> <code>x-amz-server-side-encryption-customer-key-MD5</code> </p> </li> 
+/// </ul> 
+/// <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a>.</p> <note> 
+/// <ul> 
+/// <li> <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not be sent for <code>GET</code> requests if your object uses server-side encryption with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side encryption with Amazon S3 managed encryption keys (SSE-S3). If your object does use these types of keys, you’ll get an HTTP 400 Bad Request error.</p> </li> 
+/// <li> <p> The last modified property in this case is the creation date of the object.</p> </li> 
+/// </ul> 
+/// </note> 
+/// <p>Request headers are limited to 8 KB in size. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html">Common Request Headers</a>.</p> 
+/// <p>Consider the following when using request headers:</p> 
+/// <ul> 
+/// <li> <p> Consideration 1 – If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers are present in the request as follows:</p> 
+/// <ul> 
+/// <li> <p> <code>If-Match</code> condition evaluates to <code>true</code>, and;</p> </li> 
+/// <li> <p> <code>If-Unmodified-Since</code> condition evaluates to <code>false</code>;</p> </li> 
+/// </ul> <p>Then Amazon S3 returns <code>200 OK</code> and the data requested.</p> </li> 
+/// <li> <p> Consideration 2 – If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers are present in the request as follows:</p> 
+/// <ul> 
+/// <li> <p> <code>If-None-Match</code> condition evaluates to <code>false</code>, and;</p> </li> 
+/// <li> <p> <code>If-Modified-Since</code> condition evaluates to <code>true</code>;</p> </li> 
+/// </ul> <p>Then Amazon S3 returns the <code>304 Not Modified</code> response code.</p> </li> 
+/// </ul> 
+/// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p> 
+/// <dl> 
 /// <dt>
 /// Permissions
-/// </dt>
-/// <dd>
-/// <p>You need the relevant read object (or version) permission for this operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, resources, and condition keys for Amazon S3</a>. If the object you request doesn't exist, the error that Amazon S3 returns depends on whether you also have the s3:ListBucket permission.</p>
-/// <ul>
-/// <li> <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns an HTTP status code 404 error.</p> </li>
-/// <li> <p>If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an HTTP status code 403 error.</p> </li>
-/// </ul>
-/// </dd>
-/// </dl>
-/// <p>The following actions are related to <code>HeadObject</code>:</p>
-/// <ul>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a> </p> </li>
-/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a> </p> </li>
+/// </dt> 
+/// <dd> 
+/// <p>You need the relevant read object (or version) permission for this operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, resources, and condition keys for Amazon S3</a>. If the object you request doesn't exist, the error that Amazon S3 returns depends on whether you also have the s3:ListBucket permission.</p> 
+/// <ul> 
+/// <li> <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns an HTTP status code 404 error.</p> </li> 
+/// <li> <p>If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an HTTP status code 403 error.</p> </li> 
+/// </ul> 
+/// </dd> 
+/// </dl> 
+/// <p>The following actions are related to <code>HeadObject</code>:</p> 
+/// <ul> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a> </p> </li> 
+/// <li> <p> <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a> </p> </li> 
 /// </ul>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct HeadObjectFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::head_object::builders::HeadObjectInputBuilder,
+                    inner: crate::operation::head_object::builders::HeadObjectInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::head_object::HeadObjectOutput,
-        crate::operation::head_object::HeadObjectError,
-    > for HeadObjectFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::head_object::HeadObjectOutput,
-            crate::operation::head_object::HeadObjectError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::head_object::HeadObjectOutput,
+                    crate::operation::head_object::HeadObjectError,
+                > for HeadObjectFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::head_object::HeadObjectOutput,
+                        crate::operation::head_object::HeadObjectError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl HeadObjectFluentBuilder {
     /// Creates a new `HeadObject`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -106,121 +102,98 @@ impl HeadObjectFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::head_object::HeadObjectOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::head_object::HeadObjectError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::head_object::HeadObject::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::head_object::HeadObject::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::head_object::HeadObjectOutput,
-        crate::operation::head_object::HeadObjectError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    ///
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::head_object::HeadObjectOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::head_object::HeadObjectError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::head_object::HeadObject::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::head_object::HeadObject::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::head_object::HeadObjectOutput, crate::operation::head_object::HeadObjectError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// 
     /// Creates a presigned request for this operation.
-    ///
+    /// 
     /// The `presigning_config` provides additional presigning-specific config values, such as the
     /// amount of time the request should be valid for after creation.
-    ///
+    /// 
     /// Presigned requests can be given to other users or applications to access a resource or perform
     /// an operation without having access to the AWS security credentials.
-    ///
+    /// 
     /// _Important:_ If you're using credentials that can expire, such as those from STS AssumeRole or SSO, then
     /// the presigned request can only be valid for as long as the credentials used to create it are.
-    ///
+    /// 
     #[allow(unused_mut)]
-    pub async fn presigned(
-        mut self,
-        presigning_config: crate::presigning::PresigningConfig,
-    ) -> ::std::result::Result<
-        crate::presigning::PresignedRequest,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::head_object::HeadObjectError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let runtime_plugins = crate::operation::head_object::HeadObject::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        )
-        .with_client_plugin(crate::presigning_interceptors::SigV4PresigningRuntimePlugin::new(
-            presigning_config,
-            ::aws_sigv4::http_request::SignableBody::UnsignedPayload,
-        ));
-
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let mut context = crate::operation::head_object::HeadObject::orchestrate_with_stop_point(
-            &runtime_plugins,
-            input,
-            ::aws_smithy_runtime::client::orchestrator::StopPoint::BeforeTransmit,
-        )
-        .await
-        .map_err(|err| {
-            err.map_service_error(|err| {
-                err.downcast::<crate::operation::head_object::HeadObjectError>()
-                    .expect("correct error type")
-            })
-        })?;
-        let request = context.take_request().expect("request set before transmit");
-        crate::presigning::PresignedRequest::new(request).map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+                        pub async fn presigned(
+                            mut self,
+                            presigning_config: crate::presigning::PresigningConfig,
+                        ) -> ::std::result::Result<crate::presigning::PresignedRequest, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::head_object::HeadObjectError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+        
+        
+                    let runtime_plugins = crate::operation::head_object::HeadObject::operation_runtime_plugins(
+                        self.handle.runtime_plugins.clone(),
+                        &self.handle.conf,
+                        self.config_override,
+                    )
+                        .with_client_plugin(crate::presigning_interceptors::SigV4PresigningRuntimePlugin::new(presigning_config, ::aws_sigv4::http_request::SignableBody::UnsignedPayload))
+                        ;
+        
+                    let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                    let mut context = crate::operation::head_object::HeadObject::orchestrate_with_stop_point(&runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::BeforeTransmit)
+                        .await
+                        .map_err(|err| {
+                            err.map_service_error(|err| {
+                                err.downcast::<crate::operation::head_object::HeadObjectError>().expect("correct error type")
+                            })
+                        })?;
+                    let request = context.take_request().expect("request set before transmit");
+                    crate::presigning::PresignedRequest::new(request).map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
     }
-    /// <p>The name of the bucket containing the object.</p>
-    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>The name of the bucket containing the object.</p> 
+    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.bucket(input.into());
         self
     }
-    /// <p>The name of the bucket containing the object.</p>
-    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>The name of the bucket containing the object.</p> 
+    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_bucket(input);
         self
     }
-    /// <p>The name of the bucket containing the object.</p>
-    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>The name of the bucket containing the object.</p> 
+    /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p> 
     /// <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_bucket()
@@ -407,21 +380,22 @@ impl HeadObjectFluentBuilder {
     pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_expected_bucket_owner()
     }
-    /// <p>To retrieve the checksum, this parameter must be enabled.</p>
+    /// <p>To retrieve the checksum, this parameter must be enabled.</p> 
     /// <p>In addition, if you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must have permission to use the <code>kms:Decrypt</code> action for the request to succeed.</p>
     pub fn checksum_mode(mut self, input: crate::types::ChecksumMode) -> Self {
         self.inner = self.inner.checksum_mode(input);
         self
     }
-    /// <p>To retrieve the checksum, this parameter must be enabled.</p>
+    /// <p>To retrieve the checksum, this parameter must be enabled.</p> 
     /// <p>In addition, if you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must have permission to use the <code>kms:Decrypt</code> action for the request to succeed.</p>
     pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
         self.inner = self.inner.set_checksum_mode(input);
         self
     }
-    /// <p>To retrieve the checksum, this parameter must be enabled.</p>
+    /// <p>To retrieve the checksum, this parameter must be enabled.</p> 
     /// <p>In addition, if you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must have permission to use the <code>kms:Decrypt</code> action for the request to succeed.</p>
     pub fn get_checksum_mode(&self) -> &::std::option::Option<crate::types::ChecksumMode> {
         self.inner.get_checksum_mode()
     }
 }
+

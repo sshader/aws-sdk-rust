@@ -3,7 +3,7 @@
 /// <p> Describes a license recommendation for an EC2 instance. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct LicenseRecommendation {
+pub struct LicenseRecommendation  {
     /// <p> The ARN that identifies the Amazon EC2 instance. </p>
     pub resource_arn: ::std::option::Option<::std::string::String>,
     /// <p> The Amazon Web Services account ID of the license. </p>
@@ -14,39 +14,39 @@ pub struct LicenseRecommendation {
     pub lookback_period_in_days: f64,
     /// <p> The timestamp of when the license recommendation was last generated. </p>
     pub last_refresh_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p> The finding classification for an instance that runs on a license. </p>
-    /// <p>Findings include:</p>
-    /// <ul>
-    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li>
-    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li>
-    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li>
+    /// <p> The finding classification for an instance that runs on a license. </p> 
+    /// <p>Findings include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li> 
+    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li> 
+    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li> 
     /// </ul>
     pub finding: ::std::option::Option<crate::types::LicenseFinding>,
-    /// <p> The reason for the finding classification for an instance that runs on a license. </p>
-    /// <p>Finding reason codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li>
-    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li>
-    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li>
-    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li>
+    /// <p> The reason for the finding classification for an instance that runs on a license. </p> 
+    /// <p>Finding reason codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li> 
+    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li> 
+    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li> 
+    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li> 
     /// </ul>
-    pub finding_reason_codes: ::std::option::Option<::std::vec::Vec<crate::types::LicenseFindingReasonCode>>,
+    pub finding_reason_codes: ::std::option::Option<::std::vec::Vec::<crate::types::LicenseFindingReasonCode>>,
     /// <p> An array of objects that describe the license recommendation options. </p>
-    pub license_recommendation_options: ::std::option::Option<::std::vec::Vec<crate::types::LicenseRecommendationOption>>,
+    pub license_recommendation_options: ::std::option::Option<::std::vec::Vec::<crate::types::LicenseRecommendationOption>>,
     /// <p> A list of tags assigned to an EC2 instance. </p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
-impl LicenseRecommendation {
+impl  LicenseRecommendation  {
     /// <p> The ARN that identifies the Amazon EC2 instance. </p>
-    pub fn resource_arn(&self) -> ::std::option::Option<&str> {
+    pub fn resource_arn(&self) -> ::std::option::Option<& str> {
         self.resource_arn.as_deref()
     }
     /// <p> The Amazon Web Services account ID of the license. </p>
-    pub fn account_id(&self) -> ::std::option::Option<&str> {
+    pub fn account_id(&self) -> ::std::option::Option<& str> {
         self.account_id.as_deref()
     }
     /// <p> An object that describes the current configuration of an instance that runs on a license. </p>
-    pub fn current_license_configuration(&self) -> ::std::option::Option<&crate::types::LicenseConfiguration> {
+    pub fn current_license_configuration(&self) -> ::std::option::Option<& crate::types::LicenseConfiguration> {
         self.current_license_configuration.as_ref()
     }
     /// <p> The number of days for which utilization metrics were analyzed for an instance that runs on a license. </p>
@@ -54,43 +54,46 @@ impl LicenseRecommendation {
         self.lookback_period_in_days
     }
     /// <p> The timestamp of when the license recommendation was last generated. </p>
-    pub fn last_refresh_timestamp(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_refresh_timestamp(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_refresh_timestamp.as_ref()
     }
-    /// <p> The finding classification for an instance that runs on a license. </p>
-    /// <p>Findings include:</p>
-    /// <ul>
-    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li>
-    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li>
-    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li>
+    /// <p> The finding classification for an instance that runs on a license. </p> 
+    /// <p>Findings include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li> 
+    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li> 
+    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li> 
     /// </ul>
-    pub fn finding(&self) -> ::std::option::Option<&crate::types::LicenseFinding> {
+    pub fn finding(&self) -> ::std::option::Option<& crate::types::LicenseFinding> {
         self.finding.as_ref()
     }
-    /// <p> The reason for the finding classification for an instance that runs on a license. </p>
-    /// <p>Finding reason codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li>
-    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li>
-    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li>
-    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li>
+    /// <p> The reason for the finding classification for an instance that runs on a license. </p> 
+    /// <p>Finding reason codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li> 
+    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li> 
+    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li> 
+    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.finding_reason_codes.is_none()`.
-    pub fn finding_reason_codes(&self) -> &[crate::types::LicenseFindingReasonCode] {
-        self.finding_reason_codes.as_deref().unwrap_or_default()
+    pub fn finding_reason_codes(&self) -> & [crate::types::LicenseFindingReasonCode] {
+        self.finding_reason_codes.as_deref()
+        .unwrap_or_default()
     }
     /// <p> An array of objects that describe the license recommendation options. </p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.license_recommendation_options.is_none()`.
-    pub fn license_recommendation_options(&self) -> &[crate::types::LicenseRecommendationOption] {
-        self.license_recommendation_options.as_deref().unwrap_or_default()
+    pub fn license_recommendation_options(&self) -> & [crate::types::LicenseRecommendationOption] {
+        self.license_recommendation_options.as_deref()
+        .unwrap_or_default()
     }
     /// <p> A list of tags assigned to an EC2 instance. </p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
-        self.tags.as_deref().unwrap_or_default()
+    pub fn tags(&self) -> & [crate::types::Tag] {
+        self.tags.as_deref()
+        .unwrap_or_default()
     }
 }
 impl LicenseRecommendation {
@@ -110,9 +113,9 @@ pub struct LicenseRecommendationBuilder {
     pub(crate) lookback_period_in_days: ::std::option::Option<f64>,
     pub(crate) last_refresh_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) finding: ::std::option::Option<crate::types::LicenseFinding>,
-    pub(crate) finding_reason_codes: ::std::option::Option<::std::vec::Vec<crate::types::LicenseFindingReasonCode>>,
-    pub(crate) license_recommendation_options: ::std::option::Option<::std::vec::Vec<crate::types::LicenseRecommendationOption>>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) finding_reason_codes: ::std::option::Option<::std::vec::Vec::<crate::types::LicenseFindingReasonCode>>,
+    pub(crate) license_recommendation_options: ::std::option::Option<::std::vec::Vec::<crate::types::LicenseRecommendationOption>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
 impl LicenseRecommendationBuilder {
     /// <p> The ARN that identifies the Amazon EC2 instance. </p>
@@ -122,8 +125,7 @@ impl LicenseRecommendationBuilder {
     }
     /// <p> The ARN that identifies the Amazon EC2 instance. </p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_arn = input;
-        self
+        self.resource_arn = input; self
     }
     /// <p> The ARN that identifies the Amazon EC2 instance. </p>
     pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -136,8 +138,7 @@ impl LicenseRecommendationBuilder {
     }
     /// <p> The Amazon Web Services account ID of the license. </p>
     pub fn set_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.account_id = input;
-        self
+        self.account_id = input; self
     }
     /// <p> The Amazon Web Services account ID of the license. </p>
     pub fn get_account_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -150,8 +151,7 @@ impl LicenseRecommendationBuilder {
     }
     /// <p> An object that describes the current configuration of an instance that runs on a license. </p>
     pub fn set_current_license_configuration(mut self, input: ::std::option::Option<crate::types::LicenseConfiguration>) -> Self {
-        self.current_license_configuration = input;
-        self
+        self.current_license_configuration = input; self
     }
     /// <p> An object that describes the current configuration of an instance that runs on a license. </p>
     pub fn get_current_license_configuration(&self) -> &::std::option::Option<crate::types::LicenseConfiguration> {
@@ -164,8 +164,7 @@ impl LicenseRecommendationBuilder {
     }
     /// <p> The number of days for which utilization metrics were analyzed for an instance that runs on a license. </p>
     pub fn set_lookback_period_in_days(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.lookback_period_in_days = input;
-        self
+        self.lookback_period_in_days = input; self
     }
     /// <p> The number of days for which utilization metrics were analyzed for an instance that runs on a license. </p>
     pub fn get_lookback_period_in_days(&self) -> &::std::option::Option<f64> {
@@ -178,41 +177,39 @@ impl LicenseRecommendationBuilder {
     }
     /// <p> The timestamp of when the license recommendation was last generated. </p>
     pub fn set_last_refresh_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_refresh_timestamp = input;
-        self
+        self.last_refresh_timestamp = input; self
     }
     /// <p> The timestamp of when the license recommendation was last generated. </p>
     pub fn get_last_refresh_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_refresh_timestamp
     }
-    /// <p> The finding classification for an instance that runs on a license. </p>
-    /// <p>Findings include:</p>
-    /// <ul>
-    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li>
-    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li>
-    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li>
+    /// <p> The finding classification for an instance that runs on a license. </p> 
+    /// <p>Findings include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li> 
+    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li> 
+    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li> 
     /// </ul>
     pub fn finding(mut self, input: crate::types::LicenseFinding) -> Self {
         self.finding = ::std::option::Option::Some(input);
         self
     }
-    /// <p> The finding classification for an instance that runs on a license. </p>
-    /// <p>Findings include:</p>
-    /// <ul>
-    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li>
-    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li>
-    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li>
+    /// <p> The finding classification for an instance that runs on a license. </p> 
+    /// <p>Findings include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li> 
+    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li> 
+    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li> 
     /// </ul>
     pub fn set_finding(mut self, input: ::std::option::Option<crate::types::LicenseFinding>) -> Self {
-        self.finding = input;
-        self
+        self.finding = input; self
     }
-    /// <p> The finding classification for an instance that runs on a license. </p>
-    /// <p>Findings include:</p>
-    /// <ul>
-    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li>
-    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li>
-    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li>
+    /// <p> The finding classification for an instance that runs on a license. </p> 
+    /// <p>Findings include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. </p> </li> 
+    /// <li> <p> <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure isn't using any of the SQL server license features you're paying for, a license is considered not optimized.</p> </li> 
+    /// <li> <p> <code>Optimized</code> — When Compute Optimizer detects that all specifications of your license meet the performance requirements of your workload. </p> </li> 
     /// </ul>
     pub fn get_finding(&self) -> &::std::option::Option<crate::types::LicenseFinding> {
         &self.finding
@@ -221,41 +218,40 @@ impl LicenseRecommendationBuilder {
     ///
     /// To override the contents of this collection use [`set_finding_reason_codes`](Self::set_finding_reason_codes).
     ///
-    /// <p> The reason for the finding classification for an instance that runs on a license. </p>
-    /// <p>Finding reason codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li>
-    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li>
-    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li>
-    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li>
+    /// <p> The reason for the finding classification for an instance that runs on a license. </p> 
+    /// <p>Finding reason codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li> 
+    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li> 
+    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li> 
+    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li> 
     /// </ul>
     pub fn finding_reason_codes(mut self, input: crate::types::LicenseFindingReasonCode) -> Self {
         let mut v = self.finding_reason_codes.unwrap_or_default();
-        v.push(input);
-        self.finding_reason_codes = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.finding_reason_codes = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p> The reason for the finding classification for an instance that runs on a license. </p>
-    /// <p>Finding reason codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li>
-    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li>
-    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li>
-    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li>
+    /// <p> The reason for the finding classification for an instance that runs on a license. </p> 
+    /// <p>Finding reason codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li> 
+    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li> 
+    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li> 
+    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li> 
     /// </ul>
-    pub fn set_finding_reason_codes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LicenseFindingReasonCode>>) -> Self {
-        self.finding_reason_codes = input;
-        self
+    pub fn set_finding_reason_codes(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::LicenseFindingReasonCode>>) -> Self {
+        self.finding_reason_codes = input; self
     }
-    /// <p> The reason for the finding classification for an instance that runs on a license. </p>
-    /// <p>Finding reason codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li>
-    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li>
-    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li>
-    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li>
+    /// <p> The reason for the finding classification for an instance that runs on a license. </p> 
+    /// <p>Finding reason codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Optimized</code> — All specifications of your license meet the performance requirements of your workload. </p> </li> 
+    /// <li> <p> <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be downgraded while still meeting the performance requirements of your workload.</p> </li> 
+    /// <li> <p> <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch Application Insights isn't configured properly.</p> </li> 
+    /// <li> <p> <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch Application Insights error. </p> </li> 
     /// </ul>
-    pub fn get_finding_reason_codes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LicenseFindingReasonCode>> {
+    pub fn get_finding_reason_codes(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::LicenseFindingReasonCode>> {
         &self.finding_reason_codes
     }
     /// Appends an item to `license_recommendation_options`.
@@ -265,20 +261,16 @@ impl LicenseRecommendationBuilder {
     /// <p> An array of objects that describe the license recommendation options. </p>
     pub fn license_recommendation_options(mut self, input: crate::types::LicenseRecommendationOption) -> Self {
         let mut v = self.license_recommendation_options.unwrap_or_default();
-        v.push(input);
-        self.license_recommendation_options = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.license_recommendation_options = ::std::option::Option::Some(v);
+                        self
     }
     /// <p> An array of objects that describe the license recommendation options. </p>
-    pub fn set_license_recommendation_options(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::LicenseRecommendationOption>>,
-    ) -> Self {
-        self.license_recommendation_options = input;
-        self
+    pub fn set_license_recommendation_options(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::LicenseRecommendationOption>>) -> Self {
+        self.license_recommendation_options = input; self
     }
     /// <p> An array of objects that describe the license recommendation options. </p>
-    pub fn get_license_recommendation_options(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LicenseRecommendationOption>> {
+    pub fn get_license_recommendation_options(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::LicenseRecommendationOption>> {
         &self.license_recommendation_options
     }
     /// Appends an item to `tags`.
@@ -288,31 +280,41 @@ impl LicenseRecommendationBuilder {
     /// <p> A list of tags assigned to an EC2 instance. </p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
-        v.push(input);
-        self.tags = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.tags = ::std::option::Option::Some(v);
+                        self
     }
     /// <p> A list of tags assigned to an EC2 instance. </p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
+        self.tags = input; self
     }
     /// <p> A list of tags assigned to an EC2 instance. </p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`LicenseRecommendation`](crate::types::LicenseRecommendation).
     pub fn build(self) -> crate::types::LicenseRecommendation {
         crate::types::LicenseRecommendation {
-            resource_arn: self.resource_arn,
-            account_id: self.account_id,
-            current_license_configuration: self.current_license_configuration,
-            lookback_period_in_days: self.lookback_period_in_days.unwrap_or_default(),
-            last_refresh_timestamp: self.last_refresh_timestamp,
-            finding: self.finding,
-            finding_reason_codes: self.finding_reason_codes,
-            license_recommendation_options: self.license_recommendation_options,
-            tags: self.tags,
+            resource_arn: self.resource_arn
+            ,
+            account_id: self.account_id
+            ,
+            current_license_configuration: self.current_license_configuration
+            ,
+            lookback_period_in_days: self.lookback_period_in_days
+                .unwrap_or_default()
+            ,
+            last_refresh_timestamp: self.last_refresh_timestamp
+            ,
+            finding: self.finding
+            ,
+            finding_reason_codes: self.finding_reason_codes
+            ,
+            license_recommendation_options: self.license_recommendation_options
+            ,
+            tags: self.tags
+            ,
         }
     }
 }
+

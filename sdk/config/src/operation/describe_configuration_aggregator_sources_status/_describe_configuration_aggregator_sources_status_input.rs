@@ -2,39 +2,40 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeConfigurationAggregatorSourcesStatusInput {
+pub struct DescribeConfigurationAggregatorSourcesStatusInput  {
     /// <p>The name of the configuration aggregator.</p>
     pub configuration_aggregator_name: ::std::option::Option<::std::string::String>,
-    /// <p>Filters the status type.</p>
-    /// <ul>
-    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li>
-    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li>
-    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li>
+    /// <p>Filters the status type.</p> 
+    /// <ul> 
+    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li> 
+    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li> 
+    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li> 
     /// </ul>
-    pub update_status: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
+    pub update_status: ::std::option::Option<::std::vec::Vec::<crate::types::AggregatedSourceStatusType>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
     pub limit: ::std::option::Option<i32>,
 }
-impl DescribeConfigurationAggregatorSourcesStatusInput {
+impl  DescribeConfigurationAggregatorSourcesStatusInput  {
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(&self) -> ::std::option::Option<&str> {
+    pub fn configuration_aggregator_name(&self) -> ::std::option::Option<& str> {
         self.configuration_aggregator_name.as_deref()
     }
-    /// <p>Filters the status type.</p>
-    /// <ul>
-    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li>
-    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li>
-    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li>
+    /// <p>Filters the status type.</p> 
+    /// <ul> 
+    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li> 
+    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li> 
+    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.update_status.is_none()`.
-    pub fn update_status(&self) -> &[crate::types::AggregatedSourceStatusType] {
-        self.update_status.as_deref().unwrap_or_default()
+    pub fn update_status(&self) -> & [crate::types::AggregatedSourceStatusType] {
+        self.update_status.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// <p>The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
@@ -44,8 +45,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInput {
 }
 impl DescribeConfigurationAggregatorSourcesStatusInput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationAggregatorSourcesStatusInput`](crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput).
-    pub fn builder(
-    ) -> crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder {
+    pub fn builder() -> crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder {
         crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder::default()
     }
 }
@@ -55,7 +55,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     pub(crate) configuration_aggregator_name: ::std::option::Option<::std::string::String>,
-    pub(crate) update_status: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
+    pub(crate) update_status: ::std::option::Option<::std::vec::Vec::<crate::types::AggregatedSourceStatusType>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) limit: ::std::option::Option<i32>,
 }
@@ -68,8 +68,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     }
     /// <p>The name of the configuration aggregator.</p>
     pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.configuration_aggregator_name = input;
-        self
+        self.configuration_aggregator_name = input; self
     }
     /// <p>The name of the configuration aggregator.</p>
     pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -79,35 +78,34 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     ///
     /// To override the contents of this collection use [`set_update_status`](Self::set_update_status).
     ///
-    /// <p>Filters the status type.</p>
-    /// <ul>
-    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li>
-    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li>
-    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li>
+    /// <p>Filters the status type.</p> 
+    /// <ul> 
+    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li> 
+    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li> 
+    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li> 
     /// </ul>
     pub fn update_status(mut self, input: crate::types::AggregatedSourceStatusType) -> Self {
         let mut v = self.update_status.unwrap_or_default();
-        v.push(input);
-        self.update_status = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.update_status = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>Filters the status type.</p>
-    /// <ul>
-    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li>
-    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li>
-    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li>
+    /// <p>Filters the status type.</p> 
+    /// <ul> 
+    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li> 
+    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li> 
+    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li> 
     /// </ul>
-    pub fn set_update_status(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>) -> Self {
-        self.update_status = input;
-        self
+    pub fn set_update_status(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AggregatedSourceStatusType>>) -> Self {
+        self.update_status = input; self
     }
-    /// <p>Filters the status type.</p>
-    /// <ul>
-    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li>
-    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li>
-    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li>
+    /// <p>Filters the status type.</p> 
+    /// <ul> 
+    /// <li> <p>Valid value FAILED indicates errors while moving data.</p> </li> 
+    /// <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li> 
+    /// <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li> 
     /// </ul>
-    pub fn get_update_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>> {
+    pub fn get_update_status(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AggregatedSourceStatusType>> {
         &self.update_status
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -117,8 +115,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -131,27 +128,26 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     }
     /// <p>The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.limit = input;
-        self
+        self.limit = input; self
     }
     /// <p>The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
     pub fn get_limit(&self) -> &::std::option::Option<i32> {
         &self.limit
     }
     /// Consumes the builder and constructs a [`DescribeConfigurationAggregatorSourcesStatusInput`](crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(
             crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput {
-                configuration_aggregator_name: self.configuration_aggregator_name,
-                update_status: self.update_status,
-                next_token: self.next_token,
-                limit: self.limit,
-            },
+                configuration_aggregator_name: self.configuration_aggregator_name
+                ,
+                update_status: self.update_status
+                ,
+                next_token: self.next_token
+                ,
+                limit: self.limit
+                ,
+            }
         )
     }
 }
+

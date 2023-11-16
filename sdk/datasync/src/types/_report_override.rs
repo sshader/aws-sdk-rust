@@ -3,15 +3,15 @@
 /// <p>Specifies the level of detail for a particular aspect of your DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task report</a>.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ReportOverride {
-    /// <p>Specifies whether your task report includes errors only or successes and errors.</p>
+pub struct ReportOverride  {
+    /// <p>Specifies whether your task report includes errors only or successes and errors.</p> 
     /// <p>For example, your report might mostly include only what didn't go well in your transfer (<code>ERRORS_ONLY</code>). At the same time, you want to verify that your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">task filter</a> is working correctly. In this situation, you can get a list of what files DataSync successfully skipped and if something transferred that you didn't to transfer (<code>SUCCESSES_AND_ERRORS</code>).</p>
     pub report_level: ::std::option::Option<crate::types::ReportLevel>,
 }
-impl ReportOverride {
-    /// <p>Specifies whether your task report includes errors only or successes and errors.</p>
+impl  ReportOverride  {
+    /// <p>Specifies whether your task report includes errors only or successes and errors.</p> 
     /// <p>For example, your report might mostly include only what didn't go well in your transfer (<code>ERRORS_ONLY</code>). At the same time, you want to verify that your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">task filter</a> is working correctly. In this situation, you can get a list of what files DataSync successfully skipped and if something transferred that you didn't to transfer (<code>SUCCESSES_AND_ERRORS</code>).</p>
-    pub fn report_level(&self) -> ::std::option::Option<&crate::types::ReportLevel> {
+    pub fn report_level(&self) -> ::std::option::Option<& crate::types::ReportLevel> {
         self.report_level.as_ref()
     }
 }
@@ -29,19 +29,18 @@ pub struct ReportOverrideBuilder {
     pub(crate) report_level: ::std::option::Option<crate::types::ReportLevel>,
 }
 impl ReportOverrideBuilder {
-    /// <p>Specifies whether your task report includes errors only or successes and errors.</p>
+    /// <p>Specifies whether your task report includes errors only or successes and errors.</p> 
     /// <p>For example, your report might mostly include only what didn't go well in your transfer (<code>ERRORS_ONLY</code>). At the same time, you want to verify that your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">task filter</a> is working correctly. In this situation, you can get a list of what files DataSync successfully skipped and if something transferred that you didn't to transfer (<code>SUCCESSES_AND_ERRORS</code>).</p>
     pub fn report_level(mut self, input: crate::types::ReportLevel) -> Self {
         self.report_level = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies whether your task report includes errors only or successes and errors.</p>
+    /// <p>Specifies whether your task report includes errors only or successes and errors.</p> 
     /// <p>For example, your report might mostly include only what didn't go well in your transfer (<code>ERRORS_ONLY</code>). At the same time, you want to verify that your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">task filter</a> is working correctly. In this situation, you can get a list of what files DataSync successfully skipped and if something transferred that you didn't to transfer (<code>SUCCESSES_AND_ERRORS</code>).</p>
     pub fn set_report_level(mut self, input: ::std::option::Option<crate::types::ReportLevel>) -> Self {
-        self.report_level = input;
-        self
+        self.report_level = input; self
     }
-    /// <p>Specifies whether your task report includes errors only or successes and errors.</p>
+    /// <p>Specifies whether your task report includes errors only or successes and errors.</p> 
     /// <p>For example, your report might mostly include only what didn't go well in your transfer (<code>ERRORS_ONLY</code>). At the same time, you want to verify that your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">task filter</a> is working correctly. In this situation, you can get a list of what files DataSync successfully skipped and if something transferred that you didn't to transfer (<code>SUCCESSES_AND_ERRORS</code>).</p>
     pub fn get_report_level(&self) -> &::std::option::Option<crate::types::ReportLevel> {
         &self.report_level
@@ -49,7 +48,9 @@ impl ReportOverrideBuilder {
     /// Consumes the builder and constructs a [`ReportOverride`](crate::types::ReportOverride).
     pub fn build(self) -> crate::types::ReportOverride {
         crate::types::ReportOverride {
-            report_level: self.report_level,
+            report_level: self.report_level
+            ,
         }
     }
 }
+

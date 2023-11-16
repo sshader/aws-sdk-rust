@@ -5,54 +5,50 @@ pub use crate::operation::list_stack_set_operation_results::_list_stack_set_oper
 
 impl ListStackSetOperationResultsInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.list_stack_set_operation_results();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.list_stack_set_operation_results();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ListStackSetOperationResults`.
-///
+/// 
 /// <p>Returns summary information about the results of a stack set operation.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListStackSetOperationResultsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::list_stack_set_operation_results::builders::ListStackSetOperationResultsInputBuilder,
+                    inner: crate::operation::list_stack_set_operation_results::builders::ListStackSetOperationResultsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput,
-        crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError,
-    > for ListStackSetOperationResultsFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput,
-            crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput,
+                    crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError,
+                > for ListStackSetOperationResultsFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput,
+                        crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ListStackSetOperationResultsFluentBuilder {
     /// Creates a new `ListStackSetOperationResults`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,59 +57,50 @@ impl ListStackSetOperationResultsFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_stack_set_operation_results::ListStackSetOperationResults::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_stack_set_operation_results::ListStackSetOperationResults::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput,
-        crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::list_stack_set_operation_results::ListStackSetOperationResults::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::list_stack_set_operation_results::ListStackSetOperationResults::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsOutput, crate::operation::list_stack_set_operation_results::ListStackSetOperationResultsError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// Create a paginator for this request
-    ///
-    /// Paginators are used by calling [`send().await`](crate::operation::list_stack_set_operation_results::paginator::ListStackSetOperationResultsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_stack_set_operation_results::paginator::ListStackSetOperationResultsPaginator {
-        crate::operation::list_stack_set_operation_results::paginator::ListStackSetOperationResultsPaginator::new(self.handle, self.inner)
-    }
+                            ///
+                            /// Paginators are used by calling [`send().await`](crate::operation::list_stack_set_operation_results::paginator::ListStackSetOperationResultsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+                            pub fn into_paginator(self) -> crate::operation::list_stack_set_operation_results::paginator::ListStackSetOperationResultsPaginator {
+                                crate::operation::list_stack_set_operation_results::paginator::ListStackSetOperationResultsPaginator::new(self.handle, self.inner)
+                            }
     /// <p>The name or unique ID of the stack set that you want to get operation results for.</p>
     pub fn stack_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.stack_set_name(input.into());
@@ -170,31 +157,31 @@ impl ListStackSetOperationResultsFluentBuilder {
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         self.inner.get_max_results()
     }
-    /// <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p>
-    /// <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed permissions.</p>
-    /// <ul>
-    /// <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li>
-    /// <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li>
+    /// <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> 
+    /// <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed permissions.</p> 
+    /// <ul> 
+    /// <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> 
+    /// <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> 
     /// </ul>
     pub fn call_as(mut self, input: crate::types::CallAs) -> Self {
         self.inner = self.inner.call_as(input);
         self
     }
-    /// <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p>
-    /// <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed permissions.</p>
-    /// <ul>
-    /// <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li>
-    /// <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li>
+    /// <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> 
+    /// <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed permissions.</p> 
+    /// <ul> 
+    /// <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> 
+    /// <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> 
     /// </ul>
     pub fn set_call_as(mut self, input: ::std::option::Option<crate::types::CallAs>) -> Self {
         self.inner = self.inner.set_call_as(input);
         self
     }
-    /// <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p>
-    /// <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed permissions.</p>
-    /// <ul>
-    /// <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li>
-    /// <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li>
+    /// <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> 
+    /// <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed permissions.</p> 
+    /// <ul> 
+    /// <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> 
+    /// <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> 
     /// </ul>
     pub fn get_call_as(&self) -> &::std::option::Option<crate::types::CallAs> {
         self.inner.get_call_as()
@@ -209,12 +196,13 @@ impl ListStackSetOperationResultsFluentBuilder {
         self
     }
     /// <p>The filter to apply to operation results.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OperationResultFilter>>) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::OperationResultFilter>>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
     /// <p>The filter to apply to operation results.</p>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OperationResultFilter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::OperationResultFilter>> {
         self.inner.get_filters()
     }
 }
+

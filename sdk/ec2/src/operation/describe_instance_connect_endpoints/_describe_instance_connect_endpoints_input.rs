@@ -2,34 +2,34 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeInstanceConnectEndpointsInput {
+pub struct DescribeInstanceConnectEndpointsInput  {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub dry_run: ::std::option::Option<bool>,
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li>
-    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li>
-    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li> 
+    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li> 
+    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// <li> <p> <code>tag</code>:<key>
-    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key
-    /// <code>Owner</code> and the value
-    /// <code>TeamA</code>, specify
-    /// <code>tag:Owner</code> for the filter name and
+    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key 
+    /// <code>Owner</code> and the value 
+    /// <code>TeamA</code>, specify 
+    /// <code>tag:Owner</code> for the filter name and 
     /// <code>TeamA</code> for the filter value.
-    /// </key></p> </li>
-    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li>
-    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li>
-    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// </key></p> </li> 
+    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> 
+    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li> 
+    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// </ul>
-    pub filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    pub filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
     /// <p>One or more EC2 Instance Connect Endpoint IDs.</p>
-    pub instance_connect_endpoint_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub instance_connect_endpoint_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
-impl DescribeInstanceConnectEndpointsInput {
+impl  DescribeInstanceConnectEndpointsInput  {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn dry_run(&self) -> ::std::option::Option<bool> {
         self.dry_run
@@ -39,35 +39,37 @@ impl DescribeInstanceConnectEndpointsInput {
         self.max_results
     }
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li>
-    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li>
-    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li> 
+    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li> 
+    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// <li> <p> <code>tag</code>:<key>
-    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key
-    /// <code>Owner</code> and the value
-    /// <code>TeamA</code>, specify
-    /// <code>tag:Owner</code> for the filter name and
+    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key 
+    /// <code>Owner</code> and the value 
+    /// <code>TeamA</code>, specify 
+    /// <code>tag:Owner</code> for the filter name and 
     /// <code>TeamA</code> for the filter value.
-    /// </key></p> </li>
-    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li>
-    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li>
-    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// </key></p> </li> 
+    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> 
+    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li> 
+    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filters.is_none()`.
-    pub fn filters(&self) -> &[crate::types::Filter] {
-        self.filters.as_deref().unwrap_or_default()
+    pub fn filters(&self) -> & [crate::types::Filter] {
+        self.filters.as_deref()
+        .unwrap_or_default()
     }
     /// <p>One or more EC2 Instance Connect Endpoint IDs.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.instance_connect_endpoint_ids.is_none()`.
-    pub fn instance_connect_endpoint_ids(&self) -> &[::std::string::String] {
-        self.instance_connect_endpoint_ids.as_deref().unwrap_or_default()
+    pub fn instance_connect_endpoint_ids(&self) -> & [::std::string::String] {
+        self.instance_connect_endpoint_ids.as_deref()
+        .unwrap_or_default()
     }
 }
 impl DescribeInstanceConnectEndpointsInput {
@@ -84,8 +86,8 @@ pub struct DescribeInstanceConnectEndpointsInputBuilder {
     pub(crate) dry_run: ::std::option::Option<bool>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
-    pub(crate) instance_connect_endpoint_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
+    pub(crate) instance_connect_endpoint_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
 impl DescribeInstanceConnectEndpointsInputBuilder {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -95,8 +97,7 @@ impl DescribeInstanceConnectEndpointsInputBuilder {
     }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.dry_run = input;
-        self
+        self.dry_run = input; self
     }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
@@ -109,8 +110,7 @@ impl DescribeInstanceConnectEndpointsInputBuilder {
     }
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
@@ -123,8 +123,7 @@ impl DescribeInstanceConnectEndpointsInputBuilder {
     }
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -134,65 +133,64 @@ impl DescribeInstanceConnectEndpointsInputBuilder {
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
     ///
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li>
-    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li>
-    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li> 
+    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li> 
+    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// <li> <p> <code>tag</code>:<key>
-    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key
-    /// <code>Owner</code> and the value
-    /// <code>TeamA</code>, specify
-    /// <code>tag:Owner</code> for the filter name and
+    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key 
+    /// <code>Owner</code> and the value 
+    /// <code>TeamA</code>, specify 
+    /// <code>tag:Owner</code> for the filter name and 
     /// <code>TeamA</code> for the filter value.
-    /// </key></p> </li>
-    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li>
-    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li>
-    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// </key></p> </li> 
+    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> 
+    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li> 
+    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// </ul>
     pub fn filters(mut self, input: crate::types::Filter) -> Self {
         let mut v = self.filters.unwrap_or_default();
-        v.push(input);
-        self.filters = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.filters = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li>
-    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li>
-    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li> 
+    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li> 
+    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// <li> <p> <code>tag</code>:<key>
-    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key
-    /// <code>Owner</code> and the value
-    /// <code>TeamA</code>, specify
-    /// <code>tag:Owner</code> for the filter name and
+    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key 
+    /// <code>Owner</code> and the value 
+    /// <code>TeamA</code>, specify 
+    /// <code>tag:Owner</code> for the filter name and 
     /// <code>TeamA</code> for the filter value.
-    /// </key></p> </li>
-    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li>
-    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li>
-    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// </key></p> </li> 
+    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> 
+    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li> 
+    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// </ul>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
-        self.filters = input;
-        self
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>) -> Self {
+        self.filters = input; self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li>
-    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li>
-    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li> 
+    /// <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li> 
+    /// <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// <li> <p> <code>tag</code>:<key>
-    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key
-    /// <code>Owner</code> and the value
-    /// <code>TeamA</code>, specify
-    /// <code>tag:Owner</code> for the filter name and
+    /// - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key 
+    /// <code>Owner</code> and the value 
+    /// <code>TeamA</code>, specify 
+    /// <code>tag:Owner</code> for the filter name and 
     /// <code>TeamA</code> for the filter value.
-    /// </key></p> </li>
-    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li>
-    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li>
-    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li>
+    /// </key></p> </li> 
+    /// <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> 
+    /// <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li> 
+    /// <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li> 
     /// </ul>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Filter>> {
         &self.filters
     }
     /// Appends an item to `instance_connect_endpoint_ids`.
@@ -202,34 +200,34 @@ impl DescribeInstanceConnectEndpointsInputBuilder {
     /// <p>One or more EC2 Instance Connect Endpoint IDs.</p>
     pub fn instance_connect_endpoint_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.instance_connect_endpoint_ids.unwrap_or_default();
-        v.push(input.into());
-        self.instance_connect_endpoint_ids = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.instance_connect_endpoint_ids = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>One or more EC2 Instance Connect Endpoint IDs.</p>
-    pub fn set_instance_connect_endpoint_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.instance_connect_endpoint_ids = input;
-        self
+    pub fn set_instance_connect_endpoint_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.instance_connect_endpoint_ids = input; self
     }
     /// <p>One or more EC2 Instance Connect Endpoint IDs.</p>
-    pub fn get_instance_connect_endpoint_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_instance_connect_endpoint_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.instance_connect_endpoint_ids
     }
     /// Consumes the builder and constructs a [`DescribeInstanceConnectEndpointsInput`](crate::operation::describe_instance_connect_endpoints::DescribeInstanceConnectEndpointsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_instance_connect_endpoints::DescribeInstanceConnectEndpointsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_instance_connect_endpoints::DescribeInstanceConnectEndpointsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(
             crate::operation::describe_instance_connect_endpoints::DescribeInstanceConnectEndpointsInput {
-                dry_run: self.dry_run,
-                max_results: self.max_results,
-                next_token: self.next_token,
-                filters: self.filters,
-                instance_connect_endpoint_ids: self.instance_connect_endpoint_ids,
-            },
+                dry_run: self.dry_run
+                ,
+                max_results: self.max_results
+                ,
+                next_token: self.next_token
+                ,
+                filters: self.filters
+                ,
+                instance_connect_endpoint_ids: self.instance_connect_endpoint_ids
+                ,
+            }
         )
     }
 }
+

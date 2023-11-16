@@ -3,27 +3,27 @@
 /// <p></p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SelectionCriteria {
+pub struct SelectionCriteria  {
     /// <p>A container for the delimiter of the selection criteria being used.</p>
     pub delimiter: ::std::option::Option<::std::string::String>,
     /// <p>The max depth of the selection criteria</p>
     pub max_depth: ::std::option::Option<i32>,
-    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note>
-    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p>
+    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note> 
+    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p> 
     /// </note>
     pub min_storage_bytes_percentage: ::std::option::Option<f64>,
 }
-impl SelectionCriteria {
+impl  SelectionCriteria  {
     /// <p>A container for the delimiter of the selection criteria being used.</p>
-    pub fn delimiter(&self) -> ::std::option::Option<&str> {
+    pub fn delimiter(&self) -> ::std::option::Option<& str> {
         self.delimiter.as_deref()
     }
     /// <p>The max depth of the selection criteria</p>
     pub fn max_depth(&self) -> ::std::option::Option<i32> {
         self.max_depth
     }
-    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note>
-    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p>
+    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note> 
+    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p> 
     /// </note>
     pub fn min_storage_bytes_percentage(&self) -> ::std::option::Option<f64> {
         self.min_storage_bytes_percentage
@@ -52,8 +52,7 @@ impl SelectionCriteriaBuilder {
     }
     /// <p>A container for the delimiter of the selection criteria being used.</p>
     pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.delimiter = input;
-        self
+        self.delimiter = input; self
     }
     /// <p>A container for the delimiter of the selection criteria being used.</p>
     pub fn get_delimiter(&self) -> &::std::option::Option<::std::string::String> {
@@ -66,29 +65,27 @@ impl SelectionCriteriaBuilder {
     }
     /// <p>The max depth of the selection criteria</p>
     pub fn set_max_depth(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_depth = input;
-        self
+        self.max_depth = input; self
     }
     /// <p>The max depth of the selection criteria</p>
     pub fn get_max_depth(&self) -> &::std::option::Option<i32> {
         &self.max_depth
     }
-    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note>
-    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p>
+    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note> 
+    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p> 
     /// </note>
     pub fn min_storage_bytes_percentage(mut self, input: f64) -> Self {
         self.min_storage_bytes_percentage = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note>
-    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p>
+    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note> 
+    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p> 
     /// </note>
     pub fn set_min_storage_bytes_percentage(mut self, input: ::std::option::Option<f64>) -> Self {
-        self.min_storage_bytes_percentage = input;
-        self
+        self.min_storage_bytes_percentage = input; self
     }
-    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note>
-    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p>
+    /// <p>The minimum number of storage bytes percentage whose metrics will be selected.</p> <note> 
+    /// <p>You must choose a value greater than or equal to <code>1.0</code>.</p> 
     /// </note>
     pub fn get_min_storage_bytes_percentage(&self) -> &::std::option::Option<f64> {
         &self.min_storage_bytes_percentage
@@ -96,9 +93,13 @@ impl SelectionCriteriaBuilder {
     /// Consumes the builder and constructs a [`SelectionCriteria`](crate::types::SelectionCriteria).
     pub fn build(self) -> crate::types::SelectionCriteria {
         crate::types::SelectionCriteria {
-            delimiter: self.delimiter,
-            max_depth: self.max_depth,
-            min_storage_bytes_percentage: self.min_storage_bytes_percentage,
+            delimiter: self.delimiter
+            ,
+            max_depth: self.max_depth
+            ,
+            min_storage_bytes_percentage: self.min_storage_bytes_percentage
+            ,
         }
     }
 }
+

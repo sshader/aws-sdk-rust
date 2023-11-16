@@ -3,43 +3,43 @@
 /// <p>Each query contains the question you want to ask in the Text and the alias you want to associate.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Query {
+pub struct Query  {
     /// <p>Question that Amazon Textract will apply to the document. An example would be "What is the customer's SSN?"</p>
     pub text: ::std::string::String,
     /// <p>Alias attached to the query, for ease of location.</p>
     pub alias: ::std::option::Option<::std::string::String>,
-    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p>
-    /// <ul>
-    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li>
-    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li>
-    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li>
-    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li>
-    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li>
+    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p> 
+    /// <ul> 
+    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li> 
+    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li> 
+    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li> 
+    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li> 
+    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li> 
     /// </ul>
-    pub pages: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub pages: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
-impl Query {
+impl  Query  {
     /// <p>Question that Amazon Textract will apply to the document. An example would be "What is the customer's SSN?"</p>
-    pub fn text(&self) -> &str {
-        use std::ops::Deref;
-        self.text.deref()
+    pub fn text(&self) -> & str {
+        use std::ops::Deref; self.text.deref()
     }
     /// <p>Alias attached to the query, for ease of location.</p>
-    pub fn alias(&self) -> ::std::option::Option<&str> {
+    pub fn alias(&self) -> ::std::option::Option<& str> {
         self.alias.as_deref()
     }
-    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p>
-    /// <ul>
-    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li>
-    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li>
-    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li>
-    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li>
-    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li>
+    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p> 
+    /// <ul> 
+    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li> 
+    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li> 
+    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li> 
+    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li> 
+    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.pages.is_none()`.
-    pub fn pages(&self) -> &[::std::string::String] {
-        self.pages.as_deref().unwrap_or_default()
+    pub fn pages(&self) -> & [::std::string::String] {
+        self.pages.as_deref()
+        .unwrap_or_default()
     }
 }
 impl Query {
@@ -55,7 +55,7 @@ impl Query {
 pub struct QueryBuilder {
     pub(crate) text: ::std::option::Option<::std::string::String>,
     pub(crate) alias: ::std::option::Option<::std::string::String>,
-    pub(crate) pages: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) pages: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
 impl QueryBuilder {
     /// <p>Question that Amazon Textract will apply to the document. An example would be "What is the customer's SSN?"</p>
@@ -66,8 +66,7 @@ impl QueryBuilder {
     }
     /// <p>Question that Amazon Textract will apply to the document. An example would be "What is the customer's SSN?"</p>
     pub fn set_text(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.text = input;
-        self
+        self.text = input; self
     }
     /// <p>Question that Amazon Textract will apply to the document. An example would be "What is the customer's SSN?"</p>
     pub fn get_text(&self) -> &::std::option::Option<::std::string::String> {
@@ -80,8 +79,7 @@ impl QueryBuilder {
     }
     /// <p>Alias attached to the query, for ease of location.</p>
     pub fn set_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.alias = input;
-        self
+        self.alias = input; self
     }
     /// <p>Alias attached to the query, for ease of location.</p>
     pub fn get_alias(&self) -> &::std::option::Option<::std::string::String> {
@@ -91,56 +89,59 @@ impl QueryBuilder {
     ///
     /// To override the contents of this collection use [`set_pages`](Self::set_pages).
     ///
-    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p>
-    /// <ul>
-    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li>
-    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li>
-    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li>
-    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li>
-    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li>
+    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p> 
+    /// <ul> 
+    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li> 
+    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li> 
+    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li> 
+    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li> 
+    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li> 
     /// </ul>
     pub fn pages(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.pages.unwrap_or_default();
-        v.push(input.into());
-        self.pages = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.pages = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p>
-    /// <ul>
-    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li>
-    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li>
-    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li>
-    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li>
-    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li>
+    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p> 
+    /// <ul> 
+    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li> 
+    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li> 
+    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li> 
+    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li> 
+    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li> 
     /// </ul>
-    pub fn set_pages(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.pages = input;
-        self
+    pub fn set_pages(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.pages = input; self
     }
-    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p>
-    /// <ul>
-    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li>
-    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li>
-    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li>
-    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li>
-    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li>
+    /// <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p> 
+    /// <ul> 
+    /// <li> <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p> </li> 
+    /// <li> <p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p> </li> 
+    /// <li> <p>When using * to indicate all pages, it must be the only element in the list.</p> </li> 
+    /// <li> <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p> </li> 
+    /// <li> <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p> </li> 
     /// </ul>
-    pub fn get_pages(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_pages(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.pages
     }
     /// Consumes the builder and constructs a [`Query`](crate::types::Query).
     /// This method will fail if any of the following fields are not set:
     /// - [`text`](crate::types::builders::QueryBuilder::text)
     pub fn build(self) -> ::std::result::Result<crate::types::Query, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::Query {
-            text: self.text.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "text",
-                    "text was not specified but it is required when building Query",
-                )
-            })?,
-            alias: self.alias,
-            pages: self.pages,
-        })
+        ::std::result::Result::Ok(
+            crate::types::Query {
+                text: self.text
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("text", "text was not specified but it is required when building Query")
+                    )?
+                ,
+                alias: self.alias
+                ,
+                pages: self.pages
+                ,
+            }
+        )
     }
 }
+

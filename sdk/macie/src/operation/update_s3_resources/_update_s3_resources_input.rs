@@ -2,22 +2,23 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateS3ResourcesInput {
+pub struct UpdateS3ResourcesInput  {
     /// <p>(Discontinued) The Amazon Web Services account ID of the Amazon Macie Classic member account whose S3 resources' classification types you want to update.</p>
     pub member_account_id: ::std::option::Option<::std::string::String>,
     /// <p>(Discontinued) The S3 resources whose classification types you want to update.</p>
-    pub s3_resources_update: ::std::option::Option<::std::vec::Vec<crate::types::S3ResourceClassificationUpdate>>,
+    pub s3_resources_update: ::std::option::Option<::std::vec::Vec::<crate::types::S3ResourceClassificationUpdate>>,
 }
-impl UpdateS3ResourcesInput {
+impl  UpdateS3ResourcesInput  {
     /// <p>(Discontinued) The Amazon Web Services account ID of the Amazon Macie Classic member account whose S3 resources' classification types you want to update.</p>
-    pub fn member_account_id(&self) -> ::std::option::Option<&str> {
+    pub fn member_account_id(&self) -> ::std::option::Option<& str> {
         self.member_account_id.as_deref()
     }
     /// <p>(Discontinued) The S3 resources whose classification types you want to update.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.s3_resources_update.is_none()`.
-    pub fn s3_resources_update(&self) -> &[crate::types::S3ResourceClassificationUpdate] {
-        self.s3_resources_update.as_deref().unwrap_or_default()
+    pub fn s3_resources_update(&self) -> & [crate::types::S3ResourceClassificationUpdate] {
+        self.s3_resources_update.as_deref()
+        .unwrap_or_default()
     }
 }
 impl UpdateS3ResourcesInput {
@@ -32,7 +33,7 @@ impl UpdateS3ResourcesInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct UpdateS3ResourcesInputBuilder {
     pub(crate) member_account_id: ::std::option::Option<::std::string::String>,
-    pub(crate) s3_resources_update: ::std::option::Option<::std::vec::Vec<crate::types::S3ResourceClassificationUpdate>>,
+    pub(crate) s3_resources_update: ::std::option::Option<::std::vec::Vec::<crate::types::S3ResourceClassificationUpdate>>,
 }
 impl UpdateS3ResourcesInputBuilder {
     /// <p>(Discontinued) The Amazon Web Services account ID of the Amazon Macie Classic member account whose S3 resources' classification types you want to update.</p>
@@ -42,8 +43,7 @@ impl UpdateS3ResourcesInputBuilder {
     }
     /// <p>(Discontinued) The Amazon Web Services account ID of the Amazon Macie Classic member account whose S3 resources' classification types you want to update.</p>
     pub fn set_member_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.member_account_id = input;
-        self
+        self.member_account_id = input; self
     }
     /// <p>(Discontinued) The Amazon Web Services account ID of the Amazon Macie Classic member account whose S3 resources' classification types you want to update.</p>
     pub fn get_member_account_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -56,26 +56,28 @@ impl UpdateS3ResourcesInputBuilder {
     /// <p>(Discontinued) The S3 resources whose classification types you want to update.</p>
     pub fn s3_resources_update(mut self, input: crate::types::S3ResourceClassificationUpdate) -> Self {
         let mut v = self.s3_resources_update.unwrap_or_default();
-        v.push(input);
-        self.s3_resources_update = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.s3_resources_update = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>(Discontinued) The S3 resources whose classification types you want to update.</p>
-    pub fn set_s3_resources_update(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::S3ResourceClassificationUpdate>>) -> Self {
-        self.s3_resources_update = input;
-        self
+    pub fn set_s3_resources_update(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::S3ResourceClassificationUpdate>>) -> Self {
+        self.s3_resources_update = input; self
     }
     /// <p>(Discontinued) The S3 resources whose classification types you want to update.</p>
-    pub fn get_s3_resources_update(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::S3ResourceClassificationUpdate>> {
+    pub fn get_s3_resources_update(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::S3ResourceClassificationUpdate>> {
         &self.s3_resources_update
     }
     /// Consumes the builder and constructs a [`UpdateS3ResourcesInput`](crate::operation::update_s3_resources::UpdateS3ResourcesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_s3_resources::UpdateS3ResourcesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_s3_resources::UpdateS3ResourcesInput {
-            member_account_id: self.member_account_id,
-            s3_resources_update: self.s3_resources_update,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_s3_resources::UpdateS3ResourcesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_s3_resources::UpdateS3ResourcesInput {
+                member_account_id: self.member_account_id
+                ,
+                s3_resources_update: self.s3_resources_update
+                ,
+            }
+        )
     }
 }
+

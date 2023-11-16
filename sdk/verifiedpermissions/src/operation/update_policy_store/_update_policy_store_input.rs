@@ -2,19 +2,19 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdatePolicyStoreInput {
+pub struct UpdatePolicyStoreInput  {
     /// <p>Specifies the ID of the policy store that you want to update</p>
     pub policy_store_id: ::std::option::Option<::std::string::String>,
     /// <p>A structure that defines the validation settings that want to enable for the policy store.</p>
     pub validation_settings: ::std::option::Option<crate::types::ValidationSettings>,
 }
-impl UpdatePolicyStoreInput {
+impl  UpdatePolicyStoreInput  {
     /// <p>Specifies the ID of the policy store that you want to update</p>
-    pub fn policy_store_id(&self) -> ::std::option::Option<&str> {
+    pub fn policy_store_id(&self) -> ::std::option::Option<& str> {
         self.policy_store_id.as_deref()
     }
     /// <p>A structure that defines the validation settings that want to enable for the policy store.</p>
-    pub fn validation_settings(&self) -> ::std::option::Option<&crate::types::ValidationSettings> {
+    pub fn validation_settings(&self) -> ::std::option::Option<& crate::types::ValidationSettings> {
         self.validation_settings.as_ref()
     }
 }
@@ -41,8 +41,7 @@ impl UpdatePolicyStoreInputBuilder {
     }
     /// <p>Specifies the ID of the policy store that you want to update</p>
     pub fn set_policy_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.policy_store_id = input;
-        self
+        self.policy_store_id = input; self
     }
     /// <p>Specifies the ID of the policy store that you want to update</p>
     pub fn get_policy_store_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -56,20 +55,22 @@ impl UpdatePolicyStoreInputBuilder {
     }
     /// <p>A structure that defines the validation settings that want to enable for the policy store.</p>
     pub fn set_validation_settings(mut self, input: ::std::option::Option<crate::types::ValidationSettings>) -> Self {
-        self.validation_settings = input;
-        self
+        self.validation_settings = input; self
     }
     /// <p>A structure that defines the validation settings that want to enable for the policy store.</p>
     pub fn get_validation_settings(&self) -> &::std::option::Option<crate::types::ValidationSettings> {
         &self.validation_settings
     }
     /// Consumes the builder and constructs a [`UpdatePolicyStoreInput`](crate::operation::update_policy_store::UpdatePolicyStoreInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_policy_store::UpdatePolicyStoreInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_policy_store::UpdatePolicyStoreInput {
-            policy_store_id: self.policy_store_id,
-            validation_settings: self.validation_settings,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_policy_store::UpdatePolicyStoreInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_policy_store::UpdatePolicyStoreInput {
+                policy_store_id: self.policy_store_id
+                ,
+                validation_settings: self.validation_settings
+                ,
+            }
+        )
     }
 }
+

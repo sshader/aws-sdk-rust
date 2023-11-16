@@ -3,28 +3,26 @@
 /// <p>The structure of database cache configuration that is used for mapping database paths to cache types in clusters.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct KxDatabaseCacheConfiguration {
-    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li>
+pub struct KxDatabaseCacheConfiguration  {
+    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li> 
     /// </ul>
     pub cache_type: ::std::string::String,
     /// <p>Specifies the portions of database that will be loaded into the cache for access.</p>
-    pub db_paths: ::std::vec::Vec<::std::string::String>,
+    pub db_paths: ::std::vec::Vec::<::std::string::String>,
 }
-impl KxDatabaseCacheConfiguration {
-    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li>
+impl  KxDatabaseCacheConfiguration  {
+    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li> 
     /// </ul>
-    pub fn cache_type(&self) -> &str {
-        use std::ops::Deref;
-        self.cache_type.deref()
+    pub fn cache_type(&self) -> & str {
+        use std::ops::Deref; self.cache_type.deref()
     }
     /// <p>Specifies the portions of database that will be loaded into the cache for access.</p>
-    pub fn db_paths(&self) -> &[::std::string::String] {
-        use std::ops::Deref;
-        self.db_paths.deref()
+    pub fn db_paths(&self) -> & [::std::string::String] {
+        use std::ops::Deref; self.db_paths.deref()
     }
 }
 impl KxDatabaseCacheConfiguration {
@@ -39,29 +37,28 @@ impl KxDatabaseCacheConfiguration {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct KxDatabaseCacheConfigurationBuilder {
     pub(crate) cache_type: ::std::option::Option<::std::string::String>,
-    pub(crate) db_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) db_paths: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
 impl KxDatabaseCacheConfigurationBuilder {
-    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li>
+    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li> 
     /// </ul>
     /// This field is required.
     pub fn cache_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.cache_type = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li>
+    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li> 
     /// </ul>
     pub fn set_cache_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.cache_type = input;
-        self
+        self.cache_type = input; self
     }
-    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p>
-    /// <ul>
-    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li>
+    /// <p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p> 
+    /// <ul> 
+    /// <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li> 
     /// </ul>
     pub fn get_cache_type(&self) -> &::std::option::Option<::std::string::String> {
         &self.cache_type
@@ -73,17 +70,16 @@ impl KxDatabaseCacheConfigurationBuilder {
     /// <p>Specifies the portions of database that will be loaded into the cache for access.</p>
     pub fn db_paths(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.db_paths.unwrap_or_default();
-        v.push(input.into());
-        self.db_paths = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.db_paths = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>Specifies the portions of database that will be loaded into the cache for access.</p>
-    pub fn set_db_paths(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.db_paths = input;
-        self
+    pub fn set_db_paths(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.db_paths = input; self
     }
     /// <p>Specifies the portions of database that will be loaded into the cache for access.</p>
-    pub fn get_db_paths(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_db_paths(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.db_paths
     }
     /// Consumes the builder and constructs a [`KxDatabaseCacheConfiguration`](crate::types::KxDatabaseCacheConfiguration).
@@ -91,19 +87,20 @@ impl KxDatabaseCacheConfigurationBuilder {
     /// - [`cache_type`](crate::types::builders::KxDatabaseCacheConfigurationBuilder::cache_type)
     /// - [`db_paths`](crate::types::builders::KxDatabaseCacheConfigurationBuilder::db_paths)
     pub fn build(self) -> ::std::result::Result<crate::types::KxDatabaseCacheConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::KxDatabaseCacheConfiguration {
-            cache_type: self.cache_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "cache_type",
-                    "cache_type was not specified but it is required when building KxDatabaseCacheConfiguration",
-                )
-            })?,
-            db_paths: self.db_paths.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "db_paths",
-                    "db_paths was not specified but it is required when building KxDatabaseCacheConfiguration",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::KxDatabaseCacheConfiguration {
+                cache_type: self.cache_type
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("cache_type", "cache_type was not specified but it is required when building KxDatabaseCacheConfiguration")
+                    )?
+                ,
+                db_paths: self.db_paths
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("db_paths", "db_paths was not specified but it is required when building KxDatabaseCacheConfiguration")
+                    )?
+                ,
+            }
+        )
     }
 }
+

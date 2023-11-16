@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateSiteOutput {
+pub struct CreateSiteOutput  {
     /// Site ARN.
     pub arn: ::std::string::String,
     /// Filters access by the site's identifier
@@ -13,31 +13,29 @@ pub struct CreateSiteOutput {
     pub updated_at: ::aws_smithy_types::DateTime,
     _request_id: Option<String>,
 }
-impl CreateSiteOutput {
+impl  CreateSiteOutput  {
     /// Site ARN.
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> & str {
+        use std::ops::Deref; self.arn.deref()
     }
     /// Filters access by the site's identifier
-    pub fn id(&self) -> &str {
-        use std::ops::Deref;
-        self.id.deref()
+    pub fn id(&self) -> & str {
+        use std::ops::Deref; self.id.deref()
     }
     /// Timestamp at which the resource was created.
-    pub fn created_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn created_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.created_at
     }
     /// Timestamp at which the resource was last updated.
-    pub fn updated_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn updated_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.updated_at
     }
 }
-impl ::aws_http::request_id::RequestId for CreateSiteOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for CreateSiteOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl CreateSiteOutput {
     /// Creates a new builder-style object to manufacture [`CreateSiteOutput`](crate::operation::create_site::CreateSiteOutput).
     pub fn builder() -> crate::operation::create_site::builders::CreateSiteOutputBuilder {
@@ -64,8 +62,7 @@ impl CreateSiteOutputBuilder {
     }
     /// Site ARN.
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// Site ARN.
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -79,8 +76,7 @@ impl CreateSiteOutputBuilder {
     }
     /// Filters access by the site's identifier
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// Filters access by the site's identifier
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -94,8 +90,7 @@ impl CreateSiteOutputBuilder {
     }
     /// Timestamp at which the resource was created.
     pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_at = input;
-        self
+        self.created_at = input; self
     }
     /// Timestamp at which the resource was created.
     pub fn get_created_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -109,22 +104,21 @@ impl CreateSiteOutputBuilder {
     }
     /// Timestamp at which the resource was last updated.
     pub fn set_updated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.updated_at = input;
-        self
+        self.updated_at = input; self
     }
     /// Timestamp at which the resource was last updated.
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.updated_at
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`CreateSiteOutput`](crate::operation::create_site::CreateSiteOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](crate::operation::create_site::builders::CreateSiteOutputBuilder::arn)
@@ -132,32 +126,31 @@ impl CreateSiteOutputBuilder {
     /// - [`created_at`](crate::operation::create_site::builders::CreateSiteOutputBuilder::created_at)
     /// - [`updated_at`](crate::operation::create_site::builders::CreateSiteOutputBuilder::updated_at)
     pub fn build(self) -> ::std::result::Result<crate::operation::create_site::CreateSiteOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_site::CreateSiteOutput {
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building CreateSiteOutput",
-                )
-            })?,
-            id: self.id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "id",
-                    "id was not specified but it is required when building CreateSiteOutput",
-                )
-            })?,
-            created_at: self.created_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "created_at",
-                    "created_at was not specified but it is required when building CreateSiteOutput",
-                )
-            })?,
-            updated_at: self.updated_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "updated_at",
-                    "updated_at was not specified but it is required when building CreateSiteOutput",
-                )
-            })?,
-            _request_id: self._request_id,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::create_site::CreateSiteOutput {
+                arn: self.arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building CreateSiteOutput")
+                    )?
+                ,
+                id: self.id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building CreateSiteOutput")
+                    )?
+                ,
+                created_at: self.created_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("created_at", "created_at was not specified but it is required when building CreateSiteOutput")
+                    )?
+                ,
+                updated_at: self.updated_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("updated_at", "updated_at was not specified but it is required when building CreateSiteOutput")
+                    )?
+                ,
+                _request_id: self._request_id,
+            }
+        )
     }
 }
+

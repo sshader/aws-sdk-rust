@@ -2,38 +2,39 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribePatchGroupsOutput {
-    /// <p>Each entry in the array contains:</p>
-    /// <ul>
-    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li>
-    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li>
+pub struct DescribePatchGroupsOutput  {
+    /// <p>Each entry in the array contains:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li> 
+    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li> 
     /// </ul>
-    pub mappings: ::std::option::Option<::std::vec::Vec<crate::types::PatchGroupPatchBaselineMapping>>,
+    pub mappings: ::std::option::Option<::std::vec::Vec::<crate::types::PatchGroupPatchBaselineMapping>>,
     /// <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
-impl DescribePatchGroupsOutput {
-    /// <p>Each entry in the array contains:</p>
-    /// <ul>
-    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li>
-    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li>
+impl  DescribePatchGroupsOutput  {
+    /// <p>Each entry in the array contains:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li> 
+    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.mappings.is_none()`.
-    pub fn mappings(&self) -> &[crate::types::PatchGroupPatchBaselineMapping] {
-        self.mappings.as_deref().unwrap_or_default()
+    pub fn mappings(&self) -> & [crate::types::PatchGroupPatchBaselineMapping] {
+        self.mappings.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
 }
-impl ::aws_http::request_id::RequestId for DescribePatchGroupsOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for DescribePatchGroupsOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl DescribePatchGroupsOutput {
     /// Creates a new builder-style object to manufacture [`DescribePatchGroupsOutput`](crate::operation::describe_patch_groups::DescribePatchGroupsOutput).
     pub fn builder() -> crate::operation::describe_patch_groups::builders::DescribePatchGroupsOutputBuilder {
@@ -45,7 +46,7 @@ impl DescribePatchGroupsOutput {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct DescribePatchGroupsOutputBuilder {
-    pub(crate) mappings: ::std::option::Option<::std::vec::Vec<crate::types::PatchGroupPatchBaselineMapping>>,
+    pub(crate) mappings: ::std::option::Option<::std::vec::Vec::<crate::types::PatchGroupPatchBaselineMapping>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -54,32 +55,31 @@ impl DescribePatchGroupsOutputBuilder {
     ///
     /// To override the contents of this collection use [`set_mappings`](Self::set_mappings).
     ///
-    /// <p>Each entry in the array contains:</p>
-    /// <ul>
-    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li>
-    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li>
+    /// <p>Each entry in the array contains:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li> 
+    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li> 
     /// </ul>
     pub fn mappings(mut self, input: crate::types::PatchGroupPatchBaselineMapping) -> Self {
         let mut v = self.mappings.unwrap_or_default();
-        v.push(input);
-        self.mappings = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.mappings = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>Each entry in the array contains:</p>
-    /// <ul>
-    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li>
-    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li>
+    /// <p>Each entry in the array contains:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li> 
+    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li> 
     /// </ul>
-    pub fn set_mappings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PatchGroupPatchBaselineMapping>>) -> Self {
-        self.mappings = input;
-        self
+    pub fn set_mappings(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::PatchGroupPatchBaselineMapping>>) -> Self {
+        self.mappings = input; self
     }
-    /// <p>Each entry in the array contains:</p>
-    /// <ul>
-    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li>
-    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li>
+    /// <p>Each entry in the array contains:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PatchGroup</code>: string (between 1 and 256 characters. Regex: <code>^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</code> </p> </li> 
+    /// <li> <p> <code>PatchBaselineIdentity</code>: A <code>PatchBaselineIdentity</code> element.</p> </li> 
     /// </ul>
-    pub fn get_mappings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PatchGroupPatchBaselineMapping>> {
+    pub fn get_mappings(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::PatchGroupPatchBaselineMapping>> {
         &self.mappings
     }
     /// <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
@@ -89,28 +89,30 @@ impl DescribePatchGroupsOutputBuilder {
     }
     /// <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`DescribePatchGroupsOutput`](crate::operation::describe_patch_groups::DescribePatchGroupsOutput).
     pub fn build(self) -> crate::operation::describe_patch_groups::DescribePatchGroupsOutput {
         crate::operation::describe_patch_groups::DescribePatchGroupsOutput {
-            mappings: self.mappings,
-            next_token: self.next_token,
+            mappings: self.mappings
+            ,
+            next_token: self.next_token
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

@@ -2,13 +2,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetSiteInput {
+pub struct GetSiteInput  {
     /// Site ARN.
     pub id: ::std::option::Option<::std::string::String>,
 }
-impl GetSiteInput {
+impl  GetSiteInput  {
     /// Site ARN.
-    pub fn id(&self) -> ::std::option::Option<&str> {
+    pub fn id(&self) -> ::std::option::Option<& str> {
         self.id.as_deref()
     }
 }
@@ -34,8 +34,7 @@ impl GetSiteInputBuilder {
     }
     /// Site ARN.
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// Site ARN.
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -43,6 +42,12 @@ impl GetSiteInputBuilder {
     }
     /// Consumes the builder and constructs a [`GetSiteInput`](crate::operation::get_site::GetSiteInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::get_site::GetSiteInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_site::GetSiteInput { id: self.id })
+        ::std::result::Result::Ok(
+            crate::operation::get_site::GetSiteInput {
+                id: self.id
+                ,
+            }
+        )
     }
 }
+

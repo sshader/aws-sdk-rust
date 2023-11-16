@@ -3,19 +3,19 @@
 /// <p></p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PurchaseReservedNodeOfferingInput {
+pub struct PurchaseReservedNodeOfferingInput  {
     /// <p>The unique identifier of the reserved node offering you want to purchase.</p>
     pub reserved_node_offering_id: ::std::option::Option<::std::string::String>,
-    /// <p>The number of reserved nodes that you want to purchase.</p>
+    /// <p>The number of reserved nodes that you want to purchase.</p> 
     /// <p>Default: <code>1</code> </p>
     pub node_count: ::std::option::Option<i32>,
 }
-impl PurchaseReservedNodeOfferingInput {
+impl  PurchaseReservedNodeOfferingInput  {
     /// <p>The unique identifier of the reserved node offering you want to purchase.</p>
-    pub fn reserved_node_offering_id(&self) -> ::std::option::Option<&str> {
+    pub fn reserved_node_offering_id(&self) -> ::std::option::Option<& str> {
         self.reserved_node_offering_id.as_deref()
     }
-    /// <p>The number of reserved nodes that you want to purchase.</p>
+    /// <p>The number of reserved nodes that you want to purchase.</p> 
     /// <p>Default: <code>1</code> </p>
     pub fn node_count(&self) -> ::std::option::Option<i32> {
         self.node_count
@@ -44,40 +44,38 @@ impl PurchaseReservedNodeOfferingInputBuilder {
     }
     /// <p>The unique identifier of the reserved node offering you want to purchase.</p>
     pub fn set_reserved_node_offering_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.reserved_node_offering_id = input;
-        self
+        self.reserved_node_offering_id = input; self
     }
     /// <p>The unique identifier of the reserved node offering you want to purchase.</p>
     pub fn get_reserved_node_offering_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.reserved_node_offering_id
     }
-    /// <p>The number of reserved nodes that you want to purchase.</p>
+    /// <p>The number of reserved nodes that you want to purchase.</p> 
     /// <p>Default: <code>1</code> </p>
     pub fn node_count(mut self, input: i32) -> Self {
         self.node_count = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The number of reserved nodes that you want to purchase.</p>
+    /// <p>The number of reserved nodes that you want to purchase.</p> 
     /// <p>Default: <code>1</code> </p>
     pub fn set_node_count(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.node_count = input;
-        self
+        self.node_count = input; self
     }
-    /// <p>The number of reserved nodes that you want to purchase.</p>
+    /// <p>The number of reserved nodes that you want to purchase.</p> 
     /// <p>Default: <code>1</code> </p>
     pub fn get_node_count(&self) -> &::std::option::Option<i32> {
         &self.node_count
     }
     /// Consumes the builder and constructs a [`PurchaseReservedNodeOfferingInput`](crate::operation::purchase_reserved_node_offering::PurchaseReservedNodeOfferingInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::purchase_reserved_node_offering::PurchaseReservedNodeOfferingInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::purchase_reserved_node_offering::PurchaseReservedNodeOfferingInput {
-            reserved_node_offering_id: self.reserved_node_offering_id,
-            node_count: self.node_count,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::purchase_reserved_node_offering::PurchaseReservedNodeOfferingInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::purchase_reserved_node_offering::PurchaseReservedNodeOfferingInput {
+                reserved_node_offering_id: self.reserved_node_offering_id
+                ,
+                node_count: self.node_count
+                ,
+            }
+        )
     }
 }
+

@@ -2,27 +2,27 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListRumMetricsDestinationsInput {
+pub struct ListRumMetricsDestinationsInput  {
     /// <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
     pub app_monitor_name: ::std::option::Option<::std::string::String>,
-    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>
+    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> 
     /// <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>Use the token returned by the previous operation to request the next page of results.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
-impl ListRumMetricsDestinationsInput {
+impl  ListRumMetricsDestinationsInput  {
     /// <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
-    pub fn app_monitor_name(&self) -> ::std::option::Option<&str> {
+    pub fn app_monitor_name(&self) -> ::std::option::Option<& str> {
         self.app_monitor_name.as_deref()
     }
-    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>
+    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> 
     /// <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
         self.max_results
     }
     /// <p>Use the token returned by the previous operation to request the next page of results.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
 }
@@ -50,26 +50,24 @@ impl ListRumMetricsDestinationsInputBuilder {
     }
     /// <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
     pub fn set_app_monitor_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.app_monitor_name = input;
-        self
+        self.app_monitor_name = input; self
     }
     /// <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
     pub fn get_app_monitor_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.app_monitor_name
     }
-    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>
+    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> 
     /// <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>
+    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> 
     /// <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
-    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>
+    /// <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> 
     /// <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
@@ -81,24 +79,24 @@ impl ListRumMetricsDestinationsInputBuilder {
     }
     /// <p>Use the token returned by the previous operation to request the next page of results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>Use the token returned by the previous operation to request the next page of results.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListRumMetricsDestinationsInput`](crate::operation::list_rum_metrics_destinations::ListRumMetricsDestinationsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_rum_metrics_destinations::ListRumMetricsDestinationsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::list_rum_metrics_destinations::ListRumMetricsDestinationsInput {
-            app_monitor_name: self.app_monitor_name,
-            max_results: self.max_results,
-            next_token: self.next_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_rum_metrics_destinations::ListRumMetricsDestinationsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_rum_metrics_destinations::ListRumMetricsDestinationsInput {
+                app_monitor_name: self.app_monitor_name
+                ,
+                max_results: self.max_results
+                ,
+                next_token: self.next_token
+                ,
+            }
+        )
     }
 }
+

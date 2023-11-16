@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateWorkerOutput {
+pub struct UpdateWorkerOutput  {
     /// Full ARN of the worker.
     pub arn: ::std::string::String,
     /// Filters access by the workers identifier
@@ -25,57 +25,53 @@ pub struct UpdateWorkerOutput {
     pub position: ::std::option::Option<crate::types::PositionCoordinates>,
     _request_id: Option<String>,
 }
-impl UpdateWorkerOutput {
+impl  UpdateWorkerOutput  {
     /// Full ARN of the worker.
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> & str {
+        use std::ops::Deref; self.arn.deref()
     }
     /// Filters access by the workers identifier
-    pub fn id(&self) -> &str {
-        use std::ops::Deref;
-        self.id.deref()
+    pub fn id(&self) -> & str {
+        use std::ops::Deref; self.id.deref()
     }
     /// Full ARN of the worker fleet.
-    pub fn fleet(&self) -> &str {
-        use std::ops::Deref;
-        self.fleet.deref()
+    pub fn fleet(&self) -> & str {
+        use std::ops::Deref; self.fleet.deref()
     }
     /// Timestamp at which the resource was last updated.
-    pub fn updated_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn updated_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.updated_at
     }
     /// Human friendly name of the resource.
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// JSON blob containing unstructured worker properties that are transient and may change during regular operation.
-    pub fn additional_transient_properties(&self) -> ::std::option::Option<&str> {
+    pub fn additional_transient_properties(&self) -> ::std::option::Option<& str> {
         self.additional_transient_properties.as_deref()
     }
     /// JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
-    pub fn additional_fixed_properties(&self) -> ::std::option::Option<&str> {
+    pub fn additional_fixed_properties(&self) -> ::std::option::Option<& str> {
         self.additional_fixed_properties.as_deref()
     }
     /// Worker orientation measured in units clockwise from north.
-    pub fn orientation(&self) -> ::std::option::Option<&crate::types::Orientation> {
+    pub fn orientation(&self) -> ::std::option::Option<& crate::types::Orientation> {
         self.orientation.as_ref()
     }
     /// Properties of the worker that are provided by the vendor FMS.
-    pub fn vendor_properties(&self) -> ::std::option::Option<&crate::types::VendorProperties> {
+    pub fn vendor_properties(&self) -> ::std::option::Option<& crate::types::VendorProperties> {
         self.vendor_properties.as_ref()
     }
     /// Supported coordinates for worker position.
-    pub fn position(&self) -> ::std::option::Option<&crate::types::PositionCoordinates> {
+    pub fn position(&self) -> ::std::option::Option<& crate::types::PositionCoordinates> {
         self.position.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for UpdateWorkerOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for UpdateWorkerOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl UpdateWorkerOutput {
     /// Creates a new builder-style object to manufacture [`UpdateWorkerOutput`](crate::operation::update_worker::UpdateWorkerOutput).
     pub fn builder() -> crate::operation::update_worker::builders::UpdateWorkerOutputBuilder {
@@ -108,8 +104,7 @@ impl UpdateWorkerOutputBuilder {
     }
     /// Full ARN of the worker.
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// Full ARN of the worker.
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -123,8 +118,7 @@ impl UpdateWorkerOutputBuilder {
     }
     /// Filters access by the workers identifier
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// Filters access by the workers identifier
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -138,8 +132,7 @@ impl UpdateWorkerOutputBuilder {
     }
     /// Full ARN of the worker fleet.
     pub fn set_fleet(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.fleet = input;
-        self
+        self.fleet = input; self
     }
     /// Full ARN of the worker fleet.
     pub fn get_fleet(&self) -> &::std::option::Option<::std::string::String> {
@@ -153,8 +146,7 @@ impl UpdateWorkerOutputBuilder {
     }
     /// Timestamp at which the resource was last updated.
     pub fn set_updated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.updated_at = input;
-        self
+        self.updated_at = input; self
     }
     /// Timestamp at which the resource was last updated.
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -168,8 +160,7 @@ impl UpdateWorkerOutputBuilder {
     }
     /// Human friendly name of the resource.
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// Human friendly name of the resource.
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -182,8 +173,7 @@ impl UpdateWorkerOutputBuilder {
     }
     /// JSON blob containing unstructured worker properties that are transient and may change during regular operation.
     pub fn set_additional_transient_properties(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.additional_transient_properties = input;
-        self
+        self.additional_transient_properties = input; self
     }
     /// JSON blob containing unstructured worker properties that are transient and may change during regular operation.
     pub fn get_additional_transient_properties(&self) -> &::std::option::Option<::std::string::String> {
@@ -196,8 +186,7 @@ impl UpdateWorkerOutputBuilder {
     }
     /// JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
     pub fn set_additional_fixed_properties(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.additional_fixed_properties = input;
-        self
+        self.additional_fixed_properties = input; self
     }
     /// JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
     pub fn get_additional_fixed_properties(&self) -> &::std::option::Option<::std::string::String> {
@@ -210,8 +199,7 @@ impl UpdateWorkerOutputBuilder {
     }
     /// Worker orientation measured in units clockwise from north.
     pub fn set_orientation(mut self, input: ::std::option::Option<crate::types::Orientation>) -> Self {
-        self.orientation = input;
-        self
+        self.orientation = input; self
     }
     /// Worker orientation measured in units clockwise from north.
     pub fn get_orientation(&self) -> &::std::option::Option<crate::types::Orientation> {
@@ -224,8 +212,7 @@ impl UpdateWorkerOutputBuilder {
     }
     /// Properties of the worker that are provided by the vendor FMS.
     pub fn set_vendor_properties(mut self, input: ::std::option::Option<crate::types::VendorProperties>) -> Self {
-        self.vendor_properties = input;
-        self
+        self.vendor_properties = input; self
     }
     /// Properties of the worker that are provided by the vendor FMS.
     pub fn get_vendor_properties(&self) -> &::std::option::Option<crate::types::VendorProperties> {
@@ -238,22 +225,21 @@ impl UpdateWorkerOutputBuilder {
     }
     /// Supported coordinates for worker position.
     pub fn set_position(mut self, input: ::std::option::Option<crate::types::PositionCoordinates>) -> Self {
-        self.position = input;
-        self
+        self.position = input; self
     }
     /// Supported coordinates for worker position.
     pub fn get_position(&self) -> &::std::option::Option<crate::types::PositionCoordinates> {
         &self.position
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`UpdateWorkerOutput`](crate::operation::update_worker::UpdateWorkerOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](crate::operation::update_worker::builders::UpdateWorkerOutputBuilder::arn)
@@ -261,46 +247,47 @@ impl UpdateWorkerOutputBuilder {
     /// - [`fleet`](crate::operation::update_worker::builders::UpdateWorkerOutputBuilder::fleet)
     /// - [`updated_at`](crate::operation::update_worker::builders::UpdateWorkerOutputBuilder::updated_at)
     /// - [`name`](crate::operation::update_worker::builders::UpdateWorkerOutputBuilder::name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_worker::UpdateWorkerOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_worker::UpdateWorkerOutput {
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building UpdateWorkerOutput",
-                )
-            })?,
-            id: self.id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "id",
-                    "id was not specified but it is required when building UpdateWorkerOutput",
-                )
-            })?,
-            fleet: self.fleet.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "fleet",
-                    "fleet was not specified but it is required when building UpdateWorkerOutput",
-                )
-            })?,
-            updated_at: self.updated_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "updated_at",
-                    "updated_at was not specified but it is required when building UpdateWorkerOutput",
-                )
-            })?,
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building UpdateWorkerOutput",
-                )
-            })?,
-            additional_transient_properties: self.additional_transient_properties,
-            additional_fixed_properties: self.additional_fixed_properties,
-            orientation: self.orientation,
-            vendor_properties: self.vendor_properties,
-            position: self.position,
-            _request_id: self._request_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_worker::UpdateWorkerOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_worker::UpdateWorkerOutput {
+                arn: self.arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building UpdateWorkerOutput")
+                    )?
+                ,
+                id: self.id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building UpdateWorkerOutput")
+                    )?
+                ,
+                fleet: self.fleet
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("fleet", "fleet was not specified but it is required when building UpdateWorkerOutput")
+                    )?
+                ,
+                updated_at: self.updated_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("updated_at", "updated_at was not specified but it is required when building UpdateWorkerOutput")
+                    )?
+                ,
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building UpdateWorkerOutput")
+                    )?
+                ,
+                additional_transient_properties: self.additional_transient_properties
+                ,
+                additional_fixed_properties: self.additional_fixed_properties
+                ,
+                orientation: self.orientation
+                ,
+                vendor_properties: self.vendor_properties
+                ,
+                position: self.position
+                ,
+                _request_id: self._request_id,
+            }
+        )
     }
 }
+

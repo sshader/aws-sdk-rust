@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateModelInput {
+pub struct UpdateModelInput  {
     /// <p>The name of the model to update.</p>
     pub model_name: ::std::option::Option<::std::string::String>,
     /// <p>Contains the configuration information for the S3 location being used to hold label data. </p>
@@ -10,17 +10,17 @@ pub struct UpdateModelInput {
     /// <p>The ARN of the model to update.</p>
     pub role_arn: ::std::option::Option<::std::string::String>,
 }
-impl UpdateModelInput {
+impl  UpdateModelInput  {
     /// <p>The name of the model to update.</p>
-    pub fn model_name(&self) -> ::std::option::Option<&str> {
+    pub fn model_name(&self) -> ::std::option::Option<& str> {
         self.model_name.as_deref()
     }
     /// <p>Contains the configuration information for the S3 location being used to hold label data. </p>
-    pub fn labels_input_configuration(&self) -> ::std::option::Option<&crate::types::LabelsInputConfiguration> {
+    pub fn labels_input_configuration(&self) -> ::std::option::Option<& crate::types::LabelsInputConfiguration> {
         self.labels_input_configuration.as_ref()
     }
     /// <p>The ARN of the model to update.</p>
-    pub fn role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn role_arn(&self) -> ::std::option::Option<& str> {
         self.role_arn.as_deref()
     }
 }
@@ -48,8 +48,7 @@ impl UpdateModelInputBuilder {
     }
     /// <p>The name of the model to update.</p>
     pub fn set_model_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.model_name = input;
-        self
+        self.model_name = input; self
     }
     /// <p>The name of the model to update.</p>
     pub fn get_model_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -62,8 +61,7 @@ impl UpdateModelInputBuilder {
     }
     /// <p>Contains the configuration information for the S3 location being used to hold label data. </p>
     pub fn set_labels_input_configuration(mut self, input: ::std::option::Option<crate::types::LabelsInputConfiguration>) -> Self {
-        self.labels_input_configuration = input;
-        self
+        self.labels_input_configuration = input; self
     }
     /// <p>Contains the configuration information for the S3 location being used to hold label data. </p>
     pub fn get_labels_input_configuration(&self) -> &::std::option::Option<crate::types::LabelsInputConfiguration> {
@@ -76,8 +74,7 @@ impl UpdateModelInputBuilder {
     }
     /// <p>The ARN of the model to update.</p>
     pub fn set_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.role_arn = input;
-        self
+        self.role_arn = input; self
     }
     /// <p>The ARN of the model to update.</p>
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -85,10 +82,16 @@ impl UpdateModelInputBuilder {
     }
     /// Consumes the builder and constructs a [`UpdateModelInput`](crate::operation::update_model::UpdateModelInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::update_model::UpdateModelInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_model::UpdateModelInput {
-            model_name: self.model_name,
-            labels_input_configuration: self.labels_input_configuration,
-            role_arn: self.role_arn,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_model::UpdateModelInput {
+                model_name: self.model_name
+                ,
+                labels_input_configuration: self.labels_input_configuration
+                ,
+                role_arn: self.role_arn
+                ,
+            }
+        )
     }
 }
+

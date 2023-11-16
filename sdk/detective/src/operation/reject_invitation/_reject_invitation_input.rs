@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RejectInvitationInput {
-    /// <p>The ARN of the behavior graph to reject the invitation to.</p>
+pub struct RejectInvitationInput  {
+    /// <p>The ARN of the behavior graph to reject the invitation to.</p> 
     /// <p>The member account's current member status in the behavior graph must be <code>INVITED</code>.</p>
     pub graph_arn: ::std::option::Option<::std::string::String>,
 }
-impl RejectInvitationInput {
-    /// <p>The ARN of the behavior graph to reject the invitation to.</p>
+impl  RejectInvitationInput  {
+    /// <p>The ARN of the behavior graph to reject the invitation to.</p> 
     /// <p>The member account's current member status in the behavior graph must be <code>INVITED</code>.</p>
-    pub fn graph_arn(&self) -> ::std::option::Option<&str> {
+    pub fn graph_arn(&self) -> ::std::option::Option<& str> {
         self.graph_arn.as_deref()
     }
 }
@@ -28,28 +28,31 @@ pub struct RejectInvitationInputBuilder {
     pub(crate) graph_arn: ::std::option::Option<::std::string::String>,
 }
 impl RejectInvitationInputBuilder {
-    /// <p>The ARN of the behavior graph to reject the invitation to.</p>
+    /// <p>The ARN of the behavior graph to reject the invitation to.</p> 
     /// <p>The member account's current member status in the behavior graph must be <code>INVITED</code>.</p>
     /// This field is required.
     pub fn graph_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.graph_arn = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ARN of the behavior graph to reject the invitation to.</p>
+    /// <p>The ARN of the behavior graph to reject the invitation to.</p> 
     /// <p>The member account's current member status in the behavior graph must be <code>INVITED</code>.</p>
     pub fn set_graph_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.graph_arn = input;
-        self
+        self.graph_arn = input; self
     }
-    /// <p>The ARN of the behavior graph to reject the invitation to.</p>
+    /// <p>The ARN of the behavior graph to reject the invitation to.</p> 
     /// <p>The member account's current member status in the behavior graph must be <code>INVITED</code>.</p>
     pub fn get_graph_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.graph_arn
     }
     /// Consumes the builder and constructs a [`RejectInvitationInput`](crate::operation::reject_invitation::RejectInvitationInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::reject_invitation::RejectInvitationInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::reject_invitation::RejectInvitationInput { graph_arn: self.graph_arn })
+    pub fn build(self) -> ::std::result::Result<crate::operation::reject_invitation::RejectInvitationInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::reject_invitation::RejectInvitationInput {
+                graph_arn: self.graph_arn
+                ,
+            }
+        )
     }
 }
+

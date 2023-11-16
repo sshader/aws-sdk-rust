@@ -5,67 +5,63 @@ pub use crate::operation::create_service::_create_service_input::CreateServiceIn
 
 impl CreateServiceInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_service::CreateServiceOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_service::CreateServiceError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_service();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_service::CreateServiceOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_service::CreateServiceError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_service();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateService`.
-///
-/// <p>Creates a service. This action defines the configuration for the following entities:</p>
-/// <ul>
-/// <li> <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route&nbsp;53:</p>
-/// <ul>
-/// <li> <p> <code>A</code> </p> </li>
-/// <li> <p> <code>AAAA</code> </p> </li>
-/// <li> <p> <code>A</code> and <code>AAAA</code> </p> </li>
-/// <li> <p> <code>SRV</code> </p> </li>
-/// <li> <p> <code>CNAME</code> </p> </li>
-/// </ul> </li>
-/// <li> <p>Optionally, a health check</p> </li>
-/// </ul>
-/// <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and Cloud Map uses the values in the configuration to create the specified entities.</p>
+/// 
+/// <p>Creates a service. This action defines the configuration for the following entities:</p> 
+/// <ul> 
+/// <li> <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route&nbsp;53:</p> 
+/// <ul> 
+/// <li> <p> <code>A</code> </p> </li> 
+/// <li> <p> <code>AAAA</code> </p> </li> 
+/// <li> <p> <code>A</code> and <code>AAAA</code> </p> </li> 
+/// <li> <p> <code>SRV</code> </p> </li> 
+/// <li> <p> <code>CNAME</code> </p> </li> 
+/// </ul> </li> 
+/// <li> <p>Optionally, a health check</p> </li> 
+/// </ul> 
+/// <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and Cloud Map uses the values in the configuration to create the specified entities.</p> 
 /// <p>For the current quota on the number of instances that you can register using the same namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateServiceFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_service::builders::CreateServiceInputBuilder,
+                    inner: crate::operation::create_service::builders::CreateServiceInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_service::CreateServiceOutput,
-        crate::operation::create_service::CreateServiceError,
-    > for CreateServiceFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_service::CreateServiceOutput,
-            crate::operation::create_service::CreateServiceError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_service::CreateServiceOutput,
+                    crate::operation::create_service::CreateServiceError,
+                > for CreateServiceFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_service::CreateServiceOutput,
+                        crate::operation::create_service::CreateServiceError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateServiceFluentBuilder {
     /// Creates a new `CreateService`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -74,96 +70,87 @@ impl CreateServiceFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_service::CreateServiceOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_service::CreateServiceError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_service::CreateService::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_service::CreateService::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_service::CreateServiceOutput,
-        crate::operation::create_service::CreateServiceError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The name that you want to assign to the service.</p> <note>
-    /// <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p>
-    /// </note>
-    /// <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</p>
-    /// <ul>
-    /// <li> <p>Start the name with an underscore (_), such as <code>_exampleservice</code>.</p> </li>
-    /// <li> <p>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</p> </li>
-    /// </ul>
-    /// <p>When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns a name to the record by concatenating the service name and the namespace name (for example,</p>
-    /// <p> <code>_exampleservice._tcp.example.com</code>).</p> <note>
-    /// <p>For services that are accessible by DNS queries, you can't create multiple services with names that differ only by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can't be distinguished. However, if you use a namespace that's only accessible by API calls, then you can create services that with names that differ only by case.</p>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_service::CreateServiceOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_service::CreateServiceError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_service::CreateService::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_service::CreateService::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_service::CreateServiceOutput, crate::operation::create_service::CreateServiceError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The name that you want to assign to the service.</p> <note> 
+    /// <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p> 
+    /// </note> 
+    /// <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</p> 
+    /// <ul> 
+    /// <li> <p>Start the name with an underscore (_), such as <code>_exampleservice</code>.</p> </li> 
+    /// <li> <p>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</p> </li> 
+    /// </ul> 
+    /// <p>When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns a name to the record by concatenating the service name and the namespace name (for example,</p> 
+    /// <p> <code>_exampleservice._tcp.example.com</code>).</p> <note> 
+    /// <p>For services that are accessible by DNS queries, you can't create multiple services with names that differ only by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can't be distinguished. However, if you use a namespace that's only accessible by API calls, then you can create services that with names that differ only by case.</p> 
     /// </note>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.name(input.into());
         self
     }
-    /// <p>The name that you want to assign to the service.</p> <note>
-    /// <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p>
-    /// </note>
-    /// <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</p>
-    /// <ul>
-    /// <li> <p>Start the name with an underscore (_), such as <code>_exampleservice</code>.</p> </li>
-    /// <li> <p>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</p> </li>
-    /// </ul>
-    /// <p>When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns a name to the record by concatenating the service name and the namespace name (for example,</p>
-    /// <p> <code>_exampleservice._tcp.example.com</code>).</p> <note>
-    /// <p>For services that are accessible by DNS queries, you can't create multiple services with names that differ only by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can't be distinguished. However, if you use a namespace that's only accessible by API calls, then you can create services that with names that differ only by case.</p>
+    /// <p>The name that you want to assign to the service.</p> <note> 
+    /// <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p> 
+    /// </note> 
+    /// <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</p> 
+    /// <ul> 
+    /// <li> <p>Start the name with an underscore (_), such as <code>_exampleservice</code>.</p> </li> 
+    /// <li> <p>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</p> </li> 
+    /// </ul> 
+    /// <p>When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns a name to the record by concatenating the service name and the namespace name (for example,</p> 
+    /// <p> <code>_exampleservice._tcp.example.com</code>).</p> <note> 
+    /// <p>For services that are accessible by DNS queries, you can't create multiple services with names that differ only by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can't be distinguished. However, if you use a namespace that's only accessible by API calls, then you can create services that with names that differ only by case.</p> 
     /// </note>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_name(input);
         self
     }
-    /// <p>The name that you want to assign to the service.</p> <note>
-    /// <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p>
-    /// </note>
-    /// <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</p>
-    /// <ul>
-    /// <li> <p>Start the name with an underscore (_), such as <code>_exampleservice</code>.</p> </li>
-    /// <li> <p>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</p> </li>
-    /// </ul>
-    /// <p>When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns a name to the record by concatenating the service name and the namespace name (for example,</p>
-    /// <p> <code>_exampleservice._tcp.example.com</code>).</p> <note>
-    /// <p>For services that are accessible by DNS queries, you can't create multiple services with names that differ only by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can't be distinguished. However, if you use a namespace that's only accessible by API calls, then you can create services that with names that differ only by case.</p>
+    /// <p>The name that you want to assign to the service.</p> <note> 
+    /// <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p> 
+    /// </note> 
+    /// <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</p> 
+    /// <ul> 
+    /// <li> <p>Start the name with an underscore (_), such as <code>_exampleservice</code>.</p> </li> 
+    /// <li> <p>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</p> </li> 
+    /// </ul> 
+    /// <p>When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns a name to the record by concatenating the service name and the namespace name (for example,</p> 
+    /// <p> <code>_exampleservice._tcp.example.com</code>).</p> <note> 
+    /// <p>For services that are accessible by DNS queries, you can't create multiple services with names that differ only by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can't be distinguished. However, if you use a namespace that's only accessible by API calls, then you can create services that with names that differ only by case.</p> 
     /// </note>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_name()
@@ -224,48 +211,48 @@ impl CreateServiceFluentBuilder {
     pub fn get_dns_config(&self) -> &::std::option::Option<crate::types::DnsConfig> {
         self.inner.get_dns_config()
     }
-    /// <p> <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional Route&nbsp;53 health check. If you specify settings for a health check, Cloud Map associates the health check with all the Route&nbsp;53 DNS records that you specify in <code>DnsConfig</code>.</p> <important>
-    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p>
-    /// </important>
+    /// <p> <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional Route&nbsp;53 health check. If you specify settings for a health check, Cloud Map associates the health check with all the Route&nbsp;53 DNS records that you specify in <code>DnsConfig</code>.</p> <important> 
+    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> 
+    /// </important> 
     /// <p>For information about the charges for health checks, see <a href="http://aws.amazon.com/cloud-map/pricing/">Cloud Map Pricing</a>.</p>
     pub fn health_check_config(mut self, input: crate::types::HealthCheckConfig) -> Self {
         self.inner = self.inner.health_check_config(input);
         self
     }
-    /// <p> <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional Route&nbsp;53 health check. If you specify settings for a health check, Cloud Map associates the health check with all the Route&nbsp;53 DNS records that you specify in <code>DnsConfig</code>.</p> <important>
-    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p>
-    /// </important>
+    /// <p> <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional Route&nbsp;53 health check. If you specify settings for a health check, Cloud Map associates the health check with all the Route&nbsp;53 DNS records that you specify in <code>DnsConfig</code>.</p> <important> 
+    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> 
+    /// </important> 
     /// <p>For information about the charges for health checks, see <a href="http://aws.amazon.com/cloud-map/pricing/">Cloud Map Pricing</a>.</p>
     pub fn set_health_check_config(mut self, input: ::std::option::Option<crate::types::HealthCheckConfig>) -> Self {
         self.inner = self.inner.set_health_check_config(input);
         self
     }
-    /// <p> <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional Route&nbsp;53 health check. If you specify settings for a health check, Cloud Map associates the health check with all the Route&nbsp;53 DNS records that you specify in <code>DnsConfig</code>.</p> <important>
-    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p>
-    /// </important>
+    /// <p> <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings for an optional Route&nbsp;53 health check. If you specify settings for a health check, Cloud Map associates the health check with all the Route&nbsp;53 DNS records that you specify in <code>DnsConfig</code>.</p> <important> 
+    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> 
+    /// </important> 
     /// <p>For information about the charges for health checks, see <a href="http://aws.amazon.com/cloud-map/pricing/">Cloud Map Pricing</a>.</p>
     pub fn get_health_check_config(&self) -> &::std::option::Option<crate::types::HealthCheckConfig> {
         self.inner.get_health_check_config()
     }
-    /// <p>A complex type that contains information about an optional custom health check.</p> <important>
-    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p>
-    /// </important>
+    /// <p>A complex type that contains information about an optional custom health check.</p> <important> 
+    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> 
+    /// </important> 
     /// <p>You can't add, update, or delete a <code>HealthCheckCustomConfig</code> configuration from an existing service.</p>
     pub fn health_check_custom_config(mut self, input: crate::types::HealthCheckCustomConfig) -> Self {
         self.inner = self.inner.health_check_custom_config(input);
         self
     }
-    /// <p>A complex type that contains information about an optional custom health check.</p> <important>
-    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p>
-    /// </important>
+    /// <p>A complex type that contains information about an optional custom health check.</p> <important> 
+    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> 
+    /// </important> 
     /// <p>You can't add, update, or delete a <code>HealthCheckCustomConfig</code> configuration from an existing service.</p>
     pub fn set_health_check_custom_config(mut self, input: ::std::option::Option<crate::types::HealthCheckCustomConfig>) -> Self {
         self.inner = self.inner.set_health_check_custom_config(input);
         self
     }
-    /// <p>A complex type that contains information about an optional custom health check.</p> <important>
-    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p>
-    /// </important>
+    /// <p>A complex type that contains information about an optional custom health check.</p> <important> 
+    /// <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or <code>HealthCheckConfig</code> but not both.</p> 
+    /// </important> 
     /// <p>You can't add, update, or delete a <code>HealthCheckCustomConfig</code> configuration from an existing service.</p>
     pub fn get_health_check_custom_config(&self) -> &::std::option::Option<crate::types::HealthCheckCustomConfig> {
         self.inner.get_health_check_custom_config()
@@ -280,12 +267,12 @@ impl CreateServiceFluentBuilder {
         self
     }
     /// <p>The tags to add to the service. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>The tags to add to the service. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
     /// <p>If present, specifies that the service instances are only discoverable using the <code>DiscoverInstances</code> API operation. No DNS records is registered for the service instances. The only valid value is <code>HTTP</code>.</p>
@@ -303,3 +290,4 @@ impl CreateServiceFluentBuilder {
         self.inner.get_type()
     }
 }
+

@@ -3,7 +3,7 @@
 /// <p>A list of recommendations made by Amazon SageMaker Inference Recommender.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct InferenceRecommendation {
+pub struct InferenceRecommendation  {
     /// <p>The metrics used to decide what recommendation to make.</p>
     pub metrics: ::std::option::Option<crate::types::RecommendationMetrics>,
     /// <p>Defines the endpoint configuration parameters.</p>
@@ -17,29 +17,29 @@ pub struct InferenceRecommendation {
     /// <p>A timestamp that shows when the benchmark started.</p>
     pub invocation_start_time: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
-impl InferenceRecommendation {
+impl  InferenceRecommendation  {
     /// <p>The metrics used to decide what recommendation to make.</p>
-    pub fn metrics(&self) -> ::std::option::Option<&crate::types::RecommendationMetrics> {
+    pub fn metrics(&self) -> ::std::option::Option<& crate::types::RecommendationMetrics> {
         self.metrics.as_ref()
     }
     /// <p>Defines the endpoint configuration parameters.</p>
-    pub fn endpoint_configuration(&self) -> ::std::option::Option<&crate::types::EndpointOutputConfiguration> {
+    pub fn endpoint_configuration(&self) -> ::std::option::Option<& crate::types::EndpointOutputConfiguration> {
         self.endpoint_configuration.as_ref()
     }
     /// <p>Defines the model configuration.</p>
-    pub fn model_configuration(&self) -> ::std::option::Option<&crate::types::ModelConfiguration> {
+    pub fn model_configuration(&self) -> ::std::option::Option<& crate::types::ModelConfiguration> {
         self.model_configuration.as_ref()
     }
     /// <p>The recommendation ID which uniquely identifies each recommendation.</p>
-    pub fn recommendation_id(&self) -> ::std::option::Option<&str> {
+    pub fn recommendation_id(&self) -> ::std::option::Option<& str> {
         self.recommendation_id.as_deref()
     }
     /// <p>A timestamp that shows when the benchmark completed.</p>
-    pub fn invocation_end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn invocation_end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.invocation_end_time.as_ref()
     }
     /// <p>A timestamp that shows when the benchmark started.</p>
-    pub fn invocation_start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn invocation_start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.invocation_start_time.as_ref()
     }
 }
@@ -70,8 +70,7 @@ impl InferenceRecommendationBuilder {
     }
     /// <p>The metrics used to decide what recommendation to make.</p>
     pub fn set_metrics(mut self, input: ::std::option::Option<crate::types::RecommendationMetrics>) -> Self {
-        self.metrics = input;
-        self
+        self.metrics = input; self
     }
     /// <p>The metrics used to decide what recommendation to make.</p>
     pub fn get_metrics(&self) -> &::std::option::Option<crate::types::RecommendationMetrics> {
@@ -85,8 +84,7 @@ impl InferenceRecommendationBuilder {
     }
     /// <p>Defines the endpoint configuration parameters.</p>
     pub fn set_endpoint_configuration(mut self, input: ::std::option::Option<crate::types::EndpointOutputConfiguration>) -> Self {
-        self.endpoint_configuration = input;
-        self
+        self.endpoint_configuration = input; self
     }
     /// <p>Defines the endpoint configuration parameters.</p>
     pub fn get_endpoint_configuration(&self) -> &::std::option::Option<crate::types::EndpointOutputConfiguration> {
@@ -100,8 +98,7 @@ impl InferenceRecommendationBuilder {
     }
     /// <p>Defines the model configuration.</p>
     pub fn set_model_configuration(mut self, input: ::std::option::Option<crate::types::ModelConfiguration>) -> Self {
-        self.model_configuration = input;
-        self
+        self.model_configuration = input; self
     }
     /// <p>Defines the model configuration.</p>
     pub fn get_model_configuration(&self) -> &::std::option::Option<crate::types::ModelConfiguration> {
@@ -114,8 +111,7 @@ impl InferenceRecommendationBuilder {
     }
     /// <p>The recommendation ID which uniquely identifies each recommendation.</p>
     pub fn set_recommendation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.recommendation_id = input;
-        self
+        self.recommendation_id = input; self
     }
     /// <p>The recommendation ID which uniquely identifies each recommendation.</p>
     pub fn get_recommendation_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -128,8 +124,7 @@ impl InferenceRecommendationBuilder {
     }
     /// <p>A timestamp that shows when the benchmark completed.</p>
     pub fn set_invocation_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.invocation_end_time = input;
-        self
+        self.invocation_end_time = input; self
     }
     /// <p>A timestamp that shows when the benchmark completed.</p>
     pub fn get_invocation_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -142,8 +137,7 @@ impl InferenceRecommendationBuilder {
     }
     /// <p>A timestamp that shows when the benchmark started.</p>
     pub fn set_invocation_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.invocation_start_time = input;
-        self
+        self.invocation_start_time = input; self
     }
     /// <p>A timestamp that shows when the benchmark started.</p>
     pub fn get_invocation_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -152,12 +146,19 @@ impl InferenceRecommendationBuilder {
     /// Consumes the builder and constructs a [`InferenceRecommendation`](crate::types::InferenceRecommendation).
     pub fn build(self) -> crate::types::InferenceRecommendation {
         crate::types::InferenceRecommendation {
-            metrics: self.metrics,
-            endpoint_configuration: self.endpoint_configuration,
-            model_configuration: self.model_configuration,
-            recommendation_id: self.recommendation_id,
-            invocation_end_time: self.invocation_end_time,
-            invocation_start_time: self.invocation_start_time,
+            metrics: self.metrics
+            ,
+            endpoint_configuration: self.endpoint_configuration
+            ,
+            model_configuration: self.model_configuration
+            ,
+            recommendation_id: self.recommendation_id
+            ,
+            invocation_end_time: self.invocation_end_time
+            ,
+            invocation_start_time: self.invocation_start_time
+            ,
         }
     }
 }
+

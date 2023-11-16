@@ -2,45 +2,45 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ActivateNetworkSiteInput {
+pub struct ActivateNetworkSiteInput  {
     /// <p>The Amazon Resource Name (ARN) of the network site.</p>
     pub network_site_arn: ::std::option::Option<::std::string::String>,
     /// <p>The shipping address of the network site.</p>
     pub shipping_address: ::std::option::Option<crate::types::Address>,
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
-    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p>
-    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p>
-    /// <ul>
-    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li>
-    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li>
-    /// </ul>
-    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p>
+    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p> 
+    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p> 
+    /// <ul> 
+    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li> 
+    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li> 
+    /// </ul> 
+    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p> 
     /// <p>If you do not include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, the commitment period is set to 60-days.</p>
     pub commitment_configuration: ::std::option::Option<crate::types::CommitmentConfiguration>,
 }
-impl ActivateNetworkSiteInput {
+impl  ActivateNetworkSiteInput  {
     /// <p>The Amazon Resource Name (ARN) of the network site.</p>
-    pub fn network_site_arn(&self) -> ::std::option::Option<&str> {
+    pub fn network_site_arn(&self) -> ::std::option::Option<& str> {
         self.network_site_arn.as_deref()
     }
     /// <p>The shipping address of the network site.</p>
-    pub fn shipping_address(&self) -> ::std::option::Option<&crate::types::Address> {
+    pub fn shipping_address(&self) -> ::std::option::Option<& crate::types::Address> {
         self.shipping_address.as_ref()
     }
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
-    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p>
-    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p>
-    /// <ul>
-    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li>
-    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li>
-    /// </ul>
-    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p>
+    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p> 
+    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p> 
+    /// <ul> 
+    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li> 
+    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li> 
+    /// </ul> 
+    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p> 
     /// <p>If you do not include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, the commitment period is set to 60-days.</p>
-    pub fn commitment_configuration(&self) -> ::std::option::Option<&crate::types::CommitmentConfiguration> {
+    pub fn commitment_configuration(&self) -> ::std::option::Option<& crate::types::CommitmentConfiguration> {
         self.commitment_configuration.as_ref()
     }
 }
@@ -69,8 +69,7 @@ impl ActivateNetworkSiteInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the network site.</p>
     pub fn set_network_site_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.network_site_arn = input;
-        self
+        self.network_site_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the network site.</p>
     pub fn get_network_site_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -84,8 +83,7 @@ impl ActivateNetworkSiteInputBuilder {
     }
     /// <p>The shipping address of the network site.</p>
     pub fn set_shipping_address(mut self, input: ::std::option::Option<crate::types::Address>) -> Self {
-        self.shipping_address = input;
-        self
+        self.shipping_address = input; self
     }
     /// <p>The shipping address of the network site.</p>
     pub fn get_shipping_address(&self) -> &::std::option::Option<crate::types::Address> {
@@ -98,58 +96,60 @@ impl ActivateNetworkSiteInputBuilder {
     }
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
-    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p>
-    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p>
-    /// <ul>
-    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li>
-    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li>
-    /// </ul>
-    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p>
+    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p> 
+    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p> 
+    /// <ul> 
+    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li> 
+    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li> 
+    /// </ul> 
+    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p> 
     /// <p>If you do not include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, the commitment period is set to 60-days.</p>
     pub fn commitment_configuration(mut self, input: crate::types::CommitmentConfiguration) -> Self {
         self.commitment_configuration = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p>
-    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p>
-    /// <ul>
-    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li>
-    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li>
-    /// </ul>
-    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p>
+    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p> 
+    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p> 
+    /// <ul> 
+    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li> 
+    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li> 
+    /// </ul> 
+    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p> 
     /// <p>If you do not include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, the commitment period is set to 60-days.</p>
     pub fn set_commitment_configuration(mut self, input: ::std::option::Option<crate::types::CommitmentConfiguration>) -> Self {
-        self.commitment_configuration = input;
-        self
+        self.commitment_configuration = input; self
     }
-    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p>
-    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p>
-    /// <ul>
-    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li>
-    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li>
-    /// </ul>
-    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p>
+    /// <p>Determines the duration and renewal status of the commitment period for all pending radio units.</p> 
+    /// <p>If you include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, you must specify the following:</p> 
+    /// <ul> 
+    /// <li> <p>The commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year period.</p> </li> 
+    /// <li> <p>Whether you want your commitment period to automatically renew for one more year after your current commitment period expires.</p> </li> 
+    /// </ul> 
+    /// <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G Pricing</a>.</p> 
     /// <p>If you do not include <code>commitmentConfiguration</code> in the <code>ActivateNetworkSiteRequest</code> action, the commitment period is set to 60-days.</p>
     pub fn get_commitment_configuration(&self) -> &::std::option::Option<crate::types::CommitmentConfiguration> {
         &self.commitment_configuration
     }
     /// Consumes the builder and constructs a [`ActivateNetworkSiteInput`](crate::operation::activate_network_site::ActivateNetworkSiteInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::activate_network_site::ActivateNetworkSiteInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::activate_network_site::ActivateNetworkSiteInput {
-            network_site_arn: self.network_site_arn,
-            shipping_address: self.shipping_address,
-            client_token: self.client_token,
-            commitment_configuration: self.commitment_configuration,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::activate_network_site::ActivateNetworkSiteInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::activate_network_site::ActivateNetworkSiteInput {
+                network_site_arn: self.network_site_arn
+                ,
+                shipping_address: self.shipping_address
+                ,
+                client_token: self.client_token
+                ,
+                commitment_configuration: self.commitment_configuration
+                ,
+            }
+        )
     }
 }
+

@@ -2,35 +2,35 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SetResourceAccessForBucketInput {
+pub struct SetResourceAccessForBucketInput  {
     /// <p>The name of the Lightsail instance for which to set bucket access. The instance must be in a running or stopped state.</p>
     pub resource_name: ::std::option::Option<::std::string::String>,
     /// <p>The name of the bucket for which to set access to another Lightsail resource.</p>
     pub bucket_name: ::std::option::Option<::std::string::String>,
-    /// <p>The access setting.</p>
-    /// <p>The following access settings are available:</p>
-    /// <ul>
-    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li>
-    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li>
+    /// <p>The access setting.</p> 
+    /// <p>The following access settings are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li> 
+    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li> 
     /// </ul>
     pub access: ::std::option::Option<crate::types::ResourceBucketAccess>,
 }
-impl SetResourceAccessForBucketInput {
+impl  SetResourceAccessForBucketInput  {
     /// <p>The name of the Lightsail instance for which to set bucket access. The instance must be in a running or stopped state.</p>
-    pub fn resource_name(&self) -> ::std::option::Option<&str> {
+    pub fn resource_name(&self) -> ::std::option::Option<& str> {
         self.resource_name.as_deref()
     }
     /// <p>The name of the bucket for which to set access to another Lightsail resource.</p>
-    pub fn bucket_name(&self) -> ::std::option::Option<&str> {
+    pub fn bucket_name(&self) -> ::std::option::Option<& str> {
         self.bucket_name.as_deref()
     }
-    /// <p>The access setting.</p>
-    /// <p>The following access settings are available:</p>
-    /// <ul>
-    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li>
-    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li>
+    /// <p>The access setting.</p> 
+    /// <p>The following access settings are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li> 
+    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li> 
     /// </ul>
-    pub fn access(&self) -> ::std::option::Option<&crate::types::ResourceBucketAccess> {
+    pub fn access(&self) -> ::std::option::Option<& crate::types::ResourceBucketAccess> {
         self.access.as_ref()
     }
 }
@@ -58,8 +58,7 @@ impl SetResourceAccessForBucketInputBuilder {
     }
     /// <p>The name of the Lightsail instance for which to set bucket access. The instance must be in a running or stopped state.</p>
     pub fn set_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_name = input;
-        self
+        self.resource_name = input; self
     }
     /// <p>The name of the Lightsail instance for which to set bucket access. The instance must be in a running or stopped state.</p>
     pub fn get_resource_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -73,54 +72,53 @@ impl SetResourceAccessForBucketInputBuilder {
     }
     /// <p>The name of the bucket for which to set access to another Lightsail resource.</p>
     pub fn set_bucket_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.bucket_name = input;
-        self
+        self.bucket_name = input; self
     }
     /// <p>The name of the bucket for which to set access to another Lightsail resource.</p>
     pub fn get_bucket_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.bucket_name
     }
-    /// <p>The access setting.</p>
-    /// <p>The following access settings are available:</p>
-    /// <ul>
-    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li>
-    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li>
+    /// <p>The access setting.</p> 
+    /// <p>The following access settings are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li> 
+    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn access(mut self, input: crate::types::ResourceBucketAccess) -> Self {
         self.access = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The access setting.</p>
-    /// <p>The following access settings are available:</p>
-    /// <ul>
-    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li>
-    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li>
+    /// <p>The access setting.</p> 
+    /// <p>The following access settings are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li> 
+    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li> 
     /// </ul>
     pub fn set_access(mut self, input: ::std::option::Option<crate::types::ResourceBucketAccess>) -> Self {
-        self.access = input;
-        self
+        self.access = input; self
     }
-    /// <p>The access setting.</p>
-    /// <p>The following access settings are available:</p>
-    /// <ul>
-    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li>
-    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li>
+    /// <p>The access setting.</p> 
+    /// <p>The following access settings are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li> 
+    /// <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li> 
     /// </ul>
     pub fn get_access(&self) -> &::std::option::Option<crate::types::ResourceBucketAccess> {
         &self.access
     }
     /// Consumes the builder and constructs a [`SetResourceAccessForBucketInput`](crate::operation::set_resource_access_for_bucket::SetResourceAccessForBucketInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::set_resource_access_for_bucket::SetResourceAccessForBucketInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::set_resource_access_for_bucket::SetResourceAccessForBucketInput {
-            resource_name: self.resource_name,
-            bucket_name: self.bucket_name,
-            access: self.access,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::set_resource_access_for_bucket::SetResourceAccessForBucketInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::set_resource_access_for_bucket::SetResourceAccessForBucketInput {
+                resource_name: self.resource_name
+                ,
+                bucket_name: self.bucket_name
+                ,
+                access: self.access
+                ,
+            }
+        )
     }
 }
+

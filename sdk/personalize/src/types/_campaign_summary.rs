@@ -3,16 +3,16 @@
 /// <p>Provides a summary of the properties of a campaign. For a complete listing, call the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CampaignSummary {
+pub struct CampaignSummary  {
     /// <p>The name of the campaign.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the campaign.</p>
     pub campaign_arn: ::std::option::Option<::std::string::String>,
-    /// <p>The status of the campaign.</p>
-    /// <p>A campaign can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the campaign.</p> 
+    /// <p>A campaign can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
     pub status: ::std::option::Option<::std::string::String>,
     /// <p>The date and time (in Unix time) that the campaign was created.</p>
@@ -22,34 +22,34 @@ pub struct CampaignSummary {
     /// <p>If a campaign fails, the reason behind the failure.</p>
     pub failure_reason: ::std::option::Option<::std::string::String>,
 }
-impl CampaignSummary {
+impl  CampaignSummary  {
     /// <p>The name of the campaign.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the campaign.</p>
-    pub fn campaign_arn(&self) -> ::std::option::Option<&str> {
+    pub fn campaign_arn(&self) -> ::std::option::Option<& str> {
         self.campaign_arn.as_deref()
     }
-    /// <p>The status of the campaign.</p>
-    /// <p>A campaign can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the campaign.</p> 
+    /// <p>A campaign can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
-    pub fn status(&self) -> ::std::option::Option<&str> {
+    pub fn status(&self) -> ::std::option::Option<& str> {
         self.status.as_deref()
     }
     /// <p>The date and time (in Unix time) that the campaign was created.</p>
-    pub fn creation_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_date_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_date_time.as_ref()
     }
     /// <p>The date and time (in Unix time) that the campaign was last updated.</p>
-    pub fn last_updated_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_updated_date_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.last_updated_date_time.as_ref()
     }
     /// <p>If a campaign fails, the reason behind the failure.</p>
-    pub fn failure_reason(&self) -> ::std::option::Option<&str> {
+    pub fn failure_reason(&self) -> ::std::option::Option<& str> {
         self.failure_reason.as_deref()
     }
 }
@@ -79,8 +79,7 @@ impl CampaignSummaryBuilder {
     }
     /// <p>The name of the campaign.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the campaign.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -93,38 +92,36 @@ impl CampaignSummaryBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the campaign.</p>
     pub fn set_campaign_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.campaign_arn = input;
-        self
+        self.campaign_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the campaign.</p>
     pub fn get_campaign_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.campaign_arn
     }
-    /// <p>The status of the campaign.</p>
-    /// <p>A campaign can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the campaign.</p> 
+    /// <p>A campaign can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
     pub fn status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The status of the campaign.</p>
-    /// <p>A campaign can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the campaign.</p> 
+    /// <p>A campaign can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The status of the campaign.</p>
-    /// <p>A campaign can be in one of the following states:</p>
-    /// <ul>
-    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li>
-    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li>
+    /// <p>The status of the campaign.</p> 
+    /// <p>A campaign can be in one of the following states:</p> 
+    /// <ul> 
+    /// <li> <p>CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</p> </li> 
+    /// <li> <p>DELETE PENDING &gt; DELETE IN_PROGRESS</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.status
@@ -136,8 +133,7 @@ impl CampaignSummaryBuilder {
     }
     /// <p>The date and time (in Unix time) that the campaign was created.</p>
     pub fn set_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_date_time = input;
-        self
+        self.creation_date_time = input; self
     }
     /// <p>The date and time (in Unix time) that the campaign was created.</p>
     pub fn get_creation_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -150,8 +146,7 @@ impl CampaignSummaryBuilder {
     }
     /// <p>The date and time (in Unix time) that the campaign was last updated.</p>
     pub fn set_last_updated_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_updated_date_time = input;
-        self
+        self.last_updated_date_time = input; self
     }
     /// <p>The date and time (in Unix time) that the campaign was last updated.</p>
     pub fn get_last_updated_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -164,8 +159,7 @@ impl CampaignSummaryBuilder {
     }
     /// <p>If a campaign fails, the reason behind the failure.</p>
     pub fn set_failure_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.failure_reason = input;
-        self
+        self.failure_reason = input; self
     }
     /// <p>If a campaign fails, the reason behind the failure.</p>
     pub fn get_failure_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -174,12 +168,19 @@ impl CampaignSummaryBuilder {
     /// Consumes the builder and constructs a [`CampaignSummary`](crate::types::CampaignSummary).
     pub fn build(self) -> crate::types::CampaignSummary {
         crate::types::CampaignSummary {
-            name: self.name,
-            campaign_arn: self.campaign_arn,
-            status: self.status,
-            creation_date_time: self.creation_date_time,
-            last_updated_date_time: self.last_updated_date_time,
-            failure_reason: self.failure_reason,
+            name: self.name
+            ,
+            campaign_arn: self.campaign_arn
+            ,
+            status: self.status
+            ,
+            creation_date_time: self.creation_date_time
+            ,
+            last_updated_date_time: self.last_updated_date_time
+            ,
+            failure_reason: self.failure_reason
+            ,
         }
     }
 }
+

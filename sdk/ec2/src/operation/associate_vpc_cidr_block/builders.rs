@@ -5,56 +5,52 @@ pub use crate::operation::associate_vpc_cidr_block::_associate_vpc_cidr_block_in
 
 impl AssociateVpcCidrBlockInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.associate_vpc_cidr_block();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.associate_vpc_cidr_block();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `AssociateVpcCidrBlock`.
-///
-/// <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). The IPv6 CIDR block size is fixed at /56.</p>
-/// <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.</p>
+/// 
+/// <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). The IPv6 CIDR block size is fixed at /56.</p> 
+/// <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.</p> 
 /// <p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct AssociateVpcCidrBlockFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::associate_vpc_cidr_block::builders::AssociateVpcCidrBlockInputBuilder,
+                    inner: crate::operation::associate_vpc_cidr_block::builders::AssociateVpcCidrBlockInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput,
-        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError,
-    > for AssociateVpcCidrBlockFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput,
-            crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput,
+                    crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError,
+                > for AssociateVpcCidrBlockFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput,
+                        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl AssociateVpcCidrBlockFluentBuilder {
     /// Creates a new `AssociateVpcCidrBlock`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -63,53 +59,44 @@ impl AssociateVpcCidrBlockFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlock::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlock::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput,
-        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlock::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlock::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockOutput, crate::operation::associate_vpc_cidr_block::AssociateVpcCidrBlockError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.</p>
     pub fn amazon_provided_ipv6_cidr_block(mut self, input: bool) -> Self {
         self.inner = self.inner.amazon_provided_ipv6_cidr_block(input);
@@ -152,22 +139,22 @@ impl AssociateVpcCidrBlockFluentBuilder {
     pub fn get_vpc_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_vpc_id()
     }
-    /// <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.</p>
-    /// <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>
+    /// <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.</p> 
+    /// <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p> 
     /// <p> You can have one IPv6 CIDR block association per network border group.</p>
     pub fn ipv6_cidr_block_network_border_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.ipv6_cidr_block_network_border_group(input.into());
         self
     }
-    /// <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.</p>
-    /// <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>
+    /// <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.</p> 
+    /// <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p> 
     /// <p> You can have one IPv6 CIDR block association per network border group.</p>
     pub fn set_ipv6_cidr_block_network_border_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_ipv6_cidr_block_network_border_group(input);
         self
     }
-    /// <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.</p>
-    /// <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>
+    /// <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.</p> 
+    /// <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p> 
     /// <p> You can have one IPv6 CIDR block association per network border group.</p>
     pub fn get_ipv6_cidr_block_network_border_group(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_ipv6_cidr_block_network_border_group()
@@ -186,19 +173,19 @@ impl AssociateVpcCidrBlockFluentBuilder {
     pub fn get_ipv6_pool(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_ipv6_pool()
     }
-    /// <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
+    /// <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p> 
     /// <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
     pub fn ipv6_cidr_block(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.ipv6_cidr_block(input.into());
         self
     }
-    /// <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
+    /// <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p> 
     /// <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
     pub fn set_ipv6_cidr_block(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_ipv6_cidr_block(input);
         self
     }
-    /// <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
+    /// <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p> 
     /// <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
     pub fn get_ipv6_cidr_block(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_ipv6_cidr_block()
@@ -260,3 +247,4 @@ impl AssociateVpcCidrBlockFluentBuilder {
         self.inner.get_ipv6_netmask_length()
     }
 }
+

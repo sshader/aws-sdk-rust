@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListDestinationsInput {
+pub struct ListDestinationsInput  {
     /// Site ARN.
     pub site: ::std::option::Option<::std::string::String>,
     /// Maximum number of results to retrieve in a single call.
@@ -12,9 +12,9 @@ pub struct ListDestinationsInput {
     /// State of the destination.
     pub state: ::std::option::Option<crate::types::DestinationState>,
 }
-impl ListDestinationsInput {
+impl  ListDestinationsInput  {
     /// Site ARN.
-    pub fn site(&self) -> ::std::option::Option<&str> {
+    pub fn site(&self) -> ::std::option::Option<& str> {
         self.site.as_deref()
     }
     /// Maximum number of results to retrieve in a single call.
@@ -22,11 +22,11 @@ impl ListDestinationsInput {
         self.max_results
     }
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// State of the destination.
-    pub fn state(&self) -> ::std::option::Option<&crate::types::DestinationState> {
+    pub fn state(&self) -> ::std::option::Option<& crate::types::DestinationState> {
         self.state.as_ref()
     }
 }
@@ -55,8 +55,7 @@ impl ListDestinationsInputBuilder {
     }
     /// Site ARN.
     pub fn set_site(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.site = input;
-        self
+        self.site = input; self
     }
     /// Site ARN.
     pub fn get_site(&self) -> &::std::option::Option<::std::string::String> {
@@ -69,8 +68,7 @@ impl ListDestinationsInputBuilder {
     }
     /// Maximum number of results to retrieve in a single call.
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// Maximum number of results to retrieve in a single call.
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
@@ -83,8 +81,7 @@ impl ListDestinationsInputBuilder {
     }
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// Pagination token returned when another page of data exists. Provide it in your next call to the API to receive the next page.
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -97,22 +94,26 @@ impl ListDestinationsInputBuilder {
     }
     /// State of the destination.
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::DestinationState>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
     /// State of the destination.
     pub fn get_state(&self) -> &::std::option::Option<crate::types::DestinationState> {
         &self.state
     }
     /// Consumes the builder and constructs a [`ListDestinationsInput`](crate::operation::list_destinations::ListDestinationsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_destinations::ListDestinationsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_destinations::ListDestinationsInput {
-            site: self.site,
-            max_results: self.max_results,
-            next_token: self.next_token,
-            state: self.state,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_destinations::ListDestinationsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_destinations::ListDestinationsInput {
+                site: self.site
+                ,
+                max_results: self.max_results
+                ,
+                next_token: self.next_token
+                ,
+                state: self.state
+                ,
+            }
+        )
     }
 }
+

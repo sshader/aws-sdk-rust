@@ -5,57 +5,53 @@ pub use crate::operation::create_workforce::_create_workforce_input::CreateWorkf
 
 impl CreateWorkforceInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_workforce::CreateWorkforceOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_workforce::CreateWorkforceError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_workforce();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_workforce::CreateWorkforceOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_workforce::CreateWorkforceError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_workforce();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateWorkforce`.
-///
-/// <p>Use this operation to create a workforce. This operation will return an error if a workforce already exists in the Amazon Web Services Region that you specify. You can only create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p>
-/// <p>If you want to create a new workforce in an Amazon Web Services Region where a workforce already exists, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html">DeleteWorkforce</a> API operation to delete the existing workforce and then use <code>CreateWorkforce</code> to create a new workforce.</p>
-/// <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool in <code>CognitoConfig</code>. You can also create an Amazon Cognito workforce using the Amazon SageMaker console. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html"> Create a Private Workforce (Amazon Cognito)</a>.</p>
+/// 
+/// <p>Use this operation to create a workforce. This operation will return an error if a workforce already exists in the Amazon Web Services Region that you specify. You can only create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p> 
+/// <p>If you want to create a new workforce in an Amazon Web Services Region where a workforce already exists, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html">DeleteWorkforce</a> API operation to delete the existing workforce and then use <code>CreateWorkforce</code> to create a new workforce.</p> 
+/// <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool in <code>CognitoConfig</code>. You can also create an Amazon Cognito workforce using the Amazon SageMaker console. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html"> Create a Private Workforce (Amazon Cognito)</a>.</p> 
 /// <p>To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP configuration in <code>OidcConfig</code>. Your OIDC IdP must support <i>groups</i> because groups are used by Ground Truth and Amazon A2I to create work teams. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html"> Create a Private Workforce (OIDC IdP)</a>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateWorkforceFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_workforce::builders::CreateWorkforceInputBuilder,
+                    inner: crate::operation::create_workforce::builders::CreateWorkforceInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_workforce::CreateWorkforceOutput,
-        crate::operation::create_workforce::CreateWorkforceError,
-    > for CreateWorkforceFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_workforce::CreateWorkforceOutput,
-            crate::operation::create_workforce::CreateWorkforceError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_workforce::CreateWorkforceOutput,
+                    crate::operation::create_workforce::CreateWorkforceError,
+                > for CreateWorkforceFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_workforce::CreateWorkforceOutput,
+                        crate::operation::create_workforce::CreateWorkforceError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateWorkforceFluentBuilder {
     /// Creates a new `CreateWorkforce`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -64,83 +60,74 @@ impl CreateWorkforceFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_workforce::CreateWorkforceOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_workforce::CreateWorkforceError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_workforce::CreateWorkforce::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_workforce::CreateWorkforce::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_workforce::CreateWorkforceOutput,
-        crate::operation::create_workforce::CreateWorkforceError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_workforce::CreateWorkforceOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_workforce::CreateWorkforceError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_workforce::CreateWorkforce::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_workforce::CreateWorkforce::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_workforce::CreateWorkforceOutput, crate::operation::create_workforce::CreateWorkforceError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p> 
     /// <p>Do not use <code>OidcConfig</code> if you specify values for <code>CognitoConfig</code>.</p>
     pub fn cognito_config(mut self, input: crate::types::CognitoConfig) -> Self {
         self.inner = self.inner.cognito_config(input);
         self
     }
-    /// <p>Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p>
+    /// <p>Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p> 
     /// <p>Do not use <code>OidcConfig</code> if you specify values for <code>CognitoConfig</code>.</p>
     pub fn set_cognito_config(mut self, input: ::std::option::Option<crate::types::CognitoConfig>) -> Self {
         self.inner = self.inner.set_cognito_config(input);
         self
     }
-    /// <p>Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p>
+    /// <p>Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p> 
     /// <p>Do not use <code>OidcConfig</code> if you specify values for <code>CognitoConfig</code>.</p>
     pub fn get_cognito_config(&self) -> &::std::option::Option<crate::types::CognitoConfig> {
         self.inner.get_cognito_config()
     }
-    /// <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p>
+    /// <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p> 
     /// <p>Do not use <code>CognitoConfig</code> if you specify values for <code>OidcConfig</code>.</p>
     pub fn oidc_config(mut self, input: crate::types::OidcConfig) -> Self {
         self.inner = self.inner.oidc_config(input);
         self
     }
-    /// <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p>
+    /// <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p> 
     /// <p>Do not use <code>CognitoConfig</code> if you specify values for <code>OidcConfig</code>.</p>
     pub fn set_oidc_config(mut self, input: ::std::option::Option<crate::types::OidcConfig>) -> Self {
         self.inner = self.inner.set_oidc_config(input);
         self
     }
-    /// <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p>
+    /// <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p> 
     /// <p>Do not use <code>CognitoConfig</code> if you specify values for <code>OidcConfig</code>.</p>
     pub fn get_oidc_config(&self) -> &::std::option::Option<crate::types::OidcConfig> {
         self.inner.get_oidc_config()
@@ -183,12 +170,12 @@ impl CreateWorkforceFluentBuilder {
         self
     }
     /// <p>An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         self.inner.get_tags()
     }
     /// <p>Use this parameter to configure a workforce using VPC.</p>
@@ -206,3 +193,4 @@ impl CreateWorkforceFluentBuilder {
         self.inner.get_workforce_vpc_config()
     }
 }
+

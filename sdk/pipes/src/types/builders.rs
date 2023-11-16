@@ -126,3 +126,4 @@ pub use crate::types::_cloudwatch_logs_log_destination::CloudwatchLogsLogDestina
 pub use crate::types::_firehose_log_destination::FirehoseLogDestinationBuilder;
 
 pub use crate::types::_s3_log_destination::S3LogDestinationBuilder;
+

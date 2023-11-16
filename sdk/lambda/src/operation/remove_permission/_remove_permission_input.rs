@@ -2,14 +2,14 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RemovePermissionInput {
-    /// <p>The name of the Lambda function, version, or alias.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+pub struct RemovePermissionInput  {
+    /// <p>The name of the Lambda function, version, or alias.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::option::Option<::std::string::String>,
     /// <p>Statement ID of the permission to remove.</p>
@@ -19,28 +19,28 @@ pub struct RemovePermissionInput {
     /// <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
     pub revision_id: ::std::option::Option<::std::string::String>,
 }
-impl RemovePermissionInput {
-    /// <p>The name of the Lambda function, version, or alias.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+impl  RemovePermissionInput  {
+    /// <p>The name of the Lambda function, version, or alias.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(&self) -> ::std::option::Option<&str> {
+    pub fn function_name(&self) -> ::std::option::Option<& str> {
         self.function_name.as_deref()
     }
     /// <p>Statement ID of the permission to remove.</p>
-    pub fn statement_id(&self) -> ::std::option::Option<&str> {
+    pub fn statement_id(&self) -> ::std::option::Option<& str> {
         self.statement_id.as_deref()
     }
     /// <p>Specify a version or alias to remove permissions from a published version of the function.</p>
-    pub fn qualifier(&self) -> ::std::option::Option<&str> {
+    pub fn qualifier(&self) -> ::std::option::Option<& str> {
         self.qualifier.as_deref()
     }
     /// <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
-    pub fn revision_id(&self) -> ::std::option::Option<&str> {
+    pub fn revision_id(&self) -> ::std::option::Option<& str> {
         self.revision_id.as_deref()
     }
 }
@@ -61,38 +61,37 @@ pub struct RemovePermissionInputBuilder {
     pub(crate) revision_id: ::std::option::Option<::std::string::String>,
 }
 impl RemovePermissionInputBuilder {
-    /// <p>The name of the Lambda function, version, or alias.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+    /// <p>The name of the Lambda function, version, or alias.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
     pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the Lambda function, version, or alias.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+    /// <p>The name of the Lambda function, version, or alias.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.function_name = input;
-        self
+        self.function_name = input; self
     }
-    /// <p>The name of the Lambda function, version, or alias.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+    /// <p>The name of the Lambda function, version, or alias.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_name
@@ -105,8 +104,7 @@ impl RemovePermissionInputBuilder {
     }
     /// <p>Statement ID of the permission to remove.</p>
     pub fn set_statement_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.statement_id = input;
-        self
+        self.statement_id = input; self
     }
     /// <p>Statement ID of the permission to remove.</p>
     pub fn get_statement_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -119,8 +117,7 @@ impl RemovePermissionInputBuilder {
     }
     /// <p>Specify a version or alias to remove permissions from a published version of the function.</p>
     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.qualifier = input;
-        self
+        self.qualifier = input; self
     }
     /// <p>Specify a version or alias to remove permissions from a published version of the function.</p>
     pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> {
@@ -133,22 +130,26 @@ impl RemovePermissionInputBuilder {
     }
     /// <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.revision_id = input;
-        self
+        self.revision_id = input; self
     }
     /// <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
     pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.revision_id
     }
     /// Consumes the builder and constructs a [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::remove_permission::RemovePermissionInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::remove_permission::RemovePermissionInput {
-            function_name: self.function_name,
-            statement_id: self.statement_id,
-            qualifier: self.qualifier,
-            revision_id: self.revision_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::remove_permission::RemovePermissionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::remove_permission::RemovePermissionInput {
+                function_name: self.function_name
+                ,
+                statement_id: self.statement_id
+                ,
+                qualifier: self.qualifier
+                ,
+                revision_id: self.revision_id
+                ,
+            }
+        )
     }
 }
+

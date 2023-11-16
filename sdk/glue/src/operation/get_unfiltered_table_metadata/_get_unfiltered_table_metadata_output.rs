@@ -2,44 +2,46 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetUnfilteredTableMetadataOutput {
+pub struct GetUnfilteredTableMetadataOutput  {
     /// <p>A Table object containing the table metadata.</p>
     pub table: ::std::option::Option<crate::types::Table>,
     /// <p>A list of column names that the user has been granted access to.</p>
-    pub authorized_columns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub authorized_columns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>A Boolean value that indicates whether the partition location is registered with Lake Formation.</p>
     pub is_registered_with_lake_formation: bool,
     /// <p>A list of column row filters.</p>
-    pub cell_filters: ::std::option::Option<::std::vec::Vec<crate::types::ColumnRowFilter>>,
+    pub cell_filters: ::std::option::Option<::std::vec::Vec::<crate::types::ColumnRowFilter>>,
     _request_id: Option<String>,
 }
-impl GetUnfilteredTableMetadataOutput {
+impl  GetUnfilteredTableMetadataOutput  {
     /// <p>A Table object containing the table metadata.</p>
-    pub fn table(&self) -> ::std::option::Option<&crate::types::Table> {
+    pub fn table(&self) -> ::std::option::Option<& crate::types::Table> {
         self.table.as_ref()
     }
     /// <p>A list of column names that the user has been granted access to.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.authorized_columns.is_none()`.
-    pub fn authorized_columns(&self) -> &[::std::string::String] {
-        self.authorized_columns.as_deref().unwrap_or_default()
+    pub fn authorized_columns(&self) -> & [::std::string::String] {
+        self.authorized_columns.as_deref()
+        .unwrap_or_default()
     }
     /// <p>A Boolean value that indicates whether the partition location is registered with Lake Formation.</p>
     pub fn is_registered_with_lake_formation(&self) -> bool {
         self.is_registered_with_lake_formation
     }
     /// <p>A list of column row filters.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.cell_filters.is_none()`.
-    pub fn cell_filters(&self) -> &[crate::types::ColumnRowFilter] {
-        self.cell_filters.as_deref().unwrap_or_default()
+    pub fn cell_filters(&self) -> & [crate::types::ColumnRowFilter] {
+        self.cell_filters.as_deref()
+        .unwrap_or_default()
     }
 }
-impl ::aws_http::request_id::RequestId for GetUnfilteredTableMetadataOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for GetUnfilteredTableMetadataOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl GetUnfilteredTableMetadataOutput {
     /// Creates a new builder-style object to manufacture [`GetUnfilteredTableMetadataOutput`](crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput).
     pub fn builder() -> crate::operation::get_unfiltered_table_metadata::builders::GetUnfilteredTableMetadataOutputBuilder {
@@ -52,9 +54,9 @@ impl GetUnfilteredTableMetadataOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct GetUnfilteredTableMetadataOutputBuilder {
     pub(crate) table: ::std::option::Option<crate::types::Table>,
-    pub(crate) authorized_columns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) authorized_columns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) is_registered_with_lake_formation: ::std::option::Option<bool>,
-    pub(crate) cell_filters: ::std::option::Option<::std::vec::Vec<crate::types::ColumnRowFilter>>,
+    pub(crate) cell_filters: ::std::option::Option<::std::vec::Vec::<crate::types::ColumnRowFilter>>,
     _request_id: Option<String>,
 }
 impl GetUnfilteredTableMetadataOutputBuilder {
@@ -65,8 +67,7 @@ impl GetUnfilteredTableMetadataOutputBuilder {
     }
     /// <p>A Table object containing the table metadata.</p>
     pub fn set_table(mut self, input: ::std::option::Option<crate::types::Table>) -> Self {
-        self.table = input;
-        self
+        self.table = input; self
     }
     /// <p>A Table object containing the table metadata.</p>
     pub fn get_table(&self) -> &::std::option::Option<crate::types::Table> {
@@ -79,17 +80,16 @@ impl GetUnfilteredTableMetadataOutputBuilder {
     /// <p>A list of column names that the user has been granted access to.</p>
     pub fn authorized_columns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.authorized_columns.unwrap_or_default();
-        v.push(input.into());
-        self.authorized_columns = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.authorized_columns = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of column names that the user has been granted access to.</p>
-    pub fn set_authorized_columns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.authorized_columns = input;
-        self
+    pub fn set_authorized_columns(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.authorized_columns = input; self
     }
     /// <p>A list of column names that the user has been granted access to.</p>
-    pub fn get_authorized_columns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_authorized_columns(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.authorized_columns
     }
     /// <p>A Boolean value that indicates whether the partition location is registered with Lake Formation.</p>
@@ -99,8 +99,7 @@ impl GetUnfilteredTableMetadataOutputBuilder {
     }
     /// <p>A Boolean value that indicates whether the partition location is registered with Lake Formation.</p>
     pub fn set_is_registered_with_lake_formation(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.is_registered_with_lake_formation = input;
-        self
+        self.is_registered_with_lake_formation = input; self
     }
     /// <p>A Boolean value that indicates whether the partition location is registered with Lake Formation.</p>
     pub fn get_is_registered_with_lake_formation(&self) -> &::std::option::Option<bool> {
@@ -113,36 +112,41 @@ impl GetUnfilteredTableMetadataOutputBuilder {
     /// <p>A list of column row filters.</p>
     pub fn cell_filters(mut self, input: crate::types::ColumnRowFilter) -> Self {
         let mut v = self.cell_filters.unwrap_or_default();
-        v.push(input);
-        self.cell_filters = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.cell_filters = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of column row filters.</p>
-    pub fn set_cell_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ColumnRowFilter>>) -> Self {
-        self.cell_filters = input;
-        self
+    pub fn set_cell_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ColumnRowFilter>>) -> Self {
+        self.cell_filters = input; self
     }
     /// <p>A list of column row filters.</p>
-    pub fn get_cell_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ColumnRowFilter>> {
+    pub fn get_cell_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ColumnRowFilter>> {
         &self.cell_filters
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`GetUnfilteredTableMetadataOutput`](crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput).
     pub fn build(self) -> crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput {
         crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput {
-            table: self.table,
-            authorized_columns: self.authorized_columns,
-            is_registered_with_lake_formation: self.is_registered_with_lake_formation.unwrap_or_default(),
-            cell_filters: self.cell_filters,
+            table: self.table
+            ,
+            authorized_columns: self.authorized_columns
+            ,
+            is_registered_with_lake_formation: self.is_registered_with_lake_formation
+                .unwrap_or_default()
+            ,
+            cell_filters: self.cell_filters
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

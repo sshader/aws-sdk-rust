@@ -2,27 +2,27 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteFunctionConcurrencyInput {
-    /// <p>The name of the Lambda function.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+pub struct DeleteFunctionConcurrencyInput  {
+    /// <p>The name of the Lambda function.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::option::Option<::std::string::String>,
 }
-impl DeleteFunctionConcurrencyInput {
-    /// <p>The name of the Lambda function.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+impl  DeleteFunctionConcurrencyInput  {
+    /// <p>The name of the Lambda function.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(&self) -> ::std::option::Option<&str> {
+    pub fn function_name(&self) -> ::std::option::Option<& str> {
         self.function_name.as_deref()
     }
 }
@@ -40,51 +40,49 @@ pub struct DeleteFunctionConcurrencyInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
 }
 impl DeleteFunctionConcurrencyInputBuilder {
-    /// <p>The name of the Lambda function.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+    /// <p>The name of the Lambda function.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
     pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the Lambda function.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+    /// <p>The name of the Lambda function.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.function_name = input;
-        self
+        self.function_name = input; self
     }
-    /// <p>The name of the Lambda function.</p>
-    /// <p class="title"> <b>Name formats</b> </p>
-    /// <ul>
-    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li>
-    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li>
-    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li>
-    /// </ul>
+    /// <p>The name of the Lambda function.</p> 
+    /// <p class="title"> <b>Name formats</b> </p> 
+    /// <ul> 
+    /// <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> 
+    /// <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> 
+    /// <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> 
+    /// </ul> 
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_name
     }
     /// Consumes the builder and constructs a [`DeleteFunctionConcurrencyInput`](crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput {
-            function_name: self.function_name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput {
+                function_name: self.function_name
+                ,
+            }
+        )
     }
 }
+

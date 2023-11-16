@@ -2,41 +2,42 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AssociateTargetsWithJobInput {
+pub struct AssociateTargetsWithJobInput  {
     /// <p>A list of thing group ARNs that define the targets of the job.</p>
-    pub targets: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub targets: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>The unique identifier you assigned to this job when it was created.</p>
     pub job_id: ::std::option::Option<::std::string::String>,
     /// <p>An optional comment string describing why the job was associated with the targets.</p>
     pub comment: ::std::option::Option<::std::string::String>,
-    /// <p>The namespace used to indicate that a job is a customer-managed job.</p>
-    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p>
-    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note>
-    /// <p>The <code>namespaceId</code> feature is in public preview.</p>
+    /// <p>The namespace used to indicate that a job is a customer-managed job.</p> 
+    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> 
+    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> 
+    /// <p>The <code>namespaceId</code> feature is in public preview.</p> 
     /// </note>
     pub namespace_id: ::std::option::Option<::std::string::String>,
 }
-impl AssociateTargetsWithJobInput {
+impl  AssociateTargetsWithJobInput  {
     /// <p>A list of thing group ARNs that define the targets of the job.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.targets.is_none()`.
-    pub fn targets(&self) -> &[::std::string::String] {
-        self.targets.as_deref().unwrap_or_default()
+    pub fn targets(&self) -> & [::std::string::String] {
+        self.targets.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The unique identifier you assigned to this job when it was created.</p>
-    pub fn job_id(&self) -> ::std::option::Option<&str> {
+    pub fn job_id(&self) -> ::std::option::Option<& str> {
         self.job_id.as_deref()
     }
     /// <p>An optional comment string describing why the job was associated with the targets.</p>
-    pub fn comment(&self) -> ::std::option::Option<&str> {
+    pub fn comment(&self) -> ::std::option::Option<& str> {
         self.comment.as_deref()
     }
-    /// <p>The namespace used to indicate that a job is a customer-managed job.</p>
-    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p>
-    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note>
-    /// <p>The <code>namespaceId</code> feature is in public preview.</p>
+    /// <p>The namespace used to indicate that a job is a customer-managed job.</p> 
+    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> 
+    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> 
+    /// <p>The <code>namespaceId</code> feature is in public preview.</p> 
     /// </note>
-    pub fn namespace_id(&self) -> ::std::option::Option<&str> {
+    pub fn namespace_id(&self) -> ::std::option::Option<& str> {
         self.namespace_id.as_deref()
     }
 }
@@ -51,7 +52,7 @@ impl AssociateTargetsWithJobInput {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct AssociateTargetsWithJobInputBuilder {
-    pub(crate) targets: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) targets: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
     pub(crate) comment: ::std::option::Option<::std::string::String>,
     pub(crate) namespace_id: ::std::option::Option<::std::string::String>,
@@ -64,17 +65,16 @@ impl AssociateTargetsWithJobInputBuilder {
     /// <p>A list of thing group ARNs that define the targets of the job.</p>
     pub fn targets(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.targets.unwrap_or_default();
-        v.push(input.into());
-        self.targets = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.targets = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of thing group ARNs that define the targets of the job.</p>
-    pub fn set_targets(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.targets = input;
-        self
+    pub fn set_targets(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.targets = input; self
     }
     /// <p>A list of thing group ARNs that define the targets of the job.</p>
-    pub fn get_targets(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_targets(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.targets
     }
     /// <p>The unique identifier you assigned to this job when it was created.</p>
@@ -85,8 +85,7 @@ impl AssociateTargetsWithJobInputBuilder {
     }
     /// <p>The unique identifier you assigned to this job when it was created.</p>
     pub fn set_job_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.job_id = input;
-        self
+        self.job_id = input; self
     }
     /// <p>The unique identifier you assigned to this job when it was created.</p>
     pub fn get_job_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -99,51 +98,51 @@ impl AssociateTargetsWithJobInputBuilder {
     }
     /// <p>An optional comment string describing why the job was associated with the targets.</p>
     pub fn set_comment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.comment = input;
-        self
+        self.comment = input; self
     }
     /// <p>An optional comment string describing why the job was associated with the targets.</p>
     pub fn get_comment(&self) -> &::std::option::Option<::std::string::String> {
         &self.comment
     }
-    /// <p>The namespace used to indicate that a job is a customer-managed job.</p>
-    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p>
-    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note>
-    /// <p>The <code>namespaceId</code> feature is in public preview.</p>
+    /// <p>The namespace used to indicate that a job is a customer-managed job.</p> 
+    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> 
+    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> 
+    /// <p>The <code>namespaceId</code> feature is in public preview.</p> 
     /// </note>
     pub fn namespace_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.namespace_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The namespace used to indicate that a job is a customer-managed job.</p>
-    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p>
-    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note>
-    /// <p>The <code>namespaceId</code> feature is in public preview.</p>
+    /// <p>The namespace used to indicate that a job is a customer-managed job.</p> 
+    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> 
+    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> 
+    /// <p>The <code>namespaceId</code> feature is in public preview.</p> 
     /// </note>
     pub fn set_namespace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.namespace_id = input;
-        self
+        self.namespace_id = input; self
     }
-    /// <p>The namespace used to indicate that a job is a customer-managed job.</p>
-    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p>
-    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note>
-    /// <p>The <code>namespaceId</code> feature is in public preview.</p>
+    /// <p>The namespace used to indicate that a job is a customer-managed job.</p> 
+    /// <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> 
+    /// <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> 
+    /// <p>The <code>namespaceId</code> feature is in public preview.</p> 
     /// </note>
     pub fn get_namespace_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.namespace_id
     }
     /// Consumes the builder and constructs a [`AssociateTargetsWithJobInput`](crate::operation::associate_targets_with_job::AssociateTargetsWithJobInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::associate_targets_with_job::AssociateTargetsWithJobInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::associate_targets_with_job::AssociateTargetsWithJobInput {
-            targets: self.targets,
-            job_id: self.job_id,
-            comment: self.comment,
-            namespace_id: self.namespace_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::associate_targets_with_job::AssociateTargetsWithJobInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::associate_targets_with_job::AssociateTargetsWithJobInput {
+                targets: self.targets
+                ,
+                job_id: self.job_id
+                ,
+                comment: self.comment
+                ,
+                namespace_id: self.namespace_id
+                ,
+            }
+        )
     }
 }
+

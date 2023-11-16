@@ -3,7 +3,7 @@
 /// <p>Details of the Firewall Manager policy. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PolicySummary {
+pub struct PolicySummary  {
     /// <p>The Amazon Resource Name (ARN) of the specified policy.</p>
     pub policy_arn: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the specified policy.</p>
@@ -16,54 +16,54 @@ pub struct PolicySummary {
     pub security_service_type: ::std::option::Option<crate::types::SecurityServiceType>,
     /// <p>Indicates if the policy should be automatically applied to new resources.</p>
     pub remediation_enabled: bool,
-    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p>
-    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p>
+    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p> 
+    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p> 
     /// <p>This option is not available for Shield Advanced or WAF Classic policies.</p>
     pub delete_unused_fm_managed_resources: bool,
-    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li>
-    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li>
+    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li> 
+    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li> 
     /// </ul>
     pub policy_status: ::std::option::Option<crate::types::CustomerPolicyStatus>,
 }
-impl PolicySummary {
+impl  PolicySummary  {
     /// <p>The Amazon Resource Name (ARN) of the specified policy.</p>
-    pub fn policy_arn(&self) -> ::std::option::Option<&str> {
+    pub fn policy_arn(&self) -> ::std::option::Option<& str> {
         self.policy_arn.as_deref()
     }
     /// <p>The ID of the specified policy.</p>
-    pub fn policy_id(&self) -> ::std::option::Option<&str> {
+    pub fn policy_id(&self) -> ::std::option::Option<& str> {
         self.policy_id.as_deref()
     }
     /// <p>The name of the specified policy.</p>
-    pub fn policy_name(&self) -> ::std::option::Option<&str> {
+    pub fn policy_name(&self) -> ::std::option::Option<& str> {
         self.policy_name.as_deref()
     }
     /// <p>The type of resource protected by or in scope of the policy. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>. For WAF and Shield Advanced, examples include <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>, <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an Network Firewall policy or DNS Firewall policy, the value is <code>AWS::EC2::VPC</code>.</p>
-    pub fn resource_type(&self) -> ::std::option::Option<&str> {
+    pub fn resource_type(&self) -> ::std::option::Option<& str> {
         self.resource_type.as_deref()
     }
     /// <p>The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an WAF policy, a Shield Advanced policy, or a security group policy.</p>
-    pub fn security_service_type(&self) -> ::std::option::Option<&crate::types::SecurityServiceType> {
+    pub fn security_service_type(&self) -> ::std::option::Option<& crate::types::SecurityServiceType> {
         self.security_service_type.as_ref()
     }
     /// <p>Indicates if the policy should be automatically applied to new resources.</p>
     pub fn remediation_enabled(&self) -> bool {
         self.remediation_enabled
     }
-    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p>
-    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p>
+    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p> 
+    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p> 
     /// <p>This option is not available for Shield Advanced or WAF Classic policies.</p>
     pub fn delete_unused_fm_managed_resources(&self) -> bool {
         self.delete_unused_fm_managed_resources
     }
-    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li>
-    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li>
+    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li> 
+    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li> 
     /// </ul>
-    pub fn policy_status(&self) -> ::std::option::Option<&crate::types::CustomerPolicyStatus> {
+    pub fn policy_status(&self) -> ::std::option::Option<& crate::types::CustomerPolicyStatus> {
         self.policy_status.as_ref()
     }
 }
@@ -95,8 +95,7 @@ impl PolicySummaryBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the specified policy.</p>
     pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.policy_arn = input;
-        self
+        self.policy_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the specified policy.</p>
     pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -109,8 +108,7 @@ impl PolicySummaryBuilder {
     }
     /// <p>The ID of the specified policy.</p>
     pub fn set_policy_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.policy_id = input;
-        self
+        self.policy_id = input; self
     }
     /// <p>The ID of the specified policy.</p>
     pub fn get_policy_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -123,8 +121,7 @@ impl PolicySummaryBuilder {
     }
     /// <p>The name of the specified policy.</p>
     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.policy_name = input;
-        self
+        self.policy_name = input; self
     }
     /// <p>The name of the specified policy.</p>
     pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -137,8 +134,7 @@ impl PolicySummaryBuilder {
     }
     /// <p>The type of resource protected by or in scope of the policy. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>. For WAF and Shield Advanced, examples include <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>, <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an Network Firewall policy or DNS Firewall policy, the value is <code>AWS::EC2::VPC</code>.</p>
     pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_type = input;
-        self
+        self.resource_type = input; self
     }
     /// <p>The type of resource protected by or in scope of the policy. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>. For WAF and Shield Advanced, examples include <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>, <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an Network Firewall policy or DNS Firewall policy, the value is <code>AWS::EC2::VPC</code>.</p>
     pub fn get_resource_type(&self) -> &::std::option::Option<::std::string::String> {
@@ -151,8 +147,7 @@ impl PolicySummaryBuilder {
     }
     /// <p>The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an WAF policy, a Shield Advanced policy, or a security group policy.</p>
     pub fn set_security_service_type(mut self, input: ::std::option::Option<crate::types::SecurityServiceType>) -> Self {
-        self.security_service_type = input;
-        self
+        self.security_service_type = input; self
     }
     /// <p>The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an WAF policy, a Shield Advanced policy, or a security group policy.</p>
     pub fn get_security_service_type(&self) -> &::std::option::Option<crate::types::SecurityServiceType> {
@@ -165,55 +160,52 @@ impl PolicySummaryBuilder {
     }
     /// <p>Indicates if the policy should be automatically applied to new resources.</p>
     pub fn set_remediation_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.remediation_enabled = input;
-        self
+        self.remediation_enabled = input; self
     }
     /// <p>Indicates if the policy should be automatically applied to new resources.</p>
     pub fn get_remediation_enabled(&self) -> &::std::option::Option<bool> {
         &self.remediation_enabled
     }
-    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p>
-    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p>
+    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p> 
+    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p> 
     /// <p>This option is not available for Shield Advanced or WAF Classic policies.</p>
     pub fn delete_unused_fm_managed_resources(mut self, input: bool) -> Self {
         self.delete_unused_fm_managed_resources = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p>
-    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p>
+    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p> 
+    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p> 
     /// <p>This option is not available for Shield Advanced or WAF Classic policies.</p>
     pub fn set_delete_unused_fm_managed_resources(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.delete_unused_fm_managed_resources = input;
-        self
+        self.delete_unused_fm_managed_resources = input; self
     }
-    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p>
-    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p>
+    /// <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope. </p> 
+    /// <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p> 
     /// <p>This option is not available for Shield Advanced or WAF Classic policies.</p>
     pub fn get_delete_unused_fm_managed_resources(&self) -> &::std::option::Option<bool> {
         &self.delete_unused_fm_managed_resources
     }
-    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li>
-    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li>
+    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li> 
+    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li> 
     /// </ul>
     pub fn policy_status(mut self, input: crate::types::CustomerPolicyStatus) -> Self {
         self.policy_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li>
-    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li>
+    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li> 
+    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li> 
     /// </ul>
     pub fn set_policy_status(mut self, input: ::std::option::Option<crate::types::CustomerPolicyStatus>) -> Self {
-        self.policy_status = input;
-        self
+        self.policy_status = input; self
     }
-    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p>
-    /// <ul>
-    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li>
-    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li>
+    /// <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p> 
+    /// <ul> 
+    /// <li> <p> <code>ACTIVE</code> - The administrator can manage and delete the policy.</p> </li> 
+    /// <li> <p> <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p> </li> 
     /// </ul>
     pub fn get_policy_status(&self) -> &::std::option::Option<crate::types::CustomerPolicyStatus> {
         &self.policy_status
@@ -221,14 +213,25 @@ impl PolicySummaryBuilder {
     /// Consumes the builder and constructs a [`PolicySummary`](crate::types::PolicySummary).
     pub fn build(self) -> crate::types::PolicySummary {
         crate::types::PolicySummary {
-            policy_arn: self.policy_arn,
-            policy_id: self.policy_id,
-            policy_name: self.policy_name,
-            resource_type: self.resource_type,
-            security_service_type: self.security_service_type,
-            remediation_enabled: self.remediation_enabled.unwrap_or_default(),
-            delete_unused_fm_managed_resources: self.delete_unused_fm_managed_resources.unwrap_or_default(),
-            policy_status: self.policy_status,
+            policy_arn: self.policy_arn
+            ,
+            policy_id: self.policy_id
+            ,
+            policy_name: self.policy_name
+            ,
+            resource_type: self.resource_type
+            ,
+            security_service_type: self.security_service_type
+            ,
+            remediation_enabled: self.remediation_enabled
+                .unwrap_or_default()
+            ,
+            delete_unused_fm_managed_resources: self.delete_unused_fm_managed_resources
+                .unwrap_or_default()
+            ,
+            policy_status: self.policy_status
+            ,
         }
     }
 }
+

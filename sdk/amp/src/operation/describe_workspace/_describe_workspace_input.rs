@@ -3,13 +3,13 @@
 /// Represents the input of a DescribeWorkspace operation.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeWorkspaceInput {
+pub struct DescribeWorkspaceInput  {
     /// The ID of the workspace to describe.
     pub workspace_id: ::std::option::Option<::std::string::String>,
 }
-impl DescribeWorkspaceInput {
+impl  DescribeWorkspaceInput  {
     /// The ID of the workspace to describe.
-    pub fn workspace_id(&self) -> ::std::option::Option<&str> {
+    pub fn workspace_id(&self) -> ::std::option::Option<& str> {
         self.workspace_id.as_deref()
     }
 }
@@ -35,19 +35,20 @@ impl DescribeWorkspaceInputBuilder {
     }
     /// The ID of the workspace to describe.
     pub fn set_workspace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workspace_id = input;
-        self
+        self.workspace_id = input; self
     }
     /// The ID of the workspace to describe.
     pub fn get_workspace_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.workspace_id
     }
     /// Consumes the builder and constructs a [`DescribeWorkspaceInput`](crate::operation::describe_workspace::DescribeWorkspaceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::describe_workspace::DescribeWorkspaceInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::describe_workspace::DescribeWorkspaceInput {
-            workspace_id: self.workspace_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_workspace::DescribeWorkspaceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_workspace::DescribeWorkspaceInput {
+                workspace_id: self.workspace_id
+                ,
+            }
+        )
     }
 }
+

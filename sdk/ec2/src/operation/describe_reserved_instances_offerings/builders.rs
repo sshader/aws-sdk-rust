@@ -5,56 +5,52 @@ pub use crate::operation::describe_reserved_instances_offerings::_describe_reser
 
 impl DescribeReservedInstancesOfferingsInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.describe_reserved_instances_offerings();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.describe_reserved_instances_offerings();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `DescribeReservedInstancesOfferings`.
-///
-/// <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p>
-/// <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>
+/// 
+/// <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p> 
+/// <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p> 
 /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeReservedInstancesOfferingsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::describe_reserved_instances_offerings::builders::DescribeReservedInstancesOfferingsInputBuilder,
+                    inner: crate::operation::describe_reserved_instances_offerings::builders::DescribeReservedInstancesOfferingsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput,
-        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError,
-    > for DescribeReservedInstancesOfferingsFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput,
-            crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput,
+                    crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError,
+                > for DescribeReservedInstancesOfferingsFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput,
+                        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl DescribeReservedInstancesOfferingsFluentBuilder {
     /// Creates a new `DescribeReservedInstancesOfferings`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -63,59 +59,50 @@ impl DescribeReservedInstancesOfferingsFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferings::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferings::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput,
-        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferings::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferings::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsOutput, crate::operation::describe_reserved_instances_offerings::DescribeReservedInstancesOfferingsError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// Create a paginator for this request
-    ///
-    /// Paginators are used by calling [`send().await`](crate::operation::describe_reserved_instances_offerings::paginator::DescribeReservedInstancesOfferingsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_reserved_instances_offerings::paginator::DescribeReservedInstancesOfferingsPaginator {
-        crate::operation::describe_reserved_instances_offerings::paginator::DescribeReservedInstancesOfferingsPaginator::new(self.handle, self.inner)
-    }
+                            ///
+                            /// Paginators are used by calling [`send().await`](crate::operation::describe_reserved_instances_offerings::paginator::DescribeReservedInstancesOfferingsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+                            pub fn into_paginator(self) -> crate::operation::describe_reserved_instances_offerings::paginator::DescribeReservedInstancesOfferingsPaginator {
+                                crate::operation::describe_reserved_instances_offerings::paginator::DescribeReservedInstancesOfferingsPaginator::new(self.handle, self.inner)
+                            }
     /// <p>The Availability Zone in which the Reserved Instance can be used.</p>
     pub fn availability_zone(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.availability_zone(input.into());
@@ -134,51 +121,51 @@ impl DescribeReservedInstancesOfferingsFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
     ///
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p> </li>
-    /// <li> <p> <code>duration</code> - The duration of the Reserved Instance (for example, one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p> </li>
-    /// <li> <p> <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p> </li>
-    /// <li> <p> <code>instance-type</code> - The instance type that is covered by the reservation.</p> </li>
-    /// <li> <p> <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p> </li>
-    /// <li> <p> <code>product-description</code> - The Reserved Instance product platform description (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p> </li>
-    /// <li> <p> <code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p> </li>
-    /// <li> <p> <code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code> or <code>Region</code>).</p> </li>
-    /// <li> <p> <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p> </li> 
+    /// <li> <p> <code>duration</code> - The duration of the Reserved Instance (for example, one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p> </li> 
+    /// <li> <p> <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p> </li> 
+    /// <li> <p> <code>instance-type</code> - The instance type that is covered by the reservation.</p> </li> 
+    /// <li> <p> <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p> </li> 
+    /// <li> <p> <code>product-description</code> - The Reserved Instance product platform description (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p> </li> 
+    /// <li> <p> <code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p> </li> 
+    /// <li> <p> <code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code> or <code>Region</code>).</p> </li> 
+    /// <li> <p> <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p> </li> 
     /// </ul>
     pub fn filters(mut self, input: crate::types::Filter) -> Self {
         self.inner = self.inner.filters(input);
         self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p> </li>
-    /// <li> <p> <code>duration</code> - The duration of the Reserved Instance (for example, one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p> </li>
-    /// <li> <p> <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p> </li>
-    /// <li> <p> <code>instance-type</code> - The instance type that is covered by the reservation.</p> </li>
-    /// <li> <p> <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p> </li>
-    /// <li> <p> <code>product-description</code> - The Reserved Instance product platform description (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p> </li>
-    /// <li> <p> <code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p> </li>
-    /// <li> <p> <code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code> or <code>Region</code>).</p> </li>
-    /// <li> <p> <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p> </li> 
+    /// <li> <p> <code>duration</code> - The duration of the Reserved Instance (for example, one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p> </li> 
+    /// <li> <p> <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p> </li> 
+    /// <li> <p> <code>instance-type</code> - The instance type that is covered by the reservation.</p> </li> 
+    /// <li> <p> <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p> </li> 
+    /// <li> <p> <code>product-description</code> - The Reserved Instance product platform description (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p> </li> 
+    /// <li> <p> <code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p> </li> 
+    /// <li> <p> <code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code> or <code>Region</code>).</p> </li> 
+    /// <li> <p> <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p> </li> 
     /// </ul>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
-    /// <p>One or more filters.</p>
-    /// <ul>
-    /// <li> <p> <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p> </li>
-    /// <li> <p> <code>duration</code> - The duration of the Reserved Instance (for example, one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p> </li>
-    /// <li> <p> <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p> </li>
-    /// <li> <p> <code>instance-type</code> - The instance type that is covered by the reservation.</p> </li>
-    /// <li> <p> <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p> </li>
-    /// <li> <p> <code>product-description</code> - The Reserved Instance product platform description (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p> </li>
-    /// <li> <p> <code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p> </li>
-    /// <li> <p> <code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code> or <code>Region</code>).</p> </li>
-    /// <li> <p> <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p> </li>
+    /// <p>One or more filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p> </li> 
+    /// <li> <p> <code>duration</code> - The duration of the Reserved Instance (for example, one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p> </li> 
+    /// <li> <p> <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p> </li> 
+    /// <li> <p> <code>instance-type</code> - The instance type that is covered by the reservation.</p> </li> 
+    /// <li> <p> <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p> </li> 
+    /// <li> <p> <code>product-description</code> - The Reserved Instance product platform description (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p> </li> 
+    /// <li> <p> <code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</p> </li> 
+    /// <li> <p> <code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code> or <code>Region</code>).</p> </li> 
+    /// <li> <p> <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p> </li> 
     /// </ul>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Filter>> {
         self.inner.get_filters()
     }
     /// <p>Include Reserved Instance Marketplace offerings in the response.</p>
@@ -209,53 +196,53 @@ impl DescribeReservedInstancesOfferingsFluentBuilder {
     pub fn get_instance_type(&self) -> &::std::option::Option<crate::types::InstanceType> {
         self.inner.get_instance_type()
     }
-    /// <p>The maximum duration (in seconds) to filter when searching for offerings.</p>
+    /// <p>The maximum duration (in seconds) to filter when searching for offerings.</p> 
     /// <p>Default: 94608000 (3 years)</p>
     pub fn max_duration(mut self, input: i64) -> Self {
         self.inner = self.inner.max_duration(input);
         self
     }
-    /// <p>The maximum duration (in seconds) to filter when searching for offerings.</p>
+    /// <p>The maximum duration (in seconds) to filter when searching for offerings.</p> 
     /// <p>Default: 94608000 (3 years)</p>
     pub fn set_max_duration(mut self, input: ::std::option::Option<i64>) -> Self {
         self.inner = self.inner.set_max_duration(input);
         self
     }
-    /// <p>The maximum duration (in seconds) to filter when searching for offerings.</p>
+    /// <p>The maximum duration (in seconds) to filter when searching for offerings.</p> 
     /// <p>Default: 94608000 (3 years)</p>
     pub fn get_max_duration(&self) -> &::std::option::Option<i64> {
         self.inner.get_max_duration()
     }
-    /// <p>The maximum number of instances to filter when searching for offerings.</p>
+    /// <p>The maximum number of instances to filter when searching for offerings.</p> 
     /// <p>Default: 20</p>
     pub fn max_instance_count(mut self, input: i32) -> Self {
         self.inner = self.inner.max_instance_count(input);
         self
     }
-    /// <p>The maximum number of instances to filter when searching for offerings.</p>
+    /// <p>The maximum number of instances to filter when searching for offerings.</p> 
     /// <p>Default: 20</p>
     pub fn set_max_instance_count(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_max_instance_count(input);
         self
     }
-    /// <p>The maximum number of instances to filter when searching for offerings.</p>
+    /// <p>The maximum number of instances to filter when searching for offerings.</p> 
     /// <p>Default: 20</p>
     pub fn get_max_instance_count(&self) -> &::std::option::Option<i32> {
         self.inner.get_max_instance_count()
     }
-    /// <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
+    /// <p>The minimum duration (in seconds) to filter when searching for offerings.</p> 
     /// <p>Default: 2592000 (1 month)</p>
     pub fn min_duration(mut self, input: i64) -> Self {
         self.inner = self.inner.min_duration(input);
         self
     }
-    /// <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
+    /// <p>The minimum duration (in seconds) to filter when searching for offerings.</p> 
     /// <p>Default: 2592000 (1 month)</p>
     pub fn set_min_duration(mut self, input: ::std::option::Option<i64>) -> Self {
         self.inner = self.inner.set_min_duration(input);
         self
     }
-    /// <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
+    /// <p>The minimum duration (in seconds) to filter when searching for offerings.</p> 
     /// <p>Default: 2592000 (1 month)</p>
     pub fn get_min_duration(&self) -> &::std::option::Option<i64> {
         self.inner.get_min_duration()
@@ -298,12 +285,12 @@ impl DescribeReservedInstancesOfferingsFluentBuilder {
         self
     }
     /// <p>One or more Reserved Instances offering IDs.</p>
-    pub fn set_reserved_instances_offering_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_reserved_instances_offering_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_reserved_instances_offering_ids(input);
         self
     }
     /// <p>One or more Reserved Instances offering IDs.</p>
-    pub fn get_reserved_instances_offering_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_reserved_instances_offering_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_reserved_instances_offering_ids()
     }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -320,39 +307,39 @@ impl DescribeReservedInstancesOfferingsFluentBuilder {
     pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
         self.inner.get_dry_run()
     }
-    /// <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).</p>
-    /// <p> <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
+    /// <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).</p> 
+    /// <p> <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p> 
     /// <p>Default: <code>default</code> </p>
     pub fn instance_tenancy(mut self, input: crate::types::Tenancy) -> Self {
         self.inner = self.inner.instance_tenancy(input);
         self
     }
-    /// <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).</p>
-    /// <p> <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
+    /// <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).</p> 
+    /// <p> <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p> 
     /// <p>Default: <code>default</code> </p>
     pub fn set_instance_tenancy(mut self, input: ::std::option::Option<crate::types::Tenancy>) -> Self {
         self.inner = self.inner.set_instance_tenancy(input);
         self
     }
-    /// <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).</p>
-    /// <p> <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
+    /// <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).</p> 
+    /// <p> <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p> 
     /// <p>Default: <code>default</code> </p>
     pub fn get_instance_tenancy(&self) -> &::std::option::Option<crate::types::Tenancy> {
         self.inner.get_instance_tenancy()
     }
-    /// <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. The maximum is 100.</p>
+    /// <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. The maximum is 100.</p> 
     /// <p>Default: 100</p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.inner = self.inner.max_results(input);
         self
     }
-    /// <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. The maximum is 100.</p>
+    /// <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. The maximum is 100.</p> 
     /// <p>Default: 100</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_max_results(input);
         self
     }
-    /// <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. The maximum is 100.</p>
+    /// <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. The maximum is 100.</p> 
     /// <p>Default: 100</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         self.inner.get_max_results()
@@ -386,3 +373,4 @@ impl DescribeReservedInstancesOfferingsFluentBuilder {
         self.inner.get_offering_type()
     }
 }
+

@@ -3,15 +3,15 @@
 /// <p>The <code>CancelJobRequest</code> structure.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CancelJobInput {
-    /// <p>The identifier of the job that you want to cancel.</p>
+pub struct CancelJobInput  {
+    /// <p>The identifier of the job that you want to cancel.</p> 
     /// <p>To get a list of the jobs (including their <code>jobId</code>) that have a status of <code>Submitted</code>, use the <code>ListJobsByStatus</code> API action.</p>
     pub id: ::std::option::Option<::std::string::String>,
 }
-impl CancelJobInput {
-    /// <p>The identifier of the job that you want to cancel.</p>
+impl  CancelJobInput  {
+    /// <p>The identifier of the job that you want to cancel.</p> 
     /// <p>To get a list of the jobs (including their <code>jobId</code>) that have a status of <code>Submitted</code>, use the <code>ListJobsByStatus</code> API action.</p>
-    pub fn id(&self) -> ::std::option::Option<&str> {
+    pub fn id(&self) -> ::std::option::Option<& str> {
         self.id.as_deref()
     }
 }
@@ -29,26 +29,31 @@ pub struct CancelJobInputBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
 }
 impl CancelJobInputBuilder {
-    /// <p>The identifier of the job that you want to cancel.</p>
+    /// <p>The identifier of the job that you want to cancel.</p> 
     /// <p>To get a list of the jobs (including their <code>jobId</code>) that have a status of <code>Submitted</code>, use the <code>ListJobsByStatus</code> API action.</p>
     /// This field is required.
     pub fn id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The identifier of the job that you want to cancel.</p>
+    /// <p>The identifier of the job that you want to cancel.</p> 
     /// <p>To get a list of the jobs (including their <code>jobId</code>) that have a status of <code>Submitted</code>, use the <code>ListJobsByStatus</code> API action.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
-    /// <p>The identifier of the job that you want to cancel.</p>
+    /// <p>The identifier of the job that you want to cancel.</p> 
     /// <p>To get a list of the jobs (including their <code>jobId</code>) that have a status of <code>Submitted</code>, use the <code>ListJobsByStatus</code> API action.</p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.id
     }
     /// Consumes the builder and constructs a [`CancelJobInput`](crate::operation::cancel_job::CancelJobInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::cancel_job::CancelJobInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::cancel_job::CancelJobInput { id: self.id })
+        ::std::result::Result::Ok(
+            crate::operation::cancel_job::CancelJobInput {
+                id: self.id
+                ,
+            }
+        )
     }
 }
+

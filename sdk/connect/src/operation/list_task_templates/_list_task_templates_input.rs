@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListTaskTemplatesInput {
+pub struct ListTaskTemplatesInput  {
     /// <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
     pub instance_id: ::std::option::Option<::std::string::String>,
-    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important>
-    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p>
+    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important> 
+    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p> 
     /// </important>
     pub next_token: ::std::option::Option<::std::string::String>,
-    /// <p>The maximum number of results to return per page.</p> <important>
-    /// <p>It is not expected that you set this.</p>
+    /// <p>The maximum number of results to return per page.</p> <important> 
+    /// <p>It is not expected that you set this.</p> 
     /// </important>
     pub max_results: ::std::option::Option<i32>,
     /// <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it. Tasks can only be created from <code>ACTIVE</code> templates. If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
@@ -18,29 +18,29 @@ pub struct ListTaskTemplatesInput {
     /// <p>The name of the task template.</p>
     pub name: ::std::option::Option<::std::string::String>,
 }
-impl ListTaskTemplatesInput {
+impl  ListTaskTemplatesInput  {
     /// <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-    pub fn instance_id(&self) -> ::std::option::Option<&str> {
+    pub fn instance_id(&self) -> ::std::option::Option<& str> {
         self.instance_id.as_deref()
     }
-    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important>
-    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p>
+    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important> 
+    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p> 
     /// </important>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
-    /// <p>The maximum number of results to return per page.</p> <important>
-    /// <p>It is not expected that you set this.</p>
+    /// <p>The maximum number of results to return per page.</p> <important> 
+    /// <p>It is not expected that you set this.</p> 
     /// </important>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
         self.max_results
     }
     /// <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it. Tasks can only be created from <code>ACTIVE</code> templates. If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::TaskTemplateStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::TaskTemplateStatus> {
         self.status.as_ref()
     }
     /// <p>The name of the task template.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
 }
@@ -70,49 +70,46 @@ impl ListTaskTemplatesInputBuilder {
     }
     /// <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
     pub fn set_instance_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.instance_id = input;
-        self
+        self.instance_id = input; self
     }
     /// <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
     pub fn get_instance_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.instance_id
     }
-    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important>
-    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p>
+    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important> 
+    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p> 
     /// </important>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important>
-    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p>
+    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important> 
+    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p> 
     /// </important>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
-    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important>
-    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p>
+    /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important> 
+    /// <p>It is not expected that you set this because the value returned in the previous response is always null.</p> 
     /// </important>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
-    /// <p>The maximum number of results to return per page.</p> <important>
-    /// <p>It is not expected that you set this.</p>
+    /// <p>The maximum number of results to return per page.</p> <important> 
+    /// <p>It is not expected that you set this.</p> 
     /// </important>
     pub fn max_results(mut self, input: i32) -> Self {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The maximum number of results to return per page.</p> <important>
-    /// <p>It is not expected that you set this.</p>
+    /// <p>The maximum number of results to return per page.</p> <important> 
+    /// <p>It is not expected that you set this.</p> 
     /// </important>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
-    /// <p>The maximum number of results to return per page.</p> <important>
-    /// <p>It is not expected that you set this.</p>
+    /// <p>The maximum number of results to return per page.</p> <important> 
+    /// <p>It is not expected that you set this.</p> 
     /// </important>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
@@ -124,8 +121,7 @@ impl ListTaskTemplatesInputBuilder {
     }
     /// <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it. Tasks can only be created from <code>ACTIVE</code> templates. If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::TaskTemplateStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it. Tasks can only be created from <code>ACTIVE</code> templates. If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::TaskTemplateStatus> {
@@ -138,23 +134,28 @@ impl ListTaskTemplatesInputBuilder {
     }
     /// <p>The name of the task template.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The name of the task template.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
     /// Consumes the builder and constructs a [`ListTaskTemplatesInput`](crate::operation::list_task_templates::ListTaskTemplatesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_task_templates::ListTaskTemplatesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_task_templates::ListTaskTemplatesInput {
-            instance_id: self.instance_id,
-            next_token: self.next_token,
-            max_results: self.max_results,
-            status: self.status,
-            name: self.name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_task_templates::ListTaskTemplatesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_task_templates::ListTaskTemplatesInput {
+                instance_id: self.instance_id
+                ,
+                next_token: self.next_token
+                ,
+                max_results: self.max_results
+                ,
+                status: self.status
+                ,
+                name: self.name
+                ,
+            }
+        )
     }
 }
+

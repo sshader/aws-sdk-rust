@@ -3,19 +3,19 @@
 /// Represents the input of a DescribeRuleGroupsNamespace operation.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeRuleGroupsNamespaceInput {
+pub struct DescribeRuleGroupsNamespaceInput  {
     /// The ID of the workspace to describe.
     pub workspace_id: ::std::option::Option<::std::string::String>,
     /// The rule groups namespace.
     pub name: ::std::option::Option<::std::string::String>,
 }
-impl DescribeRuleGroupsNamespaceInput {
+impl  DescribeRuleGroupsNamespaceInput  {
     /// The ID of the workspace to describe.
-    pub fn workspace_id(&self) -> ::std::option::Option<&str> {
+    pub fn workspace_id(&self) -> ::std::option::Option<& str> {
         self.workspace_id.as_deref()
     }
     /// The rule groups namespace.
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
 }
@@ -42,8 +42,7 @@ impl DescribeRuleGroupsNamespaceInputBuilder {
     }
     /// The ID of the workspace to describe.
     pub fn set_workspace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workspace_id = input;
-        self
+        self.workspace_id = input; self
     }
     /// The ID of the workspace to describe.
     pub fn get_workspace_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -57,23 +56,22 @@ impl DescribeRuleGroupsNamespaceInputBuilder {
     }
     /// The rule groups namespace.
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// The rule groups namespace.
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
     /// Consumes the builder and constructs a [`DescribeRuleGroupsNamespaceInput`](crate::operation::describe_rule_groups_namespace::DescribeRuleGroupsNamespaceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_rule_groups_namespace::DescribeRuleGroupsNamespaceInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::describe_rule_groups_namespace::DescribeRuleGroupsNamespaceInput {
-            workspace_id: self.workspace_id,
-            name: self.name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_rule_groups_namespace::DescribeRuleGroupsNamespaceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_rule_groups_namespace::DescribeRuleGroupsNamespaceInput {
+                workspace_id: self.workspace_id
+                ,
+                name: self.name
+                ,
+            }
+        )
     }
 }
+

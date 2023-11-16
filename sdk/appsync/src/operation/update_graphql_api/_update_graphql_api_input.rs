@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateGraphqlApiInput {
+pub struct UpdateGraphqlApiInput  {
     /// <p>The API ID.</p>
     pub api_id: ::std::option::Option<::std::string::String>,
     /// <p>The new name for the <code>GraphqlApi</code> object.</p>
@@ -16,63 +16,64 @@ pub struct UpdateGraphqlApiInput {
     /// <p>The OpenID Connect configuration for the <code>GraphqlApi</code> object.</p>
     pub open_id_connect_config: ::std::option::Option<crate::types::OpenIdConnectConfig>,
     /// <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>
-    pub additional_authentication_providers: ::std::option::Option<::std::vec::Vec<crate::types::AdditionalAuthenticationProvider>>,
+    pub additional_authentication_providers: ::std::option::Option<::std::vec::Vec::<crate::types::AdditionalAuthenticationProvider>>,
     /// <p>A flag indicating whether to use X-Ray tracing for the <code>GraphqlApi</code>.</p>
     pub xray_enabled: ::std::option::Option<bool>,
     /// <p>Configuration for Lambda function authorization.</p>
     pub lambda_authorizer_config: ::std::option::Option<crate::types::LambdaAuthorizerConfig>,
     /// <p>The Identity and Access Management service role ARN for a merged API. The AppSync service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with the source API changes automatically.</p>
     pub merged_api_execution_role_arn: ::std::option::Option<::std::string::String>,
-    /// <p>The owner contact information for an API resource.</p>
+    /// <p>The owner contact information for an API resource.</p> 
     /// <p>This field accepts any string input with a length of 0 - 256 characters.</p>
     pub owner_contact: ::std::option::Option<::std::string::String>,
 }
-impl UpdateGraphqlApiInput {
+impl  UpdateGraphqlApiInput  {
     /// <p>The API ID.</p>
-    pub fn api_id(&self) -> ::std::option::Option<&str> {
+    pub fn api_id(&self) -> ::std::option::Option<& str> {
         self.api_id.as_deref()
     }
     /// <p>The new name for the <code>GraphqlApi</code> object.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>The Amazon CloudWatch Logs configuration for the <code>GraphqlApi</code> object.</p>
-    pub fn log_config(&self) -> ::std::option::Option<&crate::types::LogConfig> {
+    pub fn log_config(&self) -> ::std::option::Option<& crate::types::LogConfig> {
         self.log_config.as_ref()
     }
     /// <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
-    pub fn authentication_type(&self) -> ::std::option::Option<&crate::types::AuthenticationType> {
+    pub fn authentication_type(&self) -> ::std::option::Option<& crate::types::AuthenticationType> {
         self.authentication_type.as_ref()
     }
     /// <p>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code> object.</p>
-    pub fn user_pool_config(&self) -> ::std::option::Option<&crate::types::UserPoolConfig> {
+    pub fn user_pool_config(&self) -> ::std::option::Option<& crate::types::UserPoolConfig> {
         self.user_pool_config.as_ref()
     }
     /// <p>The OpenID Connect configuration for the <code>GraphqlApi</code> object.</p>
-    pub fn open_id_connect_config(&self) -> ::std::option::Option<&crate::types::OpenIdConnectConfig> {
+    pub fn open_id_connect_config(&self) -> ::std::option::Option<& crate::types::OpenIdConnectConfig> {
         self.open_id_connect_config.as_ref()
     }
     /// <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.additional_authentication_providers.is_none()`.
-    pub fn additional_authentication_providers(&self) -> &[crate::types::AdditionalAuthenticationProvider] {
-        self.additional_authentication_providers.as_deref().unwrap_or_default()
+    pub fn additional_authentication_providers(&self) -> & [crate::types::AdditionalAuthenticationProvider] {
+        self.additional_authentication_providers.as_deref()
+        .unwrap_or_default()
     }
     /// <p>A flag indicating whether to use X-Ray tracing for the <code>GraphqlApi</code>.</p>
     pub fn xray_enabled(&self) -> ::std::option::Option<bool> {
         self.xray_enabled
     }
     /// <p>Configuration for Lambda function authorization.</p>
-    pub fn lambda_authorizer_config(&self) -> ::std::option::Option<&crate::types::LambdaAuthorizerConfig> {
+    pub fn lambda_authorizer_config(&self) -> ::std::option::Option<& crate::types::LambdaAuthorizerConfig> {
         self.lambda_authorizer_config.as_ref()
     }
     /// <p>The Identity and Access Management service role ARN for a merged API. The AppSync service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with the source API changes automatically.</p>
-    pub fn merged_api_execution_role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn merged_api_execution_role_arn(&self) -> ::std::option::Option<& str> {
         self.merged_api_execution_role_arn.as_deref()
     }
-    /// <p>The owner contact information for an API resource.</p>
+    /// <p>The owner contact information for an API resource.</p> 
     /// <p>This field accepts any string input with a length of 0 - 256 characters.</p>
-    pub fn owner_contact(&self) -> ::std::option::Option<&str> {
+    pub fn owner_contact(&self) -> ::std::option::Option<& str> {
         self.owner_contact.as_deref()
     }
 }
@@ -93,7 +94,7 @@ pub struct UpdateGraphqlApiInputBuilder {
     pub(crate) authentication_type: ::std::option::Option<crate::types::AuthenticationType>,
     pub(crate) user_pool_config: ::std::option::Option<crate::types::UserPoolConfig>,
     pub(crate) open_id_connect_config: ::std::option::Option<crate::types::OpenIdConnectConfig>,
-    pub(crate) additional_authentication_providers: ::std::option::Option<::std::vec::Vec<crate::types::AdditionalAuthenticationProvider>>,
+    pub(crate) additional_authentication_providers: ::std::option::Option<::std::vec::Vec::<crate::types::AdditionalAuthenticationProvider>>,
     pub(crate) xray_enabled: ::std::option::Option<bool>,
     pub(crate) lambda_authorizer_config: ::std::option::Option<crate::types::LambdaAuthorizerConfig>,
     pub(crate) merged_api_execution_role_arn: ::std::option::Option<::std::string::String>,
@@ -108,8 +109,7 @@ impl UpdateGraphqlApiInputBuilder {
     }
     /// <p>The API ID.</p>
     pub fn set_api_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.api_id = input;
-        self
+        self.api_id = input; self
     }
     /// <p>The API ID.</p>
     pub fn get_api_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -123,8 +123,7 @@ impl UpdateGraphqlApiInputBuilder {
     }
     /// <p>The new name for the <code>GraphqlApi</code> object.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>The new name for the <code>GraphqlApi</code> object.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -137,8 +136,7 @@ impl UpdateGraphqlApiInputBuilder {
     }
     /// <p>The Amazon CloudWatch Logs configuration for the <code>GraphqlApi</code> object.</p>
     pub fn set_log_config(mut self, input: ::std::option::Option<crate::types::LogConfig>) -> Self {
-        self.log_config = input;
-        self
+        self.log_config = input; self
     }
     /// <p>The Amazon CloudWatch Logs configuration for the <code>GraphqlApi</code> object.</p>
     pub fn get_log_config(&self) -> &::std::option::Option<crate::types::LogConfig> {
@@ -151,8 +149,7 @@ impl UpdateGraphqlApiInputBuilder {
     }
     /// <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
     pub fn set_authentication_type(mut self, input: ::std::option::Option<crate::types::AuthenticationType>) -> Self {
-        self.authentication_type = input;
-        self
+        self.authentication_type = input; self
     }
     /// <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
     pub fn get_authentication_type(&self) -> &::std::option::Option<crate::types::AuthenticationType> {
@@ -165,8 +162,7 @@ impl UpdateGraphqlApiInputBuilder {
     }
     /// <p>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code> object.</p>
     pub fn set_user_pool_config(mut self, input: ::std::option::Option<crate::types::UserPoolConfig>) -> Self {
-        self.user_pool_config = input;
-        self
+        self.user_pool_config = input; self
     }
     /// <p>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code> object.</p>
     pub fn get_user_pool_config(&self) -> &::std::option::Option<crate::types::UserPoolConfig> {
@@ -179,8 +175,7 @@ impl UpdateGraphqlApiInputBuilder {
     }
     /// <p>The OpenID Connect configuration for the <code>GraphqlApi</code> object.</p>
     pub fn set_open_id_connect_config(mut self, input: ::std::option::Option<crate::types::OpenIdConnectConfig>) -> Self {
-        self.open_id_connect_config = input;
-        self
+        self.open_id_connect_config = input; self
     }
     /// <p>The OpenID Connect configuration for the <code>GraphqlApi</code> object.</p>
     pub fn get_open_id_connect_config(&self) -> &::std::option::Option<crate::types::OpenIdConnectConfig> {
@@ -193,20 +188,16 @@ impl UpdateGraphqlApiInputBuilder {
     /// <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>
     pub fn additional_authentication_providers(mut self, input: crate::types::AdditionalAuthenticationProvider) -> Self {
         let mut v = self.additional_authentication_providers.unwrap_or_default();
-        v.push(input);
-        self.additional_authentication_providers = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.additional_authentication_providers = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>
-    pub fn set_additional_authentication_providers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AdditionalAuthenticationProvider>>,
-    ) -> Self {
-        self.additional_authentication_providers = input;
-        self
+    pub fn set_additional_authentication_providers(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AdditionalAuthenticationProvider>>) -> Self {
+        self.additional_authentication_providers = input; self
     }
     /// <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>
-    pub fn get_additional_authentication_providers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AdditionalAuthenticationProvider>> {
+    pub fn get_additional_authentication_providers(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AdditionalAuthenticationProvider>> {
         &self.additional_authentication_providers
     }
     /// <p>A flag indicating whether to use X-Ray tracing for the <code>GraphqlApi</code>.</p>
@@ -216,8 +207,7 @@ impl UpdateGraphqlApiInputBuilder {
     }
     /// <p>A flag indicating whether to use X-Ray tracing for the <code>GraphqlApi</code>.</p>
     pub fn set_xray_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.xray_enabled = input;
-        self
+        self.xray_enabled = input; self
     }
     /// <p>A flag indicating whether to use X-Ray tracing for the <code>GraphqlApi</code>.</p>
     pub fn get_xray_enabled(&self) -> &::std::option::Option<bool> {
@@ -230,8 +220,7 @@ impl UpdateGraphqlApiInputBuilder {
     }
     /// <p>Configuration for Lambda function authorization.</p>
     pub fn set_lambda_authorizer_config(mut self, input: ::std::option::Option<crate::types::LambdaAuthorizerConfig>) -> Self {
-        self.lambda_authorizer_config = input;
-        self
+        self.lambda_authorizer_config = input; self
     }
     /// <p>Configuration for Lambda function authorization.</p>
     pub fn get_lambda_authorizer_config(&self) -> &::std::option::Option<crate::types::LambdaAuthorizerConfig> {
@@ -244,46 +233,56 @@ impl UpdateGraphqlApiInputBuilder {
     }
     /// <p>The Identity and Access Management service role ARN for a merged API. The AppSync service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with the source API changes automatically.</p>
     pub fn set_merged_api_execution_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.merged_api_execution_role_arn = input;
-        self
+        self.merged_api_execution_role_arn = input; self
     }
     /// <p>The Identity and Access Management service role ARN for a merged API. The AppSync service assumes this role on behalf of the Merged API to validate access to source APIs at runtime and to prompt the <code>AUTO_MERGE</code> to update the merged API endpoint with the source API changes automatically.</p>
     pub fn get_merged_api_execution_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.merged_api_execution_role_arn
     }
-    /// <p>The owner contact information for an API resource.</p>
+    /// <p>The owner contact information for an API resource.</p> 
     /// <p>This field accepts any string input with a length of 0 - 256 characters.</p>
     pub fn owner_contact(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.owner_contact = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The owner contact information for an API resource.</p>
+    /// <p>The owner contact information for an API resource.</p> 
     /// <p>This field accepts any string input with a length of 0 - 256 characters.</p>
     pub fn set_owner_contact(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.owner_contact = input;
-        self
+        self.owner_contact = input; self
     }
-    /// <p>The owner contact information for an API resource.</p>
+    /// <p>The owner contact information for an API resource.</p> 
     /// <p>This field accepts any string input with a length of 0 - 256 characters.</p>
     pub fn get_owner_contact(&self) -> &::std::option::Option<::std::string::String> {
         &self.owner_contact
     }
     /// Consumes the builder and constructs a [`UpdateGraphqlApiInput`](crate::operation::update_graphql_api::UpdateGraphqlApiInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_graphql_api::UpdateGraphqlApiInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_graphql_api::UpdateGraphqlApiInput {
-            api_id: self.api_id,
-            name: self.name,
-            log_config: self.log_config,
-            authentication_type: self.authentication_type,
-            user_pool_config: self.user_pool_config,
-            open_id_connect_config: self.open_id_connect_config,
-            additional_authentication_providers: self.additional_authentication_providers,
-            xray_enabled: self.xray_enabled,
-            lambda_authorizer_config: self.lambda_authorizer_config,
-            merged_api_execution_role_arn: self.merged_api_execution_role_arn,
-            owner_contact: self.owner_contact,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_graphql_api::UpdateGraphqlApiInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_graphql_api::UpdateGraphqlApiInput {
+                api_id: self.api_id
+                ,
+                name: self.name
+                ,
+                log_config: self.log_config
+                ,
+                authentication_type: self.authentication_type
+                ,
+                user_pool_config: self.user_pool_config
+                ,
+                open_id_connect_config: self.open_id_connect_config
+                ,
+                additional_authentication_providers: self.additional_authentication_providers
+                ,
+                xray_enabled: self.xray_enabled
+                ,
+                lambda_authorizer_config: self.lambda_authorizer_config
+                ,
+                merged_api_execution_role_arn: self.merged_api_execution_role_arn
+                ,
+                owner_contact: self.owner_contact
+                ,
+            }
+        )
     }
 }
+

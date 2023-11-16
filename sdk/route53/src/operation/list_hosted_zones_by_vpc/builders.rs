@@ -5,67 +5,63 @@ pub use crate::operation::list_hosted_zones_by_vpc::_list_hosted_zones_by_vpc_in
 
 impl ListHostedZonesByVpcInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.list_hosted_zones_by_vpc();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.list_hosted_zones_by_vpc();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ListHostedZonesByVPC`.
-///
-/// <p>Lists all the private hosted zones that a specified VPC is associated with, regardless of which Amazon Web Services account or Amazon Web Services service owns the hosted zones. The <code>HostedZoneOwner</code> structure in the response contains one of the following values:</p>
-/// <ul>
-/// <li> <p>An <code>OwningAccount</code> element, which contains the account number of either the current Amazon Web Services account or another Amazon Web Services account. Some services, such as Cloud Map, create hosted zones using the current account. </p> </li>
-/// <li> <p>An <code>OwningService</code> element, which identifies the Amazon Web Services service that created and owns the hosted zone. For example, if a hosted zone was created by Amazon Elastic File System (Amazon EFS), the value of <code>Owner</code> is <code>efs.amazonaws.com</code>. </p> </li>
-/// </ul> <note>
-/// <p>When listing private hosted zones, the hosted zone and the Amazon VPC must belong to the same partition where the hosted zones were created. A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.</p>
-/// <p>The following are the supported partitions:</p>
-/// <ul>
-/// <li> <p> <code>aws</code> - Amazon Web Services Regions</p> </li>
-/// <li> <p> <code>aws-cn</code> - China Regions</p> </li>
-/// <li> <p> <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region</p> </li>
-/// </ul>
-/// <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a> in the <i>Amazon Web Services General Reference</i>.</p>
+/// 
+/// <p>Lists all the private hosted zones that a specified VPC is associated with, regardless of which Amazon Web Services account or Amazon Web Services service owns the hosted zones. The <code>HostedZoneOwner</code> structure in the response contains one of the following values:</p> 
+/// <ul> 
+/// <li> <p>An <code>OwningAccount</code> element, which contains the account number of either the current Amazon Web Services account or another Amazon Web Services account. Some services, such as Cloud Map, create hosted zones using the current account. </p> </li> 
+/// <li> <p>An <code>OwningService</code> element, which identifies the Amazon Web Services service that created and owns the hosted zone. For example, if a hosted zone was created by Amazon Elastic File System (Amazon EFS), the value of <code>Owner</code> is <code>efs.amazonaws.com</code>. </p> </li> 
+/// </ul> <note> 
+/// <p>When listing private hosted zones, the hosted zone and the Amazon VPC must belong to the same partition where the hosted zones were created. A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.</p> 
+/// <p>The following are the supported partitions:</p> 
+/// <ul> 
+/// <li> <p> <code>aws</code> - Amazon Web Services Regions</p> </li> 
+/// <li> <p> <code>aws-cn</code> - China Regions</p> </li> 
+/// <li> <p> <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region</p> </li> 
+/// </ul> 
+/// <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a> in the <i>Amazon Web Services General Reference</i>.</p> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListHostedZonesByVPCFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::list_hosted_zones_by_vpc::builders::ListHostedZonesByVpcInputBuilder,
+                    inner: crate::operation::list_hosted_zones_by_vpc::builders::ListHostedZonesByVpcInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput,
-        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError,
-    > for ListHostedZonesByVPCFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput,
-            crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput,
+                    crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError,
+                > for ListHostedZonesByVPCFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput,
+                        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ListHostedZonesByVPCFluentBuilder {
     /// Creates a new `ListHostedZonesByVPC`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -74,53 +70,44 @@ impl ListHostedZonesByVPCFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPC::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPC::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput,
-        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPC::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPC::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVpcOutput, crate::operation::list_hosted_zones_by_vpc::ListHostedZonesByVPCError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The ID of the Amazon VPC that you want to list hosted zones for.</p>
     pub fn vpc_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.vpc_id(input.into());
@@ -163,24 +150,25 @@ impl ListHostedZonesByVPCFluentBuilder {
     pub fn get_max_items(&self) -> &::std::option::Option<i32> {
         self.inner.get_max_items()
     }
-    /// <p>If the previous response included a <code>NextToken</code> element, the specified VPC is associated with more hosted zones. To get more hosted zones, submit another <code>ListHostedZonesByVPC</code> request. </p>
-    /// <p>For the value of <code>NextToken</code>, specify the value of <code>NextToken</code> from the previous response.</p>
+    /// <p>If the previous response included a <code>NextToken</code> element, the specified VPC is associated with more hosted zones. To get more hosted zones, submit another <code>ListHostedZonesByVPC</code> request. </p> 
+    /// <p>For the value of <code>NextToken</code>, specify the value of <code>NextToken</code> from the previous response.</p> 
     /// <p>If the previous response didn't include a <code>NextToken</code> element, there are no more hosted zones to get.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.next_token(input.into());
         self
     }
-    /// <p>If the previous response included a <code>NextToken</code> element, the specified VPC is associated with more hosted zones. To get more hosted zones, submit another <code>ListHostedZonesByVPC</code> request. </p>
-    /// <p>For the value of <code>NextToken</code>, specify the value of <code>NextToken</code> from the previous response.</p>
+    /// <p>If the previous response included a <code>NextToken</code> element, the specified VPC is associated with more hosted zones. To get more hosted zones, submit another <code>ListHostedZonesByVPC</code> request. </p> 
+    /// <p>For the value of <code>NextToken</code>, specify the value of <code>NextToken</code> from the previous response.</p> 
     /// <p>If the previous response didn't include a <code>NextToken</code> element, there are no more hosted zones to get.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_next_token(input);
         self
     }
-    /// <p>If the previous response included a <code>NextToken</code> element, the specified VPC is associated with more hosted zones. To get more hosted zones, submit another <code>ListHostedZonesByVPC</code> request. </p>
-    /// <p>For the value of <code>NextToken</code>, specify the value of <code>NextToken</code> from the previous response.</p>
+    /// <p>If the previous response included a <code>NextToken</code> element, the specified VPC is associated with more hosted zones. To get more hosted zones, submit another <code>ListHostedZonesByVPC</code> request. </p> 
+    /// <p>For the value of <code>NextToken</code>, specify the value of <code>NextToken</code> from the previous response.</p> 
     /// <p>If the previous response didn't include a <code>NextToken</code> element, there are no more hosted zones to get.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_next_token()
     }
 }
+

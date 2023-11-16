@@ -3,19 +3,19 @@
 /// <p>Statistics about the execution of an export job.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ExportStatistics {
+pub struct ExportStatistics  {
     /// <p>The number of records that were processed to generate the final export file.</p>
     pub processed_records_count: ::std::option::Option<i32>,
-    /// <p>The number of records that were exported to the final export file.</p>
+    /// <p>The number of records that were exported to the final export file.</p> 
     /// <p>This value might not be available for all export source types</p>
     pub exported_records_count: ::std::option::Option<i32>,
 }
-impl ExportStatistics {
+impl  ExportStatistics  {
     /// <p>The number of records that were processed to generate the final export file.</p>
     pub fn processed_records_count(&self) -> ::std::option::Option<i32> {
         self.processed_records_count
     }
-    /// <p>The number of records that were exported to the final export file.</p>
+    /// <p>The number of records that were exported to the final export file.</p> 
     /// <p>This value might not be available for all export source types</p>
     pub fn exported_records_count(&self) -> ::std::option::Option<i32> {
         self.exported_records_count
@@ -43,26 +43,24 @@ impl ExportStatisticsBuilder {
     }
     /// <p>The number of records that were processed to generate the final export file.</p>
     pub fn set_processed_records_count(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.processed_records_count = input;
-        self
+        self.processed_records_count = input; self
     }
     /// <p>The number of records that were processed to generate the final export file.</p>
     pub fn get_processed_records_count(&self) -> &::std::option::Option<i32> {
         &self.processed_records_count
     }
-    /// <p>The number of records that were exported to the final export file.</p>
+    /// <p>The number of records that were exported to the final export file.</p> 
     /// <p>This value might not be available for all export source types</p>
     pub fn exported_records_count(mut self, input: i32) -> Self {
         self.exported_records_count = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The number of records that were exported to the final export file.</p>
+    /// <p>The number of records that were exported to the final export file.</p> 
     /// <p>This value might not be available for all export source types</p>
     pub fn set_exported_records_count(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.exported_records_count = input;
-        self
+        self.exported_records_count = input; self
     }
-    /// <p>The number of records that were exported to the final export file.</p>
+    /// <p>The number of records that were exported to the final export file.</p> 
     /// <p>This value might not be available for all export source types</p>
     pub fn get_exported_records_count(&self) -> &::std::option::Option<i32> {
         &self.exported_records_count
@@ -70,8 +68,11 @@ impl ExportStatisticsBuilder {
     /// Consumes the builder and constructs a [`ExportStatistics`](crate::types::ExportStatistics).
     pub fn build(self) -> crate::types::ExportStatistics {
         crate::types::ExportStatistics {
-            processed_records_count: self.processed_records_count,
-            exported_records_count: self.exported_records_count,
+            processed_records_count: self.processed_records_count
+            ,
+            exported_records_count: self.exported_records_count
+            ,
         }
     }
 }
+

@@ -3,7 +3,7 @@
 /// <p>The data specification of an Amazon Relational Database Service (Amazon RDS) <code>DataSource</code>.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RdsDataSpec {
+pub struct RdsDataSpec  {
     /// <p>Describes the <code>DatabaseName</code> and <code>InstanceIdentifier</code> of an Amazon RDS database.</p>
     pub database_information: ::std::option::Option<crate::types::RdsDatabase>,
     /// <p>The query that is used to retrieve the observation data for the <code>DataSource</code>.</p>
@@ -12,26 +12,26 @@ pub struct RdsDataSpec {
     pub database_credentials: ::std::option::Option<crate::types::RdsDatabaseCredentials>,
     /// <p>The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon RDS using <code>SelectSqlQuery</code> is stored in this location.</p>
     pub s3_staging_location: ::std::string::String,
-    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p>
-    /// <p>There are multiple parameters that control what data is used to create a datasource:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li>
-    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li>
+    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p> 
+    /// <p>There are multiple parameters that control what data is used to create a datasource:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li> 
+    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li> 
     /// </ul>
     pub data_rearrangement: ::std::option::Option<::std::string::String>,
-    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p>
-    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p>
-    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p>
-    /// <p>{ "version": "1.0",</p>
-    /// <p>"recordAnnotationFieldName": "F1",</p>
-    /// <p>"recordWeightFieldName": "F2",</p>
-    /// <p>"targetFieldName": "F3",</p>
-    /// <p>"dataFormat": "CSV",</p>
-    /// <p>"dataFileContainsHeader": true,</p>
-    /// <p>"attributes": [</p>
-    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
+    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p> 
+    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p> 
+    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p> 
+    /// <p>{ "version": "1.0",</p> 
+    /// <p>"recordAnnotationFieldName": "F1",</p> 
+    /// <p>"recordWeightFieldName": "F2",</p> 
+    /// <p>"targetFieldName": "F3",</p> 
+    /// <p>"dataFormat": "CSV",</p> 
+    /// <p>"dataFileContainsHeader": true,</p> 
+    /// <p>"attributes": [</p> 
+    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p> 
     /// <p>"excludedVariableNames": [ "F6" ] }</p>
     pub data_schema: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon S3 location of the <code>DataSchema</code>. </p>
@@ -43,76 +43,70 @@ pub struct RdsDataSpec {
     /// <p>The subnet ID to be used to access a VPC-based RDS DB instance. This attribute is used by Data Pipeline to carry out the copy task from Amazon RDS to Amazon S3.</p>
     pub subnet_id: ::std::string::String,
     /// <p>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that there are appropriate ingress rules set up to allow access to the RDS DB instance. This attribute is used by Data Pipeline to carry out the copy operation from Amazon RDS to an Amazon S3 task.</p>
-    pub security_group_ids: ::std::vec::Vec<::std::string::String>,
+    pub security_group_ids: ::std::vec::Vec::<::std::string::String>,
 }
-impl RdsDataSpec {
+impl  RdsDataSpec  {
     /// <p>Describes the <code>DatabaseName</code> and <code>InstanceIdentifier</code> of an Amazon RDS database.</p>
-    pub fn database_information(&self) -> ::std::option::Option<&crate::types::RdsDatabase> {
+    pub fn database_information(&self) -> ::std::option::Option<& crate::types::RdsDatabase> {
         self.database_information.as_ref()
     }
     /// <p>The query that is used to retrieve the observation data for the <code>DataSource</code>.</p>
-    pub fn select_sql_query(&self) -> &str {
-        use std::ops::Deref;
-        self.select_sql_query.deref()
+    pub fn select_sql_query(&self) -> & str {
+        use std::ops::Deref; self.select_sql_query.deref()
     }
     /// <p>The AWS Identity and Access Management (IAM) credentials that are used connect to the Amazon RDS database.</p>
-    pub fn database_credentials(&self) -> ::std::option::Option<&crate::types::RdsDatabaseCredentials> {
+    pub fn database_credentials(&self) -> ::std::option::Option<& crate::types::RdsDatabaseCredentials> {
         self.database_credentials.as_ref()
     }
     /// <p>The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon RDS using <code>SelectSqlQuery</code> is stored in this location.</p>
-    pub fn s3_staging_location(&self) -> &str {
-        use std::ops::Deref;
-        self.s3_staging_location.deref()
+    pub fn s3_staging_location(&self) -> & str {
+        use std::ops::Deref; self.s3_staging_location.deref()
     }
-    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p>
-    /// <p>There are multiple parameters that control what data is used to create a datasource:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li>
-    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li>
+    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p> 
+    /// <p>There are multiple parameters that control what data is used to create a datasource:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li> 
+    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li> 
     /// </ul>
-    pub fn data_rearrangement(&self) -> ::std::option::Option<&str> {
+    pub fn data_rearrangement(&self) -> ::std::option::Option<& str> {
         self.data_rearrangement.as_deref()
     }
-    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p>
-    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p>
-    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p>
-    /// <p>{ "version": "1.0",</p>
-    /// <p>"recordAnnotationFieldName": "F1",</p>
-    /// <p>"recordWeightFieldName": "F2",</p>
-    /// <p>"targetFieldName": "F3",</p>
-    /// <p>"dataFormat": "CSV",</p>
-    /// <p>"dataFileContainsHeader": true,</p>
-    /// <p>"attributes": [</p>
-    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
+    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p> 
+    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p> 
+    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p> 
+    /// <p>{ "version": "1.0",</p> 
+    /// <p>"recordAnnotationFieldName": "F1",</p> 
+    /// <p>"recordWeightFieldName": "F2",</p> 
+    /// <p>"targetFieldName": "F3",</p> 
+    /// <p>"dataFormat": "CSV",</p> 
+    /// <p>"dataFileContainsHeader": true,</p> 
+    /// <p>"attributes": [</p> 
+    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p> 
     /// <p>"excludedVariableNames": [ "F6" ] }</p>
-    pub fn data_schema(&self) -> ::std::option::Option<&str> {
+    pub fn data_schema(&self) -> ::std::option::Option<& str> {
         self.data_schema.as_deref()
     }
     /// <p>The Amazon S3 location of the <code>DataSchema</code>. </p>
-    pub fn data_schema_uri(&self) -> ::std::option::Option<&str> {
+    pub fn data_schema_uri(&self) -> ::std::option::Option<& str> {
         self.data_schema_uri.as_deref()
     }
     /// <p>The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic Compute Cloud (Amazon EC2) instance to carry out the copy operation from Amazon RDS to an Amazon S3 task. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
-    pub fn resource_role(&self) -> &str {
-        use std::ops::Deref;
-        self.resource_role.deref()
+    pub fn resource_role(&self) -> & str {
+        use std::ops::Deref; self.resource_role.deref()
     }
     /// <p>The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
-    pub fn service_role(&self) -> &str {
-        use std::ops::Deref;
-        self.service_role.deref()
+    pub fn service_role(&self) -> & str {
+        use std::ops::Deref; self.service_role.deref()
     }
     /// <p>The subnet ID to be used to access a VPC-based RDS DB instance. This attribute is used by Data Pipeline to carry out the copy task from Amazon RDS to Amazon S3.</p>
-    pub fn subnet_id(&self) -> &str {
-        use std::ops::Deref;
-        self.subnet_id.deref()
+    pub fn subnet_id(&self) -> & str {
+        use std::ops::Deref; self.subnet_id.deref()
     }
     /// <p>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that there are appropriate ingress rules set up to allow access to the RDS DB instance. This attribute is used by Data Pipeline to carry out the copy operation from Amazon RDS to an Amazon S3 task.</p>
-    pub fn security_group_ids(&self) -> &[::std::string::String] {
-        use std::ops::Deref;
-        self.security_group_ids.deref()
+    pub fn security_group_ids(&self) -> & [::std::string::String] {
+        use std::ops::Deref; self.security_group_ids.deref()
     }
 }
 impl RdsDataSpec {
@@ -136,7 +130,7 @@ pub struct RdsDataSpecBuilder {
     pub(crate) resource_role: ::std::option::Option<::std::string::String>,
     pub(crate) service_role: ::std::option::Option<::std::string::String>,
     pub(crate) subnet_id: ::std::option::Option<::std::string::String>,
-    pub(crate) security_group_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) security_group_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
 impl RdsDataSpecBuilder {
     /// <p>Describes the <code>DatabaseName</code> and <code>InstanceIdentifier</code> of an Amazon RDS database.</p>
@@ -147,8 +141,7 @@ impl RdsDataSpecBuilder {
     }
     /// <p>Describes the <code>DatabaseName</code> and <code>InstanceIdentifier</code> of an Amazon RDS database.</p>
     pub fn set_database_information(mut self, input: ::std::option::Option<crate::types::RdsDatabase>) -> Self {
-        self.database_information = input;
-        self
+        self.database_information = input; self
     }
     /// <p>Describes the <code>DatabaseName</code> and <code>InstanceIdentifier</code> of an Amazon RDS database.</p>
     pub fn get_database_information(&self) -> &::std::option::Option<crate::types::RdsDatabase> {
@@ -162,8 +155,7 @@ impl RdsDataSpecBuilder {
     }
     /// <p>The query that is used to retrieve the observation data for the <code>DataSource</code>.</p>
     pub fn set_select_sql_query(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.select_sql_query = input;
-        self
+        self.select_sql_query = input; self
     }
     /// <p>The query that is used to retrieve the observation data for the <code>DataSource</code>.</p>
     pub fn get_select_sql_query(&self) -> &::std::option::Option<::std::string::String> {
@@ -177,8 +169,7 @@ impl RdsDataSpecBuilder {
     }
     /// <p>The AWS Identity and Access Management (IAM) credentials that are used connect to the Amazon RDS database.</p>
     pub fn set_database_credentials(mut self, input: ::std::option::Option<crate::types::RdsDatabaseCredentials>) -> Self {
-        self.database_credentials = input;
-        self
+        self.database_credentials = input; self
     }
     /// <p>The AWS Identity and Access Management (IAM) credentials that are used connect to the Amazon RDS database.</p>
     pub fn get_database_credentials(&self) -> &::std::option::Option<crate::types::RdsDatabaseCredentials> {
@@ -192,91 +183,88 @@ impl RdsDataSpecBuilder {
     }
     /// <p>The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon RDS using <code>SelectSqlQuery</code> is stored in this location.</p>
     pub fn set_s3_staging_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.s3_staging_location = input;
-        self
+        self.s3_staging_location = input; self
     }
     /// <p>The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon RDS using <code>SelectSqlQuery</code> is stored in this location.</p>
     pub fn get_s3_staging_location(&self) -> &::std::option::Option<::std::string::String> {
         &self.s3_staging_location
     }
-    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p>
-    /// <p>There are multiple parameters that control what data is used to create a datasource:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li>
-    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li>
+    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p> 
+    /// <p>There are multiple parameters that control what data is used to create a datasource:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li> 
+    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li> 
     /// </ul>
     pub fn data_rearrangement(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.data_rearrangement = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p>
-    /// <p>There are multiple parameters that control what data is used to create a datasource:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li>
-    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li>
+    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p> 
+    /// <p>There are multiple parameters that control what data is used to create a datasource:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li> 
+    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li> 
     /// </ul>
     pub fn set_data_rearrangement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.data_rearrangement = input;
-        self
+        self.data_rearrangement = input; self
     }
-    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p>
-    /// <p>There are multiple parameters that control what data is used to create a datasource:</p>
-    /// <ul>
-    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li>
-    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li>
-    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li>
+    /// <p>A JSON string that represents the splitting and rearrangement processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not provided, all of the input data is used to create the <code>Datasource</code>.</p> 
+    /// <p>There are multiple parameters that control what data is used to create a datasource:</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>percentBegin</code> </b> </p> <p>Use <code>percentBegin</code> to indicate the beginning of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>percentEnd</code> </b> </p> <p>Use <code>percentEnd</code> to indicate the end of the range of the data used to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>, Amazon ML includes all of the data when creating the datasource.</p> </li> 
+    /// <li> <p> <b> <code>complement</code> </b> </p> <p>The <code>complement</code> parameter instructs Amazon ML to use the data that is not included in the range of <code>percentBegin</code> to <code>percentEnd</code> to create a datasource. The <code>complement</code> parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>, along with the <code>complement</code> parameter.</p> <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code> </p> </li> 
+    /// <li> <p> <b> <code>strategy</code> </b> </p> <p>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code> parameter.</p> <p>The default value for the <code>strategy</code> parameter is <code>sequential</code>, meaning that Amazon ML takes all of the data records between the <code>percentBegin</code> and <code>percentEnd</code> parameters for the datasource, in the order that the records appear in the input data.</p> <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code> </p> <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code> and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.</p> <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered training and evaluation datasources:</p> <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code> </p> <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code> </p> </li> 
     /// </ul>
     pub fn get_data_rearrangement(&self) -> &::std::option::Option<::std::string::String> {
         &self.data_rearrangement
     }
-    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p>
-    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p>
-    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p>
-    /// <p>{ "version": "1.0",</p>
-    /// <p>"recordAnnotationFieldName": "F1",</p>
-    /// <p>"recordWeightFieldName": "F2",</p>
-    /// <p>"targetFieldName": "F3",</p>
-    /// <p>"dataFormat": "CSV",</p>
-    /// <p>"dataFileContainsHeader": true,</p>
-    /// <p>"attributes": [</p>
-    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
+    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p> 
+    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p> 
+    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p> 
+    /// <p>{ "version": "1.0",</p> 
+    /// <p>"recordAnnotationFieldName": "F1",</p> 
+    /// <p>"recordWeightFieldName": "F2",</p> 
+    /// <p>"targetFieldName": "F3",</p> 
+    /// <p>"dataFormat": "CSV",</p> 
+    /// <p>"dataFileContainsHeader": true,</p> 
+    /// <p>"attributes": [</p> 
+    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p> 
     /// <p>"excludedVariableNames": [ "F6" ] }</p>
     pub fn data_schema(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.data_schema = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p>
-    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p>
-    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p>
-    /// <p>{ "version": "1.0",</p>
-    /// <p>"recordAnnotationFieldName": "F1",</p>
-    /// <p>"recordWeightFieldName": "F2",</p>
-    /// <p>"targetFieldName": "F3",</p>
-    /// <p>"dataFormat": "CSV",</p>
-    /// <p>"dataFileContainsHeader": true,</p>
-    /// <p>"attributes": [</p>
-    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
+    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p> 
+    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p> 
+    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p> 
+    /// <p>{ "version": "1.0",</p> 
+    /// <p>"recordAnnotationFieldName": "F1",</p> 
+    /// <p>"recordWeightFieldName": "F2",</p> 
+    /// <p>"targetFieldName": "F3",</p> 
+    /// <p>"dataFormat": "CSV",</p> 
+    /// <p>"dataFileContainsHeader": true,</p> 
+    /// <p>"attributes": [</p> 
+    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p> 
     /// <p>"excludedVariableNames": [ "F6" ] }</p>
     pub fn set_data_schema(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.data_schema = input;
-        self
+        self.data_schema = input; self
     }
-    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p>
-    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p>
-    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p>
-    /// <p>{ "version": "1.0",</p>
-    /// <p>"recordAnnotationFieldName": "F1",</p>
-    /// <p>"recordWeightFieldName": "F2",</p>
-    /// <p>"targetFieldName": "F3",</p>
-    /// <p>"dataFormat": "CSV",</p>
-    /// <p>"dataFileContainsHeader": true,</p>
-    /// <p>"attributes": [</p>
-    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
+    /// <p>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>.</p> 
+    /// <p>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code> </p> 
+    /// <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code> and <code>excludedVariableNames</code> have an array of key-value pairs for their value. Use the following format to define your <code>DataSchema</code>.</p> 
+    /// <p>{ "version": "1.0",</p> 
+    /// <p>"recordAnnotationFieldName": "F1",</p> 
+    /// <p>"recordWeightFieldName": "F2",</p> 
+    /// <p>"targetFieldName": "F3",</p> 
+    /// <p>"dataFormat": "CSV",</p> 
+    /// <p>"dataFileContainsHeader": true,</p> 
+    /// <p>"attributes": [</p> 
+    /// <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p> 
     /// <p>"excludedVariableNames": [ "F6" ] }</p>
     pub fn get_data_schema(&self) -> &::std::option::Option<::std::string::String> {
         &self.data_schema
@@ -288,8 +276,7 @@ impl RdsDataSpecBuilder {
     }
     /// <p>The Amazon S3 location of the <code>DataSchema</code>. </p>
     pub fn set_data_schema_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.data_schema_uri = input;
-        self
+        self.data_schema_uri = input; self
     }
     /// <p>The Amazon S3 location of the <code>DataSchema</code>. </p>
     pub fn get_data_schema_uri(&self) -> &::std::option::Option<::std::string::String> {
@@ -303,8 +290,7 @@ impl RdsDataSpecBuilder {
     }
     /// <p>The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic Compute Cloud (Amazon EC2) instance to carry out the copy operation from Amazon RDS to an Amazon S3 task. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
     pub fn set_resource_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.resource_role = input;
-        self
+        self.resource_role = input; self
     }
     /// <p>The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic Compute Cloud (Amazon EC2) instance to carry out the copy operation from Amazon RDS to an Amazon S3 task. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
     pub fn get_resource_role(&self) -> &::std::option::Option<::std::string::String> {
@@ -318,8 +304,7 @@ impl RdsDataSpecBuilder {
     }
     /// <p>The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
     pub fn set_service_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.service_role = input;
-        self
+        self.service_role = input; self
     }
     /// <p>The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
     pub fn get_service_role(&self) -> &::std::option::Option<::std::string::String> {
@@ -333,8 +318,7 @@ impl RdsDataSpecBuilder {
     }
     /// <p>The subnet ID to be used to access a VPC-based RDS DB instance. This attribute is used by Data Pipeline to carry out the copy task from Amazon RDS to Amazon S3.</p>
     pub fn set_subnet_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.subnet_id = input;
-        self
+        self.subnet_id = input; self
     }
     /// <p>The subnet ID to be used to access a VPC-based RDS DB instance. This attribute is used by Data Pipeline to carry out the copy task from Amazon RDS to Amazon S3.</p>
     pub fn get_subnet_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -347,17 +331,16 @@ impl RdsDataSpecBuilder {
     /// <p>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that there are appropriate ingress rules set up to allow access to the RDS DB instance. This attribute is used by Data Pipeline to carry out the copy operation from Amazon RDS to an Amazon S3 task.</p>
     pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.security_group_ids.unwrap_or_default();
-        v.push(input.into());
-        self.security_group_ids = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.security_group_ids = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that there are appropriate ingress rules set up to allow access to the RDS DB instance. This attribute is used by Data Pipeline to carry out the copy operation from Amazon RDS to an Amazon S3 task.</p>
-    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.security_group_ids = input;
-        self
+    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.security_group_ids = input; self
     }
     /// <p>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that there are appropriate ingress rules set up to allow access to the RDS DB instance. This attribute is used by Data Pipeline to carry out the copy operation from Amazon RDS to an Amazon S3 task.</p>
-    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.security_group_ids
     }
     /// Consumes the builder and constructs a [`RdsDataSpec`](crate::types::RdsDataSpec).
@@ -369,48 +352,50 @@ impl RdsDataSpecBuilder {
     /// - [`subnet_id`](crate::types::builders::RdsDataSpecBuilder::subnet_id)
     /// - [`security_group_ids`](crate::types::builders::RdsDataSpecBuilder::security_group_ids)
     pub fn build(self) -> ::std::result::Result<crate::types::RdsDataSpec, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::RdsDataSpec {
-            database_information: self.database_information,
-            select_sql_query: self.select_sql_query.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "select_sql_query",
-                    "select_sql_query was not specified but it is required when building RdsDataSpec",
-                )
-            })?,
-            database_credentials: self.database_credentials,
-            s3_staging_location: self.s3_staging_location.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "s3_staging_location",
-                    "s3_staging_location was not specified but it is required when building RdsDataSpec",
-                )
-            })?,
-            data_rearrangement: self.data_rearrangement,
-            data_schema: self.data_schema,
-            data_schema_uri: self.data_schema_uri,
-            resource_role: self.resource_role.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "resource_role",
-                    "resource_role was not specified but it is required when building RdsDataSpec",
-                )
-            })?,
-            service_role: self.service_role.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "service_role",
-                    "service_role was not specified but it is required when building RdsDataSpec",
-                )
-            })?,
-            subnet_id: self.subnet_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "subnet_id",
-                    "subnet_id was not specified but it is required when building RdsDataSpec",
-                )
-            })?,
-            security_group_ids: self.security_group_ids.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "security_group_ids",
-                    "security_group_ids was not specified but it is required when building RdsDataSpec",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::RdsDataSpec {
+                database_information: self.database_information
+                ,
+                select_sql_query: self.select_sql_query
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("select_sql_query", "select_sql_query was not specified but it is required when building RdsDataSpec")
+                    )?
+                ,
+                database_credentials: self.database_credentials
+                ,
+                s3_staging_location: self.s3_staging_location
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("s3_staging_location", "s3_staging_location was not specified but it is required when building RdsDataSpec")
+                    )?
+                ,
+                data_rearrangement: self.data_rearrangement
+                ,
+                data_schema: self.data_schema
+                ,
+                data_schema_uri: self.data_schema_uri
+                ,
+                resource_role: self.resource_role
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("resource_role", "resource_role was not specified but it is required when building RdsDataSpec")
+                    )?
+                ,
+                service_role: self.service_role
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("service_role", "service_role was not specified but it is required when building RdsDataSpec")
+                    )?
+                ,
+                subnet_id: self.subnet_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("subnet_id", "subnet_id was not specified but it is required when building RdsDataSpec")
+                    )?
+                ,
+                security_group_ids: self.security_group_ids
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("security_group_ids", "security_group_ids was not specified but it is required when building RdsDataSpec")
+                    )?
+                ,
+            }
+        )
     }
 }
+

@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeFleetInstancesInput {
+pub struct DescribeFleetInstancesInput  {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub dry_run: ::std::option::Option<bool>,
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
@@ -11,13 +11,13 @@ pub struct DescribeFleetInstancesInput {
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>The ID of the EC2 Fleet.</p>
     pub fleet_id: ::std::option::Option<::std::string::String>,
-    /// <p>The filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
+    /// <p>The filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
     /// </ul>
-    pub filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    pub filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
 }
-impl DescribeFleetInstancesInput {
+impl  DescribeFleetInstancesInput  {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn dry_run(&self) -> ::std::option::Option<bool> {
         self.dry_run
@@ -27,21 +27,22 @@ impl DescribeFleetInstancesInput {
         self.max_results
     }
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// <p>The ID of the EC2 Fleet.</p>
-    pub fn fleet_id(&self) -> ::std::option::Option<&str> {
+    pub fn fleet_id(&self) -> ::std::option::Option<& str> {
         self.fleet_id.as_deref()
     }
-    /// <p>The filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
+    /// <p>The filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filters.is_none()`.
-    pub fn filters(&self) -> &[crate::types::Filter] {
-        self.filters.as_deref().unwrap_or_default()
+    pub fn filters(&self) -> & [crate::types::Filter] {
+        self.filters.as_deref()
+        .unwrap_or_default()
     }
 }
 impl DescribeFleetInstancesInput {
@@ -59,7 +60,7 @@ pub struct DescribeFleetInstancesInputBuilder {
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) fleet_id: ::std::option::Option<::std::string::String>,
-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    pub(crate) filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
 }
 impl DescribeFleetInstancesInputBuilder {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -69,8 +70,7 @@ impl DescribeFleetInstancesInputBuilder {
     }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.dry_run = input;
-        self
+        self.dry_run = input; self
     }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
@@ -83,8 +83,7 @@ impl DescribeFleetInstancesInputBuilder {
     }
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
@@ -97,8 +96,7 @@ impl DescribeFleetInstancesInputBuilder {
     }
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -112,8 +110,7 @@ impl DescribeFleetInstancesInputBuilder {
     }
     /// <p>The ID of the EC2 Fleet.</p>
     pub fn set_fleet_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.fleet_id = input;
-        self
+        self.fleet_id = input; self
     }
     /// <p>The ID of the EC2 Fleet.</p>
     pub fn get_fleet_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -123,44 +120,46 @@ impl DescribeFleetInstancesInputBuilder {
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
     ///
-    /// <p>The filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
+    /// <p>The filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
     /// </ul>
     pub fn filters(mut self, input: crate::types::Filter) -> Self {
         let mut v = self.filters.unwrap_or_default();
-        v.push(input);
-        self.filters = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.filters = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>The filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
+    /// <p>The filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
     /// </ul>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
-        self.filters = input;
-        self
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>) -> Self {
+        self.filters = input; self
     }
-    /// <p>The filters.</p>
-    /// <ul>
-    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li>
+    /// <p>The filters.</p> 
+    /// <ul> 
+    /// <li> <p> <code>instance-type</code> - The instance type.</p> </li> 
     /// </ul>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Filter>> {
         &self.filters
     }
     /// Consumes the builder and constructs a [`DescribeFleetInstancesInput`](crate::operation::describe_fleet_instances::DescribeFleetInstancesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_fleet_instances::DescribeFleetInstancesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::describe_fleet_instances::DescribeFleetInstancesInput {
-            dry_run: self.dry_run,
-            max_results: self.max_results,
-            next_token: self.next_token,
-            fleet_id: self.fleet_id,
-            filters: self.filters,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_fleet_instances::DescribeFleetInstancesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_fleet_instances::DescribeFleetInstancesInput {
+                dry_run: self.dry_run
+                ,
+                max_results: self.max_results
+                ,
+                next_token: self.next_token
+                ,
+                fleet_id: self.fleet_id
+                ,
+                filters: self.filters
+                ,
+            }
+        )
     }
 }
+

@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetUnfilteredTableMetadataInput {
+pub struct GetUnfilteredTableMetadataInput  {
     /// <p>The catalog ID where the table resides.</p>
     pub catalog_id: ::std::option::Option<::std::string::String>,
     /// <p>(Required) Specifies the name of a database that contains the table.</p>
@@ -12,30 +12,31 @@ pub struct GetUnfilteredTableMetadataInput {
     /// <p>A structure containing Lake Formation audit context information.</p>
     pub audit_context: ::std::option::Option<crate::types::AuditContext>,
     /// <p>(Required) A list of supported permission types. </p>
-    pub supported_permission_types: ::std::option::Option<::std::vec::Vec<crate::types::PermissionType>>,
+    pub supported_permission_types: ::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>>,
 }
-impl GetUnfilteredTableMetadataInput {
+impl  GetUnfilteredTableMetadataInput  {
     /// <p>The catalog ID where the table resides.</p>
-    pub fn catalog_id(&self) -> ::std::option::Option<&str> {
+    pub fn catalog_id(&self) -> ::std::option::Option<& str> {
         self.catalog_id.as_deref()
     }
     /// <p>(Required) Specifies the name of a database that contains the table.</p>
-    pub fn database_name(&self) -> ::std::option::Option<&str> {
+    pub fn database_name(&self) -> ::std::option::Option<& str> {
         self.database_name.as_deref()
     }
     /// <p>(Required) Specifies the name of a table for which you are requesting metadata.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>A structure containing Lake Formation audit context information.</p>
-    pub fn audit_context(&self) -> ::std::option::Option<&crate::types::AuditContext> {
+    pub fn audit_context(&self) -> ::std::option::Option<& crate::types::AuditContext> {
         self.audit_context.as_ref()
     }
     /// <p>(Required) A list of supported permission types. </p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.supported_permission_types.is_none()`.
-    pub fn supported_permission_types(&self) -> &[crate::types::PermissionType] {
-        self.supported_permission_types.as_deref().unwrap_or_default()
+    pub fn supported_permission_types(&self) -> & [crate::types::PermissionType] {
+        self.supported_permission_types.as_deref()
+        .unwrap_or_default()
     }
 }
 impl GetUnfilteredTableMetadataInput {
@@ -53,7 +54,7 @@ pub struct GetUnfilteredTableMetadataInputBuilder {
     pub(crate) database_name: ::std::option::Option<::std::string::String>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) audit_context: ::std::option::Option<crate::types::AuditContext>,
-    pub(crate) supported_permission_types: ::std::option::Option<::std::vec::Vec<crate::types::PermissionType>>,
+    pub(crate) supported_permission_types: ::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>>,
 }
 impl GetUnfilteredTableMetadataInputBuilder {
     /// <p>The catalog ID where the table resides.</p>
@@ -64,8 +65,7 @@ impl GetUnfilteredTableMetadataInputBuilder {
     }
     /// <p>The catalog ID where the table resides.</p>
     pub fn set_catalog_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.catalog_id = input;
-        self
+        self.catalog_id = input; self
     }
     /// <p>The catalog ID where the table resides.</p>
     pub fn get_catalog_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -79,8 +79,7 @@ impl GetUnfilteredTableMetadataInputBuilder {
     }
     /// <p>(Required) Specifies the name of a database that contains the table.</p>
     pub fn set_database_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.database_name = input;
-        self
+        self.database_name = input; self
     }
     /// <p>(Required) Specifies the name of a database that contains the table.</p>
     pub fn get_database_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -94,8 +93,7 @@ impl GetUnfilteredTableMetadataInputBuilder {
     }
     /// <p>(Required) Specifies the name of a table for which you are requesting metadata.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>(Required) Specifies the name of a table for which you are requesting metadata.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -108,8 +106,7 @@ impl GetUnfilteredTableMetadataInputBuilder {
     }
     /// <p>A structure containing Lake Formation audit context information.</p>
     pub fn set_audit_context(mut self, input: ::std::option::Option<crate::types::AuditContext>) -> Self {
-        self.audit_context = input;
-        self
+        self.audit_context = input; self
     }
     /// <p>A structure containing Lake Formation audit context information.</p>
     pub fn get_audit_context(&self) -> &::std::option::Option<crate::types::AuditContext> {
@@ -122,32 +119,34 @@ impl GetUnfilteredTableMetadataInputBuilder {
     /// <p>(Required) A list of supported permission types. </p>
     pub fn supported_permission_types(mut self, input: crate::types::PermissionType) -> Self {
         let mut v = self.supported_permission_types.unwrap_or_default();
-        v.push(input);
-        self.supported_permission_types = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.supported_permission_types = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>(Required) A list of supported permission types. </p>
-    pub fn set_supported_permission_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PermissionType>>) -> Self {
-        self.supported_permission_types = input;
-        self
+    pub fn set_supported_permission_types(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>>) -> Self {
+        self.supported_permission_types = input; self
     }
     /// <p>(Required) A list of supported permission types. </p>
-    pub fn get_supported_permission_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PermissionType>> {
+    pub fn get_supported_permission_types(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>> {
         &self.supported_permission_types
     }
     /// Consumes the builder and constructs a [`GetUnfilteredTableMetadataInput`](crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataInput {
-            catalog_id: self.catalog_id,
-            database_name: self.database_name,
-            name: self.name,
-            audit_context: self.audit_context,
-            supported_permission_types: self.supported_permission_types,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataInput {
+                catalog_id: self.catalog_id
+                ,
+                database_name: self.database_name
+                ,
+                name: self.name
+                ,
+                audit_context: self.audit_context
+                ,
+                supported_permission_types: self.supported_permission_types
+                ,
+            }
+        )
     }
 }
+

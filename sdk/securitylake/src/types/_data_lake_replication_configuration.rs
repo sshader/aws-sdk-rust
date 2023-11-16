@@ -3,23 +3,24 @@
 /// <p>Provides replication details of Amazon Security Lake object.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DataLakeReplicationConfiguration {
-    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p>
+pub struct DataLakeReplicationConfiguration  {
+    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p> 
     /// <p>Set up one or more rollup Regions by providing the Region or Regions that should contribute to the central rollup Region.</p>
-    pub regions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub regions: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>Replication settings for the Amazon S3 buckets. This parameter uses the Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.</p>
     pub role_arn: ::std::option::Option<::std::string::String>,
 }
-impl DataLakeReplicationConfiguration {
-    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p>
+impl  DataLakeReplicationConfiguration  {
+    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p> 
     /// <p>Set up one or more rollup Regions by providing the Region or Regions that should contribute to the central rollup Region.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.regions.is_none()`.
-    pub fn regions(&self) -> &[::std::string::String] {
-        self.regions.as_deref().unwrap_or_default()
+    pub fn regions(&self) -> & [::std::string::String] {
+        self.regions.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Replication settings for the Amazon S3 buckets. This parameter uses the Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.</p>
-    pub fn role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn role_arn(&self) -> ::std::option::Option<& str> {
         self.role_arn.as_deref()
     }
 }
@@ -34,7 +35,7 @@ impl DataLakeReplicationConfiguration {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct DataLakeReplicationConfigurationBuilder {
-    pub(crate) regions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) regions: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) role_arn: ::std::option::Option<::std::string::String>,
 }
 impl DataLakeReplicationConfigurationBuilder {
@@ -42,23 +43,22 @@ impl DataLakeReplicationConfigurationBuilder {
     ///
     /// To override the contents of this collection use [`set_regions`](Self::set_regions).
     ///
-    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p>
+    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p> 
     /// <p>Set up one or more rollup Regions by providing the Region or Regions that should contribute to the central rollup Region.</p>
     pub fn regions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.regions.unwrap_or_default();
-        v.push(input.into());
-        self.regions = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.regions = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p>
+    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p> 
     /// <p>Set up one or more rollup Regions by providing the Region or Regions that should contribute to the central rollup Region.</p>
-    pub fn set_regions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.regions = input;
-        self
+    pub fn set_regions(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.regions = input; self
     }
-    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p>
+    /// <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Amazon Web Services Regions or within the same Region as the source bucket.</p> 
     /// <p>Set up one or more rollup Regions by providing the Region or Regions that should contribute to the central rollup Region.</p>
-    pub fn get_regions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_regions(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.regions
     }
     /// <p>Replication settings for the Amazon S3 buckets. This parameter uses the Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.</p>
@@ -68,8 +68,7 @@ impl DataLakeReplicationConfigurationBuilder {
     }
     /// <p>Replication settings for the Amazon S3 buckets. This parameter uses the Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.</p>
     pub fn set_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.role_arn = input;
-        self
+        self.role_arn = input; self
     }
     /// <p>Replication settings for the Amazon S3 buckets. This parameter uses the Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.</p>
     pub fn get_role_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -78,8 +77,11 @@ impl DataLakeReplicationConfigurationBuilder {
     /// Consumes the builder and constructs a [`DataLakeReplicationConfiguration`](crate::types::DataLakeReplicationConfiguration).
     pub fn build(self) -> crate::types::DataLakeReplicationConfiguration {
         crate::types::DataLakeReplicationConfiguration {
-            regions: self.regions,
-            role_arn: self.role_arn,
+            regions: self.regions
+            ,
+            role_arn: self.role_arn
+            ,
         }
     }
 }
+

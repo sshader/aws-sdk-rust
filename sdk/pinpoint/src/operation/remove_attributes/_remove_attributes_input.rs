@@ -2,35 +2,35 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct RemoveAttributesInput {
+pub struct RemoveAttributesInput  {
     /// <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
     pub application_id: ::std::option::Option<::std::string::String>,
-    /// <p>The type of attribute or attributes to remove. Valid values are:</p>
+    /// <p>The type of attribute or attributes to remove. Valid values are:</p> 
     /// <ul>
-    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li>
-    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li>
+    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li> 
+    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li> 
     /// <li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li>
     /// </ul>
     pub attribute_type: ::std::option::Option<::std::string::String>,
     /// <p>Specifies one or more attributes to remove from all the endpoints that are associated with an application.</p>
     pub update_attributes_request: ::std::option::Option<crate::types::UpdateAttributesRequest>,
 }
-impl RemoveAttributesInput {
+impl  RemoveAttributesInput  {
     /// <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-    pub fn application_id(&self) -> ::std::option::Option<&str> {
+    pub fn application_id(&self) -> ::std::option::Option<& str> {
         self.application_id.as_deref()
     }
-    /// <p>The type of attribute or attributes to remove. Valid values are:</p>
+    /// <p>The type of attribute or attributes to remove. Valid values are:</p> 
     /// <ul>
-    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li>
-    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li>
+    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li> 
+    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li> 
     /// <li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li>
     /// </ul>
-    pub fn attribute_type(&self) -> ::std::option::Option<&str> {
+    pub fn attribute_type(&self) -> ::std::option::Option<& str> {
         self.attribute_type.as_deref()
     }
     /// <p>Specifies one or more attributes to remove from all the endpoints that are associated with an application.</p>
-    pub fn update_attributes_request(&self) -> ::std::option::Option<&crate::types::UpdateAttributesRequest> {
+    pub fn update_attributes_request(&self) -> ::std::option::Option<& crate::types::UpdateAttributesRequest> {
         self.update_attributes_request.as_ref()
     }
 }
@@ -58,17 +58,16 @@ impl RemoveAttributesInputBuilder {
     }
     /// <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
     pub fn set_application_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.application_id = input;
-        self
+        self.application_id = input; self
     }
     /// <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
     pub fn get_application_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.application_id
     }
-    /// <p>The type of attribute or attributes to remove. Valid values are:</p>
+    /// <p>The type of attribute or attributes to remove. Valid values are:</p> 
     /// <ul>
-    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li>
-    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li>
+    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li> 
+    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li> 
     /// <li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li>
     /// </ul>
     /// This field is required.
@@ -76,20 +75,19 @@ impl RemoveAttributesInputBuilder {
         self.attribute_type = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The type of attribute or attributes to remove. Valid values are:</p>
+    /// <p>The type of attribute or attributes to remove. Valid values are:</p> 
     /// <ul>
-    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li>
-    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li>
+    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li> 
+    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li> 
     /// <li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li>
     /// </ul>
     pub fn set_attribute_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.attribute_type = input;
-        self
+        self.attribute_type = input; self
     }
-    /// <p>The type of attribute or attributes to remove. Valid values are:</p>
+    /// <p>The type of attribute or attributes to remove. Valid values are:</p> 
     /// <ul>
-    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li>
-    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li>
+    /// <li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li> 
+    /// <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li> 
     /// <li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li>
     /// </ul>
     pub fn get_attribute_type(&self) -> &::std::option::Option<::std::string::String> {
@@ -103,21 +101,24 @@ impl RemoveAttributesInputBuilder {
     }
     /// <p>Specifies one or more attributes to remove from all the endpoints that are associated with an application.</p>
     pub fn set_update_attributes_request(mut self, input: ::std::option::Option<crate::types::UpdateAttributesRequest>) -> Self {
-        self.update_attributes_request = input;
-        self
+        self.update_attributes_request = input; self
     }
     /// <p>Specifies one or more attributes to remove from all the endpoints that are associated with an application.</p>
     pub fn get_update_attributes_request(&self) -> &::std::option::Option<crate::types::UpdateAttributesRequest> {
         &self.update_attributes_request
     }
     /// Consumes the builder and constructs a [`RemoveAttributesInput`](crate::operation::remove_attributes::RemoveAttributesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::remove_attributes::RemoveAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::remove_attributes::RemoveAttributesInput {
-            application_id: self.application_id,
-            attribute_type: self.attribute_type,
-            update_attributes_request: self.update_attributes_request,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::remove_attributes::RemoveAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::remove_attributes::RemoveAttributesInput {
+                application_id: self.application_id
+                ,
+                attribute_type: self.attribute_type
+                ,
+                update_attributes_request: self.update_attributes_request
+                ,
+            }
+        )
     }
 }
+

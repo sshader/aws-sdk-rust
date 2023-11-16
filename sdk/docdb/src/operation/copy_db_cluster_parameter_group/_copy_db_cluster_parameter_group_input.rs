@@ -3,62 +3,63 @@
 /// <p>Represents the input to <code>CopyDBClusterParameterGroup</code>. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CopyDbClusterParameterGroupInput {
-    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must specify a valid cluster parameter group.</p> </li>
-    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li>
-    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li>
+pub struct CopyDbClusterParameterGroupInput  {
+    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must specify a valid cluster parameter group.</p> </li> 
+    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> 
+    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li> 
     /// </ul>
     pub source_db_cluster_parameter_group_identifier: ::std::option::Option<::std::string::String>,
-    /// <p>The identifier for the copied cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Cannot be null, empty, or blank.</p> </li>
-    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li>
-    /// <li> <p>The first character must be a letter.</p> </li>
-    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li>
-    /// </ul>
+    /// <p>The identifier for the copied cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Cannot be null, empty, or blank.</p> </li> 
+    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li> 
+    /// <li> <p>The first character must be a letter.</p> </li> 
+    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li> 
+    /// </ul> 
     /// <p>Example: <code>my-cluster-param-group1</code> </p>
     pub target_db_cluster_parameter_group_identifier: ::std::option::Option<::std::string::String>,
     /// <p>A description for the copied cluster parameter group.</p>
     pub target_db_cluster_parameter_group_description: ::std::option::Option<::std::string::String>,
     /// <p>The tags that are to be assigned to the parameter group.</p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
-impl CopyDbClusterParameterGroupInput {
-    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must specify a valid cluster parameter group.</p> </li>
-    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li>
-    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li>
+impl  CopyDbClusterParameterGroupInput  {
+    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must specify a valid cluster parameter group.</p> </li> 
+    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> 
+    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li> 
     /// </ul>
-    pub fn source_db_cluster_parameter_group_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn source_db_cluster_parameter_group_identifier(&self) -> ::std::option::Option<& str> {
         self.source_db_cluster_parameter_group_identifier.as_deref()
     }
-    /// <p>The identifier for the copied cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Cannot be null, empty, or blank.</p> </li>
-    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li>
-    /// <li> <p>The first character must be a letter.</p> </li>
-    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li>
-    /// </ul>
+    /// <p>The identifier for the copied cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Cannot be null, empty, or blank.</p> </li> 
+    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li> 
+    /// <li> <p>The first character must be a letter.</p> </li> 
+    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li> 
+    /// </ul> 
     /// <p>Example: <code>my-cluster-param-group1</code> </p>
-    pub fn target_db_cluster_parameter_group_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn target_db_cluster_parameter_group_identifier(&self) -> ::std::option::Option<& str> {
         self.target_db_cluster_parameter_group_identifier.as_deref()
     }
     /// <p>A description for the copied cluster parameter group.</p>
-    pub fn target_db_cluster_parameter_group_description(&self) -> ::std::option::Option<&str> {
+    pub fn target_db_cluster_parameter_group_description(&self) -> ::std::option::Option<& str> {
         self.target_db_cluster_parameter_group_description.as_deref()
     }
     /// <p>The tags that are to be assigned to the parameter group.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
-        self.tags.as_deref().unwrap_or_default()
+    pub fn tags(&self) -> & [crate::types::Tag] {
+        self.tags.as_deref()
+        .unwrap_or_default()
     }
 }
 impl CopyDbClusterParameterGroupInput {
@@ -75,77 +76,75 @@ pub struct CopyDbClusterParameterGroupInputBuilder {
     pub(crate) source_db_cluster_parameter_group_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) target_db_cluster_parameter_group_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) target_db_cluster_parameter_group_description: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
 impl CopyDbClusterParameterGroupInputBuilder {
-    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must specify a valid cluster parameter group.</p> </li>
-    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li>
-    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li>
+    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must specify a valid cluster parameter group.</p> </li> 
+    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> 
+    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn source_db_cluster_parameter_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.source_db_cluster_parameter_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must specify a valid cluster parameter group.</p> </li>
-    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li>
-    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li>
+    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must specify a valid cluster parameter group.</p> </li> 
+    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> 
+    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li> 
     /// </ul>
     pub fn set_source_db_cluster_parameter_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.source_db_cluster_parameter_group_identifier = input;
-        self
+        self.source_db_cluster_parameter_group_identifier = input; self
     }
-    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must specify a valid cluster parameter group.</p> </li>
-    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li>
-    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li>
+    /// <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must specify a valid cluster parameter group.</p> </li> 
+    /// <li> <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> 
+    /// <li> <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p> </li> 
     /// </ul>
     pub fn get_source_db_cluster_parameter_group_identifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.source_db_cluster_parameter_group_identifier
     }
-    /// <p>The identifier for the copied cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Cannot be null, empty, or blank.</p> </li>
-    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li>
-    /// <li> <p>The first character must be a letter.</p> </li>
-    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li>
-    /// </ul>
+    /// <p>The identifier for the copied cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Cannot be null, empty, or blank.</p> </li> 
+    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li> 
+    /// <li> <p>The first character must be a letter.</p> </li> 
+    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li> 
+    /// </ul> 
     /// <p>Example: <code>my-cluster-param-group1</code> </p>
     /// This field is required.
     pub fn target_db_cluster_parameter_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.target_db_cluster_parameter_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The identifier for the copied cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Cannot be null, empty, or blank.</p> </li>
-    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li>
-    /// <li> <p>The first character must be a letter.</p> </li>
-    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li>
-    /// </ul>
+    /// <p>The identifier for the copied cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Cannot be null, empty, or blank.</p> </li> 
+    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li> 
+    /// <li> <p>The first character must be a letter.</p> </li> 
+    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li> 
+    /// </ul> 
     /// <p>Example: <code>my-cluster-param-group1</code> </p>
     pub fn set_target_db_cluster_parameter_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.target_db_cluster_parameter_group_identifier = input;
-        self
+        self.target_db_cluster_parameter_group_identifier = input; self
     }
-    /// <p>The identifier for the copied cluster parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Cannot be null, empty, or blank.</p> </li>
-    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li>
-    /// <li> <p>The first character must be a letter.</p> </li>
-    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li>
-    /// </ul>
+    /// <p>The identifier for the copied cluster parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Cannot be null, empty, or blank.</p> </li> 
+    /// <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li> 
+    /// <li> <p>The first character must be a letter.</p> </li> 
+    /// <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li> 
+    /// </ul> 
     /// <p>Example: <code>my-cluster-param-group1</code> </p>
     pub fn get_target_db_cluster_parameter_group_identifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.target_db_cluster_parameter_group_identifier
@@ -158,8 +157,7 @@ impl CopyDbClusterParameterGroupInputBuilder {
     }
     /// <p>A description for the copied cluster parameter group.</p>
     pub fn set_target_db_cluster_parameter_group_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.target_db_cluster_parameter_group_description = input;
-        self
+        self.target_db_cluster_parameter_group_description = input; self
     }
     /// <p>A description for the copied cluster parameter group.</p>
     pub fn get_target_db_cluster_parameter_group_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -172,31 +170,32 @@ impl CopyDbClusterParameterGroupInputBuilder {
     /// <p>The tags that are to be assigned to the parameter group.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
-        v.push(input);
-        self.tags = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.tags = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The tags that are to be assigned to the parameter group.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
+        self.tags = input; self
     }
     /// <p>The tags that are to be assigned to the parameter group.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CopyDbClusterParameterGroupInput`](crate::operation::copy_db_cluster_parameter_group::CopyDbClusterParameterGroupInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::copy_db_cluster_parameter_group::CopyDbClusterParameterGroupInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::copy_db_cluster_parameter_group::CopyDbClusterParameterGroupInput {
-            source_db_cluster_parameter_group_identifier: self.source_db_cluster_parameter_group_identifier,
-            target_db_cluster_parameter_group_identifier: self.target_db_cluster_parameter_group_identifier,
-            target_db_cluster_parameter_group_description: self.target_db_cluster_parameter_group_description,
-            tags: self.tags,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::copy_db_cluster_parameter_group::CopyDbClusterParameterGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::copy_db_cluster_parameter_group::CopyDbClusterParameterGroupInput {
+                source_db_cluster_parameter_group_identifier: self.source_db_cluster_parameter_group_identifier
+                ,
+                target_db_cluster_parameter_group_identifier: self.target_db_cluster_parameter_group_identifier
+                ,
+                target_db_cluster_parameter_group_description: self.target_db_cluster_parameter_group_description
+                ,
+                tags: self.tags
+                ,
+            }
+        )
     }
 }
+

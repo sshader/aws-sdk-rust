@@ -5,54 +5,50 @@ pub use crate::operation::export_table_to_point_in_time::_export_table_to_point_
 
 impl ExportTableToPointInTimeInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.export_table_to_point_in_time();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.export_table_to_point_in_time();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ExportTableToPointInTime`.
-///
+/// 
 /// <p>Exports table data to an S3 bucket. The table must have point in time recovery enabled, and you can export data from any time within the point in time recovery window.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ExportTableToPointInTimeFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeInputBuilder,
+                    inner: crate::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
-        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
-    > for ExportTableToPointInTimeFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
-            crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
+                    crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
+                > for ExportTableToPointInTimeFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
+                        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ExportTableToPointInTimeFluentBuilder {
     /// Creates a new `ExportTableToPointInTime`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl ExportTableToPointInTimeFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::export_table_to_point_in_time::ExportTableToPointInTime::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::export_table_to_point_in_time::ExportTableToPointInTime::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput,
-        crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::export_table_to_point_in_time::ExportTableToPointInTime::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::export_table_to_point_in_time::ExportTableToPointInTime::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeOutput, crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
     pub fn table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.table_arn(input.into());
@@ -136,22 +123,22 @@ impl ExportTableToPointInTimeFluentBuilder {
     pub fn get_export_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_export_time()
     }
-    /// <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
-    /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p>
+    /// <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p> 
+    /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p> 
     /// <p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>ImportConflictException</code>.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_token(input.into());
         self
     }
-    /// <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
-    /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p>
+    /// <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p> 
+    /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p> 
     /// <p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>ImportConflictException</code>.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_client_token(input);
         self
     }
-    /// <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
-    /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p>
+    /// <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p> 
+    /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p> 
     /// <p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>ImportConflictException</code>.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_client_token()
@@ -198,28 +185,28 @@ impl ExportTableToPointInTimeFluentBuilder {
     pub fn get_s3_prefix(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_s3_prefix()
     }
-    /// <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p>
-    /// <ul>
-    /// <li> <p> <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p> </li>
-    /// <li> <p> <code>KMS</code> - server-side encryption with KMS managed keys</p> </li>
+    /// <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p> </li> 
+    /// <li> <p> <code>KMS</code> - server-side encryption with KMS managed keys</p> </li> 
     /// </ul>
     pub fn s3_sse_algorithm(mut self, input: crate::types::S3SseAlgorithm) -> Self {
         self.inner = self.inner.s3_sse_algorithm(input);
         self
     }
-    /// <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p>
-    /// <ul>
-    /// <li> <p> <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p> </li>
-    /// <li> <p> <code>KMS</code> - server-side encryption with KMS managed keys</p> </li>
+    /// <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p> </li> 
+    /// <li> <p> <code>KMS</code> - server-side encryption with KMS managed keys</p> </li> 
     /// </ul>
     pub fn set_s3_sse_algorithm(mut self, input: ::std::option::Option<crate::types::S3SseAlgorithm>) -> Self {
         self.inner = self.inner.set_s3_sse_algorithm(input);
         self
     }
-    /// <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p>
-    /// <ul>
-    /// <li> <p> <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p> </li>
-    /// <li> <p> <code>KMS</code> - server-side encryption with KMS managed keys</p> </li>
+    /// <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p> 
+    /// <ul> 
+    /// <li> <p> <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p> </li> 
+    /// <li> <p> <code>KMS</code> - server-side encryption with KMS managed keys</p> </li> 
     /// </ul>
     pub fn get_s3_sse_algorithm(&self) -> &::std::option::Option<crate::types::S3SseAlgorithm> {
         self.inner.get_s3_sse_algorithm()
@@ -281,3 +268,4 @@ impl ExportTableToPointInTimeFluentBuilder {
         self.inner.get_incremental_export_specification()
     }
 }
+

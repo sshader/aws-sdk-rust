@@ -3,7 +3,7 @@
 /// <p>ListTaskExecutions</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListTaskExecutionsInput {
+pub struct ListTaskExecutionsInput  {
     /// <p>The Amazon Resource Name (ARN) of the task whose tasks you want to list.</p>
     pub task_arn: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of executed tasks to list.</p>
@@ -11,9 +11,9 @@ pub struct ListTaskExecutionsInput {
     /// <p>An opaque string that indicates the position at which to begin the next list of the executed tasks.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
-impl ListTaskExecutionsInput {
+impl  ListTaskExecutionsInput  {
     /// <p>The Amazon Resource Name (ARN) of the task whose tasks you want to list.</p>
-    pub fn task_arn(&self) -> ::std::option::Option<&str> {
+    pub fn task_arn(&self) -> ::std::option::Option<& str> {
         self.task_arn.as_deref()
     }
     /// <p>The maximum number of executed tasks to list.</p>
@@ -21,7 +21,7 @@ impl ListTaskExecutionsInput {
         self.max_results
     }
     /// <p>An opaque string that indicates the position at which to begin the next list of the executed tasks.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
 }
@@ -48,8 +48,7 @@ impl ListTaskExecutionsInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the task whose tasks you want to list.</p>
     pub fn set_task_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.task_arn = input;
-        self
+        self.task_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the task whose tasks you want to list.</p>
     pub fn get_task_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -62,8 +61,7 @@ impl ListTaskExecutionsInputBuilder {
     }
     /// <p>The maximum number of executed tasks to list.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of executed tasks to list.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
@@ -76,22 +74,24 @@ impl ListTaskExecutionsInputBuilder {
     }
     /// <p>An opaque string that indicates the position at which to begin the next list of the executed tasks.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>An opaque string that indicates the position at which to begin the next list of the executed tasks.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListTaskExecutionsInput`](crate::operation::list_task_executions::ListTaskExecutionsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_task_executions::ListTaskExecutionsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::list_task_executions::ListTaskExecutionsInput {
-            task_arn: self.task_arn,
-            max_results: self.max_results,
-            next_token: self.next_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_task_executions::ListTaskExecutionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_task_executions::ListTaskExecutionsInput {
+                task_arn: self.task_arn
+                ,
+                max_results: self.max_results
+                ,
+                next_token: self.next_token
+                ,
+            }
+        )
     }
 }
+

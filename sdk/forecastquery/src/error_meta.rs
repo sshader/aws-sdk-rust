@@ -14,7 +14,13 @@ pub enum Error {
     /// <p>We can't find that resource. Check the information that you've provided and try again.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    Unhandled(crate::error::sealed_unhandled::Unhandled)
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -24,28 +30,41 @@ impl ::std::fmt::Display for Error {
             Error::LimitExceededException(inner) => inner.fmt(f),
             Error::ResourceInUseException(inner) => inner.fmt(f),
             Error::ResourceNotFoundException(inner) => inner.fmt(f),
-            Error::Unhandled(inner) => inner.fmt(f),
+            Error::Unhandled(_) => if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                        write!(f, "unhandled error ({code})")
+                                    } else {
+                                        f.write_str("unhandled error")
+                                    }
         }
     }
 }
 impl From<::aws_smithy_types::error::operation::BuildError> for Error {
-    fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
-        Error::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(value).build())
-    }
-}
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::query_forecast::QueryForecastError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+                fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
+                    Error::Unhandled(crate::error::sealed_unhandled::Unhandled { source: value.into(), meta: ::std::default::Default::default() })
+                }
+            }
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
+                fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
+                    match self {
+                        Self::InvalidInputException(inner) => inner.meta(),
+Self::InvalidNextTokenException(inner) => inner.meta(),
+Self::LimitExceededException(inner) => inner.meta(),
+Self::ResourceInUseException(inner) => inner.meta(),
+Self::ResourceNotFoundException(inner) => inner.meta(),
+                        Self::Unhandled(inner) => &inner.meta,
+                    }
+                }
+            }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::query_forecast::QueryForecastError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::query_forecast::QueryForecastError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -61,19 +80,16 @@ impl From<crate::operation::query_forecast::QueryForecastError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::query_what_if_forecast::QueryWhatIfForecastError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::query_what_if_forecast::QueryWhatIfForecastError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::query_what_if_forecast::QueryWhatIfForecastError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -81,14 +97,10 @@ impl From<crate::operation::query_what_if_forecast::QueryWhatIfForecastError> fo
     fn from(err: crate::operation::query_what_if_forecast::QueryWhatIfForecastError) -> Self {
         match err {
             crate::operation::query_what_if_forecast::QueryWhatIfForecastError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::query_what_if_forecast::QueryWhatIfForecastError::InvalidNextTokenException(inner) => {
-                Error::InvalidNextTokenException(inner)
-            }
+            crate::operation::query_what_if_forecast::QueryWhatIfForecastError::InvalidNextTokenException(inner) => Error::InvalidNextTokenException(inner),
             crate::operation::query_what_if_forecast::QueryWhatIfForecastError::LimitExceededException(inner) => Error::LimitExceededException(inner),
             crate::operation::query_what_if_forecast::QueryWhatIfForecastError::ResourceInUseException(inner) => Error::ResourceInUseException(inner),
-            crate::operation::query_what_if_forecast::QueryWhatIfForecastError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
+            crate::operation::query_what_if_forecast::QueryWhatIfForecastError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::query_what_if_forecast::QueryWhatIfForecastError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -101,11 +113,11 @@ impl ::std::error::Error for Error {
             Error::LimitExceededException(inner) => inner.source(),
             Error::ResourceInUseException(inner) => inner.source(),
             Error::ResourceNotFoundException(inner) => inner.source(),
-            Error::Unhandled(inner) => inner.source(),
+            Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source)
         }
     }
 }
-impl ::aws_http::request_id::RequestId for Error {
+impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             Self::InvalidInputException(e) => e.request_id(),
@@ -113,7 +125,8 @@ impl ::aws_http::request_id::RequestId for Error {
             Self::LimitExceededException(e) => e.request_id(),
             Self::ResourceInUseException(e) => e.request_id(),
             Self::ResourceNotFoundException(e) => e.request_id(),
-            Self::Unhandled(e) => e.request_id(),
+            Self::Unhandled(e) => e.meta.request_id(),
         }
     }
 }
+

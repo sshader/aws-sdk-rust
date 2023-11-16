@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteAccessPointPolicyInput {
+pub struct DeleteAccessPointPolicyInput  {
     /// <p>The account ID for the account that owns the specified access point.</p>
     pub account_id: ::std::option::Option<::std::string::String>,
-    /// <p>The name of the access point whose policy you want to delete.</p>
-    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+    /// <p>The name of the access point whose policy you want to delete.</p> 
+    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> 
     /// <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:
     /// <region>
     /// :
@@ -20,13 +20,13 @@ pub struct DeleteAccessPointPolicyInput {
     /// </region></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
     pub name: ::std::option::Option<::std::string::String>,
 }
-impl DeleteAccessPointPolicyInput {
+impl  DeleteAccessPointPolicyInput  {
     /// <p>The account ID for the account that owns the specified access point.</p>
-    pub fn account_id(&self) -> ::std::option::Option<&str> {
+    pub fn account_id(&self) -> ::std::option::Option<& str> {
         self.account_id.as_deref()
     }
-    /// <p>The name of the access point whose policy you want to delete.</p>
-    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+    /// <p>The name of the access point whose policy you want to delete.</p> 
+    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> 
     /// <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:
     /// <region>
     /// :
@@ -38,7 +38,7 @@ impl DeleteAccessPointPolicyInput {
     /// </outpost-id>
     /// </account-id>
     /// </region></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
 }
@@ -65,15 +65,14 @@ impl DeleteAccessPointPolicyInputBuilder {
     }
     /// <p>The account ID for the account that owns the specified access point.</p>
     pub fn set_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.account_id = input;
-        self
+        self.account_id = input; self
     }
     /// <p>The account ID for the account that owns the specified access point.</p>
     pub fn get_account_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.account_id
     }
-    /// <p>The name of the access point whose policy you want to delete.</p>
-    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+    /// <p>The name of the access point whose policy you want to delete.</p> 
+    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> 
     /// <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:
     /// <region>
     /// :
@@ -90,8 +89,8 @@ impl DeleteAccessPointPolicyInputBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the access point whose policy you want to delete.</p>
-    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+    /// <p>The name of the access point whose policy you want to delete.</p> 
+    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> 
     /// <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:
     /// <region>
     /// :
@@ -104,11 +103,10 @@ impl DeleteAccessPointPolicyInputBuilder {
     /// </account-id>
     /// </region></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
-    /// <p>The name of the access point whose policy you want to delete.</p>
-    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+    /// <p>The name of the access point whose policy you want to delete.</p> 
+    /// <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> 
     /// <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:
     /// <region>
     /// :
@@ -124,15 +122,15 @@ impl DeleteAccessPointPolicyInputBuilder {
         &self.name
     }
     /// Consumes the builder and constructs a [`DeleteAccessPointPolicyInput`](crate::operation::delete_access_point_policy::DeleteAccessPointPolicyInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_access_point_policy::DeleteAccessPointPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_access_point_policy::DeleteAccessPointPolicyInput {
-            account_id: self.account_id,
-            name: self.name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_access_point_policy::DeleteAccessPointPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_access_point_policy::DeleteAccessPointPolicyInput {
+                account_id: self.account_id
+                ,
+                name: self.name
+                ,
+            }
+        )
     }
 }
+

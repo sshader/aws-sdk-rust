@@ -3,36 +3,35 @@
 /// <p>Details for your use of the account takeover prevention managed rule group, <code>AWSManagedRulesATPRuleSet</code>. This configuration is used in <code>ManagedRuleGroupConfig</code>. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AwsManagedRulesAtpRuleSet {
-    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p>
+pub struct AwsManagedRulesAtpRuleSet  {
+    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p> 
     /// <p>The rule group inspects only HTTP <code>POST</code> requests to your specified login endpoint.</p>
     pub login_path: ::std::string::String,
     /// <p>The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. </p>
     pub request_inspection: ::std::option::Option<crate::types::RequestInspection>,
-    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note>
-    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
-    /// </note>
+    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note> 
+    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p> 
+    /// </note> 
     /// <p>The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time. </p>
     pub response_inspection: ::std::option::Option<crate::types::ResponseInspection>,
     /// <p>Allow the use of regular expressions in the login page path. </p>
     pub enable_regex_in_path: bool,
 }
-impl AwsManagedRulesAtpRuleSet {
-    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p>
+impl  AwsManagedRulesAtpRuleSet  {
+    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p> 
     /// <p>The rule group inspects only HTTP <code>POST</code> requests to your specified login endpoint.</p>
-    pub fn login_path(&self) -> &str {
-        use std::ops::Deref;
-        self.login_path.deref()
+    pub fn login_path(&self) -> & str {
+        use std::ops::Deref; self.login_path.deref()
     }
     /// <p>The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. </p>
-    pub fn request_inspection(&self) -> ::std::option::Option<&crate::types::RequestInspection> {
+    pub fn request_inspection(&self) -> ::std::option::Option<& crate::types::RequestInspection> {
         self.request_inspection.as_ref()
     }
-    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note>
-    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
-    /// </note>
+    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note> 
+    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p> 
+    /// </note> 
     /// <p>The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time. </p>
-    pub fn response_inspection(&self) -> ::std::option::Option<&crate::types::ResponseInspection> {
+    pub fn response_inspection(&self) -> ::std::option::Option<& crate::types::ResponseInspection> {
         self.response_inspection.as_ref()
     }
     /// <p>Allow the use of regular expressions in the login page path. </p>
@@ -57,20 +56,19 @@ pub struct AwsManagedRulesAtpRuleSetBuilder {
     pub(crate) enable_regex_in_path: ::std::option::Option<bool>,
 }
 impl AwsManagedRulesAtpRuleSetBuilder {
-    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p>
+    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p> 
     /// <p>The rule group inspects only HTTP <code>POST</code> requests to your specified login endpoint.</p>
     /// This field is required.
     pub fn login_path(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.login_path = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p>
+    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p> 
     /// <p>The rule group inspects only HTTP <code>POST</code> requests to your specified login endpoint.</p>
     pub fn set_login_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.login_path = input;
-        self
+        self.login_path = input; self
     }
-    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p>
+    /// <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p> 
     /// <p>The rule group inspects only HTTP <code>POST</code> requests to your specified login endpoint.</p>
     pub fn get_login_path(&self) -> &::std::option::Option<::std::string::String> {
         &self.login_path
@@ -82,32 +80,30 @@ impl AwsManagedRulesAtpRuleSetBuilder {
     }
     /// <p>The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. </p>
     pub fn set_request_inspection(mut self, input: ::std::option::Option<crate::types::RequestInspection>) -> Self {
-        self.request_inspection = input;
-        self
+        self.request_inspection = input; self
     }
     /// <p>The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. </p>
     pub fn get_request_inspection(&self) -> &::std::option::Option<crate::types::RequestInspection> {
         &self.request_inspection
     }
-    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note>
-    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
-    /// </note>
+    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note> 
+    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p> 
+    /// </note> 
     /// <p>The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time. </p>
     pub fn response_inspection(mut self, input: crate::types::ResponseInspection) -> Self {
         self.response_inspection = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note>
-    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
-    /// </note>
+    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note> 
+    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p> 
+    /// </note> 
     /// <p>The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time. </p>
     pub fn set_response_inspection(mut self, input: ::std::option::Option<crate::types::ResponseInspection>) -> Self {
-        self.response_inspection = input;
-        self
+        self.response_inspection = input; self
     }
-    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note>
-    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p>
-    /// </note>
+    /// <p>The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. </p> <note> 
+    /// <p>Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.</p> 
+    /// </note> 
     /// <p>The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time. </p>
     pub fn get_response_inspection(&self) -> &::std::option::Option<crate::types::ResponseInspection> {
         &self.response_inspection
@@ -119,8 +115,7 @@ impl AwsManagedRulesAtpRuleSetBuilder {
     }
     /// <p>Allow the use of regular expressions in the login page path. </p>
     pub fn set_enable_regex_in_path(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.enable_regex_in_path = input;
-        self
+        self.enable_regex_in_path = input; self
     }
     /// <p>Allow the use of regular expressions in the login page path. </p>
     pub fn get_enable_regex_in_path(&self) -> &::std::option::Option<bool> {
@@ -130,16 +125,22 @@ impl AwsManagedRulesAtpRuleSetBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`login_path`](crate::types::builders::AwsManagedRulesAtpRuleSetBuilder::login_path)
     pub fn build(self) -> ::std::result::Result<crate::types::AwsManagedRulesAtpRuleSet, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AwsManagedRulesAtpRuleSet {
-            login_path: self.login_path.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "login_path",
-                    "login_path was not specified but it is required when building AwsManagedRulesAtpRuleSet",
-                )
-            })?,
-            request_inspection: self.request_inspection,
-            response_inspection: self.response_inspection,
-            enable_regex_in_path: self.enable_regex_in_path.unwrap_or_default(),
-        })
+        ::std::result::Result::Ok(
+            crate::types::AwsManagedRulesAtpRuleSet {
+                login_path: self.login_path
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("login_path", "login_path was not specified but it is required when building AwsManagedRulesAtpRuleSet")
+                    )?
+                ,
+                request_inspection: self.request_inspection
+                ,
+                response_inspection: self.response_inspection
+                ,
+                enable_regex_in_path: self.enable_regex_in_path
+                    .unwrap_or_default()
+                ,
+            }
+        )
     }
 }
+

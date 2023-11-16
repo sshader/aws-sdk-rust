@@ -3,19 +3,19 @@
 /// <p>An object that contains information about a property response.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PropertyResponse {
+pub struct PropertyResponse  {
     /// <p>An object that specifies information about a property.</p>
     pub definition: ::std::option::Option<crate::types::PropertyDefinitionResponse>,
     /// <p>The value of the property.</p>
     pub value: ::std::option::Option<crate::types::DataValue>,
 }
-impl PropertyResponse {
+impl  PropertyResponse  {
     /// <p>An object that specifies information about a property.</p>
-    pub fn definition(&self) -> ::std::option::Option<&crate::types::PropertyDefinitionResponse> {
+    pub fn definition(&self) -> ::std::option::Option<& crate::types::PropertyDefinitionResponse> {
         self.definition.as_ref()
     }
     /// <p>The value of the property.</p>
-    pub fn value(&self) -> ::std::option::Option<&crate::types::DataValue> {
+    pub fn value(&self) -> ::std::option::Option<& crate::types::DataValue> {
         self.value.as_ref()
     }
 }
@@ -41,8 +41,7 @@ impl PropertyResponseBuilder {
     }
     /// <p>An object that specifies information about a property.</p>
     pub fn set_definition(mut self, input: ::std::option::Option<crate::types::PropertyDefinitionResponse>) -> Self {
-        self.definition = input;
-        self
+        self.definition = input; self
     }
     /// <p>An object that specifies information about a property.</p>
     pub fn get_definition(&self) -> &::std::option::Option<crate::types::PropertyDefinitionResponse> {
@@ -55,8 +54,7 @@ impl PropertyResponseBuilder {
     }
     /// <p>The value of the property.</p>
     pub fn set_value(mut self, input: ::std::option::Option<crate::types::DataValue>) -> Self {
-        self.value = input;
-        self
+        self.value = input; self
     }
     /// <p>The value of the property.</p>
     pub fn get_value(&self) -> &::std::option::Option<crate::types::DataValue> {
@@ -65,8 +63,11 @@ impl PropertyResponseBuilder {
     /// Consumes the builder and constructs a [`PropertyResponse`](crate::types::PropertyResponse).
     pub fn build(self) -> crate::types::PropertyResponse {
         crate::types::PropertyResponse {
-            definition: self.definition,
-            value: self.value,
+            definition: self.definition
+            ,
+            value: self.value
+            ,
         }
     }
 }
+

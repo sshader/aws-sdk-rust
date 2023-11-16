@@ -5,69 +5,65 @@ pub use crate::operation::delete_web_acl::_delete_web_acl_input::DeleteWebAclInp
 
 impl DeleteWebAclInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::delete_web_acl::DeleteWebAclOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_web_acl::DeleteWebACLError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.delete_web_acl();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::delete_web_acl::DeleteWebAclOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::delete_web_acl::DeleteWebACLError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.delete_web_acl();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `DeleteWebACL`.
-///
-/// <p>Deletes the specified <code>WebACL</code>. </p>
-/// <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <code>WebACL</code>. </p> <note>
-/// <p>Before deleting any web ACL, first disassociate it from all resources.</p>
-/// <ul>
-/// <li> <p>To retrieve a list of the resources that are associated with a web ACL, use the following calls:</p>
-/// <ul>
-/// <li> <p>For regional resources, call <code>ListResourcesForWebACL</code>.</p> </li>
-/// <li> <p>For Amazon CloudFront distributions, use the CloudFront call <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a> in the <i>Amazon CloudFront API Reference</i>. </p> </li>
-/// </ul> </li>
-/// <li> <p>To disassociate a resource from a web ACL, use the following calls:</p>
-/// <ul>
-/// <li> <p>For regional resources, call <code>DisassociateWebACL</code>.</p> </li>
-/// <li> <p>For Amazon CloudFront distributions, provide an empty web ACL ID in the CloudFront call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a> in the <i>Amazon CloudFront API Reference</i>. </p> </li>
-/// </ul> </li>
-/// </ul>
+/// 
+/// <p>Deletes the specified <code>WebACL</code>. </p> 
+/// <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <code>WebACL</code>. </p> <note> 
+/// <p>Before deleting any web ACL, first disassociate it from all resources.</p> 
+/// <ul> 
+/// <li> <p>To retrieve a list of the resources that are associated with a web ACL, use the following calls:</p> 
+/// <ul> 
+/// <li> <p>For regional resources, call <code>ListResourcesForWebACL</code>.</p> </li> 
+/// <li> <p>For Amazon CloudFront distributions, use the CloudFront call <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a> in the <i>Amazon CloudFront API Reference</i>. </p> </li> 
+/// </ul> </li> 
+/// <li> <p>To disassociate a resource from a web ACL, use the following calls:</p> 
+/// <ul> 
+/// <li> <p>For regional resources, call <code>DisassociateWebACL</code>.</p> </li> 
+/// <li> <p>For Amazon CloudFront distributions, provide an empty web ACL ID in the CloudFront call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a> in the <i>Amazon CloudFront API Reference</i>. </p> </li> 
+/// </ul> </li> 
+/// </ul> 
 /// </note>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteWebACLFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::delete_web_acl::builders::DeleteWebAclInputBuilder,
+                    inner: crate::operation::delete_web_acl::builders::DeleteWebAclInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::delete_web_acl::DeleteWebAclOutput,
-        crate::operation::delete_web_acl::DeleteWebACLError,
-    > for DeleteWebACLFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::delete_web_acl::DeleteWebAclOutput,
-            crate::operation::delete_web_acl::DeleteWebACLError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::delete_web_acl::DeleteWebAclOutput,
+                    crate::operation::delete_web_acl::DeleteWebACLError,
+                > for DeleteWebACLFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::delete_web_acl::DeleteWebAclOutput,
+                        crate::operation::delete_web_acl::DeleteWebACLError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl DeleteWebACLFluentBuilder {
     /// Creates a new `DeleteWebACL`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -76,53 +72,44 @@ impl DeleteWebACLFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_web_acl::DeleteWebAclOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_web_acl::DeleteWebACLError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_web_acl::DeleteWebACL::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_web_acl::DeleteWebACL::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::delete_web_acl::DeleteWebAclOutput,
-        crate::operation::delete_web_acl::DeleteWebACLError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::delete_web_acl::DeleteWebAclOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_web_acl::DeleteWebACLError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::delete_web_acl::DeleteWebACL::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::delete_web_acl::DeleteWebACL::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::delete_web_acl::DeleteWebAclOutput, crate::operation::delete_web_acl::DeleteWebACLError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The name of the web ACL. You cannot change the name of a web ACL after you create it.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.name(input.into());
@@ -137,31 +124,31 @@ impl DeleteWebACLFluentBuilder {
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_name()
     }
-    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
-    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-    /// <ul>
-    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li>
-    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li>
+    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p> 
+    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> 
+    /// <ul> 
+    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> 
+    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> 
     /// </ul>
     pub fn scope(mut self, input: crate::types::Scope) -> Self {
         self.inner = self.inner.scope(input);
         self
     }
-    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
-    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-    /// <ul>
-    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li>
-    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li>
+    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p> 
+    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> 
+    /// <ul> 
+    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> 
+    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> 
     /// </ul>
     pub fn set_scope(mut self, input: ::std::option::Option<crate::types::Scope>) -> Self {
         self.inner = self.inner.set_scope(input);
         self
     }
-    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
-    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-    /// <ul>
-    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li>
-    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li>
+    /// <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p> 
+    /// <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> 
+    /// <ul> 
+    /// <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> 
+    /// <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> 
     /// </ul>
     pub fn get_scope(&self) -> &::std::option::Option<crate::types::Scope> {
         self.inner.get_scope()
@@ -195,3 +182,4 @@ impl DeleteWebACLFluentBuilder {
         self.inner.get_lock_token()
     }
 }
+

@@ -3,41 +3,41 @@
 /// <p>An object containing details about a specific event.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct InsightsEvent {
+pub struct InsightsEvent  {
     /// <p>The timestamp of the event.</p>
     pub timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>The type of event:</p>
-    /// <ul>
-    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li>
-    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li>
-    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li>
+    /// <p>The type of event:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li> 
+    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li> 
+    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li> 
     /// </ul>
     pub r#type: ::std::option::Option<crate::types::EventType>,
     /// <p>Details about bounce or complaint events.</p>
     pub details: ::std::option::Option<crate::types::EventDetails>,
 }
-impl InsightsEvent {
+impl  InsightsEvent  {
     /// <p>The timestamp of the event.</p>
-    pub fn timestamp(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn timestamp(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.timestamp.as_ref()
     }
-    /// <p>The type of event:</p>
-    /// <ul>
-    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li>
-    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li>
-    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li>
+    /// <p>The type of event:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li> 
+    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li> 
+    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::EventType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::EventType> {
         self.r#type.as_ref()
     }
     /// <p>Details about bounce or complaint events.</p>
-    pub fn details(&self) -> ::std::option::Option<&crate::types::EventDetails> {
+    pub fn details(&self) -> ::std::option::Option<& crate::types::EventDetails> {
         self.details.as_ref()
     }
 }
@@ -64,47 +64,45 @@ impl InsightsEventBuilder {
     }
     /// <p>The timestamp of the event.</p>
     pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.timestamp = input;
-        self
+        self.timestamp = input; self
     }
     /// <p>The timestamp of the event.</p>
     pub fn get_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.timestamp
     }
-    /// <p>The type of event:</p>
-    /// <ul>
-    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li>
-    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li>
-    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li>
+    /// <p>The type of event:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li> 
+    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li> 
+    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: crate::types::EventType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of event:</p>
-    /// <ul>
-    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li>
-    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li>
-    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li>
+    /// <p>The type of event:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li> 
+    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li> 
+    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::EventType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of event:</p>
-    /// <ul>
-    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li>
-    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li>
-    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li>
-    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li>
+    /// <p>The type of event:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SEND</code> - The send request was successful and SES will attempt to deliver the message to the recipient’s mail server. (If account-level or global suppression is being used, SES will still count it as a send, but delivery is suppressed.) </p> </li> 
+    /// <li> <p> <code>DELIVERY</code> - SES successfully delivered the email to the recipient's mail server. Excludes deliveries to the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>BOUNCE</code> - Feedback received for delivery failures. Additional details about the bounce are provided in the <code>Details</code> object. Excludes bounces from the mailbox simulator, and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>COMPLAINT</code> - Complaint received for the email. Additional details about the complaint are provided in the <code>Details</code> object. This excludes complaints from the mailbox simulator, those originating from your account-level suppression list (if enabled), and those from emails addressed to more than one recipient. </p> </li> 
+    /// <li> <p> <code>OPEN</code> - Open event for emails including open trackers. Excludes opens for emails addressed to more than one recipient.</p> </li> 
+    /// <li> <p> <code>CLICK</code> - Click event for emails including wrapped links. Excludes clicks for emails addressed to more than one recipient.</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::EventType> {
         &self.r#type
@@ -116,8 +114,7 @@ impl InsightsEventBuilder {
     }
     /// <p>Details about bounce or complaint events.</p>
     pub fn set_details(mut self, input: ::std::option::Option<crate::types::EventDetails>) -> Self {
-        self.details = input;
-        self
+        self.details = input; self
     }
     /// <p>Details about bounce or complaint events.</p>
     pub fn get_details(&self) -> &::std::option::Option<crate::types::EventDetails> {
@@ -126,9 +123,13 @@ impl InsightsEventBuilder {
     /// Consumes the builder and constructs a [`InsightsEvent`](crate::types::InsightsEvent).
     pub fn build(self) -> crate::types::InsightsEvent {
         crate::types::InsightsEvent {
-            timestamp: self.timestamp,
-            r#type: self.r#type,
-            details: self.details,
+            timestamp: self.timestamp
+            ,
+            r#type: self.r#type
+            ,
+            details: self.details
+            ,
         }
     }
 }
+

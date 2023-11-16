@@ -3,7 +3,7 @@
 /// <p>Contains a summary of an app authorization.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AppAuthorizationSummary {
+pub struct AppAuthorizationSummary  {
     /// <p>The Amazon Resource Name (ARN) of the app authorization.</p>
     pub app_authorization_arn: ::std::string::String,
     /// <p>The Amazon Resource Name (ARN) of the app bundle for the app authorization.</p>
@@ -12,51 +12,48 @@ pub struct AppAuthorizationSummary {
     pub app: ::std::string::String,
     /// <p>Contains information about an application tenant, such as the application display name and identifier.</p>
     pub tenant: ::std::option::Option<crate::types::Tenant>,
-    /// <p>The state of the app authorization.</p>
-    /// <p>The following states are possible:</p>
-    /// <ul>
-    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li>
-    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li>
-    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li>
-    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li>
+    /// <p>The state of the app authorization.</p> 
+    /// <p>The following states are possible:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li> 
+    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li> 
+    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li> 
+    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li> 
     /// </ul>
     pub status: crate::types::AppAuthorizationStatus,
     /// <p>Timestamp for when the app authorization was last updated.</p>
     pub updated_at: ::aws_smithy_types::DateTime,
 }
-impl AppAuthorizationSummary {
+impl  AppAuthorizationSummary  {
     /// <p>The Amazon Resource Name (ARN) of the app authorization.</p>
-    pub fn app_authorization_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.app_authorization_arn.deref()
+    pub fn app_authorization_arn(&self) -> & str {
+        use std::ops::Deref; self.app_authorization_arn.deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the app bundle for the app authorization.</p>
-    pub fn app_bundle_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.app_bundle_arn.deref()
+    pub fn app_bundle_arn(&self) -> & str {
+        use std::ops::Deref; self.app_bundle_arn.deref()
     }
     /// <p>The name of the application.</p>
-    pub fn app(&self) -> &str {
-        use std::ops::Deref;
-        self.app.deref()
+    pub fn app(&self) -> & str {
+        use std::ops::Deref; self.app.deref()
     }
     /// <p>Contains information about an application tenant, such as the application display name and identifier.</p>
-    pub fn tenant(&self) -> ::std::option::Option<&crate::types::Tenant> {
+    pub fn tenant(&self) -> ::std::option::Option<& crate::types::Tenant> {
         self.tenant.as_ref()
     }
-    /// <p>The state of the app authorization.</p>
-    /// <p>The following states are possible:</p>
-    /// <ul>
-    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li>
-    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li>
-    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li>
-    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li>
+    /// <p>The state of the app authorization.</p> 
+    /// <p>The following states are possible:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li> 
+    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li> 
+    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li> 
+    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li> 
     /// </ul>
-    pub fn status(&self) -> &crate::types::AppAuthorizationStatus {
+    pub fn status(&self) -> & crate::types::AppAuthorizationStatus {
         &self.status
     }
     /// <p>Timestamp for when the app authorization was last updated.</p>
-    pub fn updated_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn updated_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.updated_at
     }
 }
@@ -87,8 +84,7 @@ impl AppAuthorizationSummaryBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the app authorization.</p>
     pub fn set_app_authorization_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.app_authorization_arn = input;
-        self
+        self.app_authorization_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the app authorization.</p>
     pub fn get_app_authorization_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -102,8 +98,7 @@ impl AppAuthorizationSummaryBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the app bundle for the app authorization.</p>
     pub fn set_app_bundle_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.app_bundle_arn = input;
-        self
+        self.app_bundle_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the app bundle for the app authorization.</p>
     pub fn get_app_bundle_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -117,8 +112,7 @@ impl AppAuthorizationSummaryBuilder {
     }
     /// <p>The name of the application.</p>
     pub fn set_app(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.app = input;
-        self
+        self.app = input; self
     }
     /// <p>The name of the application.</p>
     pub fn get_app(&self) -> &::std::option::Option<::std::string::String> {
@@ -132,45 +126,43 @@ impl AppAuthorizationSummaryBuilder {
     }
     /// <p>Contains information about an application tenant, such as the application display name and identifier.</p>
     pub fn set_tenant(mut self, input: ::std::option::Option<crate::types::Tenant>) -> Self {
-        self.tenant = input;
-        self
+        self.tenant = input; self
     }
     /// <p>Contains information about an application tenant, such as the application display name and identifier.</p>
     pub fn get_tenant(&self) -> &::std::option::Option<crate::types::Tenant> {
         &self.tenant
     }
-    /// <p>The state of the app authorization.</p>
-    /// <p>The following states are possible:</p>
-    /// <ul>
-    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li>
-    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li>
-    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li>
-    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li>
+    /// <p>The state of the app authorization.</p> 
+    /// <p>The following states are possible:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li> 
+    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li> 
+    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li> 
+    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn status(mut self, input: crate::types::AppAuthorizationStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The state of the app authorization.</p>
-    /// <p>The following states are possible:</p>
-    /// <ul>
-    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li>
-    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li>
-    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li>
-    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li>
+    /// <p>The state of the app authorization.</p> 
+    /// <p>The following states are possible:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li> 
+    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li> 
+    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li> 
+    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li> 
     /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::AppAuthorizationStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
-    /// <p>The state of the app authorization.</p>
-    /// <p>The following states are possible:</p>
-    /// <ul>
-    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li>
-    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li>
-    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li>
-    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li>
+    /// <p>The state of the app authorization.</p> 
+    /// <p>The following states are possible:</p> 
+    /// <ul> 
+    /// <li> <p> <code>PendingConnect</code>: The initial state of the app authorization. The app authorization is created but not yet connected.</p> </li> 
+    /// <li> <p> <code>Connected</code>: The app authorization is connected to the application, and is ready to be used.</p> </li> 
+    /// <li> <p> <code>ConnectionValidationFailed</code>: The app authorization received a validation exception when trying to connect to the application. If the app authorization is in this state, you should verify the configured credentials and try to connect the app authorization again.</p> </li> 
+    /// <li> <p> <code>TokenAutoRotationFailed</code>: AppFabric failed to refresh the access token. If the app authorization is in this state, you should try to reconnect the app authorization.</p> </li> 
     /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::AppAuthorizationStatus> {
         &self.status
@@ -183,8 +175,7 @@ impl AppAuthorizationSummaryBuilder {
     }
     /// <p>Timestamp for when the app authorization was last updated.</p>
     pub fn set_updated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.updated_at = input;
-        self
+        self.updated_at = input; self
     }
     /// <p>Timestamp for when the app authorization was last updated.</p>
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -198,38 +189,37 @@ impl AppAuthorizationSummaryBuilder {
     /// - [`status`](crate::types::builders::AppAuthorizationSummaryBuilder::status)
     /// - [`updated_at`](crate::types::builders::AppAuthorizationSummaryBuilder::updated_at)
     pub fn build(self) -> ::std::result::Result<crate::types::AppAuthorizationSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::AppAuthorizationSummary {
-            app_authorization_arn: self.app_authorization_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "app_authorization_arn",
-                    "app_authorization_arn was not specified but it is required when building AppAuthorizationSummary",
-                )
-            })?,
-            app_bundle_arn: self.app_bundle_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "app_bundle_arn",
-                    "app_bundle_arn was not specified but it is required when building AppAuthorizationSummary",
-                )
-            })?,
-            app: self.app.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "app",
-                    "app was not specified but it is required when building AppAuthorizationSummary",
-                )
-            })?,
-            tenant: self.tenant,
-            status: self.status.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "status",
-                    "status was not specified but it is required when building AppAuthorizationSummary",
-                )
-            })?,
-            updated_at: self.updated_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "updated_at",
-                    "updated_at was not specified but it is required when building AppAuthorizationSummary",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::AppAuthorizationSummary {
+                app_authorization_arn: self.app_authorization_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("app_authorization_arn", "app_authorization_arn was not specified but it is required when building AppAuthorizationSummary")
+                    )?
+                ,
+                app_bundle_arn: self.app_bundle_arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("app_bundle_arn", "app_bundle_arn was not specified but it is required when building AppAuthorizationSummary")
+                    )?
+                ,
+                app: self.app
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("app", "app was not specified but it is required when building AppAuthorizationSummary")
+                    )?
+                ,
+                tenant: self.tenant
+                ,
+                status: self.status
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building AppAuthorizationSummary")
+                    )?
+                ,
+                updated_at: self.updated_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("updated_at", "updated_at was not specified but it is required when building AppAuthorizationSummary")
+                    )?
+                ,
+            }
+        )
     }
 }
+

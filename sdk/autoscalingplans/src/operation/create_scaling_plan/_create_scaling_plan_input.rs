@@ -2,32 +2,33 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateScalingPlanInput {
+pub struct CreateScalingPlanInput  {
     /// <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.</p>
     pub scaling_plan_name: ::std::option::Option<::std::string::String>,
-    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p>
+    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
     pub application_source: ::std::option::Option<crate::types::ApplicationSource>,
-    /// <p>The scaling instructions.</p>
+    /// <p>The scaling instructions.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
-    pub scaling_instructions: ::std::option::Option<::std::vec::Vec<crate::types::ScalingInstruction>>,
+    pub scaling_instructions: ::std::option::Option<::std::vec::Vec::<crate::types::ScalingInstruction>>,
 }
-impl CreateScalingPlanInput {
+impl  CreateScalingPlanInput  {
     /// <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.</p>
-    pub fn scaling_plan_name(&self) -> ::std::option::Option<&str> {
+    pub fn scaling_plan_name(&self) -> ::std::option::Option<& str> {
         self.scaling_plan_name.as_deref()
     }
-    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p>
+    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
-    pub fn application_source(&self) -> ::std::option::Option<&crate::types::ApplicationSource> {
+    pub fn application_source(&self) -> ::std::option::Option<& crate::types::ApplicationSource> {
         self.application_source.as_ref()
     }
-    /// <p>The scaling instructions.</p>
+    /// <p>The scaling instructions.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.scaling_instructions.is_none()`.
-    pub fn scaling_instructions(&self) -> &[crate::types::ScalingInstruction] {
-        self.scaling_instructions.as_deref().unwrap_or_default()
+    pub fn scaling_instructions(&self) -> & [crate::types::ScalingInstruction] {
+        self.scaling_instructions.as_deref()
+        .unwrap_or_default()
     }
 }
 impl CreateScalingPlanInput {
@@ -43,7 +44,7 @@ impl CreateScalingPlanInput {
 pub struct CreateScalingPlanInputBuilder {
     pub(crate) scaling_plan_name: ::std::option::Option<::std::string::String>,
     pub(crate) application_source: ::std::option::Option<crate::types::ApplicationSource>,
-    pub(crate) scaling_instructions: ::std::option::Option<::std::vec::Vec<crate::types::ScalingInstruction>>,
+    pub(crate) scaling_instructions: ::std::option::Option<::std::vec::Vec::<crate::types::ScalingInstruction>>,
 }
 impl CreateScalingPlanInputBuilder {
     /// <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.</p>
@@ -54,27 +55,25 @@ impl CreateScalingPlanInputBuilder {
     }
     /// <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.</p>
     pub fn set_scaling_plan_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.scaling_plan_name = input;
-        self
+        self.scaling_plan_name = input; self
     }
     /// <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.</p>
     pub fn get_scaling_plan_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.scaling_plan_name
     }
-    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p>
+    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
     /// This field is required.
     pub fn application_source(mut self, input: crate::types::ApplicationSource) -> Self {
         self.application_source = ::std::option::Option::Some(input);
         self
     }
-    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p>
+    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
     pub fn set_application_source(mut self, input: ::std::option::Option<crate::types::ApplicationSource>) -> Self {
-        self.application_source = input;
-        self
+        self.application_source = input; self
     }
-    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p>
+    /// <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
     pub fn get_application_source(&self) -> &::std::option::Option<crate::types::ApplicationSource> {
         &self.application_source
@@ -83,33 +82,36 @@ impl CreateScalingPlanInputBuilder {
     ///
     /// To override the contents of this collection use [`set_scaling_instructions`](Self::set_scaling_instructions).
     ///
-    /// <p>The scaling instructions.</p>
+    /// <p>The scaling instructions.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
     pub fn scaling_instructions(mut self, input: crate::types::ScalingInstruction) -> Self {
         let mut v = self.scaling_instructions.unwrap_or_default();
-        v.push(input);
-        self.scaling_instructions = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.scaling_instructions = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>The scaling instructions.</p>
+    /// <p>The scaling instructions.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
-    pub fn set_scaling_instructions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ScalingInstruction>>) -> Self {
-        self.scaling_instructions = input;
-        self
+    pub fn set_scaling_instructions(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ScalingInstruction>>) -> Self {
+        self.scaling_instructions = input; self
     }
-    /// <p>The scaling instructions.</p>
+    /// <p>The scaling instructions.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
-    pub fn get_scaling_instructions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ScalingInstruction>> {
+    pub fn get_scaling_instructions(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ScalingInstruction>> {
         &self.scaling_instructions
     }
     /// Consumes the builder and constructs a [`CreateScalingPlanInput`](crate::operation::create_scaling_plan::CreateScalingPlanInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_scaling_plan::CreateScalingPlanInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_scaling_plan::CreateScalingPlanInput {
-            scaling_plan_name: self.scaling_plan_name,
-            application_source: self.application_source,
-            scaling_instructions: self.scaling_instructions,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_scaling_plan::CreateScalingPlanInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_scaling_plan::CreateScalingPlanInput {
+                scaling_plan_name: self.scaling_plan_name
+                ,
+                application_source: self.application_source
+                ,
+                scaling_instructions: self.scaling_instructions
+                ,
+            }
+        )
     }
 }
+

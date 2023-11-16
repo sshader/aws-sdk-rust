@@ -3,7 +3,7 @@
 /// <p>Represents information about the state of the stage.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct StageState {
+pub struct StageState  {
     /// <p>The name of the stage.</p>
     pub stage_name: ::std::option::Option<::std::string::String>,
     /// <p>Represents information about the run of a stage.</p>
@@ -11,31 +11,32 @@ pub struct StageState {
     /// <p>The state of the inbound transition, which is either enabled or disabled.</p>
     pub inbound_transition_state: ::std::option::Option<crate::types::TransitionState>,
     /// <p>The state of the stage.</p>
-    pub action_states: ::std::option::Option<::std::vec::Vec<crate::types::ActionState>>,
+    pub action_states: ::std::option::Option<::std::vec::Vec::<crate::types::ActionState>>,
     /// <p>Information about the latest execution in the stage, including its ID and status.</p>
     pub latest_execution: ::std::option::Option<crate::types::StageExecution>,
 }
-impl StageState {
+impl  StageState  {
     /// <p>The name of the stage.</p>
-    pub fn stage_name(&self) -> ::std::option::Option<&str> {
+    pub fn stage_name(&self) -> ::std::option::Option<& str> {
         self.stage_name.as_deref()
     }
     /// <p>Represents information about the run of a stage.</p>
-    pub fn inbound_execution(&self) -> ::std::option::Option<&crate::types::StageExecution> {
+    pub fn inbound_execution(&self) -> ::std::option::Option<& crate::types::StageExecution> {
         self.inbound_execution.as_ref()
     }
     /// <p>The state of the inbound transition, which is either enabled or disabled.</p>
-    pub fn inbound_transition_state(&self) -> ::std::option::Option<&crate::types::TransitionState> {
+    pub fn inbound_transition_state(&self) -> ::std::option::Option<& crate::types::TransitionState> {
         self.inbound_transition_state.as_ref()
     }
     /// <p>The state of the stage.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.action_states.is_none()`.
-    pub fn action_states(&self) -> &[crate::types::ActionState] {
-        self.action_states.as_deref().unwrap_or_default()
+    pub fn action_states(&self) -> & [crate::types::ActionState] {
+        self.action_states.as_deref()
+        .unwrap_or_default()
     }
     /// <p>Information about the latest execution in the stage, including its ID and status.</p>
-    pub fn latest_execution(&self) -> ::std::option::Option<&crate::types::StageExecution> {
+    pub fn latest_execution(&self) -> ::std::option::Option<& crate::types::StageExecution> {
         self.latest_execution.as_ref()
     }
 }
@@ -53,7 +54,7 @@ pub struct StageStateBuilder {
     pub(crate) stage_name: ::std::option::Option<::std::string::String>,
     pub(crate) inbound_execution: ::std::option::Option<crate::types::StageExecution>,
     pub(crate) inbound_transition_state: ::std::option::Option<crate::types::TransitionState>,
-    pub(crate) action_states: ::std::option::Option<::std::vec::Vec<crate::types::ActionState>>,
+    pub(crate) action_states: ::std::option::Option<::std::vec::Vec::<crate::types::ActionState>>,
     pub(crate) latest_execution: ::std::option::Option<crate::types::StageExecution>,
 }
 impl StageStateBuilder {
@@ -64,8 +65,7 @@ impl StageStateBuilder {
     }
     /// <p>The name of the stage.</p>
     pub fn set_stage_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.stage_name = input;
-        self
+        self.stage_name = input; self
     }
     /// <p>The name of the stage.</p>
     pub fn get_stage_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -78,8 +78,7 @@ impl StageStateBuilder {
     }
     /// <p>Represents information about the run of a stage.</p>
     pub fn set_inbound_execution(mut self, input: ::std::option::Option<crate::types::StageExecution>) -> Self {
-        self.inbound_execution = input;
-        self
+        self.inbound_execution = input; self
     }
     /// <p>Represents information about the run of a stage.</p>
     pub fn get_inbound_execution(&self) -> &::std::option::Option<crate::types::StageExecution> {
@@ -92,8 +91,7 @@ impl StageStateBuilder {
     }
     /// <p>The state of the inbound transition, which is either enabled or disabled.</p>
     pub fn set_inbound_transition_state(mut self, input: ::std::option::Option<crate::types::TransitionState>) -> Self {
-        self.inbound_transition_state = input;
-        self
+        self.inbound_transition_state = input; self
     }
     /// <p>The state of the inbound transition, which is either enabled or disabled.</p>
     pub fn get_inbound_transition_state(&self) -> &::std::option::Option<crate::types::TransitionState> {
@@ -106,17 +104,16 @@ impl StageStateBuilder {
     /// <p>The state of the stage.</p>
     pub fn action_states(mut self, input: crate::types::ActionState) -> Self {
         let mut v = self.action_states.unwrap_or_default();
-        v.push(input);
-        self.action_states = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.action_states = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The state of the stage.</p>
-    pub fn set_action_states(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ActionState>>) -> Self {
-        self.action_states = input;
-        self
+    pub fn set_action_states(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ActionState>>) -> Self {
+        self.action_states = input; self
     }
     /// <p>The state of the stage.</p>
-    pub fn get_action_states(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ActionState>> {
+    pub fn get_action_states(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ActionState>> {
         &self.action_states
     }
     /// <p>Information about the latest execution in the stage, including its ID and status.</p>
@@ -126,8 +123,7 @@ impl StageStateBuilder {
     }
     /// <p>Information about the latest execution in the stage, including its ID and status.</p>
     pub fn set_latest_execution(mut self, input: ::std::option::Option<crate::types::StageExecution>) -> Self {
-        self.latest_execution = input;
-        self
+        self.latest_execution = input; self
     }
     /// <p>Information about the latest execution in the stage, including its ID and status.</p>
     pub fn get_latest_execution(&self) -> &::std::option::Option<crate::types::StageExecution> {
@@ -136,11 +132,17 @@ impl StageStateBuilder {
     /// Consumes the builder and constructs a [`StageState`](crate::types::StageState).
     pub fn build(self) -> crate::types::StageState {
         crate::types::StageState {
-            stage_name: self.stage_name,
-            inbound_execution: self.inbound_execution,
-            inbound_transition_state: self.inbound_transition_state,
-            action_states: self.action_states,
-            latest_execution: self.latest_execution,
+            stage_name: self.stage_name
+            ,
+            inbound_execution: self.inbound_execution
+            ,
+            inbound_transition_state: self.inbound_transition_state
+            ,
+            action_states: self.action_states
+            ,
+            latest_execution: self.latest_execution
+            ,
         }
     }
 }
+

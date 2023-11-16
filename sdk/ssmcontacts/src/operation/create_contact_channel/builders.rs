@@ -5,54 +5,50 @@ pub use crate::operation::create_contact_channel::_create_contact_channel_input:
 
 impl CreateContactChannelInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_contact_channel::CreateContactChannelOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_contact_channel::CreateContactChannelError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_contact_channel();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_contact_channel::CreateContactChannelOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_contact_channel::CreateContactChannelError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_contact_channel();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateContactChannel`.
-///
+/// 
 /// <p>A contact channel is the method that Incident Manager uses to engage your contact.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateContactChannelFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_contact_channel::builders::CreateContactChannelInputBuilder,
+                    inner: crate::operation::create_contact_channel::builders::CreateContactChannelInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_contact_channel::CreateContactChannelOutput,
-        crate::operation::create_contact_channel::CreateContactChannelError,
-    > for CreateContactChannelFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_contact_channel::CreateContactChannelOutput,
-            crate::operation::create_contact_channel::CreateContactChannelError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_contact_channel::CreateContactChannelOutput,
+                    crate::operation::create_contact_channel::CreateContactChannelError,
+                > for CreateContactChannelFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_contact_channel::CreateContactChannelOutput,
+                        crate::operation::create_contact_channel::CreateContactChannelError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateContactChannelFluentBuilder {
     /// Creates a new `CreateContactChannel`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl CreateContactChannelFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_contact_channel::CreateContactChannelOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_contact_channel::CreateContactChannelError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_contact_channel::CreateContactChannel::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_contact_channel::CreateContactChannel::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_contact_channel::CreateContactChannelOutput,
-        crate::operation::create_contact_channel::CreateContactChannelError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_contact_channel::CreateContactChannelOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_contact_channel::CreateContactChannelError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_contact_channel::CreateContactChannel::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_contact_channel::CreateContactChannel::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_contact_channel::CreateContactChannelOutput, crate::operation::create_contact_channel::CreateContactChannelError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.</p>
     pub fn contact_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.contact_id(input.into());
@@ -136,60 +123,60 @@ impl CreateContactChannelFluentBuilder {
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_name()
     }
-    /// <p>Incident Manager supports three types of contact channels:</p>
-    /// <ul>
-    /// <li> <p> <code>SMS</code> </p> </li>
-    /// <li> <p> <code>VOICE</code> </p> </li>
-    /// <li> <p> <code>EMAIL</code> </p> </li>
+    /// <p>Incident Manager supports three types of contact channels:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SMS</code> </p> </li> 
+    /// <li> <p> <code>VOICE</code> </p> </li> 
+    /// <li> <p> <code>EMAIL</code> </p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: crate::types::ChannelType) -> Self {
         self.inner = self.inner.r#type(input);
         self
     }
-    /// <p>Incident Manager supports three types of contact channels:</p>
-    /// <ul>
-    /// <li> <p> <code>SMS</code> </p> </li>
-    /// <li> <p> <code>VOICE</code> </p> </li>
-    /// <li> <p> <code>EMAIL</code> </p> </li>
+    /// <p>Incident Manager supports three types of contact channels:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SMS</code> </p> </li> 
+    /// <li> <p> <code>VOICE</code> </p> </li> 
+    /// <li> <p> <code>EMAIL</code> </p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::ChannelType>) -> Self {
         self.inner = self.inner.set_type(input);
         self
     }
-    /// <p>Incident Manager supports three types of contact channels:</p>
-    /// <ul>
-    /// <li> <p> <code>SMS</code> </p> </li>
-    /// <li> <p> <code>VOICE</code> </p> </li>
-    /// <li> <p> <code>EMAIL</code> </p> </li>
+    /// <p>Incident Manager supports three types of contact channels:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SMS</code> </p> </li> 
+    /// <li> <p> <code>VOICE</code> </p> </li> 
+    /// <li> <p> <code>EMAIL</code> </p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::ChannelType> {
         self.inner.get_type()
     }
-    /// <p>The details that Incident Manager uses when trying to engage the contact channel. The format is dependent on the type of the contact channel. The following are the expected formats:</p>
-    /// <ul>
-    /// <li> <p>SMS - '+' followed by the country code and phone number</p> </li>
-    /// <li> <p>VOICE - '+' followed by the country code and phone number</p> </li>
-    /// <li> <p>EMAIL - any standard email format</p> </li>
+    /// <p>The details that Incident Manager uses when trying to engage the contact channel. The format is dependent on the type of the contact channel. The following are the expected formats:</p> 
+    /// <ul> 
+    /// <li> <p>SMS - '+' followed by the country code and phone number</p> </li> 
+    /// <li> <p>VOICE - '+' followed by the country code and phone number</p> </li> 
+    /// <li> <p>EMAIL - any standard email format</p> </li> 
     /// </ul>
     pub fn delivery_address(mut self, input: crate::types::ContactChannelAddress) -> Self {
         self.inner = self.inner.delivery_address(input);
         self
     }
-    /// <p>The details that Incident Manager uses when trying to engage the contact channel. The format is dependent on the type of the contact channel. The following are the expected formats:</p>
-    /// <ul>
-    /// <li> <p>SMS - '+' followed by the country code and phone number</p> </li>
-    /// <li> <p>VOICE - '+' followed by the country code and phone number</p> </li>
-    /// <li> <p>EMAIL - any standard email format</p> </li>
+    /// <p>The details that Incident Manager uses when trying to engage the contact channel. The format is dependent on the type of the contact channel. The following are the expected formats:</p> 
+    /// <ul> 
+    /// <li> <p>SMS - '+' followed by the country code and phone number</p> </li> 
+    /// <li> <p>VOICE - '+' followed by the country code and phone number</p> </li> 
+    /// <li> <p>EMAIL - any standard email format</p> </li> 
     /// </ul>
     pub fn set_delivery_address(mut self, input: ::std::option::Option<crate::types::ContactChannelAddress>) -> Self {
         self.inner = self.inner.set_delivery_address(input);
         self
     }
-    /// <p>The details that Incident Manager uses when trying to engage the contact channel. The format is dependent on the type of the contact channel. The following are the expected formats:</p>
-    /// <ul>
-    /// <li> <p>SMS - '+' followed by the country code and phone number</p> </li>
-    /// <li> <p>VOICE - '+' followed by the country code and phone number</p> </li>
-    /// <li> <p>EMAIL - any standard email format</p> </li>
+    /// <p>The details that Incident Manager uses when trying to engage the contact channel. The format is dependent on the type of the contact channel. The following are the expected formats:</p> 
+    /// <ul> 
+    /// <li> <p>SMS - '+' followed by the country code and phone number</p> </li> 
+    /// <li> <p>VOICE - '+' followed by the country code and phone number</p> </li> 
+    /// <li> <p>EMAIL - any standard email format</p> </li> 
     /// </ul>
     pub fn get_delivery_address(&self) -> &::std::option::Option<crate::types::ContactChannelAddress> {
         self.inner.get_delivery_address()
@@ -223,3 +210,4 @@ impl CreateContactChannelFluentBuilder {
         self.inner.get_idempotency_token()
     }
 }
+

@@ -16,7 +16,13 @@ pub enum Error {
     /// <p>The requested resource can't be found.</p>
     NotFoundException(crate::types::error::NotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    Unhandled(crate::error::sealed_unhandled::Unhandled)
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -27,28 +33,42 @@ impl ::std::fmt::Display for Error {
             Error::InvalidNextTokenException(inner) => inner.fmt(f),
             Error::InvalidParameterException(inner) => inner.fmt(f),
             Error::NotFoundException(inner) => inner.fmt(f),
-            Error::Unhandled(inner) => inner.fmt(f),
+            Error::Unhandled(_) => if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                        write!(f, "unhandled error ({code})")
+                                    } else {
+                                        f.write_str("unhandled error")
+                                    }
         }
     }
 }
 impl From<::aws_smithy_types::error::operation::BuildError> for Error {
-    fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
-        Error::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(value).build())
-    }
-}
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_services::DescribeServicesError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+                fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
+                    Error::Unhandled(crate::error::sealed_unhandled::Unhandled { source: value.into(), meta: ::std::default::Default::default() })
+                }
+            }
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
+                fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
+                    match self {
+                        Self::AccessDeniedException(inner) => inner.meta(),
+Self::ExpiredNextTokenException(inner) => inner.meta(),
+Self::InternalErrorException(inner) => inner.meta(),
+Self::InvalidNextTokenException(inner) => inner.meta(),
+Self::InvalidParameterException(inner) => inner.meta(),
+Self::NotFoundException(inner) => inner.meta(),
+                        Self::Unhandled(inner) => &inner.meta,
+                    }
+                }
+            }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_services::DescribeServicesError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_services::DescribeServicesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -64,53 +84,41 @@ impl From<crate::operation::describe_services::DescribeServicesError> for Error 
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_attribute_values::GetAttributeValuesError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_attribute_values::GetAttributeValuesError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_attribute_values::GetAttributeValuesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_attribute_values::GetAttributeValuesError> for Error {
     fn from(err: crate::operation::get_attribute_values::GetAttributeValuesError) -> Self {
         match err {
-            crate::operation::get_attribute_values::GetAttributeValuesError::ExpiredNextTokenException(inner) => {
-                Error::ExpiredNextTokenException(inner)
-            }
+            crate::operation::get_attribute_values::GetAttributeValuesError::ExpiredNextTokenException(inner) => Error::ExpiredNextTokenException(inner),
             crate::operation::get_attribute_values::GetAttributeValuesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::get_attribute_values::GetAttributeValuesError::InvalidNextTokenException(inner) => {
-                Error::InvalidNextTokenException(inner)
-            }
-            crate::operation::get_attribute_values::GetAttributeValuesError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::get_attribute_values::GetAttributeValuesError::InvalidNextTokenException(inner) => Error::InvalidNextTokenException(inner),
+            crate::operation::get_attribute_values::GetAttributeValuesError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
             crate::operation::get_attribute_values::GetAttributeValuesError::NotFoundException(inner) => Error::NotFoundException(inner),
             crate::operation::get_attribute_values::GetAttributeValuesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_price_list_file_url::GetPriceListFileUrlError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_price_list_file_url::GetPriceListFileUrlError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_price_list_file_url::GetPriceListFileUrlError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -118,30 +126,23 @@ impl From<crate::operation::get_price_list_file_url::GetPriceListFileUrlError> f
     fn from(err: crate::operation::get_price_list_file_url::GetPriceListFileUrlError) -> Self {
         match err {
             crate::operation::get_price_list_file_url::GetPriceListFileUrlError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::get_price_list_file_url::GetPriceListFileUrlError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
-            }
-            crate::operation::get_price_list_file_url::GetPriceListFileUrlError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::get_price_list_file_url::GetPriceListFileUrlError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::get_price_list_file_url::GetPriceListFileUrlError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
             crate::operation::get_price_list_file_url::GetPriceListFileUrlError::NotFoundException(inner) => Error::NotFoundException(inner),
             crate::operation::get_price_list_file_url::GetPriceListFileUrlError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_products::GetProductsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_products::GetProductsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_products::GetProductsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -157,19 +158,16 @@ impl From<crate::operation::get_products::GetProductsError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_price_lists::ListPriceListsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_price_lists::ListPriceListsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_price_lists::ListPriceListsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -195,11 +193,11 @@ impl ::std::error::Error for Error {
             Error::InvalidNextTokenException(inner) => inner.source(),
             Error::InvalidParameterException(inner) => inner.source(),
             Error::NotFoundException(inner) => inner.source(),
-            Error::Unhandled(inner) => inner.source(),
+            Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source)
         }
     }
 }
-impl ::aws_http::request_id::RequestId for Error {
+impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             Self::AccessDeniedException(e) => e.request_id(),
@@ -208,7 +206,8 @@ impl ::aws_http::request_id::RequestId for Error {
             Self::InvalidNextTokenException(e) => e.request_id(),
             Self::InvalidParameterException(e) => e.request_id(),
             Self::NotFoundException(e) => e.request_id(),
-            Self::Unhandled(e) => e.request_id(),
+            Self::Unhandled(e) => e.meta.request_id(),
         }
     }
 }
+

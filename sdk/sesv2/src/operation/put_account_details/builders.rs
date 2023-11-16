@@ -5,54 +5,50 @@ pub use crate::operation::put_account_details::_put_account_details_input::PutAc
 
 impl PutAccountDetailsInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::put_account_details::PutAccountDetailsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_details::PutAccountDetailsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.put_account_details();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::put_account_details::PutAccountDetailsOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::put_account_details::PutAccountDetailsError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.put_account_details();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `PutAccountDetails`.
-///
+/// 
 /// <p>Update your Amazon SES account details.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct PutAccountDetailsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::put_account_details::builders::PutAccountDetailsInputBuilder,
+                    inner: crate::operation::put_account_details::builders::PutAccountDetailsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::put_account_details::PutAccountDetailsOutput,
-        crate::operation::put_account_details::PutAccountDetailsError,
-    > for PutAccountDetailsFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::put_account_details::PutAccountDetailsOutput,
-            crate::operation::put_account_details::PutAccountDetailsError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::put_account_details::PutAccountDetailsOutput,
+                    crate::operation::put_account_details::PutAccountDetailsError,
+                > for PutAccountDetailsFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::put_account_details::PutAccountDetailsOutput,
+                        crate::operation::put_account_details::PutAccountDetailsError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl PutAccountDetailsFluentBuilder {
     /// Creates a new `PutAccountDetails`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl PutAccountDetailsFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::put_account_details::PutAccountDetailsOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_details::PutAccountDetailsError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_account_details::PutAccountDetails::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_account_details::PutAccountDetails::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::put_account_details::PutAccountDetailsOutput,
-        crate::operation::put_account_details::PutAccountDetailsError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::put_account_details::PutAccountDetailsOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_details::PutAccountDetailsError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::put_account_details::PutAccountDetails::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::put_account_details::PutAccountDetails::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::put_account_details::PutAccountDetailsOutput, crate::operation::put_account_details::PutAccountDetailsError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The type of email your account will send.</p>
     pub fn mail_type(mut self, input: crate::types::MailType) -> Self {
         self.inner = self.inner.mail_type(input);
@@ -174,32 +161,33 @@ impl PutAccountDetailsFluentBuilder {
         self
     }
     /// <p>Additional email addresses that you would like to be notified regarding Amazon SES matters.</p>
-    pub fn set_additional_contact_email_addresses(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_additional_contact_email_addresses(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_additional_contact_email_addresses(input);
         self
     }
     /// <p>Additional email addresses that you would like to be notified regarding Amazon SES matters.</p>
-    pub fn get_additional_contact_email_addresses(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_additional_contact_email_addresses(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_additional_contact_email_addresses()
     }
-    /// <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p>
-    /// <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p>
+    /// <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p> 
+    /// <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p> 
     /// <p>If the value is <code>true</code>, then your account has production access. When your account has production access, you can send email to any address. The sending quota and maximum sending rate for your account vary based on your specific use case.</p>
     pub fn production_access_enabled(mut self, input: bool) -> Self {
         self.inner = self.inner.production_access_enabled(input);
         self
     }
-    /// <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p>
-    /// <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p>
+    /// <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p> 
+    /// <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p> 
     /// <p>If the value is <code>true</code>, then your account has production access. When your account has production access, you can send email to any address. The sending quota and maximum sending rate for your account vary based on your specific use case.</p>
     pub fn set_production_access_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_production_access_enabled(input);
         self
     }
-    /// <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p>
-    /// <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p>
+    /// <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p> 
+    /// <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p> 
     /// <p>If the value is <code>true</code>, then your account has production access. When your account has production access, you can send email to any address. The sending quota and maximum sending rate for your account vary based on your specific use case.</p>
     pub fn get_production_access_enabled(&self) -> &::std::option::Option<bool> {
         self.inner.get_production_access_enabled()
     }
 }
+

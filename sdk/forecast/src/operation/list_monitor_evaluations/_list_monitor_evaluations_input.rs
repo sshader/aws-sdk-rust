@@ -2,27 +2,27 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListMonitorEvaluationsInput {
+pub struct ListMonitorEvaluationsInput  {
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of monitoring results to return.</p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>The Amazon Resource Name (ARN) of the monitor resource to get results from.</p>
     pub monitor_arn: ::std::option::Option<::std::string::String>,
-    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p>
-    /// <p> <b>Filter properties</b> </p>
-    /// <ul>
-    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li>
-    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li>
-    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li>
-    /// </ul>
-    /// <p>For example, to list only successful monitor evaluations, you would specify:</p>
+    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p> 
+    /// <p> <b>Filter properties</b> </p> 
+    /// <ul> 
+    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li> 
+    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li> 
+    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li> 
+    /// </ul> 
+    /// <p>For example, to list only successful monitor evaluations, you would specify:</p> 
     /// <p> <code>"Filters": [ { "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" } ]</code> </p>
-    pub filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    pub filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
 }
-impl ListMonitorEvaluationsInput {
+impl  ListMonitorEvaluationsInput  {
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// <p>The maximum number of monitoring results to return.</p>
@@ -30,22 +30,23 @@ impl ListMonitorEvaluationsInput {
         self.max_results
     }
     /// <p>The Amazon Resource Name (ARN) of the monitor resource to get results from.</p>
-    pub fn monitor_arn(&self) -> ::std::option::Option<&str> {
+    pub fn monitor_arn(&self) -> ::std::option::Option<& str> {
         self.monitor_arn.as_deref()
     }
-    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p>
-    /// <p> <b>Filter properties</b> </p>
-    /// <ul>
-    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li>
-    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li>
-    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li>
-    /// </ul>
-    /// <p>For example, to list only successful monitor evaluations, you would specify:</p>
+    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p> 
+    /// <p> <b>Filter properties</b> </p> 
+    /// <ul> 
+    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li> 
+    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li> 
+    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li> 
+    /// </ul> 
+    /// <p>For example, to list only successful monitor evaluations, you would specify:</p> 
     /// <p> <code>"Filters": [ { "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" } ]</code> </p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filters.is_none()`.
-    pub fn filters(&self) -> &[crate::types::Filter] {
-        self.filters.as_deref().unwrap_or_default()
+    pub fn filters(&self) -> & [crate::types::Filter] {
+        self.filters.as_deref()
+        .unwrap_or_default()
     }
 }
 impl ListMonitorEvaluationsInput {
@@ -62,7 +63,7 @@ pub struct ListMonitorEvaluationsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) monitor_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    pub(crate) filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
 }
 impl ListMonitorEvaluationsInputBuilder {
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
@@ -72,8 +73,7 @@ impl ListMonitorEvaluationsInputBuilder {
     }
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -86,8 +86,7 @@ impl ListMonitorEvaluationsInputBuilder {
     }
     /// <p>The maximum number of monitoring results to return.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of monitoring results to return.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
@@ -101,8 +100,7 @@ impl ListMonitorEvaluationsInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the monitor resource to get results from.</p>
     pub fn set_monitor_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.monitor_arn = input;
-        self
+        self.monitor_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the monitor resource to get results from.</p>
     pub fn get_monitor_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -112,58 +110,59 @@ impl ListMonitorEvaluationsInputBuilder {
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
     ///
-    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p>
-    /// <p> <b>Filter properties</b> </p>
-    /// <ul>
-    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li>
-    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li>
-    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li>
-    /// </ul>
-    /// <p>For example, to list only successful monitor evaluations, you would specify:</p>
+    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p> 
+    /// <p> <b>Filter properties</b> </p> 
+    /// <ul> 
+    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li> 
+    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li> 
+    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li> 
+    /// </ul> 
+    /// <p>For example, to list only successful monitor evaluations, you would specify:</p> 
     /// <p> <code>"Filters": [ { "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" } ]</code> </p>
     pub fn filters(mut self, input: crate::types::Filter) -> Self {
         let mut v = self.filters.unwrap_or_default();
-        v.push(input);
-        self.filters = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.filters = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p>
-    /// <p> <b>Filter properties</b> </p>
-    /// <ul>
-    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li>
-    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li>
-    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li>
-    /// </ul>
-    /// <p>For example, to list only successful monitor evaluations, you would specify:</p>
+    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p> 
+    /// <p> <b>Filter properties</b> </p> 
+    /// <ul> 
+    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li> 
+    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li> 
+    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li> 
+    /// </ul> 
+    /// <p>For example, to list only successful monitor evaluations, you would specify:</p> 
     /// <p> <code>"Filters": [ { "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" } ]</code> </p>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
-        self.filters = input;
-        self
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>) -> Self {
+        self.filters = input; self
     }
-    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p>
-    /// <p> <b>Filter properties</b> </p>
-    /// <ul>
-    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li>
-    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li>
-    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li>
-    /// </ul>
-    /// <p>For example, to list only successful monitor evaluations, you would specify:</p>
+    /// <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p> 
+    /// <p> <b>Filter properties</b> </p> 
+    /// <ul> 
+    /// <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li> 
+    /// <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li> 
+    /// <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li> 
+    /// </ul> 
+    /// <p>For example, to list only successful monitor evaluations, you would specify:</p> 
     /// <p> <code>"Filters": [ { "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" } ]</code> </p>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Filter>> {
         &self.filters
     }
     /// Consumes the builder and constructs a [`ListMonitorEvaluationsInput`](crate::operation::list_monitor_evaluations::ListMonitorEvaluationsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_monitor_evaluations::ListMonitorEvaluationsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::list_monitor_evaluations::ListMonitorEvaluationsInput {
-            next_token: self.next_token,
-            max_results: self.max_results,
-            monitor_arn: self.monitor_arn,
-            filters: self.filters,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_monitor_evaluations::ListMonitorEvaluationsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_monitor_evaluations::ListMonitorEvaluationsInput {
+                next_token: self.next_token
+                ,
+                max_results: self.max_results
+                ,
+                monitor_arn: self.monitor_arn
+                ,
+                filters: self.filters
+                ,
+            }
+        )
     }
 }
+

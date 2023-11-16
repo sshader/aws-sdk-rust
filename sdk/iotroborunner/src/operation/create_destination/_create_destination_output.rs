@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateDestinationOutput {
+pub struct CreateDestinationOutput  {
     /// Destination ARN.
     pub arn: ::std::string::String,
     /// Filters access by the destination's identifier
@@ -15,35 +15,33 @@ pub struct CreateDestinationOutput {
     pub state: crate::types::DestinationState,
     _request_id: Option<String>,
 }
-impl CreateDestinationOutput {
+impl  CreateDestinationOutput  {
     /// Destination ARN.
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> & str {
+        use std::ops::Deref; self.arn.deref()
     }
     /// Filters access by the destination's identifier
-    pub fn id(&self) -> &str {
-        use std::ops::Deref;
-        self.id.deref()
+    pub fn id(&self) -> & str {
+        use std::ops::Deref; self.id.deref()
     }
     /// Timestamp at which the resource was created.
-    pub fn created_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn created_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.created_at
     }
     /// Timestamp at which the resource was last updated.
-    pub fn updated_at(&self) -> &::aws_smithy_types::DateTime {
+    pub fn updated_at(&self) -> & ::aws_smithy_types::DateTime {
         &self.updated_at
     }
     /// State of the destination.
-    pub fn state(&self) -> &crate::types::DestinationState {
+    pub fn state(&self) -> & crate::types::DestinationState {
         &self.state
     }
 }
-impl ::aws_http::request_id::RequestId for CreateDestinationOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for CreateDestinationOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl CreateDestinationOutput {
     /// Creates a new builder-style object to manufacture [`CreateDestinationOutput`](crate::operation::create_destination::CreateDestinationOutput).
     pub fn builder() -> crate::operation::create_destination::builders::CreateDestinationOutputBuilder {
@@ -71,8 +69,7 @@ impl CreateDestinationOutputBuilder {
     }
     /// Destination ARN.
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// Destination ARN.
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -86,8 +83,7 @@ impl CreateDestinationOutputBuilder {
     }
     /// Filters access by the destination's identifier
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// Filters access by the destination's identifier
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -101,8 +97,7 @@ impl CreateDestinationOutputBuilder {
     }
     /// Timestamp at which the resource was created.
     pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.created_at = input;
-        self
+        self.created_at = input; self
     }
     /// Timestamp at which the resource was created.
     pub fn get_created_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -116,8 +111,7 @@ impl CreateDestinationOutputBuilder {
     }
     /// Timestamp at which the resource was last updated.
     pub fn set_updated_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.updated_at = input;
-        self
+        self.updated_at = input; self
     }
     /// Timestamp at which the resource was last updated.
     pub fn get_updated_at(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -131,22 +125,21 @@ impl CreateDestinationOutputBuilder {
     }
     /// State of the destination.
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::DestinationState>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
     /// State of the destination.
     pub fn get_state(&self) -> &::std::option::Option<crate::types::DestinationState> {
         &self.state
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`CreateDestinationOutput`](crate::operation::create_destination::CreateDestinationOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](crate::operation::create_destination::builders::CreateDestinationOutputBuilder::arn)
@@ -154,41 +147,37 @@ impl CreateDestinationOutputBuilder {
     /// - [`created_at`](crate::operation::create_destination::builders::CreateDestinationOutputBuilder::created_at)
     /// - [`updated_at`](crate::operation::create_destination::builders::CreateDestinationOutputBuilder::updated_at)
     /// - [`state`](crate::operation::create_destination::builders::CreateDestinationOutputBuilder::state)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_destination::CreateDestinationOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_destination::CreateDestinationOutput {
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building CreateDestinationOutput",
-                )
-            })?,
-            id: self.id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "id",
-                    "id was not specified but it is required when building CreateDestinationOutput",
-                )
-            })?,
-            created_at: self.created_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "created_at",
-                    "created_at was not specified but it is required when building CreateDestinationOutput",
-                )
-            })?,
-            updated_at: self.updated_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "updated_at",
-                    "updated_at was not specified but it is required when building CreateDestinationOutput",
-                )
-            })?,
-            state: self.state.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "state",
-                    "state was not specified but it is required when building CreateDestinationOutput",
-                )
-            })?,
-            _request_id: self._request_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_destination::CreateDestinationOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_destination::CreateDestinationOutput {
+                arn: self.arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building CreateDestinationOutput")
+                    )?
+                ,
+                id: self.id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building CreateDestinationOutput")
+                    )?
+                ,
+                created_at: self.created_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("created_at", "created_at was not specified but it is required when building CreateDestinationOutput")
+                    )?
+                ,
+                updated_at: self.updated_at
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("updated_at", "updated_at was not specified but it is required when building CreateDestinationOutput")
+                    )?
+                ,
+                state: self.state
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("state", "state was not specified but it is required when building CreateDestinationOutput")
+                    )?
+                ,
+                _request_id: self._request_id,
+            }
+        )
     }
 }
+

@@ -3,29 +3,29 @@
 /// <p>Options for sending VPN tunnel logs to CloudWatch.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CloudWatchLogOptions {
-    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>
+pub struct CloudWatchLogOptions  {
+    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p> 
     /// <p>Valid values: <code>True</code> | <code>False</code> </p>
     pub log_enabled: ::std::option::Option<bool>,
     /// <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
     pub log_group_arn: ::std::option::Option<::std::string::String>,
-    /// <p>Configured log format. Default format is <code>json</code>.</p>
+    /// <p>Configured log format. Default format is <code>json</code>.</p> 
     /// <p>Valid values: <code>json</code> | <code>text</code> </p>
     pub log_output_format: ::std::option::Option<::std::string::String>,
 }
-impl CloudWatchLogOptions {
-    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>
+impl  CloudWatchLogOptions  {
+    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p> 
     /// <p>Valid values: <code>True</code> | <code>False</code> </p>
     pub fn log_enabled(&self) -> ::std::option::Option<bool> {
         self.log_enabled
     }
     /// <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
-    pub fn log_group_arn(&self) -> ::std::option::Option<&str> {
+    pub fn log_group_arn(&self) -> ::std::option::Option<& str> {
         self.log_group_arn.as_deref()
     }
-    /// <p>Configured log format. Default format is <code>json</code>.</p>
+    /// <p>Configured log format. Default format is <code>json</code>.</p> 
     /// <p>Valid values: <code>json</code> | <code>text</code> </p>
-    pub fn log_output_format(&self) -> ::std::option::Option<&str> {
+    pub fn log_output_format(&self) -> ::std::option::Option<& str> {
         self.log_output_format.as_deref()
     }
 }
@@ -45,19 +45,18 @@ pub struct CloudWatchLogOptionsBuilder {
     pub(crate) log_output_format: ::std::option::Option<::std::string::String>,
 }
 impl CloudWatchLogOptionsBuilder {
-    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>
+    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p> 
     /// <p>Valid values: <code>True</code> | <code>False</code> </p>
     pub fn log_enabled(mut self, input: bool) -> Self {
         self.log_enabled = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>
+    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p> 
     /// <p>Valid values: <code>True</code> | <code>False</code> </p>
     pub fn set_log_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.log_enabled = input;
-        self
+        self.log_enabled = input; self
     }
-    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>
+    /// <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p> 
     /// <p>Valid values: <code>True</code> | <code>False</code> </p>
     pub fn get_log_enabled(&self) -> &::std::option::Option<bool> {
         &self.log_enabled
@@ -69,26 +68,24 @@ impl CloudWatchLogOptionsBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
     pub fn set_log_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.log_group_arn = input;
-        self
+        self.log_group_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
     pub fn get_log_group_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.log_group_arn
     }
-    /// <p>Configured log format. Default format is <code>json</code>.</p>
+    /// <p>Configured log format. Default format is <code>json</code>.</p> 
     /// <p>Valid values: <code>json</code> | <code>text</code> </p>
     pub fn log_output_format(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_output_format = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Configured log format. Default format is <code>json</code>.</p>
+    /// <p>Configured log format. Default format is <code>json</code>.</p> 
     /// <p>Valid values: <code>json</code> | <code>text</code> </p>
     pub fn set_log_output_format(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.log_output_format = input;
-        self
+        self.log_output_format = input; self
     }
-    /// <p>Configured log format. Default format is <code>json</code>.</p>
+    /// <p>Configured log format. Default format is <code>json</code>.</p> 
     /// <p>Valid values: <code>json</code> | <code>text</code> </p>
     pub fn get_log_output_format(&self) -> &::std::option::Option<::std::string::String> {
         &self.log_output_format
@@ -96,9 +93,13 @@ impl CloudWatchLogOptionsBuilder {
     /// Consumes the builder and constructs a [`CloudWatchLogOptions`](crate::types::CloudWatchLogOptions).
     pub fn build(self) -> crate::types::CloudWatchLogOptions {
         crate::types::CloudWatchLogOptions {
-            log_enabled: self.log_enabled,
-            log_group_arn: self.log_group_arn,
-            log_output_format: self.log_output_format,
+            log_enabled: self.log_enabled
+            ,
+            log_group_arn: self.log_group_arn
+            ,
+            log_output_format: self.log_output_format
+            ,
         }
     }
 }
+

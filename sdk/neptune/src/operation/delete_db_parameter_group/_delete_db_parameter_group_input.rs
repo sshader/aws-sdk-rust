@@ -2,25 +2,25 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteDbParameterGroupInput {
-    /// <p>The name of the DB parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must be the name of an existing DB parameter group</p> </li>
-    /// <li> <p>You can't delete a default DB parameter group</p> </li>
-    /// <li> <p>Cannot be associated with any DB instances</p> </li>
+pub struct DeleteDbParameterGroupInput  {
+    /// <p>The name of the DB parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must be the name of an existing DB parameter group</p> </li> 
+    /// <li> <p>You can't delete a default DB parameter group</p> </li> 
+    /// <li> <p>Cannot be associated with any DB instances</p> </li> 
     /// </ul>
     pub db_parameter_group_name: ::std::option::Option<::std::string::String>,
 }
-impl DeleteDbParameterGroupInput {
-    /// <p>The name of the DB parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must be the name of an existing DB parameter group</p> </li>
-    /// <li> <p>You can't delete a default DB parameter group</p> </li>
-    /// <li> <p>Cannot be associated with any DB instances</p> </li>
+impl  DeleteDbParameterGroupInput  {
+    /// <p>The name of the DB parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must be the name of an existing DB parameter group</p> </li> 
+    /// <li> <p>You can't delete a default DB parameter group</p> </li> 
+    /// <li> <p>Cannot be associated with any DB instances</p> </li> 
     /// </ul>
-    pub fn db_parameter_group_name(&self) -> ::std::option::Option<&str> {
+    pub fn db_parameter_group_name(&self) -> ::std::option::Option<& str> {
         self.db_parameter_group_name.as_deref()
     }
 }
@@ -38,48 +38,46 @@ pub struct DeleteDbParameterGroupInputBuilder {
     pub(crate) db_parameter_group_name: ::std::option::Option<::std::string::String>,
 }
 impl DeleteDbParameterGroupInputBuilder {
-    /// <p>The name of the DB parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must be the name of an existing DB parameter group</p> </li>
-    /// <li> <p>You can't delete a default DB parameter group</p> </li>
-    /// <li> <p>Cannot be associated with any DB instances</p> </li>
+    /// <p>The name of the DB parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must be the name of an existing DB parameter group</p> </li> 
+    /// <li> <p>You can't delete a default DB parameter group</p> </li> 
+    /// <li> <p>Cannot be associated with any DB instances</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn db_parameter_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.db_parameter_group_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the DB parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must be the name of an existing DB parameter group</p> </li>
-    /// <li> <p>You can't delete a default DB parameter group</p> </li>
-    /// <li> <p>Cannot be associated with any DB instances</p> </li>
+    /// <p>The name of the DB parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must be the name of an existing DB parameter group</p> </li> 
+    /// <li> <p>You can't delete a default DB parameter group</p> </li> 
+    /// <li> <p>Cannot be associated with any DB instances</p> </li> 
     /// </ul>
     pub fn set_db_parameter_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.db_parameter_group_name = input;
-        self
+        self.db_parameter_group_name = input; self
     }
-    /// <p>The name of the DB parameter group.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Must be the name of an existing DB parameter group</p> </li>
-    /// <li> <p>You can't delete a default DB parameter group</p> </li>
-    /// <li> <p>Cannot be associated with any DB instances</p> </li>
+    /// <p>The name of the DB parameter group.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Must be the name of an existing DB parameter group</p> </li> 
+    /// <li> <p>You can't delete a default DB parameter group</p> </li> 
+    /// <li> <p>Cannot be associated with any DB instances</p> </li> 
     /// </ul>
     pub fn get_db_parameter_group_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.db_parameter_group_name
     }
     /// Consumes the builder and constructs a [`DeleteDbParameterGroupInput`](crate::operation::delete_db_parameter_group::DeleteDbParameterGroupInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_db_parameter_group::DeleteDbParameterGroupInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_db_parameter_group::DeleteDbParameterGroupInput {
-            db_parameter_group_name: self.db_parameter_group_name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_db_parameter_group::DeleteDbParameterGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_db_parameter_group::DeleteDbParameterGroupInput {
+                db_parameter_group_name: self.db_parameter_group_name
+                ,
+            }
+        )
     }
 }
+

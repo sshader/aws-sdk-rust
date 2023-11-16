@@ -3,19 +3,19 @@
 /// <p>(Discontinued) The classification type that Amazon Macie Classic applies to the associated S3 resources.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ClassificationType {
+pub struct ClassificationType  {
     /// <p>(Discontinued) A one-time classification of all of the existing objects in a specified S3 bucket. </p>
     pub one_time: crate::types::S3OneTimeClassificationType,
     /// <p>(Discontinued) A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is successfully associated with Macie Classic.</p>
     pub continuous: crate::types::S3ContinuousClassificationType,
 }
-impl ClassificationType {
+impl  ClassificationType  {
     /// <p>(Discontinued) A one-time classification of all of the existing objects in a specified S3 bucket. </p>
-    pub fn one_time(&self) -> &crate::types::S3OneTimeClassificationType {
+    pub fn one_time(&self) -> & crate::types::S3OneTimeClassificationType {
         &self.one_time
     }
     /// <p>(Discontinued) A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is successfully associated with Macie Classic.</p>
-    pub fn continuous(&self) -> &crate::types::S3ContinuousClassificationType {
+    pub fn continuous(&self) -> & crate::types::S3ContinuousClassificationType {
         &self.continuous
     }
 }
@@ -42,8 +42,7 @@ impl ClassificationTypeBuilder {
     }
     /// <p>(Discontinued) A one-time classification of all of the existing objects in a specified S3 bucket. </p>
     pub fn set_one_time(mut self, input: ::std::option::Option<crate::types::S3OneTimeClassificationType>) -> Self {
-        self.one_time = input;
-        self
+        self.one_time = input; self
     }
     /// <p>(Discontinued) A one-time classification of all of the existing objects in a specified S3 bucket. </p>
     pub fn get_one_time(&self) -> &::std::option::Option<crate::types::S3OneTimeClassificationType> {
@@ -57,8 +56,7 @@ impl ClassificationTypeBuilder {
     }
     /// <p>(Discontinued) A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is successfully associated with Macie Classic.</p>
     pub fn set_continuous(mut self, input: ::std::option::Option<crate::types::S3ContinuousClassificationType>) -> Self {
-        self.continuous = input;
-        self
+        self.continuous = input; self
     }
     /// <p>(Discontinued) A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is successfully associated with Macie Classic.</p>
     pub fn get_continuous(&self) -> &::std::option::Option<crate::types::S3ContinuousClassificationType> {
@@ -69,19 +67,20 @@ impl ClassificationTypeBuilder {
     /// - [`one_time`](crate::types::builders::ClassificationTypeBuilder::one_time)
     /// - [`continuous`](crate::types::builders::ClassificationTypeBuilder::continuous)
     pub fn build(self) -> ::std::result::Result<crate::types::ClassificationType, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ClassificationType {
-            one_time: self.one_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "one_time",
-                    "one_time was not specified but it is required when building ClassificationType",
-                )
-            })?,
-            continuous: self.continuous.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "continuous",
-                    "continuous was not specified but it is required when building ClassificationType",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::ClassificationType {
+                one_time: self.one_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("one_time", "one_time was not specified but it is required when building ClassificationType")
+                    )?
+                ,
+                continuous: self.continuous
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("continuous", "continuous was not specified but it is required when building ClassificationType")
+                    )?
+                ,
+            }
+        )
     }
 }
+

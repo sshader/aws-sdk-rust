@@ -3,7 +3,7 @@
 /// Represents the input of a ListWorkspaces operation.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListWorkspacesInput {
+pub struct ListWorkspacesInput  {
     /// Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListWorkspaces request.
     pub next_token: ::std::option::Option<::std::string::String>,
     /// Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned.
@@ -11,13 +11,13 @@ pub struct ListWorkspacesInput {
     /// Maximum results to return in response (default=100, maximum=1000).
     pub max_results: ::std::option::Option<i32>,
 }
-impl ListWorkspacesInput {
+impl  ListWorkspacesInput  {
     /// Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListWorkspaces request.
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
     /// Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned.
-    pub fn alias(&self) -> ::std::option::Option<&str> {
+    pub fn alias(&self) -> ::std::option::Option<& str> {
         self.alias.as_deref()
     }
     /// Maximum results to return in response (default=100, maximum=1000).
@@ -48,8 +48,7 @@ impl ListWorkspacesInputBuilder {
     }
     /// Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListWorkspaces request.
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListWorkspaces request.
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -62,8 +61,7 @@ impl ListWorkspacesInputBuilder {
     }
     /// Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned.
     pub fn set_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.alias = input;
-        self
+        self.alias = input; self
     }
     /// Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned.
     pub fn get_alias(&self) -> &::std::option::Option<::std::string::String> {
@@ -76,21 +74,24 @@ impl ListWorkspacesInputBuilder {
     }
     /// Maximum results to return in response (default=100, maximum=1000).
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// Maximum results to return in response (default=100, maximum=1000).
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
         &self.max_results
     }
     /// Consumes the builder and constructs a [`ListWorkspacesInput`](crate::operation::list_workspaces::ListWorkspacesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_workspaces::ListWorkspacesInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_workspaces::ListWorkspacesInput {
-            next_token: self.next_token,
-            alias: self.alias,
-            max_results: self.max_results,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_workspaces::ListWorkspacesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_workspaces::ListWorkspacesInput {
+                next_token: self.next_token
+                ,
+                alias: self.alias
+                ,
+                max_results: self.max_results
+                ,
+            }
+        )
     }
 }
+

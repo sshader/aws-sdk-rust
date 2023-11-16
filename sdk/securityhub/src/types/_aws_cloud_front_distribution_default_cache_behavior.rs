@@ -3,23 +3,23 @@
 /// <p>Contains information about the default cache configuration for the CloudFront distribution.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AwsCloudFrontDistributionDefaultCacheBehavior {
-    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li>
-    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li>
-    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li>
+pub struct AwsCloudFrontDistributionDefaultCacheBehavior  {
+    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li> 
+    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li> 
+    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li> 
     /// </ul>
     pub viewer_protocol_policy: ::std::option::Option<::std::string::String>,
 }
-impl AwsCloudFrontDistributionDefaultCacheBehavior {
-    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li>
-    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li>
-    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li>
+impl  AwsCloudFrontDistributionDefaultCacheBehavior  {
+    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li> 
+    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li> 
+    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li> 
     /// </ul>
-    pub fn viewer_protocol_policy(&self) -> ::std::option::Option<&str> {
+    pub fn viewer_protocol_policy(&self) -> ::std::option::Option<& str> {
         self.viewer_protocol_policy.as_deref()
     }
 }
@@ -37,31 +37,30 @@ pub struct AwsCloudFrontDistributionDefaultCacheBehaviorBuilder {
     pub(crate) viewer_protocol_policy: ::std::option::Option<::std::string::String>,
 }
 impl AwsCloudFrontDistributionDefaultCacheBehaviorBuilder {
-    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li>
-    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li>
-    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li>
+    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li> 
+    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li> 
+    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li> 
     /// </ul>
     pub fn viewer_protocol_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.viewer_protocol_policy = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li>
-    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li>
-    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li>
+    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li> 
+    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li> 
+    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li> 
     /// </ul>
     pub fn set_viewer_protocol_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.viewer_protocol_policy = input;
-        self
+        self.viewer_protocol_policy = input; self
     }
-    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li>
-    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li>
-    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li>
+    /// <p>The protocol that viewers can use to access the files in an origin. You can specify the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>allow-all</code> - Viewers can use HTTP or HTTPS.</p> </li> 
+    /// <li> <p> <code>redirect-to-https</code> - CloudFront responds to HTTP requests with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL. The viewer then uses the new URL to resubmit.</p> </li> 
+    /// <li> <p> <code>https-only</code> - CloudFront responds to HTTP request with an HTTP status code of 403 (Forbidden).</p> </li> 
     /// </ul>
     pub fn get_viewer_protocol_policy(&self) -> &::std::option::Option<::std::string::String> {
         &self.viewer_protocol_policy
@@ -69,7 +68,9 @@ impl AwsCloudFrontDistributionDefaultCacheBehaviorBuilder {
     /// Consumes the builder and constructs a [`AwsCloudFrontDistributionDefaultCacheBehavior`](crate::types::AwsCloudFrontDistributionDefaultCacheBehavior).
     pub fn build(self) -> crate::types::AwsCloudFrontDistributionDefaultCacheBehavior {
         crate::types::AwsCloudFrontDistributionDefaultCacheBehavior {
-            viewer_protocol_policy: self.viewer_protocol_policy,
+            viewer_protocol_policy: self.viewer_protocol_policy
+            ,
         }
     }
 }
+

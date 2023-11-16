@@ -2,13 +2,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteKxEnvironmentInput {
+pub struct DeleteKxEnvironmentInput  {
     /// <p>A unique identifier for the kdb environment.</p>
     pub environment_id: ::std::option::Option<::std::string::String>,
 }
-impl DeleteKxEnvironmentInput {
+impl  DeleteKxEnvironmentInput  {
     /// <p>A unique identifier for the kdb environment.</p>
-    pub fn environment_id(&self) -> ::std::option::Option<&str> {
+    pub fn environment_id(&self) -> ::std::option::Option<& str> {
         self.environment_id.as_deref()
     }
 }
@@ -34,20 +34,20 @@ impl DeleteKxEnvironmentInputBuilder {
     }
     /// <p>A unique identifier for the kdb environment.</p>
     pub fn set_environment_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.environment_id = input;
-        self
+        self.environment_id = input; self
     }
     /// <p>A unique identifier for the kdb environment.</p>
     pub fn get_environment_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.environment_id
     }
     /// Consumes the builder and constructs a [`DeleteKxEnvironmentInput`](crate::operation::delete_kx_environment::DeleteKxEnvironmentInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::delete_kx_environment::DeleteKxEnvironmentInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::delete_kx_environment::DeleteKxEnvironmentInput {
-            environment_id: self.environment_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_kx_environment::DeleteKxEnvironmentInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_kx_environment::DeleteKxEnvironmentInput {
+                environment_id: self.environment_id
+                ,
+            }
+        )
     }
 }
+

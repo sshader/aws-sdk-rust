@@ -3,95 +3,95 @@
 /// <p>Represents a request to the list uploads operation.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListUploadsInput {
+pub struct ListUploadsInput  {
     /// <p>The Amazon Resource Name (ARN) of the project for which you want to list uploads.</p>
     pub arn: ::std::option::Option<::std::string::String>,
-    /// <p>The type of upload.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>ANDROID_APP</p> </li>
-    /// <li> <p>IOS_APP</p> </li>
-    /// <li> <p>WEB_APP</p> </li>
-    /// <li> <p>EXTERNAL_DATA</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li>
-    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li>
+    /// <p>The type of upload.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>ANDROID_APP</p> </li> 
+    /// <li> <p>IOS_APP</p> </li> 
+    /// <li> <p>WEB_APP</p> </li> 
+    /// <li> <p>EXTERNAL_DATA</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li> 
     /// </ul>
     pub r#type: ::std::option::Option<crate::types::UploadType>,
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
-impl ListUploadsInput {
+impl  ListUploadsInput  {
     /// <p>The Amazon Resource Name (ARN) of the project for which you want to list uploads.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
-    /// <p>The type of upload.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>ANDROID_APP</p> </li>
-    /// <li> <p>IOS_APP</p> </li>
-    /// <li> <p>WEB_APP</p> </li>
-    /// <li> <p>EXTERNAL_DATA</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li>
-    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li>
+    /// <p>The type of upload.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>ANDROID_APP</p> </li> 
+    /// <li> <p>IOS_APP</p> </li> 
+    /// <li> <p>WEB_APP</p> </li> 
+    /// <li> <p>EXTERNAL_DATA</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::UploadType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::UploadType> {
         self.r#type.as_ref()
     }
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
 }
@@ -119,128 +119,126 @@ impl ListUploadsInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the project for which you want to list uploads.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the project for which you want to list uploads.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.arn
     }
-    /// <p>The type of upload.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>ANDROID_APP</p> </li>
-    /// <li> <p>IOS_APP</p> </li>
-    /// <li> <p>WEB_APP</p> </li>
-    /// <li> <p>EXTERNAL_DATA</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li>
-    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li>
+    /// <p>The type of upload.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>ANDROID_APP</p> </li> 
+    /// <li> <p>IOS_APP</p> </li> 
+    /// <li> <p>WEB_APP</p> </li> 
+    /// <li> <p>EXTERNAL_DATA</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: crate::types::UploadType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of upload.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>ANDROID_APP</p> </li>
-    /// <li> <p>IOS_APP</p> </li>
-    /// <li> <p>WEB_APP</p> </li>
-    /// <li> <p>EXTERNAL_DATA</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li>
-    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li>
+    /// <p>The type of upload.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>ANDROID_APP</p> </li> 
+    /// <li> <p>IOS_APP</p> </li> 
+    /// <li> <p>WEB_APP</p> </li> 
+    /// <li> <p>EXTERNAL_DATA</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::UploadType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of upload.</p>
-    /// <p>Must be one of the following values:</p>
-    /// <ul>
-    /// <li> <p>ANDROID_APP</p> </li>
-    /// <li> <p>IOS_APP</p> </li>
-    /// <li> <p>WEB_APP</p> </li>
-    /// <li> <p>EXTERNAL_DATA</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li>
-    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li>
-    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li>
-    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li>
-    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li>
-    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li>
-    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li>
-    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li>
+    /// <p>The type of upload.</p> 
+    /// <p>Must be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p>ANDROID_APP</p> </li> 
+    /// <li> <p>IOS_APP</p> </li> 
+    /// <li> <p>WEB_APP</p> </li> 
+    /// <li> <p>EXTERNAL_DATA</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li> 
+    /// <li> <p>CALABASH_TEST_PACKAGE</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATION_TEST_PACKAGE</p> </li> 
+    /// <li> <p>UIAUTOMATOR_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_TEST_PACKAGE</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li> 
+    /// <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li> 
+    /// <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li> 
+    /// <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li> 
+    /// <li> <p>XCTEST_UI_TEST_SPEC</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::UploadType> {
         &self.r#type
@@ -252,8 +250,7 @@ impl ListUploadsInputBuilder {
     }
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
@@ -261,10 +258,16 @@ impl ListUploadsInputBuilder {
     }
     /// Consumes the builder and constructs a [`ListUploadsInput`](crate::operation::list_uploads::ListUploadsInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::list_uploads::ListUploadsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_uploads::ListUploadsInput {
-            arn: self.arn,
-            r#type: self.r#type,
-            next_token: self.next_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_uploads::ListUploadsInput {
+                arn: self.arn
+                ,
+                r#type: self.r#type
+                ,
+                next_token: self.next_token
+                ,
+            }
+        )
     }
 }
+

@@ -2,41 +2,41 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PutKeywordInput {
+pub struct PutKeywordInput  {
     /// <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <code>DescribePhoneNumbers</code> get the values for PhoneNumberId and PhoneNumberArn while <code>DescribeSenderIds</code> can be used to get the values for SenderId and SenderIdArn.</p>
     pub origination_identity: ::std::option::Option<::std::string::String>,
     /// <p>The new keyword to add.</p>
     pub keyword: ::std::option::Option<::std::string::String>,
-    /// <p>The message associated with the keyword.</p>
-    /// <ul>
-    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li>
-    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li>
-    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li>
+    /// <p>The message associated with the keyword.</p> 
+    /// <ul> 
+    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li> 
+    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li> 
+    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li> 
     /// </ul>
     pub keyword_message: ::std::option::Option<::std::string::String>,
     /// <p>The action to perform for the new keyword when it is received.</p>
     pub keyword_action: ::std::option::Option<crate::types::KeywordAction>,
 }
-impl PutKeywordInput {
+impl  PutKeywordInput  {
     /// <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <code>DescribePhoneNumbers</code> get the values for PhoneNumberId and PhoneNumberArn while <code>DescribeSenderIds</code> can be used to get the values for SenderId and SenderIdArn.</p>
-    pub fn origination_identity(&self) -> ::std::option::Option<&str> {
+    pub fn origination_identity(&self) -> ::std::option::Option<& str> {
         self.origination_identity.as_deref()
     }
     /// <p>The new keyword to add.</p>
-    pub fn keyword(&self) -> ::std::option::Option<&str> {
+    pub fn keyword(&self) -> ::std::option::Option<& str> {
         self.keyword.as_deref()
     }
-    /// <p>The message associated with the keyword.</p>
-    /// <ul>
-    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li>
-    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li>
-    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li>
+    /// <p>The message associated with the keyword.</p> 
+    /// <ul> 
+    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li> 
+    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li> 
+    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li> 
     /// </ul>
-    pub fn keyword_message(&self) -> ::std::option::Option<&str> {
+    pub fn keyword_message(&self) -> ::std::option::Option<& str> {
         self.keyword_message.as_deref()
     }
     /// <p>The action to perform for the new keyword when it is received.</p>
-    pub fn keyword_action(&self) -> ::std::option::Option<&crate::types::KeywordAction> {
+    pub fn keyword_action(&self) -> ::std::option::Option<& crate::types::KeywordAction> {
         self.keyword_action.as_ref()
     }
 }
@@ -65,8 +65,7 @@ impl PutKeywordInputBuilder {
     }
     /// <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <code>DescribePhoneNumbers</code> get the values for PhoneNumberId and PhoneNumberArn while <code>DescribeSenderIds</code> can be used to get the values for SenderId and SenderIdArn.</p>
     pub fn set_origination_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.origination_identity = input;
-        self
+        self.origination_identity = input; self
     }
     /// <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <code>DescribePhoneNumbers</code> get the values for PhoneNumberId and PhoneNumberArn while <code>DescribeSenderIds</code> can be used to get the values for SenderId and SenderIdArn.</p>
     pub fn get_origination_identity(&self) -> &::std::option::Option<::std::string::String> {
@@ -80,39 +79,37 @@ impl PutKeywordInputBuilder {
     }
     /// <p>The new keyword to add.</p>
     pub fn set_keyword(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.keyword = input;
-        self
+        self.keyword = input; self
     }
     /// <p>The new keyword to add.</p>
     pub fn get_keyword(&self) -> &::std::option::Option<::std::string::String> {
         &self.keyword
     }
-    /// <p>The message associated with the keyword.</p>
-    /// <ul>
-    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li>
-    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li>
-    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li>
+    /// <p>The message associated with the keyword.</p> 
+    /// <ul> 
+    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li> 
+    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li> 
+    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn keyword_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.keyword_message = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The message associated with the keyword.</p>
-    /// <ul>
-    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li>
-    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li>
-    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li>
+    /// <p>The message associated with the keyword.</p> 
+    /// <ul> 
+    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li> 
+    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li> 
+    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li> 
     /// </ul>
     pub fn set_keyword_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.keyword_message = input;
-        self
+        self.keyword_message = input; self
     }
-    /// <p>The message associated with the keyword.</p>
-    /// <ul>
-    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li>
-    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li>
-    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li>
+    /// <p>The message associated with the keyword.</p> 
+    /// <ul> 
+    /// <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li> 
+    /// <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li> 
+    /// <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li> 
     /// </ul>
     pub fn get_keyword_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.keyword_message
@@ -124,8 +121,7 @@ impl PutKeywordInputBuilder {
     }
     /// <p>The action to perform for the new keyword when it is received.</p>
     pub fn set_keyword_action(mut self, input: ::std::option::Option<crate::types::KeywordAction>) -> Self {
-        self.keyword_action = input;
-        self
+        self.keyword_action = input; self
     }
     /// <p>The action to perform for the new keyword when it is received.</p>
     pub fn get_keyword_action(&self) -> &::std::option::Option<crate::types::KeywordAction> {
@@ -133,11 +129,18 @@ impl PutKeywordInputBuilder {
     }
     /// Consumes the builder and constructs a [`PutKeywordInput`](crate::operation::put_keyword::PutKeywordInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::put_keyword::PutKeywordInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::put_keyword::PutKeywordInput {
-            origination_identity: self.origination_identity,
-            keyword: self.keyword,
-            keyword_message: self.keyword_message,
-            keyword_action: self.keyword_action,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::put_keyword::PutKeywordInput {
+                origination_identity: self.origination_identity
+                ,
+                keyword: self.keyword
+                ,
+                keyword_message: self.keyword_message
+                ,
+                keyword_action: self.keyword_action
+                ,
+            }
+        )
     }
 }
+

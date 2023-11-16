@@ -3,7 +3,7 @@
 /// <p>An object that contains information about a workspace.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct WorkspaceSummary {
+pub struct WorkspaceSummary  {
     /// <p>The ID of the workspace.</p>
     pub workspace_id: ::std::string::String,
     /// <p>The ARN of the workspace.</p>
@@ -15,27 +15,25 @@ pub struct WorkspaceSummary {
     /// <p>The date and time when the workspace was last updated.</p>
     pub update_date_time: ::aws_smithy_types::DateTime,
 }
-impl WorkspaceSummary {
+impl  WorkspaceSummary  {
     /// <p>The ID of the workspace.</p>
-    pub fn workspace_id(&self) -> &str {
-        use std::ops::Deref;
-        self.workspace_id.deref()
+    pub fn workspace_id(&self) -> & str {
+        use std::ops::Deref; self.workspace_id.deref()
     }
     /// <p>The ARN of the workspace.</p>
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> & str {
+        use std::ops::Deref; self.arn.deref()
     }
     /// <p>The description of the workspace.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The date and time when the workspace was created.</p>
-    pub fn creation_date_time(&self) -> &::aws_smithy_types::DateTime {
+    pub fn creation_date_time(&self) -> & ::aws_smithy_types::DateTime {
         &self.creation_date_time
     }
     /// <p>The date and time when the workspace was last updated.</p>
-    pub fn update_date_time(&self) -> &::aws_smithy_types::DateTime {
+    pub fn update_date_time(&self) -> & ::aws_smithy_types::DateTime {
         &self.update_date_time
     }
 }
@@ -65,8 +63,7 @@ impl WorkspaceSummaryBuilder {
     }
     /// <p>The ID of the workspace.</p>
     pub fn set_workspace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workspace_id = input;
-        self
+        self.workspace_id = input; self
     }
     /// <p>The ID of the workspace.</p>
     pub fn get_workspace_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -80,8 +77,7 @@ impl WorkspaceSummaryBuilder {
     }
     /// <p>The ARN of the workspace.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The ARN of the workspace.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -94,8 +90,7 @@ impl WorkspaceSummaryBuilder {
     }
     /// <p>The description of the workspace.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>The description of the workspace.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -109,8 +104,7 @@ impl WorkspaceSummaryBuilder {
     }
     /// <p>The date and time when the workspace was created.</p>
     pub fn set_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_date_time = input;
-        self
+        self.creation_date_time = input; self
     }
     /// <p>The date and time when the workspace was created.</p>
     pub fn get_creation_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -124,8 +118,7 @@ impl WorkspaceSummaryBuilder {
     }
     /// <p>The date and time when the workspace was last updated.</p>
     pub fn set_update_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.update_date_time = input;
-        self
+        self.update_date_time = input; self
     }
     /// <p>The date and time when the workspace was last updated.</p>
     pub fn get_update_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -138,32 +131,32 @@ impl WorkspaceSummaryBuilder {
     /// - [`creation_date_time`](crate::types::builders::WorkspaceSummaryBuilder::creation_date_time)
     /// - [`update_date_time`](crate::types::builders::WorkspaceSummaryBuilder::update_date_time)
     pub fn build(self) -> ::std::result::Result<crate::types::WorkspaceSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::WorkspaceSummary {
-            workspace_id: self.workspace_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "workspace_id",
-                    "workspace_id was not specified but it is required when building WorkspaceSummary",
-                )
-            })?,
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building WorkspaceSummary",
-                )
-            })?,
-            description: self.description,
-            creation_date_time: self.creation_date_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "creation_date_time",
-                    "creation_date_time was not specified but it is required when building WorkspaceSummary",
-                )
-            })?,
-            update_date_time: self.update_date_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "update_date_time",
-                    "update_date_time was not specified but it is required when building WorkspaceSummary",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::WorkspaceSummary {
+                workspace_id: self.workspace_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("workspace_id", "workspace_id was not specified but it is required when building WorkspaceSummary")
+                    )?
+                ,
+                arn: self.arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building WorkspaceSummary")
+                    )?
+                ,
+                description: self.description
+                ,
+                creation_date_time: self.creation_date_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("creation_date_time", "creation_date_time was not specified but it is required when building WorkspaceSummary")
+                    )?
+                ,
+                update_date_time: self.update_date_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("update_date_time", "update_date_time was not specified but it is required when building WorkspaceSummary")
+                    )?
+                ,
+            }
+        )
     }
 }
+

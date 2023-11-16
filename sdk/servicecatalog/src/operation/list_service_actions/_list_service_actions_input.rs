@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListServiceActionsInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+pub struct ListServiceActionsInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub accept_language: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of items to return with this call.</p>
@@ -14,13 +14,13 @@ pub struct ListServiceActionsInput {
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
     pub page_token: ::std::option::Option<::std::string::String>,
 }
-impl ListServiceActionsInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+impl  ListServiceActionsInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
-    pub fn accept_language(&self) -> ::std::option::Option<&str> {
+    pub fn accept_language(&self) -> ::std::option::Option<& str> {
         self.accept_language.as_deref()
     }
     /// <p>The maximum number of items to return with this call.</p>
@@ -28,7 +28,7 @@ impl ListServiceActionsInput {
         self.page_size
     }
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-    pub fn page_token(&self) -> ::std::option::Option<&str> {
+    pub fn page_token(&self) -> ::std::option::Option<& str> {
         self.page_token.as_deref()
     }
 }
@@ -48,28 +48,27 @@ pub struct ListServiceActionsInputBuilder {
     pub(crate) page_token: ::std::option::Option<::std::string::String>,
 }
 impl ListServiceActionsInputBuilder {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.accept_language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.accept_language = input;
-        self
+        self.accept_language = input; self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.accept_language
@@ -81,8 +80,7 @@ impl ListServiceActionsInputBuilder {
     }
     /// <p>The maximum number of items to return with this call.</p>
     pub fn set_page_size(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.page_size = input;
-        self
+        self.page_size = input; self
     }
     /// <p>The maximum number of items to return with this call.</p>
     pub fn get_page_size(&self) -> &::std::option::Option<i32> {
@@ -95,22 +93,24 @@ impl ListServiceActionsInputBuilder {
     }
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
     pub fn set_page_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.page_token = input;
-        self
+        self.page_token = input; self
     }
     /// <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
     pub fn get_page_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.page_token
     }
     /// Consumes the builder and constructs a [`ListServiceActionsInput`](crate::operation::list_service_actions::ListServiceActionsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_service_actions::ListServiceActionsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::list_service_actions::ListServiceActionsInput {
-            accept_language: self.accept_language,
-            page_size: self.page_size,
-            page_token: self.page_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_service_actions::ListServiceActionsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_service_actions::ListServiceActionsInput {
+                accept_language: self.accept_language
+                ,
+                page_size: self.page_size
+                ,
+                page_token: self.page_token
+                ,
+            }
+        )
     }
 }
+

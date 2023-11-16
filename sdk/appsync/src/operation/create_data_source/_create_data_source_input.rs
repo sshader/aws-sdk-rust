@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateDataSourceInput {
+pub struct CreateDataSourceInput  {
     /// <p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>
     pub api_id: ::std::option::Option<::std::string::String>,
     /// <p>A user-supplied name for the <code>DataSource</code>.</p>
@@ -17,7 +17,7 @@ pub struct CreateDataSourceInput {
     pub dynamodb_config: ::std::option::Option<crate::types::DynamodbDataSourceConfig>,
     /// <p>Lambda settings.</p>
     pub lambda_config: ::std::option::Option<crate::types::LambdaDataSourceConfig>,
-    /// <p>Amazon OpenSearch Service settings.</p>
+    /// <p>Amazon OpenSearch Service settings.</p> 
     /// <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This configuration is deprecated. For new data sources, use <code>CreateDataSourceRequest$openSearchServiceConfig</code> to create an OpenSearch data source.</p>
     pub elasticsearch_config: ::std::option::Option<crate::types::ElasticsearchDataSourceConfig>,
     /// <p>Amazon OpenSearch Service settings.</p>
@@ -29,54 +29,54 @@ pub struct CreateDataSourceInput {
     /// <p>Amazon EventBridge settings.</p>
     pub event_bridge_config: ::std::option::Option<crate::types::EventBridgeDataSourceConfig>,
 }
-impl CreateDataSourceInput {
+impl  CreateDataSourceInput  {
     /// <p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>
-    pub fn api_id(&self) -> ::std::option::Option<&str> {
+    pub fn api_id(&self) -> ::std::option::Option<& str> {
         self.api_id.as_deref()
     }
     /// <p>A user-supplied name for the <code>DataSource</code>.</p>
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// <p>A description of the <code>DataSource</code>.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p>The type of the <code>DataSource</code>.</p>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::DataSourceType> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::DataSourceType> {
         self.r#type.as_ref()
     }
     /// <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN) for the data source. The system assumes this role when accessing the data source.</p>
-    pub fn service_role_arn(&self) -> ::std::option::Option<&str> {
+    pub fn service_role_arn(&self) -> ::std::option::Option<& str> {
         self.service_role_arn.as_deref()
     }
     /// <p>Amazon DynamoDB settings.</p>
-    pub fn dynamodb_config(&self) -> ::std::option::Option<&crate::types::DynamodbDataSourceConfig> {
+    pub fn dynamodb_config(&self) -> ::std::option::Option<& crate::types::DynamodbDataSourceConfig> {
         self.dynamodb_config.as_ref()
     }
     /// <p>Lambda settings.</p>
-    pub fn lambda_config(&self) -> ::std::option::Option<&crate::types::LambdaDataSourceConfig> {
+    pub fn lambda_config(&self) -> ::std::option::Option<& crate::types::LambdaDataSourceConfig> {
         self.lambda_config.as_ref()
     }
-    /// <p>Amazon OpenSearch Service settings.</p>
+    /// <p>Amazon OpenSearch Service settings.</p> 
     /// <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This configuration is deprecated. For new data sources, use <code>CreateDataSourceRequest$openSearchServiceConfig</code> to create an OpenSearch data source.</p>
-    pub fn elasticsearch_config(&self) -> ::std::option::Option<&crate::types::ElasticsearchDataSourceConfig> {
+    pub fn elasticsearch_config(&self) -> ::std::option::Option<& crate::types::ElasticsearchDataSourceConfig> {
         self.elasticsearch_config.as_ref()
     }
     /// <p>Amazon OpenSearch Service settings.</p>
-    pub fn open_search_service_config(&self) -> ::std::option::Option<&crate::types::OpenSearchServiceDataSourceConfig> {
+    pub fn open_search_service_config(&self) -> ::std::option::Option<& crate::types::OpenSearchServiceDataSourceConfig> {
         self.open_search_service_config.as_ref()
     }
     /// <p>HTTP endpoint settings.</p>
-    pub fn http_config(&self) -> ::std::option::Option<&crate::types::HttpDataSourceConfig> {
+    pub fn http_config(&self) -> ::std::option::Option<& crate::types::HttpDataSourceConfig> {
         self.http_config.as_ref()
     }
     /// <p>Relational database settings.</p>
-    pub fn relational_database_config(&self) -> ::std::option::Option<&crate::types::RelationalDatabaseDataSourceConfig> {
+    pub fn relational_database_config(&self) -> ::std::option::Option<& crate::types::RelationalDatabaseDataSourceConfig> {
         self.relational_database_config.as_ref()
     }
     /// <p>Amazon EventBridge settings.</p>
-    pub fn event_bridge_config(&self) -> ::std::option::Option<&crate::types::EventBridgeDataSourceConfig> {
+    pub fn event_bridge_config(&self) -> ::std::option::Option<& crate::types::EventBridgeDataSourceConfig> {
         self.event_bridge_config.as_ref()
     }
 }
@@ -113,8 +113,7 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>
     pub fn set_api_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.api_id = input;
-        self
+        self.api_id = input; self
     }
     /// <p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>
     pub fn get_api_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -128,8 +127,7 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>A user-supplied name for the <code>DataSource</code>.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p>A user-supplied name for the <code>DataSource</code>.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -142,8 +140,7 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>A description of the <code>DataSource</code>.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p>A description of the <code>DataSource</code>.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -157,8 +154,7 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>The type of the <code>DataSource</code>.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::DataSourceType>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
     /// <p>The type of the <code>DataSource</code>.</p>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::DataSourceType> {
@@ -171,8 +167,7 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN) for the data source. The system assumes this role when accessing the data source.</p>
     pub fn set_service_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.service_role_arn = input;
-        self
+        self.service_role_arn = input; self
     }
     /// <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN) for the data source. The system assumes this role when accessing the data source.</p>
     pub fn get_service_role_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -185,8 +180,7 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>Amazon DynamoDB settings.</p>
     pub fn set_dynamodb_config(mut self, input: ::std::option::Option<crate::types::DynamodbDataSourceConfig>) -> Self {
-        self.dynamodb_config = input;
-        self
+        self.dynamodb_config = input; self
     }
     /// <p>Amazon DynamoDB settings.</p>
     pub fn get_dynamodb_config(&self) -> &::std::option::Option<crate::types::DynamodbDataSourceConfig> {
@@ -199,26 +193,24 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>Lambda settings.</p>
     pub fn set_lambda_config(mut self, input: ::std::option::Option<crate::types::LambdaDataSourceConfig>) -> Self {
-        self.lambda_config = input;
-        self
+        self.lambda_config = input; self
     }
     /// <p>Lambda settings.</p>
     pub fn get_lambda_config(&self) -> &::std::option::Option<crate::types::LambdaDataSourceConfig> {
         &self.lambda_config
     }
-    /// <p>Amazon OpenSearch Service settings.</p>
+    /// <p>Amazon OpenSearch Service settings.</p> 
     /// <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This configuration is deprecated. For new data sources, use <code>CreateDataSourceRequest$openSearchServiceConfig</code> to create an OpenSearch data source.</p>
     pub fn elasticsearch_config(mut self, input: crate::types::ElasticsearchDataSourceConfig) -> Self {
         self.elasticsearch_config = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Amazon OpenSearch Service settings.</p>
+    /// <p>Amazon OpenSearch Service settings.</p> 
     /// <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This configuration is deprecated. For new data sources, use <code>CreateDataSourceRequest$openSearchServiceConfig</code> to create an OpenSearch data source.</p>
     pub fn set_elasticsearch_config(mut self, input: ::std::option::Option<crate::types::ElasticsearchDataSourceConfig>) -> Self {
-        self.elasticsearch_config = input;
-        self
+        self.elasticsearch_config = input; self
     }
-    /// <p>Amazon OpenSearch Service settings.</p>
+    /// <p>Amazon OpenSearch Service settings.</p> 
     /// <p>As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This configuration is deprecated. For new data sources, use <code>CreateDataSourceRequest$openSearchServiceConfig</code> to create an OpenSearch data source.</p>
     pub fn get_elasticsearch_config(&self) -> &::std::option::Option<crate::types::ElasticsearchDataSourceConfig> {
         &self.elasticsearch_config
@@ -230,8 +222,7 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>Amazon OpenSearch Service settings.</p>
     pub fn set_open_search_service_config(mut self, input: ::std::option::Option<crate::types::OpenSearchServiceDataSourceConfig>) -> Self {
-        self.open_search_service_config = input;
-        self
+        self.open_search_service_config = input; self
     }
     /// <p>Amazon OpenSearch Service settings.</p>
     pub fn get_open_search_service_config(&self) -> &::std::option::Option<crate::types::OpenSearchServiceDataSourceConfig> {
@@ -244,8 +235,7 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>HTTP endpoint settings.</p>
     pub fn set_http_config(mut self, input: ::std::option::Option<crate::types::HttpDataSourceConfig>) -> Self {
-        self.http_config = input;
-        self
+        self.http_config = input; self
     }
     /// <p>HTTP endpoint settings.</p>
     pub fn get_http_config(&self) -> &::std::option::Option<crate::types::HttpDataSourceConfig> {
@@ -258,8 +248,7 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>Relational database settings.</p>
     pub fn set_relational_database_config(mut self, input: ::std::option::Option<crate::types::RelationalDatabaseDataSourceConfig>) -> Self {
-        self.relational_database_config = input;
-        self
+        self.relational_database_config = input; self
     }
     /// <p>Relational database settings.</p>
     pub fn get_relational_database_config(&self) -> &::std::option::Option<crate::types::RelationalDatabaseDataSourceConfig> {
@@ -272,30 +261,42 @@ impl CreateDataSourceInputBuilder {
     }
     /// <p>Amazon EventBridge settings.</p>
     pub fn set_event_bridge_config(mut self, input: ::std::option::Option<crate::types::EventBridgeDataSourceConfig>) -> Self {
-        self.event_bridge_config = input;
-        self
+        self.event_bridge_config = input; self
     }
     /// <p>Amazon EventBridge settings.</p>
     pub fn get_event_bridge_config(&self) -> &::std::option::Option<crate::types::EventBridgeDataSourceConfig> {
         &self.event_bridge_config
     }
     /// Consumes the builder and constructs a [`CreateDataSourceInput`](crate::operation::create_data_source::CreateDataSourceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_data_source::CreateDataSourceInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_data_source::CreateDataSourceInput {
-            api_id: self.api_id,
-            name: self.name,
-            description: self.description,
-            r#type: self.r#type,
-            service_role_arn: self.service_role_arn,
-            dynamodb_config: self.dynamodb_config,
-            lambda_config: self.lambda_config,
-            elasticsearch_config: self.elasticsearch_config,
-            open_search_service_config: self.open_search_service_config,
-            http_config: self.http_config,
-            relational_database_config: self.relational_database_config,
-            event_bridge_config: self.event_bridge_config,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_data_source::CreateDataSourceInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_data_source::CreateDataSourceInput {
+                api_id: self.api_id
+                ,
+                name: self.name
+                ,
+                description: self.description
+                ,
+                r#type: self.r#type
+                ,
+                service_role_arn: self.service_role_arn
+                ,
+                dynamodb_config: self.dynamodb_config
+                ,
+                lambda_config: self.lambda_config
+                ,
+                elasticsearch_config: self.elasticsearch_config
+                ,
+                open_search_service_config: self.open_search_service_config
+                ,
+                http_config: self.http_config
+                ,
+                relational_database_config: self.relational_database_config
+                ,
+                event_bridge_config: self.event_bridge_config
+                ,
+            }
+        )
     }
 }
+

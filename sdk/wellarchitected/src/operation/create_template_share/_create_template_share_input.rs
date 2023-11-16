@@ -2,31 +2,31 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateTemplateShareInput {
+pub struct CreateTemplateShareInput  {
     /// <p>The review template ARN.</p>
     pub template_arn: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
     pub shared_with: ::std::option::Option<::std::string::String>,
-    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p>
-    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important>
-    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p>
+    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> 
+    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> 
+    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> 
     /// </important>
     pub client_request_token: ::std::option::Option<::std::string::String>,
 }
-impl CreateTemplateShareInput {
+impl  CreateTemplateShareInput  {
     /// <p>The review template ARN.</p>
-    pub fn template_arn(&self) -> ::std::option::Option<&str> {
+    pub fn template_arn(&self) -> ::std::option::Option<& str> {
         self.template_arn.as_deref()
     }
     /// <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
-    pub fn shared_with(&self) -> ::std::option::Option<&str> {
+    pub fn shared_with(&self) -> ::std::option::Option<& str> {
         self.shared_with.as_deref()
     }
-    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p>
-    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important>
-    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p>
+    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> 
+    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> 
+    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> 
     /// </important>
-    pub fn client_request_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_request_token(&self) -> ::std::option::Option<& str> {
         self.client_request_token.as_deref()
     }
 }
@@ -54,8 +54,7 @@ impl CreateTemplateShareInputBuilder {
     }
     /// <p>The review template ARN.</p>
     pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.template_arn = input;
-        self
+        self.template_arn = input; self
     }
     /// <p>The review template ARN.</p>
     pub fn get_template_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -69,46 +68,47 @@ impl CreateTemplateShareInputBuilder {
     }
     /// <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
     pub fn set_shared_with(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.shared_with = input;
-        self
+        self.shared_with = input; self
     }
     /// <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
     pub fn get_shared_with(&self) -> &::std::option::Option<::std::string::String> {
         &self.shared_with
     }
-    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p>
-    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important>
-    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p>
+    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> 
+    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> 
+    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> 
     /// </important>
     /// This field is required.
     pub fn client_request_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_request_token = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p>
-    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important>
-    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p>
+    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> 
+    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> 
+    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> 
     /// </important>
     pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_request_token = input;
-        self
+        self.client_request_token = input; self
     }
-    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p>
-    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important>
-    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p>
+    /// <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> 
+    /// <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> 
+    /// <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> 
     /// </important>
     pub fn get_client_request_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_request_token
     }
     /// Consumes the builder and constructs a [`CreateTemplateShareInput`](crate::operation::create_template_share::CreateTemplateShareInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_template_share::CreateTemplateShareInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::create_template_share::CreateTemplateShareInput {
-            template_arn: self.template_arn,
-            shared_with: self.shared_with,
-            client_request_token: self.client_request_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_template_share::CreateTemplateShareInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_template_share::CreateTemplateShareInput {
+                template_arn: self.template_arn
+                ,
+                shared_with: self.shared_with
+                ,
+                client_request_token: self.client_request_token
+                ,
+            }
+        )
     }
 }
+

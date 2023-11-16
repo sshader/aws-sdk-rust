@@ -3,7 +3,7 @@
 /// <p>The tooltip item for the columns that are not part of a field well.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ColumnTooltipItem {
+pub struct ColumnTooltipItem  {
     /// <p>The target column of the tooltip item.</p>
     pub column: ::std::option::Option<crate::types::ColumnIdentifier>,
     /// <p>The label of the tooltip item.</p>
@@ -13,21 +13,21 @@ pub struct ColumnTooltipItem {
     /// <p>The aggregation function of the column tooltip item.</p>
     pub aggregation: ::std::option::Option<crate::types::AggregationFunction>,
 }
-impl ColumnTooltipItem {
+impl  ColumnTooltipItem  {
     /// <p>The target column of the tooltip item.</p>
-    pub fn column(&self) -> ::std::option::Option<&crate::types::ColumnIdentifier> {
+    pub fn column(&self) -> ::std::option::Option<& crate::types::ColumnIdentifier> {
         self.column.as_ref()
     }
     /// <p>The label of the tooltip item.</p>
-    pub fn label(&self) -> ::std::option::Option<&str> {
+    pub fn label(&self) -> ::std::option::Option<& str> {
         self.label.as_deref()
     }
     /// <p>The visibility of the tooltip item.</p>
-    pub fn visibility(&self) -> ::std::option::Option<&crate::types::Visibility> {
+    pub fn visibility(&self) -> ::std::option::Option<& crate::types::Visibility> {
         self.visibility.as_ref()
     }
     /// <p>The aggregation function of the column tooltip item.</p>
-    pub fn aggregation(&self) -> ::std::option::Option<&crate::types::AggregationFunction> {
+    pub fn aggregation(&self) -> ::std::option::Option<& crate::types::AggregationFunction> {
         self.aggregation.as_ref()
     }
 }
@@ -56,8 +56,7 @@ impl ColumnTooltipItemBuilder {
     }
     /// <p>The target column of the tooltip item.</p>
     pub fn set_column(mut self, input: ::std::option::Option<crate::types::ColumnIdentifier>) -> Self {
-        self.column = input;
-        self
+        self.column = input; self
     }
     /// <p>The target column of the tooltip item.</p>
     pub fn get_column(&self) -> &::std::option::Option<crate::types::ColumnIdentifier> {
@@ -70,8 +69,7 @@ impl ColumnTooltipItemBuilder {
     }
     /// <p>The label of the tooltip item.</p>
     pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.label = input;
-        self
+        self.label = input; self
     }
     /// <p>The label of the tooltip item.</p>
     pub fn get_label(&self) -> &::std::option::Option<::std::string::String> {
@@ -84,8 +82,7 @@ impl ColumnTooltipItemBuilder {
     }
     /// <p>The visibility of the tooltip item.</p>
     pub fn set_visibility(mut self, input: ::std::option::Option<crate::types::Visibility>) -> Self {
-        self.visibility = input;
-        self
+        self.visibility = input; self
     }
     /// <p>The visibility of the tooltip item.</p>
     pub fn get_visibility(&self) -> &::std::option::Option<crate::types::Visibility> {
@@ -98,8 +95,7 @@ impl ColumnTooltipItemBuilder {
     }
     /// <p>The aggregation function of the column tooltip item.</p>
     pub fn set_aggregation(mut self, input: ::std::option::Option<crate::types::AggregationFunction>) -> Self {
-        self.aggregation = input;
-        self
+        self.aggregation = input; self
     }
     /// <p>The aggregation function of the column tooltip item.</p>
     pub fn get_aggregation(&self) -> &::std::option::Option<crate::types::AggregationFunction> {
@@ -108,10 +104,15 @@ impl ColumnTooltipItemBuilder {
     /// Consumes the builder and constructs a [`ColumnTooltipItem`](crate::types::ColumnTooltipItem).
     pub fn build(self) -> crate::types::ColumnTooltipItem {
         crate::types::ColumnTooltipItem {
-            column: self.column,
-            label: self.label,
-            visibility: self.visibility,
-            aggregation: self.aggregation,
+            column: self.column
+            ,
+            label: self.label
+            ,
+            visibility: self.visibility
+            ,
+            aggregation: self.aggregation
+            ,
         }
     }
 }
+

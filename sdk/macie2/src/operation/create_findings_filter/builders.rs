@@ -5,54 +5,50 @@ pub use crate::operation::create_findings_filter::_create_findings_filter_input:
 
 impl CreateFindingsFilterInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_findings_filter::CreateFindingsFilterOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_findings_filter::CreateFindingsFilterError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_findings_filter();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_findings_filter::CreateFindingsFilterOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_findings_filter::CreateFindingsFilterError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_findings_filter();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateFindingsFilter`.
-///
+/// 
 /// <p>Creates and defines the criteria and other settings for a findings filter.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateFindingsFilterFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_findings_filter::builders::CreateFindingsFilterInputBuilder,
+                    inner: crate::operation::create_findings_filter::builders::CreateFindingsFilterInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_findings_filter::CreateFindingsFilterOutput,
-        crate::operation::create_findings_filter::CreateFindingsFilterError,
-    > for CreateFindingsFilterFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_findings_filter::CreateFindingsFilterOutput,
-            crate::operation::create_findings_filter::CreateFindingsFilterError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_findings_filter::CreateFindingsFilterOutput,
+                    crate::operation::create_findings_filter::CreateFindingsFilterError,
+                > for CreateFindingsFilterFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_findings_filter::CreateFindingsFilterOutput,
+                        crate::operation::create_findings_filter::CreateFindingsFilterError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateFindingsFilterFluentBuilder {
     /// Creates a new `CreateFindingsFilter`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl CreateFindingsFilterFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_findings_filter::CreateFindingsFilterOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_findings_filter::CreateFindingsFilterError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_findings_filter::CreateFindingsFilter::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_findings_filter::CreateFindingsFilter::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_findings_filter::CreateFindingsFilterOutput,
-        crate::operation::create_findings_filter::CreateFindingsFilterError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_findings_filter::CreateFindingsFilterOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_findings_filter::CreateFindingsFilterError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_findings_filter::CreateFindingsFilter::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_findings_filter::CreateFindingsFilter::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_findings_filter::CreateFindingsFilterOutput, crate::operation::create_findings_filter::CreateFindingsFilterError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The action to perform on findings that match the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
     pub fn action(mut self, input: crate::types::FindingsFilterAction) -> Self {
         self.inner = self.inner.action(input);
@@ -136,19 +123,19 @@ impl CreateFindingsFilterFluentBuilder {
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_client_token()
     }
-    /// <p>A custom description of the filter. The description can contain as many as 512 characters.</p>
+    /// <p>A custom description of the filter. The description can contain as many as 512 characters.</p> 
     /// <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.description(input.into());
         self
     }
-    /// <p>A custom description of the filter. The description can contain as many as 512 characters.</p>
+    /// <p>A custom description of the filter. The description can contain as many as 512 characters.</p> 
     /// <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_description(input);
         self
     }
-    /// <p>A custom description of the filter. The description can contain as many as 512 characters.</p>
+    /// <p>A custom description of the filter. The description can contain as many as 512 characters.</p> 
     /// <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_description()
@@ -167,19 +154,19 @@ impl CreateFindingsFilterFluentBuilder {
     pub fn get_finding_criteria(&self) -> &::std::option::Option<crate::types::FindingCriteria> {
         self.inner.get_finding_criteria()
     }
-    /// <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p>
+    /// <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> 
     /// <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.name(input.into());
         self
     }
-    /// <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p>
+    /// <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> 
     /// <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_name(input);
         self
     }
-    /// <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p>
+    /// <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> 
     /// <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_name()
@@ -202,21 +189,22 @@ impl CreateFindingsFilterFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
-    /// <p>A map of key-value pairs that specifies the tags to associate with the filter.</p>
+    /// <p>A map of key-value pairs that specifies the tags to associate with the filter.</p> 
     /// <p>A findings filter can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.tags(k.into(), v.into());
         self
     }
-    /// <p>A map of key-value pairs that specifies the tags to associate with the filter.</p>
+    /// <p>A map of key-value pairs that specifies the tags to associate with the filter.</p> 
     /// <p>A findings filter can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
-    /// <p>A map of key-value pairs that specifies the tags to associate with the filter.</p>
+    /// <p>A map of key-value pairs that specifies the tags to associate with the filter.</p> 
     /// <p>A findings filter can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
 }
+

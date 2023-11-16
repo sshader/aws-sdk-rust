@@ -3,22 +3,22 @@
 /// Represents the output of a DescribeWorkspace operation.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeWorkspaceOutput {
+pub struct DescribeWorkspaceOutput  {
     /// The properties of the selected workspace.
     pub workspace: ::std::option::Option<crate::types::WorkspaceDescription>,
     _request_id: Option<String>,
 }
-impl DescribeWorkspaceOutput {
+impl  DescribeWorkspaceOutput  {
     /// The properties of the selected workspace.
-    pub fn workspace(&self) -> ::std::option::Option<&crate::types::WorkspaceDescription> {
+    pub fn workspace(&self) -> ::std::option::Option<& crate::types::WorkspaceDescription> {
         self.workspace.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for DescribeWorkspaceOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for DescribeWorkspaceOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl DescribeWorkspaceOutput {
     /// Creates a new builder-style object to manufacture [`DescribeWorkspaceOutput`](crate::operation::describe_workspace::DescribeWorkspaceOutput).
     pub fn builder() -> crate::operation::describe_workspace::builders::DescribeWorkspaceOutputBuilder {
@@ -42,27 +42,28 @@ impl DescribeWorkspaceOutputBuilder {
     }
     /// The properties of the selected workspace.
     pub fn set_workspace(mut self, input: ::std::option::Option<crate::types::WorkspaceDescription>) -> Self {
-        self.workspace = input;
-        self
+        self.workspace = input; self
     }
     /// The properties of the selected workspace.
     pub fn get_workspace(&self) -> &::std::option::Option<crate::types::WorkspaceDescription> {
         &self.workspace
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`DescribeWorkspaceOutput`](crate::operation::describe_workspace::DescribeWorkspaceOutput).
     pub fn build(self) -> crate::operation::describe_workspace::DescribeWorkspaceOutput {
         crate::operation::describe_workspace::DescribeWorkspaceOutput {
-            workspace: self.workspace,
+            workspace: self.workspace
+            ,
             _request_id: self._request_id,
         }
     }
 }
+

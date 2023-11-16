@@ -2,114 +2,115 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetDistributionMetricDataInput {
-    /// <p>The name of the distribution for which to get metric data.</p>
+pub struct GetDistributionMetricDataInput  {
+    /// <p>The name of the distribution for which to get metric data.</p> 
     /// <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
     pub distribution_name: ::std::option::Option<::std::string::String>,
-    /// <p>The metric for which you want to return information.</p>
-    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p>
-    /// <ul>
-    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
+    /// <p>The metric for which you want to return information.</p> 
+    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
     /// </ul>
     pub metric_name: ::std::option::Option<crate::types::DistributionMetricName>,
-    /// <p>The start of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li>
-    /// </ul>
+    /// <p>The start of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
     pub start_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>The end of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li>
-    /// </ul>
+    /// <p>The end of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
     pub end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The granularity, in seconds, for the metric data points that will be returned.</p>
     pub period: ::std::option::Option<i32>,
-    /// <p>The unit for the metric data request.</p>
+    /// <p>The unit for the metric data request.</p> 
     /// <p>Valid units depend on the metric data being requested. For the valid units with each available metric, see the <code>metricName</code> parameter.</p>
     pub unit: ::std::option::Option<crate::types::MetricUnit>,
-    /// <p>The statistic for the metric.</p>
-    /// <p>The following statistics are available:</p>
-    /// <ul>
-    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li>
-    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li>
-    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li>
+    /// <p>The statistic for the metric.</p> 
+    /// <p>The following statistics are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> 
+    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> 
     /// </ul>
-    pub statistics: ::std::option::Option<::std::vec::Vec<crate::types::MetricStatistic>>,
+    pub statistics: ::std::option::Option<::std::vec::Vec::<crate::types::MetricStatistic>>,
 }
-impl GetDistributionMetricDataInput {
-    /// <p>The name of the distribution for which to get metric data.</p>
+impl  GetDistributionMetricDataInput  {
+    /// <p>The name of the distribution for which to get metric data.</p> 
     /// <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
-    pub fn distribution_name(&self) -> ::std::option::Option<&str> {
+    pub fn distribution_name(&self) -> ::std::option::Option<& str> {
         self.distribution_name.as_deref()
     }
-    /// <p>The metric for which you want to return information.</p>
-    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p>
-    /// <ul>
-    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
+    /// <p>The metric for which you want to return information.</p> 
+    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
     /// </ul>
-    pub fn metric_name(&self) -> ::std::option::Option<&crate::types::DistributionMetricName> {
+    pub fn metric_name(&self) -> ::std::option::Option<& crate::types::DistributionMetricName> {
         self.metric_name.as_ref()
     }
-    /// <p>The start of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li>
-    /// </ul>
+    /// <p>The start of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
-    pub fn start_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn start_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.start_time.as_ref()
     }
-    /// <p>The end of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li>
-    /// </ul>
+    /// <p>The end of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
-    pub fn end_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn end_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.end_time.as_ref()
     }
     /// <p>The granularity, in seconds, for the metric data points that will be returned.</p>
     pub fn period(&self) -> ::std::option::Option<i32> {
         self.period
     }
-    /// <p>The unit for the metric data request.</p>
+    /// <p>The unit for the metric data request.</p> 
     /// <p>Valid units depend on the metric data being requested. For the valid units with each available metric, see the <code>metricName</code> parameter.</p>
-    pub fn unit(&self) -> ::std::option::Option<&crate::types::MetricUnit> {
+    pub fn unit(&self) -> ::std::option::Option<& crate::types::MetricUnit> {
         self.unit.as_ref()
     }
-    /// <p>The statistic for the metric.</p>
-    /// <p>The following statistics are available:</p>
-    /// <ul>
-    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li>
-    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li>
-    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li>
+    /// <p>The statistic for the metric.</p> 
+    /// <p>The following statistics are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> 
+    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.statistics.is_none()`.
-    pub fn statistics(&self) -> &[crate::types::MetricStatistic] {
-        self.statistics.as_deref().unwrap_or_default()
+    pub fn statistics(&self) -> & [crate::types::MetricStatistic] {
+        self.statistics.as_deref()
+        .unwrap_or_default()
     }
 }
 impl GetDistributionMetricDataInput {
@@ -129,131 +130,127 @@ pub struct GetDistributionMetricDataInputBuilder {
     pub(crate) end_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) period: ::std::option::Option<i32>,
     pub(crate) unit: ::std::option::Option<crate::types::MetricUnit>,
-    pub(crate) statistics: ::std::option::Option<::std::vec::Vec<crate::types::MetricStatistic>>,
+    pub(crate) statistics: ::std::option::Option<::std::vec::Vec::<crate::types::MetricStatistic>>,
 }
 impl GetDistributionMetricDataInputBuilder {
-    /// <p>The name of the distribution for which to get metric data.</p>
+    /// <p>The name of the distribution for which to get metric data.</p> 
     /// <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
     /// This field is required.
     pub fn distribution_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.distribution_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the distribution for which to get metric data.</p>
+    /// <p>The name of the distribution for which to get metric data.</p> 
     /// <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
     pub fn set_distribution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.distribution_name = input;
-        self
+        self.distribution_name = input; self
     }
-    /// <p>The name of the distribution for which to get metric data.</p>
+    /// <p>The name of the distribution for which to get metric data.</p> 
     /// <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
     pub fn get_distribution_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.distribution_name
     }
-    /// <p>The metric for which you want to return information.</p>
-    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p>
-    /// <ul>
-    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
+    /// <p>The metric for which you want to return information.</p> 
+    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn metric_name(mut self, input: crate::types::DistributionMetricName) -> Self {
         self.metric_name = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The metric for which you want to return information.</p>
-    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p>
-    /// <ul>
-    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
+    /// <p>The metric for which you want to return information.</p> 
+    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
     /// </ul>
     pub fn set_metric_name(mut self, input: ::std::option::Option<crate::types::DistributionMetricName>) -> Self {
-        self.metric_name = input;
-        self
+        self.metric_name = input; self
     }
-    /// <p>The metric for which you want to return information.</p>
-    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p>
-    /// <ul>
-    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li>
-    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
-    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li>
+    /// <p>The metric for which you want to return information.</p> 
+    /// <p>Valid distribution metric names are listed below, along with the most useful <code>statistics</code> to include in your request, and the published <code>unit</code> value.</p> 
+    /// <ul> 
+    /// <li> <p> <b> <code>Requests</code> </b> - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesDownloaded</code> </b> - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>BytesUploaded </code> </b> - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p> <p> <code>Unit</code>: The published unit is <code>None</code>.</p> </li> 
+    /// <li> <p> <b> <code>TotalErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>4xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
+    /// <li> <p> <b> <code>5xxErrorRate</code> </b> - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.</p> <p> <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p> <p> <code>Unit</code>: The published unit is <code>Percent</code>.</p> </li> 
     /// </ul>
     pub fn get_metric_name(&self) -> &::std::option::Option<crate::types::DistributionMetricName> {
         &self.metric_name
     }
-    /// <p>The start of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li>
-    /// </ul>
+    /// <p>The start of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
     /// This field is required.
     pub fn start_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.start_time = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The start of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li>
-    /// </ul>
+    /// <p>The start of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
     pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.start_time = input;
-        self
+        self.start_time = input; self
     }
-    /// <p>The start of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li>
-    /// </ul>
+    /// <p>The start of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
     pub fn get_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.start_time
     }
-    /// <p>The end of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li>
-    /// </ul>
+    /// <p>The end of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
     /// This field is required.
     pub fn end_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.end_time = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The end of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li>
-    /// </ul>
+    /// <p>The end of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
     pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.end_time = input;
-        self
+        self.end_time = input; self
     }
-    /// <p>The end of the time interval for which to get metric data.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li>
-    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li>
-    /// </ul>
+    /// <p>The end of the time interval for which to get metric data.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> 
+    /// <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li> 
+    /// </ul> 
     /// <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
     pub fn get_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.end_time
@@ -266,27 +263,25 @@ impl GetDistributionMetricDataInputBuilder {
     }
     /// <p>The granularity, in seconds, for the metric data points that will be returned.</p>
     pub fn set_period(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.period = input;
-        self
+        self.period = input; self
     }
     /// <p>The granularity, in seconds, for the metric data points that will be returned.</p>
     pub fn get_period(&self) -> &::std::option::Option<i32> {
         &self.period
     }
-    /// <p>The unit for the metric data request.</p>
+    /// <p>The unit for the metric data request.</p> 
     /// <p>Valid units depend on the metric data being requested. For the valid units with each available metric, see the <code>metricName</code> parameter.</p>
     /// This field is required.
     pub fn unit(mut self, input: crate::types::MetricUnit) -> Self {
         self.unit = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The unit for the metric data request.</p>
+    /// <p>The unit for the metric data request.</p> 
     /// <p>Valid units depend on the metric data being requested. For the valid units with each available metric, see the <code>metricName</code> parameter.</p>
     pub fn set_unit(mut self, input: ::std::option::Option<crate::types::MetricUnit>) -> Self {
-        self.unit = input;
-        self
+        self.unit = input; self
     }
-    /// <p>The unit for the metric data request.</p>
+    /// <p>The unit for the metric data request.</p> 
     /// <p>Valid units depend on the metric data being requested. For the valid units with each available metric, see the <code>metricName</code> parameter.</p>
     pub fn get_unit(&self) -> &::std::option::Option<crate::types::MetricUnit> {
         &self.unit
@@ -295,61 +290,65 @@ impl GetDistributionMetricDataInputBuilder {
     ///
     /// To override the contents of this collection use [`set_statistics`](Self::set_statistics).
     ///
-    /// <p>The statistic for the metric.</p>
-    /// <p>The following statistics are available:</p>
-    /// <ul>
-    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li>
-    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li>
-    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li>
+    /// <p>The statistic for the metric.</p> 
+    /// <p>The following statistics are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> 
+    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> 
     /// </ul>
     pub fn statistics(mut self, input: crate::types::MetricStatistic) -> Self {
         let mut v = self.statistics.unwrap_or_default();
-        v.push(input);
-        self.statistics = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.statistics = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>The statistic for the metric.</p>
-    /// <p>The following statistics are available:</p>
-    /// <ul>
-    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li>
-    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li>
-    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li>
+    /// <p>The statistic for the metric.</p> 
+    /// <p>The following statistics are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> 
+    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> 
     /// </ul>
-    pub fn set_statistics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MetricStatistic>>) -> Self {
-        self.statistics = input;
-        self
+    pub fn set_statistics(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::MetricStatistic>>) -> Self {
+        self.statistics = input; self
     }
-    /// <p>The statistic for the metric.</p>
-    /// <p>The following statistics are available:</p>
-    /// <ul>
-    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li>
-    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li>
-    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li>
-    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li>
+    /// <p>The statistic for the metric.</p> 
+    /// <p>The following statistics are available:</p> 
+    /// <ul> 
+    /// <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> 
+    /// <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> 
+    /// <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li> 
+    /// <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> 
     /// </ul>
-    pub fn get_statistics(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricStatistic>> {
+    pub fn get_statistics(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::MetricStatistic>> {
         &self.statistics
     }
     /// Consumes the builder and constructs a [`GetDistributionMetricDataInput`](crate::operation::get_distribution_metric_data::GetDistributionMetricDataInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_distribution_metric_data::GetDistributionMetricDataInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_distribution_metric_data::GetDistributionMetricDataInput {
-            distribution_name: self.distribution_name,
-            metric_name: self.metric_name,
-            start_time: self.start_time,
-            end_time: self.end_time,
-            period: self.period,
-            unit: self.unit,
-            statistics: self.statistics,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_distribution_metric_data::GetDistributionMetricDataInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_distribution_metric_data::GetDistributionMetricDataInput {
+                distribution_name: self.distribution_name
+                ,
+                metric_name: self.metric_name
+                ,
+                start_time: self.start_time
+                ,
+                end_time: self.end_time
+                ,
+                period: self.period
+                ,
+                unit: self.unit
+                ,
+                statistics: self.statistics
+                ,
+            }
+        )
     }
 }
+

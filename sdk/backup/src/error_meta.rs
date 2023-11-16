@@ -24,7 +24,13 @@ pub enum Error {
     /// <p>The request failed due to a temporary failure of the server.</p>
     ServiceUnavailableException(crate::types::error::ServiceUnavailableException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    Unhandled(crate::error::sealed_unhandled::Unhandled)
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -39,64 +45,71 @@ impl ::std::fmt::Display for Error {
             Error::MissingParameterValueException(inner) => inner.fmt(f),
             Error::ResourceNotFoundException(inner) => inner.fmt(f),
             Error::ServiceUnavailableException(inner) => inner.fmt(f),
-            Error::Unhandled(inner) => inner.fmt(f),
+            Error::Unhandled(_) => if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                        write!(f, "unhandled error ({code})")
+                                    } else {
+                                        f.write_str("unhandled error")
+                                    }
         }
     }
 }
 impl From<::aws_smithy_types::error::operation::BuildError> for Error {
-    fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
-        Error::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(value).build())
-    }
-}
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_legal_hold::CancelLegalHoldError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+                fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {
+                    Error::Unhandled(crate::error::sealed_unhandled::Unhandled { source: value.into(), meta: ::std::default::Default::default() })
+                }
+            }
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
+                fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
+                    match self {
+                        Self::AlreadyExistsException(inner) => inner.meta(),
+Self::ConflictException(inner) => inner.meta(),
+Self::DependencyFailureException(inner) => inner.meta(),
+Self::InvalidParameterValueException(inner) => inner.meta(),
+Self::InvalidRequestException(inner) => inner.meta(),
+Self::InvalidResourceStateException(inner) => inner.meta(),
+Self::LimitExceededException(inner) => inner.meta(),
+Self::MissingParameterValueException(inner) => inner.meta(),
+Self::ResourceNotFoundException(inner) => inner.meta(),
+Self::ServiceUnavailableException(inner) => inner.meta(),
+                        Self::Unhandled(inner) => &inner.meta,
+                    }
+                }
+            }
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_legal_hold::CancelLegalHoldError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_legal_hold::CancelLegalHoldError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::cancel_legal_hold::CancelLegalHoldError> for Error {
     fn from(err: crate::operation::cancel_legal_hold::CancelLegalHoldError) -> Self {
         match err {
-            crate::operation::cancel_legal_hold::CancelLegalHoldError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::cancel_legal_hold::CancelLegalHoldError::InvalidResourceStateException(inner) => {
-                Error::InvalidResourceStateException(inner)
-            }
-            crate::operation::cancel_legal_hold::CancelLegalHoldError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::cancel_legal_hold::CancelLegalHoldError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::cancel_legal_hold::CancelLegalHoldError::InvalidResourceStateException(inner) => Error::InvalidResourceStateException(inner),
+            crate::operation::cancel_legal_hold::CancelLegalHoldError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::cancel_legal_hold::CancelLegalHoldError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::cancel_legal_hold::CancelLegalHoldError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::cancel_legal_hold::CancelLegalHoldError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::cancel_legal_hold::CancelLegalHoldError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_plan::CreateBackupPlanError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_plan::CreateBackupPlanError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_plan::CreateBackupPlanError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -104,73 +117,49 @@ impl From<crate::operation::create_backup_plan::CreateBackupPlanError> for Error
     fn from(err: crate::operation::create_backup_plan::CreateBackupPlanError) -> Self {
         match err {
             crate::operation::create_backup_plan::CreateBackupPlanError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
-            crate::operation::create_backup_plan::CreateBackupPlanError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::create_backup_plan::CreateBackupPlanError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::create_backup_plan::CreateBackupPlanError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_backup_plan::CreateBackupPlanError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::create_backup_plan::CreateBackupPlanError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::create_backup_plan::CreateBackupPlanError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::create_backup_plan::CreateBackupPlanError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::create_backup_plan::CreateBackupPlanError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_selection::CreateBackupSelectionError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_selection::CreateBackupSelectionError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_selection::CreateBackupSelectionError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_selection::CreateBackupSelectionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::create_backup_selection::CreateBackupSelectionError> for Error {
     fn from(err: crate::operation::create_backup_selection::CreateBackupSelectionError) -> Self {
         match err {
-            crate::operation::create_backup_selection::CreateBackupSelectionError::AlreadyExistsException(inner) => {
-                Error::AlreadyExistsException(inner)
-            }
-            crate::operation::create_backup_selection::CreateBackupSelectionError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::create_backup_selection::CreateBackupSelectionError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::create_backup_selection::CreateBackupSelectionError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::create_backup_selection::CreateBackupSelectionError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::create_backup_selection::CreateBackupSelectionError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
+            crate::operation::create_backup_selection::CreateBackupSelectionError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::create_backup_selection::CreateBackupSelectionError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_backup_selection::CreateBackupSelectionError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::create_backup_selection::CreateBackupSelectionError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::create_backup_selection::CreateBackupSelectionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_vault::CreateBackupVaultError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_vault::CreateBackupVaultError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_backup_vault::CreateBackupVaultError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -178,33 +167,24 @@ impl From<crate::operation::create_backup_vault::CreateBackupVaultError> for Err
     fn from(err: crate::operation::create_backup_vault::CreateBackupVaultError) -> Self {
         match err {
             crate::operation::create_backup_vault::CreateBackupVaultError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
-            crate::operation::create_backup_vault::CreateBackupVaultError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::create_backup_vault::CreateBackupVaultError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::create_backup_vault::CreateBackupVaultError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_backup_vault::CreateBackupVaultError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::create_backup_vault::CreateBackupVaultError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::create_backup_vault::CreateBackupVaultError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::create_backup_vault::CreateBackupVaultError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::create_backup_vault::CreateBackupVaultError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_framework::CreateFrameworkError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_framework::CreateFrameworkError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_framework::CreateFrameworkError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -212,118 +192,74 @@ impl From<crate::operation::create_framework::CreateFrameworkError> for Error {
     fn from(err: crate::operation::create_framework::CreateFrameworkError) -> Self {
         match err {
             crate::operation::create_framework::CreateFrameworkError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
-            crate::operation::create_framework::CreateFrameworkError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::create_framework::CreateFrameworkError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::create_framework::CreateFrameworkError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_framework::CreateFrameworkError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::create_framework::CreateFrameworkError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::create_framework::CreateFrameworkError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::create_framework::CreateFrameworkError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_legal_hold::CreateLegalHoldError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_legal_hold::CreateLegalHoldError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_legal_hold::CreateLegalHoldError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::create_legal_hold::CreateLegalHoldError> for Error {
     fn from(err: crate::operation::create_legal_hold::CreateLegalHoldError) -> Self {
         match err {
-            crate::operation::create_legal_hold::CreateLegalHoldError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::create_legal_hold::CreateLegalHoldError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::create_legal_hold::CreateLegalHoldError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_legal_hold::CreateLegalHoldError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::create_legal_hold::CreateLegalHoldError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::create_legal_hold::CreateLegalHoldError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::create_legal_hold::CreateLegalHoldError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::create_legal_hold::CreateLegalHoldError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError> for Error {
     fn from(err: crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError) -> Self {
         match err {
-            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::AlreadyExistsException(inner) => {
-                Error::AlreadyExistsException(inner)
-            }
-            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::MissingParameterValueException(
-                inner,
-            ) => Error::MissingParameterValueException(inner),
-            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::ServiceUnavailableException(
-                inner,
-            ) => Error::ServiceUnavailableException(inner),
-            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
+            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::create_logically_air_gapped_backup_vault::CreateLogicallyAirGappedBackupVaultError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_report_plan::CreateReportPlanError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_report_plan::CreateReportPlanError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_report_plan::CreateReportPlanError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -331,283 +267,171 @@ impl From<crate::operation::create_report_plan::CreateReportPlanError> for Error
     fn from(err: crate::operation::create_report_plan::CreateReportPlanError) -> Self {
         match err {
             crate::operation::create_report_plan::CreateReportPlanError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
-            crate::operation::create_report_plan::CreateReportPlanError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::create_report_plan::CreateReportPlanError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::create_report_plan::CreateReportPlanError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_report_plan::CreateReportPlanError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::create_report_plan::CreateReportPlanError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::create_report_plan::CreateReportPlanError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::create_report_plan::CreateReportPlanError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::create_report_plan::CreateReportPlanError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_plan::DeleteBackupPlanError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_plan::DeleteBackupPlanError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_plan::DeleteBackupPlanError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::delete_backup_plan::DeleteBackupPlanError> for Error {
     fn from(err: crate::operation::delete_backup_plan::DeleteBackupPlanError) -> Self {
         match err {
-            crate::operation::delete_backup_plan::DeleteBackupPlanError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::delete_backup_plan::DeleteBackupPlanError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::delete_backup_plan::DeleteBackupPlanError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::delete_backup_plan::DeleteBackupPlanError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::delete_backup_plan::DeleteBackupPlanError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::delete_backup_plan::DeleteBackupPlanError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::delete_backup_plan::DeleteBackupPlanError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::delete_backup_plan::DeleteBackupPlanError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::delete_backup_plan::DeleteBackupPlanError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_selection::DeleteBackupSelectionError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_selection::DeleteBackupSelectionError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_selection::DeleteBackupSelectionError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_selection::DeleteBackupSelectionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::delete_backup_selection::DeleteBackupSelectionError> for Error {
     fn from(err: crate::operation::delete_backup_selection::DeleteBackupSelectionError) -> Self {
         match err {
-            crate::operation::delete_backup_selection::DeleteBackupSelectionError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::delete_backup_selection::DeleteBackupSelectionError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::delete_backup_selection::DeleteBackupSelectionError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::delete_backup_selection::DeleteBackupSelectionError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::delete_backup_selection::DeleteBackupSelectionError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_backup_selection::DeleteBackupSelectionError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::delete_backup_selection::DeleteBackupSelectionError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_backup_selection::DeleteBackupSelectionError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::delete_backup_selection::DeleteBackupSelectionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_vault::DeleteBackupVaultError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_vault::DeleteBackupVaultError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_vault::DeleteBackupVaultError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::delete_backup_vault::DeleteBackupVaultError> for Error {
     fn from(err: crate::operation::delete_backup_vault::DeleteBackupVaultError) -> Self {
         match err {
-            crate::operation::delete_backup_vault::DeleteBackupVaultError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::delete_backup_vault::DeleteBackupVaultError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::delete_backup_vault::DeleteBackupVaultError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::delete_backup_vault::DeleteBackupVaultError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::delete_backup_vault::DeleteBackupVaultError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::delete_backup_vault::DeleteBackupVaultError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::delete_backup_vault::DeleteBackupVaultError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::delete_backup_vault::DeleteBackupVaultError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_backup_vault::DeleteBackupVaultError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::delete_backup_vault::DeleteBackupVaultError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError> for Error {
     fn from(err: crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError) -> Self {
         match err {
-            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::delete_backup_vault_access_policy::DeleteBackupVaultAccessPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError> for Error {
     fn from(err: crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError) -> Self {
         match err {
-            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::MissingParameterValueException(
-                inner,
-            ) => Error::MissingParameterValueException(inner),
-            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
-            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::delete_backup_vault_lock_configuration::DeleteBackupVaultLockConfigurationError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError> for Error {
     fn from(err: crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError) -> Self {
         match err {
-            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::delete_backup_vault_notifications::DeleteBackupVaultNotificationsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_framework::DeleteFrameworkError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_framework::DeleteFrameworkError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_framework::DeleteFrameworkError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -615,72 +439,50 @@ impl From<crate::operation::delete_framework::DeleteFrameworkError> for Error {
     fn from(err: crate::operation::delete_framework::DeleteFrameworkError) -> Self {
         match err {
             crate::operation::delete_framework::DeleteFrameworkError::ConflictException(inner) => Error::ConflictException(inner),
-            crate::operation::delete_framework::DeleteFrameworkError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::delete_framework::DeleteFrameworkError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::delete_framework::DeleteFrameworkError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_framework::DeleteFrameworkError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::delete_framework::DeleteFrameworkError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::delete_framework::DeleteFrameworkError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::delete_framework::DeleteFrameworkError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_recovery_point::DeleteRecoveryPointError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_recovery_point::DeleteRecoveryPointError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_recovery_point::DeleteRecoveryPointError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::delete_recovery_point::DeleteRecoveryPointError> for Error {
     fn from(err: crate::operation::delete_recovery_point::DeleteRecoveryPointError) -> Self {
         match err {
-            crate::operation::delete_recovery_point::DeleteRecoveryPointError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::delete_recovery_point::DeleteRecoveryPointError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::delete_recovery_point::DeleteRecoveryPointError::InvalidResourceStateException(inner) => {
-                Error::InvalidResourceStateException(inner)
-            }
-            crate::operation::delete_recovery_point::DeleteRecoveryPointError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::delete_recovery_point::DeleteRecoveryPointError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::delete_recovery_point::DeleteRecoveryPointError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::delete_recovery_point::DeleteRecoveryPointError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_recovery_point::DeleteRecoveryPointError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::delete_recovery_point::DeleteRecoveryPointError::InvalidResourceStateException(inner) => Error::InvalidResourceStateException(inner),
+            crate::operation::delete_recovery_point::DeleteRecoveryPointError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::delete_recovery_point::DeleteRecoveryPointError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_recovery_point::DeleteRecoveryPointError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::delete_recovery_point::DeleteRecoveryPointError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_report_plan::DeleteReportPlanError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_report_plan::DeleteReportPlanError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_report_plan::DeleteReportPlanError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -688,1551 +490,1032 @@ impl From<crate::operation::delete_report_plan::DeleteReportPlanError> for Error
     fn from(err: crate::operation::delete_report_plan::DeleteReportPlanError) -> Self {
         match err {
             crate::operation::delete_report_plan::DeleteReportPlanError::ConflictException(inner) => Error::ConflictException(inner),
-            crate::operation::delete_report_plan::DeleteReportPlanError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::delete_report_plan::DeleteReportPlanError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::delete_report_plan::DeleteReportPlanError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_report_plan::DeleteReportPlanError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::delete_report_plan::DeleteReportPlanError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::delete_report_plan::DeleteReportPlanError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::delete_report_plan::DeleteReportPlanError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::delete_report_plan::DeleteReportPlanError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_backup_job::DescribeBackupJobError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_backup_job::DescribeBackupJobError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_backup_job::DescribeBackupJobError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_backup_job::DescribeBackupJobError> for Error {
     fn from(err: crate::operation::describe_backup_job::DescribeBackupJobError) -> Self {
         match err {
-            crate::operation::describe_backup_job::DescribeBackupJobError::DependencyFailureException(inner) => {
-                Error::DependencyFailureException(inner)
-            }
-            crate::operation::describe_backup_job::DescribeBackupJobError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::describe_backup_job::DescribeBackupJobError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::describe_backup_job::DescribeBackupJobError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_backup_job::DescribeBackupJobError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_backup_job::DescribeBackupJobError::DependencyFailureException(inner) => Error::DependencyFailureException(inner),
+            crate::operation::describe_backup_job::DescribeBackupJobError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::describe_backup_job::DescribeBackupJobError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::describe_backup_job::DescribeBackupJobError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_backup_job::DescribeBackupJobError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_backup_job::DescribeBackupJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_backup_vault::DescribeBackupVaultError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_backup_vault::DescribeBackupVaultError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_backup_vault::DescribeBackupVaultError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_backup_vault::DescribeBackupVaultError> for Error {
     fn from(err: crate::operation::describe_backup_vault::DescribeBackupVaultError) -> Self {
         match err {
-            crate::operation::describe_backup_vault::DescribeBackupVaultError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::describe_backup_vault::DescribeBackupVaultError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::describe_backup_vault::DescribeBackupVaultError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_backup_vault::DescribeBackupVaultError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_backup_vault::DescribeBackupVaultError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::describe_backup_vault::DescribeBackupVaultError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::describe_backup_vault::DescribeBackupVaultError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_backup_vault::DescribeBackupVaultError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_backup_vault::DescribeBackupVaultError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_copy_job::DescribeCopyJobError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_copy_job::DescribeCopyJobError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_copy_job::DescribeCopyJobError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_copy_job::DescribeCopyJobError> for Error {
     fn from(err: crate::operation::describe_copy_job::DescribeCopyJobError) -> Self {
         match err {
-            crate::operation::describe_copy_job::DescribeCopyJobError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::describe_copy_job::DescribeCopyJobError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::describe_copy_job::DescribeCopyJobError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::describe_copy_job::DescribeCopyJobError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::describe_copy_job::DescribeCopyJobError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::describe_copy_job::DescribeCopyJobError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_copy_job::DescribeCopyJobError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_copy_job::DescribeCopyJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_framework::DescribeFrameworkError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_framework::DescribeFrameworkError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_framework::DescribeFrameworkError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_framework::DescribeFrameworkError> for Error {
     fn from(err: crate::operation::describe_framework::DescribeFrameworkError) -> Self {
         match err {
-            crate::operation::describe_framework::DescribeFrameworkError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::describe_framework::DescribeFrameworkError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::describe_framework::DescribeFrameworkError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::describe_framework::DescribeFrameworkError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::describe_framework::DescribeFrameworkError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::describe_framework::DescribeFrameworkError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_framework::DescribeFrameworkError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_framework::DescribeFrameworkError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_global_settings::DescribeGlobalSettingsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_global_settings::DescribeGlobalSettingsError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_global_settings::DescribeGlobalSettingsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_global_settings::DescribeGlobalSettingsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_global_settings::DescribeGlobalSettingsError> for Error {
     fn from(err: crate::operation::describe_global_settings::DescribeGlobalSettingsError) -> Self {
         match err {
-            crate::operation::describe_global_settings::DescribeGlobalSettingsError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::describe_global_settings::DescribeGlobalSettingsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_global_settings::DescribeGlobalSettingsError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::describe_global_settings::DescribeGlobalSettingsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_global_settings::DescribeGlobalSettingsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_protected_resource::DescribeProtectedResourceError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_protected_resource::DescribeProtectedResourceError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_protected_resource::DescribeProtectedResourceError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_protected_resource::DescribeProtectedResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_protected_resource::DescribeProtectedResourceError> for Error {
     fn from(err: crate::operation::describe_protected_resource::DescribeProtectedResourceError) -> Self {
         match err {
-            crate::operation::describe_protected_resource::DescribeProtectedResourceError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::describe_protected_resource::DescribeProtectedResourceError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::describe_protected_resource::DescribeProtectedResourceError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_protected_resource::DescribeProtectedResourceError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_protected_resource::DescribeProtectedResourceError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::describe_protected_resource::DescribeProtectedResourceError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::describe_protected_resource::DescribeProtectedResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_protected_resource::DescribeProtectedResourceError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_protected_resource::DescribeProtectedResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_recovery_point::DescribeRecoveryPointError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_recovery_point::DescribeRecoveryPointError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_recovery_point::DescribeRecoveryPointError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_recovery_point::DescribeRecoveryPointError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_recovery_point::DescribeRecoveryPointError> for Error {
     fn from(err: crate::operation::describe_recovery_point::DescribeRecoveryPointError) -> Self {
         match err {
-            crate::operation::describe_recovery_point::DescribeRecoveryPointError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::describe_recovery_point::DescribeRecoveryPointError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::describe_recovery_point::DescribeRecoveryPointError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_recovery_point::DescribeRecoveryPointError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_recovery_point::DescribeRecoveryPointError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::describe_recovery_point::DescribeRecoveryPointError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::describe_recovery_point::DescribeRecoveryPointError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_recovery_point::DescribeRecoveryPointError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_recovery_point::DescribeRecoveryPointError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_region_settings::DescribeRegionSettingsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_region_settings::DescribeRegionSettingsError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_region_settings::DescribeRegionSettingsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_region_settings::DescribeRegionSettingsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_region_settings::DescribeRegionSettingsError> for Error {
     fn from(err: crate::operation::describe_region_settings::DescribeRegionSettingsError) -> Self {
         match err {
-            crate::operation::describe_region_settings::DescribeRegionSettingsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_region_settings::DescribeRegionSettingsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_region_settings::DescribeRegionSettingsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_report_job::DescribeReportJobError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_report_job::DescribeReportJobError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_report_job::DescribeReportJobError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_report_job::DescribeReportJobError> for Error {
     fn from(err: crate::operation::describe_report_job::DescribeReportJobError) -> Self {
         match err {
-            crate::operation::describe_report_job::DescribeReportJobError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::describe_report_job::DescribeReportJobError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_report_job::DescribeReportJobError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_report_job::DescribeReportJobError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::describe_report_job::DescribeReportJobError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_report_job::DescribeReportJobError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_report_job::DescribeReportJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_report_plan::DescribeReportPlanError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_report_plan::DescribeReportPlanError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_report_plan::DescribeReportPlanError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_report_plan::DescribeReportPlanError> for Error {
     fn from(err: crate::operation::describe_report_plan::DescribeReportPlanError) -> Self {
         match err {
-            crate::operation::describe_report_plan::DescribeReportPlanError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::describe_report_plan::DescribeReportPlanError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::describe_report_plan::DescribeReportPlanError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_report_plan::DescribeReportPlanError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_report_plan::DescribeReportPlanError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::describe_report_plan::DescribeReportPlanError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::describe_report_plan::DescribeReportPlanError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_report_plan::DescribeReportPlanError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_report_plan::DescribeReportPlanError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_restore_job::DescribeRestoreJobError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_restore_job::DescribeRestoreJobError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_restore_job::DescribeRestoreJobError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::describe_restore_job::DescribeRestoreJobError> for Error {
     fn from(err: crate::operation::describe_restore_job::DescribeRestoreJobError) -> Self {
         match err {
-            crate::operation::describe_restore_job::DescribeRestoreJobError::DependencyFailureException(inner) => {
-                Error::DependencyFailureException(inner)
-            }
-            crate::operation::describe_restore_job::DescribeRestoreJobError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::describe_restore_job::DescribeRestoreJobError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::describe_restore_job::DescribeRestoreJobError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_restore_job::DescribeRestoreJobError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::describe_restore_job::DescribeRestoreJobError::DependencyFailureException(inner) => Error::DependencyFailureException(inner),
+            crate::operation::describe_restore_job::DescribeRestoreJobError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::describe_restore_job::DescribeRestoreJobError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::describe_restore_job::DescribeRestoreJobError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_restore_job::DescribeRestoreJobError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::describe_restore_job::DescribeRestoreJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError> for Error {
     fn from(err: crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError) -> Self {
         match err {
-            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::InvalidResourceStateException(inner) => {
-                Error::InvalidResourceStateException(inner)
-            }
-            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::InvalidResourceStateException(inner) => Error::InvalidResourceStateException(inner),
+            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::disassociate_recovery_point::DisassociateRecoveryPointError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError> for Error {
     fn from(err: crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError) -> Self {
         match err {
-            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::MissingParameterValueException(
-                inner,
-            ) => Error::MissingParameterValueException(inner),
-            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::ServiceUnavailableException(
-                inner,
-            ) => Error::ServiceUnavailableException(inner),
-            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::disassociate_recovery_point_from_parent::DisassociateRecoveryPointFromParentError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError> for Error {
     fn from(err: crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError) -> Self {
         match err {
-            crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::export_backup_plan_template::ExportBackupPlanTemplateError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan::GetBackupPlanError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan::GetBackupPlanError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan::GetBackupPlanError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_backup_plan::GetBackupPlanError> for Error {
     fn from(err: crate::operation::get_backup_plan::GetBackupPlanError) -> Self {
         match err {
-            crate::operation::get_backup_plan::GetBackupPlanError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_backup_plan::GetBackupPlanError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::get_backup_plan::GetBackupPlanError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_backup_plan::GetBackupPlanError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::get_backup_plan::GetBackupPlanError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::get_backup_plan::GetBackupPlanError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::get_backup_plan::GetBackupPlanError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError> for Error {
     fn from(err: crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError) -> Self {
         match err {
-            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::get_backup_plan_from_json::GetBackupPlanFromJSONError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError> for Error {
     fn from(err: crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError) -> Self {
         match err {
-            crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::get_backup_plan_from_template::GetBackupPlanFromTemplateError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_selection::GetBackupSelectionError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_selection::GetBackupSelectionError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_selection::GetBackupSelectionError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_backup_selection::GetBackupSelectionError> for Error {
     fn from(err: crate::operation::get_backup_selection::GetBackupSelectionError) -> Self {
         match err {
-            crate::operation::get_backup_selection::GetBackupSelectionError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_backup_selection::GetBackupSelectionError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::get_backup_selection::GetBackupSelectionError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::get_backup_selection::GetBackupSelectionError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::get_backup_selection::GetBackupSelectionError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_backup_selection::GetBackupSelectionError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::get_backup_selection::GetBackupSelectionError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_backup_selection::GetBackupSelectionError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::get_backup_selection::GetBackupSelectionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError> for Error {
     fn from(err: crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError) -> Self {
         match err {
-            crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::get_backup_vault_access_policy::GetBackupVaultAccessPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError> for Error {
     fn from(err: crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError) -> Self {
         match err {
-            crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::get_backup_vault_notifications::GetBackupVaultNotificationsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_legal_hold::GetLegalHoldError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_legal_hold::GetLegalHoldError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_legal_hold::GetLegalHoldError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_legal_hold::GetLegalHoldError> for Error {
     fn from(err: crate::operation::get_legal_hold::GetLegalHoldError) -> Self {
         match err {
-            crate::operation::get_legal_hold::GetLegalHoldError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_legal_hold::GetLegalHoldError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::get_legal_hold::GetLegalHoldError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_legal_hold::GetLegalHoldError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::get_legal_hold::GetLegalHoldError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::get_legal_hold::GetLegalHoldError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::get_legal_hold::GetLegalHoldError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError> for Error {
     fn from(err: crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError) -> Self {
         match err {
-            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::get_recovery_point_restore_metadata::GetRecoveryPointRestoreMetadataError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_supported_resource_types::GetSupportedResourceTypesError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_supported_resource_types::GetSupportedResourceTypesError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_supported_resource_types::GetSupportedResourceTypesError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_supported_resource_types::GetSupportedResourceTypesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::get_supported_resource_types::GetSupportedResourceTypesError> for Error {
     fn from(err: crate::operation::get_supported_resource_types::GetSupportedResourceTypesError) -> Self {
         match err {
-            crate::operation::get_supported_resource_types::GetSupportedResourceTypesError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::get_supported_resource_types::GetSupportedResourceTypesError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::get_supported_resource_types::GetSupportedResourceTypesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_jobs::ListBackupJobsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_jobs::ListBackupJobsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_jobs::ListBackupJobsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_backup_jobs::ListBackupJobsError> for Error {
     fn from(err: crate::operation::list_backup_jobs::ListBackupJobsError) -> Self {
         match err {
-            crate::operation::list_backup_jobs::ListBackupJobsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::list_backup_jobs::ListBackupJobsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::list_backup_jobs::ListBackupJobsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_backup_jobs::ListBackupJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_job_summaries::ListBackupJobSummariesError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_job_summaries::ListBackupJobSummariesError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_job_summaries::ListBackupJobSummariesError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_job_summaries::ListBackupJobSummariesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_backup_job_summaries::ListBackupJobSummariesError> for Error {
     fn from(err: crate::operation::list_backup_job_summaries::ListBackupJobSummariesError) -> Self {
         match err {
-            crate::operation::list_backup_job_summaries::ListBackupJobSummariesError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_backup_job_summaries::ListBackupJobSummariesError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_backup_job_summaries::ListBackupJobSummariesError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_backup_job_summaries::ListBackupJobSummariesError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_backup_job_summaries::ListBackupJobSummariesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plans::ListBackupPlansError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plans::ListBackupPlansError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plans::ListBackupPlansError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_backup_plans::ListBackupPlansError> for Error {
     fn from(err: crate::operation::list_backup_plans::ListBackupPlansError) -> Self {
         match err {
-            crate::operation::list_backup_plans::ListBackupPlansError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_backup_plans::ListBackupPlansError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::list_backup_plans::ListBackupPlansError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_backup_plans::ListBackupPlansError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::list_backup_plans::ListBackupPlansError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_backup_plans::ListBackupPlansError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_backup_plans::ListBackupPlansError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_backup_plans::ListBackupPlansError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError> for Error {
     fn from(err: crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError) -> Self {
         match err {
-            crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_backup_plan_templates::ListBackupPlanTemplatesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError> for Error {
     fn from(err: crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError) -> Self {
         match err {
-            crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_backup_plan_versions::ListBackupPlanVersionsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_selections::ListBackupSelectionsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_selections::ListBackupSelectionsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_selections::ListBackupSelectionsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_backup_selections::ListBackupSelectionsError> for Error {
     fn from(err: crate::operation::list_backup_selections::ListBackupSelectionsError) -> Self {
         match err {
-            crate::operation::list_backup_selections::ListBackupSelectionsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_backup_selections::ListBackupSelectionsError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::list_backup_selections::ListBackupSelectionsError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::list_backup_selections::ListBackupSelectionsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_backup_selections::ListBackupSelectionsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_backup_selections::ListBackupSelectionsError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::list_backup_selections::ListBackupSelectionsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_backup_selections::ListBackupSelectionsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_backup_selections::ListBackupSelectionsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_vaults::ListBackupVaultsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_vaults::ListBackupVaultsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_backup_vaults::ListBackupVaultsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_backup_vaults::ListBackupVaultsError> for Error {
     fn from(err: crate::operation::list_backup_vaults::ListBackupVaultsError) -> Self {
         match err {
-            crate::operation::list_backup_vaults::ListBackupVaultsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_backup_vaults::ListBackupVaultsError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::list_backup_vaults::ListBackupVaultsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_backup_vaults::ListBackupVaultsError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::list_backup_vaults::ListBackupVaultsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_backup_vaults::ListBackupVaultsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_backup_vaults::ListBackupVaultsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_backup_vaults::ListBackupVaultsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_copy_jobs::ListCopyJobsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_copy_jobs::ListCopyJobsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_copy_jobs::ListCopyJobsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_copy_jobs::ListCopyJobsError> for Error {
     fn from(err: crate::operation::list_copy_jobs::ListCopyJobsError) -> Self {
         match err {
-            crate::operation::list_copy_jobs::ListCopyJobsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::list_copy_jobs::ListCopyJobsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::list_copy_jobs::ListCopyJobsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_copy_jobs::ListCopyJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_copy_job_summaries::ListCopyJobSummariesError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_copy_job_summaries::ListCopyJobSummariesError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_copy_job_summaries::ListCopyJobSummariesError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_copy_job_summaries::ListCopyJobSummariesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_copy_job_summaries::ListCopyJobSummariesError> for Error {
     fn from(err: crate::operation::list_copy_job_summaries::ListCopyJobSummariesError) -> Self {
         match err {
-            crate::operation::list_copy_job_summaries::ListCopyJobSummariesError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_copy_job_summaries::ListCopyJobSummariesError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_copy_job_summaries::ListCopyJobSummariesError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_copy_job_summaries::ListCopyJobSummariesError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_copy_job_summaries::ListCopyJobSummariesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_frameworks::ListFrameworksError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_frameworks::ListFrameworksError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_frameworks::ListFrameworksError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_frameworks::ListFrameworksError> for Error {
     fn from(err: crate::operation::list_frameworks::ListFrameworksError) -> Self {
         match err {
-            crate::operation::list_frameworks::ListFrameworksError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::list_frameworks::ListFrameworksError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::list_frameworks::ListFrameworksError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_frameworks::ListFrameworksError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_legal_holds::ListLegalHoldsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_legal_holds::ListLegalHoldsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_legal_holds::ListLegalHoldsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_legal_holds::ListLegalHoldsError> for Error {
     fn from(err: crate::operation::list_legal_holds::ListLegalHoldsError) -> Self {
         match err {
-            crate::operation::list_legal_holds::ListLegalHoldsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::list_legal_holds::ListLegalHoldsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::list_legal_holds::ListLegalHoldsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_legal_holds::ListLegalHoldsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_protected_resources::ListProtectedResourcesError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_protected_resources::ListProtectedResourcesError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_protected_resources::ListProtectedResourcesError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_protected_resources::ListProtectedResourcesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_protected_resources::ListProtectedResourcesError> for Error {
     fn from(err: crate::operation::list_protected_resources::ListProtectedResourcesError) -> Self {
         match err {
-            crate::operation::list_protected_resources::ListProtectedResourcesError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_protected_resources::ListProtectedResourcesError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_protected_resources::ListProtectedResourcesError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_protected_resources::ListProtectedResourcesError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_protected_resources::ListProtectedResourcesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError> for Error {
     fn from(err: crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError) -> Self {
         match err {
-            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError::ServiceUnavailableException(
-                inner,
-            ) => Error::ServiceUnavailableException(inner),
-            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::operation::list_protected_resources_by_backup_vault::ListProtectedResourcesByBackupVaultError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError> for Error {
     fn from(err: crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError) -> Self {
         match err {
-            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_recovery_points_by_backup_vault::ListRecoveryPointsByBackupVaultError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError> for Error {
     fn from(err: crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError) -> Self {
         match err {
-            crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_recovery_points_by_legal_hold::ListRecoveryPointsByLegalHoldError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError> for Error {
     fn from(err: crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError) -> Self {
         match err {
-            crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_recovery_points_by_resource::ListRecoveryPointsByResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_report_jobs::ListReportJobsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_report_jobs::ListReportJobsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_report_jobs::ListReportJobsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_report_jobs::ListReportJobsError> for Error {
     fn from(err: crate::operation::list_report_jobs::ListReportJobsError) -> Self {
         match err {
-            crate::operation::list_report_jobs::ListReportJobsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::list_report_jobs::ListReportJobsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::list_report_jobs::ListReportJobsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::list_report_jobs::ListReportJobsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_report_jobs::ListReportJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_report_plans::ListReportPlansError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_report_plans::ListReportPlansError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_report_plans::ListReportPlansError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_report_plans::ListReportPlansError> for Error {
     fn from(err: crate::operation::list_report_plans::ListReportPlansError) -> Self {
         match err {
-            crate::operation::list_report_plans::ListReportPlansError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_report_plans::ListReportPlansError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_report_plans::ListReportPlansError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_report_plans::ListReportPlansError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_report_plans::ListReportPlansError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_restore_jobs::ListRestoreJobsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_restore_jobs::ListRestoreJobsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_restore_jobs::ListRestoreJobsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_restore_jobs::ListRestoreJobsError> for Error {
     fn from(err: crate::operation::list_restore_jobs::ListRestoreJobsError) -> Self {
         match err {
-            crate::operation::list_restore_jobs::ListRestoreJobsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_restore_jobs::ListRestoreJobsError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::list_restore_jobs::ListRestoreJobsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_restore_jobs::ListRestoreJobsError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::list_restore_jobs::ListRestoreJobsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_restore_jobs::ListRestoreJobsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_restore_jobs::ListRestoreJobsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_restore_jobs::ListRestoreJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError> for Error {
     fn from(err: crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError) -> Self {
         match err {
-            crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::list_restore_job_summaries::ListRestoreJobSummariesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags::ListTagsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags::ListTagsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags::ListTagsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -2247,311 +1530,215 @@ impl From<crate::operation::list_tags::ListTagsError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError, R>,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError> for Error {
     fn from(err: crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError) -> Self {
         match err {
-            crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::put_backup_vault_access_policy::PutBackupVaultAccessPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError,
-            R,
-        >,
-    > for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError> for Error {
     fn from(err: crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError) -> Self {
         match err {
-            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::put_backup_vault_lock_configuration::PutBackupVaultLockConfigurationError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError> for Error {
     fn from(err: crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError) -> Self {
         match err {
-            crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::put_backup_vault_notifications::PutBackupVaultNotificationsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_backup_job::StartBackupJobError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_backup_job::StartBackupJobError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_backup_job::StartBackupJobError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::start_backup_job::StartBackupJobError> for Error {
     fn from(err: crate::operation::start_backup_job::StartBackupJobError) -> Self {
         match err {
-            crate::operation::start_backup_job::StartBackupJobError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::start_backup_job::StartBackupJobError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::start_backup_job::StartBackupJobError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
             crate::operation::start_backup_job::StartBackupJobError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::start_backup_job::StartBackupJobError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::start_backup_job::StartBackupJobError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::start_backup_job::StartBackupJobError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::start_backup_job::StartBackupJobError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::start_backup_job::StartBackupJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_copy_job::StartCopyJobError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_copy_job::StartCopyJobError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_copy_job::StartCopyJobError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::start_copy_job::StartCopyJobError> for Error {
     fn from(err: crate::operation::start_copy_job::StartCopyJobError) -> Self {
         match err {
-            crate::operation::start_copy_job::StartCopyJobError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::start_copy_job::StartCopyJobError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::start_copy_job::StartCopyJobError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
             crate::operation::start_copy_job::StartCopyJobError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::start_copy_job::StartCopyJobError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::start_copy_job::StartCopyJobError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::start_copy_job::StartCopyJobError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::start_copy_job::StartCopyJobError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::start_copy_job::StartCopyJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_report_job::StartReportJobError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_report_job::StartReportJobError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_report_job::StartReportJobError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::start_report_job::StartReportJobError> for Error {
     fn from(err: crate::operation::start_report_job::StartReportJobError) -> Self {
         match err {
-            crate::operation::start_report_job::StartReportJobError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::start_report_job::StartReportJobError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::start_report_job::StartReportJobError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::start_report_job::StartReportJobError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::start_report_job::StartReportJobError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::start_report_job::StartReportJobError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::start_report_job::StartReportJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_restore_job::StartRestoreJobError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_restore_job::StartRestoreJobError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_restore_job::StartRestoreJobError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::start_restore_job::StartRestoreJobError> for Error {
     fn from(err: crate::operation::start_restore_job::StartRestoreJobError) -> Self {
         match err {
-            crate::operation::start_restore_job::StartRestoreJobError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::start_restore_job::StartRestoreJobError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::start_restore_job::StartRestoreJobError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::start_restore_job::StartRestoreJobError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::start_restore_job::StartRestoreJobError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::start_restore_job::StartRestoreJobError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::start_restore_job::StartRestoreJobError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::start_restore_job::StartRestoreJobError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::start_restore_job::StartRestoreJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::stop_backup_job::StopBackupJobError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::stop_backup_job::StopBackupJobError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::stop_backup_job::StopBackupJobError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::stop_backup_job::StopBackupJobError> for Error {
     fn from(err: crate::operation::stop_backup_job::StopBackupJobError) -> Self {
         match err {
-            crate::operation::stop_backup_job::StopBackupJobError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::stop_backup_job::StopBackupJobError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::stop_backup_job::StopBackupJobError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::stop_backup_job::StopBackupJobError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::stop_backup_job::StopBackupJobError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::stop_backup_job::StopBackupJobError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::stop_backup_job::StopBackupJobError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::stop_backup_job::StopBackupJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -2567,83 +1754,64 @@ impl From<crate::operation::tag_resource::TagResourceError> for Error {
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::untag_resource::UntagResourceError> for Error {
     fn from(err: crate::operation::untag_resource::UntagResourceError) -> Self {
         match err {
-            crate::operation::untag_resource::UntagResourceError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::untag_resource::UntagResourceError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::untag_resource::UntagResourceError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::untag_resource::UntagResourceError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::untag_resource::UntagResourceError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_backup_plan::UpdateBackupPlanError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_backup_plan::UpdateBackupPlanError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_backup_plan::UpdateBackupPlanError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::update_backup_plan::UpdateBackupPlanError> for Error {
     fn from(err: crate::operation::update_backup_plan::UpdateBackupPlanError) -> Self {
         match err {
-            crate::operation::update_backup_plan::UpdateBackupPlanError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::update_backup_plan::UpdateBackupPlanError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::update_backup_plan::UpdateBackupPlanError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::update_backup_plan::UpdateBackupPlanError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::update_backup_plan::UpdateBackupPlanError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::update_backup_plan::UpdateBackupPlanError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::update_backup_plan::UpdateBackupPlanError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::update_backup_plan::UpdateBackupPlanError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_framework::UpdateFrameworkError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_framework::UpdateFrameworkError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_framework::UpdateFrameworkError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -2652,144 +1820,97 @@ impl From<crate::operation::update_framework::UpdateFrameworkError> for Error {
         match err {
             crate::operation::update_framework::UpdateFrameworkError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
             crate::operation::update_framework::UpdateFrameworkError::ConflictException(inner) => Error::ConflictException(inner),
-            crate::operation::update_framework::UpdateFrameworkError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
+            crate::operation::update_framework::UpdateFrameworkError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::update_framework::UpdateFrameworkError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::update_framework::UpdateFrameworkError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::update_framework::UpdateFrameworkError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::update_framework::UpdateFrameworkError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
             crate::operation::update_framework::UpdateFrameworkError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::update_framework::UpdateFrameworkError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_global_settings::UpdateGlobalSettingsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_global_settings::UpdateGlobalSettingsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_global_settings::UpdateGlobalSettingsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::update_global_settings::UpdateGlobalSettingsError> for Error {
     fn from(err: crate::operation::update_global_settings::UpdateGlobalSettingsError) -> Self {
         match err {
-            crate::operation::update_global_settings::UpdateGlobalSettingsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::update_global_settings::UpdateGlobalSettingsError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::update_global_settings::UpdateGlobalSettingsError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::update_global_settings::UpdateGlobalSettingsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::update_global_settings::UpdateGlobalSettingsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::update_global_settings::UpdateGlobalSettingsError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::update_global_settings::UpdateGlobalSettingsError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::update_global_settings::UpdateGlobalSettingsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::update_global_settings::UpdateGlobalSettingsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError, R>>
-    for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError,
-            R,
-        >,
-    ) -> Self {
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError> for Error {
     fn from(err: crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError) -> Self {
         match err {
-            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::InvalidRequestException(inner) => {
-                Error::InvalidRequestException(inner)
-            }
-            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::update_recovery_point_lifecycle::UpdateRecoveryPointLifecycleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_region_settings::UpdateRegionSettingsError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_region_settings::UpdateRegionSettingsError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_region_settings::UpdateRegionSettingsError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
 impl From<crate::operation::update_region_settings::UpdateRegionSettingsError> for Error {
     fn from(err: crate::operation::update_region_settings::UpdateRegionSettingsError) -> Self {
         match err {
-            crate::operation::update_region_settings::UpdateRegionSettingsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::update_region_settings::UpdateRegionSettingsError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
-            crate::operation::update_region_settings::UpdateRegionSettingsError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::update_region_settings::UpdateRegionSettingsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::update_region_settings::UpdateRegionSettingsError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
+            crate::operation::update_region_settings::UpdateRegionSettingsError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::update_region_settings::UpdateRegionSettingsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_report_plan::UpdateReportPlanError, R>> for Error
-where
-    R: Send + Sync + std::fmt::Debug + 'static,
-{
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_report_plan::UpdateReportPlanError, R>> for Error where R: Send + Sync + std::fmt::Debug + 'static {
     fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_report_plan::UpdateReportPlanError, R>) -> Self {
         match err {
             ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(
-                ::aws_smithy_types::error::Unhandled::builder()
-                    .meta(::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone())
-                    .source(err)
-                    .build(),
-            ),
+                                            crate::error::sealed_unhandled::Unhandled {
+                                                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
+                                                source: err.into(),
+                                            }
+                                        ),
         }
     }
 }
@@ -2797,16 +1918,10 @@ impl From<crate::operation::update_report_plan::UpdateReportPlanError> for Error
     fn from(err: crate::operation::update_report_plan::UpdateReportPlanError) -> Self {
         match err {
             crate::operation::update_report_plan::UpdateReportPlanError::ConflictException(inner) => Error::ConflictException(inner),
-            crate::operation::update_report_plan::UpdateReportPlanError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::update_report_plan::UpdateReportPlanError::MissingParameterValueException(inner) => {
-                Error::MissingParameterValueException(inner)
-            }
+            crate::operation::update_report_plan::UpdateReportPlanError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::update_report_plan::UpdateReportPlanError::MissingParameterValueException(inner) => Error::MissingParameterValueException(inner),
             crate::operation::update_report_plan::UpdateReportPlanError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::update_report_plan::UpdateReportPlanError::ServiceUnavailableException(inner) => {
-                Error::ServiceUnavailableException(inner)
-            }
+            crate::operation::update_report_plan::UpdateReportPlanError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
             crate::operation::update_report_plan::UpdateReportPlanError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -2824,11 +1939,11 @@ impl ::std::error::Error for Error {
             Error::MissingParameterValueException(inner) => inner.source(),
             Error::ResourceNotFoundException(inner) => inner.source(),
             Error::ServiceUnavailableException(inner) => inner.source(),
-            Error::Unhandled(inner) => inner.source(),
+            Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source)
         }
     }
 }
-impl ::aws_http::request_id::RequestId for Error {
+impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             Self::AlreadyExistsException(e) => e.request_id(),
@@ -2841,7 +1956,8 @@ impl ::aws_http::request_id::RequestId for Error {
             Self::MissingParameterValueException(e) => e.request_id(),
             Self::ResourceNotFoundException(e) => e.request_id(),
             Self::ServiceUnavailableException(e) => e.request_id(),
-            Self::Unhandled(e) => e.request_id(),
+            Self::Unhandled(e) => e.meta.request_id(),
         }
     }
 }
+

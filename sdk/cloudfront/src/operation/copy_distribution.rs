@@ -10,252 +10,188 @@ impl CopyDistribution {
         Self
     }
     pub(crate) async fn orchestrate(
-        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::copy_distribution::CopyDistributionInput,
-    ) -> ::std::result::Result<
-        crate::operation::copy_distribution::CopyDistributionOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::copy_distribution::CopyDistributionError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >| {
-            err.map_service_error(|err| {
-                err.downcast::<crate::operation::copy_distribution::CopyDistributionError>()
-                    .expect("correct error type")
-            })
-        };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
-        let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(
-            output
-                .downcast::<crate::operation::copy_distribution::CopyDistributionOutput>()
-                .expect("correct output type"),
-        )
-    }
-
-    pub(crate) async fn orchestrate_with_stop_point(
-        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::copy_distribution::CopyDistributionInput,
-        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
-    ) -> ::std::result::Result<
-        ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("cloudfront", "CopyDistribution", input, runtime_plugins, stop_point).await
-    }
-
-    pub(crate) fn operation_runtime_plugins(
-        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
-        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
-        runtime_plugins = runtime_plugins.with_client_plugin(crate::auth_plugin::DefaultAuthOptionsPlugin::new(vec![
-            ::aws_runtime::auth::sigv4::SCHEME_ID,
-        ]));
-        if let ::std::option::Option::Some(config_override) = config_override {
-            for plugin in config_override.runtime_plugins.iter().cloned() {
-                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
-            }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
-        }
-        runtime_plugins
-    }
+                        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        input: crate::operation::copy_distribution::CopyDistributionInput,
+                    ) -> ::std::result::Result<crate::operation::copy_distribution::CopyDistributionOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::copy_distribution::CopyDistributionError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<::aws_smithy_runtime_api::client::interceptors::context::Error, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>| {
+                            err.map_service_error(|err| {
+                                err.downcast::<crate::operation::copy_distribution::CopyDistributionError>().expect("correct error type")
+                            })
+                        };
+                        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+                            .await
+                            .map_err(map_err)?;
+                        let output = context.finalize().map_err(map_err)?;
+                        ::std::result::Result::Ok(output.downcast::<crate::operation::copy_distribution::CopyDistributionOutput>().expect("correct output type"))
+                    }
+    
+                    pub(crate) async fn orchestrate_with_stop_point(
+                        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        input: crate::operation::copy_distribution::CopyDistributionInput,
+                        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+                    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext, ::aws_smithy_runtime_api::client::result::SdkError<::aws_smithy_runtime_api::client::interceptors::context::Error, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
+                        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
+                            "cloudfront",
+                            "CopyDistribution",
+                            input,
+                            runtime_plugins,
+                            stop_point
+                        ).await
+                    }
+    
+                    pub(crate) fn operation_runtime_plugins(
+                        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        client_config: &crate::config::Config,
+                        config_override: ::std::option::Option<crate::config::Builder>,
+                    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+                        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+                        runtime_plugins = runtime_plugins
+                                    .with_client_plugin(crate::auth_plugin::DefaultAuthOptionsPlugin::new(vec![::aws_runtime::auth::sigv4::SCHEME_ID]));
+                        if let ::std::option::Option::Some(config_override) = config_override {
+                            for plugin in config_override.runtime_plugins.iter().cloned() {
+                                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+                            }
+                            runtime_plugins = runtime_plugins.with_operation_plugin(
+                                crate::config::ConfigOverrideRuntimePlugin::new(config_override, client_config.config.clone(), &client_config.runtime_components)
+                            );
+                        }
+                        runtime_plugins
+                    }
 }
 impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CopyDistribution {
-    fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("CopyDistribution");
+                fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
+                    let mut cfg = ::aws_smithy_types::config_bag::Layer::new("CopyDistribution");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            CopyDistributionRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            CopyDistributionResponseDeserializer,
-        ));
+                    cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(CopyDistributionRequestSerializer));
+                    cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(CopyDistributionResponseDeserializer));
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            ::aws_smithy_runtime_api::client::auth::static_resolver::StaticAuthSchemeOptionResolverParams::new(),
-        ));
+                    
+                    cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(::aws_smithy_runtime_api::client::auth::static_resolver::StaticAuthSchemeOptionResolverParams::new()));
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-        cfg.store_put(::aws_smithy_http::operation::Metadata::new("CopyDistribution", "cloudfront"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
-        ::std::option::Option::Some(cfg.freeze())
-    }
-
-    fn runtime_components(
-        &self,
-        _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-        ::std::borrow::Cow::Owned(
-            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CopyDistribution")
-                .with_interceptor(CopyDistributionEndpointParamsInterceptor)
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                    crate::operation::copy_distribution::CopyDistributionError,
-                >::new())
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                    crate::operation::copy_distribution::CopyDistributionError,
-                >::new())
-                .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::copy_distribution::CopyDistributionError,
-                >::new()),
-        )
-    }
-}
-
-#[derive(Debug)]
-struct CopyDistributionResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for CopyDistributionResponseDeserializer {
-    fn deserialize_nonstreaming(
-        &self,
-        response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-    ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
-        let (success, status) = (response.status().is_success(), response.status().as_u16());
-        let headers = response.headers();
-        let body = response.body().bytes().expect("body loaded");
-        #[allow(unused_mut)]
-        let mut force_error = false;
-        ::tracing::debug!(request_id = ?::aws_http::request_id::RequestId::request_id(response));
-        let parse_result = if !success && status != 201 || force_error {
-            crate::protocol_serde::shape_copy_distribution::de_copy_distribution_http_error(status, headers, body)
-        } else {
-            crate::protocol_serde::shape_copy_distribution::de_copy_distribution_http_response(status, headers, body)
-        };
-        crate::protocol_serde::type_erase_result(parse_result)
-    }
-}
-#[derive(Debug)]
-struct CopyDistributionRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CopyDistributionRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
-    fn serialize_input(
-        &self,
-        input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-        _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input
-            .downcast::<crate::operation::copy_distribution::CopyDistributionInput>()
-            .expect("correct type");
-        let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
-            .cloned()
-            .unwrap_or_default();
-        let mut request_builder = {
-            fn uri_base(
-                _input: &crate::operation::copy_distribution::CopyDistributionInput,
-                output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
-                use ::std::fmt::Write as _;
-                let input_1 = &_input.primary_distribution_id;
-                let input_1 = input_1.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field("primary_distribution_id", "cannot be empty or unset")
-                })?;
-                let primary_distribution_id = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
-                if primary_distribution_id.is_empty() {
-                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "primary_distribution_id",
-                        "cannot be empty or unset",
+                    cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+cfg.store_put(::aws_smithy_http::operation::Metadata::new(
+                        "CopyDistribution",
+                        "cloudfront",
                     ));
+let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
+                        signing_options.double_uri_encode = true;
+                        signing_options.content_sha256_header = false;
+                        signing_options.normalize_uri_path = true;
+                        signing_options.payload_override = None;
+
+                        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
+                            signing_options,
+                            ..::std::default::Default::default()
+                        });
+
+                    ::std::option::Option::Some(cfg.freeze())
                 }
-                ::std::write!(
-                    output,
-                    "/2020-05-31/distribution/{PrimaryDistributionId}/copy",
-                    PrimaryDistributionId = primary_distribution_id
-                )
-                .expect("formatting should succeed");
-                ::std::result::Result::Ok(())
+
+                fn runtime_components(&self, _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+                    ::std::borrow::Cow::Owned(
+                        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CopyDistribution")
+                            .with_interceptor(CopyDistributionEndpointParamsInterceptor)
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::copy_distribution::CopyDistributionError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::copy_distribution::CopyDistributionError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::copy_distribution::CopyDistributionError>::new())
+                    )
+                }
             }
-            #[allow(clippy::unnecessary_wraps)]
-            fn update_http_builder(
-                input: &crate::operation::copy_distribution::CopyDistributionInput,
-                builder: ::http::request::Builder,
-            ) -> ::std::result::Result<::http::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
-                let mut uri = ::std::string::String::new();
-                uri_base(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_copy_distribution::ser_copy_distribution_headers(input, builder)?;
-                ::std::result::Result::Ok(builder.method("POST").uri(uri))
-            }
-            let mut builder = update_http_builder(&input, ::http::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http::header::CONTENT_TYPE, "application/xml");
-            builder
-        };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_copy_distribution::ser_copy_distribution_op_input(&input)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http::header::CONTENT_LENGTH, &content_length);
-        }
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-    }
-}
+
+            
 #[derive(Debug)]
-struct CopyDistributionEndpointParamsInterceptor;
+            struct CopyDistributionResponseDeserializer;
+            impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for CopyDistributionResponseDeserializer {
+                
 
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CopyDistributionEndpointParamsInterceptor {
-    fn name(&self) -> &'static str {
-        "CopyDistributionEndpointParamsInterceptor"
-    }
-
-    fn read_before_execution(
-        &self,
-        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-            '_,
-            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-        >,
-        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        let _input = context
-            .input()
-            .downcast_ref::<CopyDistributionInput>()
-            .ok_or("failed to downcast to CopyDistributionInput")?;
-
-        let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .build()
-            .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-            })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
-        ::std::result::Result::Ok(())
-    }
+                fn deserialize_nonstreaming(&self, response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
+                    let (success, status) = (response.status().is_success(), response.status().as_u16());
+            let headers = response.headers();
+            let body = response.body().bytes().expect("body loaded");
+            #[allow(unused_mut)]
+            let mut force_error = false;
+            ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+            let parse_result = if !success && status != 201 || force_error {
+                crate::protocol_serde::shape_copy_distribution::de_copy_distribution_http_error(status, headers, body)
+            } else {
+                crate::protocol_serde::shape_copy_distribution::de_copy_distribution_http_response(status, headers, body)
+            };
+            crate::protocol_serde::type_erase_result(parse_result)
+                }
+            }
+#[derive(Debug)]
+            struct CopyDistributionRequestSerializer;
+            impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CopyDistributionRequestSerializer {
+                #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+                fn serialize_input(&self, input: ::aws_smithy_runtime_api::client::interceptors::context::Input, _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+                    let input = input.downcast::<crate::operation::copy_distribution::CopyDistributionInput>().expect("correct type");
+                    let _header_serialization_settings = _cfg.load::<crate::serialization_settings::HeaderSerializationSettings>().cloned().unwrap_or_default();
+                    let mut request_builder = {
+                        fn uri_base(_input: &crate::operation::copy_distribution::CopyDistributionInput, output: &mut ::std::string::String) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+    use ::std::fmt::Write as _;
+    let input_1 = &_input.primary_distribution_id;
+    let input_1 = input_1.as_ref().ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("primary_distribution_id", "cannot be empty or unset"))?;
+    let primary_distribution_id = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
+    if primary_distribution_id.is_empty() {
+                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field("primary_distribution_id", "cannot be empty or unset"))
+                }
+    ::std::write!(output, "/2020-05-31/distribution/{PrimaryDistributionId}/copy", PrimaryDistributionId = primary_distribution_id).expect("formatting should succeed");
+    ::std::result::Result::Ok(())
 }
+#[allow(clippy::unnecessary_wraps)]
+fn update_http_builder(
+                input: &crate::operation::copy_distribution::CopyDistributionInput,
+                builder: ::http::request::Builder
+            ) -> ::std::result::Result<::http::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+    let mut uri = ::std::string::String::new();
+    uri_base(input, &mut uri)?;
+    let builder = crate::protocol_serde::shape_copy_distribution::ser_copy_distribution_headers(input, builder)?;
+    ::std::result::Result::Ok(builder.method("POST").uri(uri))
+}
+let mut builder = update_http_builder(&input, ::http::request::Builder::new())?;
+builder = _header_serialization_settings.set_default_header(builder, ::http::header::CONTENT_TYPE, "application/xml");
+builder
+                    };
+                    let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_copy_distribution::ser_copy_distribution_op_input(&input)?);
+                    if let Some(content_length) = body.content_length() {
+                            let content_length = content_length.to_string();
+                            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http::header::CONTENT_LENGTH, &content_length);
+                        }
+                    ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+                }
+            }
+#[derive(Debug)]
+            struct CopyDistributionEndpointParamsInterceptor;
 
-/// Do not use this.
-///
-/// Operation `*Error/*ErrorKind` types were combined into a single `*Error` enum. The `.kind` field on `*Error` no longer exists and isn't needed anymore (you can just match on the error directly since it's an enum now).
-#[deprecated(
-    note = "Operation `*Error/*ErrorKind` types were combined into a single `*Error` enum. The `.kind` field on `*Error` no longer exists and isn't needed anymore (you can just match on the error directly since it's an enum now)."
-)]
-pub type CopyDistributionErrorKind = CopyDistributionError;
+            impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CopyDistributionEndpointParamsInterceptor {
+                fn name(&self) -> &'static str {
+                    "CopyDistributionEndpointParamsInterceptor"
+                }
+
+                fn read_before_execution(
+                    &self,
+                    context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<'_, ::aws_smithy_runtime_api::client::interceptors::context::Input, ::aws_smithy_runtime_api::client::interceptors::context::Output, ::aws_smithy_runtime_api::client::interceptors::context::Error>,
+                    cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+                ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
+                    let _input = context.input()
+                        .downcast_ref::<CopyDistributionInput>()
+                        .ok_or("failed to downcast to CopyDistributionInput")?;
+
+                    
+
+                    let params = crate::config::endpoint::Params::builder()
+                        .set_region(cfg.load::<::aws_types::region::Region>().map(|r|r.as_ref().to_owned()))
+.set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+.set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+.set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+                        .build()
+                        .map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err))?;
+                    cfg.interceptor_state().store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+                    ::std::result::Result::Ok(())
+                }
+            }
+
 /// Error type for the `CopyDistributionError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -354,12 +290,12 @@ pub enum CopyDistributionError {
     TooManyDistributionsAssociatedToFieldLevelEncryptionConfig(crate::types::error::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig),
     /// <p>The number of distributions that reference this key group is more than the maximum allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
     TooManyDistributionsAssociatedToKeyGroup(crate::types::error::TooManyDistributionsAssociatedToKeyGroup),
-    /// <p>The maximum number of distributions have been associated with the specified origin access control.</p>
+    /// <p>The maximum number of distributions have been associated with the specified origin access control.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
     TooManyDistributionsAssociatedToOriginAccessControl(crate::types::error::TooManyDistributionsAssociatedToOriginAccessControl),
     /// <p>The maximum number of distributions have been associated with the specified origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
     TooManyDistributionsAssociatedToOriginRequestPolicy(crate::types::error::TooManyDistributionsAssociatedToOriginRequestPolicy),
-    /// <p>The maximum number of distributions have been associated with the specified response headers policy.</p>
+    /// <p>The maximum number of distributions have been associated with the specified response headers policy.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
     TooManyDistributionsAssociatedToResponseHeadersPolicy(crate::types::error::TooManyDistributionsAssociatedToResponseHeadersPolicy),
     /// <p>You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -391,269 +327,95 @@ pub enum CopyDistributionError {
     /// <p>One or more of your trusted signers don't exist.</p>
     TrustedSignerDoesNotExist(crate::types::error::TrustedSignerDoesNotExist),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
-}
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CopyDistributionError {
-    fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
-        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> Self {
-        Self::Unhandled({
-            let mut builder = ::aws_smithy_types::error::Unhandled::builder().source(source);
-            builder.set_meta(meta);
-            builder.build()
-        })
-    }
-}
-impl ::std::fmt::Display for CopyDistributionError {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        match self {
-            Self::AccessDenied(_inner) => _inner.fmt(f),
-            Self::CnameAlreadyExists(_inner) => _inner.fmt(f),
-            Self::DistributionAlreadyExists(_inner) => _inner.fmt(f),
-            Self::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior(_inner) => _inner.fmt(f),
-            Self::InconsistentQuantities(_inner) => _inner.fmt(f),
-            Self::InvalidArgument(_inner) => _inner.fmt(f),
-            Self::InvalidDefaultRootObject(_inner) => _inner.fmt(f),
-            Self::InvalidErrorCode(_inner) => _inner.fmt(f),
-            Self::InvalidForwardCookies(_inner) => _inner.fmt(f),
-            Self::InvalidFunctionAssociation(_inner) => _inner.fmt(f),
-            Self::InvalidGeoRestrictionParameter(_inner) => _inner.fmt(f),
-            Self::InvalidHeadersForS3Origin(_inner) => _inner.fmt(f),
-            Self::InvalidIfMatchVersion(_inner) => _inner.fmt(f),
-            Self::InvalidLambdaFunctionAssociation(_inner) => _inner.fmt(f),
-            Self::InvalidLocationCode(_inner) => _inner.fmt(f),
-            Self::InvalidMinimumProtocolVersion(_inner) => _inner.fmt(f),
-            Self::InvalidOrigin(_inner) => _inner.fmt(f),
-            Self::InvalidOriginAccessControl(_inner) => _inner.fmt(f),
-            Self::InvalidOriginAccessIdentity(_inner) => _inner.fmt(f),
-            Self::InvalidOriginKeepaliveTimeout(_inner) => _inner.fmt(f),
-            Self::InvalidOriginReadTimeout(_inner) => _inner.fmt(f),
-            Self::InvalidProtocolSettings(_inner) => _inner.fmt(f),
-            Self::InvalidQueryStringParameters(_inner) => _inner.fmt(f),
-            Self::InvalidRelativePath(_inner) => _inner.fmt(f),
-            Self::InvalidRequiredProtocol(_inner) => _inner.fmt(f),
-            Self::InvalidResponseCode(_inner) => _inner.fmt(f),
-            Self::InvalidTtlOrder(_inner) => _inner.fmt(f),
-            Self::InvalidViewerCertificate(_inner) => _inner.fmt(f),
-            Self::InvalidWebAclId(_inner) => _inner.fmt(f),
-            Self::MissingBody(_inner) => _inner.fmt(f),
-            Self::NoSuchCachePolicy(_inner) => _inner.fmt(f),
-            Self::NoSuchDistribution(_inner) => _inner.fmt(f),
-            Self::NoSuchFieldLevelEncryptionConfig(_inner) => _inner.fmt(f),
-            Self::NoSuchOrigin(_inner) => _inner.fmt(f),
-            Self::NoSuchOriginRequestPolicy(_inner) => _inner.fmt(f),
-            Self::NoSuchRealtimeLogConfig(_inner) => _inner.fmt(f),
-            Self::NoSuchResponseHeadersPolicy(_inner) => _inner.fmt(f),
-            Self::PreconditionFailed(_inner) => _inner.fmt(f),
-            Self::RealtimeLogConfigOwnerMismatch(_inner) => _inner.fmt(f),
-            Self::TooManyCacheBehaviors(_inner) => _inner.fmt(f),
-            Self::TooManyCertificates(_inner) => _inner.fmt(f),
-            Self::TooManyCookieNamesInWhiteList(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionCnamEs(_inner) => _inner.fmt(f),
-            Self::TooManyDistributions(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionsAssociatedToCachePolicy(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionsAssociatedToKeyGroup(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionsAssociatedToOriginAccessControl(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionsAssociatedToOriginRequestPolicy(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionsAssociatedToResponseHeadersPolicy(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionsWithFunctionAssociations(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionsWithLambdaAssociations(_inner) => _inner.fmt(f),
-            Self::TooManyDistributionsWithSingleFunctionArn(_inner) => _inner.fmt(f),
-            Self::TooManyFunctionAssociations(_inner) => _inner.fmt(f),
-            Self::TooManyHeadersInForwardedValues(_inner) => _inner.fmt(f),
-            Self::TooManyKeyGroupsAssociatedToDistribution(_inner) => _inner.fmt(f),
-            Self::TooManyLambdaFunctionAssociations(_inner) => _inner.fmt(f),
-            Self::TooManyOriginCustomHeaders(_inner) => _inner.fmt(f),
-            Self::TooManyOriginGroupsPerDistribution(_inner) => _inner.fmt(f),
-            Self::TooManyOrigins(_inner) => _inner.fmt(f),
-            Self::TooManyQueryStringParameters(_inner) => _inner.fmt(f),
-            Self::TooManyTrustedSigners(_inner) => _inner.fmt(f),
-            Self::TrustedKeyGroupDoesNotExist(_inner) => _inner.fmt(f),
-            Self::TrustedSignerDoesNotExist(_inner) => _inner.fmt(f),
-            Self::Unhandled(_inner) => _inner.fmt(f),
-        }
-    }
-}
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CopyDistributionError {
-    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        match self {
-            Self::AccessDenied(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::CnameAlreadyExists(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::DistributionAlreadyExists(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::InconsistentQuantities(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidArgument(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidDefaultRootObject(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidErrorCode(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidForwardCookies(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidFunctionAssociation(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidGeoRestrictionParameter(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidHeadersForS3Origin(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidIfMatchVersion(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidLambdaFunctionAssociation(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidLocationCode(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidMinimumProtocolVersion(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidOrigin(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidOriginAccessControl(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidOriginAccessIdentity(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidOriginKeepaliveTimeout(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidOriginReadTimeout(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidProtocolSettings(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidQueryStringParameters(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidRelativePath(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidRequiredProtocol(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidResponseCode(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidTtlOrder(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidViewerCertificate(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidWebAclId(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::MissingBody(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NoSuchCachePolicy(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NoSuchDistribution(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NoSuchFieldLevelEncryptionConfig(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NoSuchOrigin(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NoSuchOriginRequestPolicy(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NoSuchRealtimeLogConfig(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NoSuchResponseHeadersPolicy(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::PreconditionFailed(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::RealtimeLogConfigOwnerMismatch(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyCacheBehaviors(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyCertificates(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyCookieNamesInWhiteList(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyDistributionCnamEs(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyDistributions(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyDistributionsAssociatedToCachePolicy(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::TooManyDistributionsAssociatedToKeyGroup(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyDistributionsAssociatedToOriginAccessControl(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::TooManyDistributionsAssociatedToOriginRequestPolicy(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::TooManyDistributionsAssociatedToResponseHeadersPolicy(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::TooManyDistributionsWithFunctionAssociations(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyDistributionsWithLambdaAssociations(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyDistributionsWithSingleFunctionArn(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyFunctionAssociations(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyHeadersInForwardedValues(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyKeyGroupsAssociatedToDistribution(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyLambdaFunctionAssociations(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyOriginCustomHeaders(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyOriginGroupsPerDistribution(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyOrigins(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyQueryStringParameters(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyTrustedSigners(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TrustedKeyGroupDoesNotExist(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TrustedSignerDoesNotExist(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::Unhandled(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-        }
-    }
-}
-impl ::aws_http::request_id::RequestId for crate::operation::copy_distribution::CopyDistributionError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-impl ::aws_smithy_types::retry::ProvideErrorKind for CopyDistributionError {
-    fn code(&self) -> ::std::option::Option<&str> {
-        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-    }
-    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
-        ::std::option::Option::None
-    }
+                    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CopyDistributionError) for what information is available for the error.")]
+                    Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl CopyDistributionError {
     /// Creates the `CopyDistributionError::Unhandled` variant from any error type.
-    pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
-    ) -> Self {
-        Self::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(err).build())
-    }
-
-    /// Creates the `CopyDistributionError::Unhandled` variant from a `::aws_smithy_types::error::ErrorMetadata`.
-    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(err.clone()).meta(err).build())
-    }
-    ///
+                    pub fn unhandled(err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>) -> Self {
+                        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source: err.into(), meta: ::std::default::Default::default() })
+                    }
+    
+                    /// Creates the `CopyDistributionError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+                    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+                        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source: err.clone().into(), meta: err })
+                    }
+    /// 
     /// Returns error metadata, which includes the error code, message,
     /// request ID, and potentially additional information.
-    ///
+    /// 
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         match self {
-            Self::AccessDenied(e) => e.meta(),
-            Self::CnameAlreadyExists(e) => e.meta(),
-            Self::DistributionAlreadyExists(e) => e.meta(),
-            Self::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior(e) => e.meta(),
-            Self::InconsistentQuantities(e) => e.meta(),
-            Self::InvalidArgument(e) => e.meta(),
-            Self::InvalidDefaultRootObject(e) => e.meta(),
-            Self::InvalidErrorCode(e) => e.meta(),
-            Self::InvalidForwardCookies(e) => e.meta(),
-            Self::InvalidFunctionAssociation(e) => e.meta(),
-            Self::InvalidGeoRestrictionParameter(e) => e.meta(),
-            Self::InvalidHeadersForS3Origin(e) => e.meta(),
-            Self::InvalidIfMatchVersion(e) => e.meta(),
-            Self::InvalidLambdaFunctionAssociation(e) => e.meta(),
-            Self::InvalidLocationCode(e) => e.meta(),
-            Self::InvalidMinimumProtocolVersion(e) => e.meta(),
-            Self::InvalidOrigin(e) => e.meta(),
-            Self::InvalidOriginAccessControl(e) => e.meta(),
-            Self::InvalidOriginAccessIdentity(e) => e.meta(),
-            Self::InvalidOriginKeepaliveTimeout(e) => e.meta(),
-            Self::InvalidOriginReadTimeout(e) => e.meta(),
-            Self::InvalidProtocolSettings(e) => e.meta(),
-            Self::InvalidQueryStringParameters(e) => e.meta(),
-            Self::InvalidRelativePath(e) => e.meta(),
-            Self::InvalidRequiredProtocol(e) => e.meta(),
-            Self::InvalidResponseCode(e) => e.meta(),
-            Self::InvalidTtlOrder(e) => e.meta(),
-            Self::InvalidViewerCertificate(e) => e.meta(),
-            Self::InvalidWebAclId(e) => e.meta(),
-            Self::MissingBody(e) => e.meta(),
-            Self::NoSuchCachePolicy(e) => e.meta(),
-            Self::NoSuchDistribution(e) => e.meta(),
-            Self::NoSuchFieldLevelEncryptionConfig(e) => e.meta(),
-            Self::NoSuchOrigin(e) => e.meta(),
-            Self::NoSuchOriginRequestPolicy(e) => e.meta(),
-            Self::NoSuchRealtimeLogConfig(e) => e.meta(),
-            Self::NoSuchResponseHeadersPolicy(e) => e.meta(),
-            Self::PreconditionFailed(e) => e.meta(),
-            Self::RealtimeLogConfigOwnerMismatch(e) => e.meta(),
-            Self::TooManyCacheBehaviors(e) => e.meta(),
-            Self::TooManyCertificates(e) => e.meta(),
-            Self::TooManyCookieNamesInWhiteList(e) => e.meta(),
-            Self::TooManyDistributionCnamEs(e) => e.meta(),
-            Self::TooManyDistributions(e) => e.meta(),
-            Self::TooManyDistributionsAssociatedToCachePolicy(e) => e.meta(),
-            Self::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig(e) => e.meta(),
-            Self::TooManyDistributionsAssociatedToKeyGroup(e) => e.meta(),
-            Self::TooManyDistributionsAssociatedToOriginAccessControl(e) => e.meta(),
-            Self::TooManyDistributionsAssociatedToOriginRequestPolicy(e) => e.meta(),
-            Self::TooManyDistributionsAssociatedToResponseHeadersPolicy(e) => e.meta(),
-            Self::TooManyDistributionsWithFunctionAssociations(e) => e.meta(),
-            Self::TooManyDistributionsWithLambdaAssociations(e) => e.meta(),
-            Self::TooManyDistributionsWithSingleFunctionArn(e) => e.meta(),
-            Self::TooManyFunctionAssociations(e) => e.meta(),
-            Self::TooManyHeadersInForwardedValues(e) => e.meta(),
-            Self::TooManyKeyGroupsAssociatedToDistribution(e) => e.meta(),
-            Self::TooManyLambdaFunctionAssociations(e) => e.meta(),
-            Self::TooManyOriginCustomHeaders(e) => e.meta(),
-            Self::TooManyOriginGroupsPerDistribution(e) => e.meta(),
-            Self::TooManyOrigins(e) => e.meta(),
-            Self::TooManyQueryStringParameters(e) => e.meta(),
-            Self::TooManyTrustedSigners(e) => e.meta(),
-            Self::TrustedKeyGroupDoesNotExist(e) => e.meta(),
-            Self::TrustedSignerDoesNotExist(e) => e.meta(),
-            Self::Unhandled(e) => e.meta(),
+            Self::AccessDenied(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::CnameAlreadyExists(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::DistributionAlreadyExists(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InconsistentQuantities(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidArgument(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidDefaultRootObject(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidErrorCode(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidForwardCookies(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidFunctionAssociation(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidGeoRestrictionParameter(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidHeadersForS3Origin(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidIfMatchVersion(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidLambdaFunctionAssociation(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidLocationCode(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidMinimumProtocolVersion(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidOrigin(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidOriginAccessControl(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidOriginAccessIdentity(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidOriginKeepaliveTimeout(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidOriginReadTimeout(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidProtocolSettings(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidQueryStringParameters(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidRelativePath(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidRequiredProtocol(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidResponseCode(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidTtlOrder(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidViewerCertificate(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidWebAclId(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::MissingBody(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchCachePolicy(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchDistribution(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchFieldLevelEncryptionConfig(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchOrigin(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchOriginRequestPolicy(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchRealtimeLogConfig(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchResponseHeadersPolicy(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::PreconditionFailed(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::RealtimeLogConfigOwnerMismatch(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyCacheBehaviors(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyCertificates(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyCookieNamesInWhiteList(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionCnamEs(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributions(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionsAssociatedToCachePolicy(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionsAssociatedToKeyGroup(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionsAssociatedToOriginAccessControl(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionsAssociatedToOriginRequestPolicy(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionsAssociatedToResponseHeadersPolicy(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionsWithFunctionAssociations(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionsWithLambdaAssociations(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyDistributionsWithSingleFunctionArn(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyFunctionAssociations(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyHeadersInForwardedValues(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyKeyGroupsAssociatedToDistribution(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyLambdaFunctionAssociations(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyOriginCustomHeaders(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyOriginGroupsPerDistribution(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyOrigins(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyQueryStringParameters(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyTrustedSigners(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TrustedKeyGroupDoesNotExist(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TrustedSignerDoesNotExist(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::Unhandled(e) => &e.meta,
         }
     }
     /// Returns `true` if the error kind is `CopyDistributionError::AccessDenied`.
@@ -916,74 +678,631 @@ impl CopyDistributionError {
 impl ::std::error::Error for CopyDistributionError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::AccessDenied(_inner) => ::std::option::Option::Some(_inner),
-            Self::CnameAlreadyExists(_inner) => ::std::option::Option::Some(_inner),
-            Self::DistributionAlreadyExists(_inner) => ::std::option::Option::Some(_inner),
-            Self::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior(_inner) => ::std::option::Option::Some(_inner),
-            Self::InconsistentQuantities(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidArgument(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidDefaultRootObject(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidErrorCode(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidForwardCookies(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidFunctionAssociation(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidGeoRestrictionParameter(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidHeadersForS3Origin(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidIfMatchVersion(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidLambdaFunctionAssociation(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidLocationCode(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidMinimumProtocolVersion(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidOrigin(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidOriginAccessControl(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidOriginAccessIdentity(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidOriginKeepaliveTimeout(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidOriginReadTimeout(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidProtocolSettings(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidQueryStringParameters(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidRelativePath(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidRequiredProtocol(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidResponseCode(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidTtlOrder(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidViewerCertificate(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidWebAclId(_inner) => ::std::option::Option::Some(_inner),
-            Self::MissingBody(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoSuchCachePolicy(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoSuchDistribution(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoSuchFieldLevelEncryptionConfig(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoSuchOrigin(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoSuchOriginRequestPolicy(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoSuchRealtimeLogConfig(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoSuchResponseHeadersPolicy(_inner) => ::std::option::Option::Some(_inner),
-            Self::PreconditionFailed(_inner) => ::std::option::Option::Some(_inner),
-            Self::RealtimeLogConfigOwnerMismatch(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyCacheBehaviors(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyCertificates(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyCookieNamesInWhiteList(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionCnamEs(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributions(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionsAssociatedToCachePolicy(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionsAssociatedToKeyGroup(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionsAssociatedToOriginAccessControl(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionsAssociatedToOriginRequestPolicy(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionsAssociatedToResponseHeadersPolicy(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionsWithFunctionAssociations(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionsWithLambdaAssociations(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyDistributionsWithSingleFunctionArn(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyFunctionAssociations(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyHeadersInForwardedValues(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyKeyGroupsAssociatedToDistribution(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyLambdaFunctionAssociations(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyOriginCustomHeaders(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyOriginGroupsPerDistribution(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyOrigins(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyQueryStringParameters(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyTrustedSigners(_inner) => ::std::option::Option::Some(_inner),
-            Self::TrustedKeyGroupDoesNotExist(_inner) => ::std::option::Option::Some(_inner),
-            Self::TrustedSignerDoesNotExist(_inner) => ::std::option::Option::Some(_inner),
-            Self::Unhandled(_inner) => ::std::option::Option::Some(_inner),
+            Self::AccessDenied(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::CnameAlreadyExists(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::DistributionAlreadyExists(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InconsistentQuantities(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidArgument(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidDefaultRootObject(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidErrorCode(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidForwardCookies(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidFunctionAssociation(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidGeoRestrictionParameter(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidHeadersForS3Origin(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidIfMatchVersion(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidLambdaFunctionAssociation(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidLocationCode(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidMinimumProtocolVersion(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidOrigin(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidOriginAccessControl(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidOriginAccessIdentity(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidOriginKeepaliveTimeout(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidOriginReadTimeout(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidProtocolSettings(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidQueryStringParameters(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidRelativePath(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidRequiredProtocol(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidResponseCode(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidTtlOrder(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidViewerCertificate(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidWebAclId(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::MissingBody(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::NoSuchCachePolicy(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::NoSuchDistribution(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::NoSuchFieldLevelEncryptionConfig(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::NoSuchOrigin(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::NoSuchOriginRequestPolicy(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::NoSuchRealtimeLogConfig(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::NoSuchResponseHeadersPolicy(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::PreconditionFailed(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::RealtimeLogConfigOwnerMismatch(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyCacheBehaviors(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyCertificates(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyCookieNamesInWhiteList(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionCnamEs(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributions(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToCachePolicy(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToKeyGroup(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToOriginAccessControl(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToOriginRequestPolicy(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToResponseHeadersPolicy(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionsWithFunctionAssociations(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionsWithLambdaAssociations(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyDistributionsWithSingleFunctionArn(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyFunctionAssociations(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyHeadersInForwardedValues(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyKeyGroupsAssociatedToDistribution(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyLambdaFunctionAssociations(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyOriginCustomHeaders(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyOriginGroupsPerDistribution(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyOrigins(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyQueryStringParameters(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyTrustedSigners(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TrustedKeyGroupDoesNotExist(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TrustedSignerDoesNotExist(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::Unhandled(_inner) => {
+                ::std::option::Option::Some(&*_inner.source)
+            }
         }
     }
 }
+impl ::std::fmt::Display for CopyDistributionError {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            Self::AccessDenied(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::CnameAlreadyExists(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::DistributionAlreadyExists(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InconsistentQuantities(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidArgument(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidDefaultRootObject(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidErrorCode(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidForwardCookies(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidFunctionAssociation(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidGeoRestrictionParameter(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidHeadersForS3Origin(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidIfMatchVersion(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidLambdaFunctionAssociation(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidLocationCode(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidMinimumProtocolVersion(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidOrigin(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidOriginAccessControl(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidOriginAccessIdentity(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidOriginKeepaliveTimeout(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidOriginReadTimeout(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidProtocolSettings(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidQueryStringParameters(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidRelativePath(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidRequiredProtocol(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidResponseCode(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidTtlOrder(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidViewerCertificate(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidWebAclId(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::MissingBody(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::NoSuchCachePolicy(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::NoSuchDistribution(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::NoSuchFieldLevelEncryptionConfig(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::NoSuchOrigin(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::NoSuchOriginRequestPolicy(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::NoSuchRealtimeLogConfig(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::NoSuchResponseHeadersPolicy(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::PreconditionFailed(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::RealtimeLogConfigOwnerMismatch(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyCacheBehaviors(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyCertificates(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyCookieNamesInWhiteList(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionCnamEs(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributions(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionsAssociatedToCachePolicy(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionsAssociatedToKeyGroup(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionsAssociatedToOriginAccessControl(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionsAssociatedToOriginRequestPolicy(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionsAssociatedToResponseHeadersPolicy(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionsWithFunctionAssociations(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionsWithLambdaAssociations(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyDistributionsWithSingleFunctionArn(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyFunctionAssociations(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyHeadersInForwardedValues(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyKeyGroupsAssociatedToDistribution(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyLambdaFunctionAssociations(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyOriginCustomHeaders(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyOriginGroupsPerDistribution(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyOrigins(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyQueryStringParameters(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyTrustedSigners(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TrustedKeyGroupDoesNotExist(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TrustedSignerDoesNotExist(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::Unhandled(_inner) => {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                                    write!(f, "unhandled error ({code})")
+                                                } else {
+                                                    f.write_str("unhandled error")
+                                                }
+            }
+        }
+    }
+}
+impl ::aws_smithy_types::retry::ProvideErrorKind for CopyDistributionError {
+    fn code(&self) -> ::std::option::Option<&str> {
+        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+    }
+    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
+        ::std::option::Option::None
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CopyDistributionError {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        match self {
+            Self::AccessDenied(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::CnameAlreadyExists(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::DistributionAlreadyExists(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InconsistentQuantities(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidArgument(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidDefaultRootObject(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidErrorCode(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidForwardCookies(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidFunctionAssociation(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidGeoRestrictionParameter(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidHeadersForS3Origin(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidIfMatchVersion(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidLambdaFunctionAssociation(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidLocationCode(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidMinimumProtocolVersion(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidOrigin(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidOriginAccessControl(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidOriginAccessIdentity(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidOriginKeepaliveTimeout(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidOriginReadTimeout(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidProtocolSettings(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidQueryStringParameters(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidRelativePath(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidRequiredProtocol(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidResponseCode(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidTtlOrder(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidViewerCertificate(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidWebAclId(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::MissingBody(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::NoSuchCachePolicy(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::NoSuchDistribution(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::NoSuchFieldLevelEncryptionConfig(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::NoSuchOrigin(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::NoSuchOriginRequestPolicy(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::NoSuchRealtimeLogConfig(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::NoSuchResponseHeadersPolicy(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::PreconditionFailed(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::RealtimeLogConfigOwnerMismatch(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyCacheBehaviors(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyCertificates(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyCookieNamesInWhiteList(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionCnamEs(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributions(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToCachePolicy(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToKeyGroup(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToOriginAccessControl(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToOriginRequestPolicy(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionsAssociatedToResponseHeadersPolicy(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionsWithFunctionAssociations(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionsWithLambdaAssociations(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyDistributionsWithSingleFunctionArn(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyFunctionAssociations(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyHeadersInForwardedValues(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyKeyGroupsAssociatedToDistribution(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyLambdaFunctionAssociations(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyOriginCustomHeaders(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyOriginGroupsPerDistribution(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyOrigins(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyQueryStringParameters(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyTrustedSigners(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TrustedKeyGroupDoesNotExist(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TrustedSignerDoesNotExist(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::Unhandled(_inner) => {
+                &_inner.meta
+            }
+        }
+    }
+}
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CopyDistributionError {
+    fn create_unhandled_error(
+                        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+                        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>
+                    ) -> Self {
+        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source, meta: meta.unwrap_or_default() })
+    }
+}
+impl ::aws_types::request_id::RequestId for crate::operation::copy_distribution::CopyDistributionError {
+                            fn request_id(&self) -> Option<&str> {
+                                self.meta().request_id()
+                            }
+                        }
 
 pub use crate::operation::copy_distribution::_copy_distribution_output::CopyDistributionOutput;
 
@@ -995,3 +1314,4 @@ mod _copy_distribution_output;
 
 /// Builders
 pub mod builders;
+

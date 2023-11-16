@@ -3,30 +3,28 @@
 /// <p>Represents an activity type.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ActivityType {
-    /// <p>The name of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique within a domain.</p>
+pub struct ActivityType  {
+    /// <p>The name of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique within a domain.</p> 
     /// </note>
     pub name: ::std::string::String,
-    /// <p>The version of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique with in a domain.</p>
+    /// <p>The version of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique with in a domain.</p> 
     /// </note>
     pub version: ::std::string::String,
 }
-impl ActivityType {
-    /// <p>The name of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique within a domain.</p>
+impl  ActivityType  {
+    /// <p>The name of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique within a domain.</p> 
     /// </note>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
-    /// <p>The version of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique with in a domain.</p>
+    /// <p>The version of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique with in a domain.</p> 
     /// </note>
-    pub fn version(&self) -> &str {
-        use std::ops::Deref;
-        self.version.deref()
+    pub fn version(&self) -> & str {
+        use std::ops::Deref; self.version.deref()
     }
 }
 impl ActivityType {
@@ -44,44 +42,42 @@ pub struct ActivityTypeBuilder {
     pub(crate) version: ::std::option::Option<::std::string::String>,
 }
 impl ActivityTypeBuilder {
-    /// <p>The name of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique within a domain.</p>
+    /// <p>The name of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique within a domain.</p> 
     /// </note>
     /// This field is required.
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique within a domain.</p>
+    /// <p>The name of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique within a domain.</p> 
     /// </note>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
-    /// <p>The name of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique within a domain.</p>
+    /// <p>The name of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique within a domain.</p> 
     /// </note>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
-    /// <p>The version of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique with in a domain.</p>
+    /// <p>The version of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique with in a domain.</p> 
     /// </note>
     /// This field is required.
     pub fn version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The version of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique with in a domain.</p>
+    /// <p>The version of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique with in a domain.</p> 
     /// </note>
     pub fn set_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.version = input;
-        self
+        self.version = input; self
     }
-    /// <p>The version of this activity.</p> <note>
-    /// <p>The combination of activity type name and version must be unique with in a domain.</p>
+    /// <p>The version of this activity.</p> <note> 
+    /// <p>The combination of activity type name and version must be unique with in a domain.</p> 
     /// </note>
     pub fn get_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.version
@@ -91,19 +87,20 @@ impl ActivityTypeBuilder {
     /// - [`name`](crate::types::builders::ActivityTypeBuilder::name)
     /// - [`version`](crate::types::builders::ActivityTypeBuilder::version)
     pub fn build(self) -> ::std::result::Result<crate::types::ActivityType, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::ActivityType {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building ActivityType",
-                )
-            })?,
-            version: self.version.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "version",
-                    "version was not specified but it is required when building ActivityType",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::ActivityType {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building ActivityType")
+                    )?
+                ,
+                version: self.version
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("version", "version was not specified but it is required when building ActivityType")
+                    )?
+                ,
+            }
+        )
     }
 }
+

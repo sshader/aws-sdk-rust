@@ -3,61 +3,62 @@
 /// <p></p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DescribeDbInstancesInput {
-    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li>
+pub struct DescribeDbInstancesInput  {
+    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li> 
     /// </ul>
     pub db_instance_identifier: ::std::option::Option<::std::string::String>,
-    /// <p>A filter that specifies one or more DB instances to describe.</p>
-    /// <p>Supported Filters:</p>
-    /// <ul>
-    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li>
-    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li>
-    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li>
-    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li>
-    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li>
+    /// <p>A filter that specifies one or more DB instances to describe.</p> 
+    /// <p>Supported Filters:</p> 
+    /// <ul> 
+    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li> 
+    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li> 
+    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li> 
     /// </ul>
-    pub filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
-    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
-    /// <p>Default: 100</p>
+    pub filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
+    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> 
+    /// <p>Default: 100</p> 
     /// <p>Constraints: Minimum 20, maximum 100.</p>
     pub max_records: ::std::option::Option<i32>,
     /// <p>An optional pagination token provided by a previous <code>DescribeDBInstances</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
     pub marker: ::std::option::Option<::std::string::String>,
 }
-impl DescribeDbInstancesInput {
-    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li>
+impl  DescribeDbInstancesInput  {
+    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li> 
     /// </ul>
-    pub fn db_instance_identifier(&self) -> ::std::option::Option<&str> {
+    pub fn db_instance_identifier(&self) -> ::std::option::Option<& str> {
         self.db_instance_identifier.as_deref()
     }
-    /// <p>A filter that specifies one or more DB instances to describe.</p>
-    /// <p>Supported Filters:</p>
-    /// <ul>
-    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li>
-    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li>
-    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li>
-    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li>
-    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li>
+    /// <p>A filter that specifies one or more DB instances to describe.</p> 
+    /// <p>Supported Filters:</p> 
+    /// <ul> 
+    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li> 
+    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li> 
+    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filters.is_none()`.
-    pub fn filters(&self) -> &[crate::types::Filter] {
-        self.filters.as_deref().unwrap_or_default()
+    pub fn filters(&self) -> & [crate::types::Filter] {
+        self.filters.as_deref()
+        .unwrap_or_default()
     }
-    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
-    /// <p>Default: 100</p>
+    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> 
+    /// <p>Default: 100</p> 
     /// <p>Constraints: Minimum 20, maximum 100.</p>
     pub fn max_records(&self) -> ::std::option::Option<i32> {
         self.max_records
     }
     /// <p>An optional pagination token provided by a previous <code>DescribeDBInstances</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-    pub fn marker(&self) -> ::std::option::Option<&str> {
+    pub fn marker(&self) -> ::std::option::Option<& str> {
         self.marker.as_deref()
     }
 }
@@ -73,33 +74,32 @@ impl DescribeDbInstancesInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct DescribeDbInstancesInputBuilder {
     pub(crate) db_instance_identifier: ::std::option::Option<::std::string::String>,
-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    pub(crate) filters: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>,
     pub(crate) max_records: ::std::option::Option<i32>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
 }
 impl DescribeDbInstancesInputBuilder {
-    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li>
+    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li> 
     /// </ul>
     pub fn db_instance_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.db_instance_identifier = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li>
+    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li> 
     /// </ul>
     pub fn set_db_instance_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.db_instance_identifier = input;
-        self
+        self.db_instance_identifier = input; self
     }
-    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
-    /// <p>Constraints:</p>
-    /// <ul>
-    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li>
+    /// <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p> 
+    /// <p>Constraints:</p> 
+    /// <ul> 
+    /// <li> <p>If supplied, must match the identifier of an existing DB instance.</p> </li> 
     /// </ul>
     pub fn get_db_instance_identifier(&self) -> &::std::option::Option<::std::string::String> {
         &self.db_instance_identifier
@@ -108,62 +108,60 @@ impl DescribeDbInstancesInputBuilder {
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
     ///
-    /// <p>A filter that specifies one or more DB instances to describe.</p>
-    /// <p>Supported Filters:</p>
-    /// <ul>
-    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li>
-    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li>
-    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li>
-    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li>
-    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li>
+    /// <p>A filter that specifies one or more DB instances to describe.</p> 
+    /// <p>Supported Filters:</p> 
+    /// <ul> 
+    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li> 
+    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li> 
+    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li> 
     /// </ul>
     pub fn filters(mut self, input: crate::types::Filter) -> Self {
         let mut v = self.filters.unwrap_or_default();
-        v.push(input);
-        self.filters = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.filters = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>A filter that specifies one or more DB instances to describe.</p>
-    /// <p>Supported Filters:</p>
-    /// <ul>
-    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li>
-    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li>
-    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li>
-    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li>
-    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li>
+    /// <p>A filter that specifies one or more DB instances to describe.</p> 
+    /// <p>Supported Filters:</p> 
+    /// <ul> 
+    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li> 
+    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li> 
+    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li> 
     /// </ul>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
-        self.filters = input;
-        self
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Filter>>) -> Self {
+        self.filters = input; self
     }
-    /// <p>A filter that specifies one or more DB instances to describe.</p>
-    /// <p>Supported Filters:</p>
-    /// <ul>
-    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li>
-    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li>
-    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li>
-    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li>
-    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li>
+    /// <p>A filter that specifies one or more DB instances to describe.</p> 
+    /// <p>Supported Filters:</p> 
+    /// <ul> 
+    /// <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list only includes information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list only includes information about the DB instances identified by these ARNs.</p> </li> 
+    /// <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list only includes information about the DB instances identified by these DB instance resource identifiers.</p> </li> 
+    /// <li> <p> <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes information about the DB instances associated with these domains.</p> </li> 
+    /// <li> <p> <code>engine</code> - Accepts engine names. The results list only includes information about the DB instances for these engines.</p> </li> 
     /// </ul>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Filter>> {
         &self.filters
     }
-    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
-    /// <p>Default: 100</p>
+    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> 
+    /// <p>Default: 100</p> 
     /// <p>Constraints: Minimum 20, maximum 100.</p>
     pub fn max_records(mut self, input: i32) -> Self {
         self.max_records = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
-    /// <p>Default: 100</p>
+    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> 
+    /// <p>Default: 100</p> 
     /// <p>Constraints: Minimum 20, maximum 100.</p>
     pub fn set_max_records(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_records = input;
-        self
+        self.max_records = input; self
     }
-    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
-    /// <p>Default: 100</p>
+    /// <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> 
+    /// <p>Default: 100</p> 
     /// <p>Constraints: Minimum 20, maximum 100.</p>
     pub fn get_max_records(&self) -> &::std::option::Option<i32> {
         &self.max_records
@@ -175,23 +173,26 @@ impl DescribeDbInstancesInputBuilder {
     }
     /// <p>An optional pagination token provided by a previous <code>DescribeDBInstances</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.marker = input;
-        self
+        self.marker = input; self
     }
     /// <p>An optional pagination token provided by a previous <code>DescribeDBInstances</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.marker
     }
     /// Consumes the builder and constructs a [`DescribeDbInstancesInput`](crate::operation::describe_db_instances::DescribeDbInstancesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::describe_db_instances::DescribeDbInstancesInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::describe_db_instances::DescribeDbInstancesInput {
-            db_instance_identifier: self.db_instance_identifier,
-            filters: self.filters,
-            max_records: self.max_records,
-            marker: self.marker,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::describe_db_instances::DescribeDbInstancesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::describe_db_instances::DescribeDbInstancesInput {
+                db_instance_identifier: self.db_instance_identifier
+                ,
+                filters: self.filters
+                ,
+                max_records: self.max_records
+                ,
+                marker: self.marker
+                ,
+            }
+        )
     }
 }
+

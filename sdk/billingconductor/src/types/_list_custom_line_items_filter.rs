@@ -3,32 +3,35 @@
 /// <p>A filter that specifies the custom line items and billing groups to retrieve FFLI information.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListCustomLineItemsFilter {
+pub struct ListCustomLineItemsFilter  {
     /// <p>A list of custom line items to retrieve information.</p>
-    pub names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub names: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>The billing group Amazon Resource Names (ARNs) to retrieve information.</p>
-    pub billing_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub billing_groups: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>A list of custom line item ARNs to retrieve information.</p>
-    pub arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub arns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
-impl ListCustomLineItemsFilter {
+impl  ListCustomLineItemsFilter  {
     /// <p>A list of custom line items to retrieve information.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.names.is_none()`.
-    pub fn names(&self) -> &[::std::string::String] {
-        self.names.as_deref().unwrap_or_default()
+    pub fn names(&self) -> & [::std::string::String] {
+        self.names.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The billing group Amazon Resource Names (ARNs) to retrieve information.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.billing_groups.is_none()`.
-    pub fn billing_groups(&self) -> &[::std::string::String] {
-        self.billing_groups.as_deref().unwrap_or_default()
+    pub fn billing_groups(&self) -> & [::std::string::String] {
+        self.billing_groups.as_deref()
+        .unwrap_or_default()
     }
     /// <p>A list of custom line item ARNs to retrieve information.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.arns.is_none()`.
-    pub fn arns(&self) -> &[::std::string::String] {
-        self.arns.as_deref().unwrap_or_default()
+    pub fn arns(&self) -> & [::std::string::String] {
+        self.arns.as_deref()
+        .unwrap_or_default()
     }
 }
 impl ListCustomLineItemsFilter {
@@ -42,9 +45,9 @@ impl ListCustomLineItemsFilter {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct ListCustomLineItemsFilterBuilder {
-    pub(crate) names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) billing_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) names: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    pub(crate) billing_groups: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    pub(crate) arns: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
 }
 impl ListCustomLineItemsFilterBuilder {
     /// Appends an item to `names`.
@@ -54,17 +57,16 @@ impl ListCustomLineItemsFilterBuilder {
     /// <p>A list of custom line items to retrieve information.</p>
     pub fn names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.names.unwrap_or_default();
-        v.push(input.into());
-        self.names = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.names = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of custom line items to retrieve information.</p>
-    pub fn set_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.names = input;
-        self
+    pub fn set_names(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.names = input; self
     }
     /// <p>A list of custom line items to retrieve information.</p>
-    pub fn get_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_names(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.names
     }
     /// Appends an item to `billing_groups`.
@@ -74,17 +76,16 @@ impl ListCustomLineItemsFilterBuilder {
     /// <p>The billing group Amazon Resource Names (ARNs) to retrieve information.</p>
     pub fn billing_groups(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.billing_groups.unwrap_or_default();
-        v.push(input.into());
-        self.billing_groups = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.billing_groups = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The billing group Amazon Resource Names (ARNs) to retrieve information.</p>
-    pub fn set_billing_groups(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.billing_groups = input;
-        self
+    pub fn set_billing_groups(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.billing_groups = input; self
     }
     /// <p>The billing group Amazon Resource Names (ARNs) to retrieve information.</p>
-    pub fn get_billing_groups(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_billing_groups(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.billing_groups
     }
     /// Appends an item to `arns`.
@@ -94,25 +95,28 @@ impl ListCustomLineItemsFilterBuilder {
     /// <p>A list of custom line item ARNs to retrieve information.</p>
     pub fn arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.arns.unwrap_or_default();
-        v.push(input.into());
-        self.arns = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.arns = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of custom line item ARNs to retrieve information.</p>
-    pub fn set_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.arns = input;
-        self
+    pub fn set_arns(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.arns = input; self
     }
     /// <p>A list of custom line item ARNs to retrieve information.</p>
-    pub fn get_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_arns(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.arns
     }
     /// Consumes the builder and constructs a [`ListCustomLineItemsFilter`](crate::types::ListCustomLineItemsFilter).
     pub fn build(self) -> crate::types::ListCustomLineItemsFilter {
         crate::types::ListCustomLineItemsFilter {
-            names: self.names,
-            billing_groups: self.billing_groups,
-            arns: self.arns,
+            names: self.names
+            ,
+            billing_groups: self.billing_groups
+            ,
+            arns: self.arns
+            ,
         }
     }
 }
+

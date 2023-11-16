@@ -3,37 +3,37 @@
 /// <p>Represents information about incompatibility.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct IncompatibilityMessage {
+pub struct IncompatibilityMessage  {
     /// <p>A message about the incompatibility.</p>
     pub message: ::std::option::Option<::std::string::String>,
-    /// <p>The type of incompatibility.</p>
-    /// <p>Allowed values include:</p>
-    /// <ul>
-    /// <li> <p>ARN</p> </li>
-    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li>
-    /// <li> <p>MANUFACTURER</p> </li>
-    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li>
-    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li>
-    /// <li> <p>APPIUM_VERSION</p> </li>
+    /// <p>The type of incompatibility.</p> 
+    /// <p>Allowed values include:</p> 
+    /// <ul> 
+    /// <li> <p>ARN</p> </li> 
+    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li> 
+    /// <li> <p>MANUFACTURER</p> </li> 
+    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li> 
+    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li> 
+    /// <li> <p>APPIUM_VERSION</p> </li> 
     /// </ul>
     pub r#type: ::std::option::Option<crate::types::DeviceAttribute>,
 }
-impl IncompatibilityMessage {
+impl  IncompatibilityMessage  {
     /// <p>A message about the incompatibility.</p>
-    pub fn message(&self) -> ::std::option::Option<&str> {
+    pub fn message(&self) -> ::std::option::Option<& str> {
         self.message.as_deref()
     }
-    /// <p>The type of incompatibility.</p>
-    /// <p>Allowed values include:</p>
-    /// <ul>
-    /// <li> <p>ARN</p> </li>
-    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li>
-    /// <li> <p>MANUFACTURER</p> </li>
-    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li>
-    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li>
-    /// <li> <p>APPIUM_VERSION</p> </li>
+    /// <p>The type of incompatibility.</p> 
+    /// <p>Allowed values include:</p> 
+    /// <ul> 
+    /// <li> <p>ARN</p> </li> 
+    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li> 
+    /// <li> <p>MANUFACTURER</p> </li> 
+    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li> 
+    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li> 
+    /// <li> <p>APPIUM_VERSION</p> </li> 
     /// </ul>
-    pub fn r#type(&self) -> ::std::option::Option<&crate::types::DeviceAttribute> {
+    pub fn r#type(&self) -> ::std::option::Option<& crate::types::DeviceAttribute> {
         self.r#type.as_ref()
     }
 }
@@ -59,50 +59,48 @@ impl IncompatibilityMessageBuilder {
     }
     /// <p>A message about the incompatibility.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.message = input;
-        self
+        self.message = input; self
     }
     /// <p>A message about the incompatibility.</p>
     pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.message
     }
-    /// <p>The type of incompatibility.</p>
-    /// <p>Allowed values include:</p>
-    /// <ul>
-    /// <li> <p>ARN</p> </li>
-    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li>
-    /// <li> <p>MANUFACTURER</p> </li>
-    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li>
-    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li>
-    /// <li> <p>APPIUM_VERSION</p> </li>
+    /// <p>The type of incompatibility.</p> 
+    /// <p>Allowed values include:</p> 
+    /// <ul> 
+    /// <li> <p>ARN</p> </li> 
+    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li> 
+    /// <li> <p>MANUFACTURER</p> </li> 
+    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li> 
+    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li> 
+    /// <li> <p>APPIUM_VERSION</p> </li> 
     /// </ul>
     pub fn r#type(mut self, input: crate::types::DeviceAttribute) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The type of incompatibility.</p>
-    /// <p>Allowed values include:</p>
-    /// <ul>
-    /// <li> <p>ARN</p> </li>
-    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li>
-    /// <li> <p>MANUFACTURER</p> </li>
-    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li>
-    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li>
-    /// <li> <p>APPIUM_VERSION</p> </li>
+    /// <p>The type of incompatibility.</p> 
+    /// <p>Allowed values include:</p> 
+    /// <ul> 
+    /// <li> <p>ARN</p> </li> 
+    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li> 
+    /// <li> <p>MANUFACTURER</p> </li> 
+    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li> 
+    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li> 
+    /// <li> <p>APPIUM_VERSION</p> </li> 
     /// </ul>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::DeviceAttribute>) -> Self {
-        self.r#type = input;
-        self
+        self.r#type = input; self
     }
-    /// <p>The type of incompatibility.</p>
-    /// <p>Allowed values include:</p>
-    /// <ul>
-    /// <li> <p>ARN</p> </li>
-    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li>
-    /// <li> <p>MANUFACTURER</p> </li>
-    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li>
-    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li>
-    /// <li> <p>APPIUM_VERSION</p> </li>
+    /// <p>The type of incompatibility.</p> 
+    /// <p>Allowed values include:</p> 
+    /// <ul> 
+    /// <li> <p>ARN</p> </li> 
+    /// <li> <p>FORM_FACTOR (for example, phone or tablet)</p> </li> 
+    /// <li> <p>MANUFACTURER</p> </li> 
+    /// <li> <p>PLATFORM (for example, Android or iOS)</p> </li> 
+    /// <li> <p>REMOTE_ACCESS_ENABLED</p> </li> 
+    /// <li> <p>APPIUM_VERSION</p> </li> 
     /// </ul>
     pub fn get_type(&self) -> &::std::option::Option<crate::types::DeviceAttribute> {
         &self.r#type
@@ -110,8 +108,11 @@ impl IncompatibilityMessageBuilder {
     /// Consumes the builder and constructs a [`IncompatibilityMessage`](crate::types::IncompatibilityMessage).
     pub fn build(self) -> crate::types::IncompatibilityMessage {
         crate::types::IncompatibilityMessage {
-            message: self.message,
-            r#type: self.r#type,
+            message: self.message
+            ,
+            r#type: self.r#type
+            ,
         }
     }
 }
+

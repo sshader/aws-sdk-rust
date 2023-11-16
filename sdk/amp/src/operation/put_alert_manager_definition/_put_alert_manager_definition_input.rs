@@ -3,7 +3,7 @@
 /// Represents the input of a PutAlertManagerDefinition operation.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct PutAlertManagerDefinitionInput {
+pub struct PutAlertManagerDefinitionInput  {
     /// The ID of the workspace in which to update the alert manager definition.
     pub workspace_id: ::std::option::Option<::std::string::String>,
     /// The alert manager definition data.
@@ -11,17 +11,17 @@ pub struct PutAlertManagerDefinitionInput {
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
     pub client_token: ::std::option::Option<::std::string::String>,
 }
-impl PutAlertManagerDefinitionInput {
+impl  PutAlertManagerDefinitionInput  {
     /// The ID of the workspace in which to update the alert manager definition.
-    pub fn workspace_id(&self) -> ::std::option::Option<&str> {
+    pub fn workspace_id(&self) -> ::std::option::Option<& str> {
         self.workspace_id.as_deref()
     }
     /// The alert manager definition data.
-    pub fn data(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
+    pub fn data(&self) -> ::std::option::Option<& ::aws_smithy_types::Blob> {
         self.data.as_ref()
     }
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
 }
@@ -49,8 +49,7 @@ impl PutAlertManagerDefinitionInputBuilder {
     }
     /// The ID of the workspace in which to update the alert manager definition.
     pub fn set_workspace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workspace_id = input;
-        self
+        self.workspace_id = input; self
     }
     /// The ID of the workspace in which to update the alert manager definition.
     pub fn get_workspace_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -64,8 +63,7 @@ impl PutAlertManagerDefinitionInputBuilder {
     }
     /// The alert manager definition data.
     pub fn set_data(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-        self.data = input;
-        self
+        self.data = input; self
     }
     /// The alert manager definition data.
     pub fn get_data(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
@@ -78,24 +76,24 @@ impl PutAlertManagerDefinitionInputBuilder {
     }
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
     /// Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
     /// Consumes the builder and constructs a [`PutAlertManagerDefinitionInput`](crate::operation::put_alert_manager_definition::PutAlertManagerDefinitionInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::put_alert_manager_definition::PutAlertManagerDefinitionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::put_alert_manager_definition::PutAlertManagerDefinitionInput {
-            workspace_id: self.workspace_id,
-            data: self.data,
-            client_token: self.client_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::put_alert_manager_definition::PutAlertManagerDefinitionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::put_alert_manager_definition::PutAlertManagerDefinitionInput {
+                workspace_id: self.workspace_id
+                ,
+                data: self.data
+                ,
+                client_token: self.client_token
+                ,
+            }
+        )
     }
 }
+

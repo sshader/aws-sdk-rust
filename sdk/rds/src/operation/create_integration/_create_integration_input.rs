@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateIntegrationInput {
+pub struct CreateIntegrationInput  {
     /// <p>The Amazon Resource Name (ARN) of the database to use as the source for replication.</p>
     pub source_arn: ::std::option::Option<::std::string::String>,
     /// <p>The ARN of the Redshift data warehouse to use as the target for replication.</p>
@@ -11,39 +11,40 @@ pub struct CreateIntegrationInput {
     pub integration_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default Amazon Web Services owned key. </p>
     pub kms_key_id: ::std::option::Option<::std::string::String>,
-    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> 
     /// <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>
-    pub additional_encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub additional_encryption_context: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     /// <p>A list of tags. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i> </p>
-    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
-impl CreateIntegrationInput {
+impl  CreateIntegrationInput  {
     /// <p>The Amazon Resource Name (ARN) of the database to use as the source for replication.</p>
-    pub fn source_arn(&self) -> ::std::option::Option<&str> {
+    pub fn source_arn(&self) -> ::std::option::Option<& str> {
         self.source_arn.as_deref()
     }
     /// <p>The ARN of the Redshift data warehouse to use as the target for replication.</p>
-    pub fn target_arn(&self) -> ::std::option::Option<&str> {
+    pub fn target_arn(&self) -> ::std::option::Option<& str> {
         self.target_arn.as_deref()
     }
     /// <p>The name of the integration.</p>
-    pub fn integration_name(&self) -> ::std::option::Option<&str> {
+    pub fn integration_name(&self) -> ::std::option::Option<& str> {
         self.integration_name.as_deref()
     }
     /// <p>The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default Amazon Web Services owned key. </p>
-    pub fn kms_key_id(&self) -> ::std::option::Option<&str> {
+    pub fn kms_key_id(&self) -> ::std::option::Option<& str> {
         self.kms_key_id.as_deref()
     }
-    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> 
     /// <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>
-    pub fn additional_encryption_context(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn additional_encryption_context(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.additional_encryption_context.as_ref()
     }
     /// <p>A list of tags. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i> </p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-    pub fn tags(&self) -> &[crate::types::Tag] {
-        self.tags.as_deref().unwrap_or_default()
+    pub fn tags(&self) -> & [crate::types::Tag] {
+        self.tags.as_deref()
+        .unwrap_or_default()
     }
 }
 impl CreateIntegrationInput {
@@ -61,8 +62,8 @@ pub struct CreateIntegrationInputBuilder {
     pub(crate) target_arn: ::std::option::Option<::std::string::String>,
     pub(crate) integration_name: ::std::option::Option<::std::string::String>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) additional_encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    pub(crate) additional_encryption_context: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>,
 }
 impl CreateIntegrationInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the database to use as the source for replication.</p>
@@ -73,8 +74,7 @@ impl CreateIntegrationInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the database to use as the source for replication.</p>
     pub fn set_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.source_arn = input;
-        self
+        self.source_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) of the database to use as the source for replication.</p>
     pub fn get_source_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -88,8 +88,7 @@ impl CreateIntegrationInputBuilder {
     }
     /// <p>The ARN of the Redshift data warehouse to use as the target for replication.</p>
     pub fn set_target_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.target_arn = input;
-        self
+        self.target_arn = input; self
     }
     /// <p>The ARN of the Redshift data warehouse to use as the target for replication.</p>
     pub fn get_target_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -103,8 +102,7 @@ impl CreateIntegrationInputBuilder {
     }
     /// <p>The name of the integration.</p>
     pub fn set_integration_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.integration_name = input;
-        self
+        self.integration_name = input; self
     }
     /// <p>The name of the integration.</p>
     pub fn get_integration_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -117,8 +115,7 @@ impl CreateIntegrationInputBuilder {
     }
     /// <p>The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default Amazon Web Services owned key. </p>
     pub fn set_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.kms_key_id = input;
-        self
+        self.kms_key_id = input; self
     }
     /// <p>The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default Amazon Web Services owned key. </p>
     pub fn get_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -128,32 +125,22 @@ impl CreateIntegrationInputBuilder {
     ///
     /// To override the contents of this collection use [`set_additional_encryption_context`](Self::set_additional_encryption_context).
     ///
-    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> 
     /// <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>
-    pub fn additional_encryption_context(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn additional_encryption_context(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.additional_encryption_context.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.additional_encryption_context = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.additional_encryption_context = ::std::option::Option::Some(hash_map);
+                        self
     }
-    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> 
     /// <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>
-    pub fn set_additional_encryption_context(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    ) -> Self {
-        self.additional_encryption_context = input;
-        self
+    pub fn set_additional_encryption_context(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.additional_encryption_context = input; self
     }
-    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+    /// <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> 
     /// <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>
-    pub fn get_additional_encryption_context(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_additional_encryption_context(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.additional_encryption_context
     }
     /// Appends an item to `tags`.
@@ -163,30 +150,36 @@ impl CreateIntegrationInputBuilder {
     /// <p>A list of tags. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i> </p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
-        v.push(input);
-        self.tags = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.tags = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of tags. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i> </p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::Tag>>) -> Self {
+        self.tags = input; self
     }
     /// <p>A list of tags. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i> </p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::Tag>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateIntegrationInput`](crate::operation::create_integration::CreateIntegrationInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_integration::CreateIntegrationInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_integration::CreateIntegrationInput {
-            source_arn: self.source_arn,
-            target_arn: self.target_arn,
-            integration_name: self.integration_name,
-            kms_key_id: self.kms_key_id,
-            additional_encryption_context: self.additional_encryption_context,
-            tags: self.tags,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_integration::CreateIntegrationInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_integration::CreateIntegrationInput {
+                source_arn: self.source_arn
+                ,
+                target_arn: self.target_arn
+                ,
+                integration_name: self.integration_name
+                ,
+                kms_key_id: self.kms_key_id
+                ,
+                additional_encryption_context: self.additional_encryption_context
+                ,
+                tags: self.tags
+                ,
+            }
+        )
     }
 }
+

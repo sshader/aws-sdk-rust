@@ -3,21 +3,20 @@
 /// <p>Controls how a specific <code>VPCConnection</code> resource is parameterized in the outputted CloudFormation template.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct AssetBundleExportJobVpcConnectionOverrideProperties {
+pub struct AssetBundleExportJobVpcConnectionOverrideProperties  {
     /// <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub properties: ::std::vec::Vec<crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride>,
+    pub properties: ::std::vec::Vec::<crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride>,
 }
-impl AssetBundleExportJobVpcConnectionOverrideProperties {
+impl  AssetBundleExportJobVpcConnectionOverrideProperties  {
     /// <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
-    pub fn arn(&self) -> ::std::option::Option<&str> {
+    pub fn arn(&self) -> ::std::option::Option<& str> {
         self.arn.as_deref()
     }
     /// <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub fn properties(&self) -> &[crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride] {
-        use std::ops::Deref;
-        self.properties.deref()
+    pub fn properties(&self) -> & [crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride] {
+        use std::ops::Deref; self.properties.deref()
     }
 }
 impl AssetBundleExportJobVpcConnectionOverrideProperties {
@@ -32,7 +31,7 @@ impl AssetBundleExportJobVpcConnectionOverrideProperties {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct AssetBundleExportJobVpcConnectionOverridePropertiesBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
-    pub(crate) properties: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride>>,
+    pub(crate) properties: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride>>,
 }
 impl AssetBundleExportJobVpcConnectionOverridePropertiesBuilder {
     /// <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
@@ -42,8 +41,7 @@ impl AssetBundleExportJobVpcConnectionOverridePropertiesBuilder {
     }
     /// <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -56,37 +54,33 @@ impl AssetBundleExportJobVpcConnectionOverridePropertiesBuilder {
     /// <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
     pub fn properties(mut self, input: crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride) -> Self {
         let mut v = self.properties.unwrap_or_default();
-        v.push(input);
-        self.properties = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.properties = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub fn set_properties(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride>>,
-    ) -> Self {
-        self.properties = input;
-        self
+    pub fn set_properties(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride>>) -> Self {
+        self.properties = input; self
     }
     /// <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-    pub fn get_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride>> {
+    pub fn get_properties(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AssetBundleExportJobVpcConnectionPropertyToOverride>> {
         &self.properties
     }
     /// Consumes the builder and constructs a [`AssetBundleExportJobVpcConnectionOverrideProperties`](crate::types::AssetBundleExportJobVpcConnectionOverrideProperties).
     /// This method will fail if any of the following fields are not set:
     /// - [`properties`](crate::types::builders::AssetBundleExportJobVpcConnectionOverridePropertiesBuilder::properties)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::types::AssetBundleExportJobVpcConnectionOverrideProperties, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::types::AssetBundleExportJobVpcConnectionOverrideProperties {
-            arn: self.arn,
-            properties: self.properties.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "properties",
-                    "properties was not specified but it is required when building AssetBundleExportJobVpcConnectionOverrideProperties",
-                )
-            })?,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::types::AssetBundleExportJobVpcConnectionOverrideProperties, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::types::AssetBundleExportJobVpcConnectionOverrideProperties {
+                arn: self.arn
+                ,
+                properties: self.properties
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("properties", "properties was not specified but it is required when building AssetBundleExportJobVpcConnectionOverrideProperties")
+                    )?
+                ,
+            }
+        )
     }
 }
+

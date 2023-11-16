@@ -3,7 +3,7 @@
 /// <p>The collection of computing resources from which an endpoint is created.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct Workgroup {
+pub struct Workgroup  {
     /// <p>The unique identifier of the workgroup.</p>
     pub workgroup_id: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) that links to the workgroup.</p>
@@ -17,11 +17,11 @@ pub struct Workgroup {
     /// <p>The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.</p>
     pub enhanced_vpc_routing: ::std::option::Option<bool>,
     /// <p>An array of parameters to set for advanced control over a database. The options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>, <code>query_group</code>, , <code>search_path</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
-    pub config_parameters: ::std::option::Option<::std::vec::Vec<crate::types::ConfigParameter>>,
+    pub config_parameters: ::std::option::Option<::std::vec::Vec::<crate::types::ConfigParameter>>,
     /// <p>An array of security group IDs to associate with the workgroup.</p>
-    pub security_group_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub security_group_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>An array of subnet IDs the workgroup is associated with.</p>
-    pub subnet_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub subnet_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     /// <p>The status of the workgroup.</p>
     pub status: ::std::option::Option<crate::types::WorkgroupStatus>,
     /// <p>The endpoint that is created from the workgroup.</p>
@@ -45,21 +45,21 @@ pub struct Workgroup {
     /// <p>The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.</p>
     pub max_capacity: ::std::option::Option<i32>,
 }
-impl Workgroup {
+impl  Workgroup  {
     /// <p>The unique identifier of the workgroup.</p>
-    pub fn workgroup_id(&self) -> ::std::option::Option<&str> {
+    pub fn workgroup_id(&self) -> ::std::option::Option<& str> {
         self.workgroup_id.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) that links to the workgroup.</p>
-    pub fn workgroup_arn(&self) -> ::std::option::Option<&str> {
+    pub fn workgroup_arn(&self) -> ::std::option::Option<& str> {
         self.workgroup_arn.as_deref()
     }
     /// <p>The name of the workgroup.</p>
-    pub fn workgroup_name(&self) -> ::std::option::Option<&str> {
+    pub fn workgroup_name(&self) -> ::std::option::Option<& str> {
         self.workgroup_name.as_deref()
     }
     /// <p>The namespace the workgroup is associated with.</p>
-    pub fn namespace_name(&self) -> ::std::option::Option<&str> {
+    pub fn namespace_name(&self) -> ::std::option::Option<& str> {
         self.namespace_name.as_deref()
     }
     /// <p>The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).</p>
@@ -71,29 +71,32 @@ impl Workgroup {
         self.enhanced_vpc_routing
     }
     /// <p>An array of parameters to set for advanced control over a database. The options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>, <code>query_group</code>, , <code>search_path</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.config_parameters.is_none()`.
-    pub fn config_parameters(&self) -> &[crate::types::ConfigParameter] {
-        self.config_parameters.as_deref().unwrap_or_default()
+    pub fn config_parameters(&self) -> & [crate::types::ConfigParameter] {
+        self.config_parameters.as_deref()
+        .unwrap_or_default()
     }
     /// <p>An array of security group IDs to associate with the workgroup.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.security_group_ids.is_none()`.
-    pub fn security_group_ids(&self) -> &[::std::string::String] {
-        self.security_group_ids.as_deref().unwrap_or_default()
+    pub fn security_group_ids(&self) -> & [::std::string::String] {
+        self.security_group_ids.as_deref()
+        .unwrap_or_default()
     }
     /// <p>An array of subnet IDs the workgroup is associated with.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.subnet_ids.is_none()`.
-    pub fn subnet_ids(&self) -> &[::std::string::String] {
-        self.subnet_ids.as_deref().unwrap_or_default()
+    pub fn subnet_ids(&self) -> & [::std::string::String] {
+        self.subnet_ids.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The status of the workgroup.</p>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::WorkgroupStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::WorkgroupStatus> {
         self.status.as_ref()
     }
     /// <p>The endpoint that is created from the workgroup.</p>
-    pub fn endpoint(&self) -> ::std::option::Option<&crate::types::Endpoint> {
+    pub fn endpoint(&self) -> ::std::option::Option<& crate::types::Endpoint> {
         self.endpoint.as_ref()
     }
     /// <p>A value that specifies whether the workgroup can be accessible from a public network</p>
@@ -101,7 +104,7 @@ impl Workgroup {
         self.publicly_accessible
     }
     /// <p>The creation date of the workgroup.</p>
-    pub fn creation_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn creation_date(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.creation_date.as_ref()
     }
     /// <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
@@ -109,23 +112,23 @@ impl Workgroup {
         self.port
     }
     /// <p>The custom domain name associated with the workgroup.</p>
-    pub fn custom_domain_name(&self) -> ::std::option::Option<&str> {
+    pub fn custom_domain_name(&self) -> ::std::option::Option<& str> {
         self.custom_domain_name.as_deref()
     }
     /// <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
-    pub fn custom_domain_certificate_arn(&self) -> ::std::option::Option<&str> {
+    pub fn custom_domain_certificate_arn(&self) -> ::std::option::Option<& str> {
         self.custom_domain_certificate_arn.as_deref()
     }
     /// <p>The expiration time for the certificate.</p>
-    pub fn custom_domain_certificate_expiry_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn custom_domain_certificate_expiry_time(&self) -> ::std::option::Option<& ::aws_smithy_types::DateTime> {
         self.custom_domain_certificate_expiry_time.as_ref()
     }
     /// <p>The Amazon Redshift Serverless version of your workgroup. For more information about Amazon Redshift Serverless versions, see<a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
-    pub fn workgroup_version(&self) -> ::std::option::Option<&str> {
+    pub fn workgroup_version(&self) -> ::std::option::Option<& str> {
         self.workgroup_version.as_deref()
     }
     /// <p>The patch version of your Amazon Redshift Serverless workgroup. For more information about patch versions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
-    pub fn patch_version(&self) -> ::std::option::Option<&str> {
+    pub fn patch_version(&self) -> ::std::option::Option<& str> {
         self.patch_version.as_deref()
     }
     /// <p>The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.</p>
@@ -150,9 +153,9 @@ pub struct WorkgroupBuilder {
     pub(crate) namespace_name: ::std::option::Option<::std::string::String>,
     pub(crate) base_capacity: ::std::option::Option<i32>,
     pub(crate) enhanced_vpc_routing: ::std::option::Option<bool>,
-    pub(crate) config_parameters: ::std::option::Option<::std::vec::Vec<crate::types::ConfigParameter>>,
-    pub(crate) security_group_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) subnet_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) config_parameters: ::std::option::Option<::std::vec::Vec::<crate::types::ConfigParameter>>,
+    pub(crate) security_group_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
+    pub(crate) subnet_ids: ::std::option::Option<::std::vec::Vec::<::std::string::String>>,
     pub(crate) status: ::std::option::Option<crate::types::WorkgroupStatus>,
     pub(crate) endpoint: ::std::option::Option<crate::types::Endpoint>,
     pub(crate) publicly_accessible: ::std::option::Option<bool>,
@@ -173,8 +176,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The unique identifier of the workgroup.</p>
     pub fn set_workgroup_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workgroup_id = input;
-        self
+        self.workgroup_id = input; self
     }
     /// <p>The unique identifier of the workgroup.</p>
     pub fn get_workgroup_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -187,8 +189,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) that links to the workgroup.</p>
     pub fn set_workgroup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workgroup_arn = input;
-        self
+        self.workgroup_arn = input; self
     }
     /// <p>The Amazon Resource Name (ARN) that links to the workgroup.</p>
     pub fn get_workgroup_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -201,8 +202,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The name of the workgroup.</p>
     pub fn set_workgroup_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workgroup_name = input;
-        self
+        self.workgroup_name = input; self
     }
     /// <p>The name of the workgroup.</p>
     pub fn get_workgroup_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -215,8 +215,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The namespace the workgroup is associated with.</p>
     pub fn set_namespace_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.namespace_name = input;
-        self
+        self.namespace_name = input; self
     }
     /// <p>The namespace the workgroup is associated with.</p>
     pub fn get_namespace_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -229,8 +228,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).</p>
     pub fn set_base_capacity(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.base_capacity = input;
-        self
+        self.base_capacity = input; self
     }
     /// <p>The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).</p>
     pub fn get_base_capacity(&self) -> &::std::option::Option<i32> {
@@ -243,8 +241,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.</p>
     pub fn set_enhanced_vpc_routing(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.enhanced_vpc_routing = input;
-        self
+        self.enhanced_vpc_routing = input; self
     }
     /// <p>The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.</p>
     pub fn get_enhanced_vpc_routing(&self) -> &::std::option::Option<bool> {
@@ -257,17 +254,16 @@ impl WorkgroupBuilder {
     /// <p>An array of parameters to set for advanced control over a database. The options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>, <code>query_group</code>, , <code>search_path</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
     pub fn config_parameters(mut self, input: crate::types::ConfigParameter) -> Self {
         let mut v = self.config_parameters.unwrap_or_default();
-        v.push(input);
-        self.config_parameters = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.config_parameters = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>An array of parameters to set for advanced control over a database. The options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>, <code>query_group</code>, , <code>search_path</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
-    pub fn set_config_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigParameter>>) -> Self {
-        self.config_parameters = input;
-        self
+    pub fn set_config_parameters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ConfigParameter>>) -> Self {
+        self.config_parameters = input; self
     }
     /// <p>An array of parameters to set for advanced control over a database. The options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitivity_identifier</code>, <code>enable_user_activity_logging</code>, <code>query_group</code>, , <code>search_path</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
-    pub fn get_config_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigParameter>> {
+    pub fn get_config_parameters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ConfigParameter>> {
         &self.config_parameters
     }
     /// Appends an item to `security_group_ids`.
@@ -277,17 +273,16 @@ impl WorkgroupBuilder {
     /// <p>An array of security group IDs to associate with the workgroup.</p>
     pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.security_group_ids.unwrap_or_default();
-        v.push(input.into());
-        self.security_group_ids = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.security_group_ids = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>An array of security group IDs to associate with the workgroup.</p>
-    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.security_group_ids = input;
-        self
+    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.security_group_ids = input; self
     }
     /// <p>An array of security group IDs to associate with the workgroup.</p>
-    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.security_group_ids
     }
     /// Appends an item to `subnet_ids`.
@@ -297,17 +292,16 @@ impl WorkgroupBuilder {
     /// <p>An array of subnet IDs the workgroup is associated with.</p>
     pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.subnet_ids.unwrap_or_default();
-        v.push(input.into());
-        self.subnet_ids = ::std::option::Option::Some(v);
-        self
+                        v.push(input.into());
+                        self.subnet_ids = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>An array of subnet IDs the workgroup is associated with.</p>
-    pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.subnet_ids = input;
-        self
+    pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
+        self.subnet_ids = input; self
     }
     /// <p>An array of subnet IDs the workgroup is associated with.</p>
-    pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         &self.subnet_ids
     }
     /// <p>The status of the workgroup.</p>
@@ -317,8 +311,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The status of the workgroup.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::WorkgroupStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p>The status of the workgroup.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::WorkgroupStatus> {
@@ -331,8 +324,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The endpoint that is created from the workgroup.</p>
     pub fn set_endpoint(mut self, input: ::std::option::Option<crate::types::Endpoint>) -> Self {
-        self.endpoint = input;
-        self
+        self.endpoint = input; self
     }
     /// <p>The endpoint that is created from the workgroup.</p>
     pub fn get_endpoint(&self) -> &::std::option::Option<crate::types::Endpoint> {
@@ -345,8 +337,7 @@ impl WorkgroupBuilder {
     }
     /// <p>A value that specifies whether the workgroup can be accessible from a public network</p>
     pub fn set_publicly_accessible(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.publicly_accessible = input;
-        self
+        self.publicly_accessible = input; self
     }
     /// <p>A value that specifies whether the workgroup can be accessible from a public network</p>
     pub fn get_publicly_accessible(&self) -> &::std::option::Option<bool> {
@@ -359,8 +350,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The creation date of the workgroup.</p>
     pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_date = input;
-        self
+        self.creation_date = input; self
     }
     /// <p>The creation date of the workgroup.</p>
     pub fn get_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -373,8 +363,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
     pub fn set_port(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.port = input;
-        self
+        self.port = input; self
     }
     /// <p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>
     pub fn get_port(&self) -> &::std::option::Option<i32> {
@@ -387,8 +376,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The custom domain name associated with the workgroup.</p>
     pub fn set_custom_domain_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.custom_domain_name = input;
-        self
+        self.custom_domain_name = input; self
     }
     /// <p>The custom domain name associated with the workgroup.</p>
     pub fn get_custom_domain_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -401,8 +389,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
     pub fn set_custom_domain_certificate_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.custom_domain_certificate_arn = input;
-        self
+        self.custom_domain_certificate_arn = input; self
     }
     /// <p>The custom domain name’s certificate Amazon resource name (ARN).</p>
     pub fn get_custom_domain_certificate_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -415,8 +402,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The expiration time for the certificate.</p>
     pub fn set_custom_domain_certificate_expiry_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.custom_domain_certificate_expiry_time = input;
-        self
+        self.custom_domain_certificate_expiry_time = input; self
     }
     /// <p>The expiration time for the certificate.</p>
     pub fn get_custom_domain_certificate_expiry_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -429,8 +415,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The Amazon Redshift Serverless version of your workgroup. For more information about Amazon Redshift Serverless versions, see<a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
     pub fn set_workgroup_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workgroup_version = input;
-        self
+        self.workgroup_version = input; self
     }
     /// <p>The Amazon Redshift Serverless version of your workgroup. For more information about Amazon Redshift Serverless versions, see<a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
     pub fn get_workgroup_version(&self) -> &::std::option::Option<::std::string::String> {
@@ -443,8 +428,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The patch version of your Amazon Redshift Serverless workgroup. For more information about patch versions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
     pub fn set_patch_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.patch_version = input;
-        self
+        self.patch_version = input; self
     }
     /// <p>The patch version of your Amazon Redshift Serverless workgroup. For more information about patch versions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html">Cluster versions for Amazon Redshift</a>.</p>
     pub fn get_patch_version(&self) -> &::std::option::Option<::std::string::String> {
@@ -457,8 +441,7 @@ impl WorkgroupBuilder {
     }
     /// <p>The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.</p>
     pub fn set_max_capacity(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_capacity = input;
-        self
+        self.max_capacity = input; self
     }
     /// <p>The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.</p>
     pub fn get_max_capacity(&self) -> &::std::option::Option<i32> {
@@ -467,26 +450,47 @@ impl WorkgroupBuilder {
     /// Consumes the builder and constructs a [`Workgroup`](crate::types::Workgroup).
     pub fn build(self) -> crate::types::Workgroup {
         crate::types::Workgroup {
-            workgroup_id: self.workgroup_id,
-            workgroup_arn: self.workgroup_arn,
-            workgroup_name: self.workgroup_name,
-            namespace_name: self.namespace_name,
-            base_capacity: self.base_capacity,
-            enhanced_vpc_routing: self.enhanced_vpc_routing,
-            config_parameters: self.config_parameters,
-            security_group_ids: self.security_group_ids,
-            subnet_ids: self.subnet_ids,
-            status: self.status,
-            endpoint: self.endpoint,
-            publicly_accessible: self.publicly_accessible,
-            creation_date: self.creation_date,
-            port: self.port,
-            custom_domain_name: self.custom_domain_name,
-            custom_domain_certificate_arn: self.custom_domain_certificate_arn,
-            custom_domain_certificate_expiry_time: self.custom_domain_certificate_expiry_time,
-            workgroup_version: self.workgroup_version,
-            patch_version: self.patch_version,
-            max_capacity: self.max_capacity,
+            workgroup_id: self.workgroup_id
+            ,
+            workgroup_arn: self.workgroup_arn
+            ,
+            workgroup_name: self.workgroup_name
+            ,
+            namespace_name: self.namespace_name
+            ,
+            base_capacity: self.base_capacity
+            ,
+            enhanced_vpc_routing: self.enhanced_vpc_routing
+            ,
+            config_parameters: self.config_parameters
+            ,
+            security_group_ids: self.security_group_ids
+            ,
+            subnet_ids: self.subnet_ids
+            ,
+            status: self.status
+            ,
+            endpoint: self.endpoint
+            ,
+            publicly_accessible: self.publicly_accessible
+            ,
+            creation_date: self.creation_date
+            ,
+            port: self.port
+            ,
+            custom_domain_name: self.custom_domain_name
+            ,
+            custom_domain_certificate_arn: self.custom_domain_certificate_arn
+            ,
+            custom_domain_certificate_expiry_time: self.custom_domain_certificate_expiry_time
+            ,
+            workgroup_version: self.workgroup_version
+            ,
+            patch_version: self.patch_version
+            ,
+            max_capacity: self.max_capacity
+            ,
         }
     }
 }
+

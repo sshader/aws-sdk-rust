@@ -3,37 +3,37 @@
 /// <p>Returns information about a specific Git blob object.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct BlobMetadata {
+pub struct BlobMetadata  {
     /// <p>The full ID of the blob.</p>
     pub blob_id: ::std::option::Option<::std::string::String>,
     /// <p>The path to the blob and associated file name, if any.</p>
     pub path: ::std::option::Option<::std::string::String>,
-    /// <p>The file mode permissions of the blob. File mode permission codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>100644</code> indicates read/write</p> </li>
-    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li>
-    /// <li> <p> <code>160000</code> indicates a submodule</p> </li>
-    /// <li> <p> <code>120000</code> indicates a symlink</p> </li>
+    /// <p>The file mode permissions of the blob. File mode permission codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>100644</code> indicates read/write</p> </li> 
+    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li> 
+    /// <li> <p> <code>160000</code> indicates a submodule</p> </li> 
+    /// <li> <p> <code>120000</code> indicates a symlink</p> </li> 
     /// </ul>
     pub mode: ::std::option::Option<::std::string::String>,
 }
-impl BlobMetadata {
+impl  BlobMetadata  {
     /// <p>The full ID of the blob.</p>
-    pub fn blob_id(&self) -> ::std::option::Option<&str> {
+    pub fn blob_id(&self) -> ::std::option::Option<& str> {
         self.blob_id.as_deref()
     }
     /// <p>The path to the blob and associated file name, if any.</p>
-    pub fn path(&self) -> ::std::option::Option<&str> {
+    pub fn path(&self) -> ::std::option::Option<& str> {
         self.path.as_deref()
     }
-    /// <p>The file mode permissions of the blob. File mode permission codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>100644</code> indicates read/write</p> </li>
-    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li>
-    /// <li> <p> <code>160000</code> indicates a submodule</p> </li>
-    /// <li> <p> <code>120000</code> indicates a symlink</p> </li>
+    /// <p>The file mode permissions of the blob. File mode permission codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>100644</code> indicates read/write</p> </li> 
+    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li> 
+    /// <li> <p> <code>160000</code> indicates a submodule</p> </li> 
+    /// <li> <p> <code>120000</code> indicates a symlink</p> </li> 
     /// </ul>
-    pub fn mode(&self) -> ::std::option::Option<&str> {
+    pub fn mode(&self) -> ::std::option::Option<& str> {
         self.mode.as_deref()
     }
 }
@@ -60,8 +60,7 @@ impl BlobMetadataBuilder {
     }
     /// <p>The full ID of the blob.</p>
     pub fn set_blob_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.blob_id = input;
-        self
+        self.blob_id = input; self
     }
     /// <p>The full ID of the blob.</p>
     pub fn get_blob_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -74,41 +73,39 @@ impl BlobMetadataBuilder {
     }
     /// <p>The path to the blob and associated file name, if any.</p>
     pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.path = input;
-        self
+        self.path = input; self
     }
     /// <p>The path to the blob and associated file name, if any.</p>
     pub fn get_path(&self) -> &::std::option::Option<::std::string::String> {
         &self.path
     }
-    /// <p>The file mode permissions of the blob. File mode permission codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>100644</code> indicates read/write</p> </li>
-    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li>
-    /// <li> <p> <code>160000</code> indicates a submodule</p> </li>
-    /// <li> <p> <code>120000</code> indicates a symlink</p> </li>
+    /// <p>The file mode permissions of the blob. File mode permission codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>100644</code> indicates read/write</p> </li> 
+    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li> 
+    /// <li> <p> <code>160000</code> indicates a submodule</p> </li> 
+    /// <li> <p> <code>120000</code> indicates a symlink</p> </li> 
     /// </ul>
     pub fn mode(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.mode = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The file mode permissions of the blob. File mode permission codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>100644</code> indicates read/write</p> </li>
-    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li>
-    /// <li> <p> <code>160000</code> indicates a submodule</p> </li>
-    /// <li> <p> <code>120000</code> indicates a symlink</p> </li>
+    /// <p>The file mode permissions of the blob. File mode permission codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>100644</code> indicates read/write</p> </li> 
+    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li> 
+    /// <li> <p> <code>160000</code> indicates a submodule</p> </li> 
+    /// <li> <p> <code>120000</code> indicates a symlink</p> </li> 
     /// </ul>
     pub fn set_mode(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.mode = input;
-        self
+        self.mode = input; self
     }
-    /// <p>The file mode permissions of the blob. File mode permission codes include:</p>
-    /// <ul>
-    /// <li> <p> <code>100644</code> indicates read/write</p> </li>
-    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li>
-    /// <li> <p> <code>160000</code> indicates a submodule</p> </li>
-    /// <li> <p> <code>120000</code> indicates a symlink</p> </li>
+    /// <p>The file mode permissions of the blob. File mode permission codes include:</p> 
+    /// <ul> 
+    /// <li> <p> <code>100644</code> indicates read/write</p> </li> 
+    /// <li> <p> <code>100755</code> indicates read/write/execute</p> </li> 
+    /// <li> <p> <code>160000</code> indicates a submodule</p> </li> 
+    /// <li> <p> <code>120000</code> indicates a symlink</p> </li> 
     /// </ul>
     pub fn get_mode(&self) -> &::std::option::Option<::std::string::String> {
         &self.mode
@@ -116,9 +113,13 @@ impl BlobMetadataBuilder {
     /// Consumes the builder and constructs a [`BlobMetadata`](crate::types::BlobMetadata).
     pub fn build(self) -> crate::types::BlobMetadata {
         crate::types::BlobMetadata {
-            blob_id: self.blob_id,
-            path: self.path,
-            mode: self.mode,
+            blob_id: self.blob_id
+            ,
+            path: self.path
+            ,
+            mode: self.mode
+            ,
         }
     }
 }
+

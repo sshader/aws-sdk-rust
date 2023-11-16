@@ -3,28 +3,27 @@
 /// <p>The sort configuration for a field in a field well.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct FieldSort {
+pub struct FieldSort  {
     /// <p>The sort configuration target field.</p>
     pub field_id: ::std::string::String,
-    /// <p>The sort direction. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ASC</code>: Ascending</p> </li>
-    /// <li> <p> <code>DESC</code>: Descending</p> </li>
+    /// <p>The sort direction. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ASC</code>: Ascending</p> </li> 
+    /// <li> <p> <code>DESC</code>: Descending</p> </li> 
     /// </ul>
     pub direction: crate::types::SortDirection,
 }
-impl FieldSort {
+impl  FieldSort  {
     /// <p>The sort configuration target field.</p>
-    pub fn field_id(&self) -> &str {
-        use std::ops::Deref;
-        self.field_id.deref()
+    pub fn field_id(&self) -> & str {
+        use std::ops::Deref; self.field_id.deref()
     }
-    /// <p>The sort direction. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ASC</code>: Ascending</p> </li>
-    /// <li> <p> <code>DESC</code>: Descending</p> </li>
+    /// <p>The sort direction. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ASC</code>: Ascending</p> </li> 
+    /// <li> <p> <code>DESC</code>: Descending</p> </li> 
     /// </ul>
-    pub fn direction(&self) -> &crate::types::SortDirection {
+    pub fn direction(&self) -> & crate::types::SortDirection {
         &self.direction
     }
 }
@@ -51,36 +50,34 @@ impl FieldSortBuilder {
     }
     /// <p>The sort configuration target field.</p>
     pub fn set_field_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.field_id = input;
-        self
+        self.field_id = input; self
     }
     /// <p>The sort configuration target field.</p>
     pub fn get_field_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.field_id
     }
-    /// <p>The sort direction. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ASC</code>: Ascending</p> </li>
-    /// <li> <p> <code>DESC</code>: Descending</p> </li>
+    /// <p>The sort direction. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ASC</code>: Ascending</p> </li> 
+    /// <li> <p> <code>DESC</code>: Descending</p> </li> 
     /// </ul>
     /// This field is required.
     pub fn direction(mut self, input: crate::types::SortDirection) -> Self {
         self.direction = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The sort direction. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ASC</code>: Ascending</p> </li>
-    /// <li> <p> <code>DESC</code>: Descending</p> </li>
+    /// <p>The sort direction. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ASC</code>: Ascending</p> </li> 
+    /// <li> <p> <code>DESC</code>: Descending</p> </li> 
     /// </ul>
     pub fn set_direction(mut self, input: ::std::option::Option<crate::types::SortDirection>) -> Self {
-        self.direction = input;
-        self
+        self.direction = input; self
     }
-    /// <p>The sort direction. Choose one of the following options:</p>
-    /// <ul>
-    /// <li> <p> <code>ASC</code>: Ascending</p> </li>
-    /// <li> <p> <code>DESC</code>: Descending</p> </li>
+    /// <p>The sort direction. Choose one of the following options:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ASC</code>: Ascending</p> </li> 
+    /// <li> <p> <code>DESC</code>: Descending</p> </li> 
     /// </ul>
     pub fn get_direction(&self) -> &::std::option::Option<crate::types::SortDirection> {
         &self.direction
@@ -90,19 +87,20 @@ impl FieldSortBuilder {
     /// - [`field_id`](crate::types::builders::FieldSortBuilder::field_id)
     /// - [`direction`](crate::types::builders::FieldSortBuilder::direction)
     pub fn build(self) -> ::std::result::Result<crate::types::FieldSort, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::types::FieldSort {
-            field_id: self.field_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "field_id",
-                    "field_id was not specified but it is required when building FieldSort",
-                )
-            })?,
-            direction: self.direction.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "direction",
-                    "direction was not specified but it is required when building FieldSort",
-                )
-            })?,
-        })
+        ::std::result::Result::Ok(
+            crate::types::FieldSort {
+                field_id: self.field_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("field_id", "field_id was not specified but it is required when building FieldSort")
+                    )?
+                ,
+                direction: self.direction
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("direction", "direction was not specified but it is required when building FieldSort")
+                    )?
+                ,
+            }
+        )
     }
 }
+

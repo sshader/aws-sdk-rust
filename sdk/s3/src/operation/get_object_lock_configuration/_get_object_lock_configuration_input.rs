@@ -2,21 +2,21 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetObjectLockConfigurationInput {
-    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p>
+pub struct GetObjectLockConfigurationInput  {
+    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p> 
     /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub bucket: ::std::option::Option<::std::string::String>,
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
-impl GetObjectLockConfigurationInput {
-    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p>
+impl  GetObjectLockConfigurationInput  {
+    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p> 
     /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn bucket(&self) -> ::std::option::Option<&str> {
+    pub fn bucket(&self) -> ::std::option::Option<& str> {
         self.bucket.as_deref()
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(&self) -> ::std::option::Option<&str> {
+    pub fn expected_bucket_owner(&self) -> ::std::option::Option<& str> {
         self.expected_bucket_owner.as_deref()
     }
 }
@@ -35,20 +35,19 @@ pub struct GetObjectLockConfigurationInputBuilder {
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
 impl GetObjectLockConfigurationInputBuilder {
-    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p>
+    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p> 
     /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// This field is required.
     pub fn bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p>
+    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p> 
     /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.bucket = input;
-        self
+        self.bucket = input; self
     }
-    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p>
+    /// <p>The bucket whose Object Lock configuration you want to retrieve.</p> 
     /// <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
         &self.bucket
@@ -60,23 +59,22 @@ impl GetObjectLockConfigurationInputBuilder {
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.expected_bucket_owner = input;
-        self
+        self.expected_bucket_owner = input; self
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
         &self.expected_bucket_owner
     }
     /// Consumes the builder and constructs a [`GetObjectLockConfigurationInput`](crate::operation::get_object_lock_configuration::GetObjectLockConfigurationInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_object_lock_configuration::GetObjectLockConfigurationInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_object_lock_configuration::GetObjectLockConfigurationInput {
-            bucket: self.bucket,
-            expected_bucket_owner: self.expected_bucket_owner,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_object_lock_configuration::GetObjectLockConfigurationInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_object_lock_configuration::GetObjectLockConfigurationInput {
+                bucket: self.bucket
+                ,
+                expected_bucket_owner: self.expected_bucket_owner
+                ,
+            }
+        )
     }
 }
+

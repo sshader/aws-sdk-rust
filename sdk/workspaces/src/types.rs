@@ -392,3 +392,4 @@ pub mod builders;
 
 /// Error types that Amazon WorkSpaces can respond with.
 pub mod error;
+

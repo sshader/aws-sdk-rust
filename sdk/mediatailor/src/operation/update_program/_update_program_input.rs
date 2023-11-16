@@ -2,9 +2,9 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateProgramInput {
+pub struct UpdateProgramInput  {
     /// <p>The ad break configuration settings.</p>
-    pub ad_breaks: ::std::option::Option<::std::vec::Vec<crate::types::AdBreak>>,
+    pub ad_breaks: ::std::option::Option<::std::vec::Vec::<crate::types::AdBreak>>,
     /// <p>The name of the channel for this Program.</p>
     pub channel_name: ::std::option::Option<::std::string::String>,
     /// <p>The name of the Program.</p>
@@ -12,23 +12,24 @@ pub struct UpdateProgramInput {
     /// <p>The schedule configuration settings.</p>
     pub schedule_configuration: ::std::option::Option<crate::types::UpdateProgramScheduleConfiguration>,
 }
-impl UpdateProgramInput {
+impl  UpdateProgramInput  {
     /// <p>The ad break configuration settings.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.ad_breaks.is_none()`.
-    pub fn ad_breaks(&self) -> &[crate::types::AdBreak] {
-        self.ad_breaks.as_deref().unwrap_or_default()
+    pub fn ad_breaks(&self) -> & [crate::types::AdBreak] {
+        self.ad_breaks.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The name of the channel for this Program.</p>
-    pub fn channel_name(&self) -> ::std::option::Option<&str> {
+    pub fn channel_name(&self) -> ::std::option::Option<& str> {
         self.channel_name.as_deref()
     }
     /// <p>The name of the Program.</p>
-    pub fn program_name(&self) -> ::std::option::Option<&str> {
+    pub fn program_name(&self) -> ::std::option::Option<& str> {
         self.program_name.as_deref()
     }
     /// <p>The schedule configuration settings.</p>
-    pub fn schedule_configuration(&self) -> ::std::option::Option<&crate::types::UpdateProgramScheduleConfiguration> {
+    pub fn schedule_configuration(&self) -> ::std::option::Option<& crate::types::UpdateProgramScheduleConfiguration> {
         self.schedule_configuration.as_ref()
     }
 }
@@ -43,7 +44,7 @@ impl UpdateProgramInput {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct UpdateProgramInputBuilder {
-    pub(crate) ad_breaks: ::std::option::Option<::std::vec::Vec<crate::types::AdBreak>>,
+    pub(crate) ad_breaks: ::std::option::Option<::std::vec::Vec::<crate::types::AdBreak>>,
     pub(crate) channel_name: ::std::option::Option<::std::string::String>,
     pub(crate) program_name: ::std::option::Option<::std::string::String>,
     pub(crate) schedule_configuration: ::std::option::Option<crate::types::UpdateProgramScheduleConfiguration>,
@@ -56,17 +57,16 @@ impl UpdateProgramInputBuilder {
     /// <p>The ad break configuration settings.</p>
     pub fn ad_breaks(mut self, input: crate::types::AdBreak) -> Self {
         let mut v = self.ad_breaks.unwrap_or_default();
-        v.push(input);
-        self.ad_breaks = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.ad_breaks = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>The ad break configuration settings.</p>
-    pub fn set_ad_breaks(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AdBreak>>) -> Self {
-        self.ad_breaks = input;
-        self
+    pub fn set_ad_breaks(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AdBreak>>) -> Self {
+        self.ad_breaks = input; self
     }
     /// <p>The ad break configuration settings.</p>
-    pub fn get_ad_breaks(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AdBreak>> {
+    pub fn get_ad_breaks(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AdBreak>> {
         &self.ad_breaks
     }
     /// <p>The name of the channel for this Program.</p>
@@ -77,8 +77,7 @@ impl UpdateProgramInputBuilder {
     }
     /// <p>The name of the channel for this Program.</p>
     pub fn set_channel_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.channel_name = input;
-        self
+        self.channel_name = input; self
     }
     /// <p>The name of the channel for this Program.</p>
     pub fn get_channel_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -92,8 +91,7 @@ impl UpdateProgramInputBuilder {
     }
     /// <p>The name of the Program.</p>
     pub fn set_program_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.program_name = input;
-        self
+        self.program_name = input; self
     }
     /// <p>The name of the Program.</p>
     pub fn get_program_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -107,22 +105,26 @@ impl UpdateProgramInputBuilder {
     }
     /// <p>The schedule configuration settings.</p>
     pub fn set_schedule_configuration(mut self, input: ::std::option::Option<crate::types::UpdateProgramScheduleConfiguration>) -> Self {
-        self.schedule_configuration = input;
-        self
+        self.schedule_configuration = input; self
     }
     /// <p>The schedule configuration settings.</p>
     pub fn get_schedule_configuration(&self) -> &::std::option::Option<crate::types::UpdateProgramScheduleConfiguration> {
         &self.schedule_configuration
     }
     /// Consumes the builder and constructs a [`UpdateProgramInput`](crate::operation::update_program::UpdateProgramInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_program::UpdateProgramInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_program::UpdateProgramInput {
-            ad_breaks: self.ad_breaks,
-            channel_name: self.channel_name,
-            program_name: self.program_name,
-            schedule_configuration: self.schedule_configuration,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_program::UpdateProgramInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_program::UpdateProgramInput {
+                ad_breaks: self.ad_breaks
+                ,
+                channel_name: self.channel_name
+                ,
+                program_name: self.program_name
+                ,
+                schedule_configuration: self.schedule_configuration
+                ,
+            }
+        )
     }
 }
+

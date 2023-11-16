@@ -3,7 +3,7 @@
 /// <p>Indicates that the client is making the request too frequently and is more than the service can handle. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct SlowDownException {
+pub struct SlowDownException  {
     #[allow(missing_docs)] // documentation missing in model
     pub error: ::std::option::Option<::std::string::String>,
     #[allow(missing_docs)] // documentation missing in model
@@ -12,27 +12,25 @@ pub struct SlowDownException {
     pub message: ::std::option::Option<::std::string::String>,
     pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
-impl SlowDownException {
+impl  SlowDownException  {
     #[allow(missing_docs)] // documentation missing in model
-    pub fn error(&self) -> ::std::option::Option<&str> {
+    pub fn error(&self) -> ::std::option::Option<& str> {
         self.error.as_deref()
     }
     #[allow(missing_docs)] // documentation missing in model
-    pub fn error_description(&self) -> ::std::option::Option<&str> {
+    pub fn error_description(&self) -> ::std::option::Option<& str> {
         self.error_description.as_deref()
     }
 }
 impl SlowDownException {
     /// Returns the error message.
-    pub fn message(&self) -> ::std::option::Option<&str> {
-        self.message.as_deref()
-    }
+                        pub fn message(&self) -> ::std::option::Option<& str> { self.message.as_deref() }
 }
 impl ::std::fmt::Display for SlowDownException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         ::std::write!(f, "SlowDownException")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
-            {
+             {
                 ::std::write!(f, ": {}", inner_1)?;
             }
         }
@@ -40,16 +38,14 @@ impl ::std::fmt::Display for SlowDownException {
     }
 }
 impl ::std::error::Error for SlowDownException {}
-impl ::aws_http::request_id::RequestId for crate::types::error::SlowDownException {
+impl ::aws_types::request_id::RequestId for crate::types::error::SlowDownException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for SlowDownException {
-    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        &self.meta
-    }
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata { &self.meta }
 }
 impl SlowDownException {
     /// Creates a new builder-style object to manufacture [`SlowDownException`](crate::types::error::SlowDownException).
@@ -75,8 +71,7 @@ impl SlowDownExceptionBuilder {
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn set_error(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.error = input;
-        self
+        self.error = input; self
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn get_error(&self) -> &::std::option::Option<::std::string::String> {
@@ -89,8 +84,7 @@ impl SlowDownExceptionBuilder {
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn set_error_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.error_description = input;
-        self
+        self.error_description = input; self
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn get_error_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -103,31 +97,34 @@ impl SlowDownExceptionBuilder {
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.message = input;
-        self
+        self.message = input; self
     }
     #[allow(missing_docs)] // documentation missing in model
     pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.message
     }
     /// Sets error metadata
-    pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        self.meta = Some(meta);
-        self
-    }
-
-    /// Sets error metadata
-    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
-        self.meta = meta;
-        self
-    }
+                                            pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+                                                self.meta = Some(meta);
+                                                self
+                                            }
+    
+                                            /// Sets error metadata
+                                            pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+                                                self.meta = meta;
+                                                self
+                                            }
     /// Consumes the builder and constructs a [`SlowDownException`](crate::types::error::SlowDownException).
     pub fn build(self) -> crate::types::error::SlowDownException {
         crate::types::error::SlowDownException {
-            error: self.error,
-            error_description: self.error_description,
-            message: self.message,
+            error: self.error
+            ,
+            error_description: self.error_description
+            ,
+            message: self.message
+            ,
             meta: self.meta.unwrap_or_default(),
         }
     }
 }
+

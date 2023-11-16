@@ -5,54 +5,50 @@ pub use crate::operation::modify_client_vpn_endpoint::_modify_client_vpn_endpoin
 
 impl ModifyClientVpnEndpointInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.modify_client_vpn_endpoint();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.modify_client_vpn_endpoint();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `ModifyClientVpnEndpoint`.
-///
+/// 
 /// <p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ModifyClientVpnEndpointFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::modify_client_vpn_endpoint::builders::ModifyClientVpnEndpointInputBuilder,
+                    inner: crate::operation::modify_client_vpn_endpoint::builders::ModifyClientVpnEndpointInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput,
-        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError,
-    > for ModifyClientVpnEndpointFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput,
-            crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput,
+                    crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError,
+                > for ModifyClientVpnEndpointFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput,
+                        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl ModifyClientVpnEndpointFluentBuilder {
     /// Creates a new `ModifyClientVpnEndpoint`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl ModifyClientVpnEndpointFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpoint::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpoint::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput,
-        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpoint::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpoint::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointOutput, crate::operation::modify_client_vpn_endpoint::ModifyClientVpnEndpointError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The ID of the Client VPN endpoint to modify.</p>
     pub fn client_vpn_endpoint_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_vpn_endpoint_id(input.into());
@@ -136,37 +123,37 @@ impl ModifyClientVpnEndpointFluentBuilder {
     pub fn get_server_certificate_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_server_certificate_arn()
     }
-    /// <p>Information about the client connection logging options.</p>
-    /// <p>If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:</p>
-    /// <ul>
-    /// <li> <p>Client connection requests</p> </li>
-    /// <li> <p>Client connection results (successful and unsuccessful)</p> </li>
-    /// <li> <p>Reasons for unsuccessful client connection requests</p> </li>
-    /// <li> <p>Client connection termination time</p> </li>
+    /// <p>Information about the client connection logging options.</p> 
+    /// <p>If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:</p> 
+    /// <ul> 
+    /// <li> <p>Client connection requests</p> </li> 
+    /// <li> <p>Client connection results (successful and unsuccessful)</p> </li> 
+    /// <li> <p>Reasons for unsuccessful client connection requests</p> </li> 
+    /// <li> <p>Client connection termination time</p> </li> 
     /// </ul>
     pub fn connection_log_options(mut self, input: crate::types::ConnectionLogOptions) -> Self {
         self.inner = self.inner.connection_log_options(input);
         self
     }
-    /// <p>Information about the client connection logging options.</p>
-    /// <p>If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:</p>
-    /// <ul>
-    /// <li> <p>Client connection requests</p> </li>
-    /// <li> <p>Client connection results (successful and unsuccessful)</p> </li>
-    /// <li> <p>Reasons for unsuccessful client connection requests</p> </li>
-    /// <li> <p>Client connection termination time</p> </li>
+    /// <p>Information about the client connection logging options.</p> 
+    /// <p>If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:</p> 
+    /// <ul> 
+    /// <li> <p>Client connection requests</p> </li> 
+    /// <li> <p>Client connection results (successful and unsuccessful)</p> </li> 
+    /// <li> <p>Reasons for unsuccessful client connection requests</p> </li> 
+    /// <li> <p>Client connection termination time</p> </li> 
     /// </ul>
     pub fn set_connection_log_options(mut self, input: ::std::option::Option<crate::types::ConnectionLogOptions>) -> Self {
         self.inner = self.inner.set_connection_log_options(input);
         self
     }
-    /// <p>Information about the client connection logging options.</p>
-    /// <p>If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:</p>
-    /// <ul>
-    /// <li> <p>Client connection requests</p> </li>
-    /// <li> <p>Client connection results (successful and unsuccessful)</p> </li>
-    /// <li> <p>Reasons for unsuccessful client connection requests</p> </li>
-    /// <li> <p>Client connection termination time</p> </li>
+    /// <p>Information about the client connection logging options.</p> 
+    /// <p>If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:</p> 
+    /// <ul> 
+    /// <li> <p>Client connection requests</p> </li> 
+    /// <li> <p>Client connection results (successful and unsuccessful)</p> </li> 
+    /// <li> <p>Reasons for unsuccessful client connection requests</p> </li> 
+    /// <li> <p>Client connection termination time</p> </li> 
     /// </ul>
     pub fn get_connection_log_options(&self) -> &::std::option::Option<crate::types::ConnectionLogOptions> {
         self.inner.get_connection_log_options()
@@ -185,22 +172,22 @@ impl ModifyClientVpnEndpointFluentBuilder {
     pub fn get_dns_servers(&self) -> &::std::option::Option<crate::types::DnsServersOptionsModifyStructure> {
         self.inner.get_dns_servers()
     }
-    /// <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-    /// <p>Valid Values: <code>443</code> | <code>1194</code> </p>
+    /// <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p> 
+    /// <p>Valid Values: <code>443</code> | <code>1194</code> </p> 
     /// <p>Default Value: <code>443</code> </p>
     pub fn vpn_port(mut self, input: i32) -> Self {
         self.inner = self.inner.vpn_port(input);
         self
     }
-    /// <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-    /// <p>Valid Values: <code>443</code> | <code>1194</code> </p>
+    /// <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p> 
+    /// <p>Valid Values: <code>443</code> | <code>1194</code> </p> 
     /// <p>Default Value: <code>443</code> </p>
     pub fn set_vpn_port(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_vpn_port(input);
         self
     }
-    /// <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-    /// <p>Valid Values: <code>443</code> | <code>1194</code> </p>
+    /// <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p> 
+    /// <p>Valid Values: <code>443</code> | <code>1194</code> </p> 
     /// <p>Default Value: <code>443</code> </p>
     pub fn get_vpn_port(&self) -> &::std::option::Option<i32> {
         self.inner.get_vpn_port()
@@ -219,19 +206,19 @@ impl ModifyClientVpnEndpointFluentBuilder {
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_description()
     }
-    /// <p>Indicates whether the VPN is split-tunnel.</p>
+    /// <p>Indicates whether the VPN is split-tunnel.</p> 
     /// <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the <i>Client VPN Administrator Guide</i>.</p>
     pub fn split_tunnel(mut self, input: bool) -> Self {
         self.inner = self.inner.split_tunnel(input);
         self
     }
-    /// <p>Indicates whether the VPN is split-tunnel.</p>
+    /// <p>Indicates whether the VPN is split-tunnel.</p> 
     /// <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the <i>Client VPN Administrator Guide</i>.</p>
     pub fn set_split_tunnel(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_split_tunnel(input);
         self
     }
-    /// <p>Indicates whether the VPN is split-tunnel.</p>
+    /// <p>Indicates whether the VPN is split-tunnel.</p> 
     /// <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the <i>Client VPN Administrator Guide</i>.</p>
     pub fn get_split_tunnel(&self) -> &::std::option::Option<bool> {
         self.inner.get_split_tunnel()
@@ -260,12 +247,12 @@ impl ModifyClientVpnEndpointFluentBuilder {
         self
     }
     /// <p>The IDs of one or more security groups to apply to the target network.</p>
-    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_security_group_ids(input);
         self
     }
     /// <p>The IDs of one or more security groups to apply to the target network.</p>
-    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_security_group_ids()
     }
     /// <p>The ID of the VPC to associate with the Client VPN endpoint.</p>
@@ -310,22 +297,22 @@ impl ModifyClientVpnEndpointFluentBuilder {
     pub fn get_client_connect_options(&self) -> &::std::option::Option<crate::types::ClientConnectOptions> {
         self.inner.get_client_connect_options()
     }
-    /// <p>The maximum VPN session duration time in hours.</p>
-    /// <p>Valid values: <code>8 | 10 | 12 | 24</code> </p>
+    /// <p>The maximum VPN session duration time in hours.</p> 
+    /// <p>Valid values: <code>8 | 10 | 12 | 24</code> </p> 
     /// <p>Default value: <code>24</code> </p>
     pub fn session_timeout_hours(mut self, input: i32) -> Self {
         self.inner = self.inner.session_timeout_hours(input);
         self
     }
-    /// <p>The maximum VPN session duration time in hours.</p>
-    /// <p>Valid values: <code>8 | 10 | 12 | 24</code> </p>
+    /// <p>The maximum VPN session duration time in hours.</p> 
+    /// <p>Valid values: <code>8 | 10 | 12 | 24</code> </p> 
     /// <p>Default value: <code>24</code> </p>
     pub fn set_session_timeout_hours(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_session_timeout_hours(input);
         self
     }
-    /// <p>The maximum VPN session duration time in hours.</p>
-    /// <p>Valid values: <code>8 | 10 | 12 | 24</code> </p>
+    /// <p>The maximum VPN session duration time in hours.</p> 
+    /// <p>Valid values: <code>8 | 10 | 12 | 24</code> </p> 
     /// <p>Default value: <code>24</code> </p>
     pub fn get_session_timeout_hours(&self) -> &::std::option::Option<i32> {
         self.inner.get_session_timeout_hours()
@@ -345,3 +332,4 @@ impl ModifyClientVpnEndpointFluentBuilder {
         self.inner.get_client_login_banner_options()
     }
 }
+

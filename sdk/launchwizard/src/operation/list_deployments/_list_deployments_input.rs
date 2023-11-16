@@ -2,35 +2,36 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ListDeploymentsInput {
-    /// <p>Filters to scope the results. The following filters are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li>
-    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li>
+pub struct ListDeploymentsInput  {
+    /// <p>Filters to scope the results. The following filters are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li> 
+    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li> 
     /// </ul>
-    pub filters: ::std::option::Option<::std::vec::Vec<crate::types::DeploymentFilter>>,
+    pub filters: ::std::option::Option<::std::vec::Vec::<crate::types::DeploymentFilter>>,
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
-impl ListDeploymentsInput {
-    /// <p>Filters to scope the results. The following filters are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li>
-    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li>
+impl  ListDeploymentsInput  {
+    /// <p>Filters to scope the results. The following filters are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li> 
+    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li> 
     /// </ul>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filters.is_none()`.
-    pub fn filters(&self) -> &[crate::types::DeploymentFilter] {
-        self.filters.as_deref().unwrap_or_default()
+    pub fn filters(&self) -> & [crate::types::DeploymentFilter] {
+        self.filters.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
     pub fn max_results(&self) -> ::std::option::Option<i32> {
         self.max_results
     }
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-    pub fn next_token(&self) -> ::std::option::Option<&str> {
+    pub fn next_token(&self) -> ::std::option::Option<& str> {
         self.next_token.as_deref()
     }
 }
@@ -45,7 +46,7 @@ impl ListDeploymentsInput {
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct ListDeploymentsInputBuilder {
-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::DeploymentFilter>>,
+    pub(crate) filters: ::std::option::Option<::std::vec::Vec::<crate::types::DeploymentFilter>>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -54,32 +55,31 @@ impl ListDeploymentsInputBuilder {
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
     ///
-    /// <p>Filters to scope the results. The following filters are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li>
-    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li>
+    /// <p>Filters to scope the results. The following filters are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li> 
+    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li> 
     /// </ul>
     pub fn filters(mut self, input: crate::types::DeploymentFilter) -> Self {
         let mut v = self.filters.unwrap_or_default();
-        v.push(input);
-        self.filters = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.filters = ::std::option::Option::Some(v);
+                        self
     }
-    /// <p>Filters to scope the results. The following filters are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li>
-    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li>
+    /// <p>Filters to scope the results. The following filters are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li> 
+    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li> 
     /// </ul>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeploymentFilter>>) -> Self {
-        self.filters = input;
-        self
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::DeploymentFilter>>) -> Self {
+        self.filters = input; self
     }
-    /// <p>Filters to scope the results. The following filters are supported:</p>
-    /// <ul>
-    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li>
-    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li>
+    /// <p>Filters to scope the results. The following filters are supported:</p> 
+    /// <ul> 
+    /// <li> <p> <code>WORKLOAD_NAME</code> </p> </li> 
+    /// <li> <p> <code>DEPLOYMENT_STATUS</code> </p> </li> 
     /// </ul>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeploymentFilter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::DeploymentFilter>> {
         &self.filters
     }
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
@@ -89,8 +89,7 @@ impl ListDeploymentsInputBuilder {
     }
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_results = input;
-        self
+        self.max_results = input; self
     }
     /// <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
     pub fn get_max_results(&self) -> &::std::option::Option<i32> {
@@ -103,21 +102,24 @@ impl ListDeploymentsInputBuilder {
     }
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.next_token = input;
-        self
+        self.next_token = input; self
     }
     /// <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListDeploymentsInput`](crate::operation::list_deployments::ListDeploymentsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::list_deployments::ListDeploymentsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_deployments::ListDeploymentsInput {
-            filters: self.filters,
-            max_results: self.max_results,
-            next_token: self.next_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_deployments::ListDeploymentsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::list_deployments::ListDeploymentsInput {
+                filters: self.filters
+                ,
+                max_results: self.max_results
+                ,
+                next_token: self.next_token
+                ,
+            }
+        )
     }
 }
+

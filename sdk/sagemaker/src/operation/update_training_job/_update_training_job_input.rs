@@ -2,33 +2,34 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateTrainingJobInput {
+pub struct UpdateTrainingJobInput  {
     /// <p>The name of a training job to update the Debugger profiling configuration.</p>
     pub training_job_name: ::std::option::Option<::std::string::String>,
     /// <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and storage paths.</p>
     pub profiler_config: ::std::option::Option<crate::types::ProfilerConfigForUpdate>,
     /// <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework metrics.</p>
-    pub profiler_rule_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ProfilerRuleConfiguration>>,
+    pub profiler_rule_configurations: ::std::option::Option<::std::vec::Vec::<crate::types::ProfilerRuleConfiguration>>,
     /// <p>The training job <code>ResourceConfig</code> to update warm pool retention length.</p>
     pub resource_config: ::std::option::Option<crate::types::ResourceConfigForUpdate>,
 }
-impl UpdateTrainingJobInput {
+impl  UpdateTrainingJobInput  {
     /// <p>The name of a training job to update the Debugger profiling configuration.</p>
-    pub fn training_job_name(&self) -> ::std::option::Option<&str> {
+    pub fn training_job_name(&self) -> ::std::option::Option<& str> {
         self.training_job_name.as_deref()
     }
     /// <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and storage paths.</p>
-    pub fn profiler_config(&self) -> ::std::option::Option<&crate::types::ProfilerConfigForUpdate> {
+    pub fn profiler_config(&self) -> ::std::option::Option<& crate::types::ProfilerConfigForUpdate> {
         self.profiler_config.as_ref()
     }
     /// <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework metrics.</p>
-    ///
+    /// 
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.profiler_rule_configurations.is_none()`.
-    pub fn profiler_rule_configurations(&self) -> &[crate::types::ProfilerRuleConfiguration] {
-        self.profiler_rule_configurations.as_deref().unwrap_or_default()
+    pub fn profiler_rule_configurations(&self) -> & [crate::types::ProfilerRuleConfiguration] {
+        self.profiler_rule_configurations.as_deref()
+        .unwrap_or_default()
     }
     /// <p>The training job <code>ResourceConfig</code> to update warm pool retention length.</p>
-    pub fn resource_config(&self) -> ::std::option::Option<&crate::types::ResourceConfigForUpdate> {
+    pub fn resource_config(&self) -> ::std::option::Option<& crate::types::ResourceConfigForUpdate> {
         self.resource_config.as_ref()
     }
 }
@@ -45,7 +46,7 @@ impl UpdateTrainingJobInput {
 pub struct UpdateTrainingJobInputBuilder {
     pub(crate) training_job_name: ::std::option::Option<::std::string::String>,
     pub(crate) profiler_config: ::std::option::Option<crate::types::ProfilerConfigForUpdate>,
-    pub(crate) profiler_rule_configurations: ::std::option::Option<::std::vec::Vec<crate::types::ProfilerRuleConfiguration>>,
+    pub(crate) profiler_rule_configurations: ::std::option::Option<::std::vec::Vec::<crate::types::ProfilerRuleConfiguration>>,
     pub(crate) resource_config: ::std::option::Option<crate::types::ResourceConfigForUpdate>,
 }
 impl UpdateTrainingJobInputBuilder {
@@ -57,8 +58,7 @@ impl UpdateTrainingJobInputBuilder {
     }
     /// <p>The name of a training job to update the Debugger profiling configuration.</p>
     pub fn set_training_job_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.training_job_name = input;
-        self
+        self.training_job_name = input; self
     }
     /// <p>The name of a training job to update the Debugger profiling configuration.</p>
     pub fn get_training_job_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -71,8 +71,7 @@ impl UpdateTrainingJobInputBuilder {
     }
     /// <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and storage paths.</p>
     pub fn set_profiler_config(mut self, input: ::std::option::Option<crate::types::ProfilerConfigForUpdate>) -> Self {
-        self.profiler_config = input;
-        self
+        self.profiler_config = input; self
     }
     /// <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and storage paths.</p>
     pub fn get_profiler_config(&self) -> &::std::option::Option<crate::types::ProfilerConfigForUpdate> {
@@ -85,20 +84,16 @@ impl UpdateTrainingJobInputBuilder {
     /// <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework metrics.</p>
     pub fn profiler_rule_configurations(mut self, input: crate::types::ProfilerRuleConfiguration) -> Self {
         let mut v = self.profiler_rule_configurations.unwrap_or_default();
-        v.push(input);
-        self.profiler_rule_configurations = ::std::option::Option::Some(v);
-        self
+                        v.push(input);
+                        self.profiler_rule_configurations = ::std::option::Option::Some(v);
+                        self
     }
     /// <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework metrics.</p>
-    pub fn set_profiler_rule_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ProfilerRuleConfiguration>>,
-    ) -> Self {
-        self.profiler_rule_configurations = input;
-        self
+    pub fn set_profiler_rule_configurations(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::ProfilerRuleConfiguration>>) -> Self {
+        self.profiler_rule_configurations = input; self
     }
     /// <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework metrics.</p>
-    pub fn get_profiler_rule_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProfilerRuleConfiguration>> {
+    pub fn get_profiler_rule_configurations(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::ProfilerRuleConfiguration>> {
         &self.profiler_rule_configurations
     }
     /// <p>The training job <code>ResourceConfig</code> to update warm pool retention length.</p>
@@ -108,22 +103,26 @@ impl UpdateTrainingJobInputBuilder {
     }
     /// <p>The training job <code>ResourceConfig</code> to update warm pool retention length.</p>
     pub fn set_resource_config(mut self, input: ::std::option::Option<crate::types::ResourceConfigForUpdate>) -> Self {
-        self.resource_config = input;
-        self
+        self.resource_config = input; self
     }
     /// <p>The training job <code>ResourceConfig</code> to update warm pool retention length.</p>
     pub fn get_resource_config(&self) -> &::std::option::Option<crate::types::ResourceConfigForUpdate> {
         &self.resource_config
     }
     /// Consumes the builder and constructs a [`UpdateTrainingJobInput`](crate::operation::update_training_job::UpdateTrainingJobInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_training_job::UpdateTrainingJobInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_training_job::UpdateTrainingJobInput {
-            training_job_name: self.training_job_name,
-            profiler_config: self.profiler_config,
-            profiler_rule_configurations: self.profiler_rule_configurations,
-            resource_config: self.resource_config,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_training_job::UpdateTrainingJobInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_training_job::UpdateTrainingJobInput {
+                training_job_name: self.training_job_name
+                ,
+                profiler_config: self.profiler_config
+                ,
+                profiler_rule_configurations: self.profiler_rule_configurations
+                ,
+                resource_config: self.resource_config
+                ,
+            }
+        )
     }
 }
+

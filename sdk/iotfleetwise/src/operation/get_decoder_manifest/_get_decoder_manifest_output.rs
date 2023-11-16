@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetDecoderManifestOutput {
+pub struct GetDecoderManifestOutput  {
     /// <p> The name of the decoder manifest. </p>
     pub name: ::std::string::String,
     /// <p> The Amazon Resource Name (ARN) of the decoder manifest. </p>
@@ -19,43 +19,41 @@ pub struct GetDecoderManifestOutput {
     pub last_modification_time: ::aws_smithy_types::DateTime,
     _request_id: Option<String>,
 }
-impl GetDecoderManifestOutput {
+impl  GetDecoderManifestOutput  {
     /// <p> The name of the decoder manifest. </p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> & str {
+        use std::ops::Deref; self.name.deref()
     }
     /// <p> The Amazon Resource Name (ARN) of the decoder manifest. </p>
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> & str {
+        use std::ops::Deref; self.arn.deref()
     }
     /// <p> A brief description of the decoder manifest.</p>
-    pub fn description(&self) -> ::std::option::Option<&str> {
+    pub fn description(&self) -> ::std::option::Option<& str> {
         self.description.as_deref()
     }
     /// <p> The ARN of a vehicle model (model manifest) associated with the decoder manifest.</p>
-    pub fn model_manifest_arn(&self) -> ::std::option::Option<&str> {
+    pub fn model_manifest_arn(&self) -> ::std::option::Option<& str> {
         self.model_manifest_arn.as_deref()
     }
     /// <p> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder manifest can't be edited. If the status is marked <code>DRAFT</code>, you can edit the decoder manifest.</p>
-    pub fn status(&self) -> ::std::option::Option<&crate::types::ManifestStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::ManifestStatus> {
         self.status.as_ref()
     }
     /// <p> The time the decoder manifest was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
-    pub fn creation_time(&self) -> &::aws_smithy_types::DateTime {
+    pub fn creation_time(&self) -> & ::aws_smithy_types::DateTime {
         &self.creation_time
     }
     /// <p> The time the decoder manifest was last updated in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
-    pub fn last_modification_time(&self) -> &::aws_smithy_types::DateTime {
+    pub fn last_modification_time(&self) -> & ::aws_smithy_types::DateTime {
         &self.last_modification_time
     }
 }
-impl ::aws_http::request_id::RequestId for GetDecoderManifestOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for GetDecoderManifestOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl GetDecoderManifestOutput {
     /// Creates a new builder-style object to manufacture [`GetDecoderManifestOutput`](crate::operation::get_decoder_manifest::GetDecoderManifestOutput).
     pub fn builder() -> crate::operation::get_decoder_manifest::builders::GetDecoderManifestOutputBuilder {
@@ -85,8 +83,7 @@ impl GetDecoderManifestOutputBuilder {
     }
     /// <p> The name of the decoder manifest. </p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// <p> The name of the decoder manifest. </p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -100,8 +97,7 @@ impl GetDecoderManifestOutputBuilder {
     }
     /// <p> The Amazon Resource Name (ARN) of the decoder manifest. </p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// <p> The Amazon Resource Name (ARN) of the decoder manifest. </p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -114,8 +110,7 @@ impl GetDecoderManifestOutputBuilder {
     }
     /// <p> A brief description of the decoder manifest.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.description = input;
-        self
+        self.description = input; self
     }
     /// <p> A brief description of the decoder manifest.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -128,8 +123,7 @@ impl GetDecoderManifestOutputBuilder {
     }
     /// <p> The ARN of a vehicle model (model manifest) associated with the decoder manifest.</p>
     pub fn set_model_manifest_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.model_manifest_arn = input;
-        self
+        self.model_manifest_arn = input; self
     }
     /// <p> The ARN of a vehicle model (model manifest) associated with the decoder manifest.</p>
     pub fn get_model_manifest_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -142,8 +136,7 @@ impl GetDecoderManifestOutputBuilder {
     }
     /// <p> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder manifest can't be edited. If the status is marked <code>DRAFT</code>, you can edit the decoder manifest.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ManifestStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// <p> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder manifest can't be edited. If the status is marked <code>DRAFT</code>, you can edit the decoder manifest.</p>
     pub fn get_status(&self) -> &::std::option::Option<crate::types::ManifestStatus> {
@@ -157,8 +150,7 @@ impl GetDecoderManifestOutputBuilder {
     }
     /// <p> The time the decoder manifest was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
     pub fn set_creation_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.creation_time = input;
-        self
+        self.creation_time = input; self
     }
     /// <p> The time the decoder manifest was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
     pub fn get_creation_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
@@ -172,61 +164,59 @@ impl GetDecoderManifestOutputBuilder {
     }
     /// <p> The time the decoder manifest was last updated in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
     pub fn set_last_modification_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-        self.last_modification_time = input;
-        self
+        self.last_modification_time = input; self
     }
     /// <p> The time the decoder manifest was last updated in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
     pub fn get_last_modification_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_modification_time
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`GetDecoderManifestOutput`](crate::operation::get_decoder_manifest::GetDecoderManifestOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::operation::get_decoder_manifest::builders::GetDecoderManifestOutputBuilder::name)
     /// - [`arn`](crate::operation::get_decoder_manifest::builders::GetDecoderManifestOutputBuilder::arn)
     /// - [`creation_time`](crate::operation::get_decoder_manifest::builders::GetDecoderManifestOutputBuilder::creation_time)
     /// - [`last_modification_time`](crate::operation::get_decoder_manifest::builders::GetDecoderManifestOutputBuilder::last_modification_time)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::get_decoder_manifest::GetDecoderManifestOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_decoder_manifest::GetDecoderManifestOutput {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building GetDecoderManifestOutput",
-                )
-            })?,
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building GetDecoderManifestOutput",
-                )
-            })?,
-            description: self.description,
-            model_manifest_arn: self.model_manifest_arn,
-            status: self.status,
-            creation_time: self.creation_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "creation_time",
-                    "creation_time was not specified but it is required when building GetDecoderManifestOutput",
-                )
-            })?,
-            last_modification_time: self.last_modification_time.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "last_modification_time",
-                    "last_modification_time was not specified but it is required when building GetDecoderManifestOutput",
-                )
-            })?,
-            _request_id: self._request_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_decoder_manifest::GetDecoderManifestOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_decoder_manifest::GetDecoderManifestOutput {
+                name: self.name
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building GetDecoderManifestOutput")
+                    )?
+                ,
+                arn: self.arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building GetDecoderManifestOutput")
+                    )?
+                ,
+                description: self.description
+                ,
+                model_manifest_arn: self.model_manifest_arn
+                ,
+                status: self.status
+                ,
+                creation_time: self.creation_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("creation_time", "creation_time was not specified but it is required when building GetDecoderManifestOutput")
+                    )?
+                ,
+                last_modification_time: self.last_modification_time
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("last_modification_time", "last_modification_time was not specified but it is required when building GetDecoderManifestOutput")
+                    )?
+                ,
+                _request_id: self._request_id,
+            }
+        )
     }
 }
+

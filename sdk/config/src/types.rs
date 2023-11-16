@@ -556,3 +556,4 @@ pub mod builders;
 
 /// Error types that AWS Config can respond with.
 pub mod error;
+

@@ -2,15 +2,15 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetRelationalDatabasesInput {
-    /// <p>The token to advance to the next page of results from your request.</p>
+pub struct GetRelationalDatabasesInput  {
+    /// <p>The token to advance to the next page of results from your request.</p> 
     /// <p>To get a page token, perform an initial <code>GetRelationalDatabases</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
     pub page_token: ::std::option::Option<::std::string::String>,
 }
-impl GetRelationalDatabasesInput {
-    /// <p>The token to advance to the next page of results from your request.</p>
+impl  GetRelationalDatabasesInput  {
+    /// <p>The token to advance to the next page of results from your request.</p> 
     /// <p>To get a page token, perform an initial <code>GetRelationalDatabases</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
-    pub fn page_token(&self) -> ::std::option::Option<&str> {
+    pub fn page_token(&self) -> ::std::option::Option<& str> {
         self.page_token.as_deref()
     }
 }
@@ -28,30 +28,30 @@ pub struct GetRelationalDatabasesInputBuilder {
     pub(crate) page_token: ::std::option::Option<::std::string::String>,
 }
 impl GetRelationalDatabasesInputBuilder {
-    /// <p>The token to advance to the next page of results from your request.</p>
+    /// <p>The token to advance to the next page of results from your request.</p> 
     /// <p>To get a page token, perform an initial <code>GetRelationalDatabases</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
     pub fn page_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.page_token = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The token to advance to the next page of results from your request.</p>
+    /// <p>The token to advance to the next page of results from your request.</p> 
     /// <p>To get a page token, perform an initial <code>GetRelationalDatabases</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
     pub fn set_page_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.page_token = input;
-        self
+        self.page_token = input; self
     }
-    /// <p>The token to advance to the next page of results from your request.</p>
+    /// <p>The token to advance to the next page of results from your request.</p> 
     /// <p>To get a page token, perform an initial <code>GetRelationalDatabases</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
     pub fn get_page_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.page_token
     }
     /// Consumes the builder and constructs a [`GetRelationalDatabasesInput`](crate::operation::get_relational_databases::GetRelationalDatabasesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_relational_databases::GetRelationalDatabasesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_relational_databases::GetRelationalDatabasesInput { page_token: self.page_token })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_relational_databases::GetRelationalDatabasesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::get_relational_databases::GetRelationalDatabasesInput {
+                page_token: self.page_token
+                ,
+            }
+        )
     }
 }
+

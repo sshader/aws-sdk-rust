@@ -10,242 +10,185 @@ impl UpdateEventDataStore {
         Self
     }
     pub(crate) async fn orchestrate(
-        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::update_event_data_store::UpdateEventDataStoreInput,
-    ) -> ::std::result::Result<
-        crate::operation::update_event_data_store::UpdateEventDataStoreOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_event_data_store::UpdateEventDataStoreError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >| {
-            err.map_service_error(|err| {
-                err.downcast::<crate::operation::update_event_data_store::UpdateEventDataStoreError>()
-                    .expect("correct error type")
-            })
-        };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
-        let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(
-            output
-                .downcast::<crate::operation::update_event_data_store::UpdateEventDataStoreOutput>()
-                .expect("correct output type"),
-        )
-    }
-
-    pub(crate) async fn orchestrate_with_stop_point(
-        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::update_event_data_store::UpdateEventDataStoreInput,
-        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
-    ) -> ::std::result::Result<
-        ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("cloudtrail", "UpdateEventDataStore", input, runtime_plugins, stop_point)
-            .await
-    }
-
-    pub(crate) fn operation_runtime_plugins(
-        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
-        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
-        runtime_plugins = runtime_plugins.with_client_plugin(crate::auth_plugin::DefaultAuthOptionsPlugin::new(vec![
-            ::aws_runtime::auth::sigv4::SCHEME_ID,
-        ]));
-        if let ::std::option::Option::Some(config_override) = config_override {
-            for plugin in config_override.runtime_plugins.iter().cloned() {
-                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
-            }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
-        }
-        runtime_plugins
-    }
+                        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        input: crate::operation::update_event_data_store::UpdateEventDataStoreInput,
+                    ) -> ::std::result::Result<crate::operation::update_event_data_store::UpdateEventDataStoreOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_event_data_store::UpdateEventDataStoreError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<::aws_smithy_runtime_api::client::interceptors::context::Error, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>| {
+                            err.map_service_error(|err| {
+                                err.downcast::<crate::operation::update_event_data_store::UpdateEventDataStoreError>().expect("correct error type")
+                            })
+                        };
+                        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+                            .await
+                            .map_err(map_err)?;
+                        let output = context.finalize().map_err(map_err)?;
+                        ::std::result::Result::Ok(output.downcast::<crate::operation::update_event_data_store::UpdateEventDataStoreOutput>().expect("correct output type"))
+                    }
+    
+                    pub(crate) async fn orchestrate_with_stop_point(
+                        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        input: crate::operation::update_event_data_store::UpdateEventDataStoreInput,
+                        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+                    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext, ::aws_smithy_runtime_api::client::result::SdkError<::aws_smithy_runtime_api::client::interceptors::context::Error, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
+                        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
+                            "cloudtrail",
+                            "UpdateEventDataStore",
+                            input,
+                            runtime_plugins,
+                            stop_point
+                        ).await
+                    }
+    
+                    pub(crate) fn operation_runtime_plugins(
+                        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        client_config: &crate::config::Config,
+                        config_override: ::std::option::Option<crate::config::Builder>,
+                    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+                        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+                        runtime_plugins = runtime_plugins
+                                    .with_client_plugin(crate::auth_plugin::DefaultAuthOptionsPlugin::new(vec![::aws_runtime::auth::sigv4::SCHEME_ID]));
+                        if let ::std::option::Option::Some(config_override) = config_override {
+                            for plugin in config_override.runtime_plugins.iter().cloned() {
+                                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+                            }
+                            runtime_plugins = runtime_plugins.with_operation_plugin(
+                                crate::config::ConfigOverrideRuntimePlugin::new(config_override, client_config.config.clone(), &client_config.runtime_components)
+                            );
+                        }
+                        runtime_plugins
+                    }
 }
 impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateEventDataStore {
-    fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("UpdateEventDataStore");
+                fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
+                    let mut cfg = ::aws_smithy_types::config_bag::Layer::new("UpdateEventDataStore");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            UpdateEventDataStoreRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            UpdateEventDataStoreResponseDeserializer,
-        ));
+                    cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(UpdateEventDataStoreRequestSerializer));
+                    cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(UpdateEventDataStoreResponseDeserializer));
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            ::aws_smithy_runtime_api::client::auth::static_resolver::StaticAuthSchemeOptionResolverParams::new(),
-        ));
+                    
+                    cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(::aws_smithy_runtime_api::client::auth::static_resolver::StaticAuthSchemeOptionResolverParams::new()));
 
-        cfg.store_put(::aws_smithy_http::operation::Metadata::new("UpdateEventDataStore", "cloudtrail"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
+                    cfg.store_put(::aws_smithy_http::operation::Metadata::new(
+                        "UpdateEventDataStore",
+                        "cloudtrail",
+                    ));
+let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
+                        signing_options.double_uri_encode = true;
+                        signing_options.content_sha256_header = false;
+                        signing_options.normalize_uri_path = true;
+                        signing_options.payload_override = None;
 
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
+                        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
+                            signing_options,
+                            ..::std::default::Default::default()
+                        });
 
-        ::std::option::Option::Some(cfg.freeze())
-    }
+                    ::std::option::Option::Some(cfg.freeze())
+                }
 
-    fn runtime_components(
-        &self,
-        _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-        ::std::borrow::Cow::Owned(
-            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateEventDataStore")
-                .with_interceptor(UpdateEventDataStoreEndpointParamsInterceptor)
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                    crate::operation::update_event_data_store::UpdateEventDataStoreError,
-                >::new())
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                    crate::operation::update_event_data_store::UpdateEventDataStoreError,
-                >::new())
-                .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::update_event_data_store::UpdateEventDataStoreError,
-                >::new()),
-        )
-    }
-}
-
-#[derive(Debug)]
-struct UpdateEventDataStoreResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for UpdateEventDataStoreResponseDeserializer {
-    fn deserialize_nonstreaming(
-        &self,
-        response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-    ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
-        let (success, status) = (response.status().is_success(), response.status().as_u16());
-        let headers = response.headers();
-        let body = response.body().bytes().expect("body loaded");
-        #[allow(unused_mut)]
-        let mut force_error = false;
-        ::tracing::debug!(request_id = ?::aws_http::request_id::RequestId::request_id(response));
-        let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_update_event_data_store::de_update_event_data_store_http_error(status, headers, body)
-        } else {
-            crate::protocol_serde::shape_update_event_data_store::de_update_event_data_store_http_response(status, headers, body)
-        };
-        crate::protocol_serde::type_erase_result(parse_result)
-    }
-}
-#[derive(Debug)]
-struct UpdateEventDataStoreRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateEventDataStoreRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
-    fn serialize_input(
-        &self,
-        input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-        _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input
-            .downcast::<crate::operation::update_event_data_store::UpdateEventDataStoreInput>()
-            .expect("correct type");
-        let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
-            .cloned()
-            .unwrap_or_default();
-        let mut request_builder = {
-            fn uri_base(
-                _input: &crate::operation::update_event_data_store::UpdateEventDataStoreInput,
-                output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
-                use ::std::fmt::Write as _;
-                ::std::write!(output, "/").expect("formatting should succeed");
-                ::std::result::Result::Ok(())
+                fn runtime_components(&self, _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+                    ::std::borrow::Cow::Owned(
+                        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateEventDataStore")
+                            .with_interceptor(UpdateEventDataStoreEndpointParamsInterceptor)
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_event_data_store::UpdateEventDataStoreError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_event_data_store::UpdateEventDataStoreError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_event_data_store::UpdateEventDataStoreError>::new())
+                    )
+                }
             }
-            #[allow(clippy::unnecessary_wraps)]
-            fn update_http_builder(
+
+            
+#[derive(Debug)]
+            struct UpdateEventDataStoreResponseDeserializer;
+            impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for UpdateEventDataStoreResponseDeserializer {
+                
+
+                fn deserialize_nonstreaming(&self, response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
+                    let (success, status) = (response.status().is_success(), response.status().as_u16());
+            let headers = response.headers();
+            let body = response.body().bytes().expect("body loaded");
+            #[allow(unused_mut)]
+            let mut force_error = false;
+            ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+            let parse_result = if !success && status != 200 || force_error {
+                crate::protocol_serde::shape_update_event_data_store::de_update_event_data_store_http_error(status, headers, body)
+            } else {
+                crate::protocol_serde::shape_update_event_data_store::de_update_event_data_store_http_response(status, headers, body)
+            };
+            crate::protocol_serde::type_erase_result(parse_result)
+                }
+            }
+#[derive(Debug)]
+            struct UpdateEventDataStoreRequestSerializer;
+            impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateEventDataStoreRequestSerializer {
+                #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+                fn serialize_input(&self, input: ::aws_smithy_runtime_api::client::interceptors::context::Input, _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+                    let input = input.downcast::<crate::operation::update_event_data_store::UpdateEventDataStoreInput>().expect("correct type");
+                    let _header_serialization_settings = _cfg.load::<crate::serialization_settings::HeaderSerializationSettings>().cloned().unwrap_or_default();
+                    let mut request_builder = {
+                        fn uri_base(_input: &crate::operation::update_event_data_store::UpdateEventDataStoreInput, output: &mut ::std::string::String) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+    use ::std::fmt::Write as _;
+    ::std::write!(output, "/").expect("formatting should succeed");
+    ::std::result::Result::Ok(())
+}
+#[allow(clippy::unnecessary_wraps)]
+fn update_http_builder(
                 input: &crate::operation::update_event_data_store::UpdateEventDataStoreInput,
-                builder: ::http::request::Builder,
+                builder: ::http::request::Builder
             ) -> ::std::result::Result<::http::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
-                let mut uri = ::std::string::String::new();
-                uri_base(input, &mut uri)?;
-                ::std::result::Result::Ok(builder.method("POST").uri(uri))
+    let mut uri = ::std::string::String::new();
+    uri_base(input, &mut uri)?;
+    ::std::result::Result::Ok(builder.method("POST").uri(uri))
+}
+let mut builder = update_http_builder(&input, ::http::request::Builder::new())?;
+builder = _header_serialization_settings.set_default_header(builder, ::http::header::CONTENT_TYPE, "application/x-amz-json-1.1");
+builder = _header_serialization_settings.set_default_header(
+                    builder,
+                    ::http::header::HeaderName::from_static("x-amz-target"),
+                    "CloudTrail_20131101.UpdateEventDataStore"
+                );
+builder
+                    };
+                    let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_event_data_store::ser_update_event_data_store_input(&input)?);
+                    if let Some(content_length) = body.content_length() {
+                            let content_length = content_length.to_string();
+                            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http::header::CONTENT_LENGTH, &content_length);
+                        }
+                    ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+                }
             }
-            let mut builder = update_http_builder(&input, ::http::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http::header::CONTENT_TYPE, "application/x-amz-json-1.1");
-            builder = _header_serialization_settings.set_default_header(
-                builder,
-                ::http::header::HeaderName::from_static("x-amz-target"),
-                "CloudTrail_20131101.UpdateEventDataStore",
-            );
-            builder
-        };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_event_data_store::ser_update_event_data_store_input(
-            &input,
-        )?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http::header::CONTENT_LENGTH, &content_length);
-        }
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-    }
-}
 #[derive(Debug)]
-struct UpdateEventDataStoreEndpointParamsInterceptor;
+            struct UpdateEventDataStoreEndpointParamsInterceptor;
 
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateEventDataStoreEndpointParamsInterceptor {
-    fn name(&self) -> &'static str {
-        "UpdateEventDataStoreEndpointParamsInterceptor"
-    }
+            impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateEventDataStoreEndpointParamsInterceptor {
+                fn name(&self) -> &'static str {
+                    "UpdateEventDataStoreEndpointParamsInterceptor"
+                }
 
-    fn read_before_execution(
-        &self,
-        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-            '_,
-            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-        >,
-        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        let _input = context
-            .input()
-            .downcast_ref::<UpdateEventDataStoreInput>()
-            .ok_or("failed to downcast to UpdateEventDataStoreInput")?;
+                fn read_before_execution(
+                    &self,
+                    context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<'_, ::aws_smithy_runtime_api::client::interceptors::context::Input, ::aws_smithy_runtime_api::client::interceptors::context::Output, ::aws_smithy_runtime_api::client::interceptors::context::Error>,
+                    cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+                ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
+                    let _input = context.input()
+                        .downcast_ref::<UpdateEventDataStoreInput>()
+                        .ok_or("failed to downcast to UpdateEventDataStoreInput")?;
 
-        let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .build()
-            .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-            })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
-        ::std::result::Result::Ok(())
-    }
-}
+                    
 
-/// Do not use this.
-///
-/// Operation `*Error/*ErrorKind` types were combined into a single `*Error` enum. The `.kind` field on `*Error` no longer exists and isn't needed anymore (you can just match on the error directly since it's an enum now).
-#[deprecated(
-    note = "Operation `*Error/*ErrorKind` types were combined into a single `*Error` enum. The `.kind` field on `*Error` no longer exists and isn't needed anymore (you can just match on the error directly since it's an enum now)."
-)]
-pub type UpdateEventDataStoreErrorKind = UpdateEventDataStoreError;
+                    let params = crate::config::endpoint::Params::builder()
+                        .set_region(cfg.load::<::aws_types::region::Region>().map(|r|r.as_ref().to_owned()))
+.set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+.set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+.set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+                        .build()
+                        .map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err))?;
+                    cfg.interceptor_state().store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+                    ::std::result::Result::Ok(())
+                }
+            }
+
 /// Error type for the `UpdateEventDataStoreError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -266,16 +209,16 @@ pub enum UpdateEventDataStoreError {
     InsufficientDependencyServiceAccessPermissionException(crate::types::error::InsufficientDependencyServiceAccessPermissionException),
     /// <p>This exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p>
     InsufficientEncryptionPolicyException(crate::types::error::InsufficientEncryptionPolicyException),
-    /// <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p>
-    /// <p>You can:</p>
-    /// <ul>
-    /// <li> <p>Specify a valid number of event selectors (1 to 5) for a trail.</p> </li>
-    /// <li> <p>Specify a valid number of data resources (1 to 250) for an event selector. The limit of number of resources on an individual event selector is configurable up to 250. However, this upper limit is allowed only if the total number of data resources does not exceed 250 across all event selectors for a trail.</p> </li>
-    /// <li> <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p> </li>
-    /// <li> <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code> parameter with a value of <code>read-only</code> is not valid.</p> </li>
+    /// <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p> 
+    /// <p>You can:</p> 
+    /// <ul> 
+    /// <li> <p>Specify a valid number of event selectors (1 to 5) for a trail.</p> </li> 
+    /// <li> <p>Specify a valid number of data resources (1 to 250) for an event selector. The limit of number of resources on an individual event selector is configurable up to 250. However, this upper limit is allowed only if the total number of data resources does not exceed 250 across all event selectors for a trail.</p> </li> 
+    /// <li> <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p> </li> 
+    /// <li> <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code> parameter with a value of <code>read-only</code> is not valid.</p> </li> 
     /// </ul>
     InvalidEventSelectorsException(crate::types::error::InvalidEventSelectorsException),
-    /// <p>For <code>PutInsightSelectors</code>, this exception is thrown when the formatting or syntax of the <code>InsightSelectors</code> JSON statement is not valid, or the specified <code>InsightType</code> in the <code>InsightSelectors</code> statement is not valid. Valid values for <code>InsightType</code> are <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code>. To enable Insights on an event data store, the destination event data store specified by the <code>InsightsDestination</code> parameter must log Insights events and the source event data store specified by the <code>EventDataStore</code> parameter must log management events.</p>
+    /// <p>For <code>PutInsightSelectors</code>, this exception is thrown when the formatting or syntax of the <code>InsightSelectors</code> JSON statement is not valid, or the specified <code>InsightType</code> in the <code>InsightSelectors</code> statement is not valid. Valid values for <code>InsightType</code> are <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code>. To enable Insights on an event data store, the destination event data store specified by the <code>InsightsDestination</code> parameter must log Insights events and the source event data store specified by the <code>EventDataStore</code> parameter must log management events.</p> 
     /// <p>For <code>UpdateEventDataStore</code>, this exception is thrown if Insights are enabled on the event data store and the updated advanced event selectors are not compatible with the configured <code>InsightSelectors</code>. If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiCallRateInsight</code>, the source event data store must log <code>write</code> management events. If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiErrorRateInsight</code>, the source event data store must log management events.</p>
     InvalidInsightSelectorsException(crate::types::error::InvalidInsightSelectorsException),
     /// <p>This exception is thrown when the KMS key ARN is not valid.</p>
@@ -299,129 +242,51 @@ pub enum UpdateEventDataStoreError {
     /// <p>This exception is thrown when the requested operation is not supported.</p>
     UnsupportedOperationException(crate::types::error::UnsupportedOperationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
-}
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateEventDataStoreError {
-    fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
-        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> Self {
-        Self::Unhandled({
-            let mut builder = ::aws_smithy_types::error::Unhandled::builder().source(source);
-            builder.set_meta(meta);
-            builder.build()
-        })
-    }
-}
-impl ::std::fmt::Display for UpdateEventDataStoreError {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        match self {
-            Self::CloudTrailAccessNotEnabledException(_inner) => _inner.fmt(f),
-            Self::EventDataStoreAlreadyExistsException(_inner) => _inner.fmt(f),
-            Self::EventDataStoreArnInvalidException(_inner) => _inner.fmt(f),
-            Self::EventDataStoreHasOngoingImportException(_inner) => _inner.fmt(f),
-            Self::EventDataStoreNotFoundException(_inner) => _inner.fmt(f),
-            Self::InactiveEventDataStoreException(_inner) => _inner.fmt(f),
-            Self::InsufficientDependencyServiceAccessPermissionException(_inner) => _inner.fmt(f),
-            Self::InsufficientEncryptionPolicyException(_inner) => _inner.fmt(f),
-            Self::InvalidEventSelectorsException(_inner) => _inner.fmt(f),
-            Self::InvalidInsightSelectorsException(_inner) => _inner.fmt(f),
-            Self::InvalidKmsKeyIdException(_inner) => _inner.fmt(f),
-            Self::InvalidParameterException(_inner) => _inner.fmt(f),
-            Self::KmsException(_inner) => _inner.fmt(f),
-            Self::KmsKeyNotFoundException(_inner) => _inner.fmt(f),
-            Self::NoManagementAccountSlrExistsException(_inner) => _inner.fmt(f),
-            Self::NotOrganizationMasterAccountException(_inner) => _inner.fmt(f),
-            Self::OperationNotPermittedException(_inner) => _inner.fmt(f),
-            Self::OrganizationNotInAllFeaturesModeException(_inner) => _inner.fmt(f),
-            Self::OrganizationsNotInUseException(_inner) => _inner.fmt(f),
-            Self::UnsupportedOperationException(_inner) => _inner.fmt(f),
-            Self::Unhandled(_inner) => _inner.fmt(f),
-        }
-    }
-}
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UpdateEventDataStoreError {
-    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        match self {
-            Self::CloudTrailAccessNotEnabledException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::EventDataStoreAlreadyExistsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::EventDataStoreArnInvalidException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::EventDataStoreHasOngoingImportException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::EventDataStoreNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InactiveEventDataStoreException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InsufficientDependencyServiceAccessPermissionException(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::InsufficientEncryptionPolicyException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidEventSelectorsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidInsightSelectorsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidKmsKeyIdException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidParameterException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::KmsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::KmsKeyNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NoManagementAccountSlrExistsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NotOrganizationMasterAccountException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::OperationNotPermittedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::OrganizationNotInAllFeaturesModeException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::OrganizationsNotInUseException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::UnsupportedOperationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::Unhandled(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-        }
-    }
-}
-impl ::aws_http::request_id::RequestId for crate::operation::update_event_data_store::UpdateEventDataStoreError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-impl ::aws_smithy_types::retry::ProvideErrorKind for UpdateEventDataStoreError {
-    fn code(&self) -> ::std::option::Option<&str> {
-        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-    }
-    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
-        ::std::option::Option::None
-    }
+                    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UpdateEventDataStoreError) for what information is available for the error.")]
+                    Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl UpdateEventDataStoreError {
     /// Creates the `UpdateEventDataStoreError::Unhandled` variant from any error type.
-    pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
-    ) -> Self {
-        Self::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(err).build())
-    }
-
-    /// Creates the `UpdateEventDataStoreError::Unhandled` variant from a `::aws_smithy_types::error::ErrorMetadata`.
-    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(err.clone()).meta(err).build())
-    }
-    ///
+                    pub fn unhandled(err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>) -> Self {
+                        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source: err.into(), meta: ::std::default::Default::default() })
+                    }
+    
+                    /// Creates the `UpdateEventDataStoreError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+                    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+                        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source: err.clone().into(), meta: err })
+                    }
+    /// 
     /// Returns error metadata, which includes the error code, message,
     /// request ID, and potentially additional information.
-    ///
+    /// 
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         match self {
-            Self::CloudTrailAccessNotEnabledException(e) => e.meta(),
-            Self::EventDataStoreAlreadyExistsException(e) => e.meta(),
-            Self::EventDataStoreArnInvalidException(e) => e.meta(),
-            Self::EventDataStoreHasOngoingImportException(e) => e.meta(),
-            Self::EventDataStoreNotFoundException(e) => e.meta(),
-            Self::InactiveEventDataStoreException(e) => e.meta(),
-            Self::InsufficientDependencyServiceAccessPermissionException(e) => e.meta(),
-            Self::InsufficientEncryptionPolicyException(e) => e.meta(),
-            Self::InvalidEventSelectorsException(e) => e.meta(),
-            Self::InvalidInsightSelectorsException(e) => e.meta(),
-            Self::InvalidKmsKeyIdException(e) => e.meta(),
-            Self::InvalidParameterException(e) => e.meta(),
-            Self::KmsException(e) => e.meta(),
-            Self::KmsKeyNotFoundException(e) => e.meta(),
-            Self::NoManagementAccountSlrExistsException(e) => e.meta(),
-            Self::NotOrganizationMasterAccountException(e) => e.meta(),
-            Self::OperationNotPermittedException(e) => e.meta(),
-            Self::OrganizationNotInAllFeaturesModeException(e) => e.meta(),
-            Self::OrganizationsNotInUseException(e) => e.meta(),
-            Self::UnsupportedOperationException(e) => e.meta(),
-            Self::Unhandled(e) => e.meta(),
+            Self::CloudTrailAccessNotEnabledException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::EventDataStoreAlreadyExistsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::EventDataStoreArnInvalidException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::EventDataStoreHasOngoingImportException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::EventDataStoreNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InactiveEventDataStoreException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InsufficientDependencyServiceAccessPermissionException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InsufficientEncryptionPolicyException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidEventSelectorsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidInsightSelectorsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidKmsKeyIdException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::KmsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::KmsKeyNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoManagementAccountSlrExistsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NotOrganizationMasterAccountException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::OperationNotPermittedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::OrganizationNotInAllFeaturesModeException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::OrganizationsNotInUseException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::UnsupportedOperationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::Unhandled(e) => &e.meta,
         }
     }
     /// Returns `true` if the error kind is `UpdateEventDataStoreError::CloudTrailAccessNotEnabledException`.
@@ -508,30 +373,235 @@ impl UpdateEventDataStoreError {
 impl ::std::error::Error for UpdateEventDataStoreError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::CloudTrailAccessNotEnabledException(_inner) => ::std::option::Option::Some(_inner),
-            Self::EventDataStoreAlreadyExistsException(_inner) => ::std::option::Option::Some(_inner),
-            Self::EventDataStoreArnInvalidException(_inner) => ::std::option::Option::Some(_inner),
-            Self::EventDataStoreHasOngoingImportException(_inner) => ::std::option::Option::Some(_inner),
-            Self::EventDataStoreNotFoundException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InactiveEventDataStoreException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InsufficientDependencyServiceAccessPermissionException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InsufficientEncryptionPolicyException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidEventSelectorsException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidInsightSelectorsException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidKmsKeyIdException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidParameterException(_inner) => ::std::option::Option::Some(_inner),
-            Self::KmsException(_inner) => ::std::option::Option::Some(_inner),
-            Self::KmsKeyNotFoundException(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoManagementAccountSlrExistsException(_inner) => ::std::option::Option::Some(_inner),
-            Self::NotOrganizationMasterAccountException(_inner) => ::std::option::Option::Some(_inner),
-            Self::OperationNotPermittedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::OrganizationNotInAllFeaturesModeException(_inner) => ::std::option::Option::Some(_inner),
-            Self::OrganizationsNotInUseException(_inner) => ::std::option::Option::Some(_inner),
-            Self::UnsupportedOperationException(_inner) => ::std::option::Option::Some(_inner),
-            Self::Unhandled(_inner) => ::std::option::Option::Some(_inner),
+            Self::CloudTrailAccessNotEnabledException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::EventDataStoreAlreadyExistsException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::EventDataStoreArnInvalidException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::EventDataStoreHasOngoingImportException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::EventDataStoreNotFoundException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InactiveEventDataStoreException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InsufficientDependencyServiceAccessPermissionException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InsufficientEncryptionPolicyException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidEventSelectorsException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidInsightSelectorsException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidKmsKeyIdException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidParameterException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::KmsException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::KmsKeyNotFoundException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::NoManagementAccountSlrExistsException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::NotOrganizationMasterAccountException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::OperationNotPermittedException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::OrganizationNotInAllFeaturesModeException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::OrganizationsNotInUseException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::UnsupportedOperationException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::Unhandled(_inner) => {
+                ::std::option::Option::Some(&*_inner.source)
+            }
         }
     }
 }
+impl ::std::fmt::Display for UpdateEventDataStoreError {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            Self::CloudTrailAccessNotEnabledException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::EventDataStoreAlreadyExistsException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::EventDataStoreArnInvalidException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::EventDataStoreHasOngoingImportException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::EventDataStoreNotFoundException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InactiveEventDataStoreException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InsufficientDependencyServiceAccessPermissionException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InsufficientEncryptionPolicyException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidEventSelectorsException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidInsightSelectorsException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidKmsKeyIdException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidParameterException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::KmsException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::KmsKeyNotFoundException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::NoManagementAccountSlrExistsException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::NotOrganizationMasterAccountException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::OperationNotPermittedException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::OrganizationNotInAllFeaturesModeException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::OrganizationsNotInUseException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::UnsupportedOperationException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::Unhandled(_inner) => {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                                    write!(f, "unhandled error ({code})")
+                                                } else {
+                                                    f.write_str("unhandled error")
+                                                }
+            }
+        }
+    }
+}
+impl ::aws_smithy_types::retry::ProvideErrorKind for UpdateEventDataStoreError {
+    fn code(&self) -> ::std::option::Option<&str> {
+        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+    }
+    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
+        ::std::option::Option::None
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UpdateEventDataStoreError {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        match self {
+            Self::CloudTrailAccessNotEnabledException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::EventDataStoreAlreadyExistsException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::EventDataStoreArnInvalidException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::EventDataStoreHasOngoingImportException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::EventDataStoreNotFoundException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InactiveEventDataStoreException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InsufficientDependencyServiceAccessPermissionException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InsufficientEncryptionPolicyException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidEventSelectorsException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidInsightSelectorsException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidKmsKeyIdException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidParameterException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::KmsException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::KmsKeyNotFoundException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::NoManagementAccountSlrExistsException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::NotOrganizationMasterAccountException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::OperationNotPermittedException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::OrganizationNotInAllFeaturesModeException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::OrganizationsNotInUseException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::UnsupportedOperationException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::Unhandled(_inner) => {
+                &_inner.meta
+            }
+        }
+    }
+}
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateEventDataStoreError {
+    fn create_unhandled_error(
+                        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+                        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>
+                    ) -> Self {
+        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source, meta: meta.unwrap_or_default() })
+    }
+}
+impl ::aws_types::request_id::RequestId for crate::operation::update_event_data_store::UpdateEventDataStoreError {
+                            fn request_id(&self) -> Option<&str> {
+                                self.meta().request_id()
+                            }
+                        }
 
 pub use crate::operation::update_event_data_store::_update_event_data_store_output::UpdateEventDataStoreOutput;
 
@@ -543,3 +613,4 @@ mod _update_event_data_store_output;
 
 /// Builders
 pub mod builders;
+

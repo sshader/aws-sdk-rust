@@ -2,35 +2,35 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct DeleteChannelMembershipInput {
+pub struct DeleteChannelMembershipInput  {
     /// <p>The ARN of the channel from which you want to remove the user.</p>
     pub channel_arn: ::std::option::Option<::std::string::String>,
     /// <p>The <code>AppInstanceUserArn</code> of the member that you're removing from the channel.</p>
     pub member_arn: ::std::option::Option<::std::string::String>,
     /// <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
     pub chime_bearer: ::std::option::Option<::std::string::String>,
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only for use by moderators.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only for use by moderators.</p> 
     /// </note>
     pub sub_channel_id: ::std::option::Option<::std::string::String>,
 }
-impl DeleteChannelMembershipInput {
+impl  DeleteChannelMembershipInput  {
     /// <p>The ARN of the channel from which you want to remove the user.</p>
-    pub fn channel_arn(&self) -> ::std::option::Option<&str> {
+    pub fn channel_arn(&self) -> ::std::option::Option<& str> {
         self.channel_arn.as_deref()
     }
     /// <p>The <code>AppInstanceUserArn</code> of the member that you're removing from the channel.</p>
-    pub fn member_arn(&self) -> ::std::option::Option<&str> {
+    pub fn member_arn(&self) -> ::std::option::Option<& str> {
         self.member_arn.as_deref()
     }
     /// <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
-    pub fn chime_bearer(&self) -> ::std::option::Option<&str> {
+    pub fn chime_bearer(&self) -> ::std::option::Option<& str> {
         self.chime_bearer.as_deref()
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only for use by moderators.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only for use by moderators.</p> 
     /// </note>
-    pub fn sub_channel_id(&self) -> ::std::option::Option<&str> {
+    pub fn sub_channel_id(&self) -> ::std::option::Option<& str> {
         self.sub_channel_id.as_deref()
     }
 }
@@ -59,8 +59,7 @@ impl DeleteChannelMembershipInputBuilder {
     }
     /// <p>The ARN of the channel from which you want to remove the user.</p>
     pub fn set_channel_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.channel_arn = input;
-        self
+        self.channel_arn = input; self
     }
     /// <p>The ARN of the channel from which you want to remove the user.</p>
     pub fn get_channel_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -74,8 +73,7 @@ impl DeleteChannelMembershipInputBuilder {
     }
     /// <p>The <code>AppInstanceUserArn</code> of the member that you're removing from the channel.</p>
     pub fn set_member_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.member_arn = input;
-        self
+        self.member_arn = input; self
     }
     /// <p>The <code>AppInstanceUserArn</code> of the member that you're removing from the channel.</p>
     pub fn get_member_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -89,45 +87,45 @@ impl DeleteChannelMembershipInputBuilder {
     }
     /// <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
     pub fn set_chime_bearer(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.chime_bearer = input;
-        self
+        self.chime_bearer = input; self
     }
     /// <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
     pub fn get_chime_bearer(&self) -> &::std::option::Option<::std::string::String> {
         &self.chime_bearer
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only for use by moderators.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only for use by moderators.</p> 
     /// </note>
     pub fn sub_channel_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sub_channel_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only for use by moderators.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only for use by moderators.</p> 
     /// </note>
     pub fn set_sub_channel_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.sub_channel_id = input;
-        self
+        self.sub_channel_id = input; self
     }
-    /// <p>The ID of the SubChannel in the request.</p> <note>
-    /// <p>Only for use by moderators.</p>
+    /// <p>The ID of the SubChannel in the request.</p> <note> 
+    /// <p>Only for use by moderators.</p> 
     /// </note>
     pub fn get_sub_channel_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.sub_channel_id
     }
     /// Consumes the builder and constructs a [`DeleteChannelMembershipInput`](crate::operation::delete_channel_membership::DeleteChannelMembershipInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_channel_membership::DeleteChannelMembershipInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::delete_channel_membership::DeleteChannelMembershipInput {
-            channel_arn: self.channel_arn,
-            member_arn: self.member_arn,
-            chime_bearer: self.chime_bearer,
-            sub_channel_id: self.sub_channel_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::delete_channel_membership::DeleteChannelMembershipInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::delete_channel_membership::DeleteChannelMembershipInput {
+                channel_arn: self.channel_arn
+                ,
+                member_arn: self.member_arn
+                ,
+                chime_bearer: self.chime_bearer
+                ,
+                sub_channel_id: self.sub_channel_id
+                ,
+            }
+        )
     }
 }
+

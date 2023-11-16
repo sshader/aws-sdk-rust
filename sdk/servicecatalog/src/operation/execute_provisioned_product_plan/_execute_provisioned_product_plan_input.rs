@@ -2,11 +2,11 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct ExecuteProvisionedProductPlanInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+pub struct ExecuteProvisionedProductPlanInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub accept_language: ::std::option::Option<::std::string::String>,
     /// <p>The plan identifier.</p>
@@ -14,21 +14,21 @@ pub struct ExecuteProvisionedProductPlanInput {
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
     pub idempotency_token: ::std::option::Option<::std::string::String>,
 }
-impl ExecuteProvisionedProductPlanInput {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+impl  ExecuteProvisionedProductPlanInput  {
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
-    pub fn accept_language(&self) -> ::std::option::Option<&str> {
+    pub fn accept_language(&self) -> ::std::option::Option<& str> {
         self.accept_language.as_deref()
     }
     /// <p>The plan identifier.</p>
-    pub fn plan_id(&self) -> ::std::option::Option<&str> {
+    pub fn plan_id(&self) -> ::std::option::Option<& str> {
         self.plan_id.as_deref()
     }
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
-    pub fn idempotency_token(&self) -> ::std::option::Option<&str> {
+    pub fn idempotency_token(&self) -> ::std::option::Option<& str> {
         self.idempotency_token.as_deref()
     }
 }
@@ -48,28 +48,27 @@ pub struct ExecuteProvisionedProductPlanInputBuilder {
     pub(crate) idempotency_token: ::std::option::Option<::std::string::String>,
 }
 impl ExecuteProvisionedProductPlanInputBuilder {
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn accept_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.accept_language = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn set_accept_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.accept_language = input;
-        self
+        self.accept_language = input; self
     }
-    /// <p>The language code.</p>
-    /// <ul>
-    /// <li> <p> <code>jp</code> - Japanese</p> </li>
-    /// <li> <p> <code>zh</code> - Chinese</p> </li>
+    /// <p>The language code.</p> 
+    /// <ul> 
+    /// <li> <p> <code>jp</code> - Japanese</p> </li> 
+    /// <li> <p> <code>zh</code> - Chinese</p> </li> 
     /// </ul>
     pub fn get_accept_language(&self) -> &::std::option::Option<::std::string::String> {
         &self.accept_language
@@ -82,8 +81,7 @@ impl ExecuteProvisionedProductPlanInputBuilder {
     }
     /// <p>The plan identifier.</p>
     pub fn set_plan_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.plan_id = input;
-        self
+        self.plan_id = input; self
     }
     /// <p>The plan identifier.</p>
     pub fn get_plan_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -97,24 +95,24 @@ impl ExecuteProvisionedProductPlanInputBuilder {
     }
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
     pub fn set_idempotency_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.idempotency_token = input;
-        self
+        self.idempotency_token = input; self
     }
     /// <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
     pub fn get_idempotency_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.idempotency_token
     }
     /// Consumes the builder and constructs a [`ExecuteProvisionedProductPlanInput`](crate::operation::execute_provisioned_product_plan::ExecuteProvisionedProductPlanInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::execute_provisioned_product_plan::ExecuteProvisionedProductPlanInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::execute_provisioned_product_plan::ExecuteProvisionedProductPlanInput {
-            accept_language: self.accept_language,
-            plan_id: self.plan_id,
-            idempotency_token: self.idempotency_token,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::execute_provisioned_product_plan::ExecuteProvisionedProductPlanInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::execute_provisioned_product_plan::ExecuteProvisionedProductPlanInput {
+                accept_language: self.accept_language
+                ,
+                plan_id: self.plan_id
+                ,
+                idempotency_token: self.idempotency_token
+                ,
+            }
+        )
     }
 }
+

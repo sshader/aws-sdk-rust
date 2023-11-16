@@ -5,54 +5,50 @@ pub use crate::operation::create_vpc_endpoint::_create_vpc_endpoint_input::Creat
 
 impl CreateVpcEndpointInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_vpc_endpoint::CreateVpcEndpointError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_vpc_endpoint();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_vpc_endpoint::CreateVpcEndpointError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_vpc_endpoint();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateVpcEndpoint`.
-///
+/// 
 /// <p>Creates a VPC endpoint. A VPC endpoint provides a private connection between the specified VPC and the specified endpoint service. You can use an endpoint service provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink User Guide</a>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateVpcEndpointFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_vpc_endpoint::builders::CreateVpcEndpointInputBuilder,
+                    inner: crate::operation::create_vpc_endpoint::builders::CreateVpcEndpointInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput,
-        crate::operation::create_vpc_endpoint::CreateVpcEndpointError,
-    > for CreateVpcEndpointFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput,
-            crate::operation::create_vpc_endpoint::CreateVpcEndpointError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput,
+                    crate::operation::create_vpc_endpoint::CreateVpcEndpointError,
+                > for CreateVpcEndpointFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput,
+                        crate::operation::create_vpc_endpoint::CreateVpcEndpointError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateVpcEndpointFluentBuilder {
     /// Creates a new `CreateVpcEndpoint`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl CreateVpcEndpointFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_vpc_endpoint::CreateVpcEndpointError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_vpc_endpoint::CreateVpcEndpoint::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_vpc_endpoint::CreateVpcEndpoint::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput,
-        crate::operation::create_vpc_endpoint::CreateVpcEndpointError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_vpc_endpoint::CreateVpcEndpointError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_vpc_endpoint::CreateVpcEndpoint::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_vpc_endpoint::CreateVpcEndpoint::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_vpc_endpoint::CreateVpcEndpointOutput, crate::operation::create_vpc_endpoint::CreateVpcEndpointError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn dry_run(mut self, input: bool) -> Self {
         self.inner = self.inner.dry_run(input);
@@ -122,19 +109,19 @@ impl CreateVpcEndpointFluentBuilder {
     pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
         self.inner.get_dry_run()
     }
-    /// <p>The type of endpoint.</p>
+    /// <p>The type of endpoint.</p> 
     /// <p>Default: Gateway</p>
     pub fn vpc_endpoint_type(mut self, input: crate::types::VpcEndpointType) -> Self {
         self.inner = self.inner.vpc_endpoint_type(input);
         self
     }
-    /// <p>The type of endpoint.</p>
+    /// <p>The type of endpoint.</p> 
     /// <p>Default: Gateway</p>
     pub fn set_vpc_endpoint_type(mut self, input: ::std::option::Option<crate::types::VpcEndpointType>) -> Self {
         self.inner = self.inner.set_vpc_endpoint_type(input);
         self
     }
-    /// <p>The type of endpoint.</p>
+    /// <p>The type of endpoint.</p> 
     /// <p>Default: Gateway</p>
     pub fn get_vpc_endpoint_type(&self) -> &::std::option::Option<crate::types::VpcEndpointType> {
         self.inner.get_vpc_endpoint_type()
@@ -191,12 +178,12 @@ impl CreateVpcEndpointFluentBuilder {
         self
     }
     /// <p>(Gateway endpoint) The route table IDs.</p>
-    pub fn set_route_table_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_route_table_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_route_table_ids(input);
         self
     }
     /// <p>(Gateway endpoint) The route table IDs.</p>
-    pub fn get_route_table_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_route_table_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_route_table_ids()
     }
     /// Appends an item to `SubnetIds`.
@@ -209,12 +196,12 @@ impl CreateVpcEndpointFluentBuilder {
         self
     }
     /// <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create endpoint network interfaces. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
-    pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_subnet_ids(input);
         self
     }
     /// <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to create endpoint network interfaces. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
-    pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_subnet_ids()
     }
     /// Appends an item to `SecurityGroupIds`.
@@ -227,12 +214,12 @@ impl CreateVpcEndpointFluentBuilder {
         self
     }
     /// <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC.</p>
-    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec::<::std::string::String>>) -> Self {
         self.inner = self.inner.set_security_group_ids(input);
         self
     }
     /// <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC.</p>
-    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec::<::std::string::String>> {
         self.inner.get_security_group_ids()
     }
     /// <p>The IP address type for the endpoint.</p>
@@ -277,22 +264,22 @@ impl CreateVpcEndpointFluentBuilder {
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_client_token()
     }
-    /// <p>(Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.</p>
-    /// <p>To use a private hosted zone, you must set the following VPC attributes to <code>true</code>: <code>enableDnsHostnames</code> and <code>enableDnsSupport</code>. Use <code>ModifyVpcAttribute</code> to set the VPC attributes.</p>
+    /// <p>(Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.</p> 
+    /// <p>To use a private hosted zone, you must set the following VPC attributes to <code>true</code>: <code>enableDnsHostnames</code> and <code>enableDnsSupport</code>. Use <code>ModifyVpcAttribute</code> to set the VPC attributes.</p> 
     /// <p>Default: <code>true</code> </p>
     pub fn private_dns_enabled(mut self, input: bool) -> Self {
         self.inner = self.inner.private_dns_enabled(input);
         self
     }
-    /// <p>(Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.</p>
-    /// <p>To use a private hosted zone, you must set the following VPC attributes to <code>true</code>: <code>enableDnsHostnames</code> and <code>enableDnsSupport</code>. Use <code>ModifyVpcAttribute</code> to set the VPC attributes.</p>
+    /// <p>(Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.</p> 
+    /// <p>To use a private hosted zone, you must set the following VPC attributes to <code>true</code>: <code>enableDnsHostnames</code> and <code>enableDnsSupport</code>. Use <code>ModifyVpcAttribute</code> to set the VPC attributes.</p> 
     /// <p>Default: <code>true</code> </p>
     pub fn set_private_dns_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_private_dns_enabled(input);
         self
     }
-    /// <p>(Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.</p>
-    /// <p>To use a private hosted zone, you must set the following VPC attributes to <code>true</code>: <code>enableDnsHostnames</code> and <code>enableDnsSupport</code>. Use <code>ModifyVpcAttribute</code> to set the VPC attributes.</p>
+    /// <p>(Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.</p> 
+    /// <p>To use a private hosted zone, you must set the following VPC attributes to <code>true</code>: <code>enableDnsHostnames</code> and <code>enableDnsSupport</code>. Use <code>ModifyVpcAttribute</code> to set the VPC attributes.</p> 
     /// <p>Default: <code>true</code> </p>
     pub fn get_private_dns_enabled(&self) -> &::std::option::Option<bool> {
         self.inner.get_private_dns_enabled()
@@ -307,12 +294,12 @@ impl CreateVpcEndpointFluentBuilder {
         self
     }
     /// <p>The tags to associate with the endpoint.</p>
-    pub fn set_tag_specifications(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TagSpecification>>) -> Self {
+    pub fn set_tag_specifications(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::TagSpecification>>) -> Self {
         self.inner = self.inner.set_tag_specifications(input);
         self
     }
     /// <p>The tags to associate with the endpoint.</p>
-    pub fn get_tag_specifications(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TagSpecification>> {
+    pub fn get_tag_specifications(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::TagSpecification>> {
         self.inner.get_tag_specifications()
     }
     /// Appends an item to `SubnetConfigurations`.
@@ -325,12 +312,13 @@ impl CreateVpcEndpointFluentBuilder {
         self
     }
     /// <p>The subnet configurations for the endpoint.</p>
-    pub fn set_subnet_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SubnetConfiguration>>) -> Self {
+    pub fn set_subnet_configurations(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::SubnetConfiguration>>) -> Self {
         self.inner = self.inner.set_subnet_configurations(input);
         self
     }
     /// <p>The subnet configurations for the endpoint.</p>
-    pub fn get_subnet_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SubnetConfiguration>> {
+    pub fn get_subnet_configurations(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::SubnetConfiguration>> {
         self.inner.get_subnet_configurations()
     }
 }
+

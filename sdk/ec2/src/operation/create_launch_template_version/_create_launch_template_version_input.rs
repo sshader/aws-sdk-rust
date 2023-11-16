@@ -2,16 +2,16 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateLaunchTemplateVersionInput {
+pub struct CreateLaunchTemplateVersionInput  {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub dry_run: ::std::option::Option<bool>,
-    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p> 
     /// <p>Constraint: Maximum 128 ASCII characters.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
-    /// <p>The ID of the launch template.</p>
+    /// <p>The ID of the launch template.</p> 
     /// <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
     pub launch_template_id: ::std::option::Option<::std::string::String>,
-    /// <p>The name of the launch template.</p>
+    /// <p>The name of the launch template.</p> 
     /// <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
     pub launch_template_name: ::std::option::Option<::std::string::String>,
     /// <p>The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in <code>LaunchTemplateData</code>. Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.</p>
@@ -20,43 +20,43 @@ pub struct CreateLaunchTemplateVersionInput {
     pub version_description: ::std::option::Option<::std::string::String>,
     /// <p>The information for the launch template.</p>
     pub launch_template_data: ::std::option::Option<crate::types::RequestLaunchTemplateData>,
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub resolve_alias: ::std::option::Option<bool>,
 }
-impl CreateLaunchTemplateVersionInput {
+impl  CreateLaunchTemplateVersionInput  {
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn dry_run(&self) -> ::std::option::Option<bool> {
         self.dry_run
     }
-    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p> 
     /// <p>Constraint: Maximum 128 ASCII characters.</p>
-    pub fn client_token(&self) -> ::std::option::Option<&str> {
+    pub fn client_token(&self) -> ::std::option::Option<& str> {
         self.client_token.as_deref()
     }
-    /// <p>The ID of the launch template.</p>
+    /// <p>The ID of the launch template.</p> 
     /// <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
-    pub fn launch_template_id(&self) -> ::std::option::Option<&str> {
+    pub fn launch_template_id(&self) -> ::std::option::Option<& str> {
         self.launch_template_id.as_deref()
     }
-    /// <p>The name of the launch template.</p>
+    /// <p>The name of the launch template.</p> 
     /// <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
-    pub fn launch_template_name(&self) -> ::std::option::Option<&str> {
+    pub fn launch_template_name(&self) -> ::std::option::Option<& str> {
         self.launch_template_name.as_deref()
     }
     /// <p>The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in <code>LaunchTemplateData</code>. Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.</p>
-    pub fn source_version(&self) -> ::std::option::Option<&str> {
+    pub fn source_version(&self) -> ::std::option::Option<& str> {
         self.source_version.as_deref()
     }
     /// <p>A description for the version of the launch template.</p>
-    pub fn version_description(&self) -> ::std::option::Option<&str> {
+    pub fn version_description(&self) -> ::std::option::Option<& str> {
         self.version_description.as_deref()
     }
     /// <p>The information for the launch template.</p>
-    pub fn launch_template_data(&self) -> ::std::option::Option<&crate::types::RequestLaunchTemplateData> {
+    pub fn launch_template_data(&self) -> ::std::option::Option<& crate::types::RequestLaunchTemplateData> {
         self.launch_template_data.as_ref()
     }
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn resolve_alias(&self) -> ::std::option::Option<bool> {
         self.resolve_alias
@@ -90,60 +90,56 @@ impl CreateLaunchTemplateVersionInputBuilder {
     }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.dry_run = input;
-        self
+        self.dry_run = input; self
     }
     /// <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
         &self.dry_run
     }
-    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p> 
     /// <p>Constraint: Maximum 128 ASCII characters.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_token = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p> 
     /// <p>Constraint: Maximum 128 ASCII characters.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.client_token = input;
-        self
+        self.client_token = input; self
     }
-    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+    /// <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p> 
     /// <p>Constraint: Maximum 128 ASCII characters.</p>
     pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.client_token
     }
-    /// <p>The ID of the launch template.</p>
+    /// <p>The ID of the launch template.</p> 
     /// <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
     pub fn launch_template_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.launch_template_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The ID of the launch template.</p>
+    /// <p>The ID of the launch template.</p> 
     /// <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
     pub fn set_launch_template_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.launch_template_id = input;
-        self
+        self.launch_template_id = input; self
     }
-    /// <p>The ID of the launch template.</p>
+    /// <p>The ID of the launch template.</p> 
     /// <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
     pub fn get_launch_template_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.launch_template_id
     }
-    /// <p>The name of the launch template.</p>
+    /// <p>The name of the launch template.</p> 
     /// <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
     pub fn launch_template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.launch_template_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name of the launch template.</p>
+    /// <p>The name of the launch template.</p> 
     /// <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
     pub fn set_launch_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.launch_template_name = input;
-        self
+        self.launch_template_name = input; self
     }
-    /// <p>The name of the launch template.</p>
+    /// <p>The name of the launch template.</p> 
     /// <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
     pub fn get_launch_template_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.launch_template_name
@@ -155,8 +151,7 @@ impl CreateLaunchTemplateVersionInputBuilder {
     }
     /// <p>The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in <code>LaunchTemplateData</code>. Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.</p>
     pub fn set_source_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.source_version = input;
-        self
+        self.source_version = input; self
     }
     /// <p>The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in <code>LaunchTemplateData</code>. Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.</p>
     pub fn get_source_version(&self) -> &::std::option::Option<::std::string::String> {
@@ -169,8 +164,7 @@ impl CreateLaunchTemplateVersionInputBuilder {
     }
     /// <p>A description for the version of the launch template.</p>
     pub fn set_version_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.version_description = input;
-        self
+        self.version_description = input; self
     }
     /// <p>A description for the version of the launch template.</p>
     pub fn get_version_description(&self) -> &::std::option::Option<::std::string::String> {
@@ -184,46 +178,50 @@ impl CreateLaunchTemplateVersionInputBuilder {
     }
     /// <p>The information for the launch template.</p>
     pub fn set_launch_template_data(mut self, input: ::std::option::Option<crate::types::RequestLaunchTemplateData>) -> Self {
-        self.launch_template_data = input;
-        self
+        self.launch_template_data = input; self
     }
     /// <p>The information for the launch template.</p>
     pub fn get_launch_template_data(&self) -> &::std::option::Option<crate::types::RequestLaunchTemplateData> {
         &self.launch_template_data
     }
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn resolve_alias(mut self, input: bool) -> Self {
         self.resolve_alias = ::std::option::Option::Some(input);
         self
     }
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn set_resolve_alias(mut self, input: ::std::option::Option<bool>) -> Self {
-        self.resolve_alias = input;
-        self
+        self.resolve_alias = input; self
     }
-    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    /// <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> 
     /// <p>Default: <code>false</code> </p>
     pub fn get_resolve_alias(&self) -> &::std::option::Option<bool> {
         &self.resolve_alias
     }
     /// Consumes the builder and constructs a [`CreateLaunchTemplateVersionInput`](crate::operation::create_launch_template_version::CreateLaunchTemplateVersionInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_launch_template_version::CreateLaunchTemplateVersionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::create_launch_template_version::CreateLaunchTemplateVersionInput {
-            dry_run: self.dry_run,
-            client_token: self.client_token,
-            launch_template_id: self.launch_template_id,
-            launch_template_name: self.launch_template_name,
-            source_version: self.source_version,
-            version_description: self.version_description,
-            launch_template_data: self.launch_template_data,
-            resolve_alias: self.resolve_alias,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_launch_template_version::CreateLaunchTemplateVersionInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_launch_template_version::CreateLaunchTemplateVersionInput {
+                dry_run: self.dry_run
+                ,
+                client_token: self.client_token
+                ,
+                launch_template_id: self.launch_template_id
+                ,
+                launch_template_name: self.launch_template_name
+                ,
+                source_version: self.source_version
+                ,
+                version_description: self.version_description
+                ,
+                launch_template_data: self.launch_template_data
+                ,
+                resolve_alias: self.resolve_alias
+                ,
+            }
+        )
     }
 }
+

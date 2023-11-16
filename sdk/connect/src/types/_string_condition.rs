@@ -3,7 +3,7 @@
 /// <p>A leaf node condition which can be used to specify a string condition. </p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct StringCondition {
+pub struct StringCondition  {
     /// <p>The name of the field in the string condition.</p>
     pub field_name: ::std::option::Option<::std::string::String>,
     /// <p>The value of the string.</p>
@@ -11,17 +11,17 @@ pub struct StringCondition {
     /// <p>The type of comparison to be made when evaluating the string condition.</p>
     pub comparison_type: ::std::option::Option<crate::types::StringComparisonType>,
 }
-impl StringCondition {
+impl  StringCondition  {
     /// <p>The name of the field in the string condition.</p>
-    pub fn field_name(&self) -> ::std::option::Option<&str> {
+    pub fn field_name(&self) -> ::std::option::Option<& str> {
         self.field_name.as_deref()
     }
     /// <p>The value of the string.</p>
-    pub fn value(&self) -> ::std::option::Option<&str> {
+    pub fn value(&self) -> ::std::option::Option<& str> {
         self.value.as_deref()
     }
     /// <p>The type of comparison to be made when evaluating the string condition.</p>
-    pub fn comparison_type(&self) -> ::std::option::Option<&crate::types::StringComparisonType> {
+    pub fn comparison_type(&self) -> ::std::option::Option<& crate::types::StringComparisonType> {
         self.comparison_type.as_ref()
     }
 }
@@ -48,8 +48,7 @@ impl StringConditionBuilder {
     }
     /// <p>The name of the field in the string condition.</p>
     pub fn set_field_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.field_name = input;
-        self
+        self.field_name = input; self
     }
     /// <p>The name of the field in the string condition.</p>
     pub fn get_field_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -62,8 +61,7 @@ impl StringConditionBuilder {
     }
     /// <p>The value of the string.</p>
     pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.value = input;
-        self
+        self.value = input; self
     }
     /// <p>The value of the string.</p>
     pub fn get_value(&self) -> &::std::option::Option<::std::string::String> {
@@ -76,8 +74,7 @@ impl StringConditionBuilder {
     }
     /// <p>The type of comparison to be made when evaluating the string condition.</p>
     pub fn set_comparison_type(mut self, input: ::std::option::Option<crate::types::StringComparisonType>) -> Self {
-        self.comparison_type = input;
-        self
+        self.comparison_type = input; self
     }
     /// <p>The type of comparison to be made when evaluating the string condition.</p>
     pub fn get_comparison_type(&self) -> &::std::option::Option<crate::types::StringComparisonType> {
@@ -86,9 +83,13 @@ impl StringConditionBuilder {
     /// Consumes the builder and constructs a [`StringCondition`](crate::types::StringCondition).
     pub fn build(self) -> crate::types::StringCondition {
         crate::types::StringCondition {
-            field_name: self.field_name,
-            value: self.value,
-            comparison_type: self.comparison_type,
+            field_name: self.field_name
+            ,
+            value: self.value
+            ,
+            comparison_type: self.comparison_type
+            ,
         }
     }
 }
+

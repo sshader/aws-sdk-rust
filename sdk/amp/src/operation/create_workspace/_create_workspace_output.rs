@@ -3,7 +3,7 @@
 /// Represents the output of a CreateWorkspace operation.
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct CreateWorkspaceOutput {
+pub struct CreateWorkspaceOutput  {
     /// The generated ID of the workspace that was just created.
     pub workspace_id: ::std::string::String,
     /// The ARN of the workspace that was just created.
@@ -11,34 +11,32 @@ pub struct CreateWorkspaceOutput {
     /// The status of the workspace that was just created (usually CREATING).
     pub status: ::std::option::Option<crate::types::WorkspaceStatus>,
     /// The tags of this workspace.
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
-impl CreateWorkspaceOutput {
+impl  CreateWorkspaceOutput  {
     /// The generated ID of the workspace that was just created.
-    pub fn workspace_id(&self) -> &str {
-        use std::ops::Deref;
-        self.workspace_id.deref()
+    pub fn workspace_id(&self) -> & str {
+        use std::ops::Deref; self.workspace_id.deref()
     }
     /// The ARN of the workspace that was just created.
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> & str {
+        use std::ops::Deref; self.arn.deref()
     }
     /// The status of the workspace that was just created (usually CREATING).
-    pub fn status(&self) -> ::std::option::Option<&crate::types::WorkspaceStatus> {
+    pub fn status(&self) -> ::std::option::Option<& crate::types::WorkspaceStatus> {
         self.status.as_ref()
     }
     /// The tags of this workspace.
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(&self) -> ::std::option::Option<& ::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
-impl ::aws_http::request_id::RequestId for CreateWorkspaceOutput {
-    fn request_id(&self) -> Option<&str> {
-        self._request_id.as_deref()
-    }
-}
+impl ::aws_types::request_id::RequestId for CreateWorkspaceOutput {
+                                fn request_id(&self) -> Option<&str> {
+                                    self._request_id.as_deref()
+                                }
+                            }
 impl CreateWorkspaceOutput {
     /// Creates a new builder-style object to manufacture [`CreateWorkspaceOutput`](crate::operation::create_workspace::CreateWorkspaceOutput).
     pub fn builder() -> crate::operation::create_workspace::builders::CreateWorkspaceOutputBuilder {
@@ -53,7 +51,7 @@ pub struct CreateWorkspaceOutputBuilder {
     pub(crate) workspace_id: ::std::option::Option<::std::string::String>,
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) status: ::std::option::Option<crate::types::WorkspaceStatus>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl CreateWorkspaceOutputBuilder {
@@ -65,8 +63,7 @@ impl CreateWorkspaceOutputBuilder {
     }
     /// The generated ID of the workspace that was just created.
     pub fn set_workspace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.workspace_id = input;
-        self
+        self.workspace_id = input; self
     }
     /// The generated ID of the workspace that was just created.
     pub fn get_workspace_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -80,8 +77,7 @@ impl CreateWorkspaceOutputBuilder {
     }
     /// The ARN of the workspace that was just created.
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.arn = input;
-        self
+        self.arn = input; self
     }
     /// The ARN of the workspace that was just created.
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
@@ -95,8 +91,7 @@ impl CreateWorkspaceOutputBuilder {
     }
     /// The status of the workspace that was just created (usually CREATING).
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::WorkspaceStatus>) -> Self {
-        self.status = input;
-        self
+        self.status = input; self
     }
     /// The status of the workspace that was just created (usually CREATING).
     pub fn get_status(&self) -> &::std::option::Option<crate::types::WorkspaceStatus> {
@@ -109,51 +104,51 @@ impl CreateWorkspaceOutputBuilder {
     /// The tags of this workspace.
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
-        hash_map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(hash_map);
-        self
+                        hash_map.insert(k.into(), v.into());
+                        self.tags = ::std::option::Option::Some(hash_map);
+                        self
     }
     /// The tags of this workspace.
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.tags = input;
-        self
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input; self
     }
     /// The tags of this workspace.
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-        self._request_id = Some(request_id.into());
-        self
-    }
-
-    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
-        self._request_id = request_id;
-        self
-    }
+                                    self._request_id = Some(request_id.into());
+                                    self
+                                }
+    
+                                pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+                                    self._request_id = request_id;
+                                    self
+                                }
     /// Consumes the builder and constructs a [`CreateWorkspaceOutput`](crate::operation::create_workspace::CreateWorkspaceOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`workspace_id`](crate::operation::create_workspace::builders::CreateWorkspaceOutputBuilder::workspace_id)
     /// - [`arn`](crate::operation::create_workspace::builders::CreateWorkspaceOutputBuilder::arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::create_workspace::CreateWorkspaceOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_workspace::CreateWorkspaceOutput {
-            workspace_id: self.workspace_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "workspace_id",
-                    "workspace_id was not specified but it is required when building CreateWorkspaceOutput",
-                )
-            })?,
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building CreateWorkspaceOutput",
-                )
-            })?,
-            status: self.status,
-            tags: self.tags,
-            _request_id: self._request_id,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::create_workspace::CreateWorkspaceOutput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::create_workspace::CreateWorkspaceOutput {
+                workspace_id: self.workspace_id
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("workspace_id", "workspace_id was not specified but it is required when building CreateWorkspaceOutput")
+                    )?
+                ,
+                arn: self.arn
+                    .ok_or_else(||
+                        ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building CreateWorkspaceOutput")
+                    )?
+                ,
+                status: self.status
+                ,
+                tags: self.tags
+                ,
+                _request_id: self._request_id,
+            }
+        )
     }
 }
+

@@ -3,7 +3,7 @@
 /// <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct MediaPlacement {
+pub struct MediaPlacement  {
     /// <p>The audio host URL.</p>
     pub audio_host_url: ::std::option::Option<::std::string::String>,
     /// <p>The audio fallback URL.</p>
@@ -21,37 +21,37 @@ pub struct MediaPlacement {
     /// <p>The event ingestion URL.</p>
     pub event_ingestion_url: ::std::option::Option<::std::string::String>,
 }
-impl MediaPlacement {
+impl  MediaPlacement  {
     /// <p>The audio host URL.</p>
-    pub fn audio_host_url(&self) -> ::std::option::Option<&str> {
+    pub fn audio_host_url(&self) -> ::std::option::Option<& str> {
         self.audio_host_url.as_deref()
     }
     /// <p>The audio fallback URL.</p>
-    pub fn audio_fallback_url(&self) -> ::std::option::Option<&str> {
+    pub fn audio_fallback_url(&self) -> ::std::option::Option<& str> {
         self.audio_fallback_url.as_deref()
     }
     /// <p>The signaling URL.</p>
-    pub fn signaling_url(&self) -> ::std::option::Option<&str> {
+    pub fn signaling_url(&self) -> ::std::option::Option<& str> {
         self.signaling_url.as_deref()
     }
     /// <p>The turn control URL.</p>
-    pub fn turn_control_url(&self) -> ::std::option::Option<&str> {
+    pub fn turn_control_url(&self) -> ::std::option::Option<& str> {
         self.turn_control_url.as_deref()
     }
     /// <p>The screen data URL.</p>
-    pub fn screen_data_url(&self) -> ::std::option::Option<&str> {
+    pub fn screen_data_url(&self) -> ::std::option::Option<& str> {
         self.screen_data_url.as_deref()
     }
     /// <p>The screen viewing URL.</p>
-    pub fn screen_viewing_url(&self) -> ::std::option::Option<&str> {
+    pub fn screen_viewing_url(&self) -> ::std::option::Option<& str> {
         self.screen_viewing_url.as_deref()
     }
     /// <p>The screen sharing URL.</p>
-    pub fn screen_sharing_url(&self) -> ::std::option::Option<&str> {
+    pub fn screen_sharing_url(&self) -> ::std::option::Option<& str> {
         self.screen_sharing_url.as_deref()
     }
     /// <p>The event ingestion URL.</p>
-    pub fn event_ingestion_url(&self) -> ::std::option::Option<&str> {
+    pub fn event_ingestion_url(&self) -> ::std::option::Option<& str> {
         self.event_ingestion_url.as_deref()
     }
 }
@@ -83,8 +83,7 @@ impl MediaPlacementBuilder {
     }
     /// <p>The audio host URL.</p>
     pub fn set_audio_host_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.audio_host_url = input;
-        self
+        self.audio_host_url = input; self
     }
     /// <p>The audio host URL.</p>
     pub fn get_audio_host_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -97,8 +96,7 @@ impl MediaPlacementBuilder {
     }
     /// <p>The audio fallback URL.</p>
     pub fn set_audio_fallback_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.audio_fallback_url = input;
-        self
+        self.audio_fallback_url = input; self
     }
     /// <p>The audio fallback URL.</p>
     pub fn get_audio_fallback_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -111,8 +109,7 @@ impl MediaPlacementBuilder {
     }
     /// <p>The signaling URL.</p>
     pub fn set_signaling_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.signaling_url = input;
-        self
+        self.signaling_url = input; self
     }
     /// <p>The signaling URL.</p>
     pub fn get_signaling_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -125,8 +122,7 @@ impl MediaPlacementBuilder {
     }
     /// <p>The turn control URL.</p>
     pub fn set_turn_control_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.turn_control_url = input;
-        self
+        self.turn_control_url = input; self
     }
     /// <p>The turn control URL.</p>
     pub fn get_turn_control_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -139,8 +135,7 @@ impl MediaPlacementBuilder {
     }
     /// <p>The screen data URL.</p>
     pub fn set_screen_data_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.screen_data_url = input;
-        self
+        self.screen_data_url = input; self
     }
     /// <p>The screen data URL.</p>
     pub fn get_screen_data_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -153,8 +148,7 @@ impl MediaPlacementBuilder {
     }
     /// <p>The screen viewing URL.</p>
     pub fn set_screen_viewing_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.screen_viewing_url = input;
-        self
+        self.screen_viewing_url = input; self
     }
     /// <p>The screen viewing URL.</p>
     pub fn get_screen_viewing_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -167,8 +161,7 @@ impl MediaPlacementBuilder {
     }
     /// <p>The screen sharing URL.</p>
     pub fn set_screen_sharing_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.screen_sharing_url = input;
-        self
+        self.screen_sharing_url = input; self
     }
     /// <p>The screen sharing URL.</p>
     pub fn get_screen_sharing_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -181,8 +174,7 @@ impl MediaPlacementBuilder {
     }
     /// <p>The event ingestion URL.</p>
     pub fn set_event_ingestion_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.event_ingestion_url = input;
-        self
+        self.event_ingestion_url = input; self
     }
     /// <p>The event ingestion URL.</p>
     pub fn get_event_ingestion_url(&self) -> &::std::option::Option<::std::string::String> {
@@ -191,14 +183,23 @@ impl MediaPlacementBuilder {
     /// Consumes the builder and constructs a [`MediaPlacement`](crate::types::MediaPlacement).
     pub fn build(self) -> crate::types::MediaPlacement {
         crate::types::MediaPlacement {
-            audio_host_url: self.audio_host_url,
-            audio_fallback_url: self.audio_fallback_url,
-            signaling_url: self.signaling_url,
-            turn_control_url: self.turn_control_url,
-            screen_data_url: self.screen_data_url,
-            screen_viewing_url: self.screen_viewing_url,
-            screen_sharing_url: self.screen_sharing_url,
-            event_ingestion_url: self.event_ingestion_url,
+            audio_host_url: self.audio_host_url
+            ,
+            audio_fallback_url: self.audio_fallback_url
+            ,
+            signaling_url: self.signaling_url
+            ,
+            turn_control_url: self.turn_control_url
+            ,
+            screen_data_url: self.screen_data_url
+            ,
+            screen_viewing_url: self.screen_viewing_url
+            ,
+            screen_sharing_url: self.screen_sharing_url
+            ,
+            event_ingestion_url: self.event_ingestion_url
+            ,
         }
     }
 }
+

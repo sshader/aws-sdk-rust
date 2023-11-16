@@ -5,54 +5,50 @@ pub use crate::operation::put_storage_configuration::_put_storage_configuration_
 
 impl PutStorageConfigurationInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::put_storage_configuration::PutStorageConfigurationOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_storage_configuration::PutStorageConfigurationError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.put_storage_configuration();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::put_storage_configuration::PutStorageConfigurationOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::put_storage_configuration::PutStorageConfigurationError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.put_storage_configuration();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `PutStorageConfiguration`.
-///
+/// 
 /// <p>Configures storage settings for IoT SiteWise.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct PutStorageConfigurationFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::put_storage_configuration::builders::PutStorageConfigurationInputBuilder,
+                    inner: crate::operation::put_storage_configuration::builders::PutStorageConfigurationInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::put_storage_configuration::PutStorageConfigurationOutput,
-        crate::operation::put_storage_configuration::PutStorageConfigurationError,
-    > for PutStorageConfigurationFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::put_storage_configuration::PutStorageConfigurationOutput,
-            crate::operation::put_storage_configuration::PutStorageConfigurationError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::put_storage_configuration::PutStorageConfigurationOutput,
+                    crate::operation::put_storage_configuration::PutStorageConfigurationError,
+                > for PutStorageConfigurationFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::put_storage_configuration::PutStorageConfigurationOutput,
+                        crate::operation::put_storage_configuration::PutStorageConfigurationError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl PutStorageConfigurationFluentBuilder {
     /// Creates a new `PutStorageConfiguration`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,75 +57,66 @@ impl PutStorageConfigurationFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::put_storage_configuration::PutStorageConfigurationOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_storage_configuration::PutStorageConfigurationError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_storage_configuration::PutStorageConfiguration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_storage_configuration::PutStorageConfiguration::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::put_storage_configuration::PutStorageConfigurationOutput,
-        crate::operation::put_storage_configuration::PutStorageConfigurationError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The storage tier that you specified for your data. The <code>storageType</code> parameter can be one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. The hot tier is a service-managed database.</p> </li>
-    /// <li> <p> <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</p> </li>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::put_storage_configuration::PutStorageConfigurationOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_storage_configuration::PutStorageConfigurationError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::put_storage_configuration::PutStorageConfiguration::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::put_storage_configuration::PutStorageConfiguration::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::put_storage_configuration::PutStorageConfigurationOutput, crate::operation::put_storage_configuration::PutStorageConfigurationError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The storage tier that you specified for your data. The <code>storageType</code> parameter can be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. The hot tier is a service-managed database.</p> </li> 
+    /// <li> <p> <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</p> </li> 
     /// </ul>
     pub fn storage_type(mut self, input: crate::types::StorageType) -> Self {
         self.inner = self.inner.storage_type(input);
         self
     }
-    /// <p>The storage tier that you specified for your data. The <code>storageType</code> parameter can be one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. The hot tier is a service-managed database.</p> </li>
-    /// <li> <p> <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</p> </li>
+    /// <p>The storage tier that you specified for your data. The <code>storageType</code> parameter can be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. The hot tier is a service-managed database.</p> </li> 
+    /// <li> <p> <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</p> </li> 
     /// </ul>
     pub fn set_storage_type(mut self, input: ::std::option::Option<crate::types::StorageType>) -> Self {
         self.inner = self.inner.set_storage_type(input);
         self
     }
-    /// <p>The storage tier that you specified for your data. The <code>storageType</code> parameter can be one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. The hot tier is a service-managed database.</p> </li>
-    /// <li> <p> <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</p> </li>
+    /// <p>The storage tier that you specified for your data. The <code>storageType</code> parameter can be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier. The hot tier is a service-managed database.</p> </li> 
+    /// <li> <p> <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier. The cold tier is a customer-managed Amazon S3 bucket.</p> </li> 
     /// </ul>
     pub fn get_storage_type(&self) -> &::std::option::Option<crate::types::StorageType> {
         self.inner.get_storage_type()
@@ -148,37 +135,37 @@ impl PutStorageConfigurationFluentBuilder {
     pub fn get_multi_layer_storage(&self) -> &::std::option::Option<crate::types::MultiLayerStorage> {
         self.inner.get_multi_layer_storage()
     }
-    /// <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties. The <code>disassociatedDataStorage</code> can be one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p> <important>
-    /// <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>
-    /// </important> </li>
-    /// <li> <p> <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p> </li>
-    /// </ul>
+    /// <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties. The <code>disassociatedDataStorage</code> can be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p> <important> 
+    /// <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p> 
+    /// </important> </li> 
+    /// <li> <p> <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a> in the <i>IoT SiteWise User Guide</i>.</p>
     pub fn disassociated_data_storage(mut self, input: crate::types::DisassociatedDataStorageState) -> Self {
         self.inner = self.inner.disassociated_data_storage(input);
         self
     }
-    /// <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties. The <code>disassociatedDataStorage</code> can be one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p> <important>
-    /// <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>
-    /// </important> </li>
-    /// <li> <p> <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p> </li>
-    /// </ul>
+    /// <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties. The <code>disassociatedDataStorage</code> can be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p> <important> 
+    /// <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p> 
+    /// </important> </li> 
+    /// <li> <p> <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a> in the <i>IoT SiteWise User Guide</i>.</p>
     pub fn set_disassociated_data_storage(mut self, input: ::std::option::Option<crate::types::DisassociatedDataStorageState>) -> Self {
         self.inner = self.inner.set_disassociated_data_storage(input);
         self
     }
-    /// <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties. The <code>disassociatedDataStorage</code> can be one of the following values:</p>
-    /// <ul>
-    /// <li> <p> <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p> <important>
-    /// <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>
-    /// </important> </li>
-    /// <li> <p> <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p> </li>
-    /// </ul>
+    /// <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties. The <code>disassociatedDataStorage</code> can be one of the following values:</p> 
+    /// <ul> 
+    /// <li> <p> <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p> <important> 
+    /// <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p> 
+    /// </important> </li> 
+    /// <li> <p> <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p> </li> 
+    /// </ul> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a> in the <i>IoT SiteWise User Guide</i>.</p>
     pub fn get_disassociated_data_storage(&self) -> &::std::option::Option<crate::types::DisassociatedDataStorageState> {
         self.inner.get_disassociated_data_storage()
@@ -198,3 +185,4 @@ impl PutStorageConfigurationFluentBuilder {
         self.inner.get_retention_period()
     }
 }
+

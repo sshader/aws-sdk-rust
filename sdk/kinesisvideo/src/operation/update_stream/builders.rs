@@ -5,57 +5,53 @@ pub use crate::operation::update_stream::_update_stream_input::UpdateStreamInput
 
 impl UpdateStreamInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::update_stream::UpdateStreamOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_stream::UpdateStreamError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.update_stream();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::update_stream::UpdateStreamOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::update_stream::UpdateStreamError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.update_stream();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `UpdateStream`.
-///
-/// <p>Updates stream metadata, such as the device name and media type.</p>
-/// <p>You must provide the stream name or the Amazon Resource Name (ARN) of the stream.</p>
-/// <p>To make sure that you have the latest version of the stream before updating it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p>
+/// 
+/// <p>Updates stream metadata, such as the device name and media type.</p> 
+/// <p>You must provide the stream name or the Amazon Resource Name (ARN) of the stream.</p> 
+/// <p>To make sure that you have the latest version of the stream before updating it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p> 
 /// <p> <code>UpdateStream</code> is an asynchronous operation, and takes time to complete.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateStreamFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_stream::builders::UpdateStreamInputBuilder,
+                    inner: crate::operation::update_stream::builders::UpdateStreamInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::update_stream::UpdateStreamOutput,
-        crate::operation::update_stream::UpdateStreamError,
-    > for UpdateStreamFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::update_stream::UpdateStreamOutput,
-            crate::operation::update_stream::UpdateStreamError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::update_stream::UpdateStreamOutput,
+                    crate::operation::update_stream::UpdateStreamError,
+                > for UpdateStreamFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::update_stream::UpdateStreamOutput,
+                        crate::operation::update_stream::UpdateStreamError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl UpdateStreamFluentBuilder {
     /// Creates a new `UpdateStream`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -64,66 +60,57 @@ impl UpdateStreamFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::update_stream::UpdateStreamOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_stream::UpdateStreamError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_stream::UpdateStream::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_stream::UpdateStream::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::update_stream::UpdateStreamOutput,
-        crate::operation::update_stream::UpdateStreamError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
-    /// <p>The name of the stream whose metadata you want to update.</p>
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::update_stream::UpdateStreamOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_stream::UpdateStreamError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::update_stream::UpdateStream::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::update_stream::UpdateStream::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::update_stream::UpdateStreamOutput, crate::operation::update_stream::UpdateStreamError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
+    /// <p>The name of the stream whose metadata you want to update.</p> 
     /// <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>
     pub fn stream_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.stream_name(input.into());
         self
     }
-    /// <p>The name of the stream whose metadata you want to update.</p>
+    /// <p>The name of the stream whose metadata you want to update.</p> 
     /// <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>
     pub fn set_stream_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_stream_name(input);
         self
     }
-    /// <p>The name of the stream whose metadata you want to update.</p>
+    /// <p>The name of the stream whose metadata you want to update.</p> 
     /// <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>
     pub fn get_stream_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_stream_name()
@@ -156,41 +143,42 @@ impl UpdateStreamFluentBuilder {
     pub fn get_current_version(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_current_version()
     }
-    /// <p>The name of the device that is writing to the stream. </p> <note>
-    /// <p> In the current implementation, Kinesis Video Streams does not use this name. </p>
+    /// <p>The name of the device that is writing to the stream. </p> <note> 
+    /// <p> In the current implementation, Kinesis Video Streams does not use this name. </p> 
     /// </note>
     pub fn device_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.device_name(input.into());
         self
     }
-    /// <p>The name of the device that is writing to the stream. </p> <note>
-    /// <p> In the current implementation, Kinesis Video Streams does not use this name. </p>
+    /// <p>The name of the device that is writing to the stream. </p> <note> 
+    /// <p> In the current implementation, Kinesis Video Streams does not use this name. </p> 
     /// </note>
     pub fn set_device_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_device_name(input);
         self
     }
-    /// <p>The name of the device that is writing to the stream. </p> <note>
-    /// <p> In the current implementation, Kinesis Video Streams does not use this name. </p>
+    /// <p>The name of the device that is writing to the stream. </p> <note> 
+    /// <p> In the current implementation, Kinesis Video Streams does not use this name. </p> 
     /// </note>
     pub fn get_device_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_device_name()
     }
-    /// <p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>.</p>
+    /// <p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>.</p> 
     /// <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>
     pub fn media_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.media_type(input.into());
         self
     }
-    /// <p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>.</p>
+    /// <p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>.</p> 
     /// <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>
     pub fn set_media_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_media_type(input);
         self
     }
-    /// <p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>.</p>
+    /// <p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>.</p> 
     /// <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>
     pub fn get_media_type(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_media_type()
     }
 }
+

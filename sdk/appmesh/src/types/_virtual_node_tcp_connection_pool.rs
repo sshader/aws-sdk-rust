@@ -3,11 +3,11 @@
 /// <p>An object that represents a type of connection pool.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct VirtualNodeTcpConnectionPool {
+pub struct VirtualNodeTcpConnectionPool  {
     /// <p>Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.</p>
     pub max_connections: i32,
 }
-impl VirtualNodeTcpConnectionPool {
+impl  VirtualNodeTcpConnectionPool  {
     /// <p>Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.</p>
     pub fn max_connections(&self) -> i32 {
         self.max_connections
@@ -35,8 +35,7 @@ impl VirtualNodeTcpConnectionPoolBuilder {
     }
     /// <p>Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.</p>
     pub fn set_max_connections(mut self, input: ::std::option::Option<i32>) -> Self {
-        self.max_connections = input;
-        self
+        self.max_connections = input; self
     }
     /// <p>Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.</p>
     pub fn get_max_connections(&self) -> &::std::option::Option<i32> {
@@ -45,7 +44,10 @@ impl VirtualNodeTcpConnectionPoolBuilder {
     /// Consumes the builder and constructs a [`VirtualNodeTcpConnectionPool`](crate::types::VirtualNodeTcpConnectionPool).
     pub fn build(self) -> crate::types::VirtualNodeTcpConnectionPool {
         crate::types::VirtualNodeTcpConnectionPool {
-            max_connections: self.max_connections.unwrap_or_default(),
+            max_connections: self.max_connections
+                .unwrap_or_default()
+            ,
         }
     }
 }
+

@@ -3,23 +3,23 @@
 /// <p>Information about the state of the load balancer.</p>
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct LoadBalancerState {
-    /// <p>The state code. The initial state of the load balancer is provisioning.</p>
-    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p>
+pub struct LoadBalancerState  {
+    /// <p>The state code. The initial state of the load balancer is provisioning.</p> 
+    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p> 
     /// <p>If the load balancer could not be set up, its state is failed. </p>
     pub code: ::std::option::Option<::std::string::String>,
     /// <p>A description of the state.</p>
     pub reason: ::std::option::Option<::std::string::String>,
 }
-impl LoadBalancerState {
-    /// <p>The state code. The initial state of the load balancer is provisioning.</p>
-    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p>
+impl  LoadBalancerState  {
+    /// <p>The state code. The initial state of the load balancer is provisioning.</p> 
+    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p> 
     /// <p>If the load balancer could not be set up, its state is failed. </p>
-    pub fn code(&self) -> ::std::option::Option<&str> {
+    pub fn code(&self) -> ::std::option::Option<& str> {
         self.code.as_deref()
     }
     /// <p>A description of the state.</p>
-    pub fn reason(&self) -> ::std::option::Option<&str> {
+    pub fn reason(&self) -> ::std::option::Option<& str> {
         self.reason.as_deref()
     }
 }
@@ -38,22 +38,21 @@ pub struct LoadBalancerStateBuilder {
     pub(crate) reason: ::std::option::Option<::std::string::String>,
 }
 impl LoadBalancerStateBuilder {
-    /// <p>The state code. The initial state of the load balancer is provisioning.</p>
-    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p>
+    /// <p>The state code. The initial state of the load balancer is provisioning.</p> 
+    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p> 
     /// <p>If the load balancer could not be set up, its state is failed. </p>
     pub fn code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.code = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The state code. The initial state of the load balancer is provisioning.</p>
-    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p>
+    /// <p>The state code. The initial state of the load balancer is provisioning.</p> 
+    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p> 
     /// <p>If the load balancer could not be set up, its state is failed. </p>
     pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.code = input;
-        self
+        self.code = input; self
     }
-    /// <p>The state code. The initial state of the load balancer is provisioning.</p>
-    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p>
+    /// <p>The state code. The initial state of the load balancer is provisioning.</p> 
+    /// <p>After the load balancer is fully set up and ready to route traffic, its state is active.</p> 
     /// <p>If the load balancer could not be set up, its state is failed. </p>
     pub fn get_code(&self) -> &::std::option::Option<::std::string::String> {
         &self.code
@@ -65,8 +64,7 @@ impl LoadBalancerStateBuilder {
     }
     /// <p>A description of the state.</p>
     pub fn set_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.reason = input;
-        self
+        self.reason = input; self
     }
     /// <p>A description of the state.</p>
     pub fn get_reason(&self) -> &::std::option::Option<::std::string::String> {
@@ -75,8 +73,11 @@ impl LoadBalancerStateBuilder {
     /// Consumes the builder and constructs a [`LoadBalancerState`](crate::types::LoadBalancerState).
     pub fn build(self) -> crate::types::LoadBalancerState {
         crate::types::LoadBalancerState {
-            code: self.code,
-            reason: self.reason,
+            code: self.code
+            ,
+            reason: self.reason
+            ,
         }
     }
 }
+

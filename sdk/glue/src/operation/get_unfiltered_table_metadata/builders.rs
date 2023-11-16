@@ -5,55 +5,51 @@ pub use crate::operation::get_unfiltered_table_metadata::_get_unfiltered_table_m
 
 impl GetUnfilteredTableMetadataInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.get_unfiltered_table_metadata();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.get_unfiltered_table_metadata();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `GetUnfilteredTableMetadata`.
-///
-/// <p>Retrieves table metadata from the Data Catalog that contains unfiltered metadata.</p>
+/// 
+/// <p>Retrieves table metadata from the Data Catalog that contains unfiltered metadata.</p> 
 /// <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetTable</code>.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetUnfilteredTableMetadataFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::get_unfiltered_table_metadata::builders::GetUnfilteredTableMetadataInputBuilder,
+                    inner: crate::operation::get_unfiltered_table_metadata::builders::GetUnfilteredTableMetadataInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput,
-        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError,
-    > for GetUnfilteredTableMetadataFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput,
-            crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput,
+                    crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError,
+                > for GetUnfilteredTableMetadataFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput,
+                        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl GetUnfilteredTableMetadataFluentBuilder {
     /// Creates a new `GetUnfilteredTableMetadata`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -62,53 +58,44 @@ impl GetUnfilteredTableMetadataFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadata::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadata::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput,
-        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadata::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadata::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataOutput, crate::operation::get_unfiltered_table_metadata::GetUnfilteredTableMetadataError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The catalog ID where the table resides.</p>
     pub fn catalog_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.catalog_id(input.into());
@@ -175,12 +162,13 @@ impl GetUnfilteredTableMetadataFluentBuilder {
         self
     }
     /// <p>(Required) A list of supported permission types. </p>
-    pub fn set_supported_permission_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PermissionType>>) -> Self {
+    pub fn set_supported_permission_types(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>>) -> Self {
         self.inner = self.inner.set_supported_permission_types(input);
         self
     }
     /// <p>(Required) A list of supported permission types. </p>
-    pub fn get_supported_permission_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PermissionType>> {
+    pub fn get_supported_permission_types(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::PermissionType>> {
         self.inner.get_supported_permission_types()
     }
 }
+

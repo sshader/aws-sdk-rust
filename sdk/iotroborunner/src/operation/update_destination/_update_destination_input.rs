@@ -2,7 +2,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct UpdateDestinationInput {
+pub struct UpdateDestinationInput  {
     /// Destination ARN.
     pub id: ::std::option::Option<::std::string::String>,
     /// Human friendly name of the resource.
@@ -12,21 +12,21 @@ pub struct UpdateDestinationInput {
     /// JSON document containing additional fixed properties regarding the destination
     pub additional_fixed_properties: ::std::option::Option<::std::string::String>,
 }
-impl UpdateDestinationInput {
+impl  UpdateDestinationInput  {
     /// Destination ARN.
-    pub fn id(&self) -> ::std::option::Option<&str> {
+    pub fn id(&self) -> ::std::option::Option<& str> {
         self.id.as_deref()
     }
     /// Human friendly name of the resource.
-    pub fn name(&self) -> ::std::option::Option<&str> {
+    pub fn name(&self) -> ::std::option::Option<& str> {
         self.name.as_deref()
     }
     /// State of the destination.
-    pub fn state(&self) -> ::std::option::Option<&crate::types::DestinationState> {
+    pub fn state(&self) -> ::std::option::Option<& crate::types::DestinationState> {
         self.state.as_ref()
     }
     /// JSON document containing additional fixed properties regarding the destination
-    pub fn additional_fixed_properties(&self) -> ::std::option::Option<&str> {
+    pub fn additional_fixed_properties(&self) -> ::std::option::Option<& str> {
         self.additional_fixed_properties.as_deref()
     }
 }
@@ -55,8 +55,7 @@ impl UpdateDestinationInputBuilder {
     }
     /// Destination ARN.
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.id = input;
-        self
+        self.id = input; self
     }
     /// Destination ARN.
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
@@ -69,8 +68,7 @@ impl UpdateDestinationInputBuilder {
     }
     /// Human friendly name of the resource.
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.name = input;
-        self
+        self.name = input; self
     }
     /// Human friendly name of the resource.
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -83,8 +81,7 @@ impl UpdateDestinationInputBuilder {
     }
     /// State of the destination.
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::DestinationState>) -> Self {
-        self.state = input;
-        self
+        self.state = input; self
     }
     /// State of the destination.
     pub fn get_state(&self) -> &::std::option::Option<crate::types::DestinationState> {
@@ -97,22 +94,26 @@ impl UpdateDestinationInputBuilder {
     }
     /// JSON document containing additional fixed properties regarding the destination
     pub fn set_additional_fixed_properties(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.additional_fixed_properties = input;
-        self
+        self.additional_fixed_properties = input; self
     }
     /// JSON document containing additional fixed properties regarding the destination
     pub fn get_additional_fixed_properties(&self) -> &::std::option::Option<::std::string::String> {
         &self.additional_fixed_properties
     }
     /// Consumes the builder and constructs a [`UpdateDestinationInput`](crate::operation::update_destination::UpdateDestinationInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::operation::update_destination::UpdateDestinationInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_destination::UpdateDestinationInput {
-            id: self.id,
-            name: self.name,
-            state: self.state,
-            additional_fixed_properties: self.additional_fixed_properties,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::update_destination::UpdateDestinationInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(
+            crate::operation::update_destination::UpdateDestinationInput {
+                id: self.id
+                ,
+                name: self.name
+                ,
+                state: self.state
+                ,
+                additional_fixed_properties: self.additional_fixed_properties
+                ,
+            }
+        )
     }
 }
+

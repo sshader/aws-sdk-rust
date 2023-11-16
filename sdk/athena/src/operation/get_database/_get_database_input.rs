@@ -2,19 +2,19 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-pub struct GetDatabaseInput {
+pub struct GetDatabaseInput  {
     /// <p>The name of the data catalog that contains the database to return.</p>
     pub catalog_name: ::std::option::Option<::std::string::String>,
     /// <p>The name of the database to return.</p>
     pub database_name: ::std::option::Option<::std::string::String>,
 }
-impl GetDatabaseInput {
+impl  GetDatabaseInput  {
     /// <p>The name of the data catalog that contains the database to return.</p>
-    pub fn catalog_name(&self) -> ::std::option::Option<&str> {
+    pub fn catalog_name(&self) -> ::std::option::Option<& str> {
         self.catalog_name.as_deref()
     }
     /// <p>The name of the database to return.</p>
-    pub fn database_name(&self) -> ::std::option::Option<&str> {
+    pub fn database_name(&self) -> ::std::option::Option<& str> {
         self.database_name.as_deref()
     }
 }
@@ -41,8 +41,7 @@ impl GetDatabaseInputBuilder {
     }
     /// <p>The name of the data catalog that contains the database to return.</p>
     pub fn set_catalog_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.catalog_name = input;
-        self
+        self.catalog_name = input; self
     }
     /// <p>The name of the data catalog that contains the database to return.</p>
     pub fn get_catalog_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -56,8 +55,7 @@ impl GetDatabaseInputBuilder {
     }
     /// <p>The name of the database to return.</p>
     pub fn set_database_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-        self.database_name = input;
-        self
+        self.database_name = input; self
     }
     /// <p>The name of the database to return.</p>
     pub fn get_database_name(&self) -> &::std::option::Option<::std::string::String> {
@@ -65,9 +63,14 @@ impl GetDatabaseInputBuilder {
     }
     /// Consumes the builder and constructs a [`GetDatabaseInput`](crate::operation::get_database::GetDatabaseInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::get_database::GetDatabaseInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::get_database::GetDatabaseInput {
-            catalog_name: self.catalog_name,
-            database_name: self.database_name,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_database::GetDatabaseInput {
+                catalog_name: self.catalog_name
+                ,
+                database_name: self.database_name
+                ,
+            }
+        )
     }
 }
+

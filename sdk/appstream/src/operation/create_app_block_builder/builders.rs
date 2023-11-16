@@ -5,54 +5,50 @@ pub use crate::operation::create_app_block_builder::_create_app_block_builder_in
 
 impl CreateAppBlockBuilderInputBuilder {
     /// Sends a request with this input using the given client.
-    pub async fn send_with(
-        self,
-        client: &crate::Client,
-    ) -> ::std::result::Result<
-        crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_app_block_builder::CreateAppBlockBuilderError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let mut fluent_builder = client.create_app_block_builder();
-        fluent_builder.inner = self;
-        fluent_builder.send().await
-    }
+                    pub async fn send_with(self, client: &crate::Client) -> ::std::result::Result<
+                        crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput,
+                        ::aws_smithy_runtime_api::client::result::SdkError<
+                            crate::operation::create_app_block_builder::CreateAppBlockBuilderError,
+                            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse
+                        >
+                    > {
+                        let mut fluent_builder = client.create_app_block_builder();
+                        fluent_builder.inner = self;
+                        fluent_builder.send().await
+                    }
 }
 /// Fluent builder constructing a request to `CreateAppBlockBuilder`.
-///
+/// 
 /// <p>Creates an app block builder.</p>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateAppBlockBuilderFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_app_block_builder::builders::CreateAppBlockBuilderInputBuilder,
+                    inner: crate::operation::create_app_block_builder::builders::CreateAppBlockBuilderInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput,
-        crate::operation::create_app_block_builder::CreateAppBlockBuilderError,
-    > for CreateAppBlockBuilderFluentBuilder
-{
-    fn send(
-        self,
-        config_override: crate::config::Builder,
-    ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput,
-            crate::operation::create_app_block_builder::CreateAppBlockBuilderError,
-        >,
-    > {
-        ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-    }
-}
+                crate::client::customize::internal::CustomizableSend<
+                    crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput,
+                    crate::operation::create_app_block_builder::CreateAppBlockBuilderError,
+                > for CreateAppBlockBuilderFluentBuilder
+            {
+                fn send(
+                    self,
+                    config_override: crate::config::Builder,
+                ) -> crate::client::customize::internal::BoxFuture<
+                    crate::client::customize::internal::SendResult<
+                        crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput,
+                        crate::operation::create_app_block_builder::CreateAppBlockBuilderError,
+                    >,
+                > {
+                    ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
+                }
+            }
 impl CreateAppBlockBuilderFluentBuilder {
     /// Creates a new `CreateAppBlockBuilder`.
     pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {
         Self {
-            handle,
-            inner: ::std::default::Default::default(),
+            handle, inner: ::std::default::Default::default(),
             config_override: ::std::option::Option::None,
         }
     }
@@ -61,53 +57,44 @@ impl CreateAppBlockBuilderFluentBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
-    ///
-    /// If an error occurs, an `SdkError` will be returned with additional details that
-    /// can be matched against.
-    ///
-    /// By default, any retryable failures will be retried twice. Retry behavior
-    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
-    /// set when configuring the client.
-    pub async fn send(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_app_block_builder::CreateAppBlockBuilderError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_app_block_builder::CreateAppBlockBuilder::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_app_block_builder::CreateAppBlockBuilder::orchestrate(&runtime_plugins, input).await
-    }
-
-    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-    pub fn customize(
-        self,
-    ) -> crate::client::customize::CustomizableOperation<
-        crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput,
-        crate::operation::create_app_block_builder::CreateAppBlockBuilderError,
-        Self,
-    > {
-        crate::client::customize::CustomizableOperation::new(self)
-    }
-    pub(crate) fn config_override(mut self, config_override: impl Into<crate::config::Builder>) -> Self {
-        self.set_config_override(Some(config_override.into()));
-        self
-    }
-
-    pub(crate) fn set_config_override(&mut self, config_override: Option<crate::config::Builder>) -> &mut Self {
-        self.config_override = config_override;
-        self
-    }
+                    ///
+                    /// If an error occurs, an `SdkError` will be returned with additional details that
+                    /// can be matched against.
+                    ///
+                    /// By default, any retryable failures will be retried twice. Retry behavior
+                    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be
+                    /// set when configuring the client.
+                    pub async fn send(self) -> ::std::result::Result<crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_app_block_builder::CreateAppBlockBuilderError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
+                        let runtime_plugins = crate::operation::create_app_block_builder::CreateAppBlockBuilder::operation_runtime_plugins(
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
+                        crate::operation::create_app_block_builder::CreateAppBlockBuilder::orchestrate(&runtime_plugins, input).await
+                    }
+    
+                    /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+                    pub fn customize(
+                        self,
+                    ) -> crate::client::customize::CustomizableOperation<crate::operation::create_app_block_builder::CreateAppBlockBuilderOutput, crate::operation::create_app_block_builder::CreateAppBlockBuilderError, Self> {
+                        crate::client::customize::CustomizableOperation::new(self)
+                    }
+    pub(crate) fn config_override(
+                        mut self,
+                        config_override: impl Into<crate::config::Builder>,
+                    ) -> Self {
+                        self.set_config_override(Some(config_override.into()));
+                        self
+                    }
+    
+                    pub(crate) fn set_config_override(
+                        &mut self,
+                        config_override: Option<crate::config::Builder>,
+                    ) -> &mut Self {
+                        self.config_override = config_override;
+                        self
+                    }
     /// <p>The unique name for the app block builder.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.name(input.into());
@@ -154,97 +141,97 @@ impl CreateAppBlockBuilderFluentBuilder {
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
-    /// <p>The tags to associate with the app block builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-    /// <p>If you do not specify a value, the value is set to an empty string.</p>
-    /// <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-    /// <p>_ . : / = + \ - @</p>
+    /// <p>The tags to associate with the app block builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> 
+    /// <p>If you do not specify a value, the value is set to an empty string.</p> 
+    /// <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> 
+    /// <p>_ . : / = + \ - @</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.tags(k.into(), v.into());
         self
     }
-    /// <p>The tags to associate with the app block builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-    /// <p>If you do not specify a value, the value is set to an empty string.</p>
-    /// <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-    /// <p>_ . : / = + \ - @</p>
+    /// <p>The tags to associate with the app block builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> 
+    /// <p>If you do not specify a value, the value is set to an empty string.</p> 
+    /// <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> 
+    /// <p>_ . : / = + \ - @</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
-    /// <p>The tags to associate with the app block builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-    /// <p>If you do not specify a value, the value is set to an empty string.</p>
-    /// <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-    /// <p>_ . : / = + \ - @</p>
+    /// <p>The tags to associate with the app block builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> 
+    /// <p>If you do not specify a value, the value is set to an empty string.</p> 
+    /// <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> 
+    /// <p>_ . : / = + \ - @</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap::<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
-    /// <p>The platform of the app block builder.</p>
+    /// <p>The platform of the app block builder.</p> 
     /// <p> <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
     pub fn platform(mut self, input: crate::types::AppBlockBuilderPlatformType) -> Self {
         self.inner = self.inner.platform(input);
         self
     }
-    /// <p>The platform of the app block builder.</p>
+    /// <p>The platform of the app block builder.</p> 
     /// <p> <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
     pub fn set_platform(mut self, input: ::std::option::Option<crate::types::AppBlockBuilderPlatformType>) -> Self {
         self.inner = self.inner.set_platform(input);
         self
     }
-    /// <p>The platform of the app block builder.</p>
+    /// <p>The platform of the app block builder.</p> 
     /// <p> <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
     pub fn get_platform(&self) -> &::std::option::Option<crate::types::AppBlockBuilderPlatformType> {
         self.inner.get_platform()
     }
-    /// <p>The instance type to use when launching the app block builder. The following instance types are available:</p>
-    /// <ul>
-    /// <li> <p>stream.standard.small</p> </li>
-    /// <li> <p>stream.standard.medium</p> </li>
-    /// <li> <p>stream.standard.large</p> </li>
-    /// <li> <p>stream.standard.xlarge</p> </li>
-    /// <li> <p>stream.standard.2xlarge</p> </li>
+    /// <p>The instance type to use when launching the app block builder. The following instance types are available:</p> 
+    /// <ul> 
+    /// <li> <p>stream.standard.small</p> </li> 
+    /// <li> <p>stream.standard.medium</p> </li> 
+    /// <li> <p>stream.standard.large</p> </li> 
+    /// <li> <p>stream.standard.xlarge</p> </li> 
+    /// <li> <p>stream.standard.2xlarge</p> </li> 
     /// </ul>
     pub fn instance_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.instance_type(input.into());
         self
     }
-    /// <p>The instance type to use when launching the app block builder. The following instance types are available:</p>
-    /// <ul>
-    /// <li> <p>stream.standard.small</p> </li>
-    /// <li> <p>stream.standard.medium</p> </li>
-    /// <li> <p>stream.standard.large</p> </li>
-    /// <li> <p>stream.standard.xlarge</p> </li>
-    /// <li> <p>stream.standard.2xlarge</p> </li>
+    /// <p>The instance type to use when launching the app block builder. The following instance types are available:</p> 
+    /// <ul> 
+    /// <li> <p>stream.standard.small</p> </li> 
+    /// <li> <p>stream.standard.medium</p> </li> 
+    /// <li> <p>stream.standard.large</p> </li> 
+    /// <li> <p>stream.standard.xlarge</p> </li> 
+    /// <li> <p>stream.standard.2xlarge</p> </li> 
     /// </ul>
     pub fn set_instance_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_instance_type(input);
         self
     }
-    /// <p>The instance type to use when launching the app block builder. The following instance types are available:</p>
-    /// <ul>
-    /// <li> <p>stream.standard.small</p> </li>
-    /// <li> <p>stream.standard.medium</p> </li>
-    /// <li> <p>stream.standard.large</p> </li>
-    /// <li> <p>stream.standard.xlarge</p> </li>
-    /// <li> <p>stream.standard.2xlarge</p> </li>
+    /// <p>The instance type to use when launching the app block builder. The following instance types are available:</p> 
+    /// <ul> 
+    /// <li> <p>stream.standard.small</p> </li> 
+    /// <li> <p>stream.standard.medium</p> </li> 
+    /// <li> <p>stream.standard.large</p> </li> 
+    /// <li> <p>stream.standard.xlarge</p> </li> 
+    /// <li> <p>stream.standard.2xlarge</p> </li> 
     /// </ul>
     pub fn get_instance_type(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_instance_type()
     }
-    /// <p>The VPC configuration for the app block builder.</p>
+    /// <p>The VPC configuration for the app block builder.</p> 
     /// <p>App block builders require that you specify at least two subnets in different availability zones.</p>
     pub fn vpc_config(mut self, input: crate::types::VpcConfig) -> Self {
         self.inner = self.inner.vpc_config(input);
         self
     }
-    /// <p>The VPC configuration for the app block builder.</p>
+    /// <p>The VPC configuration for the app block builder.</p> 
     /// <p>App block builders require that you specify at least two subnets in different availability zones.</p>
     pub fn set_vpc_config(mut self, input: ::std::option::Option<crate::types::VpcConfig>) -> Self {
         self.inner = self.inner.set_vpc_config(input);
         self
     }
-    /// <p>The VPC configuration for the app block builder.</p>
+    /// <p>The VPC configuration for the app block builder.</p> 
     /// <p>App block builders require that you specify at least two subnets in different availability zones.</p>
     pub fn get_vpc_config(&self) -> &::std::option::Option<crate::types::VpcConfig> {
         self.inner.get_vpc_config()
@@ -263,19 +250,19 @@ impl CreateAppBlockBuilderFluentBuilder {
     pub fn get_enable_default_internet_access(&self) -> &::std::option::Option<bool> {
         self.inner.get_enable_default_internet_access()
     }
-    /// <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+    /// <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
     pub fn iam_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.iam_role_arn(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+    /// <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
     pub fn set_iam_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_iam_role_arn(input);
         self
     }
-    /// <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+    /// <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p> 
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
     pub fn get_iam_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_iam_role_arn()
@@ -290,12 +277,13 @@ impl CreateAppBlockBuilderFluentBuilder {
         self
     }
     /// <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
-    pub fn set_access_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AccessEndpoint>>) -> Self {
+    pub fn set_access_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec::<crate::types::AccessEndpoint>>) -> Self {
         self.inner = self.inner.set_access_endpoints(input);
         self
     }
     /// <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
-    pub fn get_access_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AccessEndpoint>> {
+    pub fn get_access_endpoints(&self) -> &::std::option::Option<::std::vec::Vec::<crate::types::AccessEndpoint>> {
         self.inner.get_access_endpoints()
     }
 }
+

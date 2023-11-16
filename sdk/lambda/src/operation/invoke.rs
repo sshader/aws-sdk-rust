@@ -10,248 +10,198 @@ impl Invoke {
         Self
     }
     pub(crate) async fn orchestrate(
-        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::invoke::InvokeInput,
-    ) -> ::std::result::Result<
-        crate::operation::invoke::InvokeOutput,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::invoke::InvokeError,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let map_err =
-            |err: ::aws_smithy_runtime_api::client::result::SdkError<
-                ::aws_smithy_runtime_api::client::interceptors::context::Error,
-                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-            >| { err.map_service_error(|err| err.downcast::<crate::operation::invoke::InvokeError>().expect("correct error type")) };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
-        let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(output.downcast::<crate::operation::invoke::InvokeOutput>().expect("correct output type"))
-    }
-
-    pub(crate) async fn orchestrate_with_stop_point(
-        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        input: crate::operation::invoke::InvokeInput,
-        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
-    ) -> ::std::result::Result<
-        ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >,
-    > {
-        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("lambda", "Invoke", input, runtime_plugins, stop_point).await
-    }
-
-    pub(crate) fn operation_runtime_plugins(
-        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
-        client_config: &crate::config::Config,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
-        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
-        runtime_plugins = runtime_plugins.with_client_plugin(crate::auth_plugin::DefaultAuthOptionsPlugin::new(vec![
-            ::aws_runtime::auth::sigv4::SCHEME_ID,
-        ]));
-        if let ::std::option::Option::Some(config_override) = config_override {
-            for plugin in config_override.runtime_plugins.iter().cloned() {
-                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
-            }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
-        }
-        runtime_plugins
-    }
+                        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        input: crate::operation::invoke::InvokeInput,
+                    ) -> ::std::result::Result<crate::operation::invoke::InvokeOutput, ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke::InvokeError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<::aws_smithy_runtime_api::client::interceptors::context::Error, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>| {
+                            err.map_service_error(|err| {
+                                err.downcast::<crate::operation::invoke::InvokeError>().expect("correct error type")
+                            })
+                        };
+                        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+                            .await
+                            .map_err(map_err)?;
+                        let output = context.finalize().map_err(map_err)?;
+                        ::std::result::Result::Ok(output.downcast::<crate::operation::invoke::InvokeOutput>().expect("correct output type"))
+                    }
+    
+                    pub(crate) async fn orchestrate_with_stop_point(
+                        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        input: crate::operation::invoke::InvokeInput,
+                        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,
+                    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext, ::aws_smithy_runtime_api::client::result::SdkError<::aws_smithy_runtime_api::client::interceptors::context::Error, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>> {
+                        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
+                        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
+                            "lambda",
+                            "Invoke",
+                            input,
+                            runtime_plugins,
+                            stop_point
+                        ).await
+                    }
+    
+                    pub(crate) fn operation_runtime_plugins(
+                        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+                        client_config: &crate::config::Config,
+                        config_override: ::std::option::Option<crate::config::Builder>,
+                    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
+                        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
+                        runtime_plugins = runtime_plugins
+                                    .with_client_plugin(crate::auth_plugin::DefaultAuthOptionsPlugin::new(vec![::aws_runtime::auth::sigv4::SCHEME_ID]));
+                        if let ::std::option::Option::Some(config_override) = config_override {
+                            for plugin in config_override.runtime_plugins.iter().cloned() {
+                                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
+                            }
+                            runtime_plugins = runtime_plugins.with_operation_plugin(
+                                crate::config::ConfigOverrideRuntimePlugin::new(config_override, client_config.config.clone(), &client_config.runtime_components)
+                            );
+                        }
+                        runtime_plugins
+                    }
 }
 impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Invoke {
-    fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("Invoke");
+                fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
+                    let mut cfg = ::aws_smithy_types::config_bag::Layer::new("Invoke");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            InvokeRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            InvokeResponseDeserializer,
-        ));
+                    cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(InvokeRequestSerializer));
+                    cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(InvokeResponseDeserializer));
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            ::aws_smithy_runtime_api::client::auth::static_resolver::StaticAuthSchemeOptionResolverParams::new(),
-        ));
+                    
+                    cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(::aws_smithy_runtime_api::client::auth::static_resolver::StaticAuthSchemeOptionResolverParams::new()));
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-        cfg.store_put(::aws_smithy_http::operation::Metadata::new("Invoke", "lambda"));
-        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = true;
-        signing_options.content_sha256_header = false;
-        signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
-
-        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-            signing_options,
-            ..::std::default::Default::default()
-        });
-
-        ::std::option::Option::Some(cfg.freeze())
-    }
-
-    fn runtime_components(
-        &self,
-        _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-        ::std::borrow::Cow::Owned(
-            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("Invoke")
-                .with_interceptor(InvokeEndpointParamsInterceptor)
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                    crate::operation::invoke::InvokeError,
-                >::new())
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                    crate::operation::invoke::InvokeError,
-                >::new())
-                .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::invoke::InvokeError,
-                >::new()),
-        )
-    }
-}
-
-#[derive(Debug)]
-struct InvokeResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for InvokeResponseDeserializer {
-    fn deserialize_nonstreaming(
-        &self,
-        response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-    ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
-        let (success, status) = (response.status().is_success(), response.status().as_u16());
-        let headers = response.headers();
-        let body = response.body().bytes().expect("body loaded");
-        #[allow(unused_mut)]
-        let mut force_error = false;
-        ::tracing::debug!(request_id = ?::aws_http::request_id::RequestId::request_id(response));
-        let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_invoke::de_invoke_http_error(status, headers, body)
-        } else {
-            crate::protocol_serde::shape_invoke::de_invoke_http_response(status, headers, body)
-        };
-        crate::protocol_serde::type_erase_result(parse_result)
-    }
-}
-#[derive(Debug)]
-struct InvokeRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
-    fn serialize_input(
-        &self,
-        input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-        _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input.downcast::<crate::operation::invoke::InvokeInput>().expect("correct type");
-        let _header_serialization_settings = _cfg
-            .load::<crate::serialization_settings::HeaderSerializationSettings>()
-            .cloned()
-            .unwrap_or_default();
-        let mut request_builder = {
-            fn uri_base(
-                _input: &crate::operation::invoke::InvokeInput,
-                output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
-                use ::std::fmt::Write as _;
-                let input_1 = &_input.function_name;
-                let input_1 = input_1
-                    .as_ref()
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "cannot be empty or unset"))?;
-                let function_name = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
-                if function_name.is_empty() {
-                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "function_name",
-                        "cannot be empty or unset",
+                    cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+cfg.store_put(::aws_smithy_http::operation::Metadata::new(
+                        "Invoke",
+                        "lambda",
                     ));
+let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
+                        signing_options.double_uri_encode = true;
+                        signing_options.content_sha256_header = false;
+                        signing_options.normalize_uri_path = true;
+                        signing_options.payload_override = None;
+
+                        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
+                            signing_options,
+                            ..::std::default::Default::default()
+                        });
+
+                    ::std::option::Option::Some(cfg.freeze())
                 }
-                ::std::write!(output, "/2015-03-31/functions/{FunctionName}/invocations", FunctionName = function_name)
-                    .expect("formatting should succeed");
-                ::std::result::Result::Ok(())
-            }
-            fn uri_query(
-                _input: &crate::operation::invoke::InvokeInput,
-                mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
-                let mut query = ::aws_smithy_http::query::Writer::new(output);
-                if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
-                    {
-                        query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(&inner_2));
-                    }
+
+                fn runtime_components(&self, _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+                    ::std::borrow::Cow::Owned(
+                        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("Invoke")
+                            .with_interceptor(InvokeEndpointParamsInterceptor)
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::invoke::InvokeError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::invoke::InvokeError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::invoke::InvokeError>::new())
+                    )
                 }
-                ::std::result::Result::Ok(())
             }
-            #[allow(clippy::unnecessary_wraps)]
-            fn update_http_builder(
-                input: &crate::operation::invoke::InvokeInput,
-                builder: ::http::request::Builder,
-            ) -> ::std::result::Result<::http::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
-                let mut uri = ::std::string::String::new();
-                uri_base(input, &mut uri)?;
-                uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_invoke::ser_invoke_headers(input, builder)?;
-                ::std::result::Result::Ok(builder.method("POST").uri(uri))
-            }
-            let mut builder = update_http_builder(&input, ::http::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http::header::CONTENT_TYPE, "application/octet-stream");
-            builder
-        };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_invoke_input::ser_payload_http_payload(input.payload)?);
-        if let Some(content_length) = body.content_length() {
-            let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http::header::CONTENT_LENGTH, &content_length);
-        }
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-    }
-}
+
+            
 #[derive(Debug)]
-struct InvokeEndpointParamsInterceptor;
+            struct InvokeResponseDeserializer;
+            impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for InvokeResponseDeserializer {
+                
 
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for InvokeEndpointParamsInterceptor {
-    fn name(&self) -> &'static str {
-        "InvokeEndpointParamsInterceptor"
-    }
-
-    fn read_before_execution(
-        &self,
-        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-            '_,
-            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-        >,
-        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        let _input = context.input().downcast_ref::<InvokeInput>().ok_or("failed to downcast to InvokeInput")?;
-
-        let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-            .build()
-            .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-            })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
-        ::std::result::Result::Ok(())
-    }
+                fn deserialize_nonstreaming(&self, response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
+                    let (success, status) = (response.status().is_success(), response.status().as_u16());
+            let headers = response.headers();
+            let body = response.body().bytes().expect("body loaded");
+            #[allow(unused_mut)]
+            let mut force_error = false;
+            ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+            let parse_result = if !success && status != 200 || force_error {
+                crate::protocol_serde::shape_invoke::de_invoke_http_error(status, headers, body)
+            } else {
+                crate::protocol_serde::shape_invoke::de_invoke_http_response(status, headers, body)
+            };
+            crate::protocol_serde::type_erase_result(parse_result)
+                }
+            }
+#[derive(Debug)]
+            struct InvokeRequestSerializer;
+            impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeRequestSerializer {
+                #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+                fn serialize_input(&self, input: ::aws_smithy_runtime_api::client::interceptors::context::Input, _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+                    let input = input.downcast::<crate::operation::invoke::InvokeInput>().expect("correct type");
+                    let _header_serialization_settings = _cfg.load::<crate::serialization_settings::HeaderSerializationSettings>().cloned().unwrap_or_default();
+                    let mut request_builder = {
+                        fn uri_base(_input: &crate::operation::invoke::InvokeInput, output: &mut ::std::string::String) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+    use ::std::fmt::Write as _;
+    let input_1 = &_input.function_name;
+    let input_1 = input_1.as_ref().ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "cannot be empty or unset"))?;
+    let function_name = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
+    if function_name.is_empty() {
+                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "cannot be empty or unset"))
+                }
+    ::std::write!(output, "/2015-03-31/functions/{FunctionName}/invocations", FunctionName = function_name).expect("formatting should succeed");
+    ::std::result::Result::Ok(())
 }
+fn uri_query(_input: &crate::operation::invoke::InvokeInput, mut output: &mut ::std::string::String) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+    let mut query = ::aws_smithy_http::query::Writer::new(output);
+    if let ::std::option::Option::Some(inner_2) = &_input.qualifier {
+         {
+            query.push_kv("Qualifier", &::aws_smithy_http::query::fmt_string(&inner_2));
+        }
+    }
+    ::std::result::Result::Ok(())
+}
+#[allow(clippy::unnecessary_wraps)]
+fn update_http_builder(
+                input: &crate::operation::invoke::InvokeInput,
+                builder: ::http::request::Builder
+            ) -> ::std::result::Result<::http::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+    let mut uri = ::std::string::String::new();
+    uri_base(input, &mut uri)?;
+    uri_query(input, &mut uri)?;
+    let builder = crate::protocol_serde::shape_invoke::ser_invoke_headers(input, builder)?;
+    ::std::result::Result::Ok(builder.method("POST").uri(uri))
+}
+let mut builder = update_http_builder(&input, ::http::request::Builder::new())?;
+builder = _header_serialization_settings.set_default_header(builder, ::http::header::CONTENT_TYPE, "application/octet-stream");
+builder
+                    };
+                    let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_invoke_input::ser_payload_http_payload( input.payload)?);
+                    if let Some(content_length) = body.content_length() {
+                            let content_length = content_length.to_string();
+                            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http::header::CONTENT_LENGTH, &content_length);
+                        }
+                    ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+                }
+            }
+#[derive(Debug)]
+            struct InvokeEndpointParamsInterceptor;
 
-/// Do not use this.
-///
-/// Operation `*Error/*ErrorKind` types were combined into a single `*Error` enum. The `.kind` field on `*Error` no longer exists and isn't needed anymore (you can just match on the error directly since it's an enum now).
-#[deprecated(
-    note = "Operation `*Error/*ErrorKind` types were combined into a single `*Error` enum. The `.kind` field on `*Error` no longer exists and isn't needed anymore (you can just match on the error directly since it's an enum now)."
-)]
-pub type InvokeErrorKind = InvokeError;
+            impl ::aws_smithy_runtime_api::client::interceptors::Intercept for InvokeEndpointParamsInterceptor {
+                fn name(&self) -> &'static str {
+                    "InvokeEndpointParamsInterceptor"
+                }
+
+                fn read_before_execution(
+                    &self,
+                    context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<'_, ::aws_smithy_runtime_api::client::interceptors::context::Input, ::aws_smithy_runtime_api::client::interceptors::context::Output, ::aws_smithy_runtime_api::client::interceptors::context::Error>,
+                    cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
+                ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
+                    let _input = context.input()
+                        .downcast_ref::<InvokeInput>()
+                        .ok_or("failed to downcast to InvokeInput")?;
+
+                    
+
+                    let params = crate::config::endpoint::Params::builder()
+                        .set_region(cfg.load::<::aws_types::region::Region>().map(|r|r.as_ref().to_owned()))
+.set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+.set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+.set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+                        .build()
+                        .map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err))?;
+                    cfg.interceptor_state().store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+                    ::std::result::Result::Ok(())
+                }
+            }
+
 /// Error type for the `InvokeError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
@@ -317,157 +267,61 @@ pub enum InvokeError {
     /// <p>The resource already exists, or another operation is in progress.</p>
     ResourceConflictException(crate::types::error::ResourceConflictException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    Unhandled(::aws_smithy_types::error::Unhandled),
-}
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeError {
-    fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
-        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> Self {
-        Self::Unhandled({
-            let mut builder = ::aws_smithy_types::error::Unhandled::builder().source(source);
-            builder.set_meta(meta);
-            builder.build()
-        })
-    }
-}
-impl ::std::fmt::Display for InvokeError {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        match self {
-            Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
-            Self::KmsNotFoundException(_inner) => _inner.fmt(f),
-            Self::RecursiveInvocationException(_inner) => _inner.fmt(f),
-            Self::SnapStartException(_inner) => _inner.fmt(f),
-            Self::InvalidSubnetIdException(_inner) => _inner.fmt(f),
-            Self::ServiceException(_inner) => _inner.fmt(f),
-            Self::KmsDisabledException(_inner) => _inner.fmt(f),
-            Self::EfsioException(_inner) => _inner.fmt(f),
-            Self::EfsMountConnectivityException(_inner) => _inner.fmt(f),
-            Self::EfsMountFailureException(_inner) => _inner.fmt(f),
-            Self::TooManyRequestsException(_inner) => _inner.fmt(f),
-            Self::ResourceNotReadyException(_inner) => _inner.fmt(f),
-            Self::InvalidZipFileException(_inner) => _inner.fmt(f),
-            Self::InvalidParameterValueException(_inner) => _inner.fmt(f),
-            Self::InvalidRequestContentException(_inner) => _inner.fmt(f),
-            Self::SnapStartTimeoutException(_inner) => _inner.fmt(f),
-            Self::Ec2ThrottledException(_inner) => _inner.fmt(f),
-            Self::SubnetIpAddressLimitReachedException(_inner) => _inner.fmt(f),
-            Self::InvalidSecurityGroupIdException(_inner) => _inner.fmt(f),
-            Self::RequestTooLargeException(_inner) => _inner.fmt(f),
-            Self::UnsupportedMediaTypeException(_inner) => _inner.fmt(f),
-            Self::EfsMountTimeoutException(_inner) => _inner.fmt(f),
-            Self::EniLimitReachedException(_inner) => _inner.fmt(f),
-            Self::SnapStartNotReadyException(_inner) => _inner.fmt(f),
-            Self::Ec2UnexpectedException(_inner) => _inner.fmt(f),
-            Self::Ec2AccessDeniedException(_inner) => _inner.fmt(f),
-            Self::InvalidRuntimeException(_inner) => _inner.fmt(f),
-            Self::KmsAccessDeniedException(_inner) => _inner.fmt(f),
-            Self::KmsInvalidStateException(_inner) => _inner.fmt(f),
-            Self::ResourceConflictException(_inner) => _inner.fmt(f),
-            Self::Unhandled(_inner) => _inner.fmt(f),
-        }
-    }
-}
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvokeError {
-    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        match self {
-            Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::KmsNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::RecursiveInvocationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::SnapStartException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidSubnetIdException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ServiceException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::KmsDisabledException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::EfsioException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::EfsMountConnectivityException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::EfsMountFailureException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyRequestsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ResourceNotReadyException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidZipFileException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidParameterValueException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidRequestContentException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::SnapStartTimeoutException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::Ec2ThrottledException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::SubnetIpAddressLimitReachedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidSecurityGroupIdException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::RequestTooLargeException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::UnsupportedMediaTypeException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::EfsMountTimeoutException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::EniLimitReachedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::SnapStartNotReadyException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::Ec2UnexpectedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::Ec2AccessDeniedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidRuntimeException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::KmsAccessDeniedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::KmsInvalidStateException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ResourceConflictException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::Unhandled(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-        }
-    }
-}
-impl ::aws_http::request_id::RequestId for crate::operation::invoke::InvokeError {
-    fn request_id(&self) -> Option<&str> {
-        self.meta().request_id()
-    }
-}
-impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeError {
-    fn code(&self) -> ::std::option::Option<&str> {
-        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-    }
-    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
-        ::std::option::Option::None
-    }
+                    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-InvokeError) for what information is available for the error.")]
+                    Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl InvokeError {
     /// Creates the `InvokeError::Unhandled` variant from any error type.
-    pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
-    ) -> Self {
-        Self::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(err).build())
-    }
-
-    /// Creates the `InvokeError::Unhandled` variant from a `::aws_smithy_types::error::ErrorMetadata`.
-    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
-        Self::Unhandled(::aws_smithy_types::error::Unhandled::builder().source(err.clone()).meta(err).build())
-    }
-    ///
+                    pub fn unhandled(err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>) -> Self {
+                        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source: err.into(), meta: ::std::default::Default::default() })
+                    }
+    
+                    /// Creates the `InvokeError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+                    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+                        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source: err.clone().into(), meta: err })
+                    }
+    /// 
     /// Returns error metadata, which includes the error code, message,
     /// request ID, and potentially additional information.
-    ///
+    /// 
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
-        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         match self {
-            Self::ResourceNotFoundException(e) => e.meta(),
-            Self::KmsNotFoundException(e) => e.meta(),
-            Self::RecursiveInvocationException(e) => e.meta(),
-            Self::SnapStartException(e) => e.meta(),
-            Self::InvalidSubnetIdException(e) => e.meta(),
-            Self::ServiceException(e) => e.meta(),
-            Self::KmsDisabledException(e) => e.meta(),
-            Self::EfsioException(e) => e.meta(),
-            Self::EfsMountConnectivityException(e) => e.meta(),
-            Self::EfsMountFailureException(e) => e.meta(),
-            Self::TooManyRequestsException(e) => e.meta(),
-            Self::ResourceNotReadyException(e) => e.meta(),
-            Self::InvalidZipFileException(e) => e.meta(),
-            Self::InvalidParameterValueException(e) => e.meta(),
-            Self::InvalidRequestContentException(e) => e.meta(),
-            Self::SnapStartTimeoutException(e) => e.meta(),
-            Self::Ec2ThrottledException(e) => e.meta(),
-            Self::SubnetIpAddressLimitReachedException(e) => e.meta(),
-            Self::InvalidSecurityGroupIdException(e) => e.meta(),
-            Self::RequestTooLargeException(e) => e.meta(),
-            Self::UnsupportedMediaTypeException(e) => e.meta(),
-            Self::EfsMountTimeoutException(e) => e.meta(),
-            Self::EniLimitReachedException(e) => e.meta(),
-            Self::SnapStartNotReadyException(e) => e.meta(),
-            Self::Ec2UnexpectedException(e) => e.meta(),
-            Self::Ec2AccessDeniedException(e) => e.meta(),
-            Self::InvalidRuntimeException(e) => e.meta(),
-            Self::KmsAccessDeniedException(e) => e.meta(),
-            Self::KmsInvalidStateException(e) => e.meta(),
-            Self::ResourceConflictException(e) => e.meta(),
-            Self::Unhandled(e) => e.meta(),
+            Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::KmsNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::RecursiveInvocationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SnapStartException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidSubnetIdException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::KmsDisabledException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::EfsioException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::EfsMountConnectivityException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::EfsMountFailureException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyRequestsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ResourceNotReadyException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidZipFileException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidParameterValueException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidRequestContentException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SnapStartTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::Ec2ThrottledException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SubnetIpAddressLimitReachedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidSecurityGroupIdException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::RequestTooLargeException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::UnsupportedMediaTypeException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::EfsMountTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::EniLimitReachedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SnapStartNotReadyException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::Ec2UnexpectedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::Ec2AccessDeniedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidRuntimeException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::KmsAccessDeniedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::KmsInvalidStateException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ResourceConflictException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::Unhandled(e) => &e.meta,
         }
     }
     /// Returns `true` if the error kind is `InvokeError::ResourceNotFoundException`.
@@ -594,40 +448,325 @@ impl InvokeError {
 impl ::std::error::Error for InvokeError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
-            Self::KmsNotFoundException(_inner) => ::std::option::Option::Some(_inner),
-            Self::RecursiveInvocationException(_inner) => ::std::option::Option::Some(_inner),
-            Self::SnapStartException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidSubnetIdException(_inner) => ::std::option::Option::Some(_inner),
-            Self::ServiceException(_inner) => ::std::option::Option::Some(_inner),
-            Self::KmsDisabledException(_inner) => ::std::option::Option::Some(_inner),
-            Self::EfsioException(_inner) => ::std::option::Option::Some(_inner),
-            Self::EfsMountConnectivityException(_inner) => ::std::option::Option::Some(_inner),
-            Self::EfsMountFailureException(_inner) => ::std::option::Option::Some(_inner),
-            Self::TooManyRequestsException(_inner) => ::std::option::Option::Some(_inner),
-            Self::ResourceNotReadyException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidZipFileException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidParameterValueException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidRequestContentException(_inner) => ::std::option::Option::Some(_inner),
-            Self::SnapStartTimeoutException(_inner) => ::std::option::Option::Some(_inner),
-            Self::Ec2ThrottledException(_inner) => ::std::option::Option::Some(_inner),
-            Self::SubnetIpAddressLimitReachedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidSecurityGroupIdException(_inner) => ::std::option::Option::Some(_inner),
-            Self::RequestTooLargeException(_inner) => ::std::option::Option::Some(_inner),
-            Self::UnsupportedMediaTypeException(_inner) => ::std::option::Option::Some(_inner),
-            Self::EfsMountTimeoutException(_inner) => ::std::option::Option::Some(_inner),
-            Self::EniLimitReachedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::SnapStartNotReadyException(_inner) => ::std::option::Option::Some(_inner),
-            Self::Ec2UnexpectedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::Ec2AccessDeniedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidRuntimeException(_inner) => ::std::option::Option::Some(_inner),
-            Self::KmsAccessDeniedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::KmsInvalidStateException(_inner) => ::std::option::Option::Some(_inner),
-            Self::ResourceConflictException(_inner) => ::std::option::Option::Some(_inner),
-            Self::Unhandled(_inner) => ::std::option::Option::Some(_inner),
+            Self::ResourceNotFoundException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::KmsNotFoundException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::RecursiveInvocationException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::SnapStartException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidSubnetIdException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::ServiceException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::KmsDisabledException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::EfsioException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::EfsMountConnectivityException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::EfsMountFailureException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::TooManyRequestsException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::ResourceNotReadyException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidZipFileException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidParameterValueException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidRequestContentException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::SnapStartTimeoutException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::Ec2ThrottledException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::SubnetIpAddressLimitReachedException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidSecurityGroupIdException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::RequestTooLargeException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::UnsupportedMediaTypeException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::EfsMountTimeoutException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::EniLimitReachedException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::SnapStartNotReadyException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::Ec2UnexpectedException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::Ec2AccessDeniedException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::InvalidRuntimeException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::KmsAccessDeniedException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::KmsInvalidStateException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::ResourceConflictException(_inner) =>
+            ::std::option::Option::Some(_inner)
+            ,
+            Self::Unhandled(_inner) => {
+                ::std::option::Option::Some(&*_inner.source)
+            }
         }
     }
 }
+impl ::std::fmt::Display for InvokeError {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            Self::ResourceNotFoundException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::KmsNotFoundException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::RecursiveInvocationException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::SnapStartException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidSubnetIdException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::ServiceException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::KmsDisabledException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::EfsioException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::EfsMountConnectivityException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::EfsMountFailureException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::TooManyRequestsException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::ResourceNotReadyException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidZipFileException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidParameterValueException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidRequestContentException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::SnapStartTimeoutException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::Ec2ThrottledException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::SubnetIpAddressLimitReachedException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidSecurityGroupIdException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::RequestTooLargeException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::UnsupportedMediaTypeException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::EfsMountTimeoutException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::EniLimitReachedException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::SnapStartNotReadyException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::Ec2UnexpectedException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::Ec2AccessDeniedException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::InvalidRuntimeException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::KmsAccessDeniedException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::KmsInvalidStateException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::ResourceConflictException(_inner) =>
+            _inner.fmt(f)
+            ,
+            Self::Unhandled(_inner) => {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                                                    write!(f, "unhandled error ({code})")
+                                                } else {
+                                                    f.write_str("unhandled error")
+                                                }
+            }
+        }
+    }
+}
+impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeError {
+    fn code(&self) -> ::std::option::Option<&str> {
+        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+    }
+    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
+        ::std::option::Option::None
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvokeError {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        match self {
+            Self::ResourceNotFoundException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::KmsNotFoundException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::RecursiveInvocationException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::SnapStartException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidSubnetIdException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::ServiceException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::KmsDisabledException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::EfsioException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::EfsMountConnectivityException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::EfsMountFailureException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::TooManyRequestsException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::ResourceNotReadyException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidZipFileException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidParameterValueException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidRequestContentException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::SnapStartTimeoutException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::Ec2ThrottledException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::SubnetIpAddressLimitReachedException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidSecurityGroupIdException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::RequestTooLargeException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::UnsupportedMediaTypeException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::EfsMountTimeoutException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::EniLimitReachedException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::SnapStartNotReadyException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::Ec2UnexpectedException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::Ec2AccessDeniedException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::InvalidRuntimeException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::KmsAccessDeniedException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::KmsInvalidStateException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::ResourceConflictException(_inner) =>
+            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            ,
+            Self::Unhandled(_inner) => {
+                &_inner.meta
+            }
+        }
+    }
+}
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeError {
+    fn create_unhandled_error(
+                        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+                        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>
+                    ) -> Self {
+        Self::Unhandled(crate::error::sealed_unhandled::Unhandled { source, meta: meta.unwrap_or_default() })
+    }
+}
+impl ::aws_types::request_id::RequestId for crate::operation::invoke::InvokeError {
+                            fn request_id(&self) -> Option<&str> {
+                                self.meta().request_id()
+                            }
+                        }
 
 pub use crate::operation::invoke::_invoke_output::InvokeOutput;
 
@@ -639,3 +778,4 @@ mod _invoke_output;
 
 /// Builders
 pub mod builders;
+
