@@ -3,7 +3,7 @@ pub use crate::operation::invoke_streamed::_invoke_streamed_output::InvokeStream
 
 pub use crate::operation::invoke_streamed::_invoke_streamed_input::InvokeStreamedInputBuilder;
 
-impl InvokeInputBuilder {
+impl InvokeStreamedInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,

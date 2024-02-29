@@ -138,7 +138,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::ResponseDeserializer for InvokeSt
             return ::std::option::Option::None;
         }
         ::std::option::Option::Some(crate::protocol_serde::type_erase_result(
-            crate::protocol_serde::shape_invoke::de_invoke_http_response_streamed(response),
+            crate::protocol_serde::shape_invoke_streamed::de_invoke_http_response_streamed(response),
         ))
     }
 
@@ -151,9 +151,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::ResponseDeserializer for InvokeSt
         let body = response.body().bytes().expect("body loaded");
         ::tracing::debug!(request_id = ?::aws_http::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 {
-            crate::protocol_serde::shape_invoke::de_invoke_http_error(status, headers, body)
+            crate::protocol_serde::shape_invoke_streamed::de_invoke_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_invoke::de_invoke_http_response(status, headers, body)
+            crate::protocol_serde::shape_invoke_streamed::de_invoke_http_response(status, headers, body)
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
@@ -214,7 +214,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::RequestSerializer for InvokeStrea
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_invoke::ser_invoke_headers(input, builder)?;
+                let builder = crate::protocol_serde::shape_invoke_streamed::ser_invoke_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http::request::Builder::new())?;

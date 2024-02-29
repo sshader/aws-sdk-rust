@@ -523,40 +523,6 @@ pub fn de_invoke_http_response(
     })
 }
 
-#[allow(clippy::unnecessary_wraps)]
-pub fn de_invoke_http_response_streamed(
-    response: &mut ::http::Response<::aws_smithy_http::body::SdkBody>,
-) -> std::result::Result<crate::operation::invoke_streamed::InvokeStreamedOutput, crate::operation::invoke::InvokeError> {
-    let mut _response_body = ::aws_smithy_http::body::SdkBody::taken();
-    std::mem::swap(&mut _response_body, response.body_mut());
-    let _response_body = &mut _response_body;
-
-    let _response_status = response.status().as_u16();
-    let _response_headers = response.headers();
-    Ok({
-        #[allow(unused_mut)]
-        let mut output = crate::operation::invoke_streamed::builders::InvokeStreamedOutputBuilder::default();
-        output = output.set_executed_version(
-            crate::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(|_| {
-                crate::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version")
-            })?,
-        );
-        output = output.set_function_error(
-            crate::protocol_serde::shape_invoke_output::de_function_error_header(_response_headers)
-                .map_err(|_| crate::operation::invoke::InvokeError::unhandled("Failed to parse FunctionError from header `X-Amz-Function-Error"))?,
-        );
-        output = output.set_log_result(
-            crate::protocol_serde::shape_invoke_output::de_log_result_header(_response_headers)
-                .map_err(|_| crate::operation::invoke::InvokeError::unhandled("Failed to parse LogResult from header `X-Amz-Log-Result"))?,
-        );
-        output = output.set_event_stream(Some(crate::protocol_serde::shape_invoke_output::de_event_stream_payload(_response_body)?));
-        output = output.set_status_code(Some(_response_status as _));
-        output._set_request_id(::aws_http::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        output.build()
-    })
-}
-
-
 
 
 pub fn ser_invoke_headers(

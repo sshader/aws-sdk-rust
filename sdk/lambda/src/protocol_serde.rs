@@ -224,6 +224,8 @@ pub(crate) mod shape_invalid_zip_file_exception;
 
 pub(crate) mod shape_invoke_output;
 
+pub(crate) mod shape_invoke_streamed;
+
 pub(crate) mod shape_kms_access_denied_exception;
 
 pub(crate) mod shape_kms_disabled_exception;
