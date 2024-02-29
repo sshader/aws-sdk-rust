@@ -78,7 +78,6 @@ pub struct InvokeStreamedOutputBuilder {
     pub(crate) status_code: ::std::option::Option<i32>,
     pub(crate) function_error: ::std::option::Option<::std::string::String>,
     pub(crate) log_result: ::std::option::Option<::std::string::String>,
-    pub(crate) payload: ::std::option::Option<::aws_smithy_http::byte_stream::ByteStream>,
     pub(crate) event_stream: ::std::option::Option<::aws_smithy_http::event_stream::Receiver<
         crate::types::LambdaInvokeStream,
         ::aws_smithy_types::error::ErrorMetadata,
@@ -158,16 +157,16 @@ impl InvokeStreamedOutputBuilder {
     > {
         &self.event_stream
     }
-        /// <p>The response from the function, or an error object.</p>
-        pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
-            self.payload = ::std::option::Option::Some(input);
-            self
-        }
-        /// <p>The response from the function, or an error object.</p>
-        pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-            self.payload = input;
-            self
-        }
+    /// <p>The response from the function, or an error object.</p>
+    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
+        self.payload = ::std::option::Option::Some(input);
+        self
+    }
+    /// <p>The response from the function, or an error object.</p>
+    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
+        self.payload = input;
+        self
+    }
     
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub fn executed_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
