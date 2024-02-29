@@ -174,7 +174,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::RequestSerializer for InvokeStrea
             .unwrap_or_default();
         let mut request_builder = {
             fn uri_base(
-                _input: &crate::operation::invoke::InvokeInput,
+                _input: &crate::operation::invoke_streamed::InvokeStreamedInput,
                 output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_http::operation::error::BuildError> {
                 use ::std::fmt::Write as _;

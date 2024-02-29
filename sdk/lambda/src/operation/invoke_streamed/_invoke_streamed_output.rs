@@ -4,7 +4,7 @@
 
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
-pub struct InvokeOutputStreamed {
+pub struct InvokeStreamedOutput {
     /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
     pub status_code: i32,
     /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
@@ -21,7 +21,7 @@ pub struct InvokeOutputStreamed {
     pub executed_version: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
-impl InvokeOutputStreamed {
+impl InvokeStreamedOutput {
     /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
     pub fn status_code(&self) -> i32 {
         self.status_code
@@ -43,7 +43,7 @@ impl InvokeOutputStreamed {
         self.executed_version.as_deref()
     }
 }
-impl ::std::fmt::Debug for InvokeOutputStreamed {
+impl ::std::fmt::Debug for InvokeStreamedOutput {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("InvokeOutput");
         formatter.field("status_code", &self.status_code);
@@ -55,16 +55,16 @@ impl ::std::fmt::Debug for InvokeOutputStreamed {
         formatter.finish()
     }
 }
-impl ::aws_http::request_id::RequestId for InvokeOutputStreamed {
+impl ::aws_http::request_id::RequestId for InvokeStreamedOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
     }
 }
 
-impl InvokeOutputStreamed {
+impl InvokeStreamedOutput {
     /// Creates a new builder-style object to manufacture [`InvokeOutput`](crate::operation::invoke::InvokeOutput).
-    pub fn builder() -> InvokeOutputStreamedBuilder {
-        InvokeOutputStreamedBuilder::default()
+    pub fn builder() -> InvokeStreamedOutputBuilder {
+        InvokeStreamedOutputBuilder::default()
     }
 }
 
@@ -73,7 +73,7 @@ impl InvokeOutputStreamed {
 /// A builder for [`InvokeOutput`](crate::operation::invoke::InvokeOutput).
 #[non_exhaustive]
 #[derive(::std::default::Default)]
-pub struct InvokeOutputStreamedBuilder {
+pub struct InvokeStreamedOutputBuilder {
     pub(crate) status_code: ::std::option::Option<i32>,
     pub(crate) function_error: ::std::option::Option<::std::string::String>,
     pub(crate) log_result: ::std::option::Option<::std::string::String>,
@@ -86,7 +86,7 @@ pub struct InvokeOutputStreamedBuilder {
     pub(crate) executed_version: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
-impl InvokeOutputStreamedBuilder {
+impl InvokeStreamedOutputBuilder {
     /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
     pub fn status_code(mut self, input: i32) -> Self {
         self.status_code = ::std::option::Option::Some(input);
@@ -180,8 +180,8 @@ impl InvokeOutputStreamedBuilder {
         self
     }
     /// Consumes the builder and constructs a [`InvokeOutput`](crate::operation::invoke::InvokeOutput).
-    pub fn build(self) -> crate::operation::invoke_streamed::InvokeOutputStreamed {
-        crate::operation::invoke_streamed::InvokeOutputStreamed {
+    pub fn build(self) -> crate::operation::invoke_streamed::InvokeStreamedOutput {
+        crate::operation::invoke_streamed::InvokeStreamedOutput {
             status_code: self.status_code.unwrap_or_default(),
             function_error: self.function_error,
             log_result: self.log_result,
@@ -191,9 +191,9 @@ impl InvokeOutputStreamedBuilder {
         }
     }
 }
-impl ::std::fmt::Debug for InvokeOutputStreamedBuilder {
+impl ::std::fmt::Debug for InvokeStreamedOutputBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("InvokeOutputStreamedBuilder");
+        let mut formatter = f.debug_struct("InvokeStreamedOutputBuilder");
         formatter.field("status_code", &self.status_code);
         formatter.field("function_error", &self.function_error);
         formatter.field("log_result", &self.log_result);

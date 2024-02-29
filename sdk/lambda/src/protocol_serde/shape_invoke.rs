@@ -526,7 +526,7 @@ pub fn de_invoke_http_response(
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_invoke_http_response_streamed(
     response: &mut ::http::Response<::aws_smithy_http::body::SdkBody>,
-) -> std::result::Result<crate::operation::invoke::InvokeOutputStreamed, crate::operation::invoke::InvokeError> {
+) -> std::result::Result<crate::operation::invoke::InvokeStreamedOutput, crate::operation::invoke::InvokeError> {
     let mut _response_body = ::aws_smithy_http::body::SdkBody::taken();
     std::mem::swap(&mut _response_body, response.body_mut());
     let _response_body = &mut _response_body;
@@ -535,7 +535,7 @@ pub fn de_invoke_http_response_streamed(
     let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::invoke::builders::InvokeOutputStreamedBuilder::default();
+        let mut output = crate::operation::invoke::builders::InvokeStreamedOutputBuilder::default();
         output = output.set_executed_version(
             crate::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(|_| {
                 crate::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version")
