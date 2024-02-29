@@ -29,7 +29,7 @@ impl InvokeInputBuilder {
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct InvokeStreamedFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::invoke_streamed::builders::InvokeInputBuilder,
+    inner: crate::operation::invoke_streamed::builders::InvokeStreamedInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl InvokeStreamedFluentBuilder {
@@ -42,7 +42,7 @@ impl InvokeStreamedFluentBuilder {
         }
     }
     /// Access the Invoke as a reference.
-    pub fn as_input(&self) -> &crate::operation::invoke_streamed::builders::InvokeInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::invoke_streamed::builders::InvokeStreamedInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.

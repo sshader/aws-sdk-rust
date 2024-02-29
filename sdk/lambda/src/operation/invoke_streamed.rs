@@ -15,7 +15,7 @@ impl InvokeStreamed {
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
         input: crate::operation::invoke_streamed::InvokeStreamedInput,
     ) -> ::std::result::Result<
-        crate::operation::invoke::InvokeOutput,
+        crate::operation::invoke_streamed::InvokeStreamedOutput,
         ::aws_smithy_http::result::SdkError<crate::operation::invoke::InvokeError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>,
     > {
         let map_err =
@@ -195,7 +195,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::RequestSerializer for InvokeStrea
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
-                _input: &crate::operation::invoke::InvokeInput,
+                _input: &crate::operation::invoke_streamed::InvokeStreamedInput,
                 mut output: &mut ::std::string::String,
             ) -> ::std::result::Result<(), ::aws_smithy_http::operation::error::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
@@ -208,7 +208,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::RequestSerializer for InvokeStrea
             }
             #[allow(clippy::unnecessary_wraps)]
             fn update_http_builder(
-                input: &crate::operation::invoke::InvokeInput,
+                input: &crate::operation::invoke_streamed::InvokeStreamedInput,
                 builder: ::http::request::Builder,
             ) -> ::std::result::Result<::http::request::Builder, ::aws_smithy_http::operation::error::BuildError> {
                 let mut uri = ::std::string::String::new();
@@ -247,7 +247,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Interceptor for InvokeEndpo
         >,
         cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        let _input = context.input().downcast_ref::<InvokeInput>().ok_or("failed to downcast to InvokeInput")?;
+        let _input = context.input().downcast_ref::<InvokeStreamedInput>().ok_or("failed to downcast to InvokeStreamedInput")?;
 
         let params = crate::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
