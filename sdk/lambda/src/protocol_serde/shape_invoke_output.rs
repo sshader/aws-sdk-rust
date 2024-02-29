@@ -25,3 +25,17 @@ pub(crate) fn de_payload_payload(
 ) -> std::result::Result<::std::option::Option<::aws_smithy_types::Blob>, crate::operation::invoke::InvokeError> {
     (!body.is_empty()).then(|| Ok(::aws_smithy_types::Blob::new(body))).transpose()
 }
+
+pub fn de_event_stream_payload(
+    body: &mut ::aws_smithy_http::body::SdkBody,
+) -> std::result::Result<
+    ::aws_smithy_http::event_stream::Receiver<
+        crate::types::LambdaInvokeStream,
+        ::aws_smithy_types::error::ErrorMetadata,
+    >,
+    crate::operation::invoke::InvokeError,
+> {
+    let unmarshaller = crate::protocol_serde::event_stream::LambdaInvokeStreamUnmarshaller::new();
+    let body = std::mem::replace(body, ::aws_smithy_http::body::SdkBody::taken());
+    Ok(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body))
+}

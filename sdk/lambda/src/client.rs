@@ -243,6 +243,8 @@ mod get_runtime_management_config;
 
 mod invoke;
 
+mod invoke_streamed;
+
 mod invoke_async;
 
 mod list_aliases;

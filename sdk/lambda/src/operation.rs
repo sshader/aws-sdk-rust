@@ -106,6 +106,8 @@ pub mod invoke;
 /// Types for the `InvokeAsync` operation.
 pub mod invoke_async;
 
+pub mod invoke_streamed;
+
 /// Types for the `ListAliases` operation.
 pub mod list_aliases;
 

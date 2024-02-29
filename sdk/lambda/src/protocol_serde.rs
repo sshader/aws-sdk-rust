@@ -23,6 +23,13 @@ pub fn parse_http_error_metadata(
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
+pub fn parse_event_stream_error_metadata(
+    payload: &::bytes::Bytes,
+) -> Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    // Note: HeaderMap::new() doesn't allocate
+    crate::json_errors::parse_error_metadata(payload, &::http::HeaderMap::new())
+}
+
 pub(crate) mod shape_add_layer_version_permission;
 
 pub(crate) mod shape_add_permission;
@@ -448,3 +455,5 @@ pub(crate) mod shape_endpoint_lists;
 pub(crate) mod shape_signing_profile_version_arns;
 
 pub(crate) mod shape_string_list;
+
+pub(crate) mod event_stream;
