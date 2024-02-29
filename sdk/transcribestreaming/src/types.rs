@@ -85,6 +85,8 @@ pub use crate::types::_call_analytics_item::CallAnalyticsItem;
 
 pub use crate::types::_call_analytics_language_code::CallAnalyticsLanguageCode;
 
+pub use crate::types::_lambda_invoke_stream::LambdaInvokeStream;
+
 mod _alternative;
 
 mod _audio_event;
@@ -124,6 +126,8 @@ mod _item_type;
 mod _language_code;
 
 mod _language_with_score;
+
+mod _lambda_invoke_stream;
 
 mod _media_encoding;
 

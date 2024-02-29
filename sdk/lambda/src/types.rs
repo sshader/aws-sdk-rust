@@ -2,6 +2,7 @@
 pub use crate::types::_throttle_reason::ThrottleReason;
 
 pub use crate::types::_invoke_mode::InvokeMode;
+pub use crate::types::_invoke_mode::LambdaInvokeStream;
 
 pub use crate::types::_cors::Cors;
 

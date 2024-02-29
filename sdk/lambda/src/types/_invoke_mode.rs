@@ -83,3 +83,24 @@ impl ::std::convert::AsRef<str> for InvokeMode {
         self.as_str()
     }
 }
+
+
+
+// Based off of sdk/transcribestreaming/src/types/_transcript_result_stream.rs
+
+use bytes::Bytes;
+#[non_exhaustive]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+pub enum LambdaInvokeStream {
+    PayloadChunk(Bytes),
+    InvokeComplete(Bytes),
+    /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
+    /// An unknown enum variant
+    ///
+    /// _Note: If you encounter this error, consider upgrading your SDK to the latest version._
+    /// The `Unknown` variant represents cases where the server sent a value that wasn't recognized
+    /// by the client. This can happen when the server adds new functionality, but the client has not been updated.
+    /// To investigate this, consider turning on debug logging to print the raw HTTP response.
+    #[non_exhaustive]
+    Unknown,
+}

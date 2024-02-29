@@ -30,6 +30,25 @@ impl Invoke {
         ::std::result::Result::Ok(output.downcast::<crate::operation::invoke::InvokeOutput>().expect("correct output type"))
     }
 
+    pub(crate) async fn orchestrate_streamed(
+        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
+        input: crate::operation::invoke::InvokeInput,
+    ) -> ::std::result::Result<
+        crate::operation::invoke::_invoke_output::InvokeOutputStreamed,
+        ::aws_smithy_http::result::SdkError<crate::operation::invoke::InvokeError, ::aws_smithy_runtime_api::client::orchestrator::HttpResponse>,
+    > {
+        let map_err =
+            |err: ::aws_smithy_http::result::SdkError<
+                ::aws_smithy_runtime_api::client::interceptors::context::Error,
+                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+            >| { err.map_service_error(|err| err.downcast::<crate::operation::invoke::InvokeError>().expect("correct error type")) };
+        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+            .await
+            .map_err(map_err)?;
+        let output = context.finalize().map_err(map_err)?;
+        ::std::result::Result::Ok(output.downcast::<crate::operation::invoke::_invoke_output::InvokeOutputStreamed>().expect("correct output type"))
+    }
+
     pub(crate) async fn orchestrate_with_stop_point(
         runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
         input: crate::operation::invoke::InvokeInput,
@@ -129,6 +148,19 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Invoke 
 #[derive(Debug)]
 struct InvokeResponseDeserializer;
 impl ::aws_smithy_runtime_api::client::ser_de::ResponseDeserializer for InvokeResponseDeserializer {
+    fn deserialize_streaming(
+        &self,
+        response: &mut ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
+        // If this is an error, defer to the non-streaming parser
+        if !response.status().is_success() && response.status().as_u16() != 200 {
+            return ::std::option::Option::None;
+        }
+        ::std::option::Option::Some(crate::protocol_serde::type_erase_result(
+            crate::protocol_serde::shape_invoke::de_invoke_http_response_streamed(response),
+        ))
+    }
+
     fn deserialize_nonstreaming(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -176,7 +208,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::RequestSerializer for InvokeReque
                         "cannot be empty or unset",
                     ));
                 }
-                ::std::write!(output, "/2015-03-31/functions/{FunctionName}/invocations", FunctionName = function_name)
+                ::std::write!(output, "/2021-11-15/functions/{FunctionName}/response-streaming-invocations", FunctionName = function_name)
                     .expect("formatting should succeed");
                 ::std::result::Result::Ok(())
             }
@@ -635,6 +667,7 @@ impl ::std::error::Error for InvokeError {
 }
 
 pub use crate::operation::invoke::_invoke_output::InvokeOutput;
+pub use crate::operation::invoke::_invoke_output::InvokeOutputStreamed;
 
 pub use crate::operation::invoke::_invoke_input::InvokeInput;
 
