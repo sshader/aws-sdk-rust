@@ -502,7 +502,7 @@ pub fn de_invoke_http_response(
 ) -> std::result::Result<crate::operation::invoke_streamed::InvokeStreamedOutput, crate::operation::invoke::InvokeError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::invoke::builders::InvokeOutputBuilder::default();
+        let mut output = crate::operation::invoke_streamed::builders::InvokeStreamedOutputBuilder::default();
         output = output.set_executed_version(
             crate::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(|_| {
                 crate::operation::invoke::InvokeError::unhandled("Failed to parse ExecutedVersion from header `X-Amz-Executed-Version")

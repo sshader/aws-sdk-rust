@@ -224,7 +224,7 @@ impl InvokeStreamedInputBuilder {
     }
     /// Consumes the builder and constructs a [`InvokeInput`](crate::operation::invoke::InvokeInput).
     pub fn build(self) -> ::std::result::Result<crate::operation::invoke_streamed::InvokeStreamedInput, ::aws_smithy_http::operation::error::BuildError> {
-        ::std::result::Result::Ok(crate::operation::invoke::InvokeInput {
+        ::std::result::Result::Ok(crate::operation::invoke_streamed::InvokeStreamedInput {
             function_name: self.function_name,
             invocation_type: self.invocation_type,
             log_type: self.log_type,
@@ -236,7 +236,7 @@ impl InvokeStreamedInputBuilder {
 }
 impl ::std::fmt::Debug for InvokeStreamedInputBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("InvokeInputBuilder");
+        let mut formatter = f.debug_struct("InvokeStreamedInputBuilder");
         formatter.field("function_name", &self.function_name);
         formatter.field("invocation_type", &self.invocation_type);
         formatter.field("log_type", &self.log_type);
