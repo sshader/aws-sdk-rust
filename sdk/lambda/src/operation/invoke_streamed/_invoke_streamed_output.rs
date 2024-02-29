@@ -17,6 +17,7 @@ pub struct InvokeStreamedOutput {
             ::aws_smithy_types::error::ErrorMetadata,
         >,
     >,
+    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub executed_version: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -83,6 +84,7 @@ pub struct InvokeStreamedOutputBuilder {
         ::aws_smithy_types::error::ErrorMetadata,
         >,
     >,
+    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) executed_version: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -156,6 +158,17 @@ impl InvokeStreamedOutputBuilder {
     > {
         &self.event_stream
     }
+        /// <p>The response from the function, or an error object.</p>
+        pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
+            self.payload = ::std::option::Option::Some(input);
+            self
+        }
+        /// <p>The response from the function, or an error object.</p>
+        pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
+            self.payload = input;
+            self
+        }
+    
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub fn executed_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.executed_version = ::std::option::Option::Some(input.into());
@@ -187,6 +200,7 @@ impl InvokeStreamedOutputBuilder {
             log_result: self.log_result,
             event_stream: self.event_stream,
             executed_version: self.executed_version,
+            payload: self.payload,
             _request_id: self._request_id,
         }
     }
